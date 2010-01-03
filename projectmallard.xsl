@@ -23,8 +23,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 extension-element-prefixes="exsl"
                 version="1.0">
 
-<xsl:import href="site2html.xsl"/>
-
 <xsl:template name="mal2html.css">
   <link rel="stylesheet" type="text/css">
     <xsl:attribute name="href">
