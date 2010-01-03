@@ -1,0 +1,174 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_inline_gui">
+
+<info>
+  <link type="guide" xref="mal_inline#elements"/>
+
+  <revision version="0.1" date="2008-12-16" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mark up control labels from a graphical user interface.</desc>
+</info>
+
+<title>GUI Labels</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_gui = element gui {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>Use the <code>gui</code> element to mark up the label of a control in
+a graphical user interface.  You can use <code>gui</code> for all sorts
+of controls, including buttons, check boxes, and menu items.  If necessary,
+you can use the <code>style</code> attribute to indicate what kind of
+control is being marked up.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>gui</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>gui</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>gui</code> element can also occur inside the
+    <code xref="mal_inline_guiseq">guiseq</code> element, where it has
+    special meaning.</p></item>
+
+    <item><p>The <code>gui</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>Typical style hints include:</p>
+    <table rules="rows">
+      <tr>
+        <td><p><code>button</code></p></td>
+        <td><p>The text of a button</p></td>
+      </tr>
+      <tr>
+        <td><p><code>checkbox</code></p></td>
+        <td><p>The label for a check box</p></td>
+      </tr>
+      <tr>
+        <td><p><code>group</code></p></td>
+        <td><p>The label for a group of controls</p></td>
+      </tr>
+      <tr>
+        <td><p><code>input</code></p></td>
+        <td><p>The label for any text entry control</p></td>
+      </tr>
+      <tr>
+        <td><p><code>menu</code></p></td>
+        <td><p>The name of a menu</p></td>
+      </tr>
+      <tr>
+        <td><p><code>menuitem</code></p></td>
+        <td><p>The name of an item in a menu</p></td>
+      </tr>
+      <tr>
+        <td><p><code>radiobutton</code></p></td>
+        <td><p>The label for a radio button</p></td>
+      </tr>
+      <tr>
+        <td><p><code>tab</code></p></td>
+        <td><p>The label on a tab</p></td>
+      </tr>
+    </table></item>
+
+    <item><p>The <code>gui</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>gui</code> to mark up the text of a button:</p>
+
+  <example>
+    <code><![CDATA[
+Click the <gui>Close</gui> button to close the window.
+]]></code>
+    <p>Click the <gui>Close</gui> button to close the window.</p>
+  </example>
+
+  <p>Use <code>gui</code> to mark up the label on a tab:</p>
+
+  <example>
+    <code><![CDATA[
+The <gui>Filters</gui> tab contains options to change the behavior
+of your keyboard to meet certain accessibility needs.
+]]></code>
+    <p>The <gui>Filters</gui> tab contains options to change the behavior
+    of your keyboard to meet certain accessibility needs.</p>
+  </example>
+
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>No particular special rendering is required for <code>gui</code> elements.
+  Interface labels may be rendered with lightened text or other sublte styling
+  effects to distinguish them from the surrounding text.</p>
+
+  <p>In certain environments, interface labels may be decorated with an icon or
+  other effect based on the <code>style</code> attribute.  For example, in a
+  table of options where the first element of each row is a <code>gui</code>
+  element, those with the <code>checkbox</code> style hint could be decorated
+  with a check box icon.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+  <p>The <code>gui</code> element is similar to the deprecated
+  <code href="http://www.docbook.org/tdg/en/html/interface.html">interface</code>
+  element in DocBook.  DocBook 3 introduced more specific elements for marking up
+  parts of a user interface:
+  <code href="http://www.docbook.org/tdg/en/html/guibutton.html">guibutton</code>,
+  <code href="http://www.docbook.org/tdg/en/html/guiicon.html">guiicon</code>,
+  <code href="http://www.docbook.org/tdg/en/html/guilabel.html">guilabel</code>,
+  <code href="http://www.docbook.org/tdg/en/html/guimenu.html">guimenu</code>,
+  <code href="http://www.docbook.org/tdg/en/html/guimenuitem.html">guimenuitem</code>, and
+  <code href="http://www.docbook.org/tdg/en/html/guisubmenu.html">guisubmenu</code>.
+  In practice, there is rarely a need to distinguish between types of interface
+  elements in markup.  When such a need arises, it can be handled using attributes
+  on a single element.  Furthermore, DocBook's various elements are nowhere near
+  exhaustive.  Thus, authors must frequently either abuse a specific element or
+  use the deprecated <code>interface</code> element.</p>
+</section>
+<!-- END comparison -->
+
+</page>

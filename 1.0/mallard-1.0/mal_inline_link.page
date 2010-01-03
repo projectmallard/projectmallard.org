@@ -1,0 +1,203 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_inline_link">
+
+<info>
+  <link type="guide" xref="mal_inline#elements"/>
+
+  <revision version="0.1" date="2007-05-20" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2007-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Link to other pages, sections, or web pages.</desc>
+</info>
+
+<title>Hyperlinks</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_link = element link {
+  ( attribute xref { text } |
+    attribute href { text } |
+    ( attribute xref { text }, attribute href { text } )
+  ),
+  attribute role { text } ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>Use the <code>link</code> to create a link to another page or section, or to
+an external resource such as a web page.  Most <link xref="mal_inline">inline
+elements</link> can act as links, but the <code>link</code> element allows you
+to create a link without any associated semantics.  The <code>link</code> element
+can also generate link text automatically for links to pages and sections within
+the same document.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>link</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>For links within the same document, content can be automatically
+    generated.</p></item>
+
+    <item><p>The <code>link</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>xref</code> attribute creates a link to another page
+    or section within the same document, or to an external resource in some
+    document management system.</p></item>
+
+    <item><p>The <code>href</code> attribute creates a link to a web page
+    or other network-accessible resource.</p></item>
+
+    <item><p>The <code>role</code> attribute can be used to select alternative
+    titles of the target page or section to be used as automatic content.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>link</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Link to another page in the same document:</p>
+
+  <example>
+    <code><![CDATA[
+See <link xref="mal_attr_link"/> for information on linking attributes.
+]]></code>
+    <p>See <link xref="mal_attr_link"/> for information on linking attributes.</p>
+  </example>
+
+  <p>Link to a section in the same page:</p>
+
+  <example>
+    <code><![CDATA[
+See <link xref="#processing"/> for details on automatic link text.
+]]></code>
+    <p>See <link xref="#processing"/> for details on automatic link text.</p>
+  </example>
+
+  <p>Link to a section in another page:</p>
+
+  <example>
+    <code><![CDATA[
+See <link xref="mal_inline#processing"/> for more processing expectations.
+]]></code>
+    <p>See <link xref="mal_inline#processing"/> for more processing expectations.</p>
+  </example>
+
+  <p>Link to an external resource:</p>
+
+  <example>
+    <code><![CDATA[
+See the <link href="http://www.w3.org/TR/REC-xml-names/">XML Namespaces
+recommendation</link>.
+]]></code>
+    <p>See the <link href="http://www.w3.org/TR/REC-xml-names/">XML Namespaces
+    recommendation</link>.</p>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>A <code>link</code> element is displayed as hyperlink which can be
+  clicked on or otherwise activated to take the user to another page,
+  document, or resource.  In certain environments, such as print, it
+  may not be possible to make links activatable.  In these cases, the
+  target of the link may be displayed in the rendered output.</p>
+
+  <p>The target of <code>link</code> element is determined from the
+  <code>xref</code> and <code>href</code> exactly as it is for other
+  inline elements.  See <link xref="mal_attr_link"/> for information
+  on determining the link target.</p>
+
+  <p>If the <code>link</code> element is non-empty, its contents are
+  displayed as normal.  Otherwise, automatic link text is generated
+  as follows:</p>
+
+  <list>
+    <item><p>If the <code>link</code> element has an <code>xref</code>
+    attribute that points to a page or section in the same document:</p>
+
+    <list>
+      <item><p>If the <code>link</code> element has a <code>role</code>
+      attribute, and that page or section has an
+      <link xref="mal_info_title">informational title</link> with the
+      <code>type</code> attribute set to <code>"link"</code> and the
+      <code>role</code> set to the same value as the <code>role</code>
+      attribute of the <code>link</code> element, then the contents
+      of that <code>title</code> element are used.</p></item>
+
+      <item><p>Otherwise, if that page or section has an
+      <link xref="mal_info_title">informational title</link> with the
+      <code>type</code> attribute set to <code>"link"</code> and without
+      a <code>role</code> attribute, the contents of that <code>title</code>
+      element are used.</p></item>
+
+      <item><p>Otherwise, the contents of the primary title of that page
+      page or section are used.</p></item>
+    </list>
+    </item>
+
+    <item><p>Otherwise, if the <code>link</code> element has an <code>xref</code>
+    attribute that points to a portion of another document, and the processing
+    tool knows how to generate link contents, that content is used.</p></item>
+
+    <item><p>Otherwise, the link target is used as text content.</p></item>
+  </list>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>link</code> element combines the functionality of the
+  <code href="http://www.docbook.org/tdg/en/html/link.html">link</code>,
+  <code href="http://www.docbook.org/tdg/en/html/xref.html">xref</code>, and
+  <code href="http://www.docbook.org/tdg/en/html/ulink.html">ulink</code>
+  elements in DocBook.  For the <code>link</code> and <code>xref</code>
+  elements, DocBook provides the <code>endterm</code> attribute to select
+  an alternative element from which to take content.  Mallard does not
+  provide this feature, although it allows you to select from alternative
+  titles for the linked-to element.</p>
+
+  <p>DocBook provides the <code>xrefstyle</code> attribute to control how
+  automatic link text is generated.  The behavior of this attribute is
+  unspecified.  Rather than attempt to use style hints, Mallard allows
+  writers to specify exact alternative link contents.  Alternative link
+  contents are important in languages with case declensions.</p>
+</section>
+<!-- END comparison -->
+
+</page>

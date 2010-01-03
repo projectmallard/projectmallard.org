@@ -1,0 +1,139 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_code">
+
+<info>
+  <link type="seealso" xref="mal_inline_code"/>
+
+  <revision version="0.1" date="2009-04-19" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mark up a block of code or the contents of a file.</desc>
+</info>
+
+<title>Code Blocks</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_code = element code {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>Use the <code>code</code> element to mark up a block of text from
+a computer language.  This will typically be used for programming
+languages, markup languages, and configuration files; however, you
+may use <code>code</code> for the contents of any text file.</p>
+
+<p>Use the <code xref="mal_inline_var">var</code> element inside a
+<code>code</code> element to indicate text that should be replaced
+by the user.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>code</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.  Whitespace
+    is interpreted literally.</p></item>
+
+    <item><p>The <code>code</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>mime</code> attribute takes a valid MIME type.  Processing
+    tools may adjust their behavior for particular MIME types.</p></item>
+
+    <item><p>The <code>code</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+
+    <item><p>The <code>code</code> element may also be used in an inline context.
+    See <link xref="mal_inline_code"/> for more information.</p></item>
+
+    <item><p>Use the <code>code</code> element inside a
+    <code xref="mal_block_listing">listing</code> element to provide a title
+    and description for the code block.  This is frequently used to provide
+    the name of the file whose contents are being shown.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>code</code> to mark up a class definition:</p>
+
+  <example>
+    <code><![CDATA[<code mime="text/x-c++src">
+class BeanStalk {
+public:
+  void add_bean(Bean bean);
+  int count_beans();
+}</code>]]></code>
+    <code mime="text/x-c++src">
+class BeanStalk {
+public:
+  void add_bean(Bean bean);
+  int count_beans();
+}</code>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Code blocks should be displayed verbatim, with all whitespace and line
+  breaks reproduced in the rendered output.  The only exception is a single
+  leading line break, which should be stripped by display tools if present.
+  Display tools should only strip a leading line break in an initial text
+  node.  They are not expected to strip line breaks from child elements.</p>
+
+  <p>Code blocks should be displayed in a fixed-width font.  Inline markup may
+  cause style variations, but they should not cause a change to a variable-width
+  font.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+  <p>The <code>code</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/programlisting.html">programlisting</code>
+  element in DocBook.  DocBook also contains numerous elements for modeling
+  code in procedural and object-oriented programming languages.  Many of
+  these elements can be seen by browsing the content models for the
+  <code href="http://www.docbook.org/tdg/en/html/classsynopsis.html">classsynopsis</code>
+  and
+  <code href="http://www.docbook.org/tdg/en/html/funcsynopsis.html">funcsynopsis</code>
+  elements.  Mallard does not attempt to model any programming languages.</p>
+
+  <p>The <code>code</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/codeblock.html">codeblock</code>
+  element in DITA.</p>
+</section>
+<!-- END comparison -->
+
+</page>

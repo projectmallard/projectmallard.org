@@ -1,0 +1,152 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_inline_media">
+
+<info>
+  <link type="guide" xref="mal_inline#elements"/>
+
+  <revision version="0.1" date="2009-05-03" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2007-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Insert an image, video, or other multimedia object.</desc>
+</info>
+
+<title>Inline Multimedia Objects</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_media = element media {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute type { "image" | "video" | "audio" | "application" } ?,
+  attribute mime { text } ?,
+  attribute src { text },
+  attribute height { text } ?,
+  attribute width { text } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>Use the <code>media</code> element to insert an image, video, or other
+multimedia object into your document.  Since not all display tools will be
+able to display all types of objects, you can provide fallback elements in
+the contents of a <code>media</code> element.  See <link xref="#processing"/>
+for details on how fallback elements are handled.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>media</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>media</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>media</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>mime</code> attribute takes a valid MIME type for the
+    object that is being inserted.</p></item>
+
+    <item><p>The <code>media</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+
+    <item><p>The <code>media</code> element may also be used in a block context.
+    See <link xref="mal_block_media"/> for more information.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>media</code> to insert an image into your document:</p>
+
+  <example>
+    <code><![CDATA[
+<p><media type="image" mime="image/png" src="figures/mallard.png">
+Drake, the Mallard mascot
+</media></p>
+]]></code>
+    <p><media type="image" mime="image/png" src="figures/mallard.png">
+      Drake, the Mallard mascot
+    </media></p>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>When a <code>media</code> element occurs in an inline context, it is displayed
+  inline.  The exact rendering of a <code>media</code> element will depend on the
+  <code>type</code> and <code>mime</code> attributes.  It may be necessary to add
+  controls for audio and video objects.</p>
+
+  <p>The <code>application</code> type is intended for embedding interactive
+  applications in documents.  There are currently no specific recommendations
+  for displaying application objects.  Behavior may vary according to the
+  type of application being embedded.</p>
+
+  <p>Some display tools will not be able to display all types of objects.
+  For example, a printed document will not be able to display video or play
+  back audio.  Even when a display tool can display the type of object, it
+  may not be able to work with the given MIME type for technical or other
+  reasons.</p>
+
+  <p>When a display tool cannot display a <code>media</code> element, it
+  displays the child elements of the element, as if the <code>media</code>
+  element itself were replaced by its children.  The child elements may consist
+  of simply another <code>media</code> element referencing a different type of
+  content.  When processing any child <code>media</code> elements, display tools
+  may need to fall back further to their child elements.</p>
+
+  <p>In some display media, multimedia objects can have alternate text.  This
+  may be displayed when a user hovers over the object, or it may be provided
+  to assistive technologies.  When displaying in such a medium, display tools
+  should extract the text value of a <code>media</code> element by processing
+  its child elements, and recursively processing any child <code>media</code>
+  elements, as if it can not display any types of <code>media</code> elements.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>media</code> element can be used in place of the DocBook elements
+  <code xref="http://www.docbook.org/tdg/en/html/audiooobject.html">audioobject</code>,
+  <code xref="http://www.docbook.org/tdg/en/html/imageobject.html">imageobject</code>, and
+  <code xref="http://www.docbook.org/tdg/en/html/videoobject.html">videoobject</code>.
+  DocBook uses the
+  <code xref="http://www.docbook.org/tdg/en/html/inlinemediaobject.html">inlinemediaobject</code>
+  element to provide alternative objects.  In Mallard, alternative objects are
+  nested, obviating the need for a container element.</p>
+</section>
+<!-- END comparison -->
+
+
+</page>

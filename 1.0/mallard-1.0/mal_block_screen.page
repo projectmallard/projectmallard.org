@@ -1,0 +1,182 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_screen">
+
+<info>
+  <link type="seealso" xref="mal_block_code"/>
+
+  <revision version="0.1" date="2009-04-16" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mark up a textual user interface or an interactive shell session.</desc>
+</info>
+
+<title>Screens</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_screen = element screen {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>Use the <code>screen</code> element to mark up a textual screen for
+a textual user interface or an interactive shell.  The contents of a
+<code>screen</code> element are displayed verbatim.  While all inline
+content is allowed, <code xref="mal_inline_input">input</code> and
+<code xref="mal_inline_output">output</code> will frequently be used
+to provide richer markup when showing a shell session.</p>
+
+<p>The <code>screen</code> element may also be used to mark up a single
+command in a block context.</p>
+
+<p>Use the <code xref="mal_inline_var">var</code> element inside a
+<code>screen</code> element to indicate text that should be replaced
+by the user.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>screen</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.  Whitespace
+    is interpreted literally.</p></item>
+
+    <item><p>The <code>screen</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>mime</code> attribute takes a valid MIME type.  Processing
+    tools may adjust their behavior for particular MIME types.  A MIME type is
+    assumed to apply to the user input only; thus, processing tools may ignore
+    the MIME type if the <code>screen</code> element is not composed of
+    <code>input</code> and <code>output</code> elements.</p></item>
+
+    <item>
+      <p>Typical values for the <code>mime</code> attribute include:</p>
+      <table rules="rows"><tr>
+        <td><p><code>application/x-sh</code></p></td>
+        <td><p>Command to execute with the Bourne shell</p></td>
+      </tr><tr>
+        <td><p><code>application/x-csh</code></p></td>
+        <td><p>Command to execute with the C shell</p></td>
+      </tr></table>
+    </item>
+
+    <item><p>The <code>screen</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes on block elements.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>screen</code> to mark up the screen of an interactive
+  text-based interface:</p>
+
+  <example>
+    <code><![CDATA[<screen>
++==== Beanstalk =====================================+
+| Type the letter of the command you want:           |
+| O - Order beans                                    |
+| P - Plant beans                                    |
+| T - Track bean inventory                           |
++====================================================+
+</screen>]]></code>
+    <screen>
++==== Beanstalk =====================================+
+| Type the letter of the command you want:           |
+| O - Order beans                                    |
+| P - Plant beans                                    |
+| T - Track bean inventory                           |
++====================================================+
+</screen>
+  </example>
+
+  <p>Use <code>screen</code> to mark up a long command:</p>
+
+  <example>
+    <code><![CDATA[
+<screen>
+xsltproc -o mal_block_screen.html \
+  --stringparam mal.cache.file `pwd`/mallard.cache \
+  `pkg-config --variable mal2html gnome-doc-utils` mal_block_screen.html
+</screen>
+]]></code>
+    <screen>
+xsltproc -o mal_block_screen.html \
+  --stringparam mal.cache.file `pwd`/mallard.cache \
+  `pkg-config --variable mal2html gnome-doc-utils` mal_block_screen.html
+</screen>
+  </example>
+
+  <p>Use <code xref="mal_inline_input">input</code> and <code xref="mal_inline_output">output</code>
+  inside <code>screen</code> for richer text:</p>
+
+  <example>
+    <code><![CDATA[
+<screen>
+<output style="prompt">[rupert@gnome] </output><input>ls foo bar</input>
+<output style="error">foo: cannot access file: No such file or directory</output>
+<output>bar</output></screen>
+]]></code>
+    <screen>
+<output style="prompt">[rupert@gnome] </output><input>ls foo bar</input>
+<output style="error">foo: cannot access file: No such file or directory</output>
+<output>bar</output></screen>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Screens should be displayed verbatim, with all whitespace and line breaks
+  reproduced in the rendered output.  The only exception is a single leading
+  line break, which should be stripped by display tools if present.  Display
+  tools should only strip a leading line break in an initial text node.  They
+  are not expected to strip line breaks from child elements.</p>
+
+  <p>Screens should be displayed in a fixed-width font.  Inline markup may cause
+  style variations, but they should not cause a change to a variable-width font.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>screen</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/screen.html">screen</code>
+  element in DocBook.</p>
+
+  <p>The <code>screen</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/screen.html">screen</code>
+  element in DITA.</p>
+</section>
+<!-- END comparison -->
+
+</page>

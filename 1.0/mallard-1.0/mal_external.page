@@ -1,0 +1,83 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_external">
+
+<info>
+  <link type="seealso" xref="mal_inline"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008</years>
+  </credit>
+
+  <revision version="0.1" date="2008-02-19" status="incomplete"/>
+
+  <desc>Use elements and attributes from other namespaces in Mallard
+  documents.</desc>
+</info>
+
+<title>External Namespaces</title>
+
+<comment>
+  <cite date="2008-12-01">Shaun McCance</cite>
+  <p>Add content</p>
+</comment>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_external = element * - (mal:* | local:*) {
+  attribute * { text } *,
+  mal_anything *
+}
+mal_anything = element * {
+  attribute * { text } *,
+  mal_anything *
+}
+</code></synopsis>
+
+
+<!-- BEGIN attributes -->
+<section id="attributes">
+  <info>
+    <title type="link">External Namespace Attributes</title>
+  </info>
+  <title>Attributes</title>
+
+  <p>All elements in Mallard can have attributes from external namespaces.
+  This can be used to clarify the meaning of an element in a particular
+  context, to provide additional information to processing tools, or to
+  embed richer semantic data in a document.</p>
+
+  <p>For example, a translation tool might copy
+  <link xref="mal_block_code">code blocks</link> directly into the translated
+  document without presenting them to translators.  Some code blocks, however,
+  may contain human-readable comments which should be translated.  In order to
+  force translation tools to present these code blocks for translation, authors
+  could use the <code>its:translate</code> attribute from the
+  <link href="http://www.w3.org/TR/its/">Internationalization Tag Set</link>,
+  as in the following:</p>
+
+  <code><![CDATA[
+<code xmlns:its="http://www.w3.org/2005/11/its" 
+      its:version="1.0" its:translate="yes">
+// This code block should be translated because it contains this comment.
+some_code ()
+</code>
+]]></code>
+
+  <p>Processing tools should ignore any attributes from external namespaces
+  they do not understand.</p>
+</section>
+<!-- END attributes -->
+
+
+<!-- BEGIN elements -->
+<section id="elements">
+  <info>
+    <title type="link">External Namespace Elements</title>
+  </info>
+  <title>Elements</title>
+</section>
+<!-- END elements -->
+
+</page>

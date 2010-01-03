@@ -1,0 +1,36 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_attr_link">
+
+<info>
+  <link type="seealso" xref="mal_inline"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008</years>
+  </credit>
+
+  <revision version="0.1" date="2008-02-19" status="incomplete"/>
+
+  <desc>Link to other pages or documents directly from most inline elements.</desc>
+</info>
+
+<title>Ubiquitous Linking</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_attr_link =
+  ( attribute xref { text } ?
+  | { attribute dref { text } ?, attribute href { text } ? }
+  )
+</code></synopsis>
+
+<comment>
+  <cite date="2006-11-16">Shaun McCance</cite>
+  <p>The content model is perhaps not as clearly expressed as it could be.
+  The <code>ref</code> attribute may need to be renamed.  The idea is that
+  we can have a reference to a document within a help system, with a defined
+  fallback to something on the web with <code>href</code>.</p>
+</comment>
+
+</page>

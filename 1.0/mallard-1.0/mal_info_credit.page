@@ -1,0 +1,147 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_info_credit">
+
+<info>
+  <link type="guide" xref="mal_info#elements"/>
+
+  <revision version="0.1" date="2009-09-08" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Give credit where credit is due.</desc>
+</info>
+
+<title>Credits</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_credit = element credit {
+  attribute type { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  (
+    <link xref="mal_info_name">mal_info_name</link> &amp;
+    <link xref="mal_info_email">mal_info_email</link> ? &amp;
+    <link xref="mal_info_years">mal_info_years</link> ? &amp;
+    <link xref="mal_external">mal_external</link> *
+  )
+}
+</code></synopsis>
+
+<p>Use the <code>credit</code> element to record who has contributed to the page
+or section.  You can optionally use the <code>type</code> attribute to specify
+what types of contribution the person has made.  The <code>credit</code> element
+also specifies copyright holders when used with the
+<code xref="mal_info_years">years</code> element.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>credit</code> element contains a
+    <code xref="mal_info_name">name</code> element,
+    an optional <code xref="mal_info_email">>email</code> element,
+    and an optional <code xref="mal_info_years">years</code> element.  The
+    <code>credit</code> element can also contain elements from external
+    namespaces.  The order of the child elements does not matter.</p></item>
+
+    <item><p>The <code>credit</code> element can occur in any
+    <code xref="mal_info">info</code> element.</p></item>
+
+    <item>
+      <p>The optional <code>type</code> attribute can be used to specify
+      what type of contribution the person has made.  The <code>type</code>
+      attribute contains a space-separated list of credit types.  The following
+      values are recommended:</p>
+
+      <table rules="rows">
+        <tr>
+          <td><p><code>"author"</code></p></td>
+          <td><p>somebody responsible for writing content</p></td>
+        </tr>
+        <tr>
+          <td><p><code>"editor"</code></p></td>
+          <td><p>somebody who has provided reviews or editorial corrections</p></td>
+        </tr>
+        <tr>
+          <td><p><code>"copyright"</code></p></td>
+          <td><p>a person or entity which holds copyright on the work</p></td>
+        </tr>
+        <tr>
+          <td><p><code>"maintainer"</code></p></td>
+          <td><p>the person or entity currently responsible for the work</p></td>
+        </tr>
+        <tr>
+          <td><p><code>"collaborator"</code></p></td>
+          <td><p>somebody who has provided extensive rough information</p></td>
+        </tr>
+        <tr>
+          <td><p><code>"translator"</code></p></td>
+          <td><p>somebody who has translated the work into another language</p></td>
+        </tr>
+        <tr>
+          <td><p><code>"publisher"</code></p></td>
+          <td><p>a person or entity who distributes formatted copies</p></td>
+        </tr>
+      </table>
+    </item>
+
+    <item><p>The <code>credit</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>There are no specific processing expectations for the <code>credit</code>
+  element.  As an informational element, it is not necessarily displayed.  Some
+  tools, however, may choose to display credits at the bottom of a page, on a
+  separate information page, or in a dialog.</p>
+
+  <p>When processing the children of a <code>credit</code> element, tools
+  should select the child elements they understand and ignore all other child
+  content.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>credit</code> element serves the purpose of the
+  <code href="http://www.docbook.org/tdg/en/html/author.html">author</code>,
+  <code href="http://www.docbook.org/tdg/en/html/collab.html">collab</code>,
+  <code href="http://www.docbook.org/tdg/en/html/corpauthor.html">corpauthor</code>,
+  <code href="http://www.docbook.org/tdg/en/html/editor.html">editor</code>,
+  <code href="http://www.docbook.org/tdg/en/html/othercredit.html">othercredit</code>, and
+  <code href="http://www.docbook.org/tdg/en/html/publisher.html">publisher</code>
+  elements in DocBook.  DocBook does not have specific elements for maintainers
+  and translators.</p>
+
+  <p>In DocBook, certain credit elements have highly structured content, whereas
+  others allow simple inline text.  In Mallard, all credits use simple structured
+  content.  While Mallard does not provide child elements for everything that can
+  be recorded in DocBook, elements from external namespaces may be used for any
+  additional information that is needed.</p>
+
+  <p>The <code>credit</code> element also records copyright information.
+  In this capacity, it is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/copyright.html">copyright</code>
+  element in DocBook.</p>
+</section>
+<!-- END comparison -->
+
+</page>

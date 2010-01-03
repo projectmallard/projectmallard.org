@@ -1,0 +1,40 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="links">
+
+<info>
+  <link type="guide" xref="details"/>
+  <link type="seealso" xref="mal_page"/>
+  <link type="seealso" xref="mal_section"/>
+
+  <revision version="0.1" date="2008-02-21" status="stub"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2009</years>
+  </credit>
+</info>
+
+<title>Automatic Links</title>
+
+
+<!-- BEGIN topic -->
+<section id="topic">
+  <title>Topic Links</title>
+</section>
+<!-- END topic -->
+
+<!-- BEGIN guide -->
+<section id="guide">
+  <title>Guide Links</title>
+</section>
+<!-- END guide -->
+
+<!-- BEGIN seealso -->
+<section id="seealso">
+  <title>See Also Links</title>
+</section>
+<!-- END seealso -->
+
+</page>

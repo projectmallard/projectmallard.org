@@ -1,0 +1,182 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="mal_block">
+
+<info>
+  <link type="guide" xref="spec"/>
+
+  <revision version="0.1" date="2009-05-28" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Paragraphs, lists, tables, and various semantic elements for
+  building simple yet stunning pages.</desc>
+</info>
+
+<title>Block Elements</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block = (
+  <link xref="#basic">mal_block_basic</link> |
+  <link xref="#formal">mal_block_formal</link> |
+  <link xref="#lists">mal_block_lists</link> |
+  <link xref="mal_table">mal_table</link>
+)
+</code></synopsis>
+
+<p>Block elements are the building blocks of pages.  Mallard provides block
+elements for most common needs in software documentation, from simple paragraphs
+to example blocks to powerful tables.  Pages and sections in Mallard are built
+up of block elements, which in turn contain either further block elements or
+inline content.</p>
+
+<p>Authors, editors, or other content producers sometimes need to supply
+richer information in their documents.  While this information may not
+be conveyed by display tools, it may be used for various internal tracking
+purposes.  Mallard allows elements to be extended with attributes from
+external namespaces.  See <link xref="mal_external"/> for more
+information.</p>
+
+
+<!-- BEGIN basic -->
+<section id="basic" style="2column">
+  <info>
+    <title type="link">Basic Block Elements</title>
+    <link type="topic" xref="mal_block_code"/>
+    <link type="topic" xref="mal_block_example"/>
+    <link type="topic" xref="mal_block_media"/>
+    <link type="topic" xref="mal_block_p"/>
+    <link type="topic" xref="mal_block_screen"/>
+  </info>
+  <title>Basic Elements</title>
+  <synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_basic = (
+  <link xref="mal_block_code">mal_block_code</link> |
+  <link xref="mal_block_example">mal_block_example</link> |
+  <link xref="mal_block_media">mal_block_media</link> |
+  <link xref="mal_block_p">mal_block_p</link> |
+  <link xref="mal_block_screen">mal_block_screen</link>
+)</code></synopsis>
+
+  <p>Basic block elements are elements that do not contain a title and which
+  have either general block content or <link xref="mal_inline">inline
+  content</link>.  Using basic block elements, you can build up simple pages
+  which convey information clearly.</p>
+</section>
+<!-- END basic -->
+
+
+<!-- BEGIN formal -->
+<section id="formal" style="2column">
+  <info>
+    <title type="link">Formal Block Elements</title>
+    <link type="topic" xref="mal_block_comment"/>
+    <link type="topic" xref="mal_block_figure"/>
+    <link type="topic" xref="mal_block_listing"/>
+    <link type="topic" xref="mal_block_note"/>
+    <link type="topic" xref="mal_block_quote"/>
+    <link type="topic" xref="mal_block_synopsis"/>
+  </info>
+  <title>Formal Elements</title>
+  <synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_formal = (
+  <link xref="mal_block_comment">mal_block_comment</link> |
+  <link xref="mal_block_figure">mal_block_figure</link> |
+  <link xref="mal_block_listing">mal_block_listing</link> |
+  <link xref="mal_block_note">mal_block_note</link> |
+  <link xref="mal_block_quote">mal_block_quote</link> |
+  <link xref="mal_block_synopsis">mal_block_synopsis</link>
+)</code></synopsis>
+
+  <p>Formal block elements contain a <link xref="mal_block_title">title</link>
+  and general block content.  Formal block elements allow you to provide
+  richer information in your pages.</p>
+</section>
+<!-- END formal -->
+
+
+<!-- BEGIN lists -->
+<section id="lists">
+  <info>
+    <link type="topic" xref="mal_block_list"/>
+    <link type="topic" xref="mal_block_steps"/>
+    <link type="topic" xref="mal_block_terms"/>
+    <link type="topic" xref="mal_block_tree"/>
+  </info>
+  <title>List Elements</title>
+  <synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_lists = (
+  <link xref="mal_block_list">mal_block_list</link> |
+  <link xref="mal_block_steps">mal_block_steps</link> |
+  <link xref="mal_block_terms">mal_block_terms</link> |
+  <link xref="mal_block_tree">mal_block_tree</link>
+)</code></synopsis>
+
+  <p>Mallard provides list elements for most common needs, including the common
+  definition, ordered, and unordered lists.  Mallard also provides simple trees,
+  which are useful for representing heirarchies such as class inheritance or
+  directory layouts.  Each of the list elements uses the <code>item</code>
+  element, though the content model for <code>item</code> varies.  See the
+  list element pages for details.</p>
+</section>
+<!-- END lists -->
+
+
+<!-- BEGIN tables -->
+<section id="tables">
+  <info>
+    <link type="topic" xref="mal_table"/>
+  </info>
+  <title>Tables</title>
+
+  <p>Mallard provides a simple table model based on HTML tables.  While not
+  allowing the level of styling flexibility as HTML and CSS, Mallard tables
+  provides simple solutions to common styling needs, such as alternate-row
+  shading.</p>
+</section>
+<!-- END tables -->
+
+
+<!-- BEGIN other -->
+<section id="other">
+  <info>
+    <link type="topic" xref="mal_block_title"/>
+    <link type="topic" xref="mal_block_subtitle"/>
+    <link type="topic" xref="mal_block_desc"/>
+    <link type="topic" xref="mal_block_cite"/>
+  </info>
+  <title>Other Block-like Elements</title>
+
+  <p>Mallard contains various block-like elements which are only used in
+  specific contexts, and are not allowed in general block content.  These
+  elements allow for richer content models for the elements they appear
+  in.</p>
+</section>
+<!-- END other -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Block elements all begin on a new line in rendered output.  Pages can
+  be visualized as a sequence of vertically-stacked block elements.  Some
+  block elements contain other block elements.  In these cases, the
+  containing element may introduce certain styling effects, and each of
+  the child elements is rendered as normal.</p>
+
+  <p>Each block element should be clearly distinguishable from its surrounding
+  block elements.  Typically, vertical padding is placed between block elements
+  to set them apart.  Certain block elements, especially those that have block
+  content, may use a border, background color, or other styling effects.  See
+  each block element's specification for more details.</p>
+</section>
+<!-- END processing -->
+
+</page>

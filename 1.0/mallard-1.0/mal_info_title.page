@@ -1,0 +1,137 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_info_title">
+
+<info>
+  <link type="guide" xref="mal_info#elements"/>
+
+  <revision version="0.1" date="2009-05-29" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Provide alternate titles for automatic link text and sorting.</desc>
+</info>
+
+<title>Informational Tiltes</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_title = element title {
+  attribute type { xsd:NMTOKEN },
+  attribute role { xsd:NMTOKEN } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>Use the <code>title</code> element inside an <code xref="mal_info">info</code>
+to list alternative titles for pages and sections.  These titles can be used
+as alternative link text, for sorting, or for other application-specific
+purposes.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>title</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>title</code> element can occur in any
+    <code xref="mal_info">info</code> element.</p></item>
+
+    <item><p>The <code>type</code> attribute specifies what purpose this
+    informational title is serving.  The following values are currently
+    recognized:</p>
+    <table rules="rows">
+      <tr>
+        <td><p><code>"link"</code></p></td>
+        <td><p>specifies alternate link text; see <link xref="#link"/></p></td>
+      </tr>
+      <tr>
+        <td><p><code>"sort"</code></p></td>
+        <td><p>specifies a sort key; see <link xref="#sort"/></p></td>
+      </tr>
+    </table></item>
+
+    <item><p>The <code>role</code> attribute can be used for link titles
+    to specify multiple alternate link texts.</p></item>
+
+    <item><p>The <code>title</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN primary -->
+<section id="primary">
+  <title>Primary Titles</title>
+
+  <p>The <em>primary title</em> of a page or section is the one specified in
+  the block context and used for display purpose.  While this title is not
+  an informational title as specified here, it is used as fallback for all
+  informational titles.</p>
+</section>
+<!-- END primary -->
+
+
+<!-- BEGIN link -->
+<section id="link">
+  <title>Link Titles</title>
+
+  <p>Pages and sections can have multiple link titles.  These are used as
+  alternate content for automatic link text.  When automatic text must be
+  generated for a <code xref="mal_block_link">link</code> element, it is
+  taken first from the link titles, falling back to the primary title if
+  no suitable link title is found.</p>
+
+  <p>You can use the <code>role</code> attribute to specify multiple link
+  titles.  These can be selected using the <code>role</code> attribute of
+  the <code>link</code> element.  This can be used for a variety of purposes.
+  One common purpose is to specify link text for different parts of speech
+  in languages which have case declensions.  Without this feature, it can
+  be difficult to provide grammatically correct automatic link text in
+  some languages.</p>
+</section>
+<!-- END link -->
+
+
+<!-- BEGIN sort -->
+<section id="sort">
+  <title>Sort Titles</title>
+
+  <p>Sort titles allow you to specify alternate text to be used when sorting
+  the page or section.  Certain automatic link sections will sort the nodes
+  they link to.  When this happens, providing a sort title allows you to
+  control how the node is collated.  This is useful for excluding leading
+  articles such as “an” and “the”.</p>
+</section>
+<!-- END sort -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Informational titles are not displayed directly, although they will
+  affect the output of any material which links to the given page or
+  section.</p>
+
+  <p>The content model of the <code xref="mal_info">info</code> element
+  allows for any mixture of informational titles.  As such, it is entirely
+  possible for multiple titles to exist for some specified combination of
+  the <code>type</code> and <code>role</code> attributes.  When such an
+  ambiguity arrises, processing tools should select the first informational
+  title that matches the desired criteria.</p>
+</section>
+<!-- END processing -->
+
+</page>

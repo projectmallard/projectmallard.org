@@ -1,0 +1,95 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_inline_var">
+
+<info>
+  <link type="guide" xref="mal_inline#elements"/>
+  <link type="seealso" xref="mal_inline_cmd"/>
+  <link type="seealso" xref="mal_inline_code"/>
+
+  <revision version="0.1" date="2009-04-12" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2007-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mark up placeholder text that should be replaced by the user.</desc>
+</info>
+
+<title>Variable Text</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_var = element var {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>Use the <code>var</code> element to mark up placeholder text that should be
+replaced by the user.  This is typically used inside a
+<code xref="mal_inline_cmd">cmd</code> or <code xref="mal_inline_code">code</code>
+element to indicate a replaceable argument, or within running prose to refer to
+an indicated argument.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>var</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>var</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>var</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>var</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+
+    <item><p>See <link xref="mal_inline_cmd"/> and <link xref="mal_inline_code"/>
+    for examples using <code>var</code>.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Variable text is typically displayed in an italic or oblique font.  When
+  used inside a fixed-width element such as <code xref="mal_inline_cmd">cmd</code>
+  or <code xref="mal_inline_code">code</code>, it will inherit the fixed-width
+  font.  In running prose, however, the <code>var</code> element does not cause
+  its contents to be displayed in a fixed-width font.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+  <p>The <code>var</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/replaceable.html">replaceable</code>
+  element in DocBook.</p>
+</section>
+<!-- END comparison -->
+
+</page>

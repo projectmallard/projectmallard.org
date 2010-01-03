@@ -1,0 +1,21 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_info_link">
+
+<info>
+  <link type="guide" xref="mal_info#elements"/>
+
+  <revision version="0.1" date="2007-02-21" status="stub"/>
+</info>
+
+<title>Hyperlinks</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_link = element link {
+  attribute type { "guide" | "topic" | "seealso" },
+  attribute xref { text },
+  attribute weight { text } ?
+}
+</code></synopsis>
+
+</page>

@@ -1,0 +1,38 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_table_tr">
+
+<info>
+  <link type="guide" xref="mal_block#tables"/>
+</info>
+
+<title>Rows and Row Groups</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_table_tr = element tr {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_table_td">mal_table_td</link> *
+}
+mal_table_thead = element thead {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  mal_table_tr +
+}
+mal_table_tbody = element tbody {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  mal_table_tr +
+}
+mal_table_tfoot = element tfoot {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  mal_table_tr +
+}
+</code></synopsis>
+
+</page>

@@ -1,0 +1,230 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_note">
+
+<info>
+  <revision version="0.1" date="2009-05-18" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Include notes, tips, warnings, and other parenthetical information.</desc>
+</info>
+
+<title>Notes</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_note = element note {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  <link xref="mal_block">mal_block</link> +
+}
+</code></synopsis>
+
+<p>The <code>note</code> element allows you to insert parenthetical block-level
+content into your document.  Notes are visually distinct blocks, allowing readers
+to skip them or focus on them, depending on their needs.  You can use notes to
+give tips, warn readers of potentially dangerous operations, point out known bugs,
+or otherwise provide additional information without interfering with the main text
+of your document.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>note</code> element contains an optional
+    <link xref="mal_block_title">title</link> element and  any
+    <link xref="mal_block">general block content</link>.</p></item>
+
+    <item><p>The <code>note</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item>
+      <p>The following style hints are recommended:</p>
+      <table rules="rows">
+        <tr>
+          <td><p><code>advanced</code></p></td>
+          <td><p>information that advanced users may find useful</p></td>
+        </tr>
+        <tr>
+          <td><p><code>bug</code></p></td>
+          <td><p>a note about a known bug in the software</p></td>
+        </tr>
+        <tr>
+          <td><p><code>important</code></p></td>
+          <td><p>important information highlighted in a note</p></td>
+        </tr>
+        <tr>
+          <td><p><code>tip</code></p></td>
+          <td><p>a general tip that may help the reader perform an operation better</p></td>
+        </tr>
+        <tr>
+          <td><p><code>warning</code></p></td>
+          <td><p>a warning to the reader about a potentially dangerous operation</p></td>
+        </tr>
+      </table>
+    </item>
+
+    <item><p>The <code>note</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Insert a basic note into your document:</p>
+
+  <example>
+    <code><![CDATA[
+<note>
+  <p>Information in this section is non-normative.</p>
+</note>
+]]></code>
+    <note>
+      <p>Information in this section is non-normative.</p>
+    </note>
+  </example>
+
+  <p>Include a note with extra information for advanced readers:</p>
+
+  <example>
+    <code><![CDATA[
+<note style="advanced">
+  <p>The Mallard schema is maintained in RELAX-NG Compact Syntax in
+  code blocks embedded within the specification.</p>
+</note>
+]]></code>
+    <note style="advanced">
+      <p>The Mallard schema is maintained in RELAX-NG Compact Syntax in
+      code blocks embedded within the specification.</p>
+    </note>
+  </example>
+
+  <p>Mention a known bug the reader is likely to encounter:</p>
+
+  <example>
+    <code><![CDATA[
+<note style="bug">
+  <title>Cannot Save Files</title>
+  <p>Due to <link href="http://bugs.example.com/1234">bug #1234</link> you
+  cannot actually save files.  If you try to save your files, the application
+  will crash.  We recommend memorizing all your data on a regular basis.</p>
+</note>
+]]></code>
+    <note style="bug">
+      <title>Cannot Save Files</title>
+      <p>Due to <link href="http://bugs.example.com/1234">bug #1234</link> you
+      cannot actually save files.  If you try to save your files, the application
+      will crash.  We recommend memorizing all your data on a regular basis.</p>
+    </note>
+  </example>
+
+  <p>Highlight a vital piece of information to ensure readers see it even
+  when skimming a document:</p>
+
+  <example>
+    <code><![CDATA[
+<note style="important">
+  <title>Supply Your Name and Email Address</title>
+  <p>Before making any commits to a git repository, make sure to
+  supply your name and email address so that your commits are
+  correctly attributed.</p>
+  <code>
+git config --global user.name <var>full_name</var>
+git config --global user.email <var>email_address</var></code>
+</note>
+]]></code>
+    <note style="important">
+      <title>Supply Your Name and Email Address</title>
+      <p>Before making any commits to a git repository, make sure to
+      supply your name and email address so that your commits are
+      correctly attributed.</p>
+      <code>
+git config --global user.name <var>full_name</var>
+git config --global user.email <var>email_address</var></code>
+    </note>
+  </example>
+
+  <p>Provide a helpful but non-essential tip:</p>
+
+  <example>
+    <code><![CDATA[
+<note style="tip">
+  <p>Press <keyseq><key>Ctrl</key><key>J</key></keyseq> to jump to
+  the currently playing track.</p>
+</note>
+]]></code>
+    <note style="tip">
+      <p>Press <keyseq><key>Ctrl</key><key>J</key></keyseq> to jump to
+      the currently playing track.</p>
+    </note>
+  </example>
+
+  <p>Warn the reader about dangerous operations:</p>
+
+  <example>
+    <code><![CDATA[
+<note style="warning">
+  <p>There is no way to recover files deleted with the
+  <cmd>shred</cmd> command.</p>
+</note>
+]]></code>
+    <note style="warning">
+      <p>There is no way to recover files deleted with the <cmd>shred</cmd> command.</p>
+    </note>
+  </example>
+</section>
+<!-- END examples -->
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Notes are displayed as block elements, with each of their child elements
+  being interpreted as block elements.  When present, the title should be
+  displayed in a way that makes it clear that it is the title of the block.
+  Notes should have a border, background color, or other styling effect to
+  distinguish them from the surrounding block content.  Notes often use an
+  icon to identify what type of note is being displayed.</p>
+</section>
+<!-- END processing -->
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>note</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/caution.html">caution</code>,
+  <code href="http://www.docbook.org/tdg/en/html/important.html">important</code>,
+  <code href="http://www.docbook.org/tdg/en/html/note.html">note</code>,
+  <code href="http://www.docbook.org/tdg/en/html/tip.html">tip</code>, and
+  <code href="http://www.docbook.org/tdg/en/html/warning.html">warning</code>
+  elements in DocBook.  Rather than use separate elements, Mallard uses single
+  <code>note</code> element which can be specialized and extended through style
+  hints.  This document recommends the style hints <code>advanced</code> and
+  <code>bug</code>, which have no counterpart in DocBook.  This document does
+  not recommend separate <code>caution</code> and <code>warning</code> types,
+  as there is rarely a useful distinction in practice.</p>
+</section>
+<!-- END comparison -->
+
+</page>

@@ -1,0 +1,107 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_inline_sys">
+
+<info>
+  <link type="guide" xref="mal_inline#elements"/>
+
+  <revision version="0.1" date="2009-05-13" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mark up general identifiers found on computer systems.</desc>
+</info>
+
+<title>System Items</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_sys = element sys {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>Use the <code>sys</code> element to mark up any type of system item that
+isn't covered by other elements such as <code xref="mal_inline_file">file</code>,
+<code xref="mal_inline_cmd">cmd</code>, or
+<code xref="mal_inline_code">code</code>.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>sys</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>sys</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>sys</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>sys</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>sys</code> to mark up a domain name:</p>
+
+  <example>
+    <code><![CDATA[The Linux kernel is hosted on <sys>git.kernel.org</sys>.]]></code>
+    <p>The Linux kernel is hosted on <sys>git.kernel.org</sys>.</p>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>System items are displayed in a fixed-width font.  Fixed-width fonts
+  tend to have more distinction between visually similar characters. This
+  is particularly important in system items, since letters often appear
+  without the context of a known word that helps make them discernable in
+  normal prose.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+  <p>The <code>sys</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/systemitem.html">systemitem</code>
+  element in DocBook.  DocBook has gained numerous elements which were once
+  marked using the <code>class</code> attribute on the <code>systemitem</code>
+  element.  Since Mallard does not provide the level of markup specificity
+  that DocBook does, the <code>sys</code> element should be used in place
+  of these and various other elements.</p>
+</section>
+<!-- END comparison -->
+
+</page>

@@ -1,0 +1,79 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_info_name">
+
+<info>
+  <link type="guide" xref="mal_info#additional"/>
+
+  <revision version="0.1" date="2009-08-01" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>FIXME</desc>
+</info>
+
+<title>Names</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_name = element name {
+  attribute * - (mal:* | local:*) { text } *,
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>Use the <code>name</code> element to mark up the name of a person or
+organization in a <code xref="mal_info_credit">credit</code> element.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>name</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>name</code> element can occur in the
+    <code xref="mal_info_credit">credit</code> element.</p></item>
+
+    <item><p>The <code>name</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>See the processing expectations for the
+  <code xref="mal_info_credit">credit</code> element.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>name</code> element fulfills the same role as numerous DocBook
+  elements, including
+  <link href="http://www.docbook.org/tdg/en/html/collabname.html">collabname</link>,
+  <link xref="http://www.docbook.org/tdg/en/html/personname.html">personname</link>, and
+  <link xref="http://www.docbook.org/tdg/en/html/publishername.html">publishername</link>.
+  Note that Mallard does not attempt to model the names of people, as the rules for
+  how to display names from their constituent parts vary considerably.  If parts of
+  a name are needed for a domain-specific purpose, they can be included using elements
+  from external namespaces on the parent element.</p>
+</section>
+<!-- END comparison -->
+
+
+</page>

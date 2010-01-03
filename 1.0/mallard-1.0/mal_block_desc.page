@@ -1,0 +1,132 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_desc">
+
+<info>
+  <link type="seealso" xref="mal_block_figure"/>
+  <link type="seealso" xref="mal_block_listing"/>
+  <link type="seealso" xref="mal_block_synopsis"/>
+
+  <revision version="0.1" date="2009-05-19" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2007-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Provide a caption for a formal block element.</desc>
+</info>
+
+<title>Block Descriptions</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_desc = element desc {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>The <code>desc</code> element marks a short text description for
+formal block elements like <link xref="mal_block_figure">figure</link>.
+The description provided by <code>desc</code> is formatted as a caption
+for the formal element.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>desc</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>desc</code> element can occur in the formal block elements
+    <code xref="mal_block_figure">figure</code>,
+    <code xref="mal_block_listing">listing</code>, and
+    <code xref="mal_block_synopsis">synopsis</code>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>desc</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+
+    <item><p>The <code>desc</code> element can also be used in an informational
+    context.  See <link xref="mal_info_desc"/> for more information.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>desc</code> to provide a caption for a
+  <link xref="mal_block_figure">figure</link>:</p>
+
+  <example>
+    <code><![CDATA[
+<figure>
+  <desc>Drake, the Mallard mascot</desc>
+  <media type="image" mime="image/png" src="figures/mallard.png"/>
+</figure>
+]]></code>
+    <figure>
+      <desc>Drake, the Mallard mascot</desc>
+      <media type="image" mime="image/png" src="figures/mallard.png"/>
+    </figure>
+  </example>
+
+  <p>Use <code>desc</code> to provide a caption for a
+  <link xref="mal_block_figure">listing</link>:</p>
+
+  <example>
+    <code><![CDATA[
+<listing>
+  <desc>A first Mallard page</desc>
+  <code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+  <!-- Content goes here -->
+</page>]]]>]><![CDATA[</code>
+</listing>]]></code>
+    <listing>
+      <desc>A first Mallard page</desc>
+      <code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+  <!-- Content goes here -->
+</page>]]></code>
+    </listing>
+  </example>
+
+  <p>More exaples can be found on the pages <link xref="mal_block_figure"/>,
+  <link xref="mal_block_listing"/>, and <link xref="mal_block_synopsis"/>.</p>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>The exact display of a description will depend on how the enclosing formal
+  element is displayed.  A description is a block of text that is displayed
+  directly above or below the normal contents of the enclosing element.</p>
+
+  <p>A description should be displayed in a way that makes its role clearn and
+  which clearly distinguishes it from the normal block content of the enclosing
+  element.</p>
+</section>
+<!-- END processing -->
+
+</page>

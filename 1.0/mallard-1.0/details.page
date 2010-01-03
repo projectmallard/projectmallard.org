@@ -1,0 +1,34 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="details">
+
+<info>
+  <revision version="0.1" date="2007-02-21" status="stub"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>How to process and work with Mallard documents.</desc>
+</info>
+
+<title>Processing Details</title>
+
+<comment>
+  <cite date="2009-05-28">shaunm</cite>
+  <p>Add content</p>
+</comment>
+
+<section id="i18n">
+  <title>Internationalization and Localization</title>
+</section>
+
+<section id="misc">
+  <title>Additional Reference Material</title>
+</section>
+
+</page>

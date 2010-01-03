@@ -1,0 +1,168 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_inline_code">
+
+<info>
+  <link type="guide" xref="mal_inline#elements"/>
+
+  <revision version="0.1" date="2008-12-12" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mark up code from a programming, markup, or other machine-readable format.</desc>
+</info>
+
+<title>Code Snippets</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_code = element code {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>Use the <code>code</code> element to mark up a portion of text from a
+computer language.  This includes programming languages, markup languages,
+and the contents of any type of file with a structured syntax.  For commands
+which are run in an interactive shell, however, you should use the
+<code xref="mal_inline_cmd">cmd</code> element, even though they may
+include snippets of shell programming.</p>
+
+<p>You can use the <code>code</code> element to mark up any portion of
+code, including comments or textual content that doesn't strictly follow
+any syntax.</p>
+
+<p>Use the <code xref="mal_inline_var">var</code> element inside a
+<code>code</code> element to indicate text that should be replaced
+by the user.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>code</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>code</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>code</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>mime</code> attribute takes a valid MIME type.  Processing
+    tools may adjust their behavior for particular MIME types.</p></item>
+
+    <item><p>The <code>code</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+
+    <item><p>The <code>code</code> element may also be used in a block context.
+    See <link xref="mal_block_code"/> for more information.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>code</code> to mark up the name of a function, struct, or other
+  constuct in a programming language:</p>
+
+  <example>
+    <code><![CDATA[
+Use <code>gtk_container_add</code> to add a child widget to a
+<code>GtkButton</code>.
+]]></code>
+    <p>Use <code>gtk_container_add</code> to add a child widget to a <code>GtkButton</code>.</p>
+  </example>
+
+  <p>Use <code>code</code> with <code xref="mal_inline_var">var</code> to mark
+  up code with a placeholder for an argument the user should supply:</p>
+
+  <example>
+    <code><![CDATA[
+To create a new button with a label, use
+<code>gtk_button_new_with_label(<var>label</var>)</code>,
+replacing <var>label</var> with the text of the label.
+]]></code>
+    <p>To create a new button with a label, use
+    <code>gtk_button_new_with_label(<var>label</var>)</code>,
+    replacing <var>label</var> with the text of the label.</p>
+  </example>
+
+  <p>Link to a web page directly with a <code>code</code> element:</p>
+
+  <example>
+    <code><![CDATA[
+Use <code>code</code> with <code xref="mal_inline_var">var</code> to mark
+up code with a placeholder for an argument the user should supply.
+]]></code>
+    <p>Use <code>code</code> with <code xref="mal_inline_var">var</code> to mark
+    up code with a placeholder for an argument the user should supply.</p>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+  <p>Code snippets are displayed in a fixed-width font.  This mimics
+  the look of a typical environment where code is typed.  More importantly,
+  fixed-width fonts tend to have more distinction between visually similar
+  characters.  This is particularly important in code, since letters often
+  appear without the context of a known word that helps make them discernable
+  in normal prose.</p>
+
+  <p>For particularly long code snippets, display tools may use a background
+  color or border to make the beginning and end clear, although authors should
+  prefer <link xref="mal_block_code">code blocks</link> for long code snippets.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+  <p>The <code>code</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/code.html">code</code> element
+  in DocBook.  Since Mallard does not attempt to model programming languages,
+  <code>code</code> may be used in place of numerous DocBook elements, including
+  <code href="http://www.docbook.org/tdg/en/html/classname.html">classname</code>,
+  <code href="http://www.docbook.org/tdg/en/html/constant.html">constant</code>,
+  <code href="http://www.docbook.org/tdg/en/html/function.html">function</code>,
+  <code href="http://www.docbook.org/tdg/en/html/interfacename.html">interfacename</code>,
+  <code href="http://www.docbook.org/tdg/en/html/methodname.html">methodname</code>,
+  <code href="http://www.docbook.org/tdg/en/html/parameter.html">parameter</code>,
+  <code href="http://www.docbook.org/tdg/en/html/structfield.html">structfield</code>,
+  <code href="http://www.docbook.org/tdg/en/html/structname.html">structname</code>, and
+  <code href="http://www.docbook.org/tdg/en/html/varname.html">varname</code>.
+  Additionally, since Mallard does not provide separate elements for marking
+  portions of markup languages, the <code>code</code> element should be used
+  in place of the DocBook elements
+  <code href="http://www.docbook.org/tdg/en/html/markup.html">markup</code> and
+  <code href="http://www.docbook.org/tdg/en/html/sgmltag.html">sgmltag</code>.</p>
+</section>
+<!-- END comparison -->
+
+</page>

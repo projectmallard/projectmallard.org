@@ -1,0 +1,192 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_steps">
+
+<info>
+  <revision version="0.1" date="2009-05-23" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create a list of steps the reader should perform to accomplish a task.</desc>
+</info>
+
+<title>Procedures</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_steps = element steps {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_block_title">mal_block_title</link> ?,
+
+  element item {
+    attribute style { xsd:NMTOKENS } ?,
+    attribute * - (mal:* | local:*) { text } *,
+
+    <link xref="mal_block">mal_block</link> +
+  } +
+}
+</code></synopsis>
+
+<p>Use the <code>steps</code> element to create a list of steps the reader
+should follow.  The <code>steps</code> element is structurally similar to
+the <code xref="mal_block_list">list</code> element, but marking the list
+as being instructions to the reader allows special display rules to be
+applied.  If you want a numbered list that is not a procedure, use the
+<code xref="mal_block_list">list</code> element with the <code>type</code>
+attribute to <code>"numbered"</code> instead.</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>steps</code> element can contain an optional
+    <code xref="mal_block_title">title</code> element followed by one or more
+    <code>item</code> elements.  Each child <code>item</code> element can
+    contain a mixture of text and any
+    <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>steps</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>steps</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Create a simple procedure of steps for the reader to follow:</p>
+
+  <example>
+    <code><![CDATA[
+<steps>
+  <title>Planting Magic Beans</title>
+  <item><p>Dig a hole 10cm deep.</p></item>
+  <item><p>Place magic beans in the hole.</p></item>
+  <item><p>Fill hole with fertilized soil.</p></item>
+  <item><p>Water frequently.</p></item>
+</steps>
+]]></code>
+    <steps>
+      <title>Planting Magic Beans</title>
+      <item><p>Dig a hole 10cm deep.</p></item>
+      <item><p>Place magic beans in the hole.</p></item>
+      <item><p>Fill hole with fertilized soil.</p></item>
+      <item><p>Water frequently.</p></item>
+    </steps>
+  </example>
+
+  <p>Create a procedure with a nested list and a nested procedure:</p>
+
+  <example>
+    <code><![CDATA[
+<steps>
+  <title>Planting Magic Beans</title>
+  <item>
+    <p>Perform one of the following:</p>
+    <list>
+      <item><p>Dig a whole 10cm deep.</p></item>
+      <item><p>Find a whole 10cm deep.</p></item>
+    </list>
+  </item>
+  <item><p>Place magic beans in the hole.</p></item>
+  <item><p>Fill hole with fertilized soil.</p></item>
+  <item>
+    <p>Water frequently with the following steps:</p>
+    <steps>
+      <item><p>Fill watering can with water.</p></item>
+      <item><p>Pour water onto spot where beans were planted.</p></item>
+    </steps>
+  </item>
+</steps>
+]]></code>
+    <steps>
+      <title>Planting Magic Beans</title>
+      <item>
+        <p>Perform one of the following:</p>
+        <list>
+          <item><p>Dig a whole 10cm deep.</p></item>
+          <item><p>Find a whole 10cm deep.</p></item>
+        </list>
+      </item>
+      <item><p>Place magic beans in the hole.</p></item>
+      <item><p>Fill hole with fertilized soil.</p></item>
+      <item>
+        <p>Water frequently with the following steps:</p>
+        <steps>
+          <item><p>Fill watering can with water.</p></item>
+          <item><p>Pour water onto spot where beans were planted.</p></item>
+        </steps>
+      </item>
+    </steps>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Procedures are displayed as block elements, with each child <code>item</code>
+  displayed as a numbered list item.  When present, the <code>title</code> element
+  should be displayed in a way that makes it clear that it is the title of the list.
+  List items are interpreted in the same way as <code>li</code> elements in HTML,
+  except that the <code>item</code> element only allows block-level child content.</p>
+
+  <p>Procedures should have a background color, border, or other styling effect
+  to clearly differentiate them from basic numbered lists.  Special styling allows
+  readers to skim pages more easily.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>steps</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/procedure.html">procedure</code>
+  element in DocBook.  Note the following differences:</p>
+
+  <list>
+    <item><p>Instead of a separate
+    <code href="http://www.docbook.org/tdg/en/html/step.html">step</code> element,
+    Mallard simply uses the common <code>item</code> element for each step.</p></item>
+
+    <item><p>DocBook provides an explicit
+    <code href="http://www.docbook.org/tdg/en/html/substeps.html">substeps</code>
+    element.  Mallard provides no such element; simply nest <code>steps</code>
+    elements for the same effect.</p></item>
+
+    <item><p>Mallard provides no equivalent to the
+    <code href="http://www.docbook.org/tdg/en/html/stepalternatives.html">stepalternatives</code>
+    element.  Use a <code xref="mal_block_list">basic bulleted list</code> with
+    introductory text when this is needed.</p></item>
+
+    <item><p>DocBook allows leading block-level content in the <code>procedure</code>
+    element.  This is not allowed in Mallard, though an optional <code>title</code>
+    element is allowed.</p></item>
+  </list>
+</section>
+<!-- END comparison -->
+
+</page>

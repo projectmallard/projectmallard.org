@@ -1,0 +1,17 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_subtitle">
+
+<info>
+  <revision version="0.1" date="2007-02-21" status="stub"/>
+</info>
+
+<title>Subtitles</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_subtitle = element subtitle {
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+</page>

@@ -1,0 +1,176 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_comment">
+
+<info>
+  <revision version="0.1" date="2009-05-07" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2007-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Include an editorial comment that's hidden from normal readers.</desc>
+</info>
+
+<title>Editorial Comments</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_comment = element comment {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  <link xref="mal_block_cite">mal_block_cite</link>,
+  <link xref="mal_block">mal_block</link> +
+}
+</code></synopsis>
+
+<p>The <code>comment</code> element allows you to insert editorial comments
+into your document.  These comments are intended to be displayed only when
+editing or reviewing the document, and not when the document is viewed by the
+end reader.  A <code>comment</code> element can contain other <code>comment</code>
+elements, allowing you to have a threaded discussion inside editorial comments.</p>
+
+<p>A <code>comment</code> element may optionally contain a
+<code xref="mal_block_title">title</code> element to provide a brief description
+of the subject of the comment.  Titles are encouraged in top-level comments,
+although they are usually unnecessary in replies.</p>
+
+<p>The <code xref="mal_block_cite">cite</code> element is a required element
+that specifies the person making the comment.  Writers are highly encouraged
+to provide a <code>date</code> attribute.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>comment</code> element contains an optional
+    <link xref="mal_block_title">title</link> element, a
+    <link xref="mal_block_cite">cite</link> element, and  any
+    <link xref="mal_block">general block content</link>.</p></item>
+
+    <item><p>The <code>comment</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>comment</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Provide a comment:</p>
+
+  <example>
+    <code><![CDATA[
+<comment>
+  <title>Mallards Are Dabbling Ducks</title>
+  <cite date="2009-05-07" href="mailto:drake@example.com">Drake</cite>
+  <p>The information in this section is wrong.  Mallards are dabbling
+  ducks, not diving ducks.</p>
+</comment>]]></code>
+    <comment>
+      <?mal2html.show_comment?>
+      <title>Mallards Are Dabbling Ducks</title>
+      <cite date="2009-05-07" href="mailto:drake@example.com">Drake</cite>
+      <p>The information in this section is wrong.  Mallards are dabbling
+      ducks, not diving ducks.</p>
+    </comment>
+  </example>
+
+  <p>Use <code>comment</code> to carry out a threaded discussion:</p>
+
+  <example>
+    <code><![CDATA[
+<comment>
+  <title>Mallards Are Dabbling Ducks</title>
+  <cite date="2009-05-07" href="mailto:drake@example.com">Drake</cite>
+  <p>The information in this section is wrong.  Mallards are dabbling
+  ducks, not diving ducks.</p>
+  <comment>
+    <cite date="2009-05-08" href="mailto:rupert@example.com">Rupert</cite>
+    <p>But I saw a mallard dive just the other day.</p>
+    <comment>
+      <cite date="2009-05-09" href="mailto:drake@example.com">Drake</cite>
+      <p>Rupert, please see the
+      <link href="http://en.wikipedia.org/wiki/Mallard">Wikipedia
+      entry</link>.</p>
+    </comment>
+  </comment>
+</comment>]]></code>
+    <comment>
+      <?mal2html.show_comment?>
+      <title>Mallards Are Dabbling Ducks</title>
+      <cite date="2009-05-07" href="mailto:drake@example.com">Drake</cite>
+      <p>The information in this section is wrong.  Mallards are dabbling
+      ducks, not diving ducks.</p>
+      <comment>
+        <?mal2html.show_comment?>
+        <cite date="2009-05-08" href="mailto:rupert@example.com">Rupert</cite>
+        <p>But I saw a mallard dive just the other day.</p>
+        <comment>
+          <?mal2html.show_comment?>
+          <cite date="2009-05-09" href="mailto:drake@example.com">Drake</cite>
+          <p>Rupert, please see the
+          <link href="http://en.wikipedia.org/wiki/Mallard">Wikipedia
+          entry</link>.</p>
+        </comment>
+      </comment>
+    </comment>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>In normal processing, <code>comment</code> elements are not displayed.
+  It may be displayed under various circumstances, such as for writing and
+  editing purposes.</p>
+
+  <p>When shown, a <code>comment</code> element is rendered as a displayed
+  block, with each of its child elements interpreted as block elements.
+  A border, background color, or other stylistic effect should be used to
+  clearly set distinguish comments from the surrounding content.</p>
+
+  <p>If a <code>title</code> element is present, it is displayed at the top
+  of the comment.  The <code>cite</code> my require special processing to
+  dispaly both its inline content and its <code>date</code> attribute.
+  Automatic text may be used for this.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>comment</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/remark.html">remark</code>
+  element in DocBook.  The DocBook <code>remark</code> element may be used
+  in either a block or an inline context, whereas the <code>comment</code>
+  element may only be used as a block element.  The DocBook <code>remark</code>
+  element does not provide a way to supply a title or the name of the person
+  making the remark.</p>
+</section>
+<!-- END comparison -->
+
+</page>

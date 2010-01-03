@@ -1,0 +1,184 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_terms">
+
+<info>
+  <revision version="0.1" date="2009-05-28" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create a list of terms and associated descriptions.</desc>
+</info>
+
+<title>Definition Lists</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_terms = element terms {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_block_title">mal_block_title</link> ?,
+
+  element item {
+    attribute style { xsd:NMTOKENS } ?,
+    attribute * - (mal:* | local:*) { text } *,
+
+    <link xref="mal_block_title">mal_block_title</link> +,
+    <link xref="mal_block">mal_block</link> +
+  } +
+}
+</code></synopsis>
+
+<p>The <code>terms</code> element creates a list of terms and associated
+definitions or descriptions.  This type of list is often called a definition
+list or a variable list.</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>terms</code> element can contain an optional
+    <code xref="mal_block_title">title</code> element followed by one or more
+    <code>item</code> elements.  Each child <code>item</code> element can
+    contain one or more <code xref="mal_block_title">title</code> elements
+    followed by a mixture of text and any
+    <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>terms</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>terms</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Create a simple definition list with a title:</p>
+
+  <example>
+    <code><![CDATA[
+<terms>
+  <title>Selected Basic Block Elements</title>
+  <item>
+    <title><code>code</code></title>
+    <p>Mark up a block of code or the contents of a file.</p>
+  </item>
+  <item>
+    <title><code>example</code></title>
+    <p>Mark up a group of block elements as being part of a single example.</p>
+  </item>
+  <item>
+    <title><code>screen</code></title>
+    <p>Mark up a textual user interface or an interactive shell session.</p>
+  </item>
+</terms>]]></code>
+    <terms>
+      <title>Selected Basic Block Elements</title>
+      <item>
+        <title><code>code</code></title>
+        <p>Mark up a block of code or the contents of a file.</p>
+      </item>
+      <item>
+        <title><code>example</code></title>
+        <p>Mark up a group of block elements as being part of a single example.</p>
+      </item>
+      <item>
+        <title><code>screen</code></title>
+        <p>Mark up a textual user interface or an interactive shell session.</p>
+      </item>
+    </terms>
+  </example>
+
+  <p>Create a definition list with multiple terms per entry:</p>
+
+  <example>
+    <code><![CDATA[
+<terms>
+  <item>
+    <title><code>comment</code></title>
+    <title><code>quote</code></title>
+    <p>Formal elements which allow a <code>cite</code> element.</p>
+  </item>
+  <item>
+    <title><code>figure</code></title>
+    <title><code>listing</code></title>
+    <title><code>synopsis</code></title>
+    <p>Formal elements which allow a <code>desc</code> element.</p>
+  </item>
+  <item>
+    <title><code>note</code></title>
+    <p>Formal elements which only allow a <code>title</code> element.</p>
+  </item>
+</terms>]]></code>
+    <terms>
+      <item>
+        <title><code>comment</code></title>
+        <title><code>quote</code></title>
+        <p>Formal elements which allow a <code>cite</code> element.</p>
+      </item>
+      <item>
+        <title><code>figure</code></title>
+        <title><code>listing</code></title>
+        <title><code>synopsis</code></title>
+        <p>Formal elements which allow a <code>desc</code> element.</p>
+      </item>
+      <item>
+        <title><code>note</code></title>
+        <p>Formal elements which only allow a <code>title</code> element.</p>
+      </item>
+    </terms>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Definition lists are displayed as block elements, with each child
+  <code>item</code> displayed as some number of list items.  When present, the
+  title should be displayed in a way that makes it clear that it is the title
+  of the list.  Each <code>title</code> element of each list item is treated
+  as a term, and is displayed as a block element.  The remaining block content
+  is then treated as the description and displayed as normal.  The description
+  blocks should be indented from the terms.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+  
+  <p>The <code>terms</code> element is similar to
+  <code href="http://www.docbook.org/tdg/en/html/variablelist.html">variablelist</code>
+  element in DocBook.  Like DocBook (and unlike HTML), Mallard groups terms with their
+  corresponding entries.  In DocBook, the entry must be wrapped with a
+  <code href="http://www.docbook.org/tdg/en/html/listitem.html">listitem</code>
+  element inside the
+  <code href="http://www.docbook.org/tdg/en/html/varlistentry.html">varlistentry</code>
+  element.  In Mallard, the entry is simply all of the block content except the
+  <code xref="mal_block_title">title</code> elements.</p>
+</section>
+<!-- END comparison -->
+
+</page>

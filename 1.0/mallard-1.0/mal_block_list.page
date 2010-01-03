@@ -1,0 +1,205 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_list">
+
+<info>
+  <revision version="0.1" date="2009-05-22" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create a basic bulleted or numbered list.</desc>
+</info>
+
+<title>Basic Lists</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_list = element list {
+  attribute type { xsd:NMTOKEN } ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_block_title">mal_block_title</link> ?,
+
+  element item {
+    attribute style { xsd:NMTOKENS } ?,
+    attribute * - (mal:* | local:*) { text } *,
+
+    <link xref="mal_block">mal_block</link> +
+  } +
+}
+</code></synopsis>
+
+<p>Use the <code>list</code> element to create a basic bulleted or numbered
+list.  By default, lists are unordered, and list items are marked with a
+bullet or other glyph.  You can select various numbering systems using the
+<code>type</code> attribute.  If you need a numbered list to enumerate steps
+the reader should perform, use the <code xref="mal_block_steps">steps</code>
+element.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>list</code> element can contain an optional
+    <code xref="mal_block_title">title</code> element followed by one or more
+    <code>item</code> elements.  Each child <code>item</code> element can
+    contain a mixture of text and any
+    <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>list</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>type</code> attribute allows you to select the list type,
+    which affects the markers used for each list item.  Allowed values are those
+    from the <link href="http://www.w3.org/TR/css3-lists/">CSS
+    <code>list-style-type</code> property</link>.  Additionally, the value of
+    <code>"numbered"</code> can be used to select a numbered list type appropriate
+    for the page's language.</p></item>
+
+    <item><p>If no <code>type</code> attribute is present, it is assumed to be a
+    <link href="http://www.w3.org/TR/css3-lists/#glyphs">glyph type</link> such
+    as <code>"disc"</code> or <code>"circle"</code>.  That is, lists default to
+    bulleted lists.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>list</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Create a basic unordered list:</p>
+
+  <example>
+    <code><![CDATA[
+<list>
+  <item><p><code>GTK_MESSAGE_INFO</code></p></item>
+  <item><p><code>GTK_MESSAGE_WARNING</code></p></item>
+  <item><p><code>GTK_MESSAGE_QUESTION</code></p></item>
+  <item><p><code>GTK_MESSAGE_ERROR</code></p></item>
+  <item><p><code>GTK_MESSAGE_OTHER</code></p></item>
+</list>
+]]></code>
+    <list>
+      <item><p><code>GTK_MESSAGE_INFO</code></p></item>
+      <item><p><code>GTK_MESSAGE_WARNING</code></p></item>
+      <item><p><code>GTK_MESSAGE_QUESTION</code></p></item>
+      <item><p><code>GTK_MESSAGE_ERROR</code></p></item>
+      <item><p><code>GTK_MESSAGE_OTHER</code></p></item>
+    </list>
+  </example>
+
+  <p>Create an unordered list with a title:</p>
+
+  <example>
+    <code><![CDATA[
+<list>
+  <title>Message Types</title>
+  <item><p><code>GTK_MESSAGE_INFO</code></p></item>
+  <item><p><code>GTK_MESSAGE_WARNING</code></p></item>
+  <item><p><code>GTK_MESSAGE_QUESTION</code></p></item>
+  <item><p><code>GTK_MESSAGE_ERROR</code></p></item>
+  <item><p><code>GTK_MESSAGE_OTHER</code></p></item>
+</list>
+]]></code>
+    <list>
+      <title>Message Types</title>
+      <item><p><code>GTK_MESSAGE_INFO</code></p></item>
+      <item><p><code>GTK_MESSAGE_WARNING</code></p></item>
+      <item><p><code>GTK_MESSAGE_QUESTION</code></p></item>
+      <item><p><code>GTK_MESSAGE_ERROR</code></p></item>
+      <item><p><code>GTK_MESSAGE_OTHER</code></p></item>
+    </list>
+  </example>
+
+  <p>Create a simple numbered list:</p>
+
+  <example>
+    <code><![CDATA[
+<list type="numbered">
+  <item><p>First</p></item>
+  <item><p>Second</p></item>
+  <item><p>Third</p></item>
+</list>
+]]></code>
+    <list type="numbered">
+      <item><p>First</p></item>
+      <item><p>Second</p></item>
+      <item><p>Third</p></item>
+    </list>
+  </example>
+
+  <p>Create a numbered list with Roman numerals:</p>
+
+  <example>
+    <code><![CDATA[
+<list type="upper-roman">
+  <item><p>First</p></item>
+  <item><p>Second</p></item>
+  <item><p>Third</p></item>
+</list>
+]]></code>
+    <list type="upper-roman">
+      <item><p>First</p></item>
+      <item><p>Second</p></item>
+      <item><p>Third</p></item>
+    </list>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Lists are displayed as block elements, with each child <code>item</code>
+  displayed as a list item.  When present, the title should be displayed in a
+  way that makes it clear that it is the title of the list.  List items are
+  interpreted in the same way as <code>li</code> elements in HTML, except that
+  the <code>item</code> element only allows block-level child content.</p>
+
+  <p>Item markers are taken from the <code>type</code> attribute, which is
+  either a valid value of the <link href="http://www.w3.org/TR/css3-lists/">CSS
+  <code>list-style-type</code> property</link>, or the special value
+  <code>"numbered"</code>.  When the <code>"numbered"</code> type is used, a
+  numeric marker type is chosen that is appropriate for the language of the
+  page.  The default numeric marker type per language may vary between
+  implementations.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>list</code> element combines the functionality of the
+  <code href="http://www.docbook.org/tdg/en/html/itemizedlist.html">itemizedlist</code>
+  and <code href="http://www.docbook.org/tdg/en/html/orderedlist.html">orderedlist</code>
+  elements in DocBook.  DocBook allows leading block-level content in its list
+  elements.  This is not allowed in Mallard, though an optional <code>title</code>
+  element is allowed.  DocBook allows you to override the bullet or numbering
+  type on each list item.  Mallard does not allow this.</p>
+</section>
+<!-- END comparison -->
+
+</page>

@@ -1,0 +1,176 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_inline_cmd">
+
+<info>
+  <link type="guide" xref="mal_inline#elements"/>
+  <link type="seealso" xref="mal_block_screen"/>
+
+  <revision version="0.1" date="2008-12-01" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2007-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mark up a command to be entered at an interactive shell.</desc>
+</info>
+
+<title>Commands</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_cmd = element cmd {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>Use the <code>cmd</code> element to mark up a command or a portion of a
+command to run in an interactive shell.  It is frequently used to mark up
+the command to run an application.  Do not use the <code>cmd</code> element
+to mark up the human-readable name of an application; use
+<code xref="mal_inline_app">app</code> for this purpose instead.</p>
+
+<p>You may use the <code>cmd</code> element to mark up the entire command,
+including all arguments.  Mallard does not contain elements to mark up the
+arguments specifically, as there is rarely a need to distinguish them.
+You may also use the <code>cmd</code> element to mark up parts of a command,
+such as options and arguments, when these need to be referenced alone.</p>
+
+<p>Use the <code xref="mal_inline_var">var</code> element inside a
+<code>cmd</code> element to indicate text that should be replaced
+by the user.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>cmd</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>cmd</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>cmd</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>mime</code> attribute takes a valid MIME type.  Processing
+    tools may adjust their behavior for particular MIME types.</p></item>
+
+    <item>
+      <p>Typical values for the <code>mime</code> attribute include:</p>
+      <table rules="rows"><tr>
+        <td><p><code>application/x-sh</code></p></td>
+        <td><p>Command to execute with the Bourne shell</p></td>
+      </tr><tr>
+        <td><p><code>application/x-csh</code></p></td>
+        <td><p>Command to execute with the C shell</p></td>
+      </tr></table>
+    </item>
+
+    <item><p>The <code>cmd</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>cmd</code> to mark up a simple command to run:</p>
+
+  <example>
+    <code><![CDATA[
+To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at
+the command line.
+]]></code>
+    <p>To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at the
+    command line.</p>
+  </example>
+
+  <p>Use <code>cmd</code> with <code xref="mal_inline_var">var</code> to mark
+  up a command with a placeholder for an argument the user should supply:</p>
+
+  <example>
+    <code><![CDATA[
+To view a file in <app>Totem Movie Player</app>, enter <cmd>totem
+<var>file</var></cmd> at the command line, replacing <var>file</var>
+with the name of the file.
+]]></code>
+    <p>To view a file in <app>Totem Movie Player</app>, enter <cmd>totem <var>file</var></cmd>
+    at the command line, replacing <var>file</var> with the name of the file.</p>
+  </example>
+
+  <p>Use <code>cmd</code> to mark up command names and options:</p>
+
+  <example>
+    <code><![CDATA[
+The <cmd>-mtime</cmd> option for the <cmd>find</cmd> command allows
+you to filter files based on their modification times.
+]]></code>
+    <p>The <cmd>-mtime</cmd> option for the <cmd>find</cmd> command allows you to
+    filter files based on their modification times.</p>
+  </example>
+
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+  <p>Commands are displayed in a fixed-width font.  This mimics the look
+  of a typical environment where commands are executed.  More importantly,
+  fixed-width fonts tend to have more distinction between visually similar
+  characters.  This is particularly important in commands, since letters often
+  appear without the context of a known word that helps make them discernable
+  in normal prose.</p>
+
+  <p>Commands in documentation are often provided with options to illustrate
+  how to use them to a particular effect.  This can make it difficult to find
+  the end of the command quickly.  Surrounding text content, especially
+  punctuation, can sometimes be confused for part of the command.  For this
+  reason, it is recommended that commands be displayed with a border or
+  background color.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>cmd</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/command.html">command</code>
+  element in DocBook.  In DocBook, writers frequently use the
+  <code href="http://www.docbook.org/tdg/en/html/option.html">option</code>
+  element inside <code>command</code>.  Mallard does not provide an element
+  for this purpose.</p>
+
+  <p>In DocBook, the <code>option</code> element is also used outside the
+  <code>command</code> element.  In Mallard, simply use the <code>cmd</code>
+  element for options outside of an entire command.</p>
+
+  <p>See <link xref="principle-justenough"/> for more background.</p>
+</section>
+<!-- END comparison -->
+
+</page>

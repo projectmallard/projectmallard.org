@@ -1,0 +1,471 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_table">
+
+<info>
+</info>
+
+<title>Tables</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_table = element table {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+  attribute frame {
+    "all" | "none" |
+    list { ("top" | "bottom" | "left" | "right") * }
+  } ?,
+  attribute rules {
+    "all" | "groups" | "none" |
+    list { ("rows" | "rowgroups" | "cols" | "colgroups") * }
+  } ?,
+  attribute shade {
+    "all" | "groups" | "none" |
+    list { ("rows" | "rowgroups" | "cols" | "colgroups") * }
+  } ?,
+
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  <link xref="mal_block_desc">mal_block_desc</link> ?,
+
+  ( <link xref="mal_table_col">mal_table_col</link> + |
+    <link xref="mal_table_col">mal_table_colgroup</link> +
+  ) ?,
+
+  ( <link xref="mal_table_tr">mal_table_tr</link> + |
+    ( <link xref="mal_table_tr">mal_table_thead</link> ?,
+      <link xref="mal_table_tr">mal_table_tbody</link> +,
+      <link xref="mal_table_tr">mal_table_tfoot</link> ?
+    )
+  )
+}
+</code></synopsis>
+
+
+<!-- BEGIN content -->
+<section id="content">
+  <info>
+    <revision status="stub"/>
+  </info>
+  <title>Content</title>
+</section>
+<!-- END content -->
+
+
+<!-- BEGIN attributes -->
+<section id="attributes">
+  <info>
+    <revision status="stub"/>
+  </info>
+  <title>Attributes</title>
+</section>
+<!-- END attributes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+<section id="examples-rules">
+  <title>The <code>rules</code> Attribute</title>
+
+  <p>Place rules between each row:</p>
+
+  <example>
+  <code><![CDATA[
+<table frame="all" rules="rows">
+  <tr>
+    <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43 cm</p></td>    <td><p>360 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+  </tr>
+</table>]]></code>
+  <table frame="all" rules="rows">
+    <tr>
+      <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+      <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+      <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Common Teal</p></td>     <td><p>Anas crecca</p></td>
+      <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+      <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+    </tr>
+  </table>
+  </example>
+
+  <p>Place rules between each colum:</p>
+
+  <example>
+  <code><![CDATA[
+<table frame="all" rules="cols">
+  <tr>
+    <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43 cm</p></td>    <td><p>360 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+  </tr>
+</table>]]></code>
+  <table frame="all" rules="cols">
+    <tr>
+      <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+      <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+      <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Common Teal</p></td>     <td><p>Anas crecca</p></td>
+      <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+      <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+    </tr>
+  </table>
+  </example>
+
+  <p>Place rules between each row group:</p>
+
+  <example>
+  <code><![CDATA[
+<table frame="all" rules="rowgroups cols">
+  <tbody>
+    <tr>
+      <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+      <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+      <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+      <td><p>34-43 cm</p></td>    <td><p>360 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+      <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+    </tr>
+  </tbody>
+</table>]]></code>
+  <table frame="all" rules="rowgroups cols">
+    <tbody>
+      <tr>
+        <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+        <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+      </tr>
+      <tr>
+        <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+        <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td><p>Common Teal</p></td>     <td><p>Anas crecca</p></td>
+        <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+      </tr>
+      <tr>
+        <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+        <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+      </tr>
+    </tbody>
+  </table>
+  </example>
+
+  <p>Place rules between each column group:</p>
+
+  <example>
+  <code><![CDATA[
+<table frame="all" rules="rows colgroups">
+  <colgroup><col/><col/></colgroup>
+  <colgroup><col/><col/></colgroup>
+  <tr>
+    <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43 cm</p></td>    <td><p>360 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+  </tr>
+</table>]]></code>
+  <table frame="all" rules="rows colgroups">
+    <colgroup><col/><col/></colgroup>
+    <colgroup><col/><col/></colgroup>
+    <tr>
+      <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+      <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+      <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Common Teal</p></td>     <td><p>Anas crecca</p></td>
+      <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+      <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+    </tr>
+  </table>
+  </example>
+
+</section>
+
+<section id="examples-shade">
+  <title>The <code>shade</code> Attribute</title>
+
+  <p>Shade alternating rows:</p>
+
+  <example>
+  <code><![CDATA[
+<table frame="all" shade="rows">
+  <tr>
+    <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td>     <td><p>Anas crecca</p></td>
+    <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+  </tr>
+</table>]]></code>
+  <table frame="all" shade="rows">
+    <tr>
+      <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+      <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+      <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Common Teal</p></td>     <td><p>Anas crecca</p></td>
+      <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+      <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+    </tr>
+  </table>
+  </example>
+
+  <p>Shade alternating columns:</p>
+
+  <example>
+  <code><![CDATA[
+<table frame="all" shade="cols">
+  <tr>
+    <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td>     <td><p>Anas crecca</p></td>
+    <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+  </tr>
+</table>]]></code>
+  <table frame="all" shade="cols">
+    <tr>
+      <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+      <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+      <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Common Teal</p></td>     <td><p>Anas crecca</p></td>
+      <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+      <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+    </tr>
+  </table>
+  </example>
+
+  <p>Shade alternating row groups:</p>
+
+  <example>
+  <code><![CDATA[
+<table frame="all" shade="rowgroups cols">
+  <tbody>
+    <tr>
+      <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+      <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+      <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><p>Common Teal</p></td>     <td><p>Anas crecca</p></td>
+      <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+      <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+    </tr>
+  </tbody>
+</table>]]></code>
+  <table frame="all" shade="rowgroups cols">
+    <tbody>
+      <tr>
+        <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+        <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+      </tr>
+      <tr>
+        <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+        <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td><p>Common Teal</p></td>     <td><p>Anas crecca</p></td>
+        <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+      </tr>
+      <tr>
+        <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+        <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+      </tr>
+    </tbody>
+  </table>
+  </example>
+
+  <p>Shade alternating column groups:</p>
+
+  <example>
+  <code><![CDATA[
+<table frame="all" shade="rows colgroups">
+  <colgroup><col/><col/></colgroup>
+  <colgroup><col/><col/></colgroup>
+  <tr>
+    <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td>     <td><p>Anas crecca</p></td>
+    <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+  </tr>
+</tbody>
+</table>]]></code>
+  <table frame="all" shade="rows colgroups">
+    <colgroup><col/><col/></colgroup>
+    <colgroup><col/><col/></colgroup>
+    <tr>
+      <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+      <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+      <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Common Teal</p></td>     <td><p>Anas crecca</p></td>
+      <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+      <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+    </tr>
+  </table>
+  </example>
+
+</section>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN design -->
+<section id="design">
+  <info>
+    <revision status="stub"/>
+  </info>
+  <title>Design Notes</title>
+</section>
+<!-- END design -->
+
+
+<!-- BEGIN html -->
+<section id="html">
+  <info>
+    <revision status="stub"/>
+  </info>
+  <title>Comparison to HTML</title>
+</section>
+<!-- END html -->
+
+
+<!-- BEGIN docbook -->
+<section id="docbook">
+  <info>
+    <revision status="stub"/>
+  </info>
+  <title>Comparison to DocBook</title>
+</section>
+<!-- END docbook -->
+
+</page>

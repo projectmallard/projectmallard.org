@@ -1,0 +1,48 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      style="3column"
+      id="index">
+
+<info>
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2009</years>
+  </credit>
+  <desc>Better Help for Better Software</desc>
+</info>
+
+<title>Mallard</title>
+
+<section>
+  <title>What Is Mallard?</title>
+  <p>Mallard is a markup language that makes it easier for you to provide better
+  user help for your software.  Mallard documents are <em>topic-oriented</em>:
+  They provide information in small chunks that match your users’ needs without
+  forcing them to read lengthy manuals.</p>
+  <list style="condensed">
+    <item><p><link xref="/about/index"/></p></item>
+    <item><p><link xref="/about/learn"/></p></item>
+  </list>
+</section>
+
+<section>
+  <title>Why Mallard?</title>
+  <list>
+    <item><p>Mallard helps you write small and focused topics, making it easier
+    for your users to find the information they need quickly.</p></item>
+    <item><p>Mallard is simple.  New and experienced writers alike find Mallard
+    provides the right level of abstraction so they can focus on better
+    content.</p></item>
+    <item><p>Mallard documents are designed to be extended.  You can easily add
+    content for plugins or added functionality without modifying the original
+    sources.</p></item>
+  </list>
+</section>
+
+<section id="specs">
+  <title>Specifications &amp; Extensions</title>
+  <p><link xref="/1.0/mallard-1.0/index"/></p>
+</section>
+
+</page>

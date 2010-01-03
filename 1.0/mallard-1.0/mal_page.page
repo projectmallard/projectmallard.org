@@ -1,0 +1,156 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_page">
+
+<info>
+  <revision version="0.1" date="2009-05-28" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Individual tutorials, overviews, references, and navigational guides.</desc>
+</info>
+
+<title>Pages</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+namespace local = ""
+default namespace mal = "http://projectmallard.org/1.0/"
+start = mal_page
+mal_page = element page {
+  attribute id { xsd:ID },
+  attribute type { "guide" | "topic"} ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_info">mal_info</link> ?,
+  <link xref="mal_block_title">mal_block_title</link>,
+  <link xref="mal_block">mal_block</link> *,
+  <link xref="mal_section">mal_section</link> *
+}
+</code></synopsis>
+
+<p>The <code>page</code> element is the root element of any Mallard page file.
+In Mallard, documents are composed of discrete pages which are  interlinked
+using various linking mechanisms.  There are two types of pages in Mallard:
+<link xref="#guide">guide pages</link> and <link xref="#topic">topic pages</link>.
+Topic pages contain the bulk of the material discussed in a document, whereas
+guide pages serve as navigational aids.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>page</code> element contains an optional
+    <code xref="mal_info">info</code> element, a <code xref="mal_block_title">title</code>
+    element, any <link xref="mal_block">general block content</link>, and
+    any number of <code xref="mal_section">section</code> elements.</p></item>
+
+    <item><p>The <code>page</code> element is the top-level element in any
+    Mallard page file, and cannot occur in any other elements.</p></item>
+
+    <item><p>The <code>id</code> attribute takes a unique identifier, which
+    should match the base file name (without extension) of the file containing
+    the page.</p></item>
+
+    <item><p>The <code>type</code> attribute takes the values <code>"guide"</code> and
+    <code>"topic"</code>.  <link xref="#guide">Guide pages</link> and <link xref="#topic">topic
+    pages</link> are discussed below.  If the <code>type</code> attribute is
+    omitted, it is assumed to be <code>"topic"</code>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>page</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN guide -->
+<section id="guide">
+  <title>Guide Pages</title>
+
+  <p>Guide pages have the <code>type</code> attribute set to
+  <code>"guide"</code>.  They serve as navigational aids, linking to topics and
+  other guides.  Readers can can browse through guides much as they would browse
+  through container sections in a linear document.  Since page can be included
+  in multiple guides, however, readers are able to reach the same content by
+  navigating different paths.</p>
+
+  <p>Guide pages have links automatically inserted into their content based
+  on topic links within their own <code xref="mal_info">info</code> elements
+  and guide links within the <code>info</code> elements of other pages and
+  sections.  Guide pages can contain sections to help organize content.  Each
+  section in a guide page has automatic links inserted as well.  See
+  <link xref="links#topic"/> for details on automatic topic links.</p>
+
+  <p>Guides also have see also links generated automatically.  See
+  <link xref="links#seealso"/> for more information.</p>
+
+  <p>Generally, guide pages will contain some introductory content to help
+  readers understand the topics being presented.  Introductory content should
+  be short and concise.</p>
+</section>
+<!-- END topic -->
+
+
+<!-- BEGIN topic -->
+<section id="topic">
+  <title>Topic Pages</title>
+
+  <p>Topic pages have the <code>type</code> attribute set to
+  <code>"topic"</code>, or have no <code>type</code> attribute at all.  Topics
+  contain the bulk of the material in a document.  A Topic may be a tutorial,
+  a conceptual overview, reference material, or any other type of content.
+  Mallard does not distinguish between different content types, although tools
+  may introduce special styling based on style hints.  Topics are distinguished
+  from guides only in that their primary purpose is to convey information,
+  whereas guides serve as navigational aids.</p>
+
+  <p>Topic pages have links automatically inserted to all guides which link
+  to them.  Topic pages can contain sections to help organize material and
+  present finer-grained chunks of information to the reader.  Each section
+  in a topic page has automatic guide links inserted as well.  See
+  <link xref="links#guide"/> for details on automatic guide links.</p>
+
+  <p>Topics also have see also links generated automatically.  See
+  <link xref="links#seealso"/> for more information.</p>
+</section>
+<!-- END topic -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>In on-screen media, a <code>page</code> element is displayed as a single
+  page.  In this case, <em>page</em> is used in the sense of <em>web page</em>:
+  something which can be read top-to-bottom by scrolling.  This should not be
+  confused with physical pages — one side of a leaf of paper — or with any
+  fixed-height electronic pages such as those used by word processors and
+  e-books.</p>
+
+  <p>The <code>info</code> child element is not displayed directly, although
+  certain informational elements may be displayed or affect aspects of the
+  page display.  In particular, the <code>info</code> element may contain
+  <code>link</code> elements which will cause automatic links to be inserted
+  into the displayed output.  See <link xref="links"/> for more information.</p>
+
+  <p>The title of a page is displayed prominently at the top, followed by any
+  child block content, and finally by each child section.  Note that automatic
+  links, style hints, or other special features may insert material or change
+  the way pages are displayed.</p>
+</section>
+<!-- END processing -->
+
+</page>

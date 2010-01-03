@@ -1,0 +1,143 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_inline_key">
+
+<info>
+  <link type="guide" xref="mal_inline#elements"/>
+
+  <revision version="0.1" date="2008-12-16" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2007-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mark up a key to be pressed on the user's keyboard.</desc>
+</info>
+
+<title>Key Strokes</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_key = element key {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>Use the <code>key</code> element to mark up a key on the keyboard.
+You can use this for letter keys, such as <key>Q</key>, or for keys
+with names, such as <key>Ctrl</key>.  Generally, the contents of the
+<code>key</code> element should be what is printed on the physical
+key, although it may be a textual description for keys with symbols
+printed on them.</p>
+
+<p>Do not use <code>key</code> to mark up a class of keys, such as
+<em>arrow keys</em>.  These do not require markup in running prose.
+Inside a <code xref="mal_inline_keyseq">keyseq</code> element, you
+are allowed to use text without a <code>key</code> element exactly
+for this purpose.</p>
+
+<p>Do not use <code>key</code> to mark up a symbolic key code or a numeric
+key value; if necesarry, use <code xref="mal_inline_sys">sys</code> for
+these instead.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>key</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>key</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>key</code> element can also occur inside the
+    <code xref="mal_inline_keyseq">keyseq</code> element, where it has
+    special meaning.</p></item>
+
+    <item><p>The <code>key</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>key</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>key</code> to mark up a letter key:</p>
+
+  <example>
+    <code><![CDATA[
+Press <key>M</key> to mark the selected message as read.
+]]></code>
+    <p>Press <key>M</key> to mark the selected message as read.</p>
+  </example>
+
+  <p>Use <code>key</code> to mark up a function key:</p>
+
+  <example>
+    <code><![CDATA[
+Press <key>F9</key> to check for new messages.
+]]></code>
+    <p>Press <key>F9</key> to check for new messages.</p>
+  </example>
+
+  <p>Use <code>key</code> to refer to a specific key by a
+  textual description:</p>
+
+  <example>
+    <code><![CDATA[
+Press the <key>Down</key> key to select the next item.
+]]></code>
+    <p>Press the <key>Down</key> key to select the next item.</p>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>No particular special rendering is required for <code>key</code> elements.
+  Keys may be rendered with lightened text or other sublte styling effects to
+  distinguish them from the surrounding text.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+  <p>The <code>key</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/keycap.html">keycap</code>
+  element in DocBook.  Mallard does not provide elements analogous to the
+  DocBook elements
+  <code href="http://www.docbook.org/tdg/en/html/keysym.html">keysym</code> and
+  <code href="http://www.docbook.org/tdg/en/html/keycode.html">keycode</code>.
+  In most cases, these should be marked simply with the
+  <code xref="mal_inline_sys">sys</code> element.</p>
+</section>
+<!-- END comparison -->
+
+</page>

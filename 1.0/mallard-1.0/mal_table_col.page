@@ -1,0 +1,24 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_table_col">
+
+<info>
+  <link type="guide" xref="mal_block#tables"/>
+</info>
+
+<title>Columns and Column Groups</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_table_col = element col {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *
+}
+mal_table_colgroup = element colgroup {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  mal_table_col *
+}
+</code></synopsis>
+
+</page>

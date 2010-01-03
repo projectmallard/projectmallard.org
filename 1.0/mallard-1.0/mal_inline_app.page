@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_inline_app">
+
+<info>
+  <link type="guide" xref="mal_inline#elements"/>
+
+  <revision version="0.1" date="2008-12-12" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2007-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mark up the human-readable name of an application or window.</desc>
+</info>
+
+<title>Application Names</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_app = element app {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>Use the <code>app</code> element to mark up the human-readable name of an
+application or the title of a window within an application.  Do not use the
+<code>app</code> element to mark up the command used to run an application;
+use <code xref="mal_inline_cmd">cmd</code> for this purpose instead.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>app</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>app</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>app</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>app</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>app</code> to mark up the name of an application:</p>
+
+  <example>
+    <code><![CDATA[
+To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at
+the command line.
+]]></code>
+    <p>To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at the
+    command line.</p>
+  </example>
+
+  <p>Use <code>app</code> to refer to a window:</p>
+
+  <example>
+    <code><![CDATA[
+Use the <app>Theme Preferences</app> window to adjust the look of
+your desktop.
+]]></code>
+    <p>Use the <app>Theme Preferences</app> window to adjust the look of your desktop.</p>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Application names are usually nouns, and are often common words or phrases
+  that are indicative of their functionality.  Frequently, they are simply the
+  name of what the application is.  In English and many other languages, the
+  use of an application name in a sentence may sound like the author has simply
+  mistakenly omitted an article, if the application name is not understood to
+  be a title.</p>
+
+  <p>For example, the calculator application that comes with Gnome is called
+  <app>Calculator</app>.  If an author were to write “To start Calculator…”,
+  then a reader may confuse this for “To start the calculator…” with an error.
+  This is even more pronounced in languages such as German where nouns are
+  always capitalized.</p>
+
+  <p>For this reason, it is recommended that application names marked with the
+  <code>app</code> element are rendered in italics or using some other font
+  variation.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+  <p>The <code>app</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/application.html">application</code>
+  element in DocBook.</p>
+</section>
+<!-- END comparison -->
+
+</page>

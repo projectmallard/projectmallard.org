@@ -1,0 +1,66 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_cite">
+
+<info>
+  <link type="seealso" xref="mal_block_comment"/>
+  <link type="seealso" xref="mal_block_quote"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008</years>
+  </credit>
+
+  <revision version="0.1" date="2007-02-08" status="draft"/>
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+</info>
+
+<title>Citations</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_cite = element cite {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+  attribute date { text } ?,
+  attribute href { text } ?,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<comment>
+  <cite date="2007-02-08">Shaun McCance</cite>
+  <p>Possibly add source for block quote citations.</p>
+</comment>
+
+<p>The <code>cite</code> element provides information about the source of a
+<code xref="mal_quote">quote</code> or a <code xref="mal_block_comment">comment</code>
+element.</p>
+
+<comment>
+  <cite date="2007-02-08">Shaun McCance</cite>
+  <p>Add examples, processing expectations.</p>
+</comment>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>cite</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+
+    <item><p>The <code>href</code> attribute provides a URL to identify the
+    entity being cited.  It will frequently be a <sys>mailto:</sys> URL with
+    a person's email address.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+</page>

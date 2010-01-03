@@ -1,0 +1,152 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_info_revision">
+
+<info>
+  <link type="guide" xref="mal_info#elements"/>
+
+  <revision version="0.1" date="2009-05-29" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Record revision numbers, dates, and statuses.</desc>
+</info>
+
+<title>Version Information</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_revision = element revision {
+  attribute version { text } ?,
+  attribute docversion { text } ?,
+  attribute pkgversion { text } ?,
+  attribute date { xsd:date } ?,
+  attribute status {
+    "stub"   | "incomplete" | "draft" | "outdated" |
+    "review" | "candidate"  | "final" } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  <link xref="mal_block_desc">mal_block_desc</link> ?,
+  <link xref="mal_external">mal_external</link> *
+}
+</code></synopsis>
+
+<p>Use the <code>revision</code> information to record information about
+revisions of a document, page, or section.  The <code>revision</code>
+element allows you to specify version numbers, the revision date, and
+the revision status.  Other information can be recorded with attributes
+or elements from external namespaces.  Multiple <code>revision</code>
+elements can be used to record the revision history.</p>
+
+<p>You can use the <code>title</code> and <code>desc</code> elements
+in a <code>revision</code> element to provide a title and description
+of that revision.  This is not necessarily the same as the title and
+description of the page or section as of that revision.</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>revision</code> element contains an optional
+    <code xref="mal_block_title">title</code> element, an optional
+    <code xref="mal_block_desc">desc</code> element, and any number
+    of elements from external namespaces.</p></item>
+
+    <item><p>The <code>revision</code> element can occur in any
+    <code xref="mal_info">info</code> element.</p></item>
+
+    <item><p>The <code>version</code> attribute records the version number
+    of the page or section.</p></item>
+
+    <item><p>The <code>docversion</code> attribute can be used to record the
+    version number of the enclosing document.</p></item>
+
+    <item><p>The <code>pkgversion</code> attribute can be used to record the
+    version number of the package containing this document.</p></item>
+
+    <item><p>The <code>date</code> attribute records the date this revision
+    was made.</p></item>
+
+    <item><p>The <code>status</code> attribute records the status of the page
+    or section as of the given revision.  The following values are allowed:</p>
+    <table rules="rows">
+      <tr>
+        <td><p><code>"stub"</code></p></td>
+        <td><p>contains little to no real content</p></td>
+      </tr>
+      <tr>
+        <td><p><code>"incomplete"</code></p></td>
+        <td><p>outline of all information, but lacking content</p></td>
+      </tr>
+      <tr>
+        <td><p><code>"draft"</code></p></td>
+        <td><p>all content available, but unpolished</p></td>
+      </tr>
+      <tr>
+        <td><p><code>"outdated"</code></p></td>
+        <td><p>was once complete or nearly complete, but needs to be revised
+        to reflect changes</p></td>
+      </tr>
+      <tr>
+        <td><p><code>"review"</code></p></td>
+        <td><p>ready to be reviewed by editors</p></td>
+      </tr>
+      <tr>
+        <td><p><code>"candidate"</code></p></td>
+        <td><p>reviewed and awaiting a final approval</p></td>
+      </tr>
+      <tr>
+        <td><p><code>"final"</code></p></td>
+        <td><p>approved and ready for publication or distribution</p></td>
+      </tr>
+    </table>
+    </item>
+
+    <item><p>The <code>revision</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>As an informational element, the <code>revision</code> element is not
+  necessarily displayed directly on the page or section in which it appears.
+  Some tools may show revision on a separate informational page or dialog.
+  Tools designed for editors might show revision information directly.</p>
+
+  <p>When a <code>revision</code> element is displayed or processed, tools
+  should process only those child elements that they understand, and ignore
+  everything else.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>revision</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/revision.html">revision</code>
+  element in DocBook.  In DocBook, <code>revision</code> elements must occur
+  inside a
+  <code href="http://www.docbook.org/tdg/en/html/revhistory.html">revhistory</code>
+  element.  In Mallard, they are placed directly in an
+  <code xref="mal_info">info</code> element.  DocBook provides more specific
+  child elements for structured content, as well as for block content for
+  detailed remarks.  Mallard allows such information to be encoded with
+  elements from external namespaces when needed.</p>
+</section>
+<!-- END comparison -->
+
+</page>

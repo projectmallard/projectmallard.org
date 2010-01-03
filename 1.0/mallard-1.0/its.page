@@ -1,0 +1,356 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="its">
+
+<info>
+  <link type="guide" xref="details#i18n"/>
+
+  <revision version="0.1" date="2009-05-27" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2009</years>
+  </credit>
+
+  <desc>Conformance to the W3C Internationalization and Localization
+  Markup Requirements.</desc>
+</info>
+
+<title>ITS Conformance</title>
+
+<p>This page discusses Mallard's conformance to the requirements in the
+<link href="http://www.w3.org/TR/itsreq/">W3C Internationalization and
+Localization Markup Requirements</link>, as well as its usage of attributes
+and elements from the <link href="http://www.w3.org/TR/its/">W3C
+Internationalization Tag Set</link>.</p>
+
+<note><p>As of the time of this writing, there are 26 requirements, though not
+all of them are complete.  This page discusses a selection of the requirements.
+Future versions may discuss more requirements.</p></note>
+
+<section id="R002">
+  <title>R002: Span-Like Element</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#span">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R002] span-like element is required to allow authors to mark sections
+    text that may have special properties, from a localization and
+    internationalization point of view.</p>
+  </quote>
+
+  <p>Mallard provides the <code xref="mal_inline_span">span</code> element,
+  a general-purpose span-like element.  The <code>span</code> element accepts
+  attributes from external namespaces, allowing attributes such as
+  <code>xml:lang</code> and
+  <code href="http://www.w3.org/TR/its/#trans-datacat">its:translate</code>
+  to be used in Mallard documents.</p>
+</section>
+
+<section id="R004">
+  <title>R004: Unique Identifier</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#uid">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R004] It should be possible to attach a unique identifier to any
+    localizable item. This identifier should be unique within a document set,
+    but should be identical across all translations of the same item.</p>
+  </quote>
+
+  <p>While the <code>id</code> attribute is only allowed on
+  <code xref="mal_page">page</code> and <code xref="mal_section">section</code>
+  elements, Mallard does allow attributes from external namespaces to be used
+  on all elements.  If necessary for translation purposes, any attribute from
+  an external namespace may be used as a unique identifier.  In particular,
+  Mallard does not use the common <code>xml:id</code> for page and section
+  IDs, but it may be used on any element to provide a unique identifier for
+  translation or any other purposes.</p>
+</section>
+
+<section id="R006">
+  <title>R006: Identifying Language/Locale</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#langlocale">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R006] Any document at its beginning should declare a language/locale
+    that is applied to both main content and external content stored separately.
+    While the language/locale may be declared for the whole document, when an
+    element or a text span is in a different language/locale from the
+    document-level language, it should be labeled appropriately. Therefore,
+    DTD/Schema should allow any elements to have a language/locale specifying
+    attribute. The language/locale declaration should use industry standard
+    approaches.</p>
+  </quote>
+
+  <p>Mallard allows the standard <code>xml:lang</code> attribute to be used
+  on all elements.</p>
+
+  <p>Note that there are two different methods of identifying language and locale
+  information that are likely to be encountered by those working with Mallard.
+  Since Mallard is an XML format, language identifiers are expected to conform
+  to <link href="http://tools.ietf.org/html/rfc3066">IETF RFC 3066</link>.
+  Since Mallard is designed to be used in a desktop help system,
+  <link href="http://en.wikipedia.org/wiki/Locale">POSIX locale identifiers</link>
+  are more convenient.  This is a potentially serious interchange issue, and this
+  document currently offers no solutions to this problem.</p>
+</section>
+
+<section id="R007">
+  <title>R007: Identifying Terms</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#termid">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R007] It should be possible to identify terms inside an element or a
+    span and to provide data for terminology management and index generation.
+    Terms should be either associated with attributes for related term
+    information or linked to external terminology data.</p>
+  </quote>
+
+  <p>Mallard does not currently provide a means of marking up terms and
+  definitions.  When necessary for translation purposes, the
+  <link href="http://www.w3.org/TR/its/#terminology"><code>its:term</code>
+  and <code>its:termInfoRef</code></link> attributes may be used on any
+  elements to indicate such a relationship.</p>
+</section>
+
+<section id="R008">
+  <title>R008: Purpose Specification/Mapping</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#mapping">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R008] Currently, it does not appear to be realistic that all XML
+    vocabularies tag localization-relevant information identical (e.g. all
+    use the "term" tag for terms). One way to take care of diverse
+    localization-relevant markup in localization environments is a mapping
+    mechanism which maps localization-relevant markup onto a canonical
+    representation (such as the Internationalization Tag Set).</p>
+  </quote>
+
+  <p>Any purpose mapping that can be encoded using the
+  <code href="http://www.w3.org/TR/its/#basic-concepts-selection-global">its:rules</code>
+  element can be included in a Mallard document.  The <code>its:rules</code> element
+  may be used in any <code xref="mal_info">info</code> element.  See also
+  <link href="http://www.w3.org/TR/its/#associating-its-with-existing-markup">Associating
+  ITS Data Categories with Existing Markup</link>.</p>
+</section>
+
+<section id="R011">
+  <title>R011: Bidirectional Text Support</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#bidi">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R011] Markup should be available to support the needs of bidirectional
+    scripts.</p>
+  </quote>
+
+  <p>Mallard allows attributes from external namespaces to be used on all
+  elements.  Consequently, the
+  <code href="http://www.w3.org/TR/its/#directionality">its:dir</code>
+  attribute may be used to specify text directionality.</p>
+</section>
+
+<section id="R012">
+  <title>R012: Indicator of Translatability</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#transinfo">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R012] Methods must exist to allow to specify the parts of a document
+    that are to be translated or not.</p>
+  </quote>
+
+  <p>Mallard allows attributes from external namespaces to be used on all
+  elements.  Consequently, the
+  <code href="http://www.w3.org/TR/its/#trans-datacat">its:translate</code>
+  attribute may be used to specify whether parts of a document are to be
+  translated.</p>
+
+  <p>Additionally, the
+  <code href="http://www.w3.org/TR/its/#basic-concepts-selection-global">its:rules</code>
+  element may be used in any <code xref="mal_info">info</code> element to
+  provide translatability rules for a page or section.</p>
+</section>
+
+<section id="R014">
+  <title>R014: Limited Impact</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#impact">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R014] All solutions proposed should be designed to have as less impact
+    as possible on the tree structure of the original document and on the
+    content models in the original schema.</p>
+  </quote>
+
+  <p>Mallard allows tool-specific extensibility using attributes and elements
+  from external namespaces.  Mallard has
+  <link xref="mal_external">clearly defined rules</link> for how attributes
+  and elements from external namespaces are to be processed in various contexts.
+  Tools writers are expected to be aware of these issues.  Whenever possible,
+  this document issues that can arise from extensions, including those for
+  translation purposes.</p>
+
+  <p>While it is impossible to predict all issues one might encounter, Mallard
+  was developed after years of developing translation tools for other formats.
+  Internationalization and localization were primary concerns in the design
+  of Mallard.</p>
+</section>
+
+<section id="R015">
+  <title>R015: Attributes and Translatable Text</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#transattr">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R015] Provisions must be taken to ensure that attributes with
+    translatable values do not impair the localization process.</p>
+  </quote>
+
+  <p>Mallard never places translatable text in attribute values.</p>
+</section>
+
+<section id="R017">
+  <title>R017: Localization Notes</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#locnotes">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R017] A method must exist for authors to communicate information to
+    localizers about a particular item of content.</p>
+  </quote>
+
+  <p>Mallard allows attributes from external namespaces to be used on all
+  elements.  Consequently, the
+  <code href="http://www.w3.org/TR/its/#trans-datacat">its:locNote</code> and
+  <code href="http://www.w3.org/TR/its/#trans-datacat">its:locNoteRule</code>
+  attributes may be used to provide localization notes.</p>
+
+  <p>If more extensive localization notes are needed, the
+  <code xref="mal_block_comment">comment</code> element may be used.  Using a
+  <code href="http://www.w3.org/TR/its/#basic-concepts-selection-global">its:rules</code>
+  element in an <code xref="mal_info">info</code> element, one can clearly
+  specify which editorial comments are localization notes.</p>
+</section>
+
+<section id="R020">
+  <title>R020: Annotation Markup</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#annomark">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R020] There must be a way to support markup up of text annotations of
+    the 'ruby' type.</p>
+  </quote>
+
+  <p>All translatable content in Mallard is placed in element content, which
+  allows annotation markup to be used.  Mallard never places translatable
+  content in attribute values.  Note, however, that Mallard documents will
+  often be displayed by converting them to a format such as HTML.  If the
+  display format places textual content in attribute values (such as the
+  <code>alt</code> attribute of the <code>img</code> tag in HTML), then
+  annotations could be lost in rendering.</p>
+
+  <p>Elements from external namespaces may be used in all
+  <link xref="mal_inline">inline contexts</link>.  While this allows Ruby
+  annotations to be embedded within a Mallard document, the
+  <link xref="mal_inline#processing">fallback processing expectations</link>
+  are unlikely to produce satisfactory results for tools that do not support
+  Ruby.  Future versions of this document should address this issue.</p>
+</section>
+
+<section id="R022">
+  <title>R022: Nested Elements</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#nestedelems">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R022] Great care must be taken when defining or using nested
+    translatable elements.</p>
+  </quote>
+
+  <p>Mallard explicitly disallows mixing block and inline content,
+  except in well-defined cases which can easily be detected and
+  handled.  In Mallard, any block element which can contain text
+  directly is considered to be a translation unit.  Since these
+  elements do not allow general block content to be mixed into
+  the inline content, translation units can always be presented
+  to translators without the need for placeholders.</p>
+
+  <p>Note that this may not be the case if a translation tool chooses
+  to treat certain container elements as translation units.  For example,
+  under some circumstances a translation tool might choose to present
+  <link xref="mal_table">tables</link> or
+  <link xref="mal_block_list">lists</link> as translatable to allow
+  translators to reorder the rows or items.  In these cases, the block
+  content inside the entries or items would still constitute discrete
+  units of translations, making placeholders necessary.</p>
+</section>
+
+<section id="R025">
+  <title>R025: Elements and Segmentation</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#elemseg">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R025] Methods, independent of the semantic, of the elements must
+    exist to provide hints on how to break down document content into
+    meaningful runs of text.</p>
+  </quote>
+
+  <p>Making meaningful distinctions is ultimately the job of a processing
+  tool, although the design of an XML vocabulary can have a significant
+  impact on implementation difficulty.  The following notes will be relevant
+  to most tool implementors.</p>
+
+  <list>
+    <item>
+      <p>In Mallard, the content of any element, taken in context, is unambiguously
+      <link xref="mal_inline">general inline content</link>,
+      <link xref="mal_block">general block content</link>, or some particular
+      type of structured content.  It is never the case that processing tools
+      must probe the contents to determine the content model.</p>
+      <p>Note that, since some element names are used in both block and inline
+      contexts, such ambiguous content models would be particularly problematic
+      for Mallard.  Ambiguous content models could lead to situations where it
+      is not possible to determine the function of an element such as
+      <code>code</code>.  Thus, ambiguous content models are explicitly avoided.
+      This makes most processing tasks simpler.</p>
+    </item>
+
+    <item>
+      <p>In Mallard, elements generally contain either block content or
+      inline content.  Thus, for example, you cannot place a paragraph
+      inside a paragraph.  This is simpler for translators, as well as
+      for translation tool implementors, because it reduces the need
+      to use placeholders for separate translation units.</p>
+    </item>
+
+    <item>
+      <p>One notable exception to the above is the <code>item</code>
+      element in <link xref="mal_block_tree">tree lists</link>.  To
+      simplify writing, tree list items simply take inline content
+      followed by any number of nested tree list items.  Since the
+      block-like items are not interspersed with the inline content,
+      however, translation tools should be able to handle this case
+      without placeholders.</p>
+    </item>
+
+    <item>
+      <p>It is noteworthy that Mallard reuses some element names in both block
+      and inline contexts.  The <code xref="mal_block_code">code</code> and
+      <code xref="mal_block_media">media</code> elements are two examples of
+      this.  Since Mallard never allows general block content to be mixed with
+      general inline content, the purpose of these elements is unambiguous when
+      processed in context.  Thus, it is important that tools always process
+      elements in context to handle them correctly.</p>
+    </item>
+  </list>
+</section>
+
+</page>

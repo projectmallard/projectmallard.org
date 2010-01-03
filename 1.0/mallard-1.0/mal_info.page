@@ -1,0 +1,58 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="mal_info">
+
+<info>
+  <link type="guide" xref="spec"/>
+
+  <revision version="0.1" date="2008-02-21" status="stub"/>
+</info>
+
+<title>Informational Elements</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info = element info {
+  attribute * - (mal:* | local:*) { text } *,
+
+  (
+    <link xref="mal_info_desc">mal_info_desc</link> ? &amp;
+    <link xref="mal_info_credit">mal_info_credit</link> * &amp;
+    <link xref="mal_info_license">mal_info_license</link> * &amp;
+    <link xref="mal_info_link">mal_info_link</link> * &amp;
+    <link xref="mal_info_title">mal_info_title</link> * &amp;
+    <link xref="mal_info_revision">mal_info_revision</link> * &amp;
+    <link xref="mal_external">mal_external</link> *
+  )
+}
+</code></synopsis>
+<!--
+credit (type)
+credit/date
+credit/email
+credit/name
+
+link (guide/page/seealso)
+
+? version number date
+? license
+? notice
+? desc
+? keyword
+-->
+
+<!-- BEGIN elements -->
+<section id="elements">
+  <title>Informational Elements</title>
+</section>
+<!-- END elements -->
+
+<!-- BEGIN additional -->
+<section id="additional">
+  <info>
+    <title type="link">Additional Informational Elements</title>
+  </info>
+  <title>Additional Elements</title>
+</section>
+<!-- END additional -->
+
+</page>

@@ -1,0 +1,28 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      groups="pages sections"
+      type="guide"
+      id="spec">
+
+<info>
+  <link type="topic" xref="mal_page" group="pages"/>
+  <link type="topic" xref="mal_section" group="sections"/>
+
+  <revision version="0.1" date="2007-02-21" status="stub"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2009</years>
+  </credit>
+
+  <desc>Complete specification of the Mallard XML vocabulary.</desc>
+</info>
+
+<title>Language Specification</title>
+
+<comment>
+  <cite date="2007-02-20">Shaun McCance</cite>
+  <p>Add some intro text</p>
+</comment>
+
+</page>

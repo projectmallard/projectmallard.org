@@ -1,0 +1,18 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      style="namespace"
+      id="index">
+
+<info>
+  <link type="topic" xref="/1.0/mallard-1.0/index"/>
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2009</years>
+  </credit>
+  <desc>Better Help for Better Software</desc>
+</info>
+
+<title>Mallard 1.0 Namespace</title>
+
+</page>

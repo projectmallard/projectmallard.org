@@ -1,0 +1,90 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_info_license">
+
+<info>
+  <link type="guide" xref="mal_info#elements"/>
+
+  <revision version="0.1" date="2009-05-28" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Provide information about the licensing terms of the material.</desc>
+</info>
+
+<title>License Information</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_license = element license {
+  attribute href { text } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_block">mal_block</link> +
+}
+</code></synopsis>
+
+<p>The <code>license</code> element can be used to provide information about
+the licensing terms of the material in a page or section.  The <code>href</code>
+attribute can be used to uniquely identify certain licenses.</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>license</code> element can contain any
+    <link xref="mal_block">general block content</link>.</p></item>
+
+    <item><p>The <code>license</code> element can occur in any
+    <code xref="mal_info">info</code> element.</p></item>
+
+    <item><p>The <code>href</code> attribute can be used to provide a URI which
+    uniquely identifies the license terms.</p></item>
+
+    <item><p>The <code>license</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>The <code>license</code> is not necessarily displayed on the page in
+  which it appears.  Some tools may display license information on a separate
+  informational page or dialog.  When it is displayed, its contents are treated
+  as block content.</p>
+
+  <p>There is no requirement that the URI <code>href</code> will actually
+  be displayed, or that the <code>href</code> attribute will cause a link
+  to be displayed.  If authors wish to ensure that an external resource
+  is linked to, they should add a link into the block content.  Processing
+  tools may recognize certain license URIs for special processing.  This
+  could be used, for instance, to place a license badge at the bottom of
+  a displayed page for certain common licenses.</p>
+</section>
+<!-- END processing -->
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>DocBook contains the more general-purpose
+  <code href="http://www.docbook.org/tdg/en/html/legalnotice.html">legalnotice</code>
+  element, which is frequently used to include licensing terms.  The
+  <code>license</code> element is intended mostly for redistribution
+  terms, which are not immediately relevent to most readers.  When it
+  is important that readers see certain legal information, authors
+  should provide that information in the main content, possibly on a
+  separate page.</p>
+</section>
+<!-- END comparison -->
+
+</page>

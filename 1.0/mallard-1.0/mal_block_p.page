@@ -1,0 +1,103 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_p">
+
+<info>
+  <revision version="0.1" date="2009-05-28" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create a simple paragraph of text.</desc>
+</info>
+
+<title>Paragraphs</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_p = element p {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>The most basic block-level element in Mallard is the <code>p</code>
+element.  The <code>p</code> element creates a paragraph in the formatted
+output.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>p</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>p</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>p</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Create a simple paragraph:</p>
+
+  <example>
+    <code><![CDATA[
+<p>The most basic block-level element in Mallard is the <code>p</code>
+element.  The <code>p</code> element creates a paragraph in the formatted
+output.</p>]]></code>
+    <p>The most basic block-level element in Mallard is the <code>p</code>
+    element.  The <code>p</code> element creates a paragraph in the formatted
+    output.</p>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+  <p>Paragraphs are displayed as block elements, with their child elements
+  interpreted as inline elements.  In on-screen media, paragraphs generally
+  have padding above and below them to separate them from the surrounding
+  block content.  In print media, the first line of each paragraph has
+  traditionally been indented.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN docbook -->
+<section id="docbook">
+  <title>Comparison to DocBook</title>
+  <p>The <code>p</code> element in Mallard appears to be equivalent to to the
+  <code href="http://www.docbook.org/tdg/en/html/para.html">para</code> element
+  in DocBook.  While both elements create a paragraph in the formatted output,
+  the <code>p</code> element in Mallard is actually much more restrictive, as it
+  does not permit nested block content.  In this regard, it is actaully similar
+  to the <code href="http://www.docbook.org/tdg/en/html/simpara.html">simpara</code>
+  element in DocBook.</p>
+</section>
+<!-- END docbook -->
+
+</page>

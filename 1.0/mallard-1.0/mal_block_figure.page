@@ -1,0 +1,112 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_figure">
+
+<info>
+  <link type="seealso" xref="mal_block_media"/>
+  <link type="seealso" xref="mal_block_listing"/>
+
+  <revision version="0.1" date="2009-05-19" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Provide a title or caption for a multimedia object.</desc>
+</info>
+
+<title>Figures</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_figure = element figure {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  <link xref="mal_block_desc">mal_block_desc</link> ?,
+  <link xref="mal_block">mal_block</link> +
+}
+</code></synopsis>
+
+<p>Use the <code>figure</code> element to provide a title or caption for a
+<link xref="mal_block_media">multimedia object</link> or other block object.
+To provide a title for the contents of a file, such as a
+<link xref="mal_block_code">code block</link>, use the
+<code xref="mal_block_listing">listing</code> element instead.</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>figure</code> element contains an optional
+    <link xref="mal_block_title">title</link> element, an optional
+    <link xref="mal_block_desc">desc</link> element, and  any
+    <link xref="mal_block">general block content</link>.</p></item>
+
+    <item><p>The <code>figure</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>figure</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>figure</code> to provide a title and caption for an image:</p>
+
+  <example>
+    <code><![CDATA[
+<figure>
+  <title>Drake</title>
+  <desc>Drake is the Mallard mascot.</desc>
+  <media type="image" mime="image/png" src="figures/mallard.png"/>
+</figure>
+]]></code>
+    <figure>
+      <title>Drake</title>
+      <desc>Drake is the Mallard mascot.</desc>
+      <media type="image" mime="image/png" src="figures/mallard.png"/>
+    </figure>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Figures are displayed as block elements, with each of their child elements
+  being interpreted as block elements.  When present, the title and description
+  should be displayed in a way that makes their respective roles clear.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>figure</code> is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/figure.html">figure</code>
+  element in DocBook.  DocBook only provides a title for figures, whereas
+  Mallard distinguishes between a title and a caption.</p>
+</section>
+<!-- END comparison -->
+
+</page>
