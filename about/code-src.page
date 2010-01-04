@@ -1,0 +1,19 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="code-src">
+
+<info>
+</info>
+
+<title>Code and Commands Source</title>
+
+<p>This is the source markup for <link xref="code"/>.  It is written in a
+Mallard extension format called Mallard Sites.  Mallard Sites pages are just like
+regular Mallard pages, except that <code>xref</code> attributes may contain the
+<code>/</code> character.</p>
+
+<code>
+<include xmlns="http://www.w3.org/2001/XInclude" href="code.page" parse="text"/>
+</code>
+
+</page>

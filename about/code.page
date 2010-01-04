@@ -6,12 +6,10 @@
 <info>
   <link type="guide" xref="learn"/>
 
-  <revision version="0.1" date="2009-06-16" status="incomplete"/>
-
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2009</years>
+    <years>2010</years>
   </credit>
 
   <desc>Add code snippets, file contents, and command lines to your
@@ -19,5 +17,308 @@
 </info>
 
 <title>Code and Commands</title>
+
+<p>In technical documentation, you often need to write commands, code
+snippets, or file contents.  Mallard provides elements that help you do
+this with a consistent style, helping your readers easily identify information
+they need.  In this tutorial, you will learn how to write inline code and
+commands, create code blocks and command-line sessions, and provide a title
+for your code blocks.</p>
+
+<note style="tip">
+<title>Learn by Example</title>
+<p>This page was written in a Mallard extension format called Mallard Sites.
+<link xref="code-src">Read the source markup</link> for this page to
+learn Mallard from real-world examples.</p>
+</note>
+
+<section>
+<title>Inline Code and Commands</title>
+
+<p>You can use the <code xref="/1.0/mallard-1.0/mal_inline_code">code</code>
+element inside a paragraph to mark up to a snippet of code.  You will typically
+use <code>code</code> as an inline element to refer to something short like a
+function name or variable.</p>
+
+<example>
+<code><![CDATA[
+<p>Call the <code>bean_grow</code> function to grow your magic beans.</p>
+]]></code>
+<p>Call the <code>bean_grow</code> function to grow your magic beans.</p>
+</example>
+
+<p>You can use the <code>code</code> element for more programming languages.
+Use the <code>code</code> element to mark up the name of an XML element,
+a key in a configuration file, or anything else you might find in a file
+you would edit in a text editor.</p>
+
+<example>
+<code><![CDATA[
+<p>Use the <code>code</code> element to mark up the name of an XML element.</p>
+]]></code>
+<p>Use the <code>code</code> element to mark up the name of an XML element.</p>
+</example>
+
+<example>
+<code><![CDATA[
+<p>Set the <code>Name</code> key to the name of your application.</p>
+]]></code>
+<p>Set the <code>Name</code> key to the name of your application.</p>
+</example>
+
+<p>Use the <code xref="/1.0/mallard-1.0/mal_inline_cmd">cmd</code> element
+to provide a command for a user to run in a command-line environment.</p>
+
+<example>
+<code><![CDATA[
+<p>Use <cmd>yelp-tool</cmd> to create HTML from your Mallard document.</p>
+]]></code>
+<p>Use <cmd>yelp-tool</cmd> to create HTML from your Mallard document.</p>
+</example>
+
+<p>Sometimes you need to refer to options or arguments to commands.  In
+Mallard, you mark up command arguments with the <code>cmd</code> element
+as well.</p>
+
+<example>
+<code><![CDATA[
+<p>Use the <cmd>-o</cmd> option to specify an output directory.</p>
+]]></code>
+<p>Use the <cmd>-o</cmd> option to specify an output directory.</p>
+</example>
+</section>
+
+<section>
+<title>Code Blocks</title>
+
+<p>Sometimes you need to provide multiple lines of code or file contents,
+or you may want to put a long line of code on its own line to make it
+easier to read.  You can use the
+<code xref="/1.0/mallard-1.0/mal_block_code">code</code> element outside
+of a paragraph to create a code block.</p>
+
+<example>
+<code><![CDATA[
+<code>
+if (bean_is_magic(bean)) {
+  bean_grow(bean);
+}
+</code>
+]]></code>
+<code>
+if (bean_is_magic(bean)) {
+  bean_grow(bean);
+}
+</code>
+</example>
+
+<note style="tip">
+<p>In Mallard, the first line break in a code block is ignored.  This allows
+you to write the contents more naturally.  Indentation, however, is not ignored.
+If you indent your code block to match the indentation in your XML file, it
+will show up in the output.</p>
+</note>
+
+<p>The contents of your code block might contain special XML characters like
+<code>&lt;</code>.  You can write these with standard XML escape sequences like
+<code>&amp;lt;</code>, but that can become cumbersome, especially when writing
+the contents of an XML file.  Fortunately, XML provides a special syntax called
+<code>CDATA</code> to escape large amounts of text.</p>
+
+<example>
+<code><![CDATA[
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/
+      type="guide" id="index">
+  <info>
+    /* Page information goes here */
+  </info>
+  /* Page contents go here */
+</page>
+]]>]]&gt;&lt;/code></code>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/
+      type="guide" id="index">
+  <info>
+    /* Page information goes here */
+  </info>
+  /* Page contents go here */
+</page>
+]]></code>
+</example>
+
+<p>You can use the <code>CDATA</code> syntax anywhere you need to escape a lot
+of special characters.  It is a standard XML features, not specific to Mallard
+or code blocks.</p>
+
+</section>
+
+<section>
+<title>Command-line Sessions</title>
+
+<p>If you need to provide a long command to your readers, you may want to
+show the command in its own block.  Long commands can be difficult to read
+when embedded inline in a paragraph.  You can use the
+<code xref="/1.0/mallard-1.0/mal_block_screen">screen</code>
+element to show a command in a block.</p>
+
+<example>
+<code><![CDATA[
+<screen>
+xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache mal2html.xsl index.page
+</screen>
+]]></code>
+<screen>
+xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache mal2html.xsl index.page
+</screen>
+</example>
+
+<note style="tip">
+<p>Just as in code blocks, a leading line break is ignored in
+<code>screen</code> elements.</p>
+</note>
+
+<p>You can also use the <code>screen</code> element to show commands along
+with their output.  To mark up the input and output, use the
+<code xref="/1.0/mallard-1.0/mal_inline_input">input</code> and
+<code xref="/1.0/mallard-1.0/mal_inline_output">output</code> elements.</p>
+
+<example>
+<code><![CDATA[
+<screen>
+<input>ls *.page</input>
+<output>index.page  planting.page  uses.page</output>
+</screen>
+]]></code>
+<screen>
+<input>ls *.page</input>
+<output>index.page  planting.page  uses.page</output>
+</screen>
+</example>
+
+<p>If you want to provide more complicated command-line sessions, you can
+use the <code>style</code> attribute on the <code>output</code> element
+to mark up prompts and error output.</p>
+
+<example>
+<code><![CDATA[
+<screen>
+<output style="prompt">$ </output><input>ls *.page</input>
+<output>index.page  planting.page  uses.page</output>
+<output style="prompt">$ </output><input>rm uses.page</input>
+<output style="prompt">$ </output><input>ls *.page</input>
+<output>index.page  planting.page</output>
+<output style="prompt">$ </output><input>rm uses.page</input>
+<output style="error">rm: cannot remove `uses.page': No such file or directory</output>
+</screen>
+]]></code>
+<screen>
+<output style="prompt">$ </output><input>ls *.page</input>
+<output>index.page  planting.page  uses.page</output>
+<output style="prompt">$ </output><input>rm uses.page</input>
+<output style="prompt">$ </output><input>ls *.page</input>
+<output>index.page  planting.page</output>
+<output style="prompt">$ </output><input>rm uses.page</input>
+<output style="error">rm: cannot remove `uses.page': No such file or directory</output>
+</screen>
+</example>
+
+</section>
+
+<section>
+<title>Code Listings</title>
+
+<p>When you use code blocks to show the contents of a file, you often want
+to provide a name or title for the file.  You can do this in introductory
+text in a paragraph before the code block, but displaying the title with
+the code block makes it more clear to the reader.</p>
+
+<p>The <code>code</code> element takes inline content and treats all its
+contents as part of the code block, so you can't place a title inside the
+<code>code</code> element.  Mallard provides the
+<code xref="/1.0/mallard-1.0/mal_block_listing">listing</code>
+element to allow you to specify a title for code blocks and similiar
+content.</p>
+
+<example>
+<code><![CDATA[
+<listing>
+<title><file>index.page</file></title>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/
+      type="guide" id="index">
+  <info>
+    /* Page information goes here */
+  </info>
+  /* Page contents go here */
+</page>
+]]>]]&gt;<![CDATA[</code>
+</listing>
+]]></code>
+<listing>
+<title><file>index.page</file></title>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/
+      type="guide" id="index">
+  <info>
+    /* Page information goes here */
+  </info>
+  /* Page contents go here */
+</page>
+]]></code>
+</listing>
+</example>
+
+<p>The title is supplied by the
+<code xref="/1.0/mallard-1.0/mal_block_title">title</code> element.
+This example also uses the
+<code xref="/1.0/mallard-1.0/mal_inline_file">file</code> element, an
+inline element that allows you to provide a file name.</p>
+
+<p>You can also use the <code>listing</code> element around any other
+type of block content.  For example, you can use the <code>listing</code>
+element to provide a title for a command inside a <code>screen</code>
+element.</p>
+
+<example>
+<code><![CDATA[
+<listing>
+<title>Process a Mallard Document</title>
+<screen>
+xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache mal2html.xsl index.page
+</screen>
+</listing>
+]]></code>
+<listing>
+<title>Process a Mallard Document</title>
+<screen>
+xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache mal2html.xsl index.page
+</screen>
+</listing>
+</example>
+
+<p>Finally, you can also supply a short description for a listing using
+the <code xref="/1.0/mallard-1.0/mal_block_desc">desc</code> element.</p>
+
+<example>
+<code><![CDATA[
+<listing>
+<title>Process a Mallard Document</title>
+<desc>Keep this command handy.</desc>
+<screen>
+xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache mal2html.xsl index.page
+</screen>
+</listing>
+]]></code>
+<listing>
+<title>Process a Mallard Document</title>
+<desc>Keep this command handy.</desc>
+<screen>
+xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache mal2html.xsl index.page
+</screen>
+</listing>
+</example>
+
+</section>
 
 </page>
