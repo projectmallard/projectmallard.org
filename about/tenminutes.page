@@ -11,19 +11,13 @@
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2009</years>
+    <years>2008-2010</years>
   </credit>
 
   <desc>Create a multiple-page document in only ten minutes.</desc>
 </info>
 
 <title>Ten Minute Tour</title>
-
-<comment>
-  <cite date="2009-06-16">shaunm</cite>
-  <p>This is draft material.  I'm not happy with the tone yet.</p>
-</comment>
-
 
 <p>In this tutorial, you will learn how to create a simple multiple-page
 Mallard document by creating a document for the fictitious <app>Beanstalk</app>
@@ -39,6 +33,13 @@ pages present some piece of information to the reader. This might be a
 tutorial, a conceptual overview, reference material, or any other type
 of content. Guide pages serve as the navigational glue between topics,
 helping readers find and explore content.</p>
+
+<note style="tip">
+<title>Learn by Example</title>
+<p>This page was written in a Mallard extension format called Mallard Sites.
+<link xref="tenminutes-src">Read the source markup</link> for this page to
+learn Mallard from real-world examples.</p>
+</note>
 
 <section>
 <title>First Page</title>
@@ -189,7 +190,6 @@ top and bottom to both “Beanstalk Help” and “Bean Uses”.  Adding a page 
 is like adding it to a section in a traditional linear document, except that pages
 can be linked to from multiple guides.  This allows you to provide multiple ways
 to navigate to a page to better match how your readers are thinking.</p>
-
 </section>
 
 <section>
@@ -226,11 +226,10 @@ beans and nurture them into a bean sprout.</p>
 paragraph.  The <code>steps</code> element creates a list of steps to
 follow.  Each <code>item</code> element is one step in the list, and
 must contain one or more paragraphs or other block content.</p>
-
 </section>
 
 <section>
-<title>Read more and Explore</title>
+<title>Read More and Explore</title>
 
 <p>Using the information in this tutorial, you can create a simple Mallard
 document with any number of pages.  Mallard offers more features that allow
@@ -241,7 +240,6 @@ content and additional pages to your document.</p>
 <link xref="learn">Mallard tutorials</link>.  Or read the
 <link xref="/1.0/mallard-1.0/spec">Mallard language specification</link>
 to see a complete list of what Mallard offers.</p>
-
 </section>
 
 </page>
