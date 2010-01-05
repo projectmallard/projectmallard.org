@@ -75,12 +75,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <img class="headbar-icon">
         <xsl:attribute name="src">
           <xsl:value-of select="$mal.site.root_noslash"/>
-          <xsl:text>/mallard-logo-120.png</xsl:text>
+          <xsl:text>/mallard-header.png</xsl:text>
         </xsl:attribute>
       </img>
     </a>
-    <div class="headbar-title">Mallard</div>
-    <div class="headbar-subtitle">Better Help for Better Software</div>
     <div style="clear:both">
       <xsl:choose>
         <xsl:when test="string($node/@style) = 'pmo-source'">
