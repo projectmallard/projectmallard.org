@@ -1,5 +1,4 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      xmlns:e="http://projectmallard.org/experimental/"
       type="topic"
       id="code">
 
@@ -18,6 +17,13 @@
 
 <title>Code and Commands</title>
 
+<note style="pmo-source">
+<title>Learn by Example</title>
+<p>This page was written in a Mallard extension format called Mallard Sites.
+<link xref="code-src">Read the source markup</link> for this page to
+learn Mallard from real-world examples.</p>
+</note>
+
 <p>In technical documentation, you often need to write commands, code
 snippets, or file contents.  Mallard provides elements that help you do
 this with a consistent style, helping your readers easily identify information
@@ -25,18 +31,11 @@ they need.  In this tutorial, you will learn how to write inline code and
 commands, create code blocks and command-line sessions, and provide a title
 for your code blocks.</p>
 
-<note style="tip">
-<title>Learn by Example</title>
-<p>This page was written in a Mallard extension format called Mallard Sites.
-<link xref="code-src">Read the source markup</link> for this page to
-learn Mallard from real-world examples.</p>
-</note>
-
 <section>
 <title>Inline Code and Commands</title>
 
 <p>You can use the <code xref="/1.0/mallard-1.0/mal_inline_code">code</code>
-element inside a paragraph to mark up to a snippet of code.  You will typically
+element inside a paragraph to mark up a snippet of code.  You will typically
 use <code>code</code> as an inline element to refer to something short like a
 function name or variable.</p>
 

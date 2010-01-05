@@ -1,6 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      xmlns:e="http://projectmallard.org/experimental/"
-      type="topic"
+      type="topic" style="pmo-source"
       id="tenminutes-src">
 
 <info>
@@ -13,8 +12,11 @@ Mallard extension format called Mallard Sites.  Mallard Sites pages are just lik
 regular Mallard pages, except that <code>xref</code> attributes may contain the
 <code>/</code> character.</p>
 
+<listing>
+<title><file>tenminutes.page</file></title>
 <code>
 <include xmlns="http://www.w3.org/2001/XInclude" href="tenminutes.page" parse="text"/>
 </code>
+</listing>
 
 </page>

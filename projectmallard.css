@@ -36,6 +36,12 @@ div.body {
   padding: 1em 19px 1em 19px;
   max-width: 760px;
 }
+body.pmo-source div.body {
+  border-top: solid 4px #d3d7cf;
+}
+body.pmo-source div.header {
+  border-bottom: solid 1px #d3d7cf;
+}
 
 div.footbar {
   margin: 0;
@@ -63,4 +69,14 @@ div.header {
 .threecolumnsthree {
   vertical-align: top;
   width: 240px;
+}
+
+div.pmo-source {
+  width: 240px;
+  float: right;
+  margin: 0 0 0 2em;
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #fcaf3e;
+  border-bottom: solid 1px #ffc0c0;
+  background-color: #fffff0;
 }

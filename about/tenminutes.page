@@ -19,6 +19,13 @@
 
 <title>Ten Minute Tour</title>
 
+<note style="pmo-source">
+<title>Learn by Example</title>
+<p>This page was written in a Mallard extension format called Mallard Sites.
+<link xref="tenminutes-src">Read the source markup</link> for this page to
+learn Mallard from real-world examples.</p>
+</note>
+
 <p>In this tutorial, you will learn how to create a simple multiple-page
 Mallard document by creating a document for the fictitious <app>Beanstalk</app>
 application.  This tutorial assumes you have a basic familiarity with XML or
@@ -33,13 +40,6 @@ pages present some piece of information to the reader. This might be a
 tutorial, a conceptual overview, reference material, or any other type
 of content. Guide pages serve as the navigational glue between topics,
 helping readers find and explore content.</p>
-
-<note style="tip">
-<title>Learn by Example</title>
-<p>This page was written in a Mallard extension format called Mallard Sites.
-<link xref="tenminutes-src">Read the source markup</link> for this page to
-learn Mallard from real-world examples.</p>
-</note>
 
 <section>
 <title>First Page</title>

@@ -23,16 +23,18 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 extension-element-prefixes="exsl"
                 version="1.0">
 
+<!-- We shouldn't depend on mal.site.root_noslash; it's not public -->
+
 <xsl:template name="mal2html.css">
   <link rel="stylesheet" type="text/css">
     <xsl:attribute name="href">
-      <xsl:value-of select="$mal.site.root"/>
+      <xsl:value-of select="$mal.site.root_noslash"/>
       <xsl:text>/mallard.css</xsl:text>
     </xsl:attribute>
   </link>
   <link rel="stylesheet" type="text/css">
     <xsl:attribute name="href">
-      <xsl:value-of select="$mal.site.root"/>
+      <xsl:value-of select="$mal.site.root_noslash"/>
       <xsl:text>/projectmallard.css</xsl:text>
     </xsl:attribute>
   </link>
@@ -69,10 +71,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template name="mal2html.page.headbar">
   <xsl:param name="node" select="."/>
   <div class="headbar">
-    <a href="{$mal.site.root}/index.html">
+    <a href="{$mal.site.root_noslash}/index.html">
       <img class="headbar-icon">
         <xsl:attribute name="src">
-          <xsl:value-of select="$mal.site.root"/>
+          <xsl:value-of select="$mal.site.root_noslash"/>
           <xsl:text>/mallard-logo-120.png</xsl:text>
         </xsl:attribute>
       </img>
@@ -80,10 +82,41 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <div class="headbar-title">Mallard</div>
     <div class="headbar-subtitle">Better Help for Better Software</div>
     <div style="clear:both">
-      <xsl:call-template name="mal2html.page.linktrails">
-        <xsl:with-param name="node" select="$node"/>
-      </xsl:call-template>
+      <xsl:choose>
+        <xsl:when test="string($node/@style) = 'pmo-source'">
+          <xsl:for-each select="$mal.cache">
+            <xsl:variable name="srclink" select="$node/mal:p[1]/mal:link[1]"/>
+            <xsl:variable name="srckey">
+              <xsl:call-template name="mal.link.xref.linkid">
+                <xsl:with-param name="node" select="$srclink"/>
+              </xsl:call-template>
+            </xsl:variable>
+            <xsl:variable name="srcnode" select="key('mal.cache.key', $srckey)"/>
+            <xsl:call-template name="mal2html.page.linktrails">
+              <xsl:with-param name="node" select="$srcnode"/>
+            </xsl:call-template>
+          </xsl:for-each>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="mal2html.page.linktrails">
+            <xsl:with-param name="node" select="$node"/>
+          </xsl:call-template>
+        </xsl:otherwise>
+      </xsl:choose>
     </div>
+  </div>
+</xsl:template>
+
+<xsl:template mode="mal2html.block.mode" match="mal:note[@style='pmo-source']">
+  <div class="pmo-source">
+    <xsl:apply-templates mode="mal2html.block.mode" select="mal:title"/>
+    <xsl:for-each select="mal:*[not(self::mal:title)
+                          and ($mal2html.editor_mode or not(self::mal:comment)
+                          or processing-instruction('mal2html.show_comment'))]">
+      <xsl:apply-templates mode="mal2html.block.mode" select=".">
+        <xsl:with-param name="first_child" select="position() = 1"/>
+      </xsl:apply-templates>
+    </xsl:for-each>
   </div>
 </xsl:template>
 
