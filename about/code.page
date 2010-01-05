@@ -46,7 +46,7 @@ function name or variable.</p>
 <p>Call the <code>bean_grow</code> function to grow your magic beans.</p>
 </example>
 
-<p>You can use the <code>code</code> element for more programming languages.
+<p>You can use the <code>code</code> element for more than programming languages.
 Use the <code>code</code> element to mark up the name of an XML element,
 a key in a configuration file, or anything else you might find in a file
 you would edit in a text editor.</p>
