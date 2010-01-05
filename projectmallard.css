@@ -9,21 +9,9 @@ div.headbar {
   max-width: 760px;
 }
 img.headbar-icon {
-  float: left;
   margin-bottom: 20px;
-}
-div.headbar-title {
-  margin: 0 0 0 120px;
-  color: #3465a4;
-  font-size: 64px;
-	font-weight: bold;
-}
-div.headbar-subtitle {
-  margin: 0 0 0 124px;
-  color: #3465a4;
-  font-size: 18px;
-	font-weight: bold;
-	font-style: italic;
+  width: 380px;
+  height: 100px;
 }
 div.linktrail {
   padding-left: 0;
