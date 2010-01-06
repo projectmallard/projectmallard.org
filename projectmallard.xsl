@@ -105,6 +105,23 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </div>
 </xsl:template>
 
+<xsl:template name="mal2html.page.footbar">
+  <xsl:param name="node" select="."/>
+  <div class="footbar">
+    <div class="footbar-badge">
+      <div>Powered by</div>
+      <a href="{$mal.site.root_noslash}/index.html">
+        <img alt="Mallard" width="80" height="15">
+          <xsl:attribute name="src">
+            <xsl:value-of select="$mal.site.root_noslash"/>
+            <xsl:text>/mallard-badge.png</xsl:text>
+          </xsl:attribute>
+        </img>
+      </a>
+    </div>
+  </div>
+</xsl:template>
+
 <xsl:template mode="mal2html.block.mode" match="mal:note[@style='pmo-source']">
   <div class="pmo-source">
     <xsl:apply-templates mode="mal2html.block.mode" select="mal:title"/>

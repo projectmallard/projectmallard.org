@@ -18,6 +18,14 @@ div.linktrail {
   padding-left: 0;
 }
 
+div.footbar-badge {
+  text-align: center;
+  color: #3f3f3f;
+}
+div.footbar-badge img {
+  vertical-align: middle;
+}
+
 div.body {
   border-top: solid 4px #fcaf3e;
   -moz-border-radius: 0px;
