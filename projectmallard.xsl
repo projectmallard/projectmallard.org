@@ -25,19 +25,88 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- We shouldn't depend on mal.site.root_noslash; it's not public -->
 
-<xsl:template name="mal2html.css">
-  <link rel="stylesheet" type="text/css">
-    <xsl:attribute name="href">
-      <xsl:value-of select="$mal.site.root_noslash"/>
-      <xsl:text>/mallard.css</xsl:text>
-    </xsl:attribute>
-  </link>
-  <link rel="stylesheet" type="text/css">
-    <xsl:attribute name="href">
-      <xsl:value-of select="$mal.site.root_noslash"/>
-      <xsl:text>/projectmallard.css</xsl:text>
-    </xsl:attribute>
-  </link>
+<xsl:template name="mal2html.css.custom">
+<xsl:text>
+body {
+  background-color: #ffffff;
+  padding: 0 20px 0 20px;
+  font-family: sans;
+}
+a img { border: none; }
+
+div.headbar {
+  padding: 20px 20px 0 20px;
+  max-width: 760px;
+}
+img.headbar-icon {
+  margin-bottom: 20px;
+  width: 380px;
+  height: 100px;
+}
+div.linktrail {
+  padding-left: 0;
+}
+
+div.footbar-badge {
+  text-align: center;
+  color: #3f3f3f;
+}
+div.footbar-badge img {
+  vertical-align: middle;
+}
+
+div.body {
+  border-top: solid 4px #fcaf3e;
+  -moz-border-radius: 0px;
+  margin: 0;
+  padding: 1em 19px 1em 19px;
+  max-width: 760px;
+}
+body.pmo-source div.body {
+  border-top: solid 4px #d3d7cf;
+}
+body.pmo-source div.header {
+  border-bottom: solid 1px #d3d7cf;
+}
+
+div.footbar {
+  margin: 0;
+  max-width: 800px;
+}
+
+div.header {
+  color: #3465a4;
+  border-bottom: solid 1px #fcaf3e;
+}
+
+.threecolumns h2 { font-size: 1em; }
+.threecolumnsone {
+  vertical-align: top;
+  width: 240px;
+  border-right: solid 20px #ffffff;
+}
+
+.threecolumnstwo {
+  vertical-align: top;
+  width: 240px;
+  border-right: solid 20px #ffffff;
+}
+
+.threecolumnsthree {
+  vertical-align: top;
+  width: 240px;
+}
+
+div.pmo-source {
+  width: 240px;
+  float: right;
+  margin: 0 0 0 2em;
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #fcaf3e;
+  border-bottom: solid 1px #ffc0c0;
+  background-color: #fffff0;
+}
+</xsl:text>
 </xsl:template>
 
 <xsl:template match="mal:page[@style='3column']/mal:section">

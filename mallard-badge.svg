@@ -7,6 +7,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="80"
@@ -15,11 +16,22 @@
    version="1.1"
    inkscape:version="0.47 r22583"
    sodipodi:docname="mallard-badge.svg"
-   inkscape:export-filename="/home/shaunm/syllogist/mallard-badge.png"
+   inkscape:export-filename="/home/shaunm/Projects/projectmallard/mallard-badge.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
      id="defs2896">
+    <linearGradient
+       id="linearGradient3693">
+      <stop
+         style="stop-color:#fcaf3e;stop-opacity:1;"
+         offset="0"
+         id="stop3695" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1"
+         id="stop3697" />
+    </linearGradient>
     <inkscape:perspective
        sodipodi:type="inkscape:persp3d"
        inkscape:vp_x="0 : 526.18109 : 1"
@@ -55,6 +67,22 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 0.5 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2907"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3693"
+       id="linearGradient3699"
+       x1="10"
+       y1="25"
+       x2="10"
+       y2="-5"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -65,7 +93,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="19.7125"
      inkscape:cx="40"
-     inkscape:cy="1.8928345"
+     inkscape:cy="1.4124921"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -102,7 +130,7 @@
      id="layer1"
      transform="translate(0,-1037.3622)">
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#3465a4;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:url(#linearGradient3699);fill-opacity:1;stroke:#3465a4;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect3629"
        width="79"
        height="14"
@@ -117,7 +145,7 @@
        sodipodi:cy="380.61075"
        sodipodi:rx="141.42136"
        sodipodi:ry="141.42136"
-       d="m -397.39401,380.61075 a 141.42136,141.42136 0 1 1 -282.84271,0 141.42136,141.42136 0 1 1 282.84271,0 z"
+       d="m -397.39401,380.61075 c 0,78.10486 -63.3165,141.42135 -141.42136,141.42135 -78.10486,0 -141.42135,-63.31649 -141.42135,-141.42135 0,-78.10486 63.31649,-141.42136 141.42135,-141.42136 78.10486,0 141.42136,63.3165 141.42136,141.42136 z"
        transform="matrix(0.8,0,0,0.8,624.19515,543.01644)" />
     <path
        id="path9962-9"
@@ -136,7 +164,7 @@
        sodipodi:cy="429.36218"
        sodipodi:rx="15"
        sodipodi:ry="15"
-       d="m -154.5,429.36218 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z"
+       d="m -154.5,429.36218 c 0,8.28427 -6.71573,15 -15,15 -8.28427,0 -15,-6.71573 -15,-15 0,-8.28427 6.71573,-15 15,-15 8.28427,0 15,6.71573 15,15 z"
        transform="matrix(1.1016752,0,0,1.1016752,372.43912,443.38049)" />
     <g
        id="g3631"
@@ -159,5 +187,12 @@
          d="m 13.111826,1039.0153 c -1.294002,0 -2.352964,1.0589 -2.352964,2.3529 0,1.294 1.058962,2.3529 2.352964,2.3529 1.294003,0 2.352965,-1.0589 2.352965,-2.3529 0,-1.294 -1.058962,-2.3529 -2.352965,-2.3529 z m 0,0.9295 c 0.791628,0 1.423398,0.6318 1.423398,1.4234 0,0.7916 -0.63177,1.4234 -1.423398,1.4234 -0.791628,0 -1.423398,-0.6318 -1.423398,-1.4234 0,-0.7916 0.63177,-1.4234 1.423398,-1.4234 z"
          style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#000000;fill:#3465a4;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Bitstream Charter;-inkscape-font-specification:Bitstream Charter" />
     </g>
+    <image
+       xlink:href="file:///home/shaunm/Projects/projectmallard/mallard-badge-text.png"
+       width="80"
+       height="15"
+       id="image2897"
+       x="0"
+       y="1037.3622" />
   </g>
 </svg>
