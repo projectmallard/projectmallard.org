@@ -199,7 +199,7 @@ to navigate to a page to better match how your readers are thinking.</p>
 Add content to explain to the user how to plant magic beans.
 The following example shows a basic
 <link xref="/1.0/mallard-1.0/mal_block_p">paragraph</link> and a
-<link xref="/1.0/mallard-1.0/mal_block_steps">steps list</link>.</p>
+<link xref="/1.0/mallard-1.0/mal_block_steps">step list</link>.</p>
 
 <listing>
   <title><file>planting.page</file></title>
