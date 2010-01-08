@@ -19,6 +19,13 @@
 
 <title>Images and Videos</title>
 
+<note style="pmo-source">
+<title>Learn by Example</title>
+<p>This page was written in a Mallard extension format called Mallard Sites.
+<link xref="media-src">Read the source markup</link> for this page to
+learn Mallard from real-world examples.</p>
+</note>
+
 <p>A picture tells a thousand words, but only if those words are describing
 that picture.  Documentation often uses screenshots to highlight relevant
 parts of an interface, or figures to better illustrate some information.

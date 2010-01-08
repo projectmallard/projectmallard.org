@@ -1,0 +1,22 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="pmo-source"
+      id="media-src">
+
+<info>
+</info>
+
+<title>Images and Videos Source</title>
+
+<p>This is the source markup for <link xref="media"/>.  It is written in a
+Mallard extension format called Mallard Sites.  Mallard Sites pages are just like
+regular Mallard pages, except that <code>xref</code> attributes may contain the
+<code>/</code> character.</p>
+
+<listing>
+<title><file>media.page</file></title>
+<code>
+<include xmlns="http://www.w3.org/2001/XInclude" href="media.page" parse="text"/>
+</code>
+</listing>
+
+</page>
