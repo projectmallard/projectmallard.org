@@ -25,6 +25,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- We shouldn't depend on mal.site.root_noslash; it's not public -->
 
+<xsl:param name="theme.icon.admon.size" select="24"/>
+
 <xsl:template name="mal2html.css.custom">
 <xsl:text>
 body {
@@ -32,7 +34,9 @@ body {
   padding: 0 20px 0 20px;
   font-family: sans;
 }
+p { max-width: 60em; text-align: justify; }
 a img { border: none; }
+div.example { margin-left: 12px; }
 
 div.headbar {
   padding: 20px 20px 0 20px;
