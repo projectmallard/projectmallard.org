@@ -1,0 +1,22 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="pmo-source"
+      id="list-src">
+
+<info>
+</info>
+
+<title>Tables Source</title>
+
+<p>This is the source markup for <link xref="table"/>.  It is written in a
+Mallard extension format called Mallard Sites.  Mallard Sites pages are just like
+regular Mallard pages, except that <code>xref</code> attributes may contain the
+<code>/</code> character.</p>
+
+<listing>
+<title><file>table.page</file></title>
+<code>
+<include xmlns="http://www.w3.org/2001/XInclude" href="table.page" parse="text"/>
+</code>
+</listing>
+
+</page>
