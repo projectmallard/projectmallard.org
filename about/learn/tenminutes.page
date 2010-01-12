@@ -4,7 +4,7 @@
       id="tenminutes">
 
 <info>
-  <link type="guide" xref="learn" group="primary"/>
+  <link type="guide" xref="index" group="primary"/>
 
   <revision version="0.1" date="2009-06-16" status="incomplete"/>
 
@@ -237,7 +237,7 @@ you to create richer documents with more useful links.  Try adding more
 content and additional pages to your document.</p>
 
 <p>To learn more, read more of the
-<link xref="learn">Mallard tutorials</link>.  Or read the
+<link xref="index">Mallard tutorials</link>.  Or read the
 <link xref="/1.0/mallard-1.0/spec">Mallard language specification</link>
 to see a complete list of what Mallard offers.</p>
 </section>
