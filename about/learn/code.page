@@ -147,7 +147,7 @@ the contents of an XML file.  Fortunately, XML provides a special syntax called
 </example>
 
 <p>You can use the <code>CDATA</code> syntax anywhere you need to escape a lot
-of special characters.  It is a standard XML features, not specific to Mallard
+of special characters.  It is a standard XML feature, not specific to Mallard
 or code blocks.</p>
 
 </section>
@@ -164,11 +164,15 @@ element to show a command in a block.</p>
 <example>
 <code><![CDATA[
 <screen>
-xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache mal2html.xsl index.page
+xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache \
+  `pkg-config --variable mal2html.xsl yelp-xsl` \
+  index.page
 </screen>
 ]]></code>
 <screen>
-xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache mal2html.xsl index.page
+xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache \
+  `pkg-config --variable mal2html.xsl yelp-xsl` \
+  index.page
 </screen>
 </example>
 
@@ -284,14 +288,18 @@ element.</p>
 <listing>
 <title>Process a Mallard Document</title>
 <screen>
-xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache mal2html.xsl index.page
+xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache \
+  `pkg-config --variable mal2html.xsl yelp-xsl` \
+  index.page
 </screen>
 </listing>
 ]]></code>
 <listing>
 <title>Process a Mallard Document</title>
 <screen>
-xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache mal2html.xsl index.page
+xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache \
+  `pkg-config --variable mal2html.xsl yelp-xsl` \
+  index.page
 </screen>
 </listing>
 </example>
@@ -303,17 +311,21 @@ the <code xref="/1.0/mallard-1.0/mal_block_desc">desc</code> element.</p>
 <code><![CDATA[
 <listing>
 <title>Process a Mallard Document</title>
-<desc>Keep this command handy.</desc>
+<desc>Note that the <cmd>pkg-config</cmd> command is surrounded by backticks.</desc>
 <screen>
-xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache mal2html.xsl index.page
+xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache \
+  `pkg-config --variable mal2html.xsl yelp-xsl` \
+  index.page
 </screen>
 </listing>
 ]]></code>
 <listing>
 <title>Process a Mallard Document</title>
-<desc>Keep this command handy.</desc>
+<desc>Note that the <cmd>pkg-config</cmd> command is surrounded by backticks.</desc>
 <screen>
-xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache mal2html.xsl index.page
+xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache \
+  `pkg-config --variable mal2html.xsl yelp-xsl` \
+  index.page
 </screen>
 </listing>
 </example>
