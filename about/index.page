@@ -3,14 +3,52 @@
       id="index">
 
 <info>
-  <link type="topic" xref="moreabout"/>
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2009</years>
+    <years>2010</years>
   </credit>
 </info>
 
 <title>About Mallard</title>
+
+<media type="image" style="floatright"
+       src="about-yelp-screenshot.png"
+       width="200" height="250"/>
+
+<p>Mallard is an XML format designed to make topic-oriented help as simple
+as possible.  In contrast to linear documentation, which is designed to be
+read cover-to-cover, topic-oriented help provides users the information they
+need quickly.  Good topic-oriented help has three main characteristics:</p>
+
+<list>
+  <item><p>Users can navigate to information following a path that fits their
+  mental model.</p></item>
+  <item><p>Users can find the information they need in a topic without reading
+  any more background information than necessary.</p></item>
+  <item><p>Users can learn more if they choose to by following links to more
+  in-depth information.</p></item>
+</list>
+
+<p>Mallard helps you help your users by making things as simple as possible.
+The base Mallard language is refined from years of working with online help,
+and contains only the elements you're most likely to need.  And with its rich
+automated links, Mallard removes many tedious and error-prone bookkeeping
+tasks.  See how easy Mallard is with the
+<link xref="/about/learn/tenminutes"/>.</p>
+
+<p>Mallard was uniquely designed from the beginning to support extensible
+documents.  Because of Mallard's automated links, you can insert topics into
+existing documents without modifying any of the original files.  No other
+format makes it as easy to provide help for plugins and extensions, to ship
+supplementary help separately, or to support extra information from downstream
+distributors and OEMs.</p>
+
+<p>Although you can easily use Mallard without ever thinking about extending
+or customizing it, the Mallard language was designed to be extended using
+new elements and attributes in different XML namespaces.  The specification
+rigidly defines the behavior for unrecognized extensions so that you can
+design extensions that fall back gracefully with any standards-compliant
+processing tool.</p>
 
 </page>
