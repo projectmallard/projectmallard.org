@@ -140,11 +140,11 @@ for details on how fallback elements are handled.</p>
   <title>Comparison to Other Formats</title>
 
   <p>The <code>media</code> element can be used in place of the DocBook elements
-  <code xref="http://www.docbook.org/tdg/en/html/audiooobject.html">audioobject</code>,
-  <code xref="http://www.docbook.org/tdg/en/html/imageobject.html">imageobject</code>, and
-  <code xref="http://www.docbook.org/tdg/en/html/videoobject.html">videoobject</code>.
+  <code href="http://www.docbook.org/tdg/en/html/audiooobject.html">audioobject</code>,
+  <code href="http://www.docbook.org/tdg/en/html/imageobject.html">imageobject</code>, and
+  <code href="http://www.docbook.org/tdg/en/html/videoobject.html">videoobject</code>.
   DocBook uses the
-  <code xref="http://www.docbook.org/tdg/en/html/mediaobject.html">mediaobject</code>
+  <code href="http://www.docbook.org/tdg/en/html/mediaobject.html">mediaobject</code>
   element to provide alternative objects.  In Mallard, alternative objects are
   nested, obviating the need for a container element.</p>
 </section>
