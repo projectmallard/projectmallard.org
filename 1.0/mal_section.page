@@ -3,6 +3,8 @@
       id="mal_section">
 
 <info>
+  <link type="guide" xref="index" group="section"/>
+
   <revision version="0.1" date="2009-05-28" status="review"/>
 
   <credit type="author">

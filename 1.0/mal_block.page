@@ -3,7 +3,7 @@
       id="mal_block">
 
 <info>
-  <link type="guide" xref="spec"/>
+  <link type="guide" xref="index" group="block"/>
 
   <revision version="0.1" date="2009-05-28" status="review"/>
 

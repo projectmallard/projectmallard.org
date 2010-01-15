@@ -1,12 +1,11 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      groups="page section info block inline"
       type="guide"
       id="index">
 
 <info>
-  <link type="topic" xref="explore"/>
   <link type="topic" xref="details"/>
   <link type="topic" xref="principles"/>
-  <link type="topic" xref="spec"/>
 
   <revision version="0.1" date="2007-02-22" status="stub"/>
 
