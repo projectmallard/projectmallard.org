@@ -89,7 +89,7 @@ purposes.</p>
 
   <p>Pages and sections can have multiple link titles.  These are used as
   alternate content for automatic link text.  When automatic text must be
-  generated for a <code xref="mal_block_link">link</code> element, it is
+  generated for a <code xref="mal_inline_link">link</code> element, it is
   taken first from the link titles, falling back to the primary title if
   no suitable link title is found.</p>
 

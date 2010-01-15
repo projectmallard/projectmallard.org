@@ -836,7 +836,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/listitem.html">listitem</code></p></td>
-    <td><p>See the <code>item</code> element for each <link xref="mal_block#list">list
+    <td><p>See the <code>item</code> element for each <link xref="mal_block#lists">list
     element</link> for details.</p></td>
   </tr></tbody>
   <tbody><tr>

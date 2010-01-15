@@ -66,8 +66,8 @@ organization in a <code xref="mal_info_credit">credit</code> element.</p>
   <p>The <code>name</code> element fulfills the same role as numerous DocBook
   elements, including
   <link href="http://www.docbook.org/tdg/en/html/collabname.html">collabname</link>,
-  <link xref="http://www.docbook.org/tdg/en/html/personname.html">personname</link>, and
-  <link xref="http://www.docbook.org/tdg/en/html/publishername.html">publishername</link>.
+  <link href="http://www.docbook.org/tdg/en/html/personname.html">personname</link>, and
+  <link href="http://www.docbook.org/tdg/en/html/publishername.html">publishername</link>.
   Note that Mallard does not attempt to model the names of people, as the rules for
   how to display names from their constituent parts vary considerably.  If parts of
   a name are needed for a domain-specific purpose, they can be included using elements
