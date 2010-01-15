@@ -24,4 +24,615 @@
 learn Mallard from real-world examples.</p>
 </note>
 
+<p>Tables are an efficient way to display certain types of information.  By
+arranging data into rows and columns, they allow readers to easily scan and
+compare data.  Mallard supports tables using a simple but powerful syntax
+based on HTML tables.  In this tutorial, you will learn how to:</p>
+
+<list>
+  <item><p>create a <link xref="#basic">basic table</link>,</p></item>
+  <item><p>control the <link xref="#frame">frame around the table and
+  the rules between rows and columns</link>,</p></item>
+  <item><p>automatically <link xref="#shade">shade alternating rows
+  or columns</link>,</p></item>
+  <item><p><link xref="#grouping">group rows or columns together</link>
+  to have better control over rules and shading, and</p></item>
+  <item><p>make a table cell <link xref="#grouping">span multiple rows
+  or columns</link>.</p></item>
+</list>
+
+<comment>
+  <cite date="2009-01-15">shaunm</cite>
+  <p>Add info about thead, maybe new section after "Grouping"</p>
+</comment>
+
+<section id="basic">
+<title>Basic Tables</title>
+
+<p>The basic structure of tables in Mallard resembles that of tables in HTML.
+The <code xref="/1.0/mallard-1.0/mal_table">table</code> element wraps an entire
+table.  Each row in a table is wrapped in a
+<code xref="/1.0/mallard-1.0/mal_table_tr">tr</code>
+element, and each column in a row is wrapped in a
+<code xref="/1.0/mallard-1.0/mal_table_td">td</code> element.</p>
+
+<example>
+<code><![CDATA[
+<table>
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43cm</p></td>     <td><p>360g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76cm</p></td>          <td><p>450-1360g</p></td>
+  </tr>
+</table>]]></code>
+<table>
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43cm</p></td>     <td><p>360g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76cm</p></td>          <td><p>450-1360g</p></td>
+  </tr>
+</table>
+</example>
+
+<note style="important">
+<p>Notice that each <code>td</code> element contains a paragraph, marked up
+with the <code xref="/1.0/mallard-1.0/mal_block_p">p</code> tag.  A table cell
+can contain multiple paragraphs or other block elements.  In Mallard, every
+element contains either block or inline content, so even when you only use
+a single line of text in a table cell, you must use a paragraph.</p>
+</note>
+</section>
+
+<section id="frame">
+<title>Frames and Rules</title>
+
+<p>In the previous example, there were no rules between rows or columns,
+and no frame around the entire table.  Mallard provides a simple method
+to specify how to draw the table frame and the rules between rows and
+columns.</p>
+
+<p>You can use the <code>frame</code> attribute on the <code>table</code>
+element to specify how to draw a frame around the table.  Set the
+<code>frame</code> attribute to a space-separated list of positions
+where a frame should be drawn: <code>top</code>, <code>bottom</code>,
+<code>left</code>, or <code>right</code>.  The following example draws
+frames on the top and bottom.</p>
+
+<example>
+<code><![CDATA[
+<table frame="top bottom">
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+</table>]]></code>
+<table frame="top bottom">
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+</table>
+</example>
+
+<p>Instead of specifying each position, you can set the <code>frame</code>
+attribute to <code>all</code> to draw frames on all sides.</p>
+
+<example>
+<code><![CDATA[
+<table frame="all">
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+</table>]]></code>
+<table frame="all">
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+</table>
+</example>
+
+<p>Unlike HTML, the frame around the entire table is handled separately from
+rules between rows and columns.  You control where rules are drawn using the
+<code>rules</code> attribute on the <code>table</code> element.  Like the
+<code>frame</code> attribute, the <code>rules</code> attribute takes a
+space-separated list of where rules should be drawn.  The folloing example
+draws rules between each row and each column.</p>
+
+<example>
+<code><![CDATA[
+<table rules="rows cols">
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43cm</p></td>     <td><p>360g</p></td>
+  </tr>
+</table>]]></code>
+<table rules="rows cols">
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43cm</p></td>     <td><p>360g</p></td>
+  </tr>
+</table>
+</example>
+
+<p>You could have also simply set <code>rules</code> to <code>all</code>
+for the same effect.  You can also control which rows and columns have
+rules using row and column groups.  See <link xref="#grouping"/> below
+for details.</p>
+
+</section>
+
+<section id="shade">
+<title>Shading</title>
+
+<p>A common feature in tables of information is alternate-row shading.
+With shading, every other row is drawn with a darker background color.
+This helps readers keep track of which information is in which row.
+In Mallard, you can easily shade rows or columns in Mallard without
+manually marking alternate rows or columns.</p>
+
+<p>Use the <code>shade</code> attribute to specify whether to shade rows or
+columns.  Like the <code>rules</code> attribute, the <code>shade</code>
+attribute takes a space-separated list.  The following example shades only
+alternate rows.</p>
+
+<example>
+<code><![CDATA[
+<table shade="rows">
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43cm</p></td>     <td><p>360g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76cm</p></td>          <td><p>450-1360g</p></td>
+  </tr>
+</table>]]></code>
+<table shade="rows">
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43cm</p></td>     <td><p>360g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76cm</p></td>          <td><p>450-1360g</p></td>
+  </tr>
+</table>
+</example>
+
+<p>To shade both rows and columns, use both <code>rows</code> and
+<code>cols</code> in the <code>shade</code> attribute, or simply set
+the <code>shade</code> attribute to <code>all</code>.</p>
+
+<example>
+<code><![CDATA[
+<table shade="all">
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43cm</p></td>     <td><p>360g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76cm</p></td>          <td><p>450-1360g</p></td>
+  </tr>
+</table>]]></code>
+<table shade="all">
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43cm</p></td>     <td><p>360g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76cm</p></td>          <td><p>450-1360g</p></td>
+  </tr>
+</table>
+</example>
+
+<p>Notice that when both rows and columns are shaded, a darker background
+color is used where shaded rows intersect shaded columns.  You can also
+control which rows and columns are shaded using row and column groups.
+See <link xref="#grouping"/> below for details.</p>
+
+</section>
+
+<section id="grouping">
+<title>Grouping</title>
+
+<p>In the previous examples, you were only able to enable rules and shading
+for all rows or all columns.  You can also group rows and columns to control
+rules and shading.  To group rows together, wrap the <code>tr</code> elements
+for each row group in a <code xref="/1.0/mallard-1.0/mal_table_tr">tbody</code>
+element.  You can then use <code>rowgroups</code> instead of <code>rows</code>
+for either of the <code>rules</code> or <code>shade</code> attributes.</p>
+
+<example>
+<code><![CDATA[
+<table rules="rowgroups" shade="rowgroups">
+  <tbody>
+    <tr>
+      <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+      <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+    </tr>
+    <tr>
+      <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+      <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+      <td><p>34-43cm</p></td>     <td><p>360g</p></td>
+    </tr>
+    <tr>
+      <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+      <td><p>59-76cm</p></td>          <td><p>450-1360g</p></td>
+    </tr>
+  </tbody>
+</table>]]></code>
+<table rules="rowgroups" shade="rowgroups">
+  <tbody>
+    <tr>
+      <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+      <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+    </tr>
+    <tr>
+      <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+      <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+      <td><p>34-43cm</p></td>     <td><p>360g</p></td>
+    </tr>
+    <tr>
+      <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+      <td><p>59-76cm</p></td>          <td><p>450-1360g</p></td>
+    </tr>
+  </tbody>
+</table>
+</example>
+
+<p>To control column grouping, you have to specify the columns and column
+groups at the beginning of the <code>table</code> element using the
+<code xref="/1.0/mallard-1.0/mal_table_col">col</code> and
+<code xref="/1.0/mallard-1.0/mal_table_col">colgroup</code> elements.
+Each <code>col</code> element represents one column, and you should have
+one for each column that appears in your rows.  Wrap the <code>col</code>
+elements in <code>colgroup</code> elements to indicate grouping.</p>
+
+<p>Once you have specified the columns and column groups, you can use
+<code>colgroups</code> instead of <code>cols</code> for either of the
+<code>rules</code> or <code>shade</code> attributes.</p>
+
+<example>
+<code><![CDATA[
+<table rules="colgroups" shade="colgroups">
+  <colgroup><col/></colgroup>
+  <colgroup><col/></colgroup>
+  <colgroup><col/><col/></colgroup>
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43cm</p></td>     <td><p>360g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76cm</p></td>          <td><p>450-1360g</p></td>
+  </tr>
+</table>]]></code>
+<table rules="colgroups" shade="colgroups">
+  <colgroup><col/></colgroup>
+  <colgroup><col/></colgroup>
+  <colgroup><col/><col/></colgroup>
+  <tr>
+    <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65cm</p></td> <td><p>900-1200g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50cm</p></td>         <td><p>680g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43cm</p></td>     <td><p>360g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76cm</p></td>          <td><p>450-1360g</p></td>
+  </tr>
+</table>
+</example>
+
+<p>In these examples, you used grouping for both rules and shading, but they
+aren't required to match.  You could have rules between each row, but only shade
+every other row group, for example.  And because both the <code>rules</code> and
+<code>shade</code> attributes take a space-separated list, you can mix row and
+column grouping, just as you did for rules and shading for single rows and
+columns.  Try modifying the table yourself to achieve different effects.</p>
+</section>
+
+<section id="spanning">
+<title>Spanning</title>
+
+<p>Sometimes you need to have a table cell that spans across multiple rows or
+columns.  Mallard supports row and column spanning using the <code>rowspan</code>
+and <code>colspan</code> attributes on <code>td</code> elements, similarly to
+HTML.  Both attributes take a number indicating how many rows or columns the
+<code>td</code> element should occupy.</p>
+
+<p>When you set the <code>colspan</code> attribute, that <code>td</code> element
+effectively uses up that many columns, so the enclosing <code>tr</code> element
+should have fewer <code>td</code> elements.  For example, if you normally have
+five columns, but one of your <code>td</code> elements has <code>colspan="3"</code>,
+then you should only have three <code>td</code> elements.</p>
+
+<p>Similarly, when you set the <code>rowspan</code> attribute, that <code>td</code>
+element uses up space in that many rows.  Any <code>tr</code> elements that come
+after the current row will have fewer <code>td</code> elements.</p>
+
+<example>
+<code><![CDATA[
+<table frame="all" rules="all">
+  <tr>
+    <td><p>One</p></td>
+    <td><p>Two</p></td>
+    <td><p>Three</p></td>
+    <td><p>Four</p></td>
+  </tr>
+  <tr>
+    <td rowspan="2"><p>Rows</p></td>
+    <td><p>Two</p></td>
+    <td colspan="2"><p>Columns</p></td>
+  </tr>
+  <tr>
+    <td><p>Two</p></td>
+    <td><p>Three</p></td>
+    <td><p>Four</p></td>
+  </tr>
+</table>]]></code>
+<table frame="all" rules="all">
+  <tr>
+    <td><p>One</p></td>
+    <td><p>Two</p></td>
+    <td><p>Three</p></td>
+    <td><p>Four</p></td>
+  </tr>
+  <tr>
+    <td rowspan="2"><p>Rows</p></td>
+    <td><p>Two</p></td>
+    <td colspan="2"><p>Columns</p></td>
+  </tr>
+  <tr>
+    <td><p>Two</p></td>
+    <td><p>Three</p></td>
+    <td><p>Four</p></td>
+  </tr>
+</table>
+</example>
+
+<p>A table cell can span multiple rows and multiple columns at the same time.
+When you do this, be careful that use the right number of <code>td</code>
+elements in the following rows.</p>
+
+<example>
+<code><![CDATA[
+<table frame="all" rules="all">
+  <tr>
+    <td><p>One</p></td>
+    <td><p>Two</p></td>
+    <td><p>Three</p></td>
+    <td><p>Four</p></td>
+  </tr>
+  <tr>
+    <td><p>One</p></td>
+    <td rowspan="2" colspan="2"><p>Both</p></td>
+    <td><p>Four</p></td>
+  </tr>
+  <tr>
+    <td><p>One</p></td>
+    <td><p>Four</p></td>
+  </tr>
+</table>]]></code>
+<table frame="all" rules="all">
+  <tr>
+    <td><p>One</p></td>
+    <td><p>Two</p></td>
+    <td><p>Three</p></td>
+    <td><p>Four</p></td>
+  </tr>
+  <tr>
+    <td><p>One</p></td>
+    <td rowspan="2" colspan="2"><p>Both</p></td>
+    <td><p>Four</p></td>
+  </tr>
+  <tr>
+    <td><p>One</p></td>
+    <td><p>Four</p></td>
+  </tr>
+</table>
+</example>
+
+<p>When you use shading with spanning, table cells are shaded based on the
+top-left row and column.  That is, they are shaded based on where the
+<code>td</code> element is, as if it did not span any rows or columns.</p>
+
+<example>
+<code><![CDATA[
+<table frame="all" rules="all" shade="all">
+  <tr>
+    <td><p>One</p></td>
+    <td><p>Two</p></td>
+    <td><p>Three</p></td>
+    <td><p>Four</p></td>
+    <td><p>Five</p></td>
+  </tr>
+  <tr>
+    <td rowspan="3"><p>Rows</p></td>
+    <td><p>Two</p></td>
+    <td colspan="2"><p>Columns</p></td>
+    <td><p>Five</p></td>
+  </tr>
+  <tr>
+    <td><p>Two</p></td>
+    <td rowspan="3"><p>Rows</p></td>
+    <td><p>Four</p></td>
+    <td><p>Five</p></td>
+  </tr>
+  <tr>
+    <td><p>Two</p></td>
+    <td><p>Four</p></td>
+    <td><p>Five</p></td>
+  </tr>
+  <tr>
+    <td><p>One</p></td>
+    <td><p>Two</p></td>
+    <td><p>Four</p></td>
+    <td><p>Five</p></td>
+  </tr>
+</table>]]></code>
+<table frame="all" rules="all" shade="all">
+  <tr>
+    <td><p>One</p></td>
+    <td><p>Two</p></td>
+    <td><p>Three</p></td>
+    <td><p>Four</p></td>
+    <td><p>Five</p></td>
+  </tr>
+  <tr>
+    <td rowspan="3"><p>Rows</p></td>
+    <td><p>Two</p></td>
+    <td colspan="2"><p>Columns</p></td>
+    <td><p>Five</p></td>
+  </tr>
+  <tr>
+    <td><p>Two</p></td>
+    <td rowspan="3"><p>Rows</p></td>
+    <td><p>Four</p></td>
+    <td><p>Five</p></td>
+  </tr>
+  <tr>
+    <td><p>Two</p></td>
+    <td><p>Four</p></td>
+    <td><p>Five</p></td>
+  </tr>
+  <tr>
+    <td><p>One</p></td>
+    <td><p>Two</p></td>
+    <td><p>Four</p></td>
+    <td><p>Five</p></td>
+  </tr>
+</table>
+</example>
+</section>
+
+<section>
+<title>Learn More</title>
+
+<p>In this tutorial, you learned the basics of the major features of Mallard
+tables.  These features are designed to help you display tabular information
+in ways that will best help your readers.  This tutorial only showed you a
+few ways you can put these features together.  Try changing the examples to
+acheive different effects.</p>
+
+<p>For more information see <link xref="/1.0/mallard-1.0/mal_table"/> in the
+language specification.  The specification pages are full of examples to help
+you learn more.</p>
+
+</section>
+
 </page>
