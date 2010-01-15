@@ -1,0 +1,44 @@
+#!/bin/sh
+while [ "$#" != "0" ]; do
+    if [ "x$1" = "x-o" ]; then
+	rng_outdir="$2"
+	shift
+    elif [ "x$1" = "x-v" ]; then
+	rng_verbose=1
+    fi
+    shift
+done
+if [ "x$rng_outdir" = "x" ]; then
+    rng_outdir=`pwd`
+else
+    rng_outdir=`(cd "$rng_outdir" && pwd)`
+fi
+
+echo_verbose() {
+    if [ "x$rng_verbose" = "x1" ]; then
+	echo "$1"
+    fi
+}
+
+rng_rncfile="$rng_outdir/1.0/mallard-1.0.rnc"
+rng_rngfile="$rng_outdir/1.0/mallard-1.0.rng"
+rng_tmpfile="$rng_outdir/1.0/mallard-1.0.rng.tmp"
+
+echo_verbose "Creating $rng_rncfile"
+for page in 1.0/*.page; do
+    xsltproc --xinclude mal2rnc.xsl "$page"
+done > "$rng_rncfile"
+
+echo_verbose "Creating $rng_rngfile"
+LANG= awk -f rnc2rng.awk "$rng_rncfile" > "$rng_tmpfile" || (rm -f "$rng_tmpfile" && exit 1)
+xmllint --format "$rng_tmpfile" | \
+    sed -e 's/^  //' \
+        -e 's/ xmlns/\n    xmlns/g' \
+        -e 's/" ns=/"\n    ns=/' \
+        -e 's/^<s/\n<s/' \
+        -e 's/^<d/\n<d/' \
+    > "$rng_rngfile" || (rm -f "$rng_tmpfile" && exit 1) && rm -f "$rng_tmpfile"
+
+
+
+
