@@ -35,7 +35,7 @@ and a <link xref="#tree">simple tree</link>.</p>
 <title>Basic Lists</title>
 
 <p>You can create a basic bulleted list using the
-<code xref="/1.0/mallard-1.0/mal_block_list">list</code> element.  Each list
+<code xref="/1.0/mal_block_list">list</code> element.  Each list
 item is contained in an <code>item</code> element.</p>
 
 <example>
@@ -55,7 +55,7 @@ item is contained in an <code>item</code> element.</p>
 
 <note style="important">
 <p>Notice that each <code>item</code> element contains a paragraph, marked up
-with the <code xref="/1.0/mallard-1.0/mal_block_p">p</code> tag.  A list item
+with the <code xref="/1.0/mal_block_p">p</code> tag.  A list item
 can contain multiple paragraphs or other block elements.  In Mallard, every
 element contains either block or inline content, so even when you only use
 a single line of text in a list item, you must use a paragraph.</p>
@@ -113,7 +113,7 @@ the CSS support in your web browser.</p>
 <p>One of the most common uses for numbered lists in documentation is to
 provide a list of instructions for a user to follow.  Although you can use
 the <code>list</code> element to create a numbered list, Mallard provides
-the <code xref="/1.0/mallard-1.0/mal_block_steps">steps</code> element to
+the <code xref="/1.0/mal_block_steps">steps</code> element to
 list steps in a procedure.</p>
 
 <example>
@@ -143,7 +143,7 @@ that users can easily find them when looking through a page.</p>
 <section id="terms">
 <title>Term Lists</title>
 
-<p>You can use the <code xref="/1.0/mallard-1.0/mal_block_terms">terms</code>
+<p>You can use the <code xref="/1.0/mal_block_terms">terms</code>
 element to create a list of terms and descriptions in Mallard.  Use term lists
 to create glossaries or to describe a list of configuration options.</p>
 
@@ -181,7 +181,7 @@ to create glossaries or to describe a list of configuration options.</p>
 </example>
 
 <p>Notice that each <code>item</code> element in a term list has a
-<code xref="/1.0/mallard-1.0/mal_block_title">title</code> element to mark up
+<code xref="/1.0/mal_block_title">title</code> element to mark up
 the actual term.  The description follows in a paragraph, or in any number of
 other block elements.  You can also provide multiple terms for an item by
 using multiple <code>title</code> elements.</p>
@@ -229,7 +229,7 @@ using multiple <code>title</code> elements.</p>
 <p>Sometimes you need to show a hierarchy of items in documentation.  This is
 useful, for example, to show a directory structure on a file system or a class
 hierarchy in an object-oriented programming language.  Mallard provides the
-<code xref="/1.0/mallard-1.0/mal_block_tree">tree</code> element to help you
+<code xref="/1.0/mal_block_tree">tree</code> element to help you
 create simple trees easily.</p>
 
 <p>Use a tree to show some directories on a file system.</p>
@@ -267,7 +267,7 @@ content.  It can then contain other tree items that contain the child items.</p>
 
 <p>The initial content doesn't have to be just text.  You can use any inline
 markup before the child items.  For example, you can use the
-<code xref="/1.0/mallard-1.0/mal_inline_file">file</code> element to indicate
+<code xref="/1.0/mal_inline_file">file</code> element to indicate
 that the items are file names.</p>
 
 <example>
@@ -305,7 +305,7 @@ that the items are file names.</p>
 <p>In this tutorial, you learned how to create four different types of lists
 in Mallard.  You can do much more with lists in Mallard, such as add titles,
 create nested lists, and use richer block content.  For more information, see
-<link xref="/1.0/mallard-1.0/mal_block#lists"/> in the language specification.
+<link xref="/1.0/mal_block#lists"/> in the language specification.
 The specification pages are full of examples to help you learn more.</p>
 </section>
 

@@ -34,8 +34,8 @@ with a similiar markup language like HTML.</p>
 <p>A Mallard document is composed of multiple independent pages. Each page is
 kept in a separate XML file, and a processing tool aggregates them together,
 automatically creating links and navigational aids. There are two primary
-types of pages: <link xref="/1.0/mallard-1.0/mal_page#topic">topic pages</link>
-and <link xref="/1.0/mallard-1.0/mal_page#guide">guide pages</link>. Topic
+types of pages: <link xref="/1.0/mal_page#topic">topic pages</link>
+and <link xref="/1.0/mal_page#guide">guide pages</link>. Topic
 pages present some piece of information to the reader. This might be a
 tutorial, a conceptual overview, reference material, or any other type
 of content. Guide pages serve as the navigational glue between topics,
@@ -195,11 +195,10 @@ to navigate to a page to better match how your readers are thinking.</p>
 <section>
 <title>Add Content</title>
 
-<p>Currently, there's no real content in <file>planting.page</file>.
-Add content to explain to the user how to plant magic beans.
-The following example shows a basic
-<link xref="/1.0/mallard-1.0/mal_block_p">paragraph</link> and a
-<link xref="/1.0/mallard-1.0/mal_block_steps">step list</link>.</p>
+<p>Currently, there's no real content in <file>planting.page</file>.  Add content
+to explain to the user how to plant magic beans.  The following example shows a
+basic <link xref="/1.0/mal_block_p">paragraph</link> and a
+<link xref="/1.0/mal_block_steps">step list</link>.</p>
 
 <listing>
   <title><file>planting.page</file></title>
@@ -236,9 +235,8 @@ document with any number of pages.  Mallard offers more features that allow
 you to create richer documents with more useful links.  Try adding more
 content and additional pages to your document.</p>
 
-<p>To learn more, read more of the
-<link xref="index">Mallard tutorials</link>.  Or read the
-<link xref="/1.0/mallard-1.0/spec">Mallard language specification</link>
+<p>To learn more, read more of the <link xref="index">Mallard tutorials</link>.
+Or read the <link xref="/1.0/spec">Mallard language specification</link>
 to see a complete list of what Mallard offers.</p>
 </section>
 

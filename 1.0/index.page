@@ -1,18 +1,29 @@
 <page xmlns="http://projectmallard.org/1.0/"
       type="guide"
-      style="namespace"
       id="index">
 
 <info>
-  <link type="topic" xref="/1.0/mallard-1.0/index"/>
+  <link type="topic" xref="explore"/>
+  <link type="topic" xref="details"/>
+  <link type="topic" xref="principles"/>
+  <link type="topic" xref="spec"/>
+
+  <revision version="0.1" date="2007-02-22" status="stub"/>
+
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2009</years>
+    <years>2007</years>
   </credit>
-  <desc>Better Help for Better Software</desc>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
 
-<title>Mallard 1.0 Namespace</title>
+<title>Mallard 1.0 DRAFT</title>
+
+<comment>
+  <cite date="2007-02-20">Shaun McCance</cite>
+  <p>Add some intro text</p>
+</comment>
 
 </page>

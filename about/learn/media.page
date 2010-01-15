@@ -39,7 +39,7 @@ titles and captions.</p>
 <section>
 <title>Images</title>
 
-<p>Use the <code xref="/1.0/mallard-1.0/mal_block_media">media</code>
+<p>Use the <code xref="/1.0/mal_block_media">media</code>
 element to add any type of media to your document, including images.
 Specify that the media is an image by setting the <code>type</code>
 attribute to <code>"image"</code>.  Use the <code>src</code> attribute
@@ -68,7 +68,7 @@ any units; they are always interpreted as pixels.</p>
 
 <p>When you use the <code>media</code> element in a block context, it is
 treated as a block element.  But you can also use the
-<code xref="/1.0/mallard-1.0/mal_inline_media">media</code> element inline
+<code xref="/1.0/mal_inline_media">media</code> element inline
 to add images in running text, such as inside a paragraph.</p>
 
 <example>
@@ -180,7 +180,7 @@ text fallback content.</p>
 can help readers understand the image and refer to it later.  This is especially
 important for diagrams and charts, where you may need to explain what certain
 notations mean.  You can add a title or a caption using the
-<code xref="/1.0/mallard-1.0/mal_block_figure">figure</code> element.</p>
+<code xref="/1.0/mal_block_figure">figure</code> element.</p>
 
 <example>
 <code><![CDATA[
@@ -197,9 +197,9 @@ notations mean.  You can add a title or a caption using the
 </figure>
 </example>
 
-<p>The <code xref="/1.0/mallard-1.0/mal_block_title">title</code> element
+<p>The <code xref="/1.0/mal_block_title">title</code> element
 provides a title for the figure, while the
-<code xref="/1.0/mallard-1.0/mal_block_desc">desc</code> element provides
+<code xref="/1.0/mal_block_desc">desc</code> element provides
 a caption.  Both elements are optional, although you should use at least
 one of them.  Note that both <code>title</code> and <code>desc</code>
 take normal inline content, not paragraphs or other block content.
@@ -236,9 +236,9 @@ element so that we get the fallback content instead.
 <p>In this tutorial, you learned how to add images and videos with fallback
 content, titles, and captions.  To learn more about media and figures, read
 the specification pages and examples on
-<link xref="/1.0/mallard-1.0/mal_block_media">block media</link>,
-<link xref="/1.0/mallard-1.0/mal_inline_media">inline media</link>, and
-<link xref="/1.0/mallard-1.0/mal_block_figure">figures</link>.</p>
+<link xref="/1.0/mal_block_media">block media</link>,
+<link xref="/1.0/mal_inline_media">inline media</link>, and
+<link xref="/1.0/mal_block_figure">figures</link>.</p>
 </section>
 
 </page>
