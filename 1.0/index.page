@@ -25,4 +25,16 @@
   <p>Add some intro text</p>
 </comment>
 
+<note style="warning">
+<p>This is a draft specification.  Changes may still be made before
+the final Mallard 1.0 specification.</p>
+</note>
+
+<p>Download the Mallard schema:</p>
+
+<list style="condensed">
+  <item><p><link href="http://projectmallard.org/1.0/mallard-1.0.rng">RELAX NG XML Syntax</link></p></item>
+  <item><p><link href="http://projectmallard.org/1.0/mallard-1.0.rnc">RELAX NG Compact Syntax</link></p></item>
+</list>
+
 </page>
