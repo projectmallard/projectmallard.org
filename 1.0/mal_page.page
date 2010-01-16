@@ -25,7 +25,7 @@ namespace local = ""
 default namespace mal = "http://projectmallard.org/1.0/"
 start = mal_page
 mal_page = element page {
-  attribute id { xsd:ID },
+  attribute id { xsd:NMTOKEN },
   attribute type { "guide" | "topic"} ?,
   attribute style { xsd:NMTOKENS } ?,
   attribute groups { xsd:NMTOKENS } ?,
