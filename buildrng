@@ -25,8 +25,8 @@ rng_rngfile="$rng_outdir/1.0/mallard-1.0.rng"
 rng_tmpfile="$rng_outdir/1.0/mallard-1.0.rng.tmp"
 
 echo_verbose "Creating $rng_rncfile"
-for page in 1.0/*.page; do
-    xsltproc --xinclude mal2rnc.xsl "$page"
+for page in $(./linear.sh); do
+    xsltproc --xinclude mal2rnc.xsl "1.0/${page}.page"
 done > "$rng_rncfile"
 
 echo_verbose "Creating $rng_rngfile"

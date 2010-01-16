@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xmllint --noout --relaxng 1.0/mallard-1.0.rng `find . -name '*.page'`
