@@ -31,7 +31,7 @@ they need.  In this tutorial, you will learn how to write inline code and
 commands, create code blocks and command-line sessions, and provide a title
 for your code blocks.</p>
 
-<section>
+<section id="inline">
 <title>Inline Code and Commands</title>
 
 <p>You can use the <code xref="/1.0/mal_inline_code">code</code>
@@ -87,7 +87,7 @@ as well.</p>
 </example>
 </section>
 
-<section>
+<section id="block">
 <title>Code Blocks</title>
 
 <p>Sometimes you need to provide multiple lines of code or file contents,
@@ -151,7 +151,7 @@ or code blocks.</p>
 
 </section>
 
-<section>
+<section id="cmd">
 <title>Command-line Sessions</title>
 
 <p>If you need to provide a long command to your readers, you may want to
@@ -227,7 +227,7 @@ to mark up prompts and error output.</p>
 
 </section>
 
-<section>
+<section id="listing">
 <title>Code Listings</title>
 
 <p>When you use code blocks to show the contents of a file, you often want

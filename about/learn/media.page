@@ -36,7 +36,7 @@ because they show user actions and program activity directly.</p>
 your Mallard document.  You will also learn how to create figures with
 titles and captions.</p>
 
-<section>
+<section id="images">
 <title>Images</title>
 
 <p>Use the <code xref="/1.0/mal_block_media">media</code>
@@ -80,7 +80,7 @@ to add images in running text, such as inside a paragraph.</p>
 
 </section>
 
-<section>
+<section id="videos">
 <title>Videos</title>
 
 <p>You can add a video to your document in the same way you added an image.
@@ -101,7 +101,7 @@ on browser support for the HTML <code>video</code> tag.</p>
 
 </section>
 
-<section>
+<section id="fallback">
 <title>Fallback Content</title>
 
 <p>Mallard is a source format.  It is designed to be easy to convert to other
@@ -173,7 +173,7 @@ text fallback content.</p>
 
 </section>
 
-<section>
+<section id="figures">
 <title>Figures</title>
 
 <p>Images are often accompanied by titles or captions.  Titles and captions
@@ -230,7 +230,7 @@ element so that we get the fallback content instead.
 
 </section>
 
-<section>
+<section id="learnmore">
 <title>Learn More</title>
 
 <p>In this tutorial, you learned how to add images and videos with fallback

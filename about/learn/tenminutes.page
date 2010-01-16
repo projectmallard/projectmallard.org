@@ -41,7 +41,7 @@ tutorial, a conceptual overview, reference material, or any other type
 of content. Guide pages serve as the navigational glue between topics,
 helping readers find and explore content.</p>
 
-<section>
+<section id="first">
 <title>First Page</title>
 
 <p>Begin making a Mallard document by writing the front page in any text editor.
@@ -79,11 +79,9 @@ Guide pages get special treatment in Mallard documents.  They're displayed with
 additional links to topic pages and other guide pages, based on metadata that
 is provided on this page or on other pages.  The linking structure for guide
 pages is unique to Mallard, and we will explore it further below.</p>
-
-<comment><p>Explain what the pieces here mean.  One para.</p></comment>
 </section>
 
-<section>
+<section id="view">
 <title>View Your Doucment</title>
 
 <p>You now have a simple document, but you can only view the raw markup
@@ -103,7 +101,7 @@ the page files.  For example, if you have placed <file>index.page</file> in
 <screen>yelp /home/drake/mydocument/</screen>
 </section>
 
-<section>
+<section id="topic">
 <title>Another Page</title>
 
 <p>Unless you're creating a simple set of instructions for a friend or
@@ -155,7 +153,7 @@ it possible to add pages for plugins and additional functionality without
 modifying the original source pages.</p>
 </section>
 
-<section>
+<section id="guide">
 <title>Another Guide</title>
 
 <p>You can add additional guide pages to your document.  This allows you to
@@ -192,7 +190,7 @@ can be linked to from multiple guides.  This allows you to provide multiple ways
 to navigate to a page to better match how your readers are thinking.</p>
 </section>
 
-<section>
+<section id="content">
 <title>Add Content</title>
 
 <p>Currently, there's no real content in <file>planting.page</file>.  Add content
@@ -227,7 +225,7 @@ follow.  Each <code>item</code> element is one step in the list, and
 must contain one or more paragraphs or other block content.</p>
 </section>
 
-<section>
+<section id="learnmore">
 <title>Read More and Explore</title>
 
 <p>Using the information in this tutorial, you can create a simple Mallard

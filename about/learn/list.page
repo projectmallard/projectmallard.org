@@ -31,7 +31,7 @@ In this tutorial, you will learn how to create a <link xref="#list">basic list</
 a <link xref="#steps">list of steps</link>, a <link xref="#terms">list of terms</link>,
 and a <link xref="#tree">simple tree</link>.</p>
 
-<section id="list">
+<section id="basic">
 <title>Basic Lists</title>
 
 <p>You can create a basic bulleted list using the
@@ -299,7 +299,7 @@ that the items are file names.</p>
 
 </section>
 
-<section>
+<section id="learnmore">
 <title>Learn More</title>
 
 <p>In this tutorial, you learned how to create four different types of lists
