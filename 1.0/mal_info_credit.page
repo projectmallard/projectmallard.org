@@ -25,8 +25,7 @@ mal_info_credit = element credit {
   attribute type { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
 
-  (
-    <link xref="mal_info_name">mal_info_name</link> &amp;
+  ( <link xref="mal_info_name">mal_info_name</link> &amp;
     <link xref="mal_info_email">mal_info_email</link> ? &amp;
     <link xref="mal_info_years">mal_info_years</link> ? &amp;
     <link xref="mal_external">mal_external</link> *

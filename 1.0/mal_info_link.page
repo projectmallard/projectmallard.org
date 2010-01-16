@@ -5,16 +5,27 @@
 <info>
   <link type="guide" xref="mal_info#elements"/>
 
-  <revision version="0.1" date="2007-02-21" status="stub"/>
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2009-2010</years>
+  </credit>
+
+  <desc>Create automatic links between pages and other resources.</desc>
 </info>
 
-<title>Hyperlinks</title>
+<title>Informational Links</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_info_link = element link {
-  attribute type { "guide" | "topic" | "seealso" },
-  attribute xref { text },
-  attribute weight { text } ?
+  attribute type { xsd:NMTOKEN },
+  ( attribute xref { text } |
+    attribute href { text }
+  ),
+  attribute group { text } ?
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_external">mal_external</link> *
 }
 </code></synopsis>
 

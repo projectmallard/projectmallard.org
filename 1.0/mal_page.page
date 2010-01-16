@@ -28,6 +28,7 @@ mal_page = element page {
   attribute id { xsd:ID },
   attribute type { "guide" | "topic"} ?,
   attribute style { xsd:NMTOKENS } ?,
+  attribute groups { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
 
   <link xref="mal_info">mal_info</link> ?,
