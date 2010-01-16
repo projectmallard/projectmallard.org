@@ -3,6 +3,7 @@
       id="mal_attr_link">
 
 <info>
+  <link type="guide" xref="details"/>
   <link type="seealso" xref="mal_inline"/>
 
   <credit type="author">
