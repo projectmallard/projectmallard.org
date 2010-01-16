@@ -14,7 +14,7 @@
 
 <title>Mallard</title>
 
-<section>
+<section id="what">
   <title>What Is Mallard?</title>
   <p>Mallard is a markup language that makes it easier for you to provide better
   user help for your software.  Mallard documents are <em>topic-oriented</em>:
@@ -27,7 +27,7 @@
   </list>
 </section>
 
-<section>
+<section id="why">
   <title>Why Mallard?</title>
   <list>
     <item><p>Mallard helps you write small and focused topics, making it easier
