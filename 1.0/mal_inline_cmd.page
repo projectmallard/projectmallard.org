@@ -6,7 +6,7 @@
   <link type="guide" xref="mal_inline#elements"/>
   <link type="seealso" xref="mal_block_screen"/>
 
-  <revision version="0.1" date="2008-12-01" status="review"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -20,17 +20,6 @@
 </info>
 
 <title>Commands</title>
-
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_inline_cmd = element cmd {
-  <link xref="mal_attr_link">mal_attr_link</link> ?,
-  attribute style { xsd:NMTOKENS } ?,
-  attribute mime { text } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_inline">mal_inline</link>
-}
-</code></synopsis>
 
 <p>Use the <code>cmd</code> element to mark up a command or a portion of a
 command to run in an interactive shell.  It is frequently used to mark up
@@ -172,5 +161,29 @@ you to filter files based on their modification times.
   <p>See <link xref="principle-justenough"/> for more background.</p>
 </section>
 <!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+the <code>cmd</code> element.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_cmd = element cmd {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>

@@ -147,7 +147,7 @@ guide pages serve as navigational aids.</p>
 <link href="http://www.relaxng.org/">RELAX NG</link>
 <link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
 in code blocks within this specification.  This is the formal definition
-for pages.</p>
+for the <code>page</code> element.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 namespace local = ""

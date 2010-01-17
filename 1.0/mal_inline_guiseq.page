@@ -6,7 +6,7 @@
   <link type="guide" xref="mal_inline#elements"/>
   <link type="seealso" xref="mal_inline_gui"/>
 
-  <revision version="0.1" date="2008-12-16" status="review"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -20,15 +20,6 @@
 </info>
 
 <title>GUI Sequences</title>
-
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_inline_guiseq = element guiseq {
-  attribute style { xsd:NMTOKENS } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  mixed { <link xref="mal_inline_gui">mal_inline_gui</link> + }
-}
-</code></synopsis>
 
 <p>Use the <code>guiseq</code> element to mark up a sequence of graphical
 interface elements.  This is typically used to present a sequence of menu
@@ -110,5 +101,27 @@ a new document.
   written into prose separately.</p>
 </section>
 <!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+the <code>guiseq</code> element.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_guiseq = element guiseq {
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  mixed { <link xref="mal_inline_gui">mal_inline_gui</link> + }
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>

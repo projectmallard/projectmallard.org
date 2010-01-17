@@ -6,7 +6,7 @@
   <link type="guide" xref="mal_inline#elements"/>
   <link type="seealso" xref="mal_inline_key"/>
 
-  <revision version="0.1" date="2008-12-17" status="review"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -20,18 +20,6 @@
 </info>
 
 <title>Key Sequences</title>
-
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_inline_keyseq = element keyseq {
-  attribute style { xsd:NMTOKENS } ?,
-  attribute type { "combo" | "sequence" } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  mixed {
-    (<link xref="mal_inline_gui">mal_inline_key</link> | mal_inline_keyseq) *
-  }
-}
-</code></synopsis>
 
 <p>Use the <code>keyseq</code> element to mark up a key combination or sequence.
 Use the <code xref="mal_inline_key">key</code> element to mark up each individual
@@ -165,5 +153,30 @@ There are various ways to modify drag behavior by using
   mouse actions in key sequences should be written as text content without markup.</p>
 </section>
 <!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+the <code>keyseq</code> element.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_keyseq = element keyseq {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute type { "combo" | "sequence" } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  mixed {
+    (<link xref="mal_inline_gui">mal_inline_key</link> | mal_inline_keyseq) *
+  }
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>
