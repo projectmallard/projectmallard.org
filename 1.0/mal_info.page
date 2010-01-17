@@ -5,17 +5,119 @@
 <info>
   <link type="guide" xref="index" group="info"/>
 
-  <revision version="0.1" date="2008-02-21" status="stub"/>
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2010</years>
+  </credit>
+
+  <desc>Include metadata and automatic links for pages and sections.</desc>
 </info>
 
-<title>Informational Elements</title>
+<title>Information Elements</title>
+
+<p>The <code>info</code> element contains various metadata and information
+about <link xref="links">automatic links</link> for a page or section.
+Mallard provides a core set of informational elements for most common needs.
+Informational elements like <code xref="mal_info_link">link</code>,
+<code xref="mal_info_title">title</code>, and <code xref="mal_info_desc">desc</code>
+are the core of <link xref="links">automatic links</link>.  Other informational
+elements record credits, copyrights, revisions, and license information.</p>
+
+<p>Furthermore, Mallard allows elements from external namespaces to be used
+inside the <code>info</code> element.  External-namespace informational
+elements can be used to record any additional information you need.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+<title>Notes</title>
+
+<list>
+  <item>
+    <p>The <code>info</code> element contains a mixture of the following,
+    in any order:</p>
+    <list>
+      <item><p>An optional <code xref="mal_info_desc">desc</code> element.</p></item>
+      <item><p>Any number of <code xref="mal_info_credit">credit</code>
+      elements.</p></item>
+      <item><p>Any number of <code xref="mal_info_license">license</code>
+      elements.</p></item>
+      <item><p>Any number of informational <code xref="mal_info_link">link</code>
+      elements.</p></item>
+      <item><p>Any number of informational <code xref="mal_info_title">title</code>
+      elements.</p></item>
+      <item><p>Any number of <code xref="mal_info_revision">revision</code>
+      elements.</p></item>
+      <item><p>Any number of elements from an external namespace.  There are no
+      restrictions on the contents of these elements.  See <link xref="mal_external"/>
+      for more information on external-namespace elements.</p></item>
+    </list>
+  </item>
+  <item><p>The <code>info</code> element can occur as the first element of a
+  <code xref="mal_page">page</code> or <code xref="mal_section">section</code>
+  element.</p></item>
+  <item><p>The <code>info</code> element can have attributes from external
+  namespaces.  See <link xref="mal_external"/> for more information
+  on external-namespace attributes.</p></item>
+</list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN elements -->
+<section id="elements">
+  <title>Informational Elements</title>
+
+  <p>The core informational elements are elements that can appear directly
+  inside an <code>info</code> element.</p>
+</section>
+<!-- END elements -->
+
+
+<!-- BEGIN additional -->
+<section id="additional">
+  <info>
+    <title type="link">Additional Informational Elements</title>
+  </info>
+  <title>Additional Elements</title>
+
+  <p>Mallard provides additional elements that allow you to provide structured
+  information inside some informational elements.</p>
+</section>
+<!-- END additional -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Information inside an <code>info</code> element is not displayed directly,
+  although some tools may adjust their formatting or display extra controls or
+  information based on elements in the <code>info</code> element.</p>
+
+  <p>Certain informational elements are responsible for automatic links.  Pages
+  and sections are displayed with additional links based on this information.
+  See <link xref="links"/> for more information.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for information elements.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_info = element info {
-  attribute * - (mal:* | local:*) { text } *,
+  <link xref="mal_external">mal_attr_external</link> *,
 
-  (
-    <link xref="mal_info_desc">mal_info_desc</link> ? &amp;
+  ( <link xref="mal_info_desc">mal_info_desc</link> ? &amp;
     <link xref="mal_info_credit">mal_info_credit</link> * &amp;
     <link xref="mal_info_license">mal_info_license</link> * &amp;
     <link xref="mal_info_link">mal_info_link</link> * &amp;
@@ -25,34 +127,7 @@ mal_info = element info {
   )
 }
 </code></synopsis>
-<!--
-credit (type)
-credit/date
-credit/email
-credit/name
-
-link (guide/page/seealso)
-
-? version number date
-? license
-? notice
-? desc
-? keyword
--->
-
-<!-- BEGIN elements -->
-<section id="elements">
-  <title>Informational Elements</title>
 </section>
-<!-- END elements -->
-
-<!-- BEGIN additional -->
-<section id="additional">
-  <info>
-    <title type="link">Additional Informational Elements</title>
-  </info>
-  <title>Additional Elements</title>
-</section>
-<!-- END additional -->
+<!-- END schema -->
 
 </page>
