@@ -21,19 +21,6 @@
 
 <title>Sections</title>
 
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_section = element section {
-  attribute id { xsd:ID },
-  attribute style { xsd:NMTOKENS } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_info">mal_info</link> ?,
-  <link xref="mal_block_title">mal_block_title</link>,
-  <link xref="mal_block">mal_block</link> *,
-  mal_section *
-}
-</code></synopsis>
-
 <p>A section is a prominent logical part of a page or another section.
 Breaking up material into sections can help readers find information
 more quickly.  In Mallard, sections can take part in
@@ -52,9 +39,9 @@ more quickly.  In Mallard, sections can take part in
     elements and other <code>section</code> elements.</p></item>
 
     <item><p>The <code>id</code> attribute takes a unique identifier.  It should
-    be distinct from all other <code>id</code> attributes in the same page,
-    including those on other <code>section</code> elements and on the containing
-    <code xref="mal_page">page</code> element.</p></item>
+    be distinct from all other section <code>id</code> attributes in the same page.
+    It does not have to be distinct from the <code>id</code> attribute on the
+    containing <code>page</code> element.</p></item>
 
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
@@ -87,5 +74,29 @@ more quickly.  In Mallard, sections can take part in
   their block content.  See <link xref="links#topic"/> for more information.</p>
 </section>
 <!-- END processing -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in RELAX NG
+Compact Syntax in code blocks within this specification.  This is the formal
+definition for sections.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_section = element section {
+  attribute id { xsd:ID },
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  <link xref="mal_info">mal_info</link> ?,
+  <link xref="mal_block_title">mal_block_title</link>,
+  <link xref="mal_block">mal_block</link> *,
+  mal_section *
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>

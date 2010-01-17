@@ -20,24 +20,6 @@
 
 <title>Pages</title>
 
-<synopsis><code mime="application/relax-ng-compact-syntax">
-namespace local = ""
-default namespace mal = "http://projectmallard.org/1.0/"
-start = mal_page
-mal_page = element page {
-  attribute id { xsd:NMTOKEN },
-  attribute type { "guide" | "topic"} ?,
-  attribute style { xsd:NMTOKENS } ?,
-  attribute groups { xsd:NMTOKENS } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_info">mal_info</link> ?,
-  <link xref="mal_block_title">mal_block_title</link>,
-  <link xref="mal_block">mal_block</link> *,
-  <link xref="mal_section">mal_section</link> *
-}
-</code></synopsis>
-
 <p>The <code>page</code> element is the root element of any Mallard page file.
 In Mallard, documents are composed of discrete pages which are  interlinked
 using various linking mechanisms.  There are two types of pages in Mallard:
@@ -155,5 +137,34 @@ guide pages serve as navigational aids.</p>
   the way pages are displayed.</p>
 </section>
 <!-- END processing -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in RELAX NG
+Compact Syntax in code blocks within this specification.  This is the formal
+definition for pages.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+namespace local = ""
+default namespace mal = "http://projectmallard.org/1.0/"
+start = mal_page
+mal_page = element page {
+  attribute id { xsd:NMTOKEN },
+  attribute type { "guide" | "topic" } ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute groups { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  <link xref="mal_info">mal_info</link> ?,
+  <link xref="mal_block_title">mal_block_title</link>,
+  <link xref="mal_block">mal_block</link> *,
+  <link xref="mal_section">mal_section</link> *
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>
