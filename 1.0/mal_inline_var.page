@@ -7,7 +7,7 @@
   <link type="seealso" xref="mal_inline_cmd"/>
   <link type="seealso" xref="mal_inline_code"/>
 
-  <revision version="0.1" date="2009-04-12" status="review"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -21,16 +21,6 @@
 </info>
 
 <title>Variable Text</title>
-
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_inline_var = element var {
-  <link xref="mal_attr_link">mal_attr_link</link> ?,
-  attribute style { xsd:NMTOKENS } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_inline">mal_inline</link>
-}
-</code></synopsis>
 
 <p>Use the <code>var</code> element to mark up placeholder text that should be
 replaced by the user.  This is typically used inside a
@@ -91,5 +81,28 @@ an indicated argument.</p>
   element in DocBook.</p>
 </section>
 <!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+the <code>var</code> element.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_var = element var {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>
