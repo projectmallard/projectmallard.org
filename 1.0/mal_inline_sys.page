@@ -103,7 +103,7 @@ isn't covered by other elements such as <code xref="mal_inline_file">file</code>
 <link href="http://www.relaxng.org/">RELAX NG</link>
 <link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
 in code blocks within this specification.  This is the formal definition
-the <code>sys</code> element.</p>
+for the <code>sys</code> element.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_sys = element sys {

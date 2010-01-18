@@ -119,7 +119,7 @@ or into a text field in a graphical application.</p>
 <link href="http://www.relaxng.org/">RELAX NG</link>
 <link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
 in code blocks within this specification.  This is the formal definition
-the <code>input</code> element.</p>
+for the <code>input</code> element.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_input = element input {
