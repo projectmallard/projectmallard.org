@@ -3,7 +3,7 @@
       id="mal_block_tree">
 
 <info>
-  <revision version="0.1" date="2009-05-25" status="review"/>
+  <revision docversion="1.0" status="incomplete"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -17,23 +17,6 @@
 </info>
 
 <title>Tree Lists</title>
-
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_block_tree = element tree {
-  attribute style { xsd:NMTOKENS } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_block_title">mal_block_title</link> ?,
-  mal_tree_item +
-}
-mal_tree_item = element item {
-  attribute style { xsd:NMTOKENS } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_inline">mal_inline</link>,
-  mal_tree_item *
-}
-</code></synopsis>
 
 <p>Use the <code>tree</code> element to create a heirarchical tree.  While
 conceptually similar to nested <code xref="mal_block_list">list</code>
@@ -183,5 +166,36 @@ class inheritance or directory layouts.</p>
   hints.</p>
 </section>
 <!-- END processing -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>tree</code> element.</p>
+
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_tree = element tree {
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  mal_block_tree_item +
+}
+mal_block_tree_item = element item {
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  <link xref="mal_inline">mal_inline</link>,
+  mal_block_tree_item *
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>

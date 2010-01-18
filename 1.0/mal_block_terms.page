@@ -3,7 +3,7 @@
       id="mal_block_terms">
 
 <info>
-  <revision version="0.1" date="2009-05-28" status="review"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -17,23 +17,6 @@
 </info>
 
 <title>Definition Lists</title>
-
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_block_terms = element terms {
-  attribute style { xsd:NMTOKENS } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_block_title">mal_block_title</link> ?,
-
-  element item {
-    attribute style { xsd:NMTOKENS } ?,
-    attribute * - (mal:* | local:*) { text } *,
-
-    <link xref="mal_block_title">mal_block_title</link> +,
-    <link xref="mal_block">mal_block</link> +
-  } +
-}
-</code></synopsis>
 
 <p>The <code>terms</code> element creates a list of terms and associated
 definitions or descriptions.  This type of list is often called a definition
@@ -180,5 +163,35 @@ list or a variable list.</p>
   <code xref="mal_block_title">title</code> elements.</p>
 </section>
 <!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>terms</code> element.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_terms = element terms {
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  mal_block_terms_item +
+}
+mal_block_terms_item = element item {
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  <link xref="mal_block_title">mal_block_title</link> +,
+  <link xref="mal_block">mal_block</link> +
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>

@@ -3,7 +3,7 @@
       id="mal_block_p">
 
 <info>
-  <revision version="0.1" date="2009-05-28" status="review"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -17,15 +17,6 @@
 </info>
 
 <title>Paragraphs</title>
-
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_block_p = element p {
-  attribute style { xsd:NMTOKENS } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_inline">mal_inline</link>
-}
-</code></synopsis>
 
 <p>The most basic block-level element in Mallard is the <code>p</code>
 element.  The <code>p</code> element creates a paragraph in the formatted
@@ -87,17 +78,43 @@ output.</p>]]></code>
 <!-- END processing -->
 
 
-<!-- BEGIN docbook -->
-<section id="docbook">
-  <title>Comparison to DocBook</title>
-  <p>The <code>p</code> element in Mallard appears to be equivalent to to the
-  <code href="http://www.docbook.org/tdg/en/html/para.html">para</code> element
-  in DocBook.  While both elements create a paragraph in the formatted output,
-  the <code>p</code> element in Mallard is actually much more restrictive, as it
-  does not permit nested block content.  In this regard, it is actaully similar
-  to the <code href="http://www.docbook.org/tdg/en/html/simpara.html">simpara</code>
-  element in DocBook.</p>
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>DocBook contains two elements for creating a paragraph:
+  <code href="http://www.docbook.org/tdg/en/html/para.html">para</code> and
+  <code href="http://www.docbook.org/tdg/en/html/simpara.html">simpara</code>.
+  The <code>p</code> in Mallard is similar to the <code>simpara</code> element
+  in DocBook in that it does not allow block content.</p>
+
+  <p>The <code>p</code> element in Mallard is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/p.html">p</code>
+  element in DITA, except that block content may not be mixed into
+  paragraphs in Mallard.</p>
 </section>
-<!-- END docbook -->
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>p</code> element.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_p = element p {
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>

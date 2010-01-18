@@ -5,7 +5,7 @@
 <info>
   <link type="seealso" xref="mal_block_code"/>
 
-  <revision version="0.1" date="2009-04-16" status="review"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -19,16 +19,6 @@
 </info>
 
 <title>Screens</title>
-
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_block_screen = element screen {
-  attribute style { xsd:NMTOKENS } ?,
-  attribute mime { text } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_inline">mal_inline</link>
-}
-</code></synopsis>
 
 <p>Use the <code>screen</code> element to mark up a textual screen for
 a textual user interface or an interactive shell.  The contents of a
@@ -178,5 +168,28 @@ xsltproc -o mal_block_screen.html \
   element in DITA.</p>
 </section>
 <!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>screen</code> element.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_screen = element screen {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>
