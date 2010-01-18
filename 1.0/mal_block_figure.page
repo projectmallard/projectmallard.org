@@ -6,7 +6,7 @@
   <link type="seealso" xref="mal_block_media"/>
   <link type="seealso" xref="mal_block_listing"/>
 
-  <revision version="0.1" date="2009-05-19" status="review"/>
+  <revision docversion="1.0" status="incomplete"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -20,17 +20,6 @@
 </info>
 
 <title>Figures</title>
-
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_block_figure = element figure {
-  attribute style { xsd:NMTOKENS } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_block_title">mal_block_title</link> ?,
-  <link xref="mal_block_desc">mal_block_desc</link> ?,
-  <link xref="mal_block">mal_block</link> +
-}
-</code></synopsis>
 
 <p>Use the <code>figure</code> element to provide a title or caption for a
 <link xref="mal_block_media">multimedia object</link> or other block object.
@@ -108,5 +97,29 @@ To provide a title for the contents of a file, such as a
   Mallard distinguishes between a title and a caption.</p>
 </section>
 <!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>figure</code> element.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_figure = element figure {
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  <link xref="mal_block_desc">mal_block_desc</link> ?,
+  <link xref="mal_block">mal_block</link> +
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>

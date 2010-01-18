@@ -18,16 +18,6 @@
 
 <title>Notes</title>
 
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_block_note = element note {
-  attribute style { xsd:NMTOKENS } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_block_title">mal_block_title</link> ?,
-  <link xref="mal_block">mal_block</link> +
-}
-</code></synopsis>
-
 <p>The <code>note</code> element allows you to insert parenthetical block-level
 content into your document.  Notes are visually distinct blocks, allowing readers
 to skip them or focus on them, depending on their needs.  You can use notes to
@@ -226,5 +216,28 @@ git config --global user.email <var>email_address</var></code>
   as there is rarely a useful distinction in practice.</p>
 </section>
 <!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>note</code> element.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_note = element note {
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  <link xref="mal_block">mal_block</link> +
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>

@@ -5,7 +5,7 @@
 <info>
   <link type="seealso" xref="mal_inline_code"/>
 
-  <revision version="0.1" date="2009-04-19" status="review"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -19,16 +19,6 @@
 </info>
 
 <title>Code Blocks</title>
-
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_block_code = element code {
-  attribute style { xsd:NMTOKENS } ?,
-  attribute mime { text } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_inline">mal_inline</link>
-}
-</code></synopsis>
 
 <p>Use the <code>code</code> element to mark up a block of text from
 a computer language.  This will typically be used for programming
@@ -135,5 +125,28 @@ public:
   element in DITA.</p>
 </section>
 <!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the block <code>code</code> element.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_code = element code {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  <link xref="mal_external">mal_attr_external</link> *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>
