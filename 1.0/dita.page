@@ -1,0 +1,1245 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="dita">
+
+<info>
+  <link type="guide" xref="details#misc"/>
+  <link type="seealso" xref="docbook"/>
+</info>
+
+<title>DITA Element Reference</title>
+
+<p>The following table lists all of the elements in DITA and provides
+recommendations for equivalent or similar functionality in Mallard, when
+available.</p>
+
+<table rules="cols" shade="rowgroups" frame="all">
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/abbrevlist.html">abbrevlist</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/abstract.html">abstract</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/addressdetails.html">addressdetails</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/administrativearea.html">administrativearea</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/alt.html">alt</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/amendments.html">amendments</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/anchor.html">anchor</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/apiname.html">apiname</code></p></td>
+    <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
+    element instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/appendix.html">appendix</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/approved.html">approved</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/area.html">area</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/audience.html">audience</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
+    provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/author.html">author</code></p></td>
+    <td><p>Use the common <code xref="mal_info_credit">credit</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/authorinformation.html">authorinformation</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/b.html">b</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/backmatter.html">backmatter</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/bibliolist.html">bibliolist</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/body.html">body</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/bookabstract.html">bookabstract</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/bookchangehistory.html">bookchangehistory</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/bookevent.html">bookevent</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/bookeventtype.html">bookeventtype</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/bookid.html">bookid</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/booklibrary.html">booklibrary</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/booklist.html">booklist</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/booklists.html">booklists</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/bookmap.html">bookmap</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/bookmeta.html">bookmeta</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/booknumber.html">booknumber</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/bookowner.html">bookowner</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/bookpartno.html">bookpartno</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/bookrestriction.html">bookrestriction</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/bookrights.html">bookrights</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/booktitle.html">booktitle</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/booktitlealt.html">booktitlealt</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/boolean.html">boolean</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/brand.html">brand</code></p></td>
+      <td rowspan="2"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
+      may provide this information in <code xref="mal_info">info</code> elements.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/category.html">category</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chapter.html">chapter</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chdesc.html">chdesc</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chdeschd.html">chdeschd</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chhead.html">chhead</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choice.html">choice</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choices.html">choices</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choicetable.html">choicetable</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choption.html">choption</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choptionhd.html">choptionhd</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chrow.html">chrow</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/cite.html">cite</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/cmd.html">cmd</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/cmdname.html">cmdname</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/codeblock.html">codeblock</code></p></td>
+    <td><p>Similar to the block <code xref="mal_block_code">code</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/codeph.html">codeph</code></p></td>
+    <td><p>Similar to the inline <code xref="mal_inline_code">code</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/colophon.html">colophon</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/colspec.html">colspec</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/completed.html">completed</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/component.html">component</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/conbody.html">conbody</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/concept.html">concept</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/contactnumber.html">contactnumber</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/contactnumbers.html">contactnumbers</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/context.html">context</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/coords.html">coords</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/copyrfirst.html">copyrfirst</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/copyrholder.html">copyrholder</code></p></td>
+    <td><p>Use the <code xref="mal_info_name">name</code> element in a
+    <code xref="mal_info_credit">credit</code> element.  Mallard records
+    copyright information in <code>credit</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/copyright.html">copyright</code></p></td>
+    <td><p>Use the <code xref="mal_info_credit">credit</code> element to record copyright information.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/copyrlast.html">copyrlast</code></p></td>
+      <td rowspan="2"><p>Use the <code xref="mal_info_years">years</code> element in a
+      <code xref="mal_i`nfo_credit">credit</code> element.  Mallard records
+      copyright information in <code>credit</code> elements.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/copyryear.html">copyryear</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/country.html">country</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/created.html">created</code></p></td>
+    <td><p>No direct equivalent in Mallard.  The <code xref="mal_info_revision">revision</code>
+    element may be used to record this information.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/critdates.html">critdates</code></p></td>
+    <td><p>No equivalent in Mallard.  Creation or revision dates can be recorded with
+    <code xref="mal_info_revision">revision</code> elements or <link xref="mal_external">external-namespace
+    elements</link> in an <code xref="mal_info">info</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/data-about.html">data-about</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/data.html">data</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/day.html">day</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dd.html">dd</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ddhd.html">ddhd</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dedication.html">dedication</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/delim.html">delim</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/desc.html">desc</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dita.html">dita</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ditaval-alt-text.html">ditaval-alt-text</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ditaval-endflag.html">ditaval-endflag</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ditaval-prop.html">ditaval-prop</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ditaval-revprop.html">ditaval-revprop</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ditaval-startflag.html">ditaval-startflag</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ditaval-style-conflict.html">ditaval-style-conflict</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ditaval-val.html">ditaval-val</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dl.html">dl</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dlentry.html">dlentry</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dlhead.html">dlhead</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/draft-comment.html">draft-comment</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/draftintro.html">draftintro</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dt.html">dt</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dthd.html">dthd</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/edited.html">edited</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/edition.html">edition</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/emailaddress.html">emailaddress</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/emailaddresses.html">emailaddresses</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/entry.html">entry</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/example.html">example</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/featnum.html">featnum</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
+    may provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/fig.html">fig</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/figgroup.html">figgroup</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/figurelist.html">figurelist</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/filepath.html">filepath</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/firstname.html">firstname</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/fn.html">fn</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/foreign.html">foreign</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/fragment.html">fragment</code></p></td>
+      <td rowspan="2"><p>Mallard does not have a structured environment for syntax diagrams.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/fragref.html">fragref</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/frontmatter.html">frontmatter</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/generationidentifier.html">generationidentifier</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/glossarylist.html">glossarylist</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/glossdef.html">glossdef</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/glossentry.html">glossentry</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/glossterm.html">glossterm</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/groupchoice.html">groupchoice</code></p></td>
+      <td rowspan="3"><p>Mallard does not have a structured environment for syntax diagrams.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/groupcomp.html">groupcomp</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/groupseq.html">groupseq</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/honorific.html">honorific</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/i.html">i</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/image.html">image</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/imagemap.html">imagemap</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/index-base.html">index-base</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/index-see-also.html">index-see-also</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/index-see.html">index-see</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/index-sort-as.html">index-sort-as</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/indexlist.html">indexlist</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/indexterm.html">indexterm</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/indextermref.html">indextermref</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/info.html">info</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/isbn.html">isbn</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/itemgroup.html">itemgroup</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/keyword.html">keyword</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/keywords.html">keywords</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
+    may provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/kwd.html">kwd</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/lastname.html">lastname</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/li.html">li</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/lines.html">lines</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/link.html">link</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/linkinfo.html">linkinfo</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/linklist.html">linklist</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/linkpool.html">linkpool</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/linktext.html">linktext</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/locality.html">locality</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/localityname.html">localityname</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/lq.html">lq</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/mainbooktitle.html">mainbooktitle</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/maintainer.html">maintainer</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/map.html">map</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/menucascade.html">menucascade</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/metadata.html">metadata</code></p></td>
+    <td><p>Mallard does not provide an additional metadata holder inside the <code xref="mal_info">info</code>
+    element.  Simply place all metadata directly in the <code>info</code> element, possibly using
+    <link xref="mal_external">external-namespace elements</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/middlename.html">middlename</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/month.html">month</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/msgblock.html">msgblock</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/msgnum.html">msgnum</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/msgph.html">msgph</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/namedetails.html">namedetails</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/navref.html">navref</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/navtitle.html">navtitle</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/no-topic-nesting.html">no-topic-nesting</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/note.html">note</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/notices.html">notices</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/object.html">object</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ol.html">ol</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/oper.html">oper</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/option.html">option</code></p></td>
+    <td><p>No specific element in Mallard.  Use the <code xref="mal_inline_cmd">cmd</code>
+    element instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/organization.html">organization</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/organizationinfo.html">organizationinfo</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/organizationname.html">organizationname</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/organizationnamedetails.html">organizationnamedetails</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/otherinfo.html">otherinfo</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/othermeta.html">othermeta</code></p></td>
+    <td><p>No equivalent in Mallard.  Use <link xref="mal_external">external-namespace elements</link>
+    to record additional metadata about a page or section.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/p.html">p</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/param.html">param</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/parml.html">parml</code></p></td>
+    <td><p>Mallard does not contain a specific element for parameter lists.  Use a
+    <link xref="mal_block_terms">term list</link> instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/parmname.html">parmname</code></p></td>
+    <td><p>No specific element in Mallard.  Use the <code xref="mal_inline_cmd">cmd</code>
+    element instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/part.html">part</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/pd.html">pd</code></p></td>
+    <td><p>Mallard does not contain a specific element for parameter lists.  Use a
+    <link xref="mal_block_terms">term list</link> instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/permissions.html">permissions</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
+    may provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/person.html">person</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/personinfo.html">personinfo</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/personname.html">personname</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ph.html">ph</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/platform.html">platform</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
+    may provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/plentry.html">plentry</code></p></td>
+    <td><p>Mallard does not contain a specific element for parameter lists.  Use a
+    <link xref="mal_block_terms">term list</link> instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/postalcode.html">postalcode</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/postreq.html">postreq</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/pre.html">pre</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/preface.html">preface</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/prereq.html">prereq</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/printlocation.html">printlocation</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/prodinfo.html">prodinfo</code></p></td>
+      <td rowspan="3"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
+      may provide this information in <code xref="mal_info">info</code> elements.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/prodname.html">prodname</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/prognum.html">prognum</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/prolog.html">prolog</code></p></td>
+    <td><p>Similar to the <code xref="mal_info">info</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/propdesc.html">propdesc</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/propdeschd.html">propdeschd</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/properties.html">properties</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/property.html">property</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/prophead.html">prophead</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/proptype.html">proptype</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/proptypehd.html">proptypehd</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/propvalue.html">propvalue</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/propvaluehd.html">propvaluehd</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/pt.html">pt</code></p></td>
+    <td><p>Mallard does not contain a specific element for parameter lists.  Use a
+    <link xref="mal_block_terms">term list</link> instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/published.html">published</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/publisher.html">publisher</code></p></td>
+    <td><p>Use the common <code xref="mal_info_credit">credit</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/publisherinformation.html">publisherinformation</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/publishtype.html">publishtype</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/q.html">q</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/refbody.html">refbody</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/reference.html">reference</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/refsyn.html">refsyn</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/related-links.html">related-links</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/relcell.html">relcell</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/relcolspec.html">relcolspec</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/relheader.html">relheader</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/relrow.html">relrow</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/reltable.html">reltable</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/repsep.html">repsep</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/required-cleanup.html">required-cleanup</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/resourceid.html">resourceid</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
+    provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/result.html">result</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/reviewed.html">reviewed</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/revised.html">revised</code></p></td>
+    <td><p>No direct equivalent in Mallard.  The <code xref="mal_info_revision">revision</code>
+    element may be used to record this information.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/revisionid.html">revisionid</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/row.html">row</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/screen.html">screen</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/searchtitle.html">searchtitle</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/section.html">section</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/sep.html">sep</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/series.html">series</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
+    provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/shape.html">shape</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/shortcut.html">shortcut</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/shortdesc.html">shortdesc</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/simpletable.html">simpletable</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/sl.html">sl</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/sli.html">sli</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/source.html">source</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
+    provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/started.html">started</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/state.html">state</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/stentry.html">stentry</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/step.html">step</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/stepresult.html">stepresult</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/steps-unordered.html">steps-unordered</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/steps.html">steps</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/stepxmp.html">stepxmp</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/sthead.html">sthead</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/strow.html">strow</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/sub.html">sub</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/substep.html">substep</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/substeps.html">substeps</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/summary.html">summary</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/sup.html">sup</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/synblk.html">synblk</code></p></td>
+    <td><p>Mallard does not have a structured environment for syntax diagrams.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/synnote.html">synnote</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/synnoteref.html">synnoteref</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/synph.html">synph</code></p></td>
+    <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
+    element instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/syntaxdiagram.html">syntaxdiagram</code></p></td>
+    <td><p>Mallard does not have a structured environment for syntax diagrams.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/systemoutput.html">systemoutput</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/table.html">table</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/tablelist.html">tablelist</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/task.html">task</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/taskbody.html">taskbody</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/tbody.html">tbody</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/term.html">term</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/tested.html">tested</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/tgroup.html">tgroup</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/thead.html">thead</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/thoroughfare.html">thoroughfare</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/title.html">title</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/titlealts.html">titlealts</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/tm.html">tm</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/toc.html">toc</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/topic.html">topic</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/topicgroup.html">topicgroup</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/topichead.html">topichead</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/topicmeta.html">topicmeta</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/topicref.html">topicref</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/trademarklist.html">trademarklist</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/tt.html">tt</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/tutorialinfo.html">tutorialinfo</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/u.html">u</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/uicontrol.html">uicontrol</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ul.html">ul</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/unknown.html">unknown</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/url.html">url</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/urls.html">urls</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/userinput.html">userinput</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/var.html">var</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/varname.html">varname</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/volume.html">volume</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/vrm.html">vrm</code></p></td>
+      <td rowspan="2"><p>The <code xref="mal_info_revision">revision</code> element is placed directly in the
+      <code xref="mal_info">info</code> element and records revision information.  Additional information about
+      revisions can be recorded with <link xref="mal_external">external-namespace elements and attributes</link>.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/vrmlist.html">vrmlist</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/wintitle.html">wintitle</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/xref.html">xref</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/year.html">year</code></p></td>
+    <td><p></p></td>
+  </tr></tbody>
+</table>
+</page>
