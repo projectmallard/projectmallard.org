@@ -145,7 +145,8 @@ for details on how fallback elements are handled.</p>
 <link href="http://www.relaxng.org/">RELAX NG</link>
 <link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
 in code blocks within this specification.  This is the formal definition
-for the block <code>media</code> element.</p>
+for the block <code>media</code> element.  The namespace declarations for
+this definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_media = element media {
