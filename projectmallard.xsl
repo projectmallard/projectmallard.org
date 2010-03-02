@@ -21,6 +21,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 xmlns:mal="http://projectmallard.org/1.0/"
                 xmlns="http://www.w3.org/1999/xhtml"
                 extension-element-prefixes="exsl"
+                exclude-result-prefixes="mal"
                 version="1.0">
 
 <!-- We shouldn't depend on mal.site.root_noslash; it's not public -->
@@ -84,19 +85,21 @@ div.header {
 }
 
 .threecolumns h2 { font-size: 1em; }
+.threecolumns li { margin-left: 1.44em; }
 .threecolumnsone {
+  padding: 0;
   vertical-align: top;
   width: 240px;
   border-right: solid 20px #ffffff;
 }
-
 .threecolumnstwo {
+  padding: 0;
   vertical-align: top;
   width: 240px;
   border-right: solid 20px #ffffff;
 }
-
 .threecolumnsthree {
+  padding: 0;
   vertical-align: top;
   width: 240px;
 }

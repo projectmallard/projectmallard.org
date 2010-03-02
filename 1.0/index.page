@@ -32,7 +32,7 @@ the final Mallard 1.0 specification.</p>
 
 <p>Download the Mallard schema:</p>
 
-<list style="condensed">
+<list style="compact">
   <item><p><link href="http://projectmallard.org/1.0/mallard-1.0.rng">RELAX NG XML Syntax</link></p></item>
   <item><p><link href="http://projectmallard.org/1.0/mallard-1.0.rnc">RELAX NG Compact Syntax</link></p></item>
 </list>
