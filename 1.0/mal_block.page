@@ -21,15 +21,6 @@
 
 <title>Block Elements</title>
 
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_block = (
-  <link xref="#basic">mal_block_basic</link> |
-  <link xref="#formal">mal_block_formal</link> |
-  <link xref="#lists">mal_block_lists</link> |
-  <link xref="mal_table">mal_table</link>
-)
-</code></synopsis>
-
 <p>Block elements are the building blocks of pages.  Mallard provides block
 elements for most common needs in software documentation, from simple paragraphs
 to example blocks to powerful tables.  Pages and sections in Mallard are built
@@ -55,14 +46,6 @@ information.</p>
     <link type="topic" xref="mal_block_screen"/>
   </info>
   <title>Basic Elements</title>
-  <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_block_basic = (
-  <link xref="mal_block_code">mal_block_code</link> |
-  <link xref="mal_block_example">mal_block_example</link> |
-  <link xref="mal_block_media">mal_block_media</link> |
-  <link xref="mal_block_p">mal_block_p</link> |
-  <link xref="mal_block_screen">mal_block_screen</link>
-)</code></synopsis>
 
   <p>Basic block elements are elements that do not contain a title and which
   have either general block content or <link xref="mal_inline">inline
@@ -84,15 +67,6 @@ mal_block_basic = (
     <link type="topic" xref="mal_block_synopsis"/>
   </info>
   <title>Formal Elements</title>
-  <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_block_formal = (
-  <link xref="mal_block_comment">mal_block_comment</link> |
-  <link xref="mal_block_figure">mal_block_figure</link> |
-  <link xref="mal_block_listing">mal_block_listing</link> |
-  <link xref="mal_block_note">mal_block_note</link> |
-  <link xref="mal_block_quote">mal_block_quote</link> |
-  <link xref="mal_block_synopsis">mal_block_synopsis</link>
-)</code></synopsis>
 
   <p>Formal block elements contain a <link xref="mal_block_title">title</link>
   and general block content.  Formal block elements allow you to provide
@@ -110,13 +84,6 @@ mal_block_formal = (
     <link type="topic" xref="mal_block_tree"/>
   </info>
   <title>List Elements</title>
-  <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_block_lists = (
-  <link xref="mal_block_list">mal_block_list</link> |
-  <link xref="mal_block_steps">mal_block_steps</link> |
-  <link xref="mal_block_terms">mal_block_terms</link> |
-  <link xref="mal_block_tree">mal_block_tree</link>
-)</code></synopsis>
 
   <p>Mallard provides list elements for most common needs, including the common
   definition, ordered, and unordered lists.  Mallard also provides simple trees,
@@ -176,7 +143,60 @@ mal_block_lists = (
   to set them apart.  Certain block elements, especially those that have block
   content, may use a border, background color, or other styling effects.  See
   each block element's specification for more details.</p>
+
+  <p>Mallard allows elements from external namespaces to be used in any block
+  context.  Processing tools may have special behavior for particular elements
+  they understand.  If a processing tool does not understand an element in
+  block context, it should process the children of the element as if they
+  were block elements, except it should ignore any child elements it does
+  not understand.  This restricted block context allows extensions to have
+  any content model while still providing a standard mechanism for fallback
+  content.</p>
 </section>
 <!-- END processing -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the block content model.  The namespace declarations for this definition
+are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block = (
+  mal_block_elements |
+  element * - (mal:* | local:*) {
+    attribute * { text } *,
+    ( <link xref="mal_external">mal_external</link> * &amp;
+      mal_block_elements *
+    )
+  }
+)
+mal_block_elements = (  
+  <link xref="mal_block_code">mal_block_code</link> |
+  <link xref="mal_block_comment">mal_block_comment</link> |
+  <link xref="mal_block_example">mal_block_example</link> |
+  <link xref="mal_block_figure">mal_block_figure</link> |
+  <link xref="mal_block_list">mal_block_list</link> |
+  <link xref="mal_block_listing">mal_block_listing</link> |
+  <link xref="mal_block_media">mal_block_media</link> |
+  <link xref="mal_block_note">mal_block_note</link> |
+  <link xref="mal_block_p">mal_block_p</link> |
+  <link xref="mal_block_quote">mal_block_quote</link> |
+  <link xref="mal_block_screen">mal_block_screen</link> |
+  <link xref="mal_block_steps">mal_block_steps</link> |
+  <link xref="mal_block_synopsis">mal_block_synopsis</link> |
+  <link xref="mal_block_terms">mal_block_terms</link> |
+  <link xref="mal_block_tree">mal_block_tree</link> |
+  <link xref="mal_table">mal_table</link>
+)
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>

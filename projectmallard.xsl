@@ -83,6 +83,7 @@ div.header {
   color: #3465a4;
   border-bottom: solid 1px #fcaf3e;
 }
+h1, h2, h3, h4, h5, h6, h8 { color: #3465a4; }
 
 .threecolumns h2 { font-size: 1em; }
 .threecolumns li { margin-left: 1.44em; }

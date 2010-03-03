@@ -28,11 +28,15 @@
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_external = element * - (mal:* | local:*) {
   attribute * { text } *,
-  mal_anything *
+  ( mal_anything * &amp;
+    text ?
+  )
 }
 mal_anything = element * {
   attribute * { text } *,
-  mal_anything *
+  ( mal_anything * &amp;
+    text ?
+  )
 }
 mal_attr_external = attribute * - (mal:* | local:*) { text }
 </code></synopsis>

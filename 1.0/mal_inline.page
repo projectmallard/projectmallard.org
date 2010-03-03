@@ -100,7 +100,10 @@ mal_inline = {
   <link xref="mal_inline_span">mal_inline_span</link> * &amp;
   <link xref="mal_inline_sys">mal_inline_sys</link> * &amp;
   <link xref="mal_inline_var">mal_inline_var</link> * &amp;
-  element * - (mal:* | local:*) { mal_inline } * &amp;
+  element * - (mal:* | local:*) {
+    attribute * { text } *,
+    mal_inline
+  } * &amp;
   text ?
 }
 </code></synopsis>
