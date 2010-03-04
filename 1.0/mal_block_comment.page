@@ -18,20 +18,19 @@
 
 <title>Editorial Comments</title>
 
-<p>The <code>comment</code> element allows you to insert editorial comments
+<p>Use the <code>comment</code> element to insert editorial comments
 into your document.  These comments are intended to be displayed only when
 editing or reviewing the document, and not when the document is viewed by the
 end reader.  A <code>comment</code> element can contain other <code>comment</code>
 elements, allowing you to have a threaded discussion inside editorial comments.</p>
 
-<p>A <code>comment</code> element may optionally contain a
+<p>A <code>comment</code> element may contain a
 <code xref="mal_block_title">title</code> element to provide a brief description
 of the subject of the comment.  Titles are encouraged in top-level comments,
-although they are usually unnecessary in replies.</p>
-
-<p>The <code xref="mal_block_cite">cite</code> element is a required element
-that specifies the person making the comment.  Writers are highly encouraged
-to provide a <code>date</code> attribute.</p>
+although they are usually unnecessary in replies.  A <code>comment</code> element
+may also contain a <code xref="mal_block_cite">cite</code> element to specify the
+person making the comment.  Writers are highly encouraged to provide a
+<code>date</code> attribute on the <code>cite</code> element.</p>
 
 
 <!-- BEGIN notes -->
@@ -39,7 +38,7 @@ to provide a <code>date</code> attribute.</p>
   <title>Notes</title>
   <list>
     <item><p>The <code>comment</code> element contains an optional
-    <link xref="mal_block_title">title</link> element, a
+    <link xref="mal_block_title">title</link> element, an optional
     <link xref="mal_block_cite">cite</link> element, and  any
     <link xref="mal_block">general block content</link>.</p></item>
 
@@ -131,18 +130,18 @@ to provide a <code>date</code> attribute.</p>
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>In normal processing, <code>comment</code> elements are not displayed.
+  <p>In normal processing, a <code>comment</code> element is not displayed.
   It may be displayed under various circumstances, such as for writing and
   editing purposes.</p>
 
   <p>When shown, a <code>comment</code> element is rendered as a displayed
   block, with each of its child elements interpreted as block elements.
   A border, background color, or other stylistic effect should be used to
-  clearly set distinguish comments from the surrounding content.</p>
+  clearly distinguish comments from the surrounding content.</p>
 
   <p>If a <code>title</code> element is present, it is displayed at the top
-  of the comment.  The <code>cite</code> my require special processing to
-  dispaly both its inline content and its <code>date</code> attribute.
+  of the comment.  The <code>cite</code> element may require special processing
+  to dispaly both its inline content and its <code>date</code> attribute.
   Automatic text may be used for this.</p>
 </section>
 <!-- END processing -->
@@ -154,11 +153,22 @@ to provide a <code>date</code> attribute.</p>
 
   <p>The <code>comment</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/remark.html">remark</code>
-  element in DocBook.  The DocBook <code>remark</code> element may be used
-  in either a block or an inline context, whereas the <code>comment</code>
-  element may only be used as a block element.  The DocBook <code>remark</code>
-  element does not provide a way to supply a title or the name of the person
-  making the remark.</p>
+  element in <link xref="docbook">DocBook</link>.  The DocBook <code>remark</code>
+  element may be used in either a block or an inline context, whereas the
+  <code>comment</code> element may only be used as a block element.  The
+  DocBook <code>remark</code> element does not provide a way to supply a
+  title or the name of the person making the remark.</p>
+
+  <p>The <code>comment</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/draft-comment.html">draft-comment</code>
+  element in <link xref="dita">DITA</link>.  The DITA <code>draft-comment</code>
+  element may be used in either a block or an inline context, whereas the
+  <code>comment</code> element may only be used as a block element.  In DITA,
+  information such as the commenter's name and the date of the comment are
+  recorded in attributes on the <code>draft-comment</code> element.  In
+  Mallard, these are recorded with the <code xref="mal_block_cite">cite</code>
+  child element.</p>
+
 </section>
 <!-- END comparison -->
 
@@ -180,7 +190,7 @@ mal_block_comment = element comment {
   <link xref="mal_external">mal_attr_external</link> *,
 
   <link xref="mal_block_title">mal_block_title</link> ?,
-  <link xref="mal_block_cite">mal_block_cite</link>,
+  <link xref="mal_block_cite">mal_block_cite</link> ?,
   <link xref="mal_block">mal_block</link> +
 }
 </code></synopsis>
