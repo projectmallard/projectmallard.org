@@ -18,9 +18,7 @@
 
 <title>Paragraphs</title>
 
-<p>The most basic block-level element in Mallard is the <code>p</code>
-element.  The <code>p</code> element creates a paragraph in the formatted
-output.</p>
+<p>Use the <code>p</code> element to create a simple paragraph.</p>
 
 
 <!-- BEGIN notes -->
@@ -82,16 +80,16 @@ output.</p>]]></code>
 <section id="comparison">
   <title>Comparison to Other Formats</title>
 
-  <p>DocBook contains two elements for creating a paragraph:
-  <code href="http://www.docbook.org/tdg/en/html/para.html">para</code> and
-  <code href="http://www.docbook.org/tdg/en/html/simpara.html">simpara</code>.
+  <p><link xref="docbook">DocBook</link> contains two elements for creating
+  paragraphs: <code href="http://www.docbook.org/tdg/en/html/para.html">para</code>
+  and <code href="http://www.docbook.org/tdg/en/html/simpara.html">simpara</code>.
   The <code>p</code> in Mallard is similar to the <code>simpara</code> element
   in DocBook in that it does not allow block content.</p>
 
   <p>The <code>p</code> element in Mallard is similar to the
   <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/p.html">p</code>
-  element in DITA, except that block content may not be mixed into
-  paragraphs in Mallard.</p>
+  element in <link xref="dita">DITA</link>, except that block content may not be mixed
+  into paragraphs in Mallard.</p>
 </section>
 <!-- END comparison -->
 

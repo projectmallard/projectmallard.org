@@ -18,8 +18,8 @@
 
 <title>Notes</title>
 
-<p>The <code>note</code> element allows you to insert parenthetical block-level
-content into your document.  Notes are visually distinct blocks, allowing readers
+<p>Use the <code>note</code> element to insert parenthetical block-level content
+into your document.  Notes are visually distinct blocks, allowing readers
 to skip them or focus on them, depending on their needs.  You can use notes to
 give tips, warn readers of potentially dangerous operations, point out known bugs,
 or otherwise provide additional information without interfering with the main text
@@ -208,12 +208,15 @@ git config --global user.email <var>email_address</var></code>
   <code href="http://www.docbook.org/tdg/en/html/note.html">note</code>,
   <code href="http://www.docbook.org/tdg/en/html/tip.html">tip</code>, and
   <code href="http://www.docbook.org/tdg/en/html/warning.html">warning</code>
-  elements in DocBook.  Rather than use separate elements, Mallard uses single
-  <code>note</code> element which can be specialized and extended through style
-  hints.  This document recommends the style hints <code>advanced</code> and
-  <code>bug</code>, which have no counterpart in DocBook.  This document does
-  not recommend separate <code>caution</code> and <code>warning</code> types,
-  as there is rarely a useful distinction in practice.</p>
+  elements in <link xref="docbook">DocBook</link>.  Rather than use separate
+  elements, Mallard uses a single <code>note</code> element which can be
+  specialized and extended through style hints.  This document recommends
+  the style hints <code>advanced</code> and <code>bug</code>, which have no
+  counterpart in DocBook.  This document does not recommend separate
+  <code>caution</code> and <code>warning</code> types.</p>
+
+  <p>The <code>note</code> element is similar to...
+  <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->
 

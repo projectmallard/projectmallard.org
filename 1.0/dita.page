@@ -582,7 +582,6 @@ available.</p>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/li.html">li</code></p></td>
     <td><p>See the <code>item</code> element for each <link xref="mal_block#lists">list
     element</link> for details.</p></td>
-    <td><p></p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/lines.html">lines</code></p></td>
@@ -731,7 +730,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/p.html">p</code></p></td>
-    <td><p></p></td>
+    <td><p>Similar to the <code xref="mal_block_p">p</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/param.html">param</code></p></td>
