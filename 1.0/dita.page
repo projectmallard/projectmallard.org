@@ -580,6 +580,8 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/li.html">li</code></p></td>
+    <td><p>See the <code>item</code> element for each <link xref="mal_block#lists">list
+    element</link> for details.</p></td>
     <td><p></p></td>
   </tr></tbody>
   <tbody><tr>
@@ -690,7 +692,8 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ol.html">ol</code></p></td>
-    <td><p></p></td>
+    <td><p>See the <code xref="mal_block_list">list</code> element for details.  See
+    also the <code xref="mal_block_steps">steps</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/oper.html">oper</code></p></td>
@@ -1189,7 +1192,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ul.html">ul</code></p></td>
-    <td><p></p></td>
+    <td><p>See the <code xref="mal_block_list">list</code> element for details.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/unknown.html">unknown</code></p></td>

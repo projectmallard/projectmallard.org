@@ -178,10 +178,17 @@ element.</p>
   <p>The <code>list</code> element combines the functionality of the
   <code href="http://www.docbook.org/tdg/en/html/itemizedlist.html">itemizedlist</code>
   and <code href="http://www.docbook.org/tdg/en/html/orderedlist.html">orderedlist</code>
-  elements in DocBook.  DocBook allows leading block-level content in its list
-  elements.  This is not allowed in Mallard, though an optional <code>title</code>
-  element is allowed.  DocBook allows you to override the bullet or numbering
-  type on each list item.  Mallard does not allow this.</p>
+  elements in <link xref="docbook">DocBook</link>.  DocBook allows leading block-level
+  content in its list elements.  This is not allowed in Mallard, though an optional
+  <code>title</code> element is allowed.  DocBook allows you to override the bullet
+  or numbering type on each list item.  Mallard does not allow this.</p>
+
+  <p>The <code>list</code> element combines the functionality of the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ol.html">ol</code>
+  and <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ul.html">ul</code>
+  elements in <link xref="dita">DITA</link>.  DITA allows you to mix block and inline
+  content in list items.  Mallard list items may only contain block content.  Mallard
+  allows an optional <code>title</code> element.</p>
 </section>
 <!-- END comparison -->
 
