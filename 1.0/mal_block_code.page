@@ -94,14 +94,14 @@ public:
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>Code blocks should be displayed verbatim, with all whitespace and line
+  <p>Code blocks are displayed verbatim, with all whitespace and line
   breaks reproduced in the rendered output.  The only exception is a single
-  leading line break, which should be stripped by display tools if present.
-  Display tools should only strip a leading line break in an initial text
+  leading line break, which is stripped by display tools if present.
+  Display tools only strip a leading line break in an initial text
   node.  They are not expected to strip line breaks from child elements.</p>
 
-  <p>Code blocks should be displayed in a fixed-width font.  Inline markup may
-  cause style variations, but they should not cause a change to a variable-width
+  <p>Code blocks are displayed in a fixed-width font.  Inline markup may
+  cause style variations, but they do not cause a change to a variable-width
   font.</p>
 </section>
 <!-- END processing -->
@@ -112,8 +112,8 @@ public:
   <title>Comparison to Other Formats</title>
   <p>The <code>code</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/programlisting.html">programlisting</code>
-  element in DocBook.  DocBook also contains numerous elements for modeling
-  code in procedural and object-oriented programming languages.  Many of
+  element in <link xref="docbook">DocBook</link>.  DocBook also contains numerous elements
+  for modeling code in procedural and object-oriented programming languages.  Many of
   these elements can be seen by browsing the content models for the
   <code href="http://www.docbook.org/tdg/en/html/classsynopsis.html">classsynopsis</code>
   and
@@ -122,7 +122,7 @@ public:
 
   <p>The <code>code</code> element is similar to the
   <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/codeblock.html">codeblock</code>
-  element in DITA.</p>
+  element in <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->
 

@@ -99,9 +99,9 @@ xsltproc -o mal_block_screen.html \
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>The contents of an <code>example</code> element should each be rendered
-  as block elements as normal.  Example should use margins, borders, or other
-  stylistic effects to provide a clear visual indication of the grouping.</p>
+  <p>The contents of an <code>example</code> element are each be rendered as
+  block elements as normal.  Processing tools should use margins, borders, or
+  other stylistic effects to provide a clear visual indication of the grouping.</p>
 </section>
 <!-- END processing -->
 
@@ -112,10 +112,19 @@ xsltproc -o mal_block_screen.html \
 
   <p>The <code>example</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/example.html">example</code>
-  element in DocBook.  In DocBook, the <code>example</code> element is a
-  formal element.  In Mallard, <code>example</code> is a simple container
+  element in <link xref="docbook">DocBook</link>.  In DocBook, the <code>example</code>
+  element is a formal element.  In Mallard, <code>example</code> is a simple container
   element, and does not allow a <code xref="mal_block_title">title</code>
   element.</p>
+
+  <p>The <code>example</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/example.html">example</code>
+  element in <link xref="dita">DITA</link>.  In DITA, the <code>example</code>
+  element is a specialization of the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/section.html">section</code>
+  element.  It contains a title and is used in contexts where sections are permitted.
+  The <code>example</code> element in Mallard is more lightweight, and is designed to
+  be used in general block contexts.</p>
 </section>
 <!-- END comparison -->
 

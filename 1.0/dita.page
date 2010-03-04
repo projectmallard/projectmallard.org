@@ -424,7 +424,8 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/example.html">example</code></p></td>
-    <td><p></p></td>
+    <td><p>Depends on usage.  For simple examples, use the <code xref="mal_block_example">example</code>
+    element.  Otherwise, use the <code xref="mal_section">section</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/featnum.html">featnum</code></p></td>
