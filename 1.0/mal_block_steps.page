@@ -144,21 +144,39 @@ attribute to <code>"numbered"</code> instead.</p>
 
 <!-- BEGIN comparison -->
 <section id="comparison">
-  <title>Comparison to Other Formats</title>
+<title>Comparison to Other Formats</title>
 
-  <p>The <code>steps</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/procedure.html">procedure</code>
-  element in <link xref="docbook">DocBook</link>.  Mallard uses the common
-  <code>item</code> element instead of a dedicated
-  <code href="http://www.docbook.org/tdg/en/html/step.html">step</code> element.
-  DocBook allows leading block-level content in its procedures.  This is not
-  allowed in Mallard, though an optional <code>title</code> element is allowed.
-  DocBook provides explicit
-  <code href="http://www.docbook.org/tdg/en/html/substeps.html">substeps</code> and
-  <code href="http://www.docbook.org/tdg/en/html/stepalternatives.html">stepalternatives</code>
-  elements.  Mallard has no equivalent.  For substeps, next <code>steps</code>
-  elements.  For alternatives, use a <code xref="mal_block_list">basic list</code>
-  with introductory text.</p>
+<p>The <code>steps</code> element is similar to the
+<code href="http://www.docbook.org/tdg/en/html/procedure.html">procedure</code>
+element in <link xref="docbook">DocBook</link>.  Mallard uses the common
+<code>item</code> element instead of a dedicated
+<code href="http://www.docbook.org/tdg/en/html/step.html">step</code> element.
+DocBook allows leading block-level content in its procedures.  This is not
+allowed in Mallard, though an optional <code>title</code> element is allowed.
+DocBook provides explicit
+<code href="http://www.docbook.org/tdg/en/html/substeps.html">substeps</code> and
+<code href="http://www.docbook.org/tdg/en/html/stepalternatives.html">stepalternatives</code>
+elements.  Mallard has no equivalent.  For substeps, next <code>steps</code>
+elements.  For alternatives, use a <code xref="mal_block_list">basic list</code>
+with introductory text.</p>
+
+<p>The <code>steps</code> element is similar to the
+<code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/steps.html">steps</code>
+element in <link xref="dita">DITA</link>.  Mallard step lists can be used in any
+block context, and not just in a dedicated task topic.  Mallard uses the common
+<code>item</code> element instead of a dedicated
+<code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/step.html">step</code>
+element.  DITA provides various elements to mark up
+<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/cmd.html">instructions</link>,
+<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/substeps.html">substeps</link>,
+<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/stepxmp.html">examples</link>,
+<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/stepresult.html">results</link>, and
+<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choices.html">lists</link> or
+<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choicetable.html">tables</link>
+of choices.  Mallard does not provide specific markup for these.  Use common elements
+like <link xref="mal_block_p">paragraphs</link>, <link xref="mal_block_list">basic
+lists</link>, and <link xref="mal_table">tables</link> instead, possibly with
+leading text to explain their role to the reader.</p>
 </section>
 <!-- END comparison -->
 

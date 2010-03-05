@@ -174,49 +174,54 @@ available.</p>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chapter.html">chapter</code></p></td>
     <td><p></p></td>
   </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chdesc.html">chdesc</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chdeschd.html">chdeschd</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chhead.html">chhead</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choice.html">choice</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choices.html">choices</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choicetable.html">choicetable</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choption.html">choption</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choptionhd.html">choptionhd</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chrow.html">chrow</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chdesc.html">chdesc</code></p></td>
+      <td rowspan="7"><p>No direct equivalent in Mallard.  Use a
+      <link xref="mal_table">table</link> inside a
+      <link xref="mal_block_steps">step</link> to mark up a table of
+      choices or alternatives.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chdeschd.html">chdeschd</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chhead.html">chhead</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choicetable.html">choicetable</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choption.html">choption</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choptionhd.html">choptionhd</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/chrow.html">chrow</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choice.html">choice</code></p></td>
+      <td rowspan="2"><p>No direct equivalent in Mallard.  Use a
+      <link xref="mal_block_list">basic list</link> inside a
+      <link xref="mal_block_steps">step</link> to mark up a list of
+      choices or alternatives.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choices.html">choices</code></p></td>
+    </tr>
+  </tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/cite.html">cite</code></p></td>
     <td><p></p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/cmd.html">cmd</code></p></td>
-    <td><p></p></td>
+    <td><p>No direct equivalent in Mallard.  Instructions for a
+    <link xref="mal_block_steps">step</link> should use a simple
+    <link xref="mal_block_p">paragraph</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/cmdname.html">cmdname</code></p></td>
@@ -551,7 +556,9 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/info.html">info</code></p></td>
-    <td><p></p></td>
+    <td><p>No direct equivalent in Mallard.  Additional information for a
+    <link xref="mal_block_steps">step</link> should be written in additional
+    <link xref="mal_block_p">paragraphs</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/isbn.html">isbn</code></p></td>
@@ -1019,26 +1026,30 @@ available.</p>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/stentry.html">stentry</code></p></td>
     <td><p></p></td>
   </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/step.html">step</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/stepresult.html">stepresult</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/steps-unordered.html">steps-unordered</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/steps.html">steps</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/stepxmp.html">stepxmp</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/step.html">step</code></p></td>
+      <td rowspan="3"><p>Use an <code>item</code> element in a <link xref="mal_block_steps">step list</link>
+      for a step in a procedure.  Mallard does not provide a structured element to mark up step examples
+      or step results.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/stepresult.html">stepresult</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/stepxmp.html">stepxmp</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/steps.html">steps</code></p></td>
+      <td rowspan="2"><p>See the <code xref="mal_block_steps">steps</code> element for details.  Mallard does
+      not provide a dedicated element for unordered step lists.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/steps-unordered.html">steps-unordered</code></p></td>
+    </tr>
+  </tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/sthead.html">sthead</code></p></td>
     <td><p></p></td>
@@ -1051,14 +1062,17 @@ available.</p>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/sub.html">sub</code></p></td>
     <td><p></p></td>
   </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/substep.html">substep</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/substeps.html">substeps</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/substep.html">substep</code></p></td>
+      <td rowspan="2"><p>Mallard does not provide a structured element to mark up substeps
+      in a <link xref="mal_block_steps">step list</link>.  Nested lists can be used to
+      mark up substeps.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/substeps.html">substeps</code></p></td>
+    </tr>
+  </tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/summary.html">summary</code></p></td>
     <td><p></p></td>
@@ -1178,7 +1192,9 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/tutorialinfo.html">tutorialinfo</code></p></td>
-    <td><p></p></td>
+    <td><p>No direct equivalent in Mallard.  Additional instructions for a
+    <link xref="mal_block_steps">step</link> should be written in additional
+    <link xref="mal_block_p">paragraphs</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/u.html">u</code></p></td>
