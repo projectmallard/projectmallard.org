@@ -16,9 +16,9 @@
   <desc>Create a list of terms and associated descriptions.</desc>
 </info>
 
-<title>Definition Lists</title>
+<title>Term Lists</title>
 
-<p>The <code>terms</code> element creates a list of terms and associated
+<p>Use the <code>terms</code> element to create a list of terms and associated
 definitions or descriptions.  This type of list is often called a definition
 list or a variable list.</p>
 
@@ -136,13 +136,13 @@ list or a variable list.</p>
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>Definition lists are displayed as block elements, with each child
+  <p>Term lists are displayed as block elements, with each child
   <code>item</code> displayed as some number of list items.  When present, the
   title should be displayed in a way that makes it clear that it is the title
   of the list.  Each <code>title</code> element of each list item is treated
   as a term, and is displayed as a block element.  The remaining block content
   is then treated as the description and displayed as normal.  The description
-  blocks should be indented from the terms.</p>
+  blocks should be indented or otherwise styled to make their role clear.</p>
 </section>
 <!-- END processing -->
 
@@ -151,15 +151,31 @@ list or a variable list.</p>
 <section id="comparison">
   <title>Comparison to Other Formats</title>
   
-  <p>The <code>terms</code> element is similar to
+  <p>The <code>terms</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/variablelist.html">variablelist</code>
-  element in DocBook.  Like DocBook (and unlike HTML), Mallard groups terms with their
-  corresponding entries.  In DocBook, the entry must be wrapped with a
+  element in <link xref="docbook">DocBook</link>.  Like DocBook, Mallard groups
+  terms with their corresponding descriptions.  In DocBook, the description is
+  wrapped with a
   <code href="http://www.docbook.org/tdg/en/html/listitem.html">listitem</code>
   element inside the
   <code href="http://www.docbook.org/tdg/en/html/varlistentry.html">varlistentry</code>
-  element.  In Mallard, the entry is simply all of the block content except the
+  element.  In Mallard, the description is simply all of the block content except the
   <code xref="mal_block_title">title</code> elements.</p>
+
+  <p>The <code>terms</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dl.html">dl</code>
+  element in <link xref="dita">DITA</link>.  Like DITA, Mallard groups terms
+  with their corresponding descriptions.  In DITA, each description is wrapped
+  with a
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dd.html">dd</code>
+  element inside the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dlentry.html">dlentry</code>
+  element.  In Mallard, the description is simply all of the block content except the
+  <code xref="mal_block_title">title</code> elements.  DITA allows you to specify
+  headers for the terms and descriptions with the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dlhead.html">dlhead</code>
+  element.  Mallard does not have this feature.  If tabular headers are needed,
+  use a <link xref="mal_table">table</link> instead.</p>
 </section>
 <!-- END comparison -->
 

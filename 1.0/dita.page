@@ -329,11 +329,12 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dd.html">dd</code></p></td>
-    <td><p></p></td>
+    <td><p>See the <code xref="mal_block_terms">terms</code> element for details.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ddhd.html">ddhd</code></p></td>
-    <td><p></p></td>
+    <td><p>Mallard does not provide header information for <link xref="mal_block_terms">term lists</link>.
+    Use a <link xref="mal_table">table</link> instead if necessary.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dedication.html">dedication</code></p></td>
@@ -379,17 +380,20 @@ available.</p>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ditaval-val.html">ditaval-val</code></p></td>
     <td><p></p></td>
   </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dl.html">dl</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dlentry.html">dlentry</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dl.html">dl</code></p></td>
+      <td rowspan="2"><p>Use the <code xref="mal_block_terms">terms</code> element with
+      <code>item</code> elements.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dlentry.html">dlentry</code></p></td>
+    </tr>
+  </tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dlhead.html">dlhead</code></p></td>
-    <td><p></p></td>
+    <td><p>Mallard does not provide header information for <link xref="mal_block_terms">term lists</link>.
+    Use a <link xref="mal_table">table</link> instead if necessary.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/draft-comment.html">draft-comment</code></p></td>
@@ -401,11 +405,12 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dt.html">dt</code></p></td>
-    <td><p></p></td>
+    <td><p>See the <code xref="mal_block_terms">terms</code> element for details.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dthd.html">dthd</code></p></td>
-    <td><p></p></td>
+    <td><p>Mallard does not provide header information for <link xref="mal_block_terms">term lists</link>.
+    Use a <link xref="mal_table">table</link> instead if necessary.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/edited.html">edited</code></p></td>
