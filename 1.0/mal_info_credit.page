@@ -33,7 +33,7 @@ also specifies copyright holders when used with the
   <list>
     <item><p>The <code>credit</code> element contains a
     <code xref="mal_info_name">name</code> element,
-    an optional <code xref="mal_info_email">>email</code> element,
+    any number of <code xref="mal_info_email">email</code> elements,
     and an optional <code xref="mal_info_years">years</code> element.  The
     <code>credit</code> element can also contain elements from external
     namespaces.  The order of the child elements does not matter.</p></item>
@@ -156,19 +156,42 @@ also specifies copyright holders when used with the
   <code href="http://www.docbook.org/tdg/en/html/editor.html">editor</code>,
   <code href="http://www.docbook.org/tdg/en/html/othercredit.html">othercredit</code>, and
   <code href="http://www.docbook.org/tdg/en/html/publisher.html">publisher</code>
-  elements in DocBook.  DocBook does not have specific elements for maintainers
-  and translators.</p>
+  elements in <link xref="docbook">DocBook</link>.  DocBook does not have specific
+  elements for maintainers and translators.</p>
 
   <p>In DocBook, certain credit elements have highly structured content, whereas
   others allow simple inline text.  In Mallard, all credits use simple structured
-  content.  While Mallard does not provide child elements for everything that can
-  be recorded in DocBook, elements from external namespaces may be used for any
-  additional information that is needed.</p>
+  content.  Although Mallard does not provide child elements for everything that can
+  be recorded in DocBook, elements from <link xref="mal_external">external namespaces</link>
+  may be used for any additional information that is needed.</p>
 
   <p>The <code>credit</code> element also records copyright information.
   In this capacity, it is similar to the
   <code href="http://www.docbook.org/tdg/en/html/copyright.html">copyright</code>
   element in DocBook.</p>
+
+  <p>The <code>credit</code> element serves the purpose of the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/author.html">author</code>,
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/authorinformation.html">authorinformation</code>,
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/publisher.html">publisher</code>, and
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/publisherinformation.html">publisherinformation</code>
+  elements in <link xref="dita">DITA</link>.  DITA does not have specific
+  elements for editors, maintainers, and translators.</p>
+
+  <p>In DITA, the <code>author</code> and <code>publisher</code> elements
+  take inline text, and only record the name of a person or organization.
+  The <code>authorinformation</code> element has structured content, and
+  can record extensive information about a person.  In this respect, the
+  Mallard <code>credit</code> element is similar to the DITA
+  <code>authorinformation</code> element.  Although Mallard does not provide
+  child elements for everything that can be recorded in DITA, elements from
+  <link xref="mal_external">external namespaces</link> may be used for any
+  additional information that is needed.</p>
+
+  <p>The <code>credit</code> element also records copyright information.
+  In this capacity, it is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/copyright.html">copyright</code>
+  element in DITA.</p>
 </section>
 <!-- END comparison -->
 
@@ -190,7 +213,7 @@ mal_info_credit = element credit {
   attribute * - (mal:* | local:*) { text } *,
 
   ( <link xref="mal_info_name">mal_info_name</link> &amp;
-    <link xref="mal_info_email">mal_info_email</link> ? &amp;
+    <link xref="mal_info_email">mal_info_email</link> * &amp;
     <link xref="mal_info_years">mal_info_years</link> ? &amp;
     <link xref="mal_external">mal_external</link> *
   )
