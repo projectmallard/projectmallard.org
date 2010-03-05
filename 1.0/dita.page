@@ -617,7 +617,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/lq.html">lq</code></p></td>
-    <td><p></p></td>
+    <td><p>Similar to the <code xref="mal_block_quote">quote</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/mainbooktitle.html">mainbooktitle</code></p></td>
@@ -886,7 +886,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/q.html">q</code></p></td>
-    <td><p></p></td>
+    <td><p>No equivalent in Mallard.  Use plain text instead.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/refbody.html">refbody</code></p></td>

@@ -1181,6 +1181,10 @@ available.</p>
     </tr>
   </tbody>
   <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/quote.html">quote</code></p></td>
+    <td><p>No equivalent in Mallard.  Use plain text instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/pubsnumber.html">pubsnumber</code></p></td>
     <td><p>No equivalent in Mallard.</p></td>
   </tr></tbody>

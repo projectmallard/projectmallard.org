@@ -18,7 +18,7 @@
 
 <title>Block Quotes</title>
 
-<p>The <code>quote</code> element allows you to mark a quoted block of text
+<p>Use the <code>quote</code> element to mark a quoted block of text
 and include an attribution for the quote.  Block quotations are useful for
 long passages, or for quotes you want to draw attention to.  You can provide
 an attribution using the <code xref="mal_block_cite">cite</code> element,
@@ -29,7 +29,7 @@ and have it automatically formatted by display tools.</p>
   <title>Notes</title>
   <list>
     <item><p>The <code>quote</code> element contains an optional
-    <link xref="mal_block_title">title</link> element, a mandatory
+    <link xref="mal_block_title">title</link> element, an optional
     <link xref="mal_block_cite">cite</link> element, and any
     <link xref="mal_block">general block content</link>.</p></item>
 
@@ -132,11 +132,17 @@ and have it automatically formatted by display tools.</p>
 
 <!-- BEGIN comparison -->
 <section id="comparison">
-  <title>Comparison to Other Formats</title>
-  <p>The <code>quote</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/blockquote.html">blockquote</code>
-  element in DocBook.  The <code xref="mal_block_cite">cite</code> element is
-  mandatory in Mallard, whereas attribution is optional in DocBook.</p>
+<title>Comparison to Other Formats</title>
+
+<p>The <code>quote</code> element is similar to the
+<code href="http://www.docbook.org/tdg/en/html/blockquote.html">blockquote</code>
+element in <link xref="docbook">DocBook</link>.</p>
+
+<p>The <code>quote</code> element is similar to the
+<code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/lq.html">lq</code>
+element in <link xref="dita">DITA</link>.  The DITA <code>lq</code> element allows
+inline content.  In Mallard, block quotes must contain paragraphs or other block
+content.</p>
 </section>
 <!-- END comparison -->
 
@@ -158,7 +164,7 @@ mal_block_quote = element quote {
   <link xref="mal_external">mal_attr_external</link> *,
 
   <link xref="mal_block_title">mal_block_title</link> ?,
-  <link xref="mal_block_cite">mal_block_cite</link>,
+  <link xref="mal_block_cite">mal_block_cite</link> ?,
   <link xref="mal_block">mal_block</link> +
 }
 </code></synopsis>
