@@ -15,16 +15,16 @@
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
-  <desc>Mark up a textual user interface or an interactive shell session.</desc>
+  <desc>Mark up a text-based user interface or an interactive shell session.</desc>
 </info>
 
 <title>Screens</title>
 
-<p>Use the <code>screen</code> element to mark up a textual screen for
-a textual user interface or an interactive shell.  The contents of a
-<code>screen</code> element are displayed verbatim.  While all inline
-content is allowed, <code xref="mal_inline_input">input</code> and
-<code xref="mal_inline_output">output</code> will frequently be used
+<p>Use the <code>screen</code> element to mark up a text-based user interface
+or an interactive shell.  The contents of a <code>screen</code> element are
+displayed verbatim.  While all inline content is allowed,
+<code xref="mal_inline_input">input</code> and
+<code xref="mal_inline_output">output</code> elements will frequently be used
 to provide richer markup when showing a shell session.</p>
 
 <p>The <code>screen</code> element may also be used to mark up a single
@@ -143,14 +143,14 @@ xsltproc -o mal_block_screen.html \
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>Screens should be displayed verbatim, with all whitespace and line breaks
+  <p>Screens are displayed verbatim, with all whitespace and line breaks
   reproduced in the rendered output.  The only exception is a single leading
-  line break, which should be stripped by display tools if present.  Display
-  tools should only strip a leading line break in an initial text node.  They
+  line break, which is stripped by display tools if present.  Display
+  tools only strip a leading line break in an initial text node.  They
   are not expected to strip line breaks from child elements.</p>
 
   <p>Screens should be displayed in a fixed-width font.  Inline markup may cause
-  style variations, but they should not cause a change to a variable-width font.</p>
+  style variations, but they do not cause a change to a variable-width font.</p>
 </section>
 <!-- END processing -->
 
@@ -161,11 +161,11 @@ xsltproc -o mal_block_screen.html \
 
   <p>The <code>screen</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/screen.html">screen</code>
-  element in DocBook.</p>
+  element in <link xref="docbook">DocBook</link>.</p>
 
   <p>The <code>screen</code> element is similar to the
   <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/screen.html">screen</code>
-  element in DITA.</p>
+  element in <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->
 

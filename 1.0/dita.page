@@ -960,7 +960,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/screen.html">screen</code></p></td>
-    <td><p></p></td>
+    <td><p>Similar to the <code xref="mal_block_screen">screen</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/searchtitle.html">searchtitle</code></p></td>
