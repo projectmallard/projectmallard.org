@@ -987,8 +987,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/orderedlist.html">orderedlist</code></p></td>
-    <td><p>See the <code xref="mal_block_list">list</code> element for details.  See
-    also the <code xref="mal_block_steps">steps</code> element.</p></td>
+    <td><p>See the <code xref="mal_block_list">list</code> element for details.</p></td>
   </tr></tbody>
   <tbody>
     <tr>

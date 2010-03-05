@@ -30,8 +30,7 @@ list or a variable list.</p>
     <code xref="mal_block_title">title</code> element followed by one or more
     <code>item</code> elements.  Each child <code>item</code> element can
     contain one or more <code xref="mal_block_title">title</code> elements
-    followed by a mixture of text and any
-    <link xref="mal_inline">general inline elements</link>.</p></item>
+    followed by <link xref="mal_block">general block content</link>.</p></item>
 
     <item><p>The <code>terms</code> element can occur in any
     general block context, including inside
