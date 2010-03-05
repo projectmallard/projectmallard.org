@@ -1006,14 +1006,16 @@ available.</p>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/simpletable.html">simpletable</code></p></td>
     <td><p></p></td>
   </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/sl.html">sl</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/sli.html">sli</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/sl.html">sl</code></p></td>
+      <td rowspan="2"><p>No direct equivalent in Mallard, although the
+      <code xref="mal_block_tree">tree</code> element will give similar results.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/sli.html">sli</code></p></td>
+    </tr>
+  </tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/source.html">source</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
