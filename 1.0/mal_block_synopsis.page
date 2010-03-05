@@ -20,16 +20,11 @@
 
 <title>Synopses</title>
 
-<p>The <code>synopsis</code> element allows you to mark up a block as
-providing an overview of the material being presented.  It is useful
-for providing a listing of functions, commands, or options in reference
+<p>Use the <code>synopsis</code> element to mark up a block that provides
+an overview of the material being presented.  A synopses is useful for
+providing a listing of functions, commands, or options in reference
 material, or for enumerating the items in a menu or other graphical
 control element.</p>
-
-<comment>
-  <cite date="2006-11-16">Shaun McCance</cite>
-  <p>Add explanation, examples</p>
-</comment>
 
 
 <!-- BEGIN notes -->
@@ -110,12 +105,16 @@ int  count_beans ();
 
   <p>The <code>synopsis</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/synopsis.html">synopsis</code>
-  element in DocBook, although the DocBook element is not a formal element.
-  DocBook also provides the
+  element in <link xref="docbook">DocBook</link>, although the DocBook element
+  is not a formal element.  DocBook also provides the
   <code href="http://www.docbook.org/tdg/en/html/cmdsynopsis.html">cmdsynopsis</code> and
   <code href="http://www.docbook.org/tdg/en/html/funcsynopsis.html">funcsynopsis</code>
   elements, which attempt to model the data for command and function synopses,
-  respectively.  Mallard does not provide modelling elements.</p>
+  respectively.  Mallard does not provide modelling elements.  The various
+  synopsis elements in DocBook output preformatted text, and are only useful
+  for code.  The <code>synopsis</code> element in Mallard allows any block
+  content.  Nest a <code xref="mal_block_code">code</code> element for a code
+  synopsis.</p>
 </section>
 <!-- END comparison -->
 
