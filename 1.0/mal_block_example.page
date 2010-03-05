@@ -101,7 +101,7 @@ xsltproc -o mal_block_screen.html \
 
   <p>The contents of an <code>example</code> element are each be rendered as
   block elements as normal.  Processing tools should use margins, borders, or
-  other stylistic effects to provide a clear visual indication of the grouping.</p>
+  other styling effects to provide a clear visual indication of the grouping.</p>
 </section>
 <!-- END processing -->
 

@@ -136,7 +136,7 @@ person making the comment.  Writers are highly encouraged to provide a
 
   <p>When shown, a <code>comment</code> element is rendered as a displayed
   block, with each of its child elements interpreted as block elements.
-  A border, background color, or other stylistic effect should be used to
+  A border, background color, or other styling effect should be used to
   clearly distinguish comments from the surrounding content.</p>
 
   <p>If a <code>title</code> element is present, it is displayed at the top
