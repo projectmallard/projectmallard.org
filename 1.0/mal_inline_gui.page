@@ -145,19 +145,25 @@ of your keyboard to meet certain accessibility needs.
   <title>Comparison to Other Formats</title>
   <p>The <code>gui</code> element is similar to the deprecated
   <code href="http://www.docbook.org/tdg/en/html/interface.html">interface</code>
-  element in DocBook.  DocBook 3 introduced more specific elements for marking up
-  parts of a user interface:
+  element in <link xref="docbook">DocBook</link>.  DocBook 3 introduced more
+  specific elements for marking up parts of a user interface:
   <code href="http://www.docbook.org/tdg/en/html/guibutton.html">guibutton</code>,
   <code href="http://www.docbook.org/tdg/en/html/guiicon.html">guiicon</code>,
   <code href="http://www.docbook.org/tdg/en/html/guilabel.html">guilabel</code>,
   <code href="http://www.docbook.org/tdg/en/html/guimenu.html">guimenu</code>,
   <code href="http://www.docbook.org/tdg/en/html/guimenuitem.html">guimenuitem</code>, and
   <code href="http://www.docbook.org/tdg/en/html/guisubmenu.html">guisubmenu</code>.
-  In practice, there is rarely a need to distinguish between types of interface
-  elements in markup.  When such a need arises, it can be handled using attributes
-  on a single element.  Furthermore, DocBook's various elements are nowhere near
-  exhaustive.  Thus, authors must frequently either abuse a specific element or
-  use the deprecated <code>interface</code> element.</p>
+  Mallard does not provide specific elements.  If necessary, use a
+  style hint to indicate the type of user interface control.</p>
+
+  <p>The <code>gui</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/uicontrol.html">uicontrol</code>
+  element in <link xref="dita">DITA</link>.  DITA provides the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/wintitle.html">wintitle</code>
+  element for marking up the title of a window.  You may use the
+  <code>gui</code> element for this purpose.  In some cases, the
+  <code xref="mal_inline_app">app</code> element may be more
+  appropriate.</p>
 </section>
 <!-- END comparison -->
 

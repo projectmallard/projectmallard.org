@@ -73,10 +73,10 @@ a new document.
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>Each of the child <code>key</code> elements and text nodes, except
-  whitespace-only text nodes, is displayed as described below, adding a
-  separator between them.  The exact separator may vary according to the
-  language and style preferences, but it will typically be some sort of
+  <p>Each of the child <code xref="mal_inline_gui">gui</code> elements and text
+  nodes, except whitespace-only text nodes, is displayed as described below,
+  adding a separator between them.  The exact separator may vary according to
+  the language and style preferences, but it will typically be some sort of
   right-pointing arrow or triangle, or left-pointing for right-to-left
   languages.</p>
 
@@ -92,13 +92,16 @@ a new document.
   <title>Comparison to Other Formats</title>
   <p>The <code>guiseq</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/menuchoice.html">menuchoice</code>
-  element in DocBook.  Since Mallard does not provide different elements for
-  different types of interface elements, the contents of <code>guiseq</code>
-  are all <code>gui</code> elements or text.  Currently, Mallard does not
-  provide a way to encode shortcut keys like the
+  element in <link xref="docbook">DocBook</link>.  Since Mallard does not provide
+  different elements for different types of interface elements, the contents of
+  <code>guiseq</code> are all <code xref="mal_inline_gui">gui</code> elements or
+  text.  Currently, Mallard does not provide a way to encode shortcut keys like the
   <code href="http://www.docbook.org/tdg/en/html/shortcut.html">shortcut</code>
-  element in DocBook.  It is recommended that shortcuts, when necessary, be
-  written into prose separately.</p>
+  element in DocBook.  Shortcuts should be written into prose separately.</p>
+
+  <p>The <code>guiseq</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/menucascade.html">menucascade</code>
+  element in <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->
 

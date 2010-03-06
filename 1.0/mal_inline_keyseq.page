@@ -146,11 +146,15 @@ There are various ways to modify drag behavior by using
   <title>Comparison to Other Formats</title>
   <p>The <code>keyseq</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/keycombo.html">keycombo</code>
-  element in DocBook.  Like <code>keycombo</code>, <code>keyseq</code> elements
-  can be nested to indicate sequences of key combinations.  Since Mallard does
-  not provide an element analogous to the DocBook element
+  element in <link xref="docbook">DocBook</link>.  Like <code>keycombo</code>,
+  <code>keyseq</code> elements can be nested to indicate sequences of key
+  combinations.  Since Mallard does not provide an element analogous to
+  the DocBook element
   <code href="http://www.docbook.org/tdg/en/html/mousebutton.html">mousebutton</code>,
   mouse actions in key sequences should be written as text content without markup.</p>
+
+  <p>There is no specific element for marking up key sequences
+  in <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->
 

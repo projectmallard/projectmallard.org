@@ -24,8 +24,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/accel.html">accel</code></p></td>
-    <td><p>No equivalent in Mallard, as marking the accelerator in the help text
-    is not considered important.</p></td>
+    <td><p>No equivalent in Mallard.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/ackno.html">ackno</code></p></td>

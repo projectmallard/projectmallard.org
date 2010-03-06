@@ -106,7 +106,10 @@ or into a text field in a graphical application.</p>
   <title>Comparison to Other Formats</title>
   <p>The <code>input</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/userinput.html">userinput</code>
-  element in DocBook.</p>
+  element in <link xref="docbook">DocBook</link>.</p>
+  <p>The <code>input</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/userinput.html">userinput</code>
+  element in <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->
 

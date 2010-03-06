@@ -655,7 +655,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/menucascade.html">menucascade</code></p></td>
-    <td><p></p></td>
+    <td><p>Similar to the <code xref="mal_inline_guiseq">guiseq</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/metadata.html">metadata</code></p></td>
@@ -1011,7 +1011,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/shortcut.html">shortcut</code></p></td>
-    <td><p></p></td>
+    <td><p>No equivalent in Mallard.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/shortdesc.html">shortdesc</code></p></td>
@@ -1224,7 +1224,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/uicontrol.html">uicontrol</code></p></td>
-    <td><p></p></td>
+    <td><p>Similar to the <code xref="mal_inline_gui">gui</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ul.html">ul</code></p></td>
@@ -1244,7 +1244,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/userinput.html">userinput</code></p></td>
-    <td><p></p></td>
+    <td><p>Similar to the <code xref="mal_inline_input">input</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/var.html">var</code></p></td>
@@ -1271,7 +1271,8 @@ available.</p>
   </tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/wintitle.html">wintitle</code></p></td>
-    <td><p></p></td>
+    <td><p>Use either the <code xref="mal_inline_app">app</code> or the
+    <code xref="mal_inline_gui">gui</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/xref.html">xref</code></p></td>
