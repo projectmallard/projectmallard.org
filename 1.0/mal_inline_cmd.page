@@ -149,8 +149,8 @@ you to filter files based on their modification times.
 
   <p>The <code>cmd</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/command.html">command</code>
-  element in DocBook.  In DocBook, writers frequently use the
-  <code href="http://www.docbook.org/tdg/en/html/option.html">option</code>
+  element in <link xref="docbook">DocBook</link>.  In DocBook, writers frequently
+  use the <code href="http://www.docbook.org/tdg/en/html/option.html">option</code>
   element inside <code>command</code>.  Mallard does not provide an element
   for this purpose.</p>
 
@@ -158,7 +158,13 @@ you to filter files based on their modification times.
   <code>command</code> element.  In Mallard, simply use the <code>cmd</code>
   element for options outside of an entire command.</p>
 
-  <p>See <link xref="principle-justenough"/> for more background.</p>
+  <p>The <code>cmd</code> is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/cmdname.html">cmdname</code>
+  element in <link href="dita">DITA</link>.  The
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/option.html">option</code> and
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/parmname.html">parmname</code>
+  elements in DITA are sometimes used to mark up options and parameters
+  of commands.  In Mallard, simply use the <code>cmd</code> element.</p>
 </section>
 <!-- END comparison -->
 

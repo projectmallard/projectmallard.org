@@ -77,7 +77,7 @@ available.</p>
   </tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/b.html">b</code></p></td>
-    <td><p></p></td>
+    <td><p>See the <code xref="mal_inline_em">em</code> element for details.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/backmatter.html">backmatter</code></p></td>
@@ -228,7 +228,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/cmdname.html">cmdname</code></p></td>
-    <td><p></p></td>
+    <td><p>Similar to the <code xref="mal_inline_cmd">cmd</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/codeblock.html">codeblock</code></p></td>
@@ -461,7 +461,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/filepath.html">filepath</code></p></td>
-    <td><p></p></td>
+    <td><p>Similar to the <code xref="mal_inline_file">file</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/firstname.html">firstname</code></p></td>
@@ -529,7 +529,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/i.html">i</code></p></td>
-    <td><p></p></td>
+    <td><p>See the <code xref="mal_inline_em">em</code> element for details.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/image.html">image</code></p></td>
@@ -724,7 +724,7 @@ available.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/option.html">option</code></p></td>
     <td><p>No specific element in Mallard.  Use the <code xref="mal_inline_cmd">cmd</code>
-    element instead.</p></td>
+    or <code xref="mal_inline_code">code</code> element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/organization.html">organization</code></p></td>
@@ -767,7 +767,7 @@ available.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/parmname.html">parmname</code></p></td>
     <td><p>No specific element in Mallard.  Use the <code xref="mal_inline_cmd">cmd</code>
-    element instead.</p></td>
+    or <code xref="mal_inline_code">code</code> element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/part.html">part</code></p></td>
@@ -1117,8 +1117,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/synph.html">synph</code></p></td>
-    <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
-    element instead.</p></td>
+    <td><p></p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/syntaxdiagram.html">syntaxdiagram</code></p></td>
@@ -1221,7 +1220,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/u.html">u</code></p></td>
-    <td><p></p></td>
+    <td><p>See the <code xref="mal_inline_em">em</code> element for details.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/uicontrol.html">uicontrol</code></p></td>

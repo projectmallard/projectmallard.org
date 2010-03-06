@@ -102,7 +102,8 @@ your desktop.
 
   <p>For this reason, it is recommended that application names marked with the
   <code>app</code> element are rendered in italics or using some other font
-  variation.</p>
+  variation.  Authors who do not wish to have an application name stylized
+  can use plain text without markup.</p>
 </section>
 <!-- END processing -->
 
@@ -112,7 +113,7 @@ your desktop.
   <title>Comparison to Other Formats</title>
   <p>The <code>app</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/application.html">application</code>
-  element in DocBook.</p>
+  element in <link xref="docbook">DocBook</link>.</p>
 </section>
 <!-- END comparison -->
 
