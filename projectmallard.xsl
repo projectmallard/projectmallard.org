@@ -54,11 +54,11 @@ div.linktrail {
   padding-left: 0;
 }
 
-div.footbar-badge {
+div.foot-badge {
   text-align: center;
   color: #3f3f3f;
 }
-div.footbar-badge img {
+div.foot-badge img {
   vertical-align: middle;
 }
 
@@ -78,8 +78,8 @@ body.pmo-source div.header {
   border-bottom: solid 1px #d3d7cf;
 }
 
-div.footbar {
-  margin: 0;
+div.foot {
+  margin: 2em 0 0 0;
   max-width: 800px;
 }
 
@@ -190,8 +190,8 @@ div.pmo-source {
 
 <xsl:template name="mal2html.page.footbar">
   <xsl:param name="node" select="."/>
-  <div class="footbar">
-    <div class="footbar-badge">
+  <div class="foot">
+    <div class="foot-badge">
       <div>Powered by</div>
       <a href="{$mal.site.root_noslash}/index.html">
         <img alt="Mallard" width="80" height="15">
