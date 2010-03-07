@@ -90,7 +90,10 @@ This <span its:translate="no">word</span> should not be translated.]]></code>
   <title>Comparison to Other Formats</title>
   <p>The <code>span</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/phrase.html">phrase</code>
-  element in DocBook.</p>
+  element in <link xref="docbook">DocBook</link>.</p>
+  <p>The <code>span</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ph.html">ph</code>
+  element in <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->
 

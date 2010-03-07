@@ -799,7 +799,7 @@ available.</p>
   </tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ph.html">ph</code></p></td>
-    <td><p></p></td>
+    <td><p>Similar to the <code xref="mal_inline_span">span</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/platform.html">platform</code></p></td>
@@ -1125,7 +1125,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/systemoutput.html">systemoutput</code></p></td>
-    <td><p></p></td>
+    <td><p>Similar to the <code xref="mal_inline_output">output</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/table.html">table</code></p></td>
@@ -1252,7 +1252,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/varname.html">varname</code></p></td>
-    <td><p></p></td>
+    <td><p>Similar to the <code xref="mal_inline_var">var</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/volume.html">volume</code></p></td>
@@ -1276,7 +1276,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/xref.html">xref</code></p></td>
-    <td><p></p></td>
+    <td><p>Similar to the <code xref="mal_inline_link">link</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/year.html">year</code></p></td>

@@ -172,17 +172,25 @@ recommendation</link>.
   <code href="http://www.docbook.org/tdg/en/html/link.html">link</code>,
   <code href="http://www.docbook.org/tdg/en/html/xref.html">xref</code>, and
   <code href="http://www.docbook.org/tdg/en/html/ulink.html">ulink</code>
-  elements in DocBook.  For the <code>link</code> and <code>xref</code>
-  elements, DocBook provides the <code>endterm</code> attribute to select
-  an alternative element from which to take content.  Mallard does not
-  provide this feature, although it allows you to select from alternative
-  titles for the linked-to element.</p>
+  elements in <link xref="docbook">DocBook</link>.  For the <code>link</code>
+  and <code>xref</code> elements, DocBook provides the <code>endterm</code>
+  attribute to select an alternative element from which to take content.
+  Mallard does not provide this feature, although it allows you to select
+  from alternative titles for the linked-to element.</p>
 
   <p>DocBook provides the <code>xrefstyle</code> attribute to control how
   automatic link text is generated.  The behavior of this attribute is
   unspecified.  Rather than attempt to use style hints, Mallard allows
   writers to specify exact alternative link contents.  Alternative link
   contents are important in languages with case declensions.</p>
+
+  <p>The <code>link</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/xref.html">xref</code>
+  element in <link xref="dita">DITA</link>.  DITA uses the <code>href</code>
+  attribute to link to pages within the same document as well as to
+  external resources.  Mallard uses a separate <code>xref</code> attribute
+  for links within the document, and allows <code>href</code> to be used
+  alone or as a fallback.</p>
 </section>
 <!-- END comparison -->
 
