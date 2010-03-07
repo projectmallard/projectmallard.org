@@ -26,7 +26,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- We shouldn't depend on mal.site.root_noslash; it's not public -->
 
-<xsl:param name="theme.icon.admon.size" select="24"/>
+<xsl:param name="theme.icons.size.note" select="24"/>
+
+<xsl:param name="theme.color.yellow_border" select="'#fcaf3e'"/>
 
 <xsl:template name="mal2html.css.custom">
 <xsl:text>
@@ -61,8 +63,10 @@ div.footbar-badge img {
 }
 
 div.body {
-  border-top: solid 4px #fcaf3e;
+  border-top: solid 4px </xsl:text>
+    <xsl:value-of select="$theme.color.yellow_border"/><xsl:text>;
   -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
   margin: 0;
   padding: 1em 19px 1em 19px;
   max-width: 760px;
@@ -81,7 +85,8 @@ div.footbar {
 
 div.header {
   color: #3465a4;
-  border-bottom: solid 1px #fcaf3e;
+  border-bottom: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.yellow_border"/><xsl:text>;
 }
 h1, h2, h3, h4, h5, h6, h8 { color: #3465a4; }
 
@@ -110,9 +115,10 @@ div.pmo-source {
   float: right;
   margin: 0 0 0 2em;
   padding: 0.5em 6px 0.5em 6px;
-  border: solid 1px #fcaf3e;
-  border-bottom: solid 1px #ffc0c0;
-  background-color: #fffff0;
+  border: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.yellow_border"/><xsl:text>;
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
 }
 </xsl:text>
 </xsl:template>
