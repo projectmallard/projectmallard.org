@@ -1,0 +1,240 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      id="svg">
+
+<info>
+  <link type="guide" xref="index"/>
+
+  <revision version="0.1" date="2010-03-08" status="incomplete"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2010</years>
+  </credit>
+
+  <desc>Embed SVG into your Mallard pages with fallback content and links.</desc>
+</info>
+
+<title>Mallard and SVG</title>
+
+<p>The core Mallard language is intentionally as simple as possible.  It
+addresses a core set of problems, allowing domain-specific languages to
+handle other areas.  As a well-designed, modern XML vocabulary, Mallard
+defines exactly where and you you can mix XML markup from external
+namespaces.  With proper tool support, you can embed almost any XML
+vocabulary into Mallard.</p>
+
+<p>This tutorial explains how to embed Scalable Vector Graphics (SVG) into your
+Mallard documents.  SVG is an XML vocabulary for describing two-dimensional
+vector graphics.  Read more about <link
+href="http://en.wikipedia.org/wiki/SVG">SVG on Wikipedia</link>.  This tutorial
+also shows how you can provide <link xref="#fallback">fallback content</link>
+and <link xref="xref">link SVG elements to Mallard pages</link>.</p>
+
+<note>
+<p>To see the results of the examples in this tutorial, your browser
+needs to support SVG.</p>
+</note>
+
+<section id="basic">
+<title>Basic SVG</title>
+
+<p>SVG graphics are defined with XML elements in the namespace
+<code>http://www.w3.org/2000/svg</code>.  In Mallard, you can embed
+elements from other namespaces in block contexts, among other places.
+This means that you can use an external-namespace element anywhere
+you can use a paragraph.  The following example creates a simple
+page with only an SVG graphic as its contents.</p>
+
+<example>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      id="svg">
+<title>SVG</title>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg"
+         width="230" height="230" version="1.1">
+<svg:circle cx="115" cy="115" r="114" fill="#3465a4"/>
+<svg:circle cx="108" cy="184" r="15" fill="#eeeeec"/>
+<svg:path id="beak" fill="#fcaf3e" d="M 77,69
+C 69,76 59,81 45,86 41,91 48,97 58,97 66,98 74,94 80,91 82,89 85,88 87,87
+  86,86 86,86 85,85 84,84 83,81 82,78 81,74 80,72 79,71 79,70 78,69 77,69 z"/>
+<svg:path id="head" fill="#eeeeec" d="M 121,37
+C 85,37 79,65 79,66 80,67 81,68 82,69 83,71 84,73 85,77 86,80 87,82 88,83
+  89,85 91,85 92,86 94,87 96,87 98,88 98,88 115,90 115,102 115,113 96,143 96,143
+  95,145 95,147 95,149 95,155 100,160 106,160 113,160 118,155 118,149
+  118,146 117,144 116,142 112,125 158,106 158,79 158,79 158,37 121,37 z"/>
+<svg:path id="swoop" fill="#3465a4" d="M 88,75
+C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,75 z"/>
+<svg:circle cx="112" cy="54" r="4"
+            fill="#eeeeec" stroke="#3455a4" stroke-width="2"/>
+</svg:svg>
+</page>
+]]></code>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" xml:id="svg-1"
+         width="230" height="230" version="1.1">
+<svg:circle cx="115" cy="115" r="114" fill="#3465a4"/>
+<svg:circle cx="108" cy="184" r="15" fill="#eeeeec"/>
+<svg:path id="beak" fill="#fcaf3e" d="M 77,69
+C 69,76 59,81 45,86 41,91 48,97 58,97 66,98 74,94 80,91 82,89 85,88 87,87
+  86,86 86,86 85,85 84,84 83,81 82,78 81,74 80,72 79,71 79,70 78,69 77,69 z"/>
+<svg:path id="head" fill="#eeeeec" d="M 121,37
+C 85,37 79,65 79,66 80,67 81,68 82,69 83,71 84,73 85,77 86,80 87,82 88,83
+  89,85 91,85 92,86 94,87 96,87 98,88 98,88 115,90 115,102 115,113 96,143 96,143
+  95,145 95,147 95,149 95,155 100,160 106,160 113,160 118,155 118,149
+  118,146 117,144 116,142 112,125 158,106 158,79 158,79 158,37 121,37 z"/>
+<svg:path id="swoop" fill="#3465a4" d="M 88,75
+C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,75 z"/>
+<svg:circle cx="112" cy="54" r="4"
+            fill="#eeeeec" stroke="#3455a4" stroke-width="2"/>
+</svg:svg>
+</example>
+
+<p>The <code>circle</code> and <code>path</code> elements define the various
+shapes that make up the Mallard logo.  You typically won’t write the XML by
+hand.  Instead, you can create SVG files with applications like
+<link href="http://www.inkscape.org/">Inkscape</link>.  Even when you don’t
+have to write them by hand, large graphics can be difficult to manage inside
+your page files.  You can instead save them in separate files and include
+them with XInclude.</p>
+
+<example>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      id="svg">
+<title>SVG</title>
+]]><e:hi><![CDATA[<include href="mallard-logo.svg" xmlns="http://www.w3.org/2001/XInclude"/>]]></e:hi><![CDATA[
+</page>
+]]></code>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" xml:id="svg-2"
+         width="230" height="230" version="1.1">
+<svg:circle cx="115" cy="115" r="114" fill="#3465a4"/>
+<svg:circle cx="108" cy="184" r="15" fill="#eeeeec"/>
+<svg:path id="beak" fill="#fcaf3e" d="M 77,69
+C 69,76 59,81 45,86 41,91 48,97 58,97 66,98 74,94 80,91 82,89 85,88 87,87
+  86,86 86,86 85,85 84,84 83,81 82,78 81,74 80,72 79,71 79,70 78,69 77,69 z"/>
+<svg:path id="head" fill="#eeeeec" d="M 121,37
+C 85,37 79,65 79,66 80,67 81,68 82,69 83,71 84,73 85,77 86,80 87,82 88,83
+  89,85 91,85 92,86 94,87 96,87 98,88 98,88 115,90 115,102 115,113 96,143 96,143
+  95,145 95,147 95,149 95,155 100,160 106,160 113,160 118,155 118,149
+  118,146 117,144 116,142 112,125 158,106 158,79 158,79 158,37 121,37 z"/>
+<svg:path id="swoop" fill="#3465a4" d="M 88,75
+C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,75 z"/>
+<svg:circle cx="112" cy="54" r="4"
+            fill="#eeeeec" stroke="#3455a4" stroke-width="2"/>
+</svg:svg>
+</example>
+
+</section>
+
+<section id="fallback">
+<title>Fallback Content</title>
+
+<p>This simple example works well when your document is processed by a Mallard
+tool that supports SVG.  But when you use SVG or other external-namespace XML,
+you are using a Mallard extension.  Mallard tools are not required to support
+SVG.</p>
+
+<p>Fortunately, Mallard defines a mechanism for providing fallback content
+when you use extensions.  When a Mallard tool encounters block content it
+doesn’t understand, it looks for standard block elements in the child content.
+So to provide fallback content, you just need to add normal Mallard elements
+inside the <code>svg:svg</code> element.</p>
+
+<example>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      id="svg">
+<title>SVG</title>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg"
+         width="230" height="230" version="1.1">
+<svg:circle cx="115" cy="115" r="114" fill="#3465a4"/>
+<svg:circle cx="108" cy="184" r="15" fill="#eeeeec"/>
+<svg:path id="beak" fill="#fcaf3e" d="M 77,69
+C 69,76 59,81 45,86 41,91 48,97 58,97 66,98 74,94 80,91 82,89 85,88 87,87
+  86,86 86,86 85,85 84,84 83,81 82,78 81,74 80,72 79,71 79,70 78,69 77,69 z"/>
+<svg:path id="head" fill="#eeeeec" d="M 121,37
+C 85,37 79,65 79,66 80,67 81,68 82,69 83,71 84,73 85,77 86,80 87,82 88,83
+  89,85 91,85 92,86 94,87 96,87 98,88 98,88 115,90 115,102 115,113 96,143 96,143
+  95,145 95,147 95,149 95,155 100,160 106,160 113,160 118,155 118,149
+  118,146 117,144 116,142 112,125 158,106 158,79 158,79 158,37 121,37 z"/>
+<svg:path id="swoop" fill="#3465a4" d="M 88,75
+C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,75 z"/>
+<svg:circle cx="112" cy="54" r="4"
+            fill="#eeeeec" stroke="#3455a4" stroke-width="2"/>
+</svg:svg>
+]]><e:hi><![CDATA[<p>You don’t have SVG support.  Here’s a PNG image instead.</p>
+<media type="image" src="mallard-logo.png"/>]]></e:hi><![CDATA[
+</page>
+]]></code>
+<p>You don’t have SVG support.  Here’s a PNG image instead.</p>
+<media type="image" src="mallard-logo.png"/>
+</example>
+
+</section>
+
+<section id="xref">
+<title>Linking</title>
+
+<p>Because SVG is an XML vocabulary, you can use other namespaces within an
+SVG graphic, just like you can use other namespaces within a Mallard page.
+A common use for this is using the XML Linking Language (XLink) to create
+hyperlinks on certain shapes in the graphic.</p>
+
+<p>XLink is useful for general-purpose links, but when you use SVG inside
+Mallard, you may want to link to pages and sections in the same document
+using Mallard’s internal links.  Not only can you mix SVG into Mallard; you
+can also mix Mallard into SVG.  Use the <code>xref</code> attribute on
+an SVG element, and explicitly associate it with the Mallard namespace.
+This example makes the beak a link to <link xref="tenminutes"/>.</p>
+
+<example>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      id="svg">
+<title>SVG</title>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg"
+         ]]><e:hi>xmlns:mal="http://projectmallard.org/1.0/"</e:hi><![CDATA[
+         width="230" height="230" version="1.1">
+<svg:circle cx="115" cy="115" r="114" fill="#3465a4"/>
+<svg:circle cx="108" cy="184" r="15" fill="#eeeeec"/>
+<svg:path ]]><e:hi>mal:xref="tenminutes"</e:hi><![CDATA[ id="beak" fill="#fcaf3e" d="M 77,69
+C 69,76 59,81 45,86 41,91 48,97 58,97 66,98 74,94 80,91 82,89 85,88 87,87
+  86,86 86,86 85,85 84,84 83,81 82,78 81,74 80,72 79,71 79,70 78,69 77,69 z"/>
+<svg:path id="head" fill="#eeeeec" d="M 121,37
+C 85,37 79,65 79,66 80,67 81,68 82,69 83,71 84,73 85,77 86,80 87,82 88,83
+  89,85 91,85 92,86 94,87 96,87 98,88 98,88 115,90 115,102 115,113 96,143 96,143
+  95,145 95,147 95,149 95,155 100,160 106,160 113,160 118,155 118,149
+  118,146 117,144 116,142 112,125 158,106 158,79 158,79 158,37 121,37 z"/>
+<svg:path id="swoop" fill="#3465a4" d="M 88,75
+C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,75 z"/>
+<svg:circle cx="112" cy="54" r="4"
+            fill="#eeeeec" stroke="#3455a4" stroke-width="2"/>
+</svg:svg>
+</page>]]></code>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" xml:id="svg-3"
+         xmlns:mal="http://projectmallard.org/1.0/"
+         width="230" height="230" version="1.1">
+<svg:circle cx="115" cy="115" r="114" fill="#3465a4"/>
+<svg:circle cx="108" cy="184" r="15" fill="#eeeeec"/>
+<svg:path mal:xref="tenminutes" id="beak" fill="#fcaf3e" d="M 77,69
+C 69,76 59,81 45,86 41,91 48,97 58,97 66,98 74,94 80,91 82,89 85,88 87,87
+  86,86 86,86 85,85 84,84 83,81 82,78 81,74 80,72 79,71 79,70 78,69 77,69 z"/>
+<svg:path id="head" fill="#eeeeec" d="M 121,37
+C 85,37 79,65 79,66 80,67 81,68 82,69 83,71 84,73 85,77 86,80 87,82 88,83
+  89,85 91,85 92,86 94,87 96,87 98,88 98,88 115,90 115,102 115,113 96,143 96,143
+  95,145 95,147 95,149 95,155 100,160 106,160 113,160 118,155 118,149
+  118,146 117,144 116,142 112,125 158,106 158,79 158,79 158,37 121,37 z"/>
+<svg:path id="swoop" fill="#3465a4" d="M 88,75
+C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,75 z"/>
+<svg:circle cx="112" cy="54" r="4"
+            fill="#eeeeec" stroke="#3455a4" stroke-width="2"/>
+</svg:svg>
+</example>
+
+<p>Mallard tools that understand SVG can make a hyperlink and automatically
+compute the text for the link tooltip.</p>
+
+</section>
+
+</page>
