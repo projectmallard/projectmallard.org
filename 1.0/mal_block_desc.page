@@ -75,12 +75,12 @@ for the formal element.</p>
     <code><![CDATA[
 <figure>
   <desc>Drake, the Mallard mascot</desc>
-  <media type="image" mime="image/png" src="figures/mallard.png"/>
+  <media type="image" mime="image/png" src="mallard-logo.png"/>
 </figure>
 ]]></code>
     <figure>
       <desc>Drake, the Mallard mascot</desc>
-      <media type="image" mime="image/png" src="figures/mallard.png"/>
+      <media type="image" mime="image/png" src="mallard-logo.png"/>
     </figure>
   </example>
 

@@ -63,13 +63,13 @@ To provide a title for the contents of a file, such as a
 <figure>
   <title>Drake</title>
   <desc>Drake is the Mallard mascot.</desc>
-  <media type="image" mime="image/png" src="figures/mallard.png"/>
+  <media type="image" mime="image/png" src="mallard-logo.png"/>
 </figure>
 ]]></code>
     <figure>
       <title>Drake</title>
       <desc>Drake is the Mallard mascot.</desc>
-      <media type="image" mime="image/png" src="figures/mallard.png"/>
+      <media type="image" mime="image/png" src="mallard-logo.png"/>
     </figure>
   </example>
 </section>

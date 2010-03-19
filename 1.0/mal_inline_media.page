@@ -69,11 +69,11 @@ for details on how fallback elements are handled.</p>
 
   <example>
     <code><![CDATA[
-<p><media type="image" mime="image/png" src="figures/mallard.png">
+<p><media type="image" mime="image/png" src="mallard-logo.png">
 Drake, the Mallard mascot
 </media></p>
 ]]></code>
-    <p><media type="image" mime="image/png" src="figures/mallard.png">
+    <p><media type="image" mime="image/png" src="mallard-logo.png">
       Drake, the Mallard mascot
     </media></p>
   </example>
