@@ -29,7 +29,7 @@ learn Mallard from real-world examples.</p>
 <p>In this tutorial, you will learn how to create a simple multiple-page
 Mallard document by creating a document for the fictitious <app>Beanstalk</app>
 application.  This tutorial assumes you have a basic familiarity with XML or
-with a similiar markup language like HTML.</p>
+with a similar markup language like HTML.</p>
 
 <p>A Mallard document is composed of multiple independent pages. Each page is
 kept in a separate XML file, and a processing tool aggregates them together,
