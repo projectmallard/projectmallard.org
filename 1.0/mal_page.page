@@ -67,8 +67,8 @@ guide pages serve as navigational aids.</p>
 
   <p>Guide pages have the <code>type</code> attribute set to
   <code>"guide"</code>.  They serve as navigational aids, linking to topics and
-  other guides.  Readers can can browse through guides much as they would browse
-  through container sections in a linear document.  Since page can be included
+  other guides.  Readers can browse through guides much as they would browse
+  through container sections in a linear document.  Since pages can be included
   in multiple guides, however, readers are able to reach the same content by
   navigating different paths.</p>
 
