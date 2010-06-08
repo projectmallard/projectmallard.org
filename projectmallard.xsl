@@ -30,7 +30,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:param name="theme.color.yellow_border" select="'#fcaf3e'"/>
 
-<xsl:template name="mal2html.css.custom">
+<xsl:template name="html.css.custom">
 <xsl:text>
 body {
   background-color: #ffffff;
@@ -41,11 +41,11 @@ p { max-width: 60em; text-align: justify; }
 a img { border: none; }
 div.example { margin-left: 12px; }
 
-div.headbar {
+div.header {
   padding: 20px 20px 0 20px;
   max-width: 760px;
 }
-img.headbar-icon {
+img.header-icon {
   margin-bottom: 20px;
   width: 380px;
   height: 100px;
@@ -54,17 +54,20 @@ div.linktrail {
   padding-left: 0;
 }
 
-div.foot-badge {
+div.footer {
+  padding-bottom: 1em;
+}
+div.footer-badge {
   text-align: center;
   color: #3f3f3f;
 }
-div.foot-badge img {
+div.footer-badge img {
   vertical-align: middle;
 }
 
 div.body {
   border-top: solid 4px </xsl:text>
-    <xsl:value-of select="$theme.color.yellow_border"/><xsl:text>;
+    <xsl:value-of select="$color.yellow_border"/><xsl:text>;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   margin: 0;
@@ -86,7 +89,7 @@ div.foot {
 div.header {
   color: #3465a4;
   border-bottom: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.yellow_border"/><xsl:text>;
+    <xsl:value-of select="$color.yellow_border"/><xsl:text>;
 }
 h1, h2, h3, h4, h5, h6, h8 { color: #3465a4; }
 
@@ -116,9 +119,9 @@ div.pmo-source {
   margin: 0 0 0 2em;
   padding: 0.5em 6px 0.5em 6px;
   border: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.yellow_border"/><xsl:text>;
+    <xsl:value-of select="$color.yellow_border"/><xsl:text>;
   background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
+    <xsl:value-of select="$color.yellow_background"/><xsl:text>;
 }
 </xsl:text>
 </xsl:template>
@@ -151,57 +154,59 @@ div.pmo-source {
   </xsl:choose>
 </xsl:template>
 
-<xsl:template name="mal2html.page.headbar">
-  <xsl:param name="node" select="."/>
-  <div class="headbar">
-    <a href="{$mal.site.root_noslash}/index.html">
-      <img class="headbar-icon">
-        <xsl:attribute name="src">
-          <xsl:value-of select="$mal.site.root_noslash"/>
-          <xsl:text>/mallard-header.png</xsl:text>
-        </xsl:attribute>
-      </img>
-    </a>
-    <div style="clear:both">
-      <xsl:choose>
-        <xsl:when test="string($node/@style) = 'pmo-source'">
-          <xsl:for-each select="$mal.cache">
-            <xsl:variable name="srclink" select="$node/mal:p[1]/mal:link[1]"/>
-            <xsl:variable name="srckey">
-              <xsl:call-template name="mal.link.xref.linkid">
-                <xsl:with-param name="node" select="$srclink"/>
-              </xsl:call-template>
-            </xsl:variable>
-            <xsl:variable name="srcnode" select="key('mal.cache.key', $srckey)"/>
-            <xsl:call-template name="mal2html.page.linktrails">
-              <xsl:with-param name="node" select="$srcnode"/>
+<xsl:template mode="html.body.attr.mode" match="mal:page">
+  <xsl:if test="string(@style) = 'pmo-source'">
+    <xsl:attribute name="class">
+      <xsl:text>pmo-source</xsl:text>
+    </xsl:attribute>
+  </xsl:if>
+</xsl:template>
+
+<xsl:template mode="html.header.mode" match="mal:page">
+  <a href="{$mal.site.root_noslash}/index.html">
+    <img class="header-icon">
+      <xsl:attribute name="src">
+        <xsl:value-of select="$mal.site.root_noslash"/>
+        <xsl:text>/mallard-header.png</xsl:text>
+      </xsl:attribute>
+    </img>
+  </a>
+  <div style="clear:both">
+    <xsl:choose>
+      <xsl:when test="string(@style) = 'pmo-source'">
+        <xsl:for-each select="$mal.cache">
+          <xsl:variable name="srclink" select="mal:p[1]/mal:link[1]"/>
+          <xsl:variable name="srckey">
+            <xsl:call-template name="mal.link.xref.linkid">
+              <xsl:with-param name="node" select="$srclink"/>
             </xsl:call-template>
-          </xsl:for-each>
-        </xsl:when>
-        <xsl:otherwise>
+          </xsl:variable>
+          <xsl:variable name="srcnode" select="key('mal.cache.key', $srckey)"/>
           <xsl:call-template name="mal2html.page.linktrails">
-            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="node" select="$srcnode"/>
           </xsl:call-template>
-        </xsl:otherwise>
-      </xsl:choose>
-    </div>
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="mal2html.page.linktrails">
+          <xsl:with-param name="node" select="."/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
   </div>
 </xsl:template>
 
-<xsl:template name="mal2html.page.footbar">
-  <xsl:param name="node" select="."/>
-  <div class="foot">
-    <div class="foot-badge">
-      <div>Powered by</div>
-      <a href="{$mal.site.root_noslash}/index.html">
-        <img alt="Mallard" width="80" height="15">
-          <xsl:attribute name="src">
-            <xsl:value-of select="$mal.site.root_noslash"/>
-            <xsl:text>/mallard-badge.png</xsl:text>
-          </xsl:attribute>
-        </img>
-      </a>
-    </div>
+<xsl:template mode="html.footer.mode" match="mal:page">
+  <div class="footer-badge">
+    <div>Powered by</div>
+    <a href="{$mal.site.root_noslash}/index.html">
+      <img alt="Mallard" width="80" height="15">
+        <xsl:attribute name="src">
+          <xsl:value-of select="$mal.site.root_noslash"/>
+          <xsl:text>/mallard-badge.png</xsl:text>
+        </xsl:attribute>
+      </img>
+    </a>
   </div>
 </xsl:template>
 
