@@ -23,7 +23,7 @@
   <list style="compact">
     <item><p><link xref="/about/index"/></p></item>
     <item><p><link xref="/about/learn/index"/></p></item>
-    <item><p><link xref="/about/tools/index"/></p></item>
+    <item><p><link xref="/about/contact"/></p></item>
   </list>
 </section>
 
@@ -43,7 +43,17 @@
 
 <section id="specs">
   <title>Specifications &amp; Extensions</title>
-  <p><link xref="/1.0/index"/></p>
+
+  <list style="compact">
+    <item><p><link xref="/1.0/index"/></p></item>
+  </list>
+
+  <list style="compact">
+    <title>Coming soon:</title>
+    <item><p>Mallard Cache Files</p></item>
+    <item><p>Mallard Sites</p></item>
+    <item><p>Mallard+SVG</p></item>
+  </list>
 </section>
 
 </page>
