@@ -1,40 +1,239 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="topic"
+      type="topic" style="details"
       id="links">
 
 <info>
   <link type="guide" xref="details"/>
   <link type="seealso" xref="mal_page"/>
   <link type="seealso" xref="mal_section"/>
+  <link type="seealso" xref="mal_info_link"/>
 
-  <revision version="0.1" date="2008-02-21" status="stub"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
     <years>2009</years>
   </credit>
+
+  <desc>Create dynamic navigational structures.</desc>
 </info>
 
-<title>Automatic Links</title>
+<title>Dynamic Links</title>
+
+<p>Mallard features a dynamic linking system that allows pages and sections to
+declare links both to and from other pages and sections. Links are declared
+with a <code xref="mal_info_link">link</code> element inside an
+<code xref="mal_info">info</code> element.</p>
+
+<p>Links in an <code>info</code> element must have a <code>type</code>
+attribute. There are different processing expectations for different types
+of links. This page details how links are collected and displayed for
+the link types that are standard in Mallard 1.0.</p>
+
+<p>As with all links in Mallard, dynamic links can link to
+<link xref="mal_page">pages</link> or <link xref="section">sections</link>.
+Since dynamic links are declared inside <code>info</code> elements, they
+can also come from pages or sections. Throughout this page, the term
+<em>node</em> is used to refer to either a page or a section, the term
+<em>guide</em> is used to refer to a <link xref="mal_page#guide">guide
+page</link> or a section within a guide page, and the term <em>topic</em>
+is used to refer to a <link xref="mal_page#topic">topic page</link> or a
+section within a topic page.</p>
 
 
 <!-- BEGIN topic -->
 <section id="topic">
   <title>Topic Links</title>
+
+  <p>Topic links are links from guides to other nodes. The target nodes may be
+  topics or other guides. Topic links can be declared directly using the link
+  type <code>"topic"</code>, and declared in reverse using the link type
+  <code>"guide"</code> in a target node. Topic links are the inverse of
+  <link xref="#guide">guide links</link>, detailed below.</p>
+
+  <p>Topic links are inserted into the content of a guide, generally after
+  any block content, but before any child sections.</p>
+
+  <p>A guide has a topic to another node if either of the following two
+  conditions is true:</p>
+
+  <list style="compact">
+    <item><p>The guide has an informational link with type <code>"topic"</code>
+    whose <code>xref</code> attribute points to the target node.</p></item>
+    <item><p>The target node has an informational link with type
+    <code>"guide"</code> whose <code>xref</code> attribute points
+    to the guide.</p></item>
+  </list>
+
+  <p>Topic links are first sorted according to the <code>groups</code> attribute
+  on the guide. This attribute provides a space-separated list of groups which
+  may be used by links. The group list for a guide always implicitly contains
+  the special values <code>#first</code>, <code>#default</code>, and
+  <code>#last</code>. Any of these may be explicitly listed in the
+  <code>groups</code> attribute. If they are not, they are implicitly added
+  to the list as follows:</p>
+
+  <list type="numbered">
+    <item><p>If <code>#first</code> is not given explicitly, it is prepended
+    to the beginning of the list</p></item>
+    <item><p>If <code>#default</code> is not given explicitly, it is appended
+    to the end of the list.</p></item>
+    <item><p>If <code>#last</code> is not given explicitly, it is appended
+    to the end of the list.</p></item>
+    <item><p>If both <code>#default</code> and <code>#last</code> are added
+    implicitly, <code>#last</code> is placed after <code>#default</code>.</p></item>
+  </list>
+
+  <p>Each topic link has a group, which may be specified by the <code>group</code>
+  attribute of the informational <code>link</code> element which effected the
+  topic link. If no <code>group</code> attribute is present, or if the value of
+  the <code>group</code> attribute is not in the guide’s group list, then the
+  link’s group is implicitly set to <code>#default</code>.</p>
+
+  <p>Topic links are sorted first by the position of their group in the guide’s
+  group list. Links in the same group are then sorted alphabetically by the title
+  of the target node. If the target node has an
+  <link xref="mal_info_title">informational title</link> with the <code>type</code>
+  attribute set to <code>"sort"</code>, that title is used for sorting. Otherwise,
+  the primary title of the target node is used.</p>
+
+  <p>The link text for a topic link is taken from the title of the target node,
+  as follows:</p>
+
+  <list type="numbered">
+    <item><p>If the target node has an informational title with the <code>type</code>
+    attribute set to <code>"link"</code> and the <code>role</code> attribute set
+    to <code>"topic"</code>, that title is used.</p></item>
+    <item><p>Otherwise, if the target node has an informational title with the
+    <code>type</code> attribute set to <code>"link"</code> and without a
+    <code>role</code> attribute, that title is used.</p></item>
+    <item><p>Otherwise, the primary title of the target node is used.</p></item>
+  </list>
 </section>
 <!-- END topic -->
+
 
 <!-- BEGIN guide -->
 <section id="guide">
   <title>Guide Links</title>
+
+  <p>Guide links are links from nodes to guides. Guide links can be declared
+  directly using the link type <code>"guide"</code>, and declared in reverse
+  using the link type <code>"topic"</code> in a target node. Guide links are
+  the inverse of <link xref="topic">topic links</link>, detailed above.</p>
+
+  <p>Guide links are generally inserted at the end of a node, although some
+  implementations may have other presentations.</p>
+
+  <p>A node has a guide link to a guide if either of the following two
+  conditions is true:</p>
+
+  <list style="compact">
+    <item><p>The node has an informational link with type <code>"guide"</code>
+    whose <code>xref</code> attribute points to the target guide.</p></item>
+    <item><p>The target guide has an informataional link with type
+    <code>"topic"</code> whose <code>xref</code> attribute points to
+    the node.</p></item>
+  </list>
+
+  <p>Guide links are generally sorted alphabetically by the title of the
+  target guide. If the target guide has an 
+  <link xref="mal_info_title">informational title</link> with the <code>type</code>
+  attribute set to <code>"sort"</code>, that title is used for sorting. Otherwise,
+  the primary title of the target guide is used.  Implementations may group or sort
+  guide links based on other criteria first.</p>
+
+  <p>The link text for a guide link is taken from the title of the target node,
+  as follows:</p>
+
+  <list type="numbered">
+    <item><p>If the target guide has an informational title with the <code>type</code>
+    attribute set to <code>"link"</code> and the <code>role</code> attribute set
+    to <code>"guide"</code>, that title is used.</p></item>
+    <item><p>Otherwise, if the target guide has an informational title with the
+    <code>type</code> attribute set to <code>"link"</code> and without a
+    <code>role</code> attribute, that title is used.</p></item>
+    <item><p>Otherwise, the primary title of the target guide is used.</p></item>
+  </list>
 </section>
 <!-- END guide -->
 
+
 <!-- BEGIN seealso -->
 <section id="seealso">
-  <title>See Also Links</title>
+  <title>See-Also Links</title>
+
+  <p>See-also links are links from nodes to any other nodes. See-also links can be
+  declared directly using the link type <code>"seealso"</code>, or declared in
+  reverse using the link type <code>"seealso"</code> in a target node. See-also
+  links always reciprocate; that is, if A has a see-also link to B, B always has
+  a see-also link back to A.</p>
+
+  <p>See-also links are generally inserted at the end of a node, although some
+  implementations may have other presentations.</p>
+
+  <p>A node has a see-also link to another node if either of the following two
+  conditions is true:</p>
+
+  <list style="compact">
+    <item><p>The node has an informational link with type <code>"seealso"</code>
+    whose <code>xref</code> attribute points to the target node.</p></item>
+    <item><p>The target node has an informational link with type <code>"seealso"</code>
+    whose <code>xref</code> attribute points to the source node.</p></item>
+  </list>
+
+  <p>See-also links are generally sorted alphabetically by the title of the
+  target node. If the target node has an 
+  <link xref="mal_info_title">informational title</link> with the <code>type</code>
+  attribute set to <code>"sort"</code>, that title is used for sorting. Otherwise,
+  the primary title of the target node is used.  Implementations may group or sort
+  see-also links based on other criteria first.</p>
+
+  <p>The link text for a see-also link is taken from the title of the target node,
+  as follows:</p>
+
+  <list type="numbered">
+    <item><p>If the target node has an informational title with the <code>type</code>
+    attribute set to <code>"link"</code> and the <code>role</code> attribute set
+    to <code>"seealso"</code>, that title is used.</p></item>
+    <item><p>Otherwise, if the target node has an informational title with the
+    <code>type</code> attribute set to <code>"link"</code> and without a
+    <code>role</code> attribute, that title is used.</p></item>
+    <item><p>Otherwise, the primary title of the target node is used.</p></item>
+  </list>
 </section>
 <!-- END seealso -->
+
+
+<!-- BEGIN next -->
+<section id="next">
+  <title>Previous and Next Links</title>
+
+  <p>Previous and next links are links between pages that allow you to create
+  simple linear series of pages within a Mallard document. Previous and next
+  links are only expected to be supported on pages. Previous and next links
+  may be displayed in a navigation bar in a header or footer. Some
+  implementations may have other presentations.</p>
+
+  <p>A page has a next link to another page if it has an informational link
+  with type <code>"next"</code> whose <code>xref</code> attribute points to
+  that target page. Previous links are not declared explicitly. Instead, a
+  page implicitly has a a previous link to a target page if the target page
+  has a next link to it.</p>
+
+  <p>Link text may be standard strings like “Previous” and “Next”. When link
+  text is taken from the title of the target page, it is taken as follows:</p>
+
+  <list type="numbered">
+    <item><p>If the target node has an informational title with the
+    <code>type</code> attribute set to <code>"link"</code> and without a
+    <code>role</code> attribute, that title is used.</p></item>
+    <item><p>Otherwise, the primary title of the target node is used.</p></item>
+  </list>
+
+  <p>No link title roles are currently recommended for previous and next links.</p>
+</section>
+<!-- END next -->
 
 </page>
