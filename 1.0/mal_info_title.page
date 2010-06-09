@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_info#elements"/>
 
-  <revision version="0.1" date="2009-05-29" status="review"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -18,17 +18,7 @@
   <desc>Provide alternate titles for automatic link text and sorting.</desc>
 </info>
 
-<title>Informational Tiltes</title>
-
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_info_title = element title {
-  attribute type { xsd:NMTOKEN },
-  attribute role { xsd:NMTOKEN } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_inline">mal_inline</link>
-}
-</code></synopsis>
+<title>Informational Titles</title>
 
 <p>Use the <code>title</code> element inside an <code xref="mal_info">info</code>
 to list alternative titles for pages and sections.  These titles can be used
@@ -58,7 +48,12 @@ purposes.</p>
         <td><p><code>"sort"</code></p></td>
         <td><p>specifies a sort key; see <link xref="#sort"/></p></td>
       </tr>
-    </table></item>
+      <tr>
+        <td><p><code>"text"</code></p></td>
+        <td><p>specifies a text title; see <link xref="#text"/></p></td>
+      </tr>
+    </table>
+    </item>
 
     <item><p>The <code>role</code> attribute can be used for link titles
     to specify multiple alternate link texts.</p></item>
@@ -71,12 +66,43 @@ purposes.</p>
 <!-- END notes -->
 
 
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Provide a title to be used as link text for links to a page:</p>
+  <example>
+    <code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" id="beanstalks">
+  <info>
+    <title type="link">Beanstalks</title>
+  </info>
+  <title>Everything You Ever Wanted to Know About Beanstalks</title>
+</page>
+]]></code>
+  </example>
+
+  <p>Provide a title to be used when sorting links to pages:</p>
+  <example>
+    <code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" id="example">
+  <info>
+    <title type="sort">Beanstalk Example</title>
+  </info>
+  <title>A Beanstalk Example</title>
+</page>
+]]></code>
+  </example>
+</section>
+<!-- END examples -->
+
+
 <!-- BEGIN primary -->
 <section id="primary">
   <title>Primary Titles</title>
 
   <p>The <em>primary title</em> of a page or section is the one specified in
-  the block context and used for display purpose.  While this title is not
+  the block context and used for display purposes.  While this title is not
   an informational title as specified here, it is used as fallback for all
   informational titles.</p>
 </section>
@@ -100,6 +126,45 @@ purposes.</p>
   in languages which have case declensions.  Without this feature, it can
   be difficult to provide grammatically correct automatic link text in
   some languages.</p>
+
+  <p>This specification recommends the following standard link roles:</p>
+
+  <terms>
+    <item>
+      <title><code>guide</code></title>
+      <p>Used for link text for <link xref="links#guide">guide links</link>.</p>
+    </item>
+    <item>
+      <title><code>seealso</code></title>
+      <p>Used for link text for <link xref="links#seealso">see-also links</link>.</p>
+    </item>
+    <item>
+      <title><code>topic</code></title>
+      <p>Used for link text for <link xref="links#topic">topic links</link>.</p>
+    </item>
+    <item>
+      <title><code>trail</code></title>
+      <p>Used when constructing a link trail, or bread crumbs, of guide links
+      leading to a node.</p>
+    </item>
+  </terms>
+
+  <p>Link roles may also be defined by implementations, authors, and translators.
+  To avoid clashes in names, the following recommendations should be followed:</p>
+
+  <list>
+    <item><p>Roles defined by official specifications on projectmallard.org
+    should never contain a hyphen.</p></item>
+    <item><p>Roles defined by implementations for implementation-specific
+    features should be prefixed by a hyphen, and identifier for the
+    implementation, and another hyphen. For example, if <app>Yelp</app>
+    allowed a link role for links from search results, it could use the
+    role <code>-yelp-search</code>.</p></item>
+    <item><p>Roles defined by authors, translators, or other content creators
+    should contain but not start with a hyphen. For example, if you want to use
+    a link role for inline links in the objective case in a German-language
+    document, you might use the role <code>de-objectiv</code>.</p></item>
+  </list>
 </section>
 <!-- END link -->
 
@@ -115,6 +180,24 @@ purposes.</p>
   articles such as “an” and “the”.</p>
 </section>
 <!-- END sort -->
+
+
+<!-- BEGIN text -->
+<section id="text">
+  <title>Text Titles</title>
+
+  <p>Text titles are used wherever a plain text string without formatting
+  is required. This is useful for window titles or labels in user interfaces
+  where formatting and inline images are difficult or impossible. This is
+  particularly useful when a title contains an image with fallback text, but
+  you do not want the fallback text to appear in places such as window titles.</p>
+
+  <p>This specification does not specify exactly where text titles will be
+  used. Uses for text titles may vary by implementation. Implementations may
+  define roles to allow authors to provide alternate text titles for different
+  purposes.</p>
+</section>
+<!-- END text -->
 
 
 <!-- BEGIN processing -->
@@ -133,5 +216,53 @@ purposes.</p>
   title that matches the desired criteria.</p>
 </section>
 <!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>DocBook has no general mechanism for specifying different title text for
+  different purposes. Although a document is still well-formed with multiple
+  <code href="http://www.docbook.org/tdg/en/html/title.html">title</code>
+  elements in an info element, the DocBook specification forbids having
+  different values when titles appear in different contexts. DocBook does
+  provide the
+  <code href="http://www.docbook.org/tdg/en/html/titleabbrev.html">titleabbrev</code>
+  element, which may be used by some implementations for link text.</p>
+
+  <p>DITA provides the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/titlealts.html">titlealts</code>,
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/navtitle.html">navtitle</code>, and
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/searchtitle.html">searchtitle</code>
+  elements, which provide a fixed mechanism to specify alternate titles for a
+  limited number of uses. DITA does not have a general mechanism like Mallard
+  informational titles.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition for the
+informational <code>title</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_title = element title {
+  attribute type { xsd:NMTOKEN },
+  attribute role { xsd:NMTOKEN } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>

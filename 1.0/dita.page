@@ -26,7 +26,7 @@ available.</p>
     <tr>
       <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/addressdetails.html">addressdetails</code></p></td>
       <td rowspan="2"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-      elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
+      elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
     </tr>
     <tr>
       <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/administrativearea.html">administrativearea</code></p></td>
@@ -266,7 +266,7 @@ available.</p>
     <tr>
       <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/contactnumber.html">contactnumber</code></p></td>
       <td rowspan="2"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-      elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
+      elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
     </tr>
     <tr>
       <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/contactnumbers.html">contactnumbers</code></p></td>
@@ -304,7 +304,7 @@ available.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/country.html">country</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-    elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
+    elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/created.html">created</code></p></td>
@@ -466,7 +466,7 @@ available.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/firstname.html">firstname</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-    elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
+    elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/fn.html">fn</code></p></td>
@@ -492,7 +492,7 @@ available.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/generationidentifier.html">generationidentifier</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-    elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
+    elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/glossarylist.html">glossarylist</code></p></td>
@@ -525,7 +525,7 @@ available.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/honorific.html">honorific</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-    elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
+    elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/i.html">i</code></p></td>
@@ -597,7 +597,7 @@ available.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/lastname.html">lastname</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-    elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
+    elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/li.html">li</code></p></td>
@@ -631,7 +631,7 @@ available.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/locality.html">locality</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-    elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
+    elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/localityname.html">localityname</code></p></td>
@@ -666,7 +666,7 @@ available.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/middlename.html">middlename</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-    elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
+    elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/month.html">month</code></p></td>
@@ -687,7 +687,7 @@ available.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/namedetails.html">namedetails</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-    elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
+    elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/navref.html">navref</code></p></td>
@@ -695,7 +695,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/navtitle.html">navtitle</code></p></td>
-    <td><p></p></td>
+    <td><p>See <link xref="mal_info_title"/> for details.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/no-topic-nesting.html">no-topic-nesting</code></p></td>
@@ -734,7 +734,7 @@ available.</p>
     <tr>
       <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/organizationinfo.html">organizationinfo</code></p></td>
       <td rowspan="4"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-      elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
+      elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
     </tr>
     <tr>
       <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/organizationname.html">organizationname</code></p></td>
@@ -791,7 +791,7 @@ available.</p>
     <tr>
       <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/personinfo.html">personinfo</code></p></td>
       <td rowspan="2"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-      elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
+      elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
     </tr>
     <tr>
       <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/personname.html">personname</code></p></td>
@@ -990,7 +990,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/searchtitle.html">searchtitle</code></p></td>
-    <td><p></p></td>
+    <td><p>See <link xref="mal_info_title"/> for details.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/section.html">section</code></p></td>
@@ -1166,7 +1166,7 @@ available.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/thoroughfare.html">thoroughfare</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-    elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
+    elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/title.html">title</code></p></td>
@@ -1174,7 +1174,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/titlealts.html">titlealts</code></p></td>
-    <td><p></p></td>
+    <td><p>See <link xref="mal_info_title"/> for details.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/tm.html">tm</code></p></td>
