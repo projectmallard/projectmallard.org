@@ -34,7 +34,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     This information is extracted automatically as part of the build process.</p>
     <section id="status-1-0">
       <title>1.0 Status and Reviews</title>
-      <table frame="top bottom" rules="rows">
+      <table frame="all" rules="rows">
         <thead><tr>
           <td><p>Page</p></td>
           <td><p>Status</p></td>
@@ -162,6 +162,59 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
             </xsl:if>
           </xsl:if>
         </xsl:for-each>
+        </tbody>
+      </table>
+    </section>
+    <section id="comparisons">
+      <title>Comparisons</title>
+      <table frame="all" rules="rows colgroups">
+        <col/>
+        <colgroup><col/><col/></colgroup>
+        <thead><tr>
+          <td><p>Page</p></td>
+          <td><p><link xref="docbook">DocBook</link></p></td>
+          <td><p><link xref="dita">DITA</link></p></td>
+        </tr></thead>
+        <tbody>
+          <xsl:for-each select="mal:page[@site:dir = '/1.0/']">
+            <xsl:sort select="@id"/>
+            <xsl:variable name="page" select="document(@cache:href)/mal:page"/>
+            <xsl:variable name="comp" select="$page/mal:section[@id = 'comparison']"/>
+            <xsl:if test="$comp">
+              <xsl:variable name="error">
+                <xsl:choose>
+                  <xsl:when test="$comp//mal:link[@xref = 'docbook' and string(.) = 'DocBook']">
+                    <xsl:text>y</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>n</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+                <xsl:choose>
+                  <xsl:when test="$comp//mal:link[@xref = 'dita' and string(.) = 'DITA']">
+                    <xsl:text>y</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>n</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </xsl:variable>
+              <xsl:if test="not($error = 'yy')">
+                <tr>
+                  <td><p>
+                    <link xref="{$page/@id}"><xsl:value-of select="$page/@id"/></link>
+                  </p></td>
+                  <xsl:for-each select="str:split('1 2')">
+                    <td><p>
+                      <xsl:if test="substring($error, number(.), 1) != 'y'">
+                        <xsl:text> ✘</xsl:text>
+                      </xsl:if>
+                    </p></td>
+                  </xsl:for-each>
+                </tr>
+              </xsl:if>
+            </xsl:if>
+          </xsl:for-each>
         </tbody>
       </table>
     </section>

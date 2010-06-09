@@ -160,7 +160,7 @@ you to filter files based on their modification times.
 
   <p>The <code>cmd</code> is similar to the
   <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/cmdname.html">cmdname</code>
-  element in <link href="dita">DITA</link>.  The
+  element in <link xref="dita">DITA</link>.  The
   <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/option.html">option</code> and
   <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/parmname.html">parmname</code>
   elements in DITA are sometimes used to mark up options and parameters

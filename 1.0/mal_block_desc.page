@@ -129,7 +129,7 @@ for the formal element.</p>
 
   <p>The <code>desc</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/caption.html">caption</code>
-  element in DocBook. DocBook captions may not appear in 
+  element in <link xref="docbook">DocBook</link>. DocBook captions may not appear in 
   <code href="http://www.docbook.org/tdg/en/html/figure.html">figure</code>
   elements, although they may be provided for
   <code href="http://www.docbook.org/tdg/en/html/mediaobject.html">mediaobject</code>
@@ -137,8 +137,8 @@ for the formal element.</p>
 
   <p>The <code>desc</code> element is similar to the
   <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/desc.html">desc</code>
-  element in DITA when used in a similar context. DITA <code>desc</code> elements
-  may also be used to provide text descriptions for certain types of links.</p>
+  element in <link xref="dita">DITA</link> when used in a similar context. DITA <code>desc</code>
+  elements may also be used to provide text descriptions for certain types of links.</p>
 </section>
 <!-- END comparison -->
 
