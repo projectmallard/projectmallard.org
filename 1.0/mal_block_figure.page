@@ -6,7 +6,7 @@
   <link type="seealso" xref="mal_block_media"/>
   <link type="seealso" xref="mal_block_listing"/>
 
-  <revision docversion="1.0" status="incomplete"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -61,14 +61,14 @@ To provide a title for the contents of a file, such as a
   <example>
     <code><![CDATA[
 <figure>
-  <title>Drake</title>
-  <desc>Drake is the Mallard mascot.</desc>
+  <title>The Mallard Logo</title>
+  <desc>The Mallard logo is a question-mark-shaped duck head in a blue circle.</desc>
   <media type="image" mime="image/png" src="mallard-logo.png"/>
 </figure>
 ]]></code>
     <figure>
-      <title>Drake</title>
-      <desc>Drake is the Mallard mascot.</desc>
+      <title>The Mallard Logo</title>
+      <desc>The Mallard logo is a question-mark-shaped duck head in a blue circle.</desc>
       <media type="image" mime="image/png" src="mallard-logo.png"/>
     </figure>
   </example>
@@ -81,7 +81,7 @@ To provide a title for the contents of a file, such as a
   <title>Processing Expectations</title>
 
   <p>Figures are displayed as block elements, with each of their child elements
-  being interpreted as block elements.  When present, the title and description
+  interpreted as block elements.  When present, the title and description
   should be displayed in a way that makes their respective roles clear.</p>
 </section>
 <!-- END processing -->
@@ -91,10 +91,14 @@ To provide a title for the contents of a file, such as a
 <section id="comparison">
   <title>Comparison to Other Formats</title>
 
-  <p>The <code>figure</code> is similar to the
+  <p>The <code>figure</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/figure.html">figure</code>
   element in DocBook.  DocBook only provides a title for figures, whereas
   Mallard distinguishes between a title and a caption.</p>
+
+  <p>The <code>figure</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/fig.html">fig</code>
+  element in DITA.</p>
 </section>
 <!-- END comparison -->
 

@@ -449,7 +449,7 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/fig.html">fig</code></p></td>
-    <td><p></p></td>
+    <td><p>Similar to the <code xref="mal_block_figure">figure</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/figgroup.html">figgroup</code></p></td>

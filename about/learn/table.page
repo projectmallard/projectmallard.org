@@ -37,7 +37,7 @@ based on HTML tables.  In this tutorial, you will learn how to:</p>
   or columns</link>,</p></item>
   <item><p><link xref="#grouping">group rows or columns together</link>
   to have better control over rules and shading, and</p></item>
-  <item><p>make a table cell <link xref="#grouping">span multiple rows
+  <item><p>make a table cell <link xref="#spanning">span multiple rows
   or columns</link>.</p></item>
 </list>
 
