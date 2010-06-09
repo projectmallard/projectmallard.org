@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_inline#elements"/>
 
-  <revision docversion="1.0" status="incomplete"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -51,6 +51,31 @@ filenames, such as search paths and file extensions.</p>
   </list>
 </section>
 <!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use the <code>file</code> element to specify a filename:</p>
+
+  <example>
+    <code><![CDATA[
+XML catalogs are stored in <file>/etc/xml/catalog</file>.
+]]></code>
+    <p>XML catalogs are stored in <file>/etc/xml/catalog</file>.</p>
+  </example>
+
+  <p>Use the <code>file</code> element to specify a path:</p>
+
+  <example>
+    <code><![CDATA[
+<sys>$XDG_DATA_DIRS</sys> defaults to <file>/usr/local/share:/usr/share</file>.
+]]></code>
+    <p><sys>$XDG_DATA_DIRS</sys> defaults to <file>/usr/local/share:/usr/share</file>.</p>
+  </example>
+</section>
+<!-- END examples -->
 
 
 <!-- BEGIN processing -->

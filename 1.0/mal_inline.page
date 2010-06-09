@@ -1,11 +1,11 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="guide"
+      type="guide" style="details"
       id="mal_inline">
 
 <info>
   <link type="guide" xref="index" group="inline"/>
 
-  <revision version="0.1" date="2009-04-16" status="review"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>

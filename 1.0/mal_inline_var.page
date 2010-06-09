@@ -60,6 +60,26 @@ an indicated argument.</p>
 <!-- END notes -->
 
 
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>var</code> with <code xref="mal_inline_cmd">cmd</code> to mark
+  up a command with a placeholder for an argument the user should supply:</p>
+
+  <example>
+    <code><![CDATA[
+To view a file in <app>Totem Movie Player</app>, enter <cmd>totem
+<var>file</var></cmd> at the command line, replacing <var>file</var>
+with the name of the file.
+]]></code>
+    <p>To view a file in <app>Totem Movie Player</app>, enter <cmd>totem <var>file</var></cmd>
+    at the command line, replacing <var>file</var> with the name of the file.</p>
+  </example>
+</section>
+<!-- END examples -->
+
+
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
