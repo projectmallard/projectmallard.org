@@ -67,7 +67,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     </section>
     <section id="sections">
       <title>Common Sections</title>
-      <table frame="top bottom" rules="rows" shade="cols">
+      <table frame="all" rules="rows colgroups" shade="cols">
+        <colgroup><col/></colgroup>
+        <colgroup><col/><col/></colgroup>
+        <colgroup><col/><col/><col/></colgroup>
         <thead><tr>
           <td><p>Page</p></td>
           <td><p>Notes</p></td>
