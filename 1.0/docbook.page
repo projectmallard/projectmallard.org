@@ -477,8 +477,9 @@ available.</p>
   </tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/example.html">example</code></p></td>
-    <td><p>Similar to the <code xref="mal_block_example">example</code> element, except
-    that examples in Mallard are not formal elements.</p></td>
+    <td><p>Similar to the <code xref="mal_block_example">example</code> element, except that
+    examples in Mallard are not formal elements. The <code xref="mal_block_listing">listing</code>
+    element may be a suitable replacement when a title is needed.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/exceptionname.html">exceptionname</code></p></td>

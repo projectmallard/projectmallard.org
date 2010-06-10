@@ -6,7 +6,7 @@
   <link type="seealso" xref="mal_block_code"/>
   <link type="seealso" xref="mal_block_figure"/>
 
-  <revision docversion="1.0" status="incomplete"/>
+  <revision docversion="1.0" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -101,13 +101,21 @@ element.</p>
 
 
 <!-- BEGIN comparison -->
-<!--
-No direct analog in DocBook.  I'm sure people accomplish the same thing somehow,
-but my brain isn't working right now.  Also check DITA.
 <section id="comparison">
   <title>Comparison to Other Formats</title>
+
+  <p>There is no direct equivalent to the <code>listing</code> element in
+  <link xref="docbook">DocBook</link>. The
+  <code href="http://www.docbook.org/tdg/en/html/example.html">example</code>
+  element in DocBook is a formal element, and may be a suitable substitute
+  for <code>listing</code>.</p>
+
+  <p>There is no direct equivalent to the <code>listing</code> element in
+  <link xref="dita">DITA</link>. The
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/example.html">example</code>
+  element in DITA allows titles in mixed content, and may be a suitable
+  substitute for <code>listing</code>.</p>
 </section>
--->
 <!-- END comparison -->
 
 
