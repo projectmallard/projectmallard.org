@@ -4,9 +4,86 @@
 
 <info>
   <link type="guide" xref="mal_block#tables"/>
+
+  <revision docversion="1.0" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Define columns groups for rules and shading.</desc>
 </info>
 
 <title>Columns and Column Groups</title>
+
+<p>Use the <code>col</code> and <code>colgroup</code> elements to specify
+column grouping for column rules and column shading in
+<link xref="mal_table">tables</link>.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+
+  <list>
+    <item><p>The <code>colgroup</code> element contain zero or more <code>col</code>
+    elements. A <code>col</code> element must be empty.</p></item>
+
+    <item><p>The <code>colgroup</code> element can occur in a
+    <code xref="mal_table">table</code> element, before any rows or row groups.
+    The <code>col</code> element can occur wherever the <code>colgroup</code>
+    element can occur, or inside a <code>colgroup</code> element.</p></item>
+
+    <item><p>The <code>style</code> attribute on either the <code>colgroup</code> or
+    <code>col</code> element takes a space-separated list of style hints. Processing
+    tools should adjust their behavior according to those style hints they understand.</p></item>
+
+    <item><p>The <code>colgroup</code> and <code>col</code> elements can have attributes
+    from external namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+  <p>See <link xref="mal_table#examples"/> on the page <link xref="mal_table"/>.</p>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+  <p>See <link xref="mal_table#processing"/> on the page <link xref="mal_table"/>.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison</title>
+  <p>See <link xref="mal_table#comparison"/> on the page <link xref="mal_table"/>.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>col</code> and <code>colgroup</code> elements. The namespace
+declarations for these definitions are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_table_col = element col {
@@ -20,5 +97,7 @@ mal_table_colgroup = element colgroup {
   mal_table_col *
 }
 </code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>
