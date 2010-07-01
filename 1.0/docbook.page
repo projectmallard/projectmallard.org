@@ -293,7 +293,7 @@ available.</p>
     <td><p>Use the common <code xref="mal_info_credit">credit</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/collab.html">collabname</code></p></td>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/collabname.html">collabname</code></p></td>
     <td><p>Varies with use.  The <code xref="mal_info_credit">name</code> element in
     a <code xref="mal_info_credit">credit</code> element may be appropriate.</p></td>
   </tr></tbody>
