@@ -1,0 +1,26 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="contact">
+
+<info>
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2010</years>
+  </credit>
+</info>
+
+<title>Contact</title>
+
+<p>Mallard is developed by a community of documentation enthusiasts like
+you.  Anybody can get involved and help shape the development of Mallard.
+Please join the <sys>mallard-list@projectmallard.org</sys> mailing list
+to learn more about Mallard or get involved in Mallard development.</p>
+
+<list style="compact">
+  <item><p><link href="http://projectmallard.org/mailman/listinfo/mallard-list_projectmallard.org">Join the mailing list</link></p></item>
+  <item><p><link href="http://projectmallard.org/pipermail/mallard-list_projectmallard.org/">View the list archives</link></p></item>
+</list>
+
+
+</page>
