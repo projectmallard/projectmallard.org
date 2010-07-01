@@ -302,7 +302,7 @@ available.</p>
     <td><p>No equivalent in Mallard.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/colophon.html">colspec</code></p></td>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/colspec.html">colspec</code></p></td>
     <td><p>Mallard does not use the CALS table model.</p></td>
   </tr></tbody>
   <tbody><tr>
