@@ -19,9 +19,9 @@
 <title>Mallard and SVG</title>
 
 <p>The core Mallard language is intentionally as simple as possible.  It
-addresses a core set of problems, allowing domain-specific languages to
+addresses a specific set of problems, allowing domain-specific languages to
 handle other areas.  As a well-designed, modern XML vocabulary, Mallard
-defines exactly where and you you can mix XML markup from external
+defines exactly where and how you can mix XML markup from external
 namespaces.  With proper tool support, you can embed almost any XML
 vocabulary into Mallard.</p>
 
