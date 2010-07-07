@@ -18,10 +18,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:exsl="http://exslt.org/common"
+                xmlns:str="http://exslt.org/strings"
                 xmlns:mal="http://projectmallard.org/1.0/"
                 xmlns="http://www.w3.org/1999/xhtml"
                 extension-element-prefixes="exsl"
-                exclude-result-prefixes="mal"
+                exclude-result-prefixes="mal str"
                 version="1.0">
 
 <!-- We shouldn't depend on mal.site.root_noslash; it's not public -->
@@ -160,7 +161,24 @@ div.pmo-source {
 </xsl:template>
 
 <xsl:template name="html.head.custom">
-  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"/>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=shaunm"/>
+  <script type="text/javascript">
+<xsl:text>
+var addthis_config = {
+  data_track_clickback: true,
+  ui_508_compliant: true
+}
+var addthis_share = {
+  description: "</xsl:text>
+<xsl:for-each select="str:split(normalize-space(/mal:page/mal:info/mal:desc), '&quot;')">
+  <xsl:if test="position() != 1">
+    <xsl:text>\"</xsl:text>
+  </xsl:if>
+  <xsl:value-of select="."/>
+</xsl:for-each><xsl:text>"
+}
+</xsl:text>
+  </script>
 </xsl:template>
 
 <xsl:template mode="html.body.attr.mode" match="mal:page">
