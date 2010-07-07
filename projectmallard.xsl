@@ -55,11 +55,21 @@ div.linktrail {
 }
 
 div.footer {
+  max-width: 800px;
   padding-bottom: 1em;
 }
+div.addthis_right {
+  float: right;
+  height: 20px;
+}
+div.addthis_left {
+  height: 20px;
+}
 div.footer-badge {
+  margin: 2em 0 0 0;
   text-align: center;
   color: #3f3f3f;
+  clear: both;
 }
 div.footer-badge img {
   vertical-align: middle;
@@ -79,11 +89,6 @@ body.pmo-source div.body {
 }
 body.pmo-source div.header {
   border-bottom: solid 1px #d3d7cf;
-}
-
-div.foot {
-  margin: 2em 0 0 0;
-  max-width: 800px;
 }
 
 div.header {
@@ -154,6 +159,10 @@ div.pmo-source {
   </xsl:choose>
 </xsl:template>
 
+<xsl:template name="html.head.custom">
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"/>
+</xsl:template>
+
 <xsl:template mode="html.body.attr.mode" match="mal:page">
   <xsl:if test="string(@style) = 'pmo-source'">
     <xsl:attribute name="class">
@@ -197,6 +206,17 @@ div.pmo-source {
 </xsl:template>
 
 <xsl:template mode="html.footer.mode" match="mal:page">
+  <div class="addthis_toolbox addthis_default_style addthis_right">
+    <a class="addthis_button_delicious"></a>
+    <a class="addthis_button_digg"></a>
+    <a class="addthis_button_identica"></a>
+    <a class="addthis_button_reddit"></a>
+    <a class="addthis_button_stumbleupon"></a>
+    <a class="addthis_button_more"></a>
+  </div>
+  <div class="addthis_toolbox addthis_default_style addthis_left">
+    <a class="addthis_button_w3validator"></a>
+  </div>
   <div class="footer-badge">
     <div>Powered by</div>
     <a href="{$mal.site.root_noslash}/index.html">
