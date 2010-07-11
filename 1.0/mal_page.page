@@ -162,6 +162,7 @@ mal_page = element page {
 
   <link xref="mal_info">mal_info</link> ?,
   <link xref="mal_block_title">mal_block_title</link>,
+  <link xref="mal_block_subtitle">mal_block_subtitle</link> ?,
   <link xref="mal_block">mal_block</link> *,
   <link xref="mal_section">mal_section</link> *
 }

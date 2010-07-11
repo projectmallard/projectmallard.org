@@ -110,12 +110,12 @@ information.</p>
 
 
 <!-- BEGIN other -->
-<section id="other">
+<section id="other" groups="title subtitle desc cite">
   <info>
-    <link type="topic" xref="mal_block_title"/>
-    <link type="topic" xref="mal_block_subtitle"/>
-    <link type="topic" xref="mal_block_desc"/>
-    <link type="topic" xref="mal_block_cite"/>
+    <link type="topic" xref="mal_block_title" group="title"/>
+    <link type="topic" xref="mal_block_subtitle" group="subtitle"/>
+    <link type="topic" xref="mal_block_desc" group="desc"/>
+    <link type="topic" xref="mal_block_cite" group="cite"/>
   </info>
   <title>Other Block-like Elements</title>
 
