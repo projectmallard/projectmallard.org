@@ -314,11 +314,36 @@ function parse_name_class (line) {
       else
         aft = "";
     }
-    else if (stack[stack_i] == "<element" || stack[stack_i] == "<attribute") {
-      stack[stack_i] = stack[stack_i] sprintf(" name='%s'>", name);
-    }
     else {
-      stack[++stack_i] = sprintf("<name>%s</name>", name);
+      if (length(aft) >= 2 && substr(aft, 1, 1) == ":") {
+        checkns = "";
+        pos = 1;
+        while (pos <= namespaces_i) {
+          if (namespaces[pos] != "" && nsnames[pos] == name) {
+            checkns = namespaces[pos];
+            break;
+          }
+          pos++;
+        }
+        if (checkns == "") {
+          print "Unknown namespace prefix " name " on line " FNR | "cat 1>&2";
+          error = 1;
+          exit 1
+        }
+        localname = substr(aft, 2);
+        sub(/[^A-Za-z_]+.*/, "", localname);
+        if (length(aft) >= length(localname) + 2)
+          aft = substr(aft, length(localname) + 2);
+        else
+          aft = "";
+        name = name ":" localname;
+      }
+      if (stack[stack_i] == "<element" || stack[stack_i] == "<attribute") {
+        stack[stack_i] = stack[stack_i] sprintf(" name='%s'>", name);
+      }
+      else {
+        stack[++stack_i] = sprintf("<name>%s</name>", name);
+      }
     }
     parse_name_class(aft);
   }
