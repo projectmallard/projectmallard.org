@@ -1,0 +1,5 @@
+*.cache
+*.cache.in
+*.css
+*.html
+/yelp-*.png
