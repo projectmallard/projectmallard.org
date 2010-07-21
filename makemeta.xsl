@@ -168,7 +168,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <section id="comparisons">
       <title>Comparisons</title>
       <table frame="all" rules="rows colgroups">
-        <col/>
+        <colgroup><col/></colgroup>
         <colgroup><col/><col/></colgroup>
         <thead><tr>
           <td><p>Page</p></td>
