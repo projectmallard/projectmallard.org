@@ -131,8 +131,14 @@ recommendation</link>.
   as follows:</p>
 
   <list>
-    <item><p>If the <code>link</code> element has an <code>xref</code>
-    attribute that points to a page or section in the same document:</p>
+    <item><p>If the <code>link</code> element has an <code>action</code>
+    attribute, and the processing tool understands the action scheme,
+    then the tool may generate automatic text based on the action scheme
+    and data, or it may use the action data as link text.</p></item>
+
+    <item><p>Otherwise, if the <code>link</code> element has an
+    <code>xref</code> attribute that points to a page or section in
+    the same document:</p>
 
     <list>
       <item><p>If the <code>link</code> element has a <code>role</code>
@@ -154,9 +160,9 @@ recommendation</link>.
     </list>
     </item>
 
-    <item><p>Otherwise, if the <code>link</code> element has an <code>xref</code>
-    attribute that points to a portion of another document, and the processing
-    tool knows how to generate link contents, that content is used.</p></item>
+    <item><p>Otherwise, if the <code>link</code> element has an extended
+    <code>xref</code> attribute, and the processing tool knows how to generate
+    link text for the target, that text is used.</p></item>
 
     <item><p>Otherwise, the link target is used as text content.</p></item>
   </list>
@@ -208,10 +214,7 @@ this definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_link = element link {
-  ( attribute xref { text } |
-    attribute href { text } |
-    ( attribute xref { text }, attribute href { text } )
-  ),
+  <link xref="mal_attr_link">mal_attr_link</link> +,
   attribute role { text } ?,
   attribute style { xsd:NMTOKENS } ?,
   <link xref="mal_external">mal_attr_external</link> *,

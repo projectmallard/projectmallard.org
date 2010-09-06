@@ -19,9 +19,7 @@
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_info_link = element link {
   attribute type { xsd:NMTOKEN },
-  ( attribute xref { text } |
-    attribute href { text }
-  ),
+  <link xref="mal_attr_link">mal_attr_link</link> +,
   attribute group { text } ?
   attribute * - (mal:* | local:*) { text } *,
 

@@ -159,7 +159,7 @@ this definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_media = element media {
-  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  <link xref="mal_attr_link">mal_attr_link</link> *,
   attribute style { xsd:NMTOKENS } ?,
   attribute type { "image" | "video" | "audio" | "application" } ?,
   attribute mime { text } ?,

@@ -181,7 +181,7 @@ definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_gui = element gui {
-  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  <link xref="mal_attr_link">mal_attr_link</link> *,
   attribute style { xsd:NMTOKENS } ?,
   <link xref="mal_external">mal_attr_external</link> *,
 
