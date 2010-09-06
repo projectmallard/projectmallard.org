@@ -82,7 +82,7 @@ pages is unique to Mallard, and we will explore it further below.</p>
 </section>
 
 <section id="view">
-<title>View Your Doucment</title>
+<title>View Your Document</title>
 
 <p>You now have a simple document, but you can only view the raw markup
 in a text editor.  To view formatted output, you need to process your document
