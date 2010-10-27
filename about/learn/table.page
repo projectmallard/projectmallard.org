@@ -505,7 +505,7 @@ after the current row will have fewer <code>td</code> elements.</p>
 </example>
 
 <p>A table cell can span multiple rows and multiple columns at the same time.
-When you do this, be careful that use the right number of <code>td</code>
+When you do this, be careful to use the right number of <code>td</code>
 elements in the following rows.</p>
 
 <example>
