@@ -90,6 +90,13 @@ C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,
 </svg:svg>
 </example>
 
+<note>
+  <p>The coordinates have been simplified for this tutorial. This SVG file will have
+  some jagged edges if scaled up. If you want the full SVG source, download the
+  <link href="http://projectmallard.org/about/mallard-logo.svg">Mallard logo SVG
+  source</link>.</p>
+</note>
+
 <p>The <code>circle</code> and <code>path</code> elements define the various
 shapes that make up the Mallard logo.  You typically won’t write the XML by
 hand.  Instead, you can create SVG files with applications like
@@ -162,9 +169,9 @@ C 85,37 79,65 79,66 80,67 81,68 82,69 83,71 84,73 85,77 86,80 87,82 88,83
 C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,75 z"/>
 <svg:circle cx="112" cy="54" r="4"
             fill="#eeeeec" stroke="#3455a4" stroke-width="2"/>
-</svg:svg>
 ]]><e:hi><![CDATA[<p>You don’t have SVG support.  Here’s a PNG image instead.</p>
 <media type="image" src="mallard-logo.png"/>]]></e:hi><![CDATA[
+</svg:svg>
 </page>
 ]]></code>
 <p>You don’t have SVG support.  Here’s a PNG image instead.</p>
