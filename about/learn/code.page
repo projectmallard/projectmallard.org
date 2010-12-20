@@ -129,18 +129,18 @@ the contents of an XML file.  Fortunately, XML provides a special syntax called
 <page xmlns="http://projectmallard.org/1.0/
       type="guide" id="index">
   <info>
-    /* Page information goes here */
+    <!-- Page information goes here -->
   </info>
-  /* Page contents go here */
+  <!-- Page contents go here -->
 </page>
 ]]>]]&gt;&lt;/code></code>
 <code><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/
       type="guide" id="index">
   <info>
-    /* Page information goes here */
+    <!-- Page information goes here -->
   </info>
-  /* Page contents go here */
+  <!-- Page contents go here -->
 </page>
 ]]></code>
 </example>
@@ -250,9 +250,9 @@ content.</p>
 <page xmlns="http://projectmallard.org/1.0/
       type="guide" id="index">
   <info>
-    /* Page information goes here */
+    <!-- Page information goes here -->
   </info>
-  /* Page contents go here */
+  <!-- Page contents go here -->
 </page>
 ]]>]]&gt;<![CDATA[</code>
 </listing>
@@ -263,9 +263,9 @@ content.</p>
 <page xmlns="http://projectmallard.org/1.0/
       type="guide" id="index">
   <info>
-    /* Page information goes here */
+    <!-- Page information goes here -->
   </info>
-  /* Page contents go here */
+  <!-- Page contents go here -->
 </page>
 ]]></code>
 </listing>
