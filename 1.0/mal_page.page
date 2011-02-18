@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="index" group="page"/>
 
-  <revision version="0.1" date="2009-05-28" status="review"/>
+  <revision version="1.0" date="2011-02-18" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -34,8 +34,11 @@ guide pages serve as navigational aids.</p>
   <list>
     <item><p>The <code>page</code> element contains an optional
     <code xref="mal_info">info</code> element, a <code xref="mal_block_title">title</code>
-    element, any <link xref="mal_block">general block content</link>, and
-    any number of <code xref="mal_section">section</code> elements.</p></item>
+    element, an optional <code xref="mal_block_subtitle">subtitle</code>
+    element, any mixture of <link xref="mal_block">general block content</link>
+    and <code xref="mal_links">links</code> elements, any number of
+    <code xref="mal_section">section</code> elements, and any number
+    of <code xref="mal_links">links</code> elements.</p></item>
 
     <item><p>The <code>page</code> element is the top-level element in any
     Mallard page file, and cannot occur in any other elements.</p></item>
@@ -72,21 +75,11 @@ guide pages serve as navigational aids.</p>
   in multiple guides, however, readers are able to reach the same content by
   navigating different paths.</p>
 
-  <p>Guide pages have links automatically inserted into their content based
-  on topic links within their own <code xref="mal_info">info</code> elements
-  and guide links within the <code>info</code> elements of other pages and
-  sections.  Guide pages can contain sections to help organize content.  Each
-  section in a guide page has automatic links inserted as well.  See
-  <link xref="links#topic"/> for details on automatic topic links.</p>
-
-  <p>Guides also have see also links generated automatically.  See
-  <link xref="links#seealso"/> for more information.</p>
-
-  <p>Generally, guide pages will contain some introductory content to help
-  readers understand the topics being presented.  Introductory content should
-  be short and concise.</p>
+  <p>In addition to other types of <link xref="mal_links">automatic links</link>,
+  guide pages have topic links inserted. See <link xref="mal_links#topic"/> for
+  details.</p>
 </section>
-<!-- END topic -->
+<!-- END guide -->
 
 
 <!-- BEGIN topic -->
@@ -101,15 +94,6 @@ guide pages serve as navigational aids.</p>
   may introduce special styling based on style hints.  Topics are distinguished
   from guides only in that their primary purpose is to convey information,
   whereas guides serve as navigational aids.</p>
-
-  <p>Topic pages have links automatically inserted to all guides which link
-  to them.  Topic pages can contain sections to help organize material and
-  present finer-grained chunks of information to the reader.  Each section
-  in a topic page has automatic guide links inserted as well.  See
-  <link xref="links#guide"/> for details on automatic guide links.</p>
-
-  <p>Topics also have see also links generated automatically.  See
-  <link xref="links#seealso"/> for more information.</p>
 </section>
 <!-- END topic -->
 
@@ -121,7 +105,7 @@ guide pages serve as navigational aids.</p>
   <p>In on-screen media, a <code>page</code> element is displayed as a single
   page.  In this case, <em>page</em> is used in the sense of <em>web page</em>:
   something which can be read top-to-bottom by scrolling.  This should not be
-  confused with physical pages — one side of a leaf of paper — or with any
+  confused with physical pages—one side of a leaf of paper—or with any
   fixed-height electronic pages such as those used by word processors and
   e-books.</p>
 
@@ -129,12 +113,17 @@ guide pages serve as navigational aids.</p>
   certain informational elements may be displayed or affect aspects of the
   page display.  In particular, the <code>info</code> element may contain
   <code>link</code> elements which will cause automatic links to be inserted
-  into the displayed output.  See <link xref="links"/> for more information.</p>
+  into the displayed output.  See <link xref="mal_links"/> for more
+  information.</p>
 
   <p>The title of a page is displayed prominently at the top, followed by any
   child block content, and finally by each child section.  Note that automatic
   links, style hints, or other special features may insert material or change
   the way pages are displayed.</p>
+
+  <p>All pages may have links inserted automatically based on
+  <link xref="mal_info_link">informational links</link> found on in pages and
+  sections throughout the document. See <link xref="mal_links"/> for details.</p>
 </section>
 <!-- END processing -->
 
@@ -157,14 +146,14 @@ mal_page = element page {
   attribute id { xsd:NMTOKEN },
   attribute type { "guide" | "topic" } ?,
   attribute style { xsd:NMTOKENS } ?,
-  attribute groups { xsd:NMTOKENS } ?,
   <link xref="mal_external">mal_attr_external</link> *,
 
   <link xref="mal_info">mal_info</link> ?,
   <link xref="mal_block_title">mal_block_title</link>,
   <link xref="mal_block_subtitle">mal_block_subtitle</link> ?,
-  <link xref="mal_block">mal_block</link> *,
-  <link xref="mal_section">mal_section</link> *
+  ( <link xref="mal_block">mal_block</link> | <link xref="mal_links">mal_links</link> ) *,
+  <link xref="mal_section">mal_section</link> *,
+  <link xref="mal_links">mal_links</link> *
 }
 </code></synopsis>
 </section>

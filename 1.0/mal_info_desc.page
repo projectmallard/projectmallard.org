@@ -60,7 +60,7 @@ also be used for various other purposes by different tools.</p>
   <title>Processing Expectations</title>
 
   <p>The <code>desc</code> is not necessarily displayed on the page in which it
-  appears.  It is, however, used for <link xref="links">automatic links</link>,
+  appears.  It is, however, used for <link xref="mal_links">automatic links</link>,
   which usually display a link block showing the title and description of the
   linked-to page or section.  When it is displayed, its contents are treated
   as inline content.</p>

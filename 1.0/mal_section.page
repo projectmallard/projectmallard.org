@@ -24,7 +24,7 @@
 <p>A section is a prominent logical part of a page or another section.
 Breaking up material into sections can help readers find information
 more quickly.  In Mallard, sections can take part in
-<link xref="links">automatic linking</link> just as pages can.</p>
+<link xref="mal_links">automatic linking</link> just as pages can.</p>
 
 <!-- BEGIN notes -->
 <section id="notes">
@@ -32,8 +32,11 @@ more quickly.  In Mallard, sections can take part in
   <list>
     <item><p>The <code>section</code> element contains an optional
     <code xref="mal_info">info</code> element, a <code xref="mal_block_title">title</code>
-    element, any <link xref="mal_block">general block content</link>, and
-    any number of <code xref="mal_section">section</code> elements.</p></item>
+    element, an optional <code xref="mal_block_subtitle">subtitle</code>
+    element, any mixture of <link xref="mal_block">general block content</link>
+    and <code xref="mal_links">links</code> elements, any number of
+    <code xref="mal_section">section</code> elements, and any number
+    of <code xref="mal_links">links</code> elements.</p></item>
 
     <item><p>The <code>section</code> element can occur in <code xref="mal_page">page</code>
     elements and other <code>section</code> elements.</p></item>
@@ -67,11 +70,9 @@ more quickly.  In Mallard, sections can take part in
   ending of each section obvious.  The depth of each section should be clear,
   although this may not be feasible for deeply nested sections.</p>
 
-  <p>Sections may have links associated with them.  All sections should have
-  guide links and see also links displayed when applicable.  See
-  <link xref="links#guide"/> and <link xref="links#seealso"/> for more
-  information.  Sections in guide pages have topic links inserted following
-  their block content.  See <link xref="links#topic"/> for more information.</p>
+  <p>Sections may have links associated with them. See <link xref="mal_links"/>
+  for details. Sections in guide pages have <link xref="mal_links#topis">topic
+  links</link> automatically inserted.</p>
 </section>
 <!-- END processing -->
 
@@ -96,8 +97,9 @@ mal_section = element section {
   <link xref="mal_info">mal_info</link> ?,
   <link xref="mal_block_title">mal_block_title</link>,
   <link xref="mal_block_subtitle">mal_block_subtitle</link> ?,
-  <link xref="mal_block">mal_block</link> *,
-  mal_section *
+  ( <link xref="mal_block">mal_block</link> | <link xref="mal_links">mal_links</link> ) *,
+  mal_section *,
+  <link xref="mal_links">mal_links</link> *
 }
 </code></synopsis>
 </section>

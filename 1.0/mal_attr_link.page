@@ -130,7 +130,7 @@ action when clicked.</p>
   attributes they don't explicitly know how to deal with.</p>
 
   <p>The <code>action</code> attribute allows you to create links that perform
-  a particular action. Action attribute values resemble URIs. They being with
+  a particular action. Action attribute values resemble URIs. They begin with
   an action scheme that identifies the type of action. The action scheme is
   followed by a colon (U+003A) character and then scheme-specific data.</p>
 

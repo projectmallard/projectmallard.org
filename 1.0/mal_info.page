@@ -17,11 +17,11 @@
 <title>Information Elements</title>
 
 <p>The <code>info</code> element contains various metadata and information
-about <link xref="links">automatic links</link> for a page or section.
+about <link xref="mal_links">automatic links</link> for a page or section.
 Mallard provides a core set of informational elements for most common needs.
 Informational elements like <code xref="mal_info_link">link</code>,
 <code xref="mal_info_title">title</code>, and <code xref="mal_info_desc">desc</code>
-are the core of <link xref="links">automatic links</link>.  Other informational
+are the core of <link xref="mal_links">automatic links</link>.  Other informational
 elements record credits, copyrights, revisions, and license information.</p>
 
 <p>Furthermore, Mallard allows elements from external namespaces to be used
@@ -98,7 +98,7 @@ elements can be used to record any additional information you need.</p>
 
   <p>Certain informational elements are responsible for automatic links.  Pages
   and sections are displayed with additional links based on this information.
-  See <link xref="links"/> for more information.</p>
+  See <link xref="mal_links"/> for more information.</p>
 </section>
 <!-- END processing -->
 
