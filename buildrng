@@ -20,6 +20,7 @@ echo_verbose() {
     fi
 }
 
+mkdir -p "$rng_outdir/1.0"
 rng_rncfile="$rng_outdir/1.0/mallard-1.0.rnc"
 rng_rngfile="$rng_outdir/1.0/mallard-1.0.rng"
 rng_tmpfile="$rng_outdir/1.0/mallard-1.0.rng.tmp"
@@ -38,7 +39,3 @@ xmllint --format "$rng_tmpfile" | \
         -e 's/^<s/\n<s/' \
         -e 's/^<d/\n<d/' \
     > "$rng_rngfile" || (rm -f "$rng_tmpfile" && exit 1) && rm -f "$rng_tmpfile"
-
-
-
-
