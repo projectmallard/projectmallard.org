@@ -427,13 +427,29 @@ mode == "grammar" && /.*=/ {
   }
   else {
     nameix = index($0, "=");
+    combine = "";
     if (nameix < 1) next;
-    name = substr($0, 1, nameix - 1);
+    if (substr($0, nameix - 1, 1) == "|") {
+      combine = "choice";
+      name = substr($0, 1, nameix - 2);
+    }
+    else if (substr($0, nameix - 1, 1) == "&") {
+      combine = "interleave";
+      name = substr($0, 1, nameix - 2);
+    }
+    else {
+      name = substr($0, 1, nameix - 1);
+    }
     sub(/ /, "", name);
     if (name == "start")
       stack[++stack_i] = "<start>"
-    else
-      stack[++stack_i] = sprintf("<define name='%s'>", name);
+    else {
+      define = sprintf("<define name='%s'", name);
+      if (combine != "")
+        define = define " combine='" combine "'"
+      define = define ">"
+      stack[++stack_i] = define;
+    }
     mode = "pattern";
     if (length($0) >= nameix + 1)
       parse_pattern(substr($0, nameix + 1))
