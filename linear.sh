@@ -1,6 +1,6 @@
 #!/bin/sh
 
-xsltproc -o .linear.cache.in --stringparam dir /1.0/ linear-select.xsl index.cache.in
+xsltproc -o .linear.cache.in --stringparam dir "/$1/" linear-select.xsl index.cache.in
 xsltproc -o .linear.cache \
     `pkg-config --variable xsltdir yelp-xsl`/mallard/cache/mal-cache.xsl \
 		.linear.cache.in

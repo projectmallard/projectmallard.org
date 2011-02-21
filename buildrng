@@ -1,17 +1,17 @@
 #!/bin/sh
 while [ "$#" != "0" ]; do
     if [ "x$1" = "x-o" ]; then
-	rng_outdir="$2"
+	rng_outbase="$2"
 	shift
     elif [ "x$1" = "x-v" ]; then
 	rng_verbose=1
     fi
     shift
 done
-if [ "x$rng_outdir" = "x" ]; then
-    rng_outdir=`pwd`
+if [ "x$rng_outbase" = "x" ]; then
+    rng_outbase=`pwd`
 else
-    rng_outdir=`(cd "$rng_outdir" && pwd)`
+    rng_outbase=`(cd "$rng_outbase" && pwd)`
 fi
 
 echo_verbose() {
@@ -20,14 +20,23 @@ echo_verbose() {
     fi
 }
 
-mkdir -p "$rng_outdir/1.0"
-rng_rncfile="$rng_outdir/1.0/mallard-1.0.rnc"
-rng_rngfile="$rng_outdir/1.0/mallard-1.0.rng"
-rng_tmpfile="$rng_outdir/1.0/mallard-1.0.rng.tmp"
+for spec in 1.0 facet/1.0; do
+rng_outdir="$rng_outbase/$spec"
+if echo "$spec" | grep -q "/"; then
+    rng_base=`echo "$spec" | cut -f1 -d/`
+    rng_version=`echo "$spec" | cut -f2 -d/`
+else
+    rng_base="mallard"
+    rng_version="$spec"
+fi
+mkdir -p "$rng_outdir"
+rng_rncfile="$rng_outdir/${rng_base}-${rng_version}.rnc"
+rng_rngfile="$rng_outdir/${rng_base}-${rng_version}.rng"
+rng_tmpfile="$rng_outdir/${rng_base}-${rng_version}.rng.tmp"
 
 echo_verbose "Creating $rng_rncfile"
-for page in $(./linear.sh); do
-    xsltproc --xinclude mal2rnc.xsl "1.0/${page}.page"
+for page in $(./linear.sh "$spec"); do
+    xsltproc --xinclude mal2rnc.xsl "${spec}/${page}.page"
 done > "$rng_rncfile"
 
 echo_verbose "Creating $rng_rngfile"
@@ -39,3 +48,4 @@ xmllint --format "$rng_tmpfile" | \
         -e 's/^<s/\n<s/' \
         -e 's/^<d/\n<d/' \
     > "$rng_rngfile" || (rm -f "$rng_tmpfile" && exit 1) && rm -f "$rng_tmpfile"
+done
