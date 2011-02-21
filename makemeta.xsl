@@ -34,10 +34,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     This information is extracted automatically as part of the build process.</p>
     <section id="status-1-0">
       <title>1.0 Status and Reviews</title>
-      <table frame="all" rules="rows">
+      <table frame="all" rules="all">
         <thead><tr>
           <td><p>Page</p></td>
           <td><p>Status</p></td>
+          <td><p>Date</p></td>
           <td><p>Reviews</p></td>
         </tr></thead>
         <tbody>
@@ -45,11 +46,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
           <xsl:sort select="@id"/>
           <xsl:variable name="page" select="document(@cache:href)/mal:page"/>
           <tr>
+            <xsl:variable name="rev" select="$page/mal:info/mal:revision[@docversion = '1.0']"/>
             <td><p>
               <link xref="{$page/@id}"><xsl:value-of select="$page/@id"/></link>
             </p></td>
             <td><p>
-              <xsl:variable name="rev" select="$page/mal:info/mal:revision[@docversion = '1.0']"/>
               <xsl:choose>
                 <xsl:when test="$rev">
                   <xsl:value-of select="$rev/@status"/>
@@ -58,6 +59,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                   <xsl:text>none</xsl:text>
                 </xsl:otherwise>
               </xsl:choose>
+            </p></td>
+            <td><p>
+              <xsl:value-of select="$rev/@date"/>
             </p></td>
             <td><p></p></td>
           </tr>
