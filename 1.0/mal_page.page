@@ -154,7 +154,7 @@ mal_page = element page {
 }
 mal_page_attr = (
   attribute id { xsd:NMTOKEN },
-  attribute type { "guide" | "topic" } ?,
+  attribute type { xsd:NMTOKEN } ?,
   attribute style { xsd:NMTOKENS } ?,
   attribute version { text } ?,
   <link xref="mal_external">mal_attr_external</link> *
