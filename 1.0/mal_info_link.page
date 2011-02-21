@@ -11,20 +11,54 @@
     <years>2009-2010</years>
   </credit>
 
-  <desc>Create dynamic links between pages and other resources.</desc>
+  <desc>Create automatic links between pages and other resources.</desc>
 </info>
 
 <title>Informational Links</title>
+
+<p>Use the <code>link</code> element inside an <code xref="mal_info">info</code>
+element to express logical links between pages and sections to be collected by
+<link xref="mal_links">automatic links</link>.</p>
+<!--
+<p>Links in an <code>info</code> element must have a <code>type</code>
+attribute. There are different processing expectations for different types
+of links. This page details how links are collected and displayed for
+the link types that are standard in Mallard 1.0.</p>
+
+<p>As with all links in Mallard, dynamic links can link to
+<link xref="mal_page">pages</link> or <link xref="section">sections</link>.
+Since dynamic links are declared inside <code>info</code> elements, they
+can also come from pages or sections. Throughout this page, the term
+<em>node</em> is used to refer to either a page or a section, the term
+<em>guide</em> is used to refer to a <link xref="mal_page#guide">guide
+page</link> or a section within a guide page, and the term <em>topic</em>
+is used to refer to a <link xref="mal_page#topic">topic page</link> or a
+section within a topic page.</p>
+-->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the informational <code>link</code> element.  The namespace declarations
+for this definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_info_link = element link {
   attribute type { xsd:NMTOKEN },
   <link xref="mal_attr_link">mal_attr_link</link> +,
   attribute group { text } ?
-  attribute * - (mal:* | local:*) { text } *,
+  <link xref="mal_external">mal_attr_external</link> *,
 
   <link xref="mal_external">mal_external</link> *
 }
 </code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>
