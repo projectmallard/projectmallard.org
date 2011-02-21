@@ -21,8 +21,8 @@
 <title>Informational Titles</title>
 
 <p>Use the <code>title</code> element inside an <code xref="mal_info">info</code>
-to list alternative titles for pages and sections.  These titles can be used
-as alternative link text, for sorting, or for other application-specific
+element to list alternative titles for pages and sections.  These titles can be
+used as alternative link text, for sorting, or for other application-specific
 purposes.</p>
 
 
