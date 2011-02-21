@@ -3,12 +3,12 @@
       id="mal_block_steps">
 
 <info>
-  <revision docversion="1.0" status="review"/>
+  <revision docversion="1.0" date="2011-02-21" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2009</years>
+    <years>2008-2011</years>
   </credit>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -194,18 +194,23 @@ definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_steps = element steps {
-  attribute style { xsd:NMTOKENS } ?,
-  <link xref="mal_external">mal_attr_external</link> *,
-
+  mal_block_steps_attr,
   <link xref="mal_block_title">mal_block_title</link> ?,
   mal_block_steps_item +
 }
-mal_block_steps_item = element item {
+mal_block_steps_attr = (
   attribute style { xsd:NMTOKENS } ?,
-  <link xref="mal_external">mal_attr_external</link> *,
-
-  <link xref="mal_block">mal_block</link> +
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_steps_item = element item {
+  mal_block_steps_item_attr,
+  mal_block_steps_item_content +
 }
+mal_block_steps_item_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_steps_item_content = <link xref="mal_block">mal_block</link>
 </code></synopsis>
 </section>
 <!-- END schema -->

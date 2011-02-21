@@ -5,12 +5,12 @@
 <info>
   <link type="guide" xref="index" group="section"/>
 
-  <revision version="0.1" date="2009-05-28" status="review"/>
+  <revision docversion="1.0" date="2011-02-21" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2010</years>
+    <years>2008-2011</years>
   </credit>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -90,9 +90,7 @@ definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_section = element section {
-  attribute id { xsd:ID },
-  attribute style { xsd:NMTOKENS } ?,
-  <link xref="mal_external">mal_attr_external</link> *,
+  mal_section_attr,
 
   <link xref="mal_info">mal_info</link> ?,
   <link xref="mal_block_title">mal_block_title</link>,
@@ -101,6 +99,11 @@ mal_section = element section {
   mal_section *,
   <link xref="mal_links">mal_links</link> *
 }
+mal_section_attr = (
+  attribute id { xsd:ID },
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
 </code></synopsis>
 </section>
 <!-- END schema -->

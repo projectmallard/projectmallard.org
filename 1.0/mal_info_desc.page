@@ -5,12 +5,12 @@
 <info>
   <link type="guide" xref="mal_info#elements"/>
 
-  <revision version="0.1" date="2009-05-29" status="review"/>
+  <revision docversion="1.0" date="2011-02-21" status="incomplete"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2009</years>
+    <years>2008-2011</years>
   </credit>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -22,10 +22,14 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_info_desc = element desc {
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_inline">mal_inline</link>
+  mal_info_desc_attr,
+  mal_info_desc_inline
 }
+mal_info_desc_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_info_desc_inline = <link xref="mal_inline">mal_inline</link>
 </code></synopsis>
 
 <p>The <code>desc</code> element can be used to provide a short description
@@ -43,6 +47,10 @@ also be used for various other purposes by different tools.</p>
 
     <item><p>The <code>desc</code> element can occur in any
     <code xref="mal_info">info</code> element.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
 
     <item><p>The <code>desc</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information

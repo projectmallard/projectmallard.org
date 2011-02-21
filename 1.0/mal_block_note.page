@@ -3,12 +3,12 @@
       id="mal_block_note">
 
 <info>
-  <revision docversion="1.0" status="review"/>
+  <revision docversion="1.0" date="2011-02-21" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2009</years>
+    <years>2008-2011</years>
   </credit>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -45,7 +45,7 @@ of your document.</p>
 
     <item>
       <p>The following style hints are recommended:</p>
-      <table rules="rows">
+      <table>
         <tr>
           <td><p><code>advanced</code></p></td>
           <td><p>information that advanced users may find useful</p></td>
@@ -215,8 +215,10 @@ git config --global user.email <var>email_address</var></code>
   counterpart in DocBook.  This document does not recommend separate
   <code>caution</code> and <code>warning</code> types.</p>
 
+<!--
   <p>The <code>note</code> element is similar to...
   <link xref="dita">DITA</link>.</p>
+-->
 </section>
 <!-- END comparison -->
 
@@ -234,12 +236,15 @@ definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_note = element note {
-  attribute style { xsd:NMTOKENS } ?,
-  <link xref="mal_external">mal_attr_external</link> *,
-
+  mal_block_note_attr,
   <link xref="mal_block_title">mal_block_title</link> ?,
-  <link xref="mal_block">mal_block</link> +
+  mal_block_note_content +
 }
+mal_block_note_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_note_content = <link xref="mal_block">mal_block</link>
 </code></synopsis>
 </section>
 <!-- END schema -->

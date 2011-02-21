@@ -5,12 +5,12 @@
 <info>
   <link type="guide" xref="mal_info#elements"/>
 
-  <revision version="0.1" date="2009-05-29" status="review"/>
+  <revision docversion="1.0" date="2011-02-21" status="draft"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2009</years>
+    <years>2008-2011</years>
   </credit>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -22,6 +22,13 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_info_revision = element revision {
+  mal_info_revision_attr,
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  <link xref="mal_block_desc">mal_block_desc</link> ?,
+  mal_info_revision_content *
+}
+mal_info_revision_attr = (
+  attribute style { xsd:NMTOKENS } ?,
   attribute version { text } ?,
   attribute docversion { text } ?,
   attribute pkgversion { text } ?,
@@ -29,12 +36,9 @@ mal_info_revision = element revision {
   attribute status {
     "stub"   | "incomplete" | "draft" | "outdated" |
     "review" | "candidate"  | "final" } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_block_title">mal_block_title</link> ?,
-  <link xref="mal_block_desc">mal_block_desc</link> ?,
-  <link xref="mal_external">mal_external</link> *
-}
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_info_revision_content = <link xref="mal_external">mal_external</link>
 </code></synopsis>
 
 <p>Use the <code>revision</code> information to record information about
@@ -61,6 +65,10 @@ description of the page or section as of that revision.</p>
     <item><p>The <code>revision</code> element can occur in any
     <code xref="mal_info">info</code> element.</p></item>
 
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
     <item><p>The <code>version</code> attribute records the version number
     of the page or section.</p></item>
 
@@ -75,7 +83,7 @@ description of the page or section as of that revision.</p>
 
     <item><p>The <code>status</code> attribute records the status of the page
     or section as of the given revision.  The following values are allowed:</p>
-    <table rules="rows">
+    <table>
       <tr>
         <td><p><code>"stub"</code></p></td>
         <td><p>contains little to no real content</p></td>

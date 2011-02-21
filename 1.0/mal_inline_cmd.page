@@ -6,12 +6,12 @@
   <link type="guide" xref="mal_inline#elements"/>
   <link type="seealso" xref="mal_block_screen"/>
 
-  <revision docversion="1.0" status="review"/>
+  <revision docversion="1.0" date="2011-02-21" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2007-2009</years>
+    <years>2007-2011</years>
   </credit>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -63,7 +63,7 @@ by the user.</p>
 
     <item>
       <p>Typical values for the <code>mime</code> attribute include:</p>
-      <table rules="rows"><tr>
+      <table><tr>
         <td><p><code>application/x-sh</code></p></td>
         <td><p>Command to execute with the Bourne shell</p></td>
       </tr><tr>
@@ -182,13 +182,16 @@ definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_cmd = element cmd {
+  mal_inline_cmd_attr,
+  mal_inline_cmd_inline
+}
+mal_inline_cmd_attr = (
   <link xref="mal_attr_link">mal_attr_link</link> *,
   attribute style { xsd:NMTOKENS } ?,
   attribute mime { text } ?,
-  <link xref="mal_external">mal_attr_external</link> *,
-
-  <link xref="mal_inline">mal_inline</link>
-}
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_inline_cmd_inline = <link xref="mal_inline">mal_inline</link>
 </code></synopsis>
 </section>
 <!-- END schema -->

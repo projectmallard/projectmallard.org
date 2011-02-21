@@ -8,7 +8,7 @@
   <link type="seealso" xref="mal_section"/>
   <link type="seealso" xref="mal_info_link"/>
 
-  <revision version="1.0" date="2011-02-18" status="draft"/>
+  <revision version="1.0" date="2011-02-21" status="draft"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -439,13 +439,17 @@ definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_links = element links {
+  mal_links_attr,
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  mal_links_content *
+}
+mal_links_attr = (
   attribute type { xsd:NMTOKEN },
   attribute style { xsd:NMTOKENS } ?,
   attribute groups { xsd:NMTOKENS } ?,
-  <link xref="mal_external">mal_attr_external</link> *,
-
-  <link xref="mal_block_title">mal_block_title</link> ?
-}
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_links_content = <link xref="mal_external">mal_external</link>
 </code></synopsis>
 </section>
 <!-- END schema -->

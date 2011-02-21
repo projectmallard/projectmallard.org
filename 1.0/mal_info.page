@@ -5,11 +5,15 @@
 <info>
   <link type="guide" xref="index" group="info"/>
 
+  <revision docversion="1.0" date="2011-02-21" status="draft"/>
+
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2010</years>
+    <years>2008-2011</years>
   </credit>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
   <desc>Include metadata and automatic links for pages and sections.</desc>
 </info>
@@ -116,17 +120,21 @@ definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_info = element info {
-  <link xref="mal_external">mal_attr_external</link> *,
-
-  ( <link xref="mal_info_desc">mal_info_desc</link> ? &amp;
-    <link xref="mal_info_credit">mal_info_credit</link> * &amp;
-    <link xref="mal_info_license">mal_info_license</link> * &amp;
-    <link xref="mal_info_link">mal_info_link</link> * &amp;
-    <link xref="mal_info_title">mal_info_title</link> * &amp;
-    <link xref="mal_info_revision">mal_info_revision</link> * &amp;
-    <link xref="mal_external">mal_external</link> *
-  )
+  mal_info_attr,
+  mal_info_content
 }
+mal_info_attr = (
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_info_content = (
+  <link xref="mal_info_desc">mal_info_desc</link> ? &amp;
+  <link xref="mal_info_credit">mal_info_credit</link> * &amp;
+  <link xref="mal_info_license">mal_info_license</link> * &amp;
+  <link xref="mal_info_link">mal_info_link</link> * &amp;
+  <link xref="mal_info_title">mal_info_title</link> * &amp;
+  <link xref="mal_info_revision">mal_info_revision</link> * &amp;
+  <link xref="mal_external">mal_external</link> *
+)
 </code></synopsis>
 </section>
 <!-- END schema -->

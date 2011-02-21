@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_info#elements"/>
 
-  <revision docversion="1.0" status="review"/>
+  <revision docversion="1.0" date="2011-02-21" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -39,7 +39,7 @@ purposes.</p>
     <item><p>The <code>type</code> attribute specifies what purpose this
     informational title is serving.  The following values are currently
     recognized:</p>
-    <table rules="rows">
+    <table>
       <tr>
         <td><p><code>"link"</code></p></td>
         <td><p>specifies alternate link text; see <link xref="#link"/></p></td>
@@ -54,6 +54,10 @@ purposes.</p>
       </tr>
     </table>
     </item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
 
     <item><p>The <code>role</code> attribute can be used for link titles
     to specify multiple alternate link texts.</p></item>
@@ -261,12 +265,16 @@ definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_info_title = element title {
-  attribute type { xsd:NMTOKEN },
-  attribute role { xsd:NMTOKEN } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
-  <link xref="mal_inline">mal_inline</link>
+  mal_info_title_attr,
+  mal_info_title_inline
 }
+mal_info_title_attr = (
+  attribute type { xsd:NMTOKEN },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute role { xsd:NMTOKEN } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_info_title_inline = <link xref="mal_inline">mal_inline</link>
 </code></synopsis>
 </section>
 <!-- END schema -->

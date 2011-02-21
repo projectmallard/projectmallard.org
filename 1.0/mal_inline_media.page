@@ -5,12 +5,12 @@
 <info>
   <link type="guide" xref="mal_inline#elements"/>
 
-  <revision docversion="1.0" status="review"/>
+  <revision docversion="1.0" date="2011-02-21" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2007-2009</years>
+    <years>2007-2011</years>
   </credit>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -43,12 +43,23 @@ for details on how fallback elements are handled.</p>
     <item><p>The <code>media</code> element can link to other pages or documents.
     See <link xref="mal_attr_link"/> for more information.</p></item>
 
+    <item><p>The <code>type</code> attribute specifies what type of object to
+    insert. It can be one of <code>"image"</code>, <code>"video"</code>,
+    <code>"audio"</code>, or <code>"application"</code>. If no <code>type</code>
+    attribute is present, <code>"image"</code> is assumed.</p></item>
+
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
 
     <item><p>The <code>mime</code> attribute takes a valid MIME type for the
     object that is being inserted.</p></item>
+
+    <item><p>The <code>src</code> attribute provides a URL for the object,
+    possibly relative to the current page.</p></item>
+
+    <item><p>The <code>height</code> and <code>width</code> attributes can be
+    used to provide the dimensions, in pixels, of an image or video.</p></item>
 
     <item><p>The <code>media</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information
@@ -159,17 +170,20 @@ this definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_media = element media {
+  mal_inline_media_attr,
+  mal_inline_media_inline
+}
+mal_inline_media_attr = (
   <link xref="mal_attr_link">mal_attr_link</link> *,
-  attribute style { xsd:NMTOKENS } ?,
   attribute type { "image" | "video" | "audio" | "application" } ?,
+  attribute style { xsd:NMTOKENS } ?,
   attribute mime { text } ?,
   attribute src { text },
   attribute height { text } ?,
   attribute width { text } ?,
-  <link xref="mal_external">mal_attr_external</link> *,
-
-  <link xref="mal_inline">mal_inline</link>
-}
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_inline_media_inline = <link xref="mal_inline">mal_inline</link>
 </code></synopsis>
 </section>
 <!-- END schema -->

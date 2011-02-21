@@ -5,12 +5,12 @@
 <info>
   <link type="guide" xref="mal_inline#elements"/>
 
-  <revision docversion="1.0" status="review"/>
+  <revision docversion="1.0" date="2011-02-21" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2007-2009</years>
+    <years>2007-2011</years>
   </credit>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -51,12 +51,12 @@ the same document.</p>
     <item><p>The <code>href</code> attribute creates a link to a web page
     or other network-accessible resource.</p></item>
 
-    <item><p>The <code>role</code> attribute can be used to select alternative
-    titles of the target page or section to be used as automatic content.</p></item>
-
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
+
+    <item><p>The <code>role</code> attribute can be used to select alternative
+    titles of the target page or section to be used as automatic content.</p></item>
 
     <item><p>The <code>link</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information
@@ -214,13 +214,16 @@ this definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_link = element link {
-  <link xref="mal_attr_link">mal_attr_link</link> +,
-  attribute role { text } ?,
-  attribute style { xsd:NMTOKENS } ?,
-  <link xref="mal_external">mal_attr_external</link> *,
-
-  <link xref="mal_inline">mal_inline</link>
+  mal_inline_link_attr,
+  mal_inline_link_inline
 }
+mal_inline_link_attr = (
+  <link xref="mal_attr_link">mal_attr_link</link> +,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute role { text } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_inline_link_inline = <link xref="mal_inline">mal_inline</link>
 </code></synopsis>
 </section>
 <!-- END schema -->

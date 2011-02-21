@@ -5,12 +5,12 @@
 <info>
   <link type="guide" xref="mal_inline#elements"/>
 
-  <revision docversion="1.0" status="review"/>
+  <revision docversion="1.0" date="2011-02-21" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2009</years>
+    <years>2008-2011</years>
   </credit>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -55,7 +55,7 @@ differently.</p>
 
     <item>
       <p>Typical values for the <code>style</code> attribute include:</p>
-      <table rules="rows"><tr>
+      <table><tr>
         <td><p><code>output</code></p></td>
         <td><p>Standard output from a running program</p></td>
       </tr><tr>
@@ -177,12 +177,15 @@ definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_output = element output {
+  mal_inline_output_attr,
+  mal_inline_output_inline
+}
+mal_inline_output_attr = (
   <link xref="mal_attr_link">mal_attr_link</link> *,
   attribute style { xsd:NMTOKENS } ?,
-  <link xref="mal_external">mal_attr_external</link> *,
-
-  <link xref="mal_inline">mal_inline</link>
-}
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_inline_output_inline = <link xref="mal_inline">mal_inline</link>
 </code></synopsis>
 </section>
 <!-- END schema -->

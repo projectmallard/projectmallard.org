@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_info#additional"/>
 
-  <revision docversion="1.0" status="review"/>
+  <revision docversion="1.0" date="2011-02-21" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -33,6 +33,10 @@ a person or organization holds a copyright.</p>
 
     <item><p>The <code>years</code> element can occur in the
     <code xref="mal_info_credit">credit</code> element.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
 
     <item><p>The <code>years</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information
@@ -105,9 +109,14 @@ definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_info_years = element years {
-  attribute * - (mal:* | local:*) { text } *,
-  <link xref="mal_inline">mal_inline</link>
+  mal_info_years_attr,
+  mal_info_years_inline
 }
+mal_info_years_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_info_years_inline = <link xref="mal_inline">mal_inline</link>
 </code></synopsis>
 </section>
 <!-- END schema -->

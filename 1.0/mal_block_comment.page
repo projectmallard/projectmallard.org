@@ -3,12 +3,12 @@
       id="mal_block_comment">
 
 <info>
-  <revision docversion="1.0" status="review"/>
+  <revision docversion="1.0" date="2011-02-21" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2007-2009</years>
+    <years>2007-2011</years>
   </credit>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -186,13 +186,16 @@ definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_comment = element comment {
-  attribute style { xsd:NMTOKENS } ?,
-  <link xref="mal_external">mal_attr_external</link> *,
-
+  mal_block_comment_attr,
   <link xref="mal_block_title">mal_block_title</link> ?,
   <link xref="mal_block_cite">mal_block_cite</link> ?,
-  <link xref="mal_block">mal_block</link> +
+  mal_block_comment_content +
 }
+mal_block_comment_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_comment_content = <link xref="mal_block">mal_block</link>
 </code></synopsis>
 </section>
 <!-- END schema -->

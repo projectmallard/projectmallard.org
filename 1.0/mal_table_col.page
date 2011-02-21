@@ -5,12 +5,12 @@
 <info>
   <link type="guide" xref="mal_block#tables"/>
 
-  <revision docversion="1.0" status="review"/>
+  <revision docversion="1.0" date="2011-02-21" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2009</years>
+    <years>2008-2011</years>
   </credit>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -30,7 +30,7 @@ column grouping for column rules and column shading in
   <title>Notes</title>
 
   <list>
-    <item><p>The <code>colgroup</code> element contain zero or more <code>col</code>
+    <item><p>The <code>colgroup</code> element contains zero or more <code>col</code>
     elements. A <code>col</code> element must be empty.</p></item>
 
     <item><p>The <code>colgroup</code> element can occur in a
@@ -87,15 +87,20 @@ declarations for these definitions are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_table_col = element col {
-  attribute style { xsd:NMTOKENS } ?,
-  attribute * - (mal:* | local:*) { text } *
+  mal_table_col_attr
 }
-mal_table_colgroup = element colgroup {
+mal_table_col_attr = (
   attribute style { xsd:NMTOKENS } ?,
-  attribute * - (mal:* | local:*) { text } *,
-
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_table_colgroup = element colgroup {
+  mal_table_colgroup_attr,
   mal_table_col *
 }
+mal_table_colgroup_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
 </code></synopsis>
 </section>
 <!-- END schema -->
