@@ -5,4 +5,4 @@ mallard-site-tool html -o $1/
 mallard-site-tool css -o $1/
 mallard-site-tool media -o $1/
 ./buildrng -o $1/
-cp mallard-badge.png mallard-header.png $1/
+cp mallard-badge.png mallard-header.png mallard-logo.svg $1/
