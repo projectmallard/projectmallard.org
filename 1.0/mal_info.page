@@ -55,7 +55,8 @@ elements can be used to record any additional information you need.</p>
       elements.</p></item>
       <item><p>Any number of elements from an external namespace.  There are no
       restrictions on the contents of these elements.  See <link xref="mal_external"/>
-      for more information on external-namespace elements.</p></item>
+      and <link xref="#processing"/> for more information on external-namespace
+      elements.</p></item>
     </list>
   </item>
   <item><p>The <code>info</code> element can occur as the first element of a
@@ -103,6 +104,13 @@ elements can be used to record any additional information you need.</p>
   <p>Certain informational elements are responsible for automatic links.  Pages
   and sections are displayed with additional links based on this information.
   See <link xref="mal_links"/> for more information.</p>
+
+  <p>The <code>info</code> element can contain elements from external namespaces.
+  Processing tools may use known elements to affect processing or add additional
+  information. Tools should ignore any elements they do not understand.</p>
+
+  <p>If an <code>info</code> element appears in any context other than as the
+  first element of a page or section, it is ignored.</p>
 </section>
 <!-- END processing -->
 

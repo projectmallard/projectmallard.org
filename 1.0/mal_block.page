@@ -129,6 +129,9 @@ information.</p>
 
 <!-- BEGIN processing -->
 <section id="processing">
+  <info>
+    <title type="link">Block Processing Expectations</title>
+  </info>
   <title>Processing Expectations</title>
 
   <p>Block elements all begin on a new line in rendered output.  Pages can
