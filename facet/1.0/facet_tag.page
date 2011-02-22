@@ -1,0 +1,28 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="facet_tag">
+
+<info>
+  <link type="guide" xref="index" group="tag"/>
+
+  <revision docversion="1.0" date="2011-02-22" status="stub"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2011</years>
+  </credit>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+</info>
+
+<title>Tags</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+facet_tag = element tag {
+  attribute key { xsd:NMTOKEN },
+  attribute values { xsd:NMTOKENS }
+}
+</code></synopsis>
+
+</page>

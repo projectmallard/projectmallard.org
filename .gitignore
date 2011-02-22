@@ -6,6 +6,7 @@ install-sh
 missing
 Makefile
 Makefile.in
+*~
 *.cache
 *.cache.in
 *.css
