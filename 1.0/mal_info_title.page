@@ -233,7 +233,7 @@ purposes.</p>
   <title>Comparison to Other Formats</title>
 
   <p>DocBook has no general mechanism for specifying different title text for
-  different purposes. Although a document is still well-formed with multiple
+  different purposes. Although a document is still valid with multiple
   <code href="http://www.docbook.org/tdg/en/html/title.html">title</code>
   elements in an info element, the DocBook specification forbids having
   different values when titles appear in different contexts. DocBook does
