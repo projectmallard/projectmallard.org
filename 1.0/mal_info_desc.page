@@ -4,8 +4,9 @@
 
 <info>
   <link type="guide" xref="mal_info#elements"/>
+  <link type="seealso" xref="mal_info_title"/>
 
-  <revision docversion="1.0" date="2011-02-21" status="incomplete"/>
+  <revision docversion="1.0" date="2011-02-23" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -13,29 +14,18 @@
     <years>2008-2011</years>
   </credit>
 
-  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
   <desc>Provide a short description of a page or section.</desc>
 </info>
 
 <title>Page Descriptions</title>
 
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_info_desc = element desc {
-  mal_info_desc_attr,
-  mal_info_desc_inline
-}
-mal_info_desc_attr = (
-  attribute style { xsd:NMTOKENS } ?,
-  <link xref="mal_external">mal_attr_external</link> *
-)
-mal_info_desc_inline = <link xref="mal_inline">mal_inline</link>
-</code></synopsis>
+<p>Use the <code>desc</code> element to provide a short description for a page
+or section. This description is generally not shown on the page itself, but it
+is used in automatic links to the page or section.  It may also be used for
+various other purposes by different tools.</p>
 
-<p>The <code>desc</code> element can be used to provide a short description
-for a page or section.  While this description is generally not shown on the
-page itself, it is used in automatic links to the page or section.  It may
-also be used for various other purposes by different tools.</p>
 
 <!-- BEGIN notes -->
 <section id="notes">
@@ -63,16 +53,80 @@ also be used for various other purposes by different tools.</p>
 <!-- END notes -->
 
 
+<!-- BEGIN examples -->
+<section id="examples">
+<title>Examples</title>
+
+<p>Create a page with a title and description:</p>
+
+<example><code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_info_desc">
+<info>
+  <desc>Provide a short description of a page or section.</desc>
+</info>
+<title>Page Descriptions</title>
+</page>
+]]></code></example>
+</section>
+<!-- END examples -->
+
+
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>The <code>desc</code> is not necessarily displayed on the page in which it
-  appears.  It is, however, used for <link xref="mal_links">automatic links</link>,
-  which usually display a link block showing the title and description of the
-  linked-to page or section.  When it is displayed, its contents are treated
-  as inline content.</p>
+  <p>The <code>desc</code> element is not necessarily displayed on the page in
+  which it appears. It is, however, used for <link xref="mal_links">automatic
+  links</link>, which often display a link block showing the title and
+  description of the linked-to page or section.  When it is displayed, its
+  contents are treated as inline content.</p>
 </section>
 <!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+<title>Comparison to Other Formats</title>
+<p>There is no direct equivalent to the informational <code>desc</code> element
+in <link xref="docbook">DocBook</link>. When used in an info element, the
+<link href="http://www.docbook.org/tdg/en/html/abstract.html">abstract</link>
+element may be used for a similar purpose, although it is a formal element
+without the same processing expectations.</p>
+
+<p>There is no direct equivalent to the informational <code>desc</code> element
+in <link xref="dita">DITA</link>. The
+<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/shortdesc.html">shortdesc</link>
+element may contain similar text, but it is always part of the main body of a
+topic, rather than part of the metadata.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition for the
+informational <code>desc</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_desc = element desc {
+  mal_info_desc_attr,
+  mal_info_desc_inline
+}
+mal_info_desc_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_info_desc_inline = <link xref="mal_inline">mal_inline</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>
