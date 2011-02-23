@@ -14,7 +14,7 @@
     <years>2007-2011</years>
   </credit>
 
-  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
   <desc>Mark up the human-readable name of an application or window.</desc>
 </info>
