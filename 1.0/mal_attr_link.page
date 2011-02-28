@@ -6,6 +6,8 @@
   <link type="guide" xref="details"/>
   <link type="seealso" xref="mal_inline"/>
 
+  <revision docversion="1.0" date="2011-02-28" status="review"/>
+
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
@@ -39,6 +41,10 @@ action when clicked.</p>
     <item><p>The <code>action</code> attribute allows you to specify an action
     to perform when a user clicks a link. See <link xref="#processing"/> for
     details on the <code>action</code> attribute.</p></item>
+
+    <item><p>The schema also provides the <code>xref</code> and <code>action</code>
+    attributes in the namespace <code>http://projectmallard.org/1.0/</code>. These
+    are provided for extensions.</p></item>
   </list>
 </section>
 <!-- END notes -->
@@ -47,6 +53,26 @@ action when clicked.</p>
 <!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
+
+  <p>Link to another page with the <code>xref</code> attribute on a
+  <code xref="mal_inline_code">code</code> element:</p>
+
+  <example>
+    <code><![CDATA[
+<p>See the <code xref="mal_inline_link">link</code> element.</p>
+]]></code>
+<p>See the <code xref="mal_inline_link">link</code> element.</p>
+  </example>
+
+  <p>Use the <code>href</code> element to turn an image into a link:</p>
+
+  <example>
+    <code><![CDATA[
+<p><media href="http://projectmallard.org/"
+          type="image" mime="image/png" src="mallard-logo.png"/></p>
+]]></code>
+<p><media href="http://projectmallard.org/" type="image" mime="image/png" src="mallard-logo.png"/></p>
+  </example>
 
   <p>In implementations that support the <sys>install</sys> action scheme,
   use the <code>action</code> to install a package:</p>
@@ -138,8 +164,33 @@ action when clicked.</p>
   Support for particular action schemes depends entirely on the implementation.
   Processing tools should ignore any <code>action</code> attributes using an
   action scheme they don't understand.</p>
+
+  <p>The schema also provides the <code>xref</code> and <code>action</code>
+  attributes in the namespace <code>http://projectmallard.org/1.0/</code>.
+  When used on core Mallard elements, or extension formats defined on the
+  projectmallard.org site, the attributes are in the local namespace. The
+  namespaced versions are provided to add Mallard linking functionality to
+  existing XML vocabularies when they are embedded into Mallard, such as
+  SVG, MathML, or Ruby.</p>
 </section>
 <!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+<title>Comparison to Other Formats</title>
+<p><link xref="docbook">DocBook</link> 4 requires explicit linking elements to
+create links within the document or to external resources. DocBook 5 provides
+<link href="http://www.docbook.org/tdg5/en/html/ref-elements.html#common.linking.attributes">common
+linking attributes</link> for all elements. The <code>xref</code> element is
+similar to the <code>linkend</code> attribute in DocBook.</p>
+
+<p><link xref="dita">DITA</link> does not provide linking attribute on arbitrary
+inline element. Instead, the 
+<code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/xref.html">xref</code>
+must be used to create links.</p>
+</section>
+<!-- END comparison -->
 
 
 <!-- BEGIN schema -->
