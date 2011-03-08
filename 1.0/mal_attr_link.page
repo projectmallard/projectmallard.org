@@ -64,7 +64,7 @@ action when clicked.</p>
 <p>See the <code xref="mal_inline_link">link</code> element.</p>
   </example>
 
-  <p>Use the <code>href</code> element to turn an image into a link:</p>
+  <p>Use the <code>href</code> element to turn an inline image into a link:</p>
 
   <example>
     <code><![CDATA[
