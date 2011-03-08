@@ -3,7 +3,7 @@
       id="mal_block_note">
 
 <info>
-  <revision docversion="1.0" date="2011-02-21" status="review"/>
+  <revision docversion="1.0" date="2011-03-08" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -215,10 +215,12 @@ git config --global user.email <var>email_address</var></code>
   counterpart in DocBook.  This document does not recommend separate
   <code>caution</code> and <code>warning</code> types.</p>
 
-<!--
-  <p>The <code>note</code> element is similar to...
-  <link xref="dita">DITA</link>.</p>
--->
+  <p>The <code>note</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/note.html">note</code>
+  element in <link xref="dita">DITA</link>. Like DITA, Mallard uses a single
+  <code>note</code> element and distinguishes different types of notes using
+  an attribute. The Mallard <code>note</code> takes block content, optionally
+  with a title. The DITA <code>note</code> can take block or inline content.</p>
 </section>
 <!-- END comparison -->
 
