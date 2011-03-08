@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="details#i18n"/>
 
-  <revision version="0.1" date="2009-05-26" status="stub"/>
+  <revision docversion="1.0" date="2011-03-08" status="draft"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -14,8 +14,95 @@
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Details for people creating translation tools and other
+  internationalization systems for Mallard documents.</desc>
 </info>
 
 <title>Internationalization Notes</title>
+
+<p>This page provides details for people creating translation tools and
+other internationalization systems that support Mallard documents. Mallard
+is an XML format, so there is a wealth of translation tools and techniques
+that can be applied. XML does not immediately solve all problems, however,
+and Mallard was designed from the beginning to support features that are
+important to proper document localization.</p>
+
+<section id="message">
+  <title>Message-based Translation</title>
+
+  <p>One of the most difficult aspects of document translation is tracking
+  changes to the source document. For this reason, message-based translation
+  systems such as PO files or XLIFF are popular. XML formats lend themselves
+  well to message-based translation systems, but developers must decide what
+  type of content constitutes a message.</p>
+
+  <p>In Mallard, block and inline content are always distinct. You can never,
+  for example, place a paragraph inside the text content of another paragraph.
+  This was done in large part to avoid the need for placeholders in messages.
+  Some elements, such as <code>code</code> and <code>media</code>, can occur
+  in either a block or an inline context. When processing a Mallard page, it
+  is important to keep track of context so you know how to treat an element.</p>
+
+  <p>Mallard never places translatable text in attribute values.</p>
+</section>
+
+<section id="attributes">
+  <title>Internationalization Attributes</title>
+
+  <p>Mallard does not contain its own elements to specify language or text
+  directionality. To specify language, use the standard <code>xml:lang</code>
+  attribute. To override text directionality, use the
+  <code href="http://www.w3.org/TR/its/#directionality">its:dir</code>
+  attribute from the <link href="http://www.w3.org/TR/its/">W3C
+  Internationalization Tag Set</link> (ITS).</p>
+
+  <p>It is strongly recommended that you support ITS in translation tools.
+  For example, to allow authors to mark certain elements as non-translatable,
+  use the
+  <code href="http://www.w3.org/TR/its/#trans-datacat">its:translate</code>
+  attribute.</p>
+</section>
+
+<section id="link">
+  <title>Link Text</title>
+
+  <p>Mallard can automatically generate text for a link using the title
+  of the target page or section. In many formats, this presents a serious
+  problem to languages with declensions for different parts of speech.</p>
+
+  <p>Mallard allows any number of extra <link xref="mal_info_title#link">link
+  titles</link> to be provided for a page or section. Each of these link titles
+  specifies where it should be used with the <code>role</code> attribute. Links
+  can then specify which title to use using the <code>role</code> attribute on
+  the <code xref="mal_inline_link">link</code> element.</p>
+
+  <p>You should provide a way for translators to provide additional link titles
+  for each page or section, and for them to specify the appropriate roles on
+  inline links.</p>
+</section>
+
+<section id="media">
+  <title>Media Elements</title>
+
+  <p>Mallard allows audio, video, and images to be inserted into pages using
+  the <code>media</code> element. These cannot generally be translated using
+  textual translation tools. You should provide a way for translators to
+  provide localized multimedia files and see when the original files have
+  changed.</p>
+</section>
+
+<section id="credits">
+  <title>Translation Credits</title>
+
+  <p>Mallard allows contributors to be credited using the
+  <code xref="mal_info_credit">credit</code> element. The <code>type</code>
+  attribute can be set to <code>"translator"</code> to credit translators.
+  Since translator credits aren't direct translations of existing elements,
+  they can't be provided using simple message-based translation alone.</p>
+
+  <p>You should provide a mechanism to insert translator credits into
+  translated output pages.</p>
+</section>
 
 </page>
