@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="index" group="info"/>
 
-  <revision docversion="1.0" date="2011-02-22" status="review"/>
+  <revision docversion="1.0" date="2011-03-09" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -70,6 +70,37 @@ elements can be used to record any additional information you need.</p>
 <!-- END notes -->
 
 
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>The <code>info</code> element for this page:</p>
+
+<example><code><![CDATA[
+<info>
+  <link type="guide" xref="index" group="info"/>
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2011</years>
+  </credit>
+  <license href="http://creativecommons.org/licenses/by-sa/3.0/us/">
+    <p>This work is licensed under a
+    <link href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative
+    Commons Attribution-Share Alike 3.0 United States License</link>.</p>
+    <p>As a special exception, the copyright holders give you permission to
+    copy, modify, and distribute the example code contained in this document
+    under the terms of your choosing, without restriction.</p>
+  </license>
+  <desc>Include metadata and automatic links for pages and sections.</desc>
+</info>
+]]></code></example>
+
+  <p>See the various informational elements below for more examples.</p>
+</section>
+<!-- END examples -->
+
+
 <!-- BEGIN elements -->
 <section id="elements">
   <title>Informational Elements</title>
@@ -113,6 +144,29 @@ elements can be used to record any additional information you need.</p>
   first element of a page or section, it is ignored.</p>
 </section>
 <!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>info</code> element is similar to the
+  <code href="http://www.docbook.org/tdg5/en/html/info.html">info</code> element
+  in <link xref="docbook">DocBook</link> 5, or to the various <code>*info</code>
+  elements in DocBook 4, such as
+  <link href="http://www.docbook.org/tdg/en/html/articleinfo.html">articleinfo</link>,
+  <link href="http://www.docbook.org/tdg/en/html/bookinfo.html">bookinfo</link>, and
+  <link href="http://www.docbook.org/tdg/en/html/chapterinfo.html">chapterinfo</link>.</p>
+
+  <p>The <code>info</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/prolog.html">prolog</code>
+  element in <link xref="dita">DITA</link>. In Mallard, all metadata about a page
+  or section is in the <code>info</code> element. It does not have a separate
+  container child like the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/metadata.html">metadata</code>
+  element in DITA.</p>
+</section>
+<!-- END comparison -->
 
 
 <!-- BEGIN schema -->
