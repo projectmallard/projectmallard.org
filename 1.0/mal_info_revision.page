@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_info#elements"/>
 
-  <revision docversion="1.0" date="2011-02-21" status="draft"/>
+  <revision docversion="1.0" date="2011-03-08" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -19,27 +19,6 @@
 </info>
 
 <title>Version Information</title>
-
-<synopsis><code mime="application/relax-ng-compact-syntax">
-mal_info_revision = element revision {
-  mal_info_revision_attr,
-  <link xref="mal_block_title">mal_block_title</link> ?,
-  <link xref="mal_block_desc">mal_block_desc</link> ?,
-  mal_info_revision_content *
-}
-mal_info_revision_attr = (
-  attribute style { xsd:NMTOKENS } ?,
-  attribute version { text } ?,
-  attribute docversion { text } ?,
-  attribute pkgversion { text } ?,
-  attribute date { xsd:date } ?,
-  attribute status {
-    "stub"   | "incomplete" | "draft" | "outdated" |
-    "review" | "candidate"  | "final" } ?,
-  <link xref="mal_external">mal_attr_external</link> *
-)
-mal_info_revision_content = <link xref="mal_external">mal_external</link>
-</code></synopsis>
 
 <p>Use the <code>revision</code> information to record information about
 revisions of a document, page, or section.  The <code>revision</code>
@@ -82,7 +61,7 @@ description of the page or section as of that revision.</p>
     was made.</p></item>
 
     <item><p>The <code>status</code> attribute records the status of the page
-    or section as of the given revision.  The following values are allowed:</p>
+    or section as of the given revision.  The following values are recommended:</p>
     <table>
       <tr>
         <td><p><code>"stub"</code></p></td>
@@ -124,6 +103,31 @@ description of the page or section as of that revision.</p>
 <!-- END notes -->
 
 
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Specify the date that a page was marked ready for review, targetting
+  the 1.0 version of the containing document:</p>
+
+  <example>
+    <code><![CDATA[
+<revision docversion="1.0" date="2011-03-08" status="review"/>
+]]></code>
+  </example>
+
+  <p>Specify that version 3.0 of a page is still correct for version 3.2
+  of the package it describes:</p>
+
+  <example>
+    <code><![CDATA[
+<revision pkgversion="3.1" version="3.0" date="2011-03-08" status="final"/>
+]]></code>
+  </example>
+</section>
+<!-- END examples -->
+
+
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
@@ -146,15 +150,59 @@ description of the page or section as of that revision.</p>
 
   <p>The <code>revision</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/revision.html">revision</code>
-  element in DocBook.  In DocBook, <code>revision</code> elements must occur
-  inside a
+  element in <link xref="docbook">DocBook</link>. In DocBook, <code>revision</code>
+  elements must occur inside a
   <code href="http://www.docbook.org/tdg/en/html/revhistory.html">revhistory</code>
   element.  In Mallard, they are placed directly in an
   <code xref="mal_info">info</code> element.  DocBook provides more specific
   child elements for structured content, as well as for block content for
   detailed remarks.  Mallard allows such information to be encoded with
   elements from external namespaces when needed.</p>
+
+  <p><link xref="dita">DITA</link> provides the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/created.html">created</code> and
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/revised.html">revised</code>
+  elements to specify revisions, which allow fixed attributes to specify
+  dates for creation, modification, deployment, and expiration. In Mallard,
+  <code>revision</code> tags can use the <code>status</code> attribute to
+  provide this information. DITA also provides the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/vrmlist.html">vrmlist</code>
+  element to connect a version of the topic to versions of the product.
+  Use the <code>pkgversion</code> attribute in Mallard.</p>
 </section>
 <!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>revision</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_revision = element revision {
+  mal_info_revision_attr,
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  <link xref="mal_block_desc">mal_block_desc</link> ?,
+  mal_info_revision_content *
+}
+mal_info_revision_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute version { text } ?,
+  attribute docversion { text } ?,
+  attribute pkgversion { text } ?,
+  attribute date { xsd:date } ?,
+  attribute status { xsd:NMTOKEN } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_info_revision_content = <link xref="mal_external">mal_external</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
 
 </page>
