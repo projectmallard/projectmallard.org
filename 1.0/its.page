@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="details#i18n"/>
 
-  <revision version="0.1" date="2009-05-27" status="review"/>
+  <revision docversion="1.0" date="2009-05-27" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
