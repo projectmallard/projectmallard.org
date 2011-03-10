@@ -136,7 +136,7 @@ for the formal element.</p>
   elements within <code>figure</code> elements.</p>
 
   <p>The <code>desc</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/desc.html">desc</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/desc.html">desc</code>
   element in <link xref="dita">DITA</link> when used in a similar context. DITA <code>desc</code>
   elements may also be used to provide text descriptions for certain types of links.</p>
 </section>

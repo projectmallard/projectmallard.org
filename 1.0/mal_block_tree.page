@@ -180,11 +180,11 @@ elements by setting the <code>spacing</code> attribute to <code>"compact"</code>
 and setting the <code>mark</code> attribute to a value understood by your
 processing tool to remove bullets.  In DITA, a similar effect can be
 accomplished with nested
-<code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ul.html">ul</code>
+<code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ul.html">ul</code>
 elements by setting the <code>compact</code> attribute to <code>"yes"</code>
 and instructing your processing tool to omit bullets.  For non-hierarchical
 lists, the <code>tree</code> element functions similarly to the
-<code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/sl.html">sl</code>
+<code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sl.html">sl</code>
 element in DITA.</p>
 </section>
 <!-- END comparison -->

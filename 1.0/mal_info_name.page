@@ -89,10 +89,10 @@ organization in a <code xref="mal_info_credit">credit</code> element.</p>
 
   <p>The <code>name</code> element fulfills the same role as numerous
   <link xref="dita">DITA</link> elements, including
-  <link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/person.html">person</link>,
-  <link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/personname.html">personname</link>,
-  <link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/organization.html">organization</link>, and
-  <link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/organizationname.html">organizationname</link>.
+  <link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/person.html">person</link>,
+  <link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/personname.html">personname</link>,
+  <link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/organization.html">organization</link>, and
+  <link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/organizationname.html">organizationname</link>.
   Note that Mallard does not attempt to model the names of people or organizations,
   as the rules for how to display names from their constituent parts vary considerably.
   If parts of a name are needed for a domain-specific purpose, they can be included

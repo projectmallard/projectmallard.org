@@ -104,9 +104,9 @@ Note that <em>accelerators</em> are different from <em>mnemonics</em>.
   element in <link xref="docbook">DocBook</link>.</p>
 
   <p>The <code>em</code> element may be used in place of the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/i.html">i</code>,
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/b.html">b</code>, or
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/u.html">u</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/i.html">i</code>,
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/b.html">b</code>, or
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/u.html">u</code>
   elements in <link xref="dita">DITA</link>.  Mallard does not have a
   normative way of specifying the typographic presentation of emphasized
   text, though processing tools may allow style hints to control this.</p>

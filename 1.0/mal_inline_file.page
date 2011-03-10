@@ -96,7 +96,7 @@ XML catalogs are stored in <file>/etc/xml/catalog</file>.
   <code href="http://www.docbook.org/tdg/en/html/filename.html">filename</code>
   element in <link xref="docbook">DocBook</link>.</p>
   <p>The <code>file</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/filepath.html">filepath</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/filepath.html">filepath</code>
   element in <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->

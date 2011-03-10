@@ -94,10 +94,10 @@ isn't covered by other elements such as <code xref="mal_inline_file">file</code>
   used in place of these and various other elements.</p>
 
   <p>The <code>sys</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/keyword.html">keyword</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/keyword.html">keyword</code>
   element in <link xref="dita">DITA</link>.  The <code>keyword</code> element
   serves as a base element for many specializations, including for the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/cmdname.html">cmdname</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/cmdname.html">cmdname</code>
   element, which is similar to the <code xref="mal_inline_cmd">cmd</code>
   element in Mallard.  Unless a more specific Mallard element is available,
   the <code>sys</code> element should be used in placed of specializations

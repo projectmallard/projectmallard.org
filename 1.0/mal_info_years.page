@@ -86,7 +86,7 @@ a person or organization holds a copyright.</p>
   are listed in a single <code>years</code> element, formatted as they should be displayed.</p>
 
   <p>The <code>years</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/copyryear.html">copyryear</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/copyryear.html">copyryear</code>
   element in <link xref="dita">DITA</link>. In DITA, each year is listed separately,
   and processing tools are expected to join them appropriately.  In Mallard, all years
   are listed in a single <code>years</code> element, formatted as they should be displayed.

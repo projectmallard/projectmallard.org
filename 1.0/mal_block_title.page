@@ -101,7 +101,7 @@
   element in <link xref="docbook">DocBook</link>.</p>
 
   <p>The <code>title</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/title.html">title</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/title.html">title</code>
   element in <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->

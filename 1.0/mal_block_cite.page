@@ -125,11 +125,11 @@
 
   <p><link xref="dita">DITA</link> does not provide an element to
   specify attributions on either the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/lq.html">lq</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/lq.html">lq</code>
   or the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/draft-comment.html">draft-comment</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/draft-comment.html">draft-comment</code>
   element. The <code>cite</code> element in Mallard is not equivalent to
-  the <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/cite.html">cite</code>
+  the <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/cite.html">cite</code>
   element in DITA.</p>
 </section>
 <!-- END comparison -->

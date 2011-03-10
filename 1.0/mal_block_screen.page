@@ -164,7 +164,7 @@ xsltproc -o mal_block_screen.html \
   element in <link xref="docbook">DocBook</link>.</p>
 
   <p>The <code>screen</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/screen.html">screen</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/screen.html">screen</code>
   element in <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->

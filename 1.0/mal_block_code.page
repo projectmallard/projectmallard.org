@@ -121,7 +121,7 @@ public:
   elements.  Mallard does not attempt to model any programming languages.</p>
 
   <p>The <code>code</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/codeblock.html">codeblock</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/codeblock.html">codeblock</code>
   element in <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->

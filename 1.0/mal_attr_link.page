@@ -187,7 +187,7 @@ similar to the <code>linkend</code> attribute in DocBook.</p>
 
 <p><link xref="dita">DITA</link> does not provide linking attribute on arbitrary
 inline element. Instead, the 
-<code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/xref.html">xref</code>
+<code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/xref.html">xref</code>
 must be used to create links.</p>
 </section>
 <!-- END comparison -->

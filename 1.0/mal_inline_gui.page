@@ -157,9 +157,9 @@ of your keyboard to meet certain accessibility needs.
   style hint to indicate the type of user interface control.</p>
 
   <p>The <code>gui</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/uicontrol.html">uicontrol</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/uicontrol.html">uicontrol</code>
   element in <link xref="dita">DITA</link>.  DITA provides the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/wintitle.html">wintitle</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/wintitle.html">wintitle</code>
   element for marking up the title of a window.  You may use the
   <code>gui</code> element for this purpose.  In some cases, the
   <code xref="mal_inline_app">app</code> element may be more

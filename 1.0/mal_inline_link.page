@@ -191,7 +191,7 @@ recommendation</link>.
   contents are important in languages with case declensions.</p>
 
   <p>The <code>link</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/xref.html">xref</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/xref.html">xref</code>
   element in <link xref="dita">DITA</link>.  DITA uses the <code>href</code>
   attribute to link to pages within the same document as well as to
   external resources.  Mallard uses a separate <code>xref</code> attribute

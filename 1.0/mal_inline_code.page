@@ -154,11 +154,11 @@ up code with a placeholder for an argument the user should supply.
   <code href="http://www.docbook.org/tdg/en/html/sgmltag.html">sgmltag</code>.</p>
   
   <p>The <code>code</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/codeph.html">codeph</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/codeph.html">codeph</code>
   element in <link xref="dita">DITA</link>.  Since Mallard does not contain
   specializations for different types of code, the <code>code</code> element
   may be used in place of DITA elements like
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/apiname.html">apiname</code>.</p>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/apiname.html">apiname</code>.</p>
 </section>
 <!-- END comparison -->
 

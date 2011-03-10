@@ -242,9 +242,9 @@ purposes.</p>
   element, which may be used by some implementations for link text.</p>
 
   <p>DITA provides the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/titlealts.html">titlealts</code>,
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/navtitle.html">navtitle</code>, and
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/searchtitle.html">searchtitle</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/titlealts.html">titlealts</code>,
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/navtitle.html">navtitle</code>, and
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/searchtitle.html">searchtitle</code>
   elements, which provide a fixed mechanism to specify alternate titles for a
   limited number of uses. DITA does not have a general mechanism like Mallard
   informational titles.</p>

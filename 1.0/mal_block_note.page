@@ -216,7 +216,7 @@ git config --global user.email <var>email_address</var></code>
   <code>caution</code> and <code>warning</code> types.</p>
 
   <p>The <code>note</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/note.html">note</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/note.html">note</code>
   element in <link xref="dita">DITA</link>. Like DITA, Mallard uses a single
   <code>note</code> element and distinguishes different types of notes using
   an attribute. The Mallard <code>note</code> takes block content, optionally

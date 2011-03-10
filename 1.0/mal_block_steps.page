@@ -161,18 +161,18 @@ elements.  For alternatives, use a <code xref="mal_block_list">basic list</code>
 with introductory text.</p>
 
 <p>The <code>steps</code> element is similar to the
-<code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/steps.html">steps</code>
+<code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/steps.html">steps</code>
 element in <link xref="dita">DITA</link>.  Mallard step lists can be used in any
 block context, and not just in a dedicated task topic.  Mallard uses the common
 <code>item</code> element instead of a dedicated
-<code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/step.html">step</code>
+<code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/step.html">step</code>
 element.  DITA provides various elements to mark up
-<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/cmd.html">instructions</link>,
-<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/substeps.html">substeps</link>,
-<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/stepxmp.html">examples</link>,
-<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/stepresult.html">results</link>, and
-<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choices.html">lists</link> or
-<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/choicetable.html">tables</link>
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/cmd.html">instructions</link>,
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/substeps.html">substeps</link>,
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/stepxmp.html">examples</link>,
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/stepresult.html">results</link>, and
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/choices.html">lists</link> or
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/choicetable.html">tables</link>
 of choices.  Mallard does not provide specific markup for these.  Use common elements
 like <link xref="mal_block_p">paragraphs</link>, <link xref="mal_block_list">basic
 lists</link>, and <link xref="mal_table">tables</link> instead, possibly with

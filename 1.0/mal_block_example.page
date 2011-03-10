@@ -118,10 +118,10 @@ xsltproc -o mal_block_screen.html \
   element.</p>
 
   <p>The <code>example</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/example.html">example</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/example.html">example</code>
   element in <link xref="dita">DITA</link>.  In DITA, the <code>example</code>
   element is a specialization of the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/section.html">section</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/section.html">section</code>
   element.  It contains a title and is used in contexts where sections are permitted.
   The <code>example</code> element in Mallard is more lightweight, and is designed to
   be used in general block contexts.</p>

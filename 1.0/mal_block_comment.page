@@ -160,7 +160,7 @@ person making the comment.  Writers are highly encouraged to provide a
   title or the name of the person making the remark.</p>
 
   <p>The <code>comment</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/draft-comment.html">draft-comment</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/draft-comment.html">draft-comment</code>
   element in <link xref="dita">DITA</link>.  The DITA <code>draft-comment</code>
   element may be used in either a block or an inline context, whereas the
   <code>comment</code> element may only be used as a block element.  In DITA,

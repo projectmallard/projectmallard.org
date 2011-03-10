@@ -112,7 +112,7 @@ element.</p>
 
   <p>There is no direct equivalent to the <code>listing</code> element in
   <link xref="dita">DITA</link>. The
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/example.html">example</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/example.html">example</code>
   element in DITA allows titles in mixed content, and may be a suitable
   substitute for <code>listing</code>.</p>
 </section>

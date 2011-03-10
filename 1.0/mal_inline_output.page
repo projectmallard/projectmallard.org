@@ -158,7 +158,7 @@ if you use the Bourne-again shell.
   elements in DocBook.</p>
 
   <p>The <code>output</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/systemoutput.html">systemoutput</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/systemoutput.html">systemoutput</code>
   element in <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->

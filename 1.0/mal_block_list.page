@@ -183,8 +183,8 @@ element.</p>
   or numbering type on each list item.  Mallard does not allow this.</p>
 
   <p>The <code>list</code> element combines the functionality of the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ol.html">ol</code>
-  and <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/ul.html">ul</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ol.html">ol</code>
+  and <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ul.html">ul</code>
   elements in <link xref="dita">DITA</link>.  DITA allows you to mix block and inline
   content in list items.  Mallard list items may only contain block content.  Mallard
   allows an optional <code>title</code> element.</p>

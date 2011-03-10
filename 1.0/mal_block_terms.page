@@ -163,17 +163,17 @@ list or a variable list.</p>
   <code xref="mal_block_title">title</code> elements.</p>
 
   <p>The <code>terms</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dl.html">dl</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dl.html">dl</code>
   element in <link xref="dita">DITA</link>.  Like DITA, Mallard groups terms
   with their corresponding descriptions.  In DITA, each description is wrapped
   with a
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dd.html">dd</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dd.html">dd</code>
   element inside the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dlentry.html">dlentry</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dlentry.html">dlentry</code>
   element.  In Mallard, the description is simply all of the block content except the
   <code xref="mal_block_title">title</code> elements.  DITA allows you to specify
   headers for the terms and descriptions with the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/dlhead.html">dlhead</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dlhead.html">dlhead</code>
   element.  Mallard does not have this feature.  If tabular headers are needed,
   use a <link xref="mal_table">table</link> instead.</p>
 </section>

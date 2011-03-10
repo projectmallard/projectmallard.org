@@ -117,7 +117,7 @@ your desktop.
 
   <p>There is no specific element for marking up application names
   in <link xref="dita">DITA</link>.  DITA provides the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/wintitle.html">wintitle</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/wintitle.html">wintitle</code>
   element for marking up the title of a window.  In some cases, such
   as when the window is a standalone control panel, you may use the
   <code>app</code> element for this purpose.  Some authors, however,

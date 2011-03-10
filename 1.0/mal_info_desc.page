@@ -97,7 +97,7 @@ without the same processing expectations.</p>
 
 <p>There is no direct equivalent to the informational <code>desc</code> element
 in <link xref="dita">DITA</link>. The
-<link href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/shortdesc.html">shortdesc</link>
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/shortdesc.html">shortdesc</link>
 element may contain similar text, but it is always part of the main body of a
 topic, rather than part of the metadata.</p>
 </section>

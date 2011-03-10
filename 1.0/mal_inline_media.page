@@ -144,11 +144,11 @@ The Mallard logo
   nested, obviating the need for a container element.</p>
 
   <p>The <code>media</code> element can be used in place of the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/image.html">image</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/image.html">image</code>
   element in <link xref="dita">DITA</link>. DITA does not provide a mechanism to
   embed video, audio, or other types of rich media content in documents. In DITA,
   the <code>image</code> element may contain a single
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/alt.html">alt</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/alt.html">alt</code>
   element to provide fallback content. In Mallard, alternative content is nested
   with no need for a container element. In DITA, the <code>placement</code>
   attribute specifies whether an image is inline or block content. In Mallard,

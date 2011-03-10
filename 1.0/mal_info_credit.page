@@ -175,10 +175,10 @@ also specifies copyright holders when used with the
   element in DocBook.</p>
 
   <p>The <code>credit</code> element serves the purpose of the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/author.html">author</code>,
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/authorinformation.html">authorinformation</code>,
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/publisher.html">publisher</code>, and
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/publisherinformation.html">publisherinformation</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/author.html">author</code>,
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/authorinformation.html">authorinformation</code>,
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/publisher.html">publisher</code>, and
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/publisherinformation.html">publisherinformation</code>
   elements in <link xref="dita">DITA</link>.  DITA does not have specific
   elements for editors, maintainers, and translators.</p>
 
@@ -194,7 +194,7 @@ also specifies copyright holders when used with the
 
   <p>The <code>credit</code> element also records copyright information.
   In this capacity, it is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/copyright.html">copyright</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/copyright.html">copyright</code>
   element in DITA.</p>
 </section>
 <!-- END comparison -->

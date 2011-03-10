@@ -86,9 +86,9 @@ person or organization in a <code xref="mal_info_credit">credit</code> element.<
   double as an inline element.</p>
 
   <p>The <code>email</code> element is similar to the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/emailaddress.html">emailaddress</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/emailaddress.html">emailaddress</code>
   element in <link xref="dita">DITA</link>. DITA provides the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/emailaddresses.html">emailaddresses</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/emailaddresses.html">emailaddresses</code>
   element to wrap one or more email addresses for an entity. In Mallard,
   multiple <code>email</code> elements can be used without a wrapper
   element.</p>
