@@ -35,7 +35,7 @@ to group rows together for stylistic or semantic purposes.</p>
     element contains zero or more <code>td</code> elements.</p></item>
 
     <item><p>The <code>thead</code>, <code>tbody</code>, and <code>tfoot</code>
-    elements can occur at the end of a <code xref="mal_block_table">table</code>
+    elements can occur at the end of a <code xref="mal_table">table</code>
     element. The <code>tr</code> element can appear at the end of a <code>table</code>
     element in place of any <code>thead</code>, <code>tbody</code>, or <code>tfoot</code>
     elements; or it can appear in a <code>thead</code>, <code>tbody</code>, or

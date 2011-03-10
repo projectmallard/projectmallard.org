@@ -38,12 +38,12 @@ formatting needs.</p>
         <item><p>Optionally either one or more <code xref="mal_block_col">col</code>
         elements or one or more <code xref="mal_block_col">colgroup</code> elements.</p></item>
         <item>
-          <p>Either one or more <code xref="mal_block_tr">tr</code> elements or
+          <p>Either one or more <code xref="mal_table_tr">tr</code> elements or
           the following:</p>
           <list style="compact">
-            <item><p>An optional <code xref="mal_block_tr">thead</code> element.</p></item>
-            <item><p>One or more <code xref="mal_block_tr">tbody</code> elements.</p></item>
-            <item><p>An optional <code xref="mal_block_tr">tfoot</code> element.</p></item>
+            <item><p>An optional <code xref="mal_table_tr">thead</code> element.</p></item>
+            <item><p>One or more <code xref="mal_table_tr">tbody</code> elements.</p></item>
+            <item><p>An optional <code xref="mal_table_tr">tfoot</code> element.</p></item>
           </list>
         </item>
       </list>
@@ -705,7 +705,7 @@ formatting needs.</p>
   cells. Mallard provides more flexibility in controlling these.</p>
 
   <p>The <code>table</code> element serves the same purpose as the
-  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/table.html">table</code>
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/table.html">table</code>
   element in <link xref="dita">DITA</link>, although DITA uses the CALS table
   model exclusively. Like Mallard, DITA treats the frames, row separators,
   and column separators as belonging to the table, rather than to individual

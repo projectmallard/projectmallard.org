@@ -71,7 +71,7 @@ more quickly.  In Mallard, sections can take part in
   although this may not be feasible for deeply nested sections.</p>
 
   <p>Sections may have links associated with them. See <link xref="mal_links"/>
-  for details. Sections in guide pages have <link xref="mal_links#topis">topic
+  for details. Sections in guide pages have <link xref="mal_links#topic">topic
   links</link> automatically inserted.</p>
 </section>
 <!-- END processing -->

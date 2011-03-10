@@ -1463,7 +1463,7 @@ available.</p>
       <td><p><code href="http://www.docbook.org/tdg/en/html/sidebar.html">sidebar</code></p></td>
       <td rowspan="2"><p>No direct equivalent in Mallard.  Style hints may be used to effect
       something similar for <link xref="mal_block_note">notes</link> or even
-      <link xref="mal_block_section">sections</link>.</p></td>
+      <link xref="mal_section">sections</link>.</p></td>
     </tr>
     <tr>
       <td><p><code href="http://www.docbook.org/tdg/en/html/sidebarinfo.html">sidebarinfo</code></p></td>
@@ -1476,7 +1476,7 @@ available.</p>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/simplelist.html">simplelist</code></p></td>
     <td><p>No equivalent in Mallard.  For horizontal or vertical lists, use
-    <link xref="mal_block_table">tables</link> instead.  For inline lists,
+    <link xref="mal_table">tables</link> instead.  For inline lists,
     use plain text.</p></td>    
   </tr></tbody>
   <tbody><tr>
