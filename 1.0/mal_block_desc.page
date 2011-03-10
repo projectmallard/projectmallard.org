@@ -6,7 +6,7 @@
   <link type="seealso" xref="mal_block_figure"/>
   <link type="seealso" xref="mal_block_listing"/>
   <link type="seealso" xref="mal_block_synopsis"/>
-  <link type="seealso" xref="mal_block_table"/>
+  <link type="seealso" xref="mal_table"/>
 
   <revision docversion="1.0" date="2011-02-21" status="review"/>
 
@@ -40,7 +40,7 @@ for the formal element.</p>
     <code xref="mal_block_figure">figure</code>,
     <code xref="mal_block_listing">listing</code>,
     <code xref="mal_block_synopsis">synopsis</code>, and
-    <code xref="mal_block_table">table</code>.</p></item>
+    <code xref="mal_table">table</code>.</p></item>
 
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to

@@ -35,8 +35,8 @@ formatting needs.</p>
       <list style="compact">
         <item><p>An optional <code xref="mal_block_title">title</code> element.</p></item>
         <item><p>An optional <code xref="mal_block_desc">desc</code> element.</p></item>
-        <item><p>Optionally either one or more <code xref="mal_block_col">col</code>
-        elements or one or more <code xref="mal_block_col">colgroup</code> elements.</p></item>
+        <item><p>Optionally either one or more <code xref="mal_table_col">col</code>
+        elements or one or more <code xref="mal_table_col">colgroup</code> elements.</p></item>
         <item>
           <p>Either one or more <code xref="mal_table_tr">tr</code> elements or
           the following:</p>
