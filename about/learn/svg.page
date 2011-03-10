@@ -30,7 +30,7 @@ Mallard documents.  SVG is an XML vocabulary for describing two-dimensional
 vector graphics.  Read more about <link
 href="http://en.wikipedia.org/wiki/SVG">SVG on Wikipedia</link>.  This tutorial
 also shows how you can provide <link xref="#fallback">fallback content</link>
-and <link xref="xref">link SVG elements to Mallard pages</link>.</p>
+and <link xref="#xref">link SVG elements to Mallard pages</link>.</p>
 
 <note>
 <p>To see the results of the examples in this tutorial, your browser
