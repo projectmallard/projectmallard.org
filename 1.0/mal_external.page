@@ -25,7 +25,7 @@
 <title>External Namespaces</title>
 
 <p>Mallard allows elements and attributes from external namespaces to be
-use in well-defined places throughout the language. External-namespace
+used in well-defined places throughout the language. External-namespace
 elements and attributes allow extensions to add functionality to Mallard,
 while keeping the core Mallard specification simple.</p>
 
