@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="index" group="page"/>
 
-  <revision version="1.0" date="2011-02-21" status="review"/>
+  <revision docversion="1.0" date="2011-03-11" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -62,6 +62,35 @@ guide pages serve as navigational aids.</p>
   </list>
 </section>
 <!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Create a very basic Mallard page:</p>
+
+  <example><code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" id="index">
+<title>A Simple Page</title>
+</page>]]></code></example>
+
+  <p>Pages are topic pages by default. Create a guide page instead:</p>
+
+  <example><code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="index">
+<title>A Simple Guide Page</title>
+</page>]]></code></example>
+
+  <p>Add an introductory paragraph:</p>
+
+  <example><code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="index">
+<title>A Simple Guide Page</title>
+<p>This is a paragraph</p>
+</page>]]></code></example>
+</section>
+<!-- END examples -->
 
 
 <!-- BEGIN guide -->
@@ -126,6 +155,36 @@ guide pages serve as navigational aids.</p>
   sections throughout the document. See <link xref="mal_links"/> for details.</p>
 </section>
 <!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>page</code> element is similar to the
+  <code href="http://www.docbook.org/tdg51/en/html/topic.html">topic</code>
+  element introduced in <link xref="docbook">DocBook</link> 5.1. Previous
+  versions of DocBook did not have a topic container element. Articles or
+  books written in DocBook were sometimes chunked into pages. Compared to
+  those documents, the <code>page</code> element may be used in place as
+  division elements like
+  <code href="http://www.docbook.org/tdg51/en/html/book.html">book</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/article.html">article</code>, and
+  <code href="http://www.docbook.org/tdg51/en/html/chapter.html">chapter</code>.</p>
+
+  <p>The <code>page</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/topic.html">topic</code>
+  element in <link xref="dita">DITA</link>. DITA allows specializations of the
+  <code>topic</code> element, such as the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/concept.html">concept</code>,
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/reference.html">reference</code>,
+  and <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/task.html">task</code>
+  elements. Mallard does not use the same specialization mechanism. Style hints
+  may be used to indicate semantic distinctions for validation or formatting.
+  For substantial functional differences, different page types should be
+  introduced.</p>
+</section>
+<!-- END comparison -->
 
 
 <!-- BEGIN schema -->
