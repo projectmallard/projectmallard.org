@@ -20,7 +20,10 @@
 
 <p>The following table lists all of the elements in DocBook and provides
 recommendations for equivalent or similar functionality in Mallard, when
-available.</p>
+available. This page primarily links to DocBook 5 elements, but includes
+DocBook 4 elements that were removed from DocBook 5. Elements that are
+only in DocBook 4 are marked with [4]. Elements that are only in DocBook
+5 are marked with [5].</p>
 
 <table rules="cols" shade="rowgroups" frame="all">
   <tbody><tr>
@@ -1758,6 +1761,10 @@ available.</p>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/token.html">token</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg51/en/html/topic.html">topic</code></p></td>
+    <td><p>Similar to the <code xref="mal_page">page</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/html.tr.html">tr</code></p></td>
