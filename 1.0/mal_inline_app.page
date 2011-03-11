@@ -112,7 +112,7 @@ your desktop.
 <section id="comparison">
   <title>Comparison to Other Formats</title>
   <p>The <code>app</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/application.html">application</code>
+  <code href="http://www.docbook.org/tdg51/en/html/application.html">application</code>
   element in <link xref="docbook">DocBook</link>.</p>
 
   <p>There is no specific element for marking up application names

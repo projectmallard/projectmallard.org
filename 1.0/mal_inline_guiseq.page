@@ -91,12 +91,12 @@ a new document.
 <section id="comparison">
   <title>Comparison to Other Formats</title>
   <p>The <code>guiseq</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/menuchoice.html">menuchoice</code>
+  <code href="http://www.docbook.org/tdg51/en/html/menuchoice.html">menuchoice</code>
   element in <link xref="docbook">DocBook</link>.  Since Mallard does not provide
   different elements for different types of interface elements, the contents of
   <code>guiseq</code> are all <code xref="mal_inline_gui">gui</code> elements or
   text.  Currently, Mallard does not provide a way to encode shortcut keys like the
-  <code href="http://www.docbook.org/tdg/en/html/shortcut.html">shortcut</code>
+  <code href="http://www.docbook.org/tdg51/en/html/shortcut.html">shortcut</code>
   element in DocBook.  Shortcuts should be written into prose separately.</p>
 
   <p>The <code>guiseq</code> element is similar to the

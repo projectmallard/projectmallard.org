@@ -83,7 +83,7 @@
   <title>Comparison to Other Formats</title>
 
   <p>The <code>subtitle</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/subtitle.html">subtitle</code>
+  <code href="http://www.docbook.org/tdg51/en/html/subtitle.html">subtitle</code>
   element in <link xref="docbook">DocBook</link>.</p>
 
   <p><link xref="dita">DITA</link> does not contain an element for subtitles.</p>

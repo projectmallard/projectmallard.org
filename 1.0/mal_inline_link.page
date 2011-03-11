@@ -175,10 +175,11 @@ recommendation</link>.
   <title>Comparison to Other Formats</title>
 
   <p>The <code>link</code> element combines the functionality of the
-  <code href="http://www.docbook.org/tdg/en/html/link.html">link</code>,
-  <code href="http://www.docbook.org/tdg/en/html/xref.html">xref</code>, and
+  <code href="http://www.docbook.org/tdg51/en/html/link.html">link</code> and
+  <code href="http://www.docbook.org/tdg51/en/html/xref.html">xref</code>
+  elements in <link xref="docbook">DocBook</link>, as well as the
   <code href="http://www.docbook.org/tdg/en/html/ulink.html">ulink</code>
-  elements in <link xref="docbook">DocBook</link>.  For the <code>link</code>
+  element in DocBook 4. For the <code>link</code>
   and <code>xref</code> elements, DocBook provides the <code>endterm</code>
   attribute to select an alternative element from which to take content.
   Mallard does not provide this feature, although it allows you to select

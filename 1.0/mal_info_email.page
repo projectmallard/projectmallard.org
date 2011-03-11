@@ -80,7 +80,7 @@ person or organization in a <code xref="mal_info_credit">credit</code> element.<
   <title>Comparison to Other Formats</title>
 
   <p>The <code>email</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/email.html">email</code>
+  <code href="http://www.docbook.org/tdg51/en/html/email.html">email</code>
   element in <link xref="docbook">DocBook</link> when that element is used in an
   informational context. The <code>email</code> element in Mallard does not
   double as an inline element.</p>

@@ -134,24 +134,22 @@ up code with a placeholder for an argument the user should supply.
 <section id="comparison">
   <title>Comparison to Other Formats</title>
   <p>The <code>code</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/code.html">code</code> element
+  <code href="http://www.docbook.org/tdg51/en/html/code.html">code</code> element
   in <link xref="docbook">DocBook</link>.  Since Mallard does not attempt to model
   programming languages, the <code>code</code> element may be used in place of
   numerous DocBook elements, including
-  <code href="http://www.docbook.org/tdg/en/html/classname.html">classname</code>,
-  <code href="http://www.docbook.org/tdg/en/html/constant.html">constant</code>,
-  <code href="http://www.docbook.org/tdg/en/html/function.html">function</code>,
-  <code href="http://www.docbook.org/tdg/en/html/interfacename.html">interfacename</code>,
-  <code href="http://www.docbook.org/tdg/en/html/methodname.html">methodname</code>,
-  <code href="http://www.docbook.org/tdg/en/html/parameter.html">parameter</code>,
-  <code href="http://www.docbook.org/tdg/en/html/structfield.html">structfield</code>,
-  <code href="http://www.docbook.org/tdg/en/html/structname.html">structname</code>, and
-  <code href="http://www.docbook.org/tdg/en/html/varname.html">varname</code>.
+  <code href="http://www.docbook.org/tdg51/en/html/classname.html">classname</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/constant.html">constant</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/function.html">function</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/interfacename.html">interfacename</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/methodname.html">methodname</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/parameter.html">parameter</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/varname.html">varname</code>.
   Additionally, since Mallard does not provide separate elements for marking
   portions of markup languages, the <code>code</code> element should be used
   in place of the DocBook elements
-  <code href="http://www.docbook.org/tdg/en/html/markup.html">markup</code> and
-  <code href="http://www.docbook.org/tdg/en/html/sgmltag.html">sgmltag</code>.</p>
+  <code href="http://www.docbook.org/tdg51/en/html/markup.html">markup</code> and
+  <code href="http://www.docbook.org/tdg51/en/html/tag.html">tag</code>.</p>
   
   <p>The <code>code</code> element is similar to the
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/codeph.html">codeph</code>

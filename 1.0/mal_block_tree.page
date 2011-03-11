@@ -175,7 +175,7 @@ class inheritance or directory layouts.</p>
 <p>The <code>tree</code> element has no direct equavalent in
 <link xref="docbook">DocBook</link> or <link xref="dita">DITA</link>.
 In DocBook, a similar effect can be accomplished with nested
-<code href="http://www.docbook.org/tdg/en/html/itemizedlist.html">itemizedlist</code>
+<code href="http://www.docbook.org/tdg51/en/html/itemizedlist.html">itemizedlist</code>
 elements by setting the <code>spacing</code> attribute to <code>"compact"</code>
 and setting the <code>mark</code> attribute to a value understood by your
 processing tool to remove bullets.  In DITA, a similar effect can be

@@ -106,7 +106,7 @@ element.</p>
 
   <p>There is no direct equivalent to the <code>listing</code> element in
   <link xref="docbook">DocBook</link>. The
-  <code href="http://www.docbook.org/tdg/en/html/example.html">example</code>
+  <code href="http://www.docbook.org/tdg51/en/html/example.html">example</code>
   element in DocBook is a formal element, and may be a suitable substitute
   for <code>listing</code>.</p>
 

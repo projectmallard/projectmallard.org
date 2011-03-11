@@ -111,13 +111,13 @@ public:
 <section id="comparison">
   <title>Comparison to Other Formats</title>
   <p>The <code>code</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/programlisting.html">programlisting</code>
+  <code href="http://www.docbook.org/tdg51/en/html/programlisting.html">programlisting</code>
   element in <link xref="docbook">DocBook</link>.  DocBook also contains numerous elements
   for modeling code in procedural and object-oriented programming languages.  Many of
   these elements can be seen by browsing the content models for the
-  <code href="http://www.docbook.org/tdg/en/html/classsynopsis.html">classsynopsis</code>
+  <code href="http://www.docbook.org/tdg51/en/html/classsynopsis.html">classsynopsis</code>
   and
-  <code href="http://www.docbook.org/tdg/en/html/funcsynopsis.html">funcsynopsis</code>
+  <code href="http://www.docbook.org/tdg51/en/html/funcsynopsis.html">funcsynopsis</code>
   elements.  Mallard does not attempt to model any programming languages.</p>
 
   <p>The <code>code</code> element is similar to the

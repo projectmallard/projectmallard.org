@@ -135,7 +135,7 @@ and have it automatically formatted by display tools.</p>
 <title>Comparison to Other Formats</title>
 
 <p>The <code>quote</code> element is similar to the
-<code href="http://www.docbook.org/tdg/en/html/blockquote.html">blockquote</code>
+<code href="http://www.docbook.org/tdg51/en/html/blockquote.html">blockquote</code>
 element in <link xref="docbook">DocBook</link>.</p>
 
 <p>The <code>quote</code> element is similar to the

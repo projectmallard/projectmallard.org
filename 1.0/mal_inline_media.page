@@ -135,11 +135,11 @@ The Mallard logo
 
   <p>The <code>media</code> element can be used in place of the
   <link xref="docbook">DocBook</link> elements
-  <code href="http://www.docbook.org/tdg/en/html/audioobject.html">audioobject</code>,
-  <code href="http://www.docbook.org/tdg/en/html/imageobject.html">imageobject</code>, and
-  <code href="http://www.docbook.org/tdg/en/html/videoobject.html">videoobject</code>.
+  <code href="http://www.docbook.org/tdg51/en/html/audioobject.html">audioobject</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/imageobject.html">imageobject</code>, and
+  <code href="http://www.docbook.org/tdg51/en/html/videoobject.html">videoobject</code>.
   DocBook uses the
-  <code href="http://www.docbook.org/tdg/en/html/inlinemediaobject.html">inlinemediaobject</code>
+  <code href="http://www.docbook.org/tdg51/en/html/inlinemediaobject.html">inlinemediaobject</code>
   element to provide alternative objects. In Mallard, alternative objects are
   nested, obviating the need for a container element.</p>
 

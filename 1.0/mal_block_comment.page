@@ -152,7 +152,7 @@ person making the comment.  Writers are highly encouraged to provide a
   <title>Comparison to Other Formats</title>
 
   <p>The <code>comment</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/remark.html">remark</code>
+  <code href="http://www.docbook.org/tdg51/en/html/remark.html">remark</code>
   element in <link xref="docbook">DocBook</link>.  The DocBook <code>remark</code>
   element may be used in either a block or an inline context, whereas the
   <code>comment</code> element may only be used as a block element.  The

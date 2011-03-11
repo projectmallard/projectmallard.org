@@ -81,8 +81,8 @@ output.</p>]]></code>
   <title>Comparison to Other Formats</title>
 
   <p><link xref="docbook">DocBook</link> contains two elements for creating
-  paragraphs: <code href="http://www.docbook.org/tdg/en/html/para.html">para</code>
-  and <code href="http://www.docbook.org/tdg/en/html/simpara.html">simpara</code>.
+  paragraphs: <code href="http://www.docbook.org/tdg51/en/html/para.html">para</code>
+  and <code href="http://www.docbook.org/tdg51/en/html/simpara.html">simpara</code>.
   The <code>p</code> in Mallard is similar to the <code>simpara</code> element
   in DocBook in that it does not allow block content.</p>
 

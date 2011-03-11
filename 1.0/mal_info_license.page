@@ -94,7 +94,7 @@ Commons Attribution-Share Alike 3.0 United States License</link>.</p>
   <title>Comparison to Other Formats</title>
 
   <p><link xref="docbook">DocBook</link> contains the more general-purpose
-  <code href="http://www.docbook.org/tdg/en/html/legalnotice.html">legalnotice</code>
+  <code href="http://www.docbook.org/tdg51/en/html/legalnotice.html">legalnotice</code>
   element, which is frequently used to include licensing terms.  The
   <code>license</code> element is intended mostly for redistribution
   terms, which are not immediately relevent to most readers.  When it

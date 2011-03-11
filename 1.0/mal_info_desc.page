@@ -91,7 +91,7 @@ various other purposes by different tools.</p>
 <title>Comparison to Other Formats</title>
 <p>There is no direct equivalent to the informational <code>desc</code> element
 in <link xref="docbook">DocBook</link>. When used in an info element, the
-<link href="http://www.docbook.org/tdg/en/html/abstract.html">abstract</link>
+<link href="http://www.docbook.org/tdg51/en/html/abstract.html">abstract</link>
 element may be used for a similar purpose, although it is a formal element
 without the same processing expectations.</p>
 

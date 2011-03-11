@@ -145,14 +145,14 @@ of your keyboard to meet certain accessibility needs.
   <title>Comparison to Other Formats</title>
   <p>The <code>gui</code> element is similar to the deprecated
   <code href="http://www.docbook.org/tdg/en/html/interface.html">interface</code>
-  element in <link xref="docbook">DocBook</link>.  DocBook 3 introduced more
+  element in <link xref="docbook">DocBook</link> 4.  DocBook 3 introduced more
   specific elements for marking up parts of a user interface:
-  <code href="http://www.docbook.org/tdg/en/html/guibutton.html">guibutton</code>,
-  <code href="http://www.docbook.org/tdg/en/html/guiicon.html">guiicon</code>,
-  <code href="http://www.docbook.org/tdg/en/html/guilabel.html">guilabel</code>,
-  <code href="http://www.docbook.org/tdg/en/html/guimenu.html">guimenu</code>,
-  <code href="http://www.docbook.org/tdg/en/html/guimenuitem.html">guimenuitem</code>, and
-  <code href="http://www.docbook.org/tdg/en/html/guisubmenu.html">guisubmenu</code>.
+  <code href="http://www.docbook.org/tdg51/en/html/guibutton.html">guibutton</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/guiicon.html">guiicon</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/guilabel.html">guilabel</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/guimenu.html">guimenu</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/guimenuitem.html">guimenuitem</code>, and
+  <code href="http://www.docbook.org/tdg51/en/html/guisubmenu.html">guisubmenu</code>.
   Mallard does not provide specific elements.  If necessary, use a
   style hint to indicate the type of user interface control.</p>
 

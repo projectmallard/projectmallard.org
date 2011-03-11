@@ -145,16 +145,16 @@ if you use the Bourne-again shell.
   <title>Comparison to Other Formats</title>
 
   <p>The <code>output</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/computeroutput.html">computeroutput</code>
+  <code href="http://www.docbook.org/tdg51/en/html/computeroutput.html">computeroutput</code>
   element in <link xref="docbook">DocBook</link>.  When necessary, the
   <code>output</code> element may be used with the <code>style</code>
   attribute <code>"prompt"</code> in place of the
-  <code href="http://www.docbook.org/tdg/en/html/prompt.html">prompt</code>
+  <code href="http://www.docbook.org/tdg51/en/html/prompt.html">prompt</code>
   element in DocBook.  In some cases, it may be appropriate to use the
   <code>output</code> element with the <code>style</code> attribute
   <code>"error"</code> in place of the
-  <code href="http://www.docbook.org/tdg/en/html/errorname.html">errorname</code> and
-  <code href="http://www.docbook.org/tdg/en/html/errortext.html">errortext</code>
+  <code href="http://www.docbook.org/tdg51/en/html/errorname.html">errorname</code> and
+  <code href="http://www.docbook.org/tdg51/en/html/errortext.html">errortext</code>
   elements in DocBook.</p>
 
   <p>The <code>output</code> element is similar to the

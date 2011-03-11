@@ -80,7 +80,7 @@ a person or organization holds a copyright.</p>
   <title>Comparison to Other Formats</title>
 
   <p>The <code>years</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/year.html">year</code> element
+  <code href="http://www.docbook.org/tdg51/en/html/year.html">year</code> element
   in <link xref="docbook">DocBook</link>. In DocBook, each year is listed separately,
   and processing tools are expected to join them appropriately.  In Mallard, all years
   are listed in a single <code>years</code> element, formatted as they should be displayed.</p>

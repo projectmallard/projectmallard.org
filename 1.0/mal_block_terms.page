@@ -152,13 +152,13 @@ list or a variable list.</p>
   <title>Comparison to Other Formats</title>
   
   <p>The <code>terms</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/variablelist.html">variablelist</code>
+  <code href="http://www.docbook.org/tdg51/en/html/variablelist.html">variablelist</code>
   element in <link xref="docbook">DocBook</link>.  Like DocBook, Mallard groups
   terms with their corresponding descriptions.  In DocBook, the description is
   wrapped with a
-  <code href="http://www.docbook.org/tdg/en/html/listitem.html">listitem</code>
+  <code href="http://www.docbook.org/tdg51/en/html/listitem.html">listitem</code>
   element inside the
-  <code href="http://www.docbook.org/tdg/en/html/varlistentry.html">varlistentry</code>
+  <code href="http://www.docbook.org/tdg51/en/html/varlistentry.html">varlistentry</code>
   element.  In Mallard, the description is simply all of the block content except the
   <code xref="mal_block_title">title</code> elements.</p>
 

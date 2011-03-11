@@ -92,7 +92,7 @@ To provide a title for the contents of a file, such as a
   <title>Comparison to Other Formats</title>
 
   <p>The <code>figure</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/figure.html">figure</code>
+  <code href="http://www.docbook.org/tdg51/en/html/figure.html">figure</code>
   element in <link xref="docbook">DocBook</link>.  DocBook only provides a title
   for figures, whereas Mallard distinguishes between a title and a caption.</p>
 

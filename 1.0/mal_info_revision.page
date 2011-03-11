@@ -149,10 +149,10 @@ description of the page or section as of that revision.</p>
   <title>Comparison to Other Formats</title>
 
   <p>The <code>revision</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/revision.html">revision</code>
+  <code href="http://www.docbook.org/tdg51/en/html/revision.html">revision</code>
   element in <link xref="docbook">DocBook</link>. In DocBook, <code>revision</code>
   elements must occur inside a
-  <code href="http://www.docbook.org/tdg/en/html/revhistory.html">revhistory</code>
+  <code href="http://www.docbook.org/tdg51/en/html/revhistory.html">revhistory</code>
   element.  In Mallard, they are placed directly in an
   <code xref="mal_info">info</code> element.  DocBook provides more specific
   child elements for structured content, as well as for block content for

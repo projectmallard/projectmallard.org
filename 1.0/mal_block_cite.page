@@ -117,10 +117,10 @@
 
   <p>When used in a <code xref="mal_block_quote">quote</code> element,
   the <code>cite</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/attribution.html">attribution</code>
+  <code href="http://www.docbook.org/tdg51/en/html/attribution.html">attribution</code>
   element in <link xref="docbook">DocBook</link>. DocBook does not
   provide an element to specify an attribution for editorial comments
-  using the <code href="http://www.docbook.org/tdg/en/html/remark.html">remark</code>
+  using the <code href="http://www.docbook.org/tdg51/en/html/remark.html">remark</code>
   element.</p>
 
   <p><link xref="dita">DITA</link> does not provide an element to

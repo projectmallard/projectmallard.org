@@ -697,9 +697,11 @@ formatting needs.</p>
   <title>Comparison to Other Formats</title>
 
   <p>The <code>table</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/table.html">table</code>
-  element in <link xref="docbook">DocBook</link>. DocBook allows either CALS
-  or HTML tables to be used in the <code>table</code> element. Mallard tables
+  <code href="http://www.docbook.org/tdg51/en/html/html.table.html">table</code>
+  element in <link xref="docbook">DocBook</link>. DocBook allows either
+  <link href="http://www.docbook.org/tdg51/en/html/cals.table.html">CALS</link> or
+  <link href="http://www.docbook.org/tdg51/en/html/html.table.html">HTML</link>
+  tables to be used in the <code>table</code> element. Mallard tables
   follow the HTML model. Like Mallard, DocBook treats frames, row separators,
   and column separators as belonging to the table, rather than to individual
   cells. Mallard provides more flexibility in controlling these.</p>

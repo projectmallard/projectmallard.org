@@ -175,8 +175,8 @@ element.</p>
   <title>Comparison to Other Formats</title>
 
   <p>The <code>list</code> element combines the functionality of the
-  <code href="http://www.docbook.org/tdg/en/html/itemizedlist.html">itemizedlist</code>
-  and <code href="http://www.docbook.org/tdg/en/html/orderedlist.html">orderedlist</code>
+  <code href="http://www.docbook.org/tdg51/en/html/itemizedlist.html">itemizedlist</code>
+  and <code href="http://www.docbook.org/tdg51/en/html/orderedlist.html">orderedlist</code>
   elements in <link xref="docbook">DocBook</link>.  DocBook allows leading block-level
   content in its list elements.  This is not allowed in Mallard, though an optional
   <code>title</code> element is allowed.  DocBook allows you to override the bullet

@@ -148,9 +148,9 @@ you to filter files based on their modification times.
   <title>Comparison to Other Formats</title>
 
   <p>The <code>cmd</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/command.html">command</code>
+  <code href="http://www.docbook.org/tdg51/en/html/command.html">command</code>
   element in <link xref="docbook">DocBook</link>.  In DocBook, writers frequently
-  use the <code href="http://www.docbook.org/tdg/en/html/option.html">option</code>
+  use the <code href="http://www.docbook.org/tdg51/en/html/option.html">option</code>
   element inside <code>command</code>.  Mallard does not provide an element
   for this purpose.</p>
 

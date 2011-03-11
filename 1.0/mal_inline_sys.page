@@ -86,7 +86,7 @@ isn't covered by other elements such as <code xref="mal_inline_file">file</code>
   <title>Comparison to Other Formats</title>
 
   <p>The <code>sys</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/systemitem.html">systemitem</code>
+  <code href="http://www.docbook.org/tdg51/en/html/systemitem.html">systemitem</code>
   element in <link xref="docbook">DocBook</link>.  DocBook has gained numerous
   elements which were once marked using the <code>class</code> attribute on the
   <code>systemitem</code> element.  Since Mallard does not provide the level of

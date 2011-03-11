@@ -154,12 +154,11 @@ also specifies copyright holders when used with the
   <title>Comparison to Other Formats</title>
 
   <p>The <code>credit</code> element serves the purpose of the
-  <code href="http://www.docbook.org/tdg/en/html/author.html">author</code>,
-  <code href="http://www.docbook.org/tdg/en/html/collab.html">collab</code>,
-  <code href="http://www.docbook.org/tdg/en/html/corpauthor.html">corpauthor</code>,
-  <code href="http://www.docbook.org/tdg/en/html/editor.html">editor</code>,
-  <code href="http://www.docbook.org/tdg/en/html/othercredit.html">othercredit</code>, and
-  <code href="http://www.docbook.org/tdg/en/html/publisher.html">publisher</code>
+  <code href="http://www.docbook.org/tdg51/en/html/author.html">author</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/collab.html">collab</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/editor.html">editor</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/othercredit.html">othercredit</code>, and
+  <code href="http://www.docbook.org/tdg51/en/html/publisher.html">publisher</code>
   elements in <link xref="docbook">DocBook</link>.  DocBook does not have specific
   elements for maintainers and translators.</p>
 
@@ -171,7 +170,7 @@ also specifies copyright holders when used with the
 
   <p>The <code>credit</code> element also records copyright information.
   In this capacity, it is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/copyright.html">copyright</code>
+  <code href="http://www.docbook.org/tdg51/en/html/copyright.html">copyright</code>
   element in DocBook.</p>
 
   <p>The <code>credit</code> element serves the purpose of the

@@ -151,7 +151,7 @@ elements can be used to record any additional information you need.</p>
   <title>Comparison to Other Formats</title>
 
   <p>The <code>info</code> element is similar to the
-  <code href="http://www.docbook.org/tdg5/en/html/info.html">info</code> element
+  <code href="http://www.docbook.org/tdg51/en/html/info.html">info</code> element
   in <link xref="docbook">DocBook</link> 5, or to the various <code>*info</code>
   elements in DocBook 4, such as
   <link href="http://www.docbook.org/tdg/en/html/articleinfo.html">articleinfo</link>,

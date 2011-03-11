@@ -104,11 +104,11 @@ int  count_beans ();
   <title>Comparison to Other Formats</title>
 
   <p>The <code>synopsis</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/synopsis.html">synopsis</code>
+  <code href="http://www.docbook.org/tdg51/en/html/synopsis.html">synopsis</code>
   element in <link xref="docbook">DocBook</link>, although the DocBook element
   is not a formal element.  DocBook also provides the
-  <code href="http://www.docbook.org/tdg/en/html/cmdsynopsis.html">cmdsynopsis</code> and
-  <code href="http://www.docbook.org/tdg/en/html/funcsynopsis.html">funcsynopsis</code>
+  <code href="http://www.docbook.org/tdg51/en/html/cmdsynopsis.html">cmdsynopsis</code> and
+  <code href="http://www.docbook.org/tdg51/en/html/funcsynopsis.html">funcsynopsis</code>
   elements, which attempt to model the data for command and function synopses,
   respectively.  Mallard does not provide modelling elements.  The various
   synopsis elements in DocBook output preformatted text, and are only useful

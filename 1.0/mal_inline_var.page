@@ -97,7 +97,7 @@ with the name of the file.
 <section id="comparison">
   <title>Comparison to Other Formats</title>
   <p>The <code>var</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/replaceable.html">replaceable</code>
+  <code href="http://www.docbook.org/tdg51/en/html/replaceable.html">replaceable</code>
   element in <link xref="docbook">DocBook</link>.</p>
   <p>The <code>var</code> element is similar to the
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/varname.html">varname</code>

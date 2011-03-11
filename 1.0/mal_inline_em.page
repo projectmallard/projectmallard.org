@@ -100,7 +100,7 @@ Note that <em>accelerators</em> are different from <em>mnemonics</em>.
 <section id="comparison">
   <title>Comparison to Other Formats</title>
   <p>The <code>em</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/emphasis.html">emphasis</code>
+  <code href="http://www.docbook.org/tdg51/en/html/emphasis.html">emphasis</code>
   element in <link xref="docbook">DocBook</link>.</p>
 
   <p>The <code>em</code> element may be used in place of the

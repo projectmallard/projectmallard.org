@@ -160,7 +160,7 @@ xsltproc -o mal_block_screen.html \
   <title>Comparison to Other Formats</title>
 
   <p>The <code>screen</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/screen.html">screen</code>
+  <code href="http://www.docbook.org/tdg51/en/html/screen.html">screen</code>
   element in <link xref="docbook">DocBook</link>.</p>
 
   <p>The <code>screen</code> element is similar to the

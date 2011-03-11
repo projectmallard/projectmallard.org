@@ -120,11 +120,11 @@ Press the <key>Down</key> key to select the next item.
 <section id="comparison">
   <title>Comparison to Other Formats</title>
   <p>The <code>key</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/keycap.html">keycap</code>
+  <code href="http://www.docbook.org/tdg51/en/html/keycap.html">keycap</code>
   element in <link xref="docbook">DocBook</link>.  Mallard does not provide
   elements analogous to the DocBook elements
-  <code href="http://www.docbook.org/tdg/en/html/keysym.html">keysym</code> and
-  <code href="http://www.docbook.org/tdg/en/html/keycode.html">keycode</code>.
+  <code href="http://www.docbook.org/tdg51/en/html/keysym.html">keysym</code> and
+  <code href="http://www.docbook.org/tdg51/en/html/keycode.html">keycode</code>.
   In most cases, these should be marked simply with the
   <code xref="mal_inline_sys">sys</code> element.</p>
 
