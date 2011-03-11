@@ -8,7 +8,7 @@
   <link type="seealso" xref="mal_section"/>
   <link type="seealso" xref="mal_info_link"/>
 
-  <revision version="1.0" date="2011-02-21" status="draft"/>
+  <revision docversion="1.0" date="2011-03-11" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>

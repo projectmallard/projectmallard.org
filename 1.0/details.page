@@ -3,6 +3,8 @@
       id="details">
 
 <info>
+  <link type="guide" xref="index" group="details"/>
+
   <revision version="0.1" date="2007-02-21" status="stub"/>
 
   <credit type="author">

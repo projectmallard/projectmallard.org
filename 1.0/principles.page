@@ -3,6 +3,8 @@
       id="principles">
 
 <info>
+  <link type="guide" xref="index" group="principles"/>
+
   <revision docversion="1.0" date="2011-03-09" status="review"/>
 
   <credit type="author">
