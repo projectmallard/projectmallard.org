@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="index" group="section"/>
 
-  <revision docversion="1.0" date="2011-02-21" status="review"/>
+  <revision docversion="1.0" date="2011-03-11" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -58,6 +58,39 @@ more quickly.  In Mallard, sections can take part in
 <!-- END notes -->
 
 
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Create a page with a single section:</p>
+
+  <example><code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" id="index">
+<title>A Simple Page</title>
+<section id="first">
+  <title>With a Section</title>
+</section>
+</page>]]></code></example>
+
+  <p>On large pages, it is sometimes useful to have a list of links to
+  sections. Use the <code xref="mal_links">links</code> element to link
+  to the sections in a page:</p>
+
+  <example><code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" id="index">
+<title>A Simple Page</title>
+<links type="section"/>
+<section id="first">
+  <title>First Section</title>
+</section>
+<section id="second">
+  <title>Second Section</title>
+</section>
+</page>]]></code></example>
+</section>
+<!-- END examples -->
+
+
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
@@ -75,6 +108,27 @@ more quickly.  In Mallard, sections can take part in
   links</link> automatically inserted.</p>
 </section>
 <!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>section</code> element is similar to the
+  <code href="http://www.docbook.org/tdg51/en/html/section.html">section</code>
+  element in <link xref="docbook">DocBook</link>. DocBook contains numerous
+  sectioning elements. Some processors chunk these elements into separate
+  pages up to a certain depth. The <code>section</code> element in Mallard
+  might be used in place of DocBook elements like
+  <code href="http://www.docbook.org/tdg51/en/html/chapter.html">chapter</code>,
+  depending on the desired level of page granularity.</p>
+
+  <p>The <code>section</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/section.html">section</code>
+  element in <link xref="dita">DITA</link>. Sections in DITA are more loosely
+  defined and can sometimes serve as lightweight block container elements.</p>
+</section>
+<!-- END comparison -->
 
 
 <!-- BEGIN schema -->
