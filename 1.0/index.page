@@ -1,5 +1,4 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      groups="page section info links block inline details principles"
       type="guide"
       id="index">
 
@@ -33,5 +32,7 @@ the final Mallard 1.0 specification.</p>
   <item><p><link href="http://projectmallard.org/1.0/mallard-1.0.rng">RELAX NG XML Syntax</link></p></item>
   <item><p><link href="http://projectmallard.org/1.0/mallard-1.0.rnc">RELAX NG Compact Syntax</link></p></item>
 </list>
+
+<links type="topic" groups="page section info links block inline details principles"/>
 
 </page>

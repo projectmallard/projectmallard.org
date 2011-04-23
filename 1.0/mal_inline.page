@@ -39,11 +39,12 @@ more information.</p>
 
 
 <!-- BEGIN elements -->
-<section id="elements" style="2column">
+<section id="elements">
   <info>
     <title type="link">Inline Elements</title>
   </info>
   <title>Elements</title>
+  <links type="topic" style="2column"/>
 </section>
 <!-- END elements -->
 

@@ -36,7 +36,7 @@ information.</p>
 
 
 <!-- BEGIN basic -->
-<section id="basic" style="2column">
+<section id="basic">
   <info>
     <title type="link">Basic Block Elements</title>
     <link type="topic" xref="mal_block_code"/>
@@ -51,12 +51,14 @@ information.</p>
   have either general block content or <link xref="mal_inline">inline
   content</link>.  Using basic block elements, you can build up simple pages
   which convey information clearly.</p>
+
+  <links type="topic" style="2column"/>
 </section>
 <!-- END basic -->
 
 
 <!-- BEGIN formal -->
-<section id="formal" style="2column">
+<section id="formal">
   <info>
     <title type="link">Formal Block Elements</title>
     <link type="topic" xref="mal_block_comment"/>
@@ -71,6 +73,8 @@ information.</p>
   <p>Formal block elements contain a <link xref="mal_block_title">title</link>
   and general block content.  Formal block elements allow you to provide
   richer information in your pages.</p>
+
+  <links type="topic" style="2column"/>
 </section>
 <!-- END formal -->
 
@@ -110,7 +114,7 @@ information.</p>
 
 
 <!-- BEGIN other -->
-<section id="other" groups="title subtitle desc cite">
+<section id="other">
   <info>
     <link type="topic" xref="mal_block_title" group="title"/>
     <link type="topic" xref="mal_block_subtitle" group="subtitle"/>
@@ -123,6 +127,8 @@ information.</p>
   specific contexts, and are not allowed in general block content.  These
   elements allow for richer content models for the elements they appear
   in.</p>
+
+  <links type="topic" groups="title subtitle desc cite"/>
 </section>
 <!-- END other -->
 

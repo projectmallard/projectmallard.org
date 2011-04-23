@@ -1,5 +1,4 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      xmlns:e="http://projectmallard.org/experimental/"
       type="guide"
       id="index">
 
@@ -29,6 +28,6 @@ the final Facets 1.0 specification.</p>
   <item><p><link href="http://projectmallard.org/facet/1.0/facet-1.0.rnc">RELAX NG Compact Syntax</link></p></item>
 </list>
 
-<e:links type="topic" groups="tag node match choice"/>
+<links type="topic" groups="tag node match choice"/>
 
 </page>
