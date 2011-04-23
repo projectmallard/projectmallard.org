@@ -446,7 +446,7 @@ mal_links = element links {
 mal_links_attr = (
   attribute type { xsd:NMTOKEN },
   attribute style { xsd:NMTOKENS } ?,
-  attribute groups { xsd:NMTOKENS } ?,
+  attribute groups { text } ?,
   <link xref="mal_external">mal_attr_external</link> *
 )
 mal_links_content = <link xref="mal_external">mal_external</link>
