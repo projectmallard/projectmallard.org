@@ -45,6 +45,7 @@ div.example { margin-left: 12px; }
 div.header {
   padding: 20px 20px 0 20px;
   max-width: 760px;
+  margin: 0 auto;
 }
 img.header-icon {
   margin-bottom: 20px;
@@ -58,6 +59,7 @@ div.linktrail {
 div.footer {
   max-width: 800px;
   padding-bottom: 1em;
+  margin: 0 auto;
 }
 div.addthis_right {
   float: right;
@@ -81,7 +83,7 @@ div.body {
     <xsl:value-of select="$color.yellow_border"/><xsl:text>;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
-  margin: 0;
+  margin: 0 auto;
   padding: 1em 19px 1em 19px;
   max-width: 760px;
 }
