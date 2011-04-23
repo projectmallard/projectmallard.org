@@ -83,7 +83,7 @@ definition are on the page <link xref="mal_page"/>.</p>
 
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_inline = {
+mal_inline = (
   <link xref="mal_inline_app">mal_inline_app</link> * &amp;
   <link xref="mal_inline_cmd">mal_inline_cmd</link> * &amp;
   <link xref="mal_inline_code">mal_inline_code</link> * &amp;
@@ -105,7 +105,7 @@ mal_inline = {
     mal_inline
   } * &amp;
   text ?
-}
+)
 </code></synopsis>
 </section>
 
