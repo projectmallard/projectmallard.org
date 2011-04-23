@@ -59,7 +59,7 @@ div.linktrail {
 div.footer {
   max-width: 800px;
   padding-bottom: 1em;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
 }
 div.addthis_right {
   float: right;
@@ -86,6 +86,12 @@ div.body {
   margin: 0 auto;
   padding: 1em 19px 1em 19px;
   max-width: 760px;
+  box-shadow: 0 4px 8px </xsl:text>
+    <xsl:value-of select="$color.gray_border"/><xsl:text>;
+  -webkit-box-shadow: 0 2px 12px </xsl:text>
+    <xsl:value-of select="$color.gray_border"/><xsl:text>;
+  -moz-box-shadow: 0 2px 12px </xsl:text>
+    <xsl:value-of select="$color.gray_border"/><xsl:text>;
 }
 body.pmo-source div.body {
   border-top: solid 4px #d3d7cf;
