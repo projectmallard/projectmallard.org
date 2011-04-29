@@ -67,7 +67,7 @@ class inheritance or directory layouts.</p>
   <title>Examples</title>
 
   <p>Use a tree to outline a class heirarchy inside a
-  <code xref="mal_block_synopsis">>synopsis</code> element:</p>
+  <code xref="mal_block_synopsis">synopsis</code> element:</p>
 
   <example>
     <code><![CDATA[
