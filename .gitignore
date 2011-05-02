@@ -14,7 +14,11 @@ Makefile.in
 *.rnc
 *.rng
 /1.0/META.page
+/about/learn/svg-1.svg
+/about/learn/svg-2.svg
+/about/learn/svg-3.svg
 /download/mallard-rng/AUTHORS
 /download/mallard-rng/COPYING
 /download/mallard-rng/INSTALL
 /download/mallard-rng/NEWS
+/download/mallard-rng/catalog
