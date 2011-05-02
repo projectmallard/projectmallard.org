@@ -215,7 +215,12 @@ function parse_pattern (line) {
   else if (match(line, /^[A-Za-z_]/)) {
     name = substr(line, 1);
     sub(/[^A-Za-z_]+.*/, "", name);
-    stack[++stack_i] = sprintf("<ref name='%s'/>", name);
+    if (name == "empty") {
+      stack[++stack_i] = "<empty/>";
+    }
+    else {
+      stack[++stack_i] = sprintf("<ref name='%s'/>", name);
+    }
     if (length(line) >= length(name) + 1) {
       aft = substr(line, length(name) + 1);
       parse_pattern(aft);
