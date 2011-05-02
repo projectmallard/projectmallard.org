@@ -759,6 +759,7 @@ mal_table_attr = (
     "all" | "groups" | "none" |
     list { ("rows" | "rowgroups" | "cols" | "colgroups") * }
   } ?,
+  <link xref="mal_block">mal_block_attr</link>,
   <link xref="mal_external">mal_attr_external</link> *
 )
 </code></synopsis>

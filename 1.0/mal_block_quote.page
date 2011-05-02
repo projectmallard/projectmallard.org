@@ -167,6 +167,7 @@ mal_block_quote = element quote {
 }
 mal_block_quote_attr = (
   attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_block">mal_block_attr</link>,
   <link xref="mal_external">mal_attr_external</link> *
 )
 mal_block_quote_content = <link xref="mal_block">mal_block</link>

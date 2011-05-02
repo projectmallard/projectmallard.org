@@ -107,6 +107,7 @@ mal_inline = (
   } * &amp;
   text ?
 )
+mal_inline_attr = empty
 </code></synopsis>
 </section>
 

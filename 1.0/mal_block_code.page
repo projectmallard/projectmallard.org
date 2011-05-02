@@ -146,6 +146,7 @@ mal_block_code = element code {
 mal_block_code_attr = (
   attribute style { xsd:NMTOKENS } ?,
   attribute mime { text } ?,
+  <link xref="mal_block">mal_block_attr</link>,
   <link xref="mal_external">mal_attr_external</link> *
 )
 mal_block_code_inline = <link xref="mal_inline">mal_inline</link>

@@ -222,6 +222,7 @@ mal_inline_link_attr = (
   <link xref="mal_attr_link">mal_attr_link</link> +,
   attribute style { xsd:NMTOKENS } ?,
   attribute role { text } ?,
+  <link xref="mal_inline">mal_inline_attr</link>,
   <link xref="mal_external">mal_attr_external</link> *
 )
 mal_inline_link_inline = <link xref="mal_inline">mal_inline</link>

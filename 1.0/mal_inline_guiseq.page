@@ -124,6 +124,7 @@ mal_inline_guiseq = element guiseq {
 }
 mal_inline_guiseq_attr = (
   attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_inline">mal_inline_attr</link>,
   <link xref="mal_external">mal_attr_external</link> *
 )
 mal_inline_guiseq_inline = (

@@ -203,6 +203,7 @@ mal_block_elements = (
   <link xref="mal_block_tree">mal_block_tree</link> |
   <link xref="mal_table">mal_table</link>
 )
+mal_block_attr = empty
 </code></synopsis>
 </section>
 <!-- END schema -->
