@@ -1,0 +1,71 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="if_attr_test">
+
+<info>
+  <revision docversion="1.0" date="2011-05-02" status="stub"/>
+
+  <link type="guide" xref="index" group="test"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2011</years>
+  </credit>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+</info>
+
+<title>The <code>test</code> and <code>if:test</code> Attributes</title>
+
+<p>FIXME</p>
+
+<!-- BEGIN notes -->
+<!--
+<section id="notes">
+<title>Notes</title>
+</section>
+-->
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<!--
+<section id="examples">
+<title>Examples</title>
+</section>
+-->
+<!-- END examples -->
+
+
+<!-- BEING processing -->
+<section id="processing">
+<title>Processing Expectations</title>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard Conditional Processing extension
+is maintained in <link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification. This is the formal definition
+for the <code>test</code> and <code>if:test</code> attributes. The namespace
+declarations for this definition are on the page <link xref="index"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+if_attr_test = attribute test { text }
+if_attr_if_test = attribute if:test { text }
+<link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">mal_block_attr</link> &amp;= if_attr_if_test
+<link xref="/1.0/mal_block_list" href="http://projectmallard.org/1.0/mal_block_list.html">mal_block_list_item_attr</link> &amp;= if_attr_if_test
+<link xref="/1.0/mal_block_steps" href="http://projectmallard.org/1.0/mal_block_steps.html">mal_block_steps_item_attr</link> &amp;= if_attr_if_test
+<link xref="/1.0/mal_block_terms" href="http://projectmallard.org/1.0/mal_block_terms.html">mal_block_terms_item_attr</link> &amp;= if_attr_if_test
+<link xref="/1.0/mal_block_tree" href="http://projectmallard.org/1.0/mal_block_tree.html">mal_block_tree_item_attr</link> &amp;= if_attr_if_test
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

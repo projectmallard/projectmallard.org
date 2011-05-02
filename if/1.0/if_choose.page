@@ -1,0 +1,117 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="if_choose">
+
+<info>
+  <revision docversion="1.0" date="2011-05-02" status="stub"/>
+
+  <link type="guide" xref="index" group="choose"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2011</years>
+  </credit>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+</info>
+
+<title>The <code>if:choose</code> Element</title>
+
+<p>The <code>if:choose</code> element, together with the
+<code xref="if_when">if:when</code> and <code xref="if_else">if:else</code>
+elements, provides branching and fallback capabilities to conditional
+processing. Use the <code>if:choose</code> element if you need to select
+only one from a number of conditions, or if you need to provide fallback
+content only when conditions are not met.</p>
+
+<p>The <code>if:choose</code> and <code>if:when</code> elements also allow
+you to hide conditional content from processing tools that don't support
+conditional processing. See <link xref="fallback"/> for details.</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+<title>Notes</title>
+<list>
+  <item><p>The <code>if:choose</code> contains one or more
+  <code xref="if_when">if:when</code> elements, followed by
+  <link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">general
+  block content</link> or an <code xref="if_else">if:else</code> element.</p></item>
+
+  <item><p>The <code>if:choose</code> element can occur in any general block context</p></item>
+
+  <item><p>The required <code xref="if_attr_test">test</code> attribute
+  contains an XPath expression and determines whether the content of the
+  <code>if:choose</code> element will be displayed.</p></item>
+
+  <item><p>The <code>style</code> attribute takes a space-separated list of
+  style hints.  Processing tools should adjust their behavior according to
+  those style hints they understand.</p></item>
+
+  <item><p>The <code>if:choose</code> element can have attributes from external
+  namespaces.  See <link xref="mal_external"/> for more information
+  on external-namespace attributes.</p></item>
+</list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<!--
+<section id="examples">
+<title>Examples</title>
+<p>FIXME</p>
+</section>
+-->
+<!-- END examples -->
+
+
+<!-- BEING processing -->
+<section id="processing">
+<title>Processing Expectations</title>
+
+<p>The <code>if:choose</code> element is a branching element. At most one of
+its child <code>if:when</code> elements is displayed, or else fallback content
+is displayed. A processing tool evaluates each child <code>if:when</code> in turn,
+evaluating its <code>test</code> attribute. Once an <code>if:when</code> element
+is found whose <code>test</code> attribute evaluates to true, its contents are
+processed in block mode, and further processing of the <code>if:choose</code>
+element stops.</p>
+
+<p>If no child <code>if:when</code> element is displayed, the fallback content
+is displayed. The fallback content is any block content that is a direct child
+of the <code>if:choose</code> element, plus any block content contained in a
+child <code>if:else</code> element, all processed in document order. Both are
+allowed, because they have different fallback behavior in tools that don't
+support conditional processing. See <link xref="fallback"/> for details.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard Conditional Processing extension
+is maintained in <link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification. This is the formal definition
+for the <code>choose</code> element. The namespace declarations for this
+definition are on the page <link xref="index"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+if_choose = element if:choose {
+  if_choose_attr,
+  <link xref="if_when">if_when</link> +,
+  ( <link xref="if_else">if_else</link> &amp;
+    <link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">mal_block</link> * )
+}
+if_choose_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="/1.0/mal_attr_external" href="http://projectmallard.org/1.0/mal_attr_external.html">mal_attr_external</link> *
+)
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

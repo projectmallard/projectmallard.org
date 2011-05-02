@@ -20,7 +20,7 @@ echo_verbose() {
     fi
 }
 
-for spec in 1.0 facet/1.0; do
+for spec in 1.0 facet/1.0 if/1.0; do
 rng_outdir="$rng_outbase/$spec"
 if echo "$spec" | grep -q "/"; then
     rng_base=`echo "$spec" | cut -f1 -d/`
