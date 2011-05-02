@@ -181,7 +181,8 @@ mal_inline_keyseq_attr = (
   <link xref="mal_external">mal_attr_external</link> *
 )
 mal_inline_keyseq_inline = (
-  (<link xref="mal_inline_gui">mal_inline_key</link> | mal_inline_keyseq) + &amp;
+  <link xref="mal_inline_gui">mal_inline_key</link> * &amp;
+  mal_inline_keyseq * &amp;
   text
 )
 </code></synopsis>
