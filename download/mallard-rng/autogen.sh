@@ -9,7 +9,7 @@ echo "Preparing $package $version"
     NEWS.xsl index.page)
 cp ../../AUTHORS .
 cp ../../COPYING .
-(cd ../.. && ./buildrng -o download/mallard-rng)
+(cd ../.. && ./buildrng -v -o download/mallard-rng)
 aclocal
 autoconf
 automake --add-missing
