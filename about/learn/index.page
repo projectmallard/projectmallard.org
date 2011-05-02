@@ -1,6 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
       type="guide"
-      groups="primary"
       id="index">
 
 <info>
@@ -12,5 +11,7 @@
 </info>
 
 <title>Learn Mallard</title>
+
+<links type="topic" groups="primary #default #last"/>
 
 </page>
