@@ -3,7 +3,7 @@
       id="if_if">
 
 <info>
-  <revision docversion="1.0" date="2011-05-02" status="stub"/>
+  <revision docversion="1.0" date="2011-05-03" status="review"/>
 
   <link type="guide" xref="index" group="if"/>
 
@@ -18,7 +18,12 @@
 
 <title>The <code>if:if</code> Element</title>
 
-<p>FIXME</p>
+<p>Use the <code>if:if</code> element in any block context to make
+one or more block elements conditional. The <code>if:if</code> element
+is more convenient than the <code xref="if_attr_test">if:test</code>
+attribute for multiple block elements, but simpler than the
+<code xref="if_choose">if:choose</code> and <code xref="if_when">if:when</code>
+elements when there is only one condition.</p>
 
 <!-- BEGIN notes -->
 <section id="notes">
@@ -47,17 +52,55 @@
 
 
 <!-- BEGIN examples -->
-<!--
 <section id="examples">
 <title>Examples</title>
+
+<p>Only show a paragraph when outputting to HTML:</p>
+
+<example>
+<code><![CDATA[
+<if:if test="if:env('html')">
+  <p>This is only output to HTML.</p>
+</if:if>
+]]></code>
+<p>This is only output to HTML.</p>
+</example>
+
+<p>The previous example could have been done more easily with the
+<code xref="if_attr_test">if:test</code> attribute on the <code>p</code>
+element. Use the <code>if:if</code> element to enclose multiple
+paragraphs in a single condition:</p>
+
+<example>
+<code><![CDATA[
+<if:if test="if:env('html')">
+  <p>This is only output to HTML.</p>
+  <p>So is this.</p>
+  <p>As well as this.</p>
+</if:if>
+]]></code>
+<p>This is only output to HTML.</p>
+<p>So is this.</p>
+<p>As well as this.</p>
+</example>
+
 </section>
--->
 <!-- END examples -->
 
 
 <!-- BEING processing -->
 <section id="processing">
 <title>Processing Expectations</title>
+
+<p>The <code xref="if_attr_test">test</code> attribute of an <code>if:if</code>
+element is evaluated as an XPath expression. If the result is true, the children
+of the <code>if:if</code> element are processed in block context. Otherwise, the
+entire <code>if:if</code> element is skipped.</p>
+
+<p>Processing tools that do no support this extension will process the children
+in restricted block context. This means that all standard block content of an
+<code>if:if</code> element will be displayed by non-supporting tools. See
+<link xref="fallback"/> for more details.</p>
 </section>
 <!-- END processing -->
 

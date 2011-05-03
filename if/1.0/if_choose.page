@@ -73,8 +73,8 @@ conditional processing. See <link xref="fallback"/> for details.</p>
 <p>The <code>if:choose</code> element is a branching element. At most one of
 its child <code>if:when</code> elements is displayed, or else fallback content
 is displayed. A processing tool evaluates each child <code>if:when</code> in turn,
-evaluating its <code>test</code> attribute. Once an <code>if:when</code> element
-is found whose <code>test</code> attribute evaluates to true, its contents are
+evaluating its <code xref="if_attr_test">test</code> attribute. Once an <code>if:when</code>
+element is found whose <code>test</code> attribute evaluates to true, its contents are
 processed in block mode, and further processing of the <code>if:choose</code>
 element stops.</p>
 
