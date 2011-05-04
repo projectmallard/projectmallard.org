@@ -18,8 +18,8 @@
 
 <title>Mallard Facets Extension</title>
 
-<list style="compact">
-  <item><p><link xref="/facet/1.0/index"/></p></item>
-</list>
+<links type="site-subdirs">
+  <title>Versions</title>
+</links>
 
 </page>

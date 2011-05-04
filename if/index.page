@@ -18,8 +18,8 @@
 
 <title>Mallard Conditional Processing</title>
 
-<list style="compact">
-  <item><p><link xref="/if/1.0/index"/></p></item>
-</list>
+<links type="site-subdirs">
+  <title>Versions</title>
+</links>
 
 </page>
