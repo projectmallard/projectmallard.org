@@ -218,6 +218,9 @@ function parse_pattern (line) {
     if (name == "empty") {
       stack[++stack_i] = "<empty/>";
     }
+    else if (name == "notAllowed") {
+      stack[++stack_i] = "<notAllowed/>";
+    }
     else {
       stack[++stack_i] = sprintf("<ref name='%s'/>", name);
     }
