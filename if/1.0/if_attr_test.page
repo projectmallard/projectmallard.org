@@ -59,11 +59,11 @@ declarations for this definition are on the page <link xref="index"/>.</p>
 <synopsis><code mime="application/relax-ng-compact-syntax">
 if_attr_test = attribute test { text }
 if_attr_if_test = attribute if:test { text }
-<link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">mal_block_attr</link> &amp;= if_attr_if_test
-<link xref="/1.0/mal_block_list" href="http://projectmallard.org/1.0/mal_block_list.html">mal_block_list_item_attr</link> &amp;= if_attr_if_test
-<link xref="/1.0/mal_block_steps" href="http://projectmallard.org/1.0/mal_block_steps.html">mal_block_steps_item_attr</link> &amp;= if_attr_if_test
-<link xref="/1.0/mal_block_terms" href="http://projectmallard.org/1.0/mal_block_terms.html">mal_block_terms_item_attr</link> &amp;= if_attr_if_test
-<link xref="/1.0/mal_block_tree" href="http://projectmallard.org/1.0/mal_block_tree.html">mal_block_tree_item_attr</link> &amp;= if_attr_if_test
+<link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">mal_block_attr</link> &amp;= if_attr_if_test ?
+<link xref="/1.0/mal_block_list" href="http://projectmallard.org/1.0/mal_block_list.html">mal_block_list_item_attr</link> &amp;= if_attr_if_test ?
+<link xref="/1.0/mal_block_steps" href="http://projectmallard.org/1.0/mal_block_steps.html">mal_block_steps_item_attr</link> &amp;= if_attr_if_test ?
+<link xref="/1.0/mal_block_terms" href="http://projectmallard.org/1.0/mal_block_terms.html">mal_block_terms_item_attr</link> &amp;= if_attr_if_test ?
+<link xref="/1.0/mal_block_tree" href="http://projectmallard.org/1.0/mal_block_tree.html">mal_block_tree_item_attr</link> &amp;= if_attr_if_test ?
 </code></synopsis>
 </section>
 <!-- END schema -->
