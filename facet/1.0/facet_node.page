@@ -19,6 +19,8 @@
 <title>Collections</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
+# This schema cannot be used on its own. It is designed to be combined
+# with the core Mallard schema using the version attribute.
 default namespace facet = "http://projectmallard.org/facet/1.0/"
 mal_info_content &amp;= (
   facet_tag * &amp;

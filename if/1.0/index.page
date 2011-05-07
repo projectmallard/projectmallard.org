@@ -66,6 +66,8 @@ in code blocks within this specification. This is the namespace declaration
 for the schema.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
+# This schema cannot be used on its own. It is designed to be combined
+# with the core Mallard schema using the version attribute.
 namespace if = "http://projectmallard.org/if/1.0/"
 </code></synopsis>
 </section>
