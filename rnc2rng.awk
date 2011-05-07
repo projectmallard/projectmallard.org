@@ -364,6 +364,16 @@ function printstack () {
   }
 }
 function printstackone () {
+  if (substr(stack[pos], 1, 1) == "#") {
+    print "<!--";
+    while (substr(stack[pos], 1, 1) == "#") {
+      cmt = substr(stack[pos], 2);
+      sub(/^ */, "", cmt);
+      print cmt;
+      pos++;
+    }
+    print "-->";
+  }
   if (substr(stack[pos], 1, 6) == "<start") {
     print stack[pos];
     pos++;
@@ -471,4 +481,11 @@ mode == "pattern" {
 mode == "name_class" {
   parse_name_class($0);
   next;
+}
+# Doesn't handle all comments. That would require modifying
+# parse_pattern and parse_name_class and generall being a lot
+# more clever about output. But it handles comments that start
+# a line outside a pattern. Enough for me.
+/#.*/ {
+  stack[++stack_i] = $0
 }

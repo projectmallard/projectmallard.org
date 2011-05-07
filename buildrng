@@ -1,4 +1,10 @@
 #!/bin/sh
+gnused=`sed --version | head -n 1 | grep '^GNU sed'`
+if [ "x$gnused" = "x" ]; then
+    echo "This script requires GNU sed" 1>&2
+    exit 1
+fi
+
 while [ "$#" != "0" ]; do
     if [ "x$1" = "x-o" ]; then
 	rng_outbase="$2"
@@ -43,9 +49,11 @@ echo_verbose "Creating $rng_rngfile"
 LANG= awk -f rnc2rng.awk "$rng_rncfile" > "$rng_tmpfile" || (rm -f "$rng_tmpfile" && exit 1)
 xmllint --format "$rng_tmpfile" | \
     sed -e 's/^  //' \
+        -e 's/^\(<grammar.*>\)/\1\n/' \
         -e 's/ xmlns/\n    xmlns/g' \
         -e 's/" ns=/"\n    ns=/' \
-        -e 's/^<s/\n<s/' \
-        -e 's/^<d/\n<d/' \
+        -e 's/<\/start>/<\/start>\n/' \
+        -e 's/<\/define>/<\/define>\n/' \
+        -e 's/-->/-->\n/' \
     > "$rng_rngfile" || (rm -f "$rng_tmpfile" && exit 1) && rm -f "$rng_tmpfile"
 done
