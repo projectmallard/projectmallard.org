@@ -16,6 +16,12 @@
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
   <desc>Mallard recommendations for people familiar with DocBook.</desc>
+
+  <its:rules xmlns:its="http://www.w3.org/2005/11/its"
+             xmlns:mal="http://projectmallard.org/1.0/"
+             version="1.0">
+    <its:translateRule selector="//mal:tr/mal:td[1]" translate="no"/>
+  </its:rules>
 </info>
 
 <title>DocBook Element Reference</title>

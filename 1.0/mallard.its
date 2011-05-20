@@ -1,0 +1,8 @@
+<its:rules xmlns:its="http://www.w3.org/2005/11/its"
+           xmlns:mal="http://projectmallard.org/1.0/"
+           version="1.0">
+  <its:translateRule selector="//mal:info/mal:credit/mal:years"
+                     translate="no"/>
+  <its:translateRule selector="//mal:synopsis/mal:code[@mime='application/relax-ng-compact-syntax']"
+                     translate="no"/>
+</its:rules>
