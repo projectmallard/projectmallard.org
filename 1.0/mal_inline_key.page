@@ -34,7 +34,7 @@ are allowed to use text without a <code>key</code> element exactly
 for this purpose.</p>
 
 <p>Do not use <code>key</code> to mark up a symbolic key code or a numeric
-key value; if necesarry, use <code xref="mal_inline_sys">sys</code> for
+key value; if necessary, use <code xref="mal_inline_sys">sys</code> for
 these instead.</p>
 
 

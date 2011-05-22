@@ -154,9 +154,9 @@ elements can be used to record any additional information you need.</p>
   <code href="http://www.docbook.org/tdg51/en/html/info.html">info</code> element
   in <link xref="docbook">DocBook</link> 5, or to the various <code>*info</code>
   elements in DocBook 4, such as
-  <link href="http://www.docbook.org/tdg/en/html/articleinfo.html">articleinfo</link>,
-  <link href="http://www.docbook.org/tdg/en/html/bookinfo.html">bookinfo</link>, and
-  <link href="http://www.docbook.org/tdg/en/html/chapterinfo.html">chapterinfo</link>.</p>
+  <code href="http://www.docbook.org/tdg/en/html/articleinfo.html">articleinfo</code>,
+  <code href="http://www.docbook.org/tdg/en/html/bookinfo.html">bookinfo</code>, and
+  <code href="http://www.docbook.org/tdg/en/html/chapterinfo.html">chapterinfo</code>.</p>
 
   <p>The <code>info</code> element is similar to the
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/prolog.html">prolog</code>

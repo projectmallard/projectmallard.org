@@ -67,7 +67,7 @@ You should <em>never</em> run a graphical application as root.
     <p>You should <em>never</em> run a graphical application as root.</p>
   </example>
 
-  <p>Use <code>em</code> to mark the first occurance of a term:</p>
+  <p>Use <code>em</code> to mark the first occurrence of a term:</p>
 
   <example>
     <code><![CDATA[

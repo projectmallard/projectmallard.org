@@ -82,7 +82,7 @@ See <link xref="ducks" role="zxx-object"/> for more information.
   might need additional markup.</p>
 
   <p>The <code xref="mal_inline_em">em</code> element emphasizes text. Mallard
-  does not provide separate element for different sementic uses of emphasis,
+  does not provide separate element for different semantic uses of emphasis,
   such as foreign words, introductions of terms, and titles of publications.
   In some languages, these uses don't all use font variations like italics.
   Non-latin scripts usually don't even have italics, although it is becoming

@@ -36,7 +36,7 @@ while keeping the core Mallard specification simple.</p>
 
 <list>
   <item><p>All elements in Mallard can have attributes from external namespaces.
-  This can be used to clairfy the meaning of an element in a particular context,
+  This can be used to clarify the meaning of an element in a particular context,
   to provide additional information to processing tools, or to embed richer
   semantic data into a document.</p></item>
 

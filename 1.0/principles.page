@@ -31,7 +31,7 @@ principles that led Mallard to be the format it is.</p>
   This allows distributors, OEMs, and plugin authors to better help users
   by providing the appropriate information where it belongs: integrated
   into the rest of the help. Unlike other formats that require static maps
-  or a linear document structure, Mallard features uniqe
+  or a linear document structure, Mallard features unique
   <link xref="mal_links">automatic linking mechanisms</link> that are
   designed to support adding new pages without modifying original
   content.</p>

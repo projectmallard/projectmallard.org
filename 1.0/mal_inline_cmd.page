@@ -130,7 +130,7 @@ you to filter files based on their modification times.
   of a typical environment where commands are executed.  More importantly,
   fixed-width fonts tend to have more distinction between visually similar
   characters.  This is particularly important in commands, since letters often
-  appear without the context of a known word that helps make them discernable
+  appear without the context of a known word that helps make them discernible
   in normal prose.</p>
 
   <p>Commands in documentation are often provided with options to illustrate

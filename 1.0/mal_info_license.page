@@ -97,7 +97,7 @@ Commons Attribution-Share Alike 3.0 United States License</link>.</p>
   <code href="http://www.docbook.org/tdg51/en/html/legalnotice.html">legalnotice</code>
   element, which is frequently used to include licensing terms.  The
   <code>license</code> element is intended mostly for redistribution
-  terms, which are not immediately relevent to most readers.  When it
+  terms, which are not immediately relevant to most readers.  When it
   is important that readers see certain legal information, authors
   should provide that information in the main content, possibly on a
   separate page.</p>

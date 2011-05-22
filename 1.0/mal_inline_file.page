@@ -84,7 +84,7 @@ XML catalogs are stored in <file>/etc/xml/catalog</file>.
   <p>Filenames should be displayed in a fixed-width or wide font.  Fixed-width
   fonts tend to have more distinction between visually similar characters.  This
   is particularly important in filenames, since letters often appear without the
-  context of a known word that helps make them discernable in normal prose.</p>
+  context of a known word that helps make them discernible in normal prose.</p>
 </section>
 <!-- END processing -->
 

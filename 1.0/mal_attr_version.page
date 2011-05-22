@@ -163,7 +163,7 @@ version and extensions to a processing tool or validator.</p>
     <item><p>Any <code>start</code> element from a non-primary schema that
     does not have a valid <code>combine</code> attribute is dropped.</p></item>
 
-    <item><p>A set of valid namespace URIs is constructed by extrating the
+    <item><p>A set of valid namespace URIs is constructed by extracting the
     following from each schema's <code>grammar</code> element:</p>
     <list>
       <item><p>The <code>ns</code> attribute</p></item>

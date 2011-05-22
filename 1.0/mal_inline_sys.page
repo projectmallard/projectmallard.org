@@ -75,7 +75,7 @@ isn't covered by other elements such as <code xref="mal_inline_file">file</code>
   <p>System items are displayed in a fixed-width font.  Fixed-width fonts
   tend to have more distinction between visually similar characters. This
   is particularly important in system items, since letters often appear
-  without the context of a known word that helps make them discernable in
+  without the context of a known word that helps make them discernible in
   normal prose.</p>
 </section>
 <!-- END processing -->

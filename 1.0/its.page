@@ -308,7 +308,7 @@ Future versions may discuss more requirements.</p></note>
   <p>Making meaningful distinctions is ultimately the job of a processing
   tool, although the design of an XML vocabulary can have a significant
   impact on implementation difficulty.  The following notes will be relevant
-  to most tool implementors.</p>
+  to most tool implementers.</p>
 
   <list>
     <item>
@@ -329,7 +329,7 @@ Future versions may discuss more requirements.</p></note>
       <p>In Mallard, elements generally contain either block content or
       inline content.  Thus, for example, you cannot place a paragraph
       inside a paragraph.  This is simpler for translators, as well as
-      for translation tool implementors, because it reduces the need
+      for translation tool implementers, because it reduces the need
       to use placeholders for separate translation units.</p>
     </item>
 

@@ -91,13 +91,13 @@ various other purposes by different tools.</p>
 <title>Comparison to Other Formats</title>
 <p>There is no direct equivalent to the informational <code>desc</code> element
 in <link xref="docbook">DocBook</link>. When used in an info element, the
-<link href="http://www.docbook.org/tdg51/en/html/abstract.html">abstract</link>
+<code href="http://www.docbook.org/tdg51/en/html/abstract.html">abstract</code>
 element may be used for a similar purpose, although it is a formal element
 without the same processing expectations.</p>
 
 <p>There is no direct equivalent to the informational <code>desc</code> element
 in <link xref="dita">DITA</link>. The
-<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/shortdesc.html">shortdesc</link>
+<code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/shortdesc.html">shortdesc</code>
 element may contain similar text, but it is always part of the main body of a
 topic, rather than part of the metadata.</p>
 </section>

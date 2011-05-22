@@ -32,9 +32,9 @@ control element.</p>
   <title>Notes</title>
   <list>
     <item><p>The <code>synopsis</code> element contains an optional
-    <link xref="mal_block_title">title</link> element, an optional
-    <link xref="mal_block_desc">desc</link> element, and  any
-    <link xref="mal_block">general block content</link>.</p></item>
+    <code xref="mal_block_title">title</code> element, an optional
+    <code xref="mal_block_desc">desc</code> element, and  any
+    <code xref="mal_block">general block content</code>.</p></item>
 
     <item><p>The <code>synopsis</code> element can occur in any
     general block context, including inside
@@ -110,7 +110,7 @@ int  count_beans ();
   <code href="http://www.docbook.org/tdg51/en/html/cmdsynopsis.html">cmdsynopsis</code> and
   <code href="http://www.docbook.org/tdg51/en/html/funcsynopsis.html">funcsynopsis</code>
   elements, which attempt to model the data for command and function synopses,
-  respectively.  Mallard does not provide modelling elements.  The various
+  respectively.  Mallard does not provide modeling elements.  The various
   synopsis elements in DocBook output preformatted text, and are only useful
   for code.  The <code>synopsis</code> element in Mallard allows any block
   content.  Nest a <code xref="mal_block_code">code</code> element for a code

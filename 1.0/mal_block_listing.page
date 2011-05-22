@@ -34,9 +34,9 @@ element.</p>
   <title>Notes</title>
   <list>
     <item><p>The <code>listing</code> element contains an optional
-    <link xref="mal_block_title">title</link> element, an optional
-    <link xref="mal_block_desc">desc</link> element, and  any
-    <link xref="mal_block">general block content</link>.</p></item>
+    <code xref="mal_block_title">title</code> element, an optional
+    <code xref="mal_block_desc">desc</code> element, and  any
+    <code xref="mal_block">general block content</code>.</p></item>
 
     <item><p>The <code>listing</code> element can occur in any
     general block context, including inside

@@ -302,17 +302,17 @@ for tracking or validation.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/desc.html">desc</code></p></td>
     <td><p>In a
-    <link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/fig.html">fig</link>,
-    <link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/table.html">table</link>, or
-    <link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/linklist.html">linklist</link>
+    <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/fig.html">fig</code>,
+    <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/table.html">table</code>, or
+    <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/linklist.html">linklist</code>
     element, similar to the block <code xref="mal_block_desc">desc</code> element.
     In a
-    <link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/link.html">link</link> or
-    <link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/xref.html">xref</link>
+    <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/link.html">link</code> or
+    <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/xref.html">xref</code>
     element, use the informational <code xref="mal_info_desc">desc</code> element
     on the target page or section. In an
-    <link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/object.html">object</link>
-    element, see the processing expecations for the <link xref="mal_inline_media">inline</link>
+    <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/object.html">object</code>
+    element, see the processing expectations for the <link xref="mal_inline_media">inline</link>
     and <link xref="mal_block_media">block</link> <code>media</code> element for details
     on fallback content.</p></td>
   </tr></tbody>

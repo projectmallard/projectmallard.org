@@ -107,7 +107,7 @@ description of the page or section as of that revision.</p>
 <section id="examples">
   <title>Examples</title>
 
-  <p>Specify the date that a page was marked ready for review, targetting
+  <p>Specify the date that a page was marked ready for review, targeting
   the 1.0 version of the containing document:</p>
 
   <example>

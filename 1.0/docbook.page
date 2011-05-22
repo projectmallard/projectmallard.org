@@ -1727,7 +1727,7 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
     <tr>
       <td><p><code href="http://www.docbook.org/tdg51/en/html/toc.html">toc</code></p></td>
       <td rowspan="12"><p>Mallard does not organize documents into linear structures.
-      Topic and guide links can induce heirarchical structures, and sections within
+      Topic and guide links can induce hierarchical structures, and sections within
       a page are linearly structured. See the <code xref="mal_links">links</code>
       element for details on how links are displayed for these.</p></td>
     </tr>

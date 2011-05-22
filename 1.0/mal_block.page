@@ -91,7 +91,7 @@ information.</p>
 
   <p>Mallard provides list elements for most common needs, including the common
   definition, ordered, and unordered lists.  Mallard also provides simple trees,
-  which are useful for representing heirarchies such as class inheritance or
+  which are useful for representing hierarchies such as class inheritance or
   directory layouts.  Each of the list elements uses the <code>item</code>
   element, though the content model for <code>item</code> varies.  See the
   list element pages for details.</p>

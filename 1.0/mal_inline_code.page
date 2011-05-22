@@ -75,7 +75,7 @@ by the user.</p>
   <title>Examples</title>
 
   <p>Use <code>code</code> to mark up the name of a function, struct, or other
-  constuct in a programming language:</p>
+  construct in a programming language:</p>
 
   <example>
     <code><![CDATA[
@@ -120,7 +120,7 @@ up code with a placeholder for an argument the user should supply.
   the look of a typical environment where code is typed.  More importantly,
   fixed-width fonts tend to have more distinction between visually similar
   characters.  This is particularly important in code, since letters often
-  appear without the context of a known word that helps make them discernable
+  appear without the context of a known word that helps make them discernible
   in normal prose.</p>
 
   <p>For particularly long code snippets, display tools may use a background

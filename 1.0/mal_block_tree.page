@@ -13,14 +13,14 @@
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
-  <desc>Create simple trees to show heirarchical structures.</desc>
+  <desc>Create simple trees to show hierarchical structures.</desc>
 </info>
 
 <title>Tree Lists</title>
 
-<p>Use the <code>tree</code> element to create a heirarchical tree.  While
+<p>Use the <code>tree</code> element to create a hierarchical tree.  While
 conceptually similar to nested <code xref="mal_block_list">list</code>
-elements, trees offer a simple way to display common heirarchies such as
+elements, trees offer a simple way to display common hierarchies such as
 class inheritance or directory layouts.</p>
 
 
@@ -66,7 +66,7 @@ class inheritance or directory layouts.</p>
 <section id="examples">
   <title>Examples</title>
 
-  <p>Use a tree to outline a class heirarchy inside a
+  <p>Use a tree to outline a class hierarchy inside a
   <code xref="mal_block_synopsis">synopsis</code> element:</p>
 
   <example>
@@ -172,7 +172,7 @@ class inheritance or directory layouts.</p>
 <section id="comparison">
 <title>Comparison to Other Formats</title>
 
-<p>The <code>tree</code> element has no direct equavalent in
+<p>The <code>tree</code> element has no direct equivalent in
 <link xref="docbook">DocBook</link> or <link xref="dita">DITA</link>.
 In DocBook, a similar effect can be accomplished with nested
 <code href="http://www.docbook.org/tdg51/en/html/itemizedlist.html">itemizedlist</code>

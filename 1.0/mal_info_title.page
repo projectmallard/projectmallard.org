@@ -222,7 +222,7 @@ purposes.</p>
   allows for any mixture of informational titles.  As such, it is entirely
   possible for multiple titles to exist for some specified combination of
   the <code>type</code> and <code>role</code> attributes.  When such an
-  ambiguity arrises, processing tools should select the first informational
+  ambiguity arises, processing tools should select the first informational
   title that matches the desired criteria.</p>
 </section>
 <!-- END processing -->

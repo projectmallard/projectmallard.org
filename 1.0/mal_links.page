@@ -237,7 +237,7 @@ its direct parent.</p>
   <list>
     <item><p>The node has an informational link with type <code>"guide"</code>
     whose <code>xref</code> attribute points to the target guide.</p></item>
-    <item><p>The target guide has an informataional link with type
+    <item><p>The target guide has an informational link with type
     <code>"topic"</code> whose <code>xref</code> attribute points to
     the node.</p></item>
   </list>

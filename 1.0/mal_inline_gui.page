@@ -128,7 +128,7 @@ of your keyboard to meet certain accessibility needs.
   <title>Processing Expectations</title>
 
   <p>No particular special rendering is required for <code>gui</code> elements.
-  Interface labels may be rendered with lightened text or other sublte styling
+  Interface labels may be rendered with lightened text or other subtle styling
   effects to distinguish them from the surrounding text.</p>
 
   <p>In certain environments, interface labels may be decorated with an icon or
