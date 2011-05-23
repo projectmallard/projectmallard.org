@@ -1,9 +1,6 @@
 mal10dir = $(rngdir)/1.0
 mal10_DATA = 1.0/mallard-1.0.rnc 1.0/mallard-1.0.rng
 
-facet10dir = $(rngdir)/facet/1.0
-facet10_DATA = facet/1.0/facet-1.0.rnc facet/1.0/facet-1.0.rng
-
 catalogdir = $(sysconfdir)/xml/mallard
 catalog_DATA = catalog
 
