@@ -1,4 +1,4 @@
-<page xmlns="http://projectmallard.org/1.0/"
+<page xmlns="http://projectmallard.org/1.0/" version="1.0"
       type="topic" style="details"
       id="dita">
 
@@ -6,7 +6,7 @@
   <link type="guide" xref="details#misc"/>
   <link type="seealso" xref="docbook"/>
 
-  <revision docversion="1.0" date="2011-02-23" status="incomplete"/>
+  <revision docversion="1.0" date="2011-05-23" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -39,16 +39,21 @@ domains do not have their elements listed explicitly:</p>
 
 <list style="compact">
   <item><p><code>bookmap</code></p></item>
+  <item><p><code>classify-d</code></p></item>
   <item><p><code>glossentry</code></p></item>
   <item><p><code>hazard-d</code></p></item>
   <item><p><code>indexing-d</code></p></item>
   <item><p><code>map</code></p></item>
   <item><p><code>mapgroup-d</code></p></item>
   <item><p><code>mitask-d</code></p></item>
+  <item><p><code>subjectScheme</code></p></item>
   <item><p><code>xnal-d</code></p></item>
 </list>
 
-<p>Additionally, this page does not list any of the highly specialized
+<p>This page does not list elements used in a DITAVAL file. Conditional
+processing is not addressed by the core Mallard specification, although
+extensions may provide this functionality. Additionally, this page does
+not list any of the highly specialized
 <link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langRef-learningTraining.html">learning
 and training elements</link>.</p>
 
@@ -61,7 +66,7 @@ for tracking or validation.</p>
 <table rules="cols" shade="rowgroups" frame="all">
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/abbreviated-form.html">abbreviated-form</code></p></td>
-    <td><p></p></td>
+    <td><p>No equivalent in Mallard.  Future versions may address glossaries directly.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/abstract.html">abstract</code></p></td>
@@ -76,13 +81,20 @@ for tracking or validation.</p>
     Fallback content can contain any content that would be valid where the media element
     occurs.</p></td>
   </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/anchorid.html">anchorid</code></p></td>
+      <td rowspan="2"><p>Specific to DITA conrefs. No equivalent in Mallard.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/anchorkey.html">anchorkey</code></p></td>
+    </tr>
+  </tbody>
   <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/anchorid.html">anchorid</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/anchorkey.html">anchorkey</code></p></td>
-    <td><p></p></td>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/classify-d.html">classify-d/*</code></p></td>
+    <td><p>Classification specialization specific to DITA's mechanism of organizing
+    topics using maps; no direct equivalent in Mallard. See <link xref="mal_links"/>
+    for details on automatic linking and organization in Mallard.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/apiname.html">apiname</code></p></td>
@@ -92,10 +104,6 @@ for tracking or validation.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/area.html">area</code></p></td>
     <td><p>Mallard does not have image maps. Extensions may provide this functionality.</p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/attributedef.html">attributedef</code></p></td>
-    <td><p></p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/audience.html">audience</code></p></td>
@@ -131,7 +139,8 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/boolean.html">boolean</code></p></td>
-    <td><p></p></td>
+    <td><p>No equivalent in Mallard. Include the appropriate text in an element such as
+    <code xref="mal_inline_code">code</code> or <code xref="mal_inline_sys">sys</code>.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
@@ -184,7 +193,8 @@ for tracking or validation.</p>
   </tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/cite.html">cite</code></p></td>
-    <td><p></p></td>
+    <td><p>No equivalent in Mallard. Use the appropriate punctuation, or the
+    <code xref="mal_inline_em">em</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/cmd.html">cmd</code></p></td>
@@ -291,10 +301,6 @@ for tracking or validation.</p>
     Use a <link xref="mal_table">table</link> instead if necessary.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/defaultSubject.html">defaultSubject</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/delim.html">delim</code></p></td>
     <td><p>Mallard does not have a structured environment for syntax diagrams.
     Extensions may provide this functionality.</p></td>
@@ -320,34 +326,6 @@ for tracking or validation.</p>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dita.html">dita</code></p></td>
     <td><p>Mallard does not currently have a mechanism to include multiple pages in
     a single file. Future versions or extensions may provide this functionality.</p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ditaval-alt-text.html">ditaval-alt-text</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ditaval-endflag.html">ditaval-endflag</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ditaval-prop.html">ditaval-prop</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ditaval-revprop.html">ditaval-revprop</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ditaval-startflag.html">ditaval-startflag</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ditaval-style-conflict.html">ditaval-style-conflict</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ditaval-val.html">ditaval-val</code></p></td>
-    <td><p></p></td>
   </tr></tbody>
   <tbody>
     <tr>
@@ -378,16 +356,8 @@ for tracking or validation.</p>
     Use a <link xref="mal_table">table</link> instead if necessary.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/elementdef.html">elementdef</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/entry.html">entry</code></p></td>
     <td><p>See the <code xref="mal_table">table</code> element for details.</p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/enumerationdef.html">enumerationdef</code></p></td>
-    <td><p></p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/example.html">example</code></p></td>
@@ -396,7 +366,7 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/exportanchors.html">exportanchors</code></p></td>
-    <td><p></p></td>
+    <td><p>Specific to DITA conrefs. No equivalent in Mallard.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/featnum.html">featnum</code></p></td>
@@ -409,7 +379,9 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/figgroup.html">figgroup</code></p></td>
-    <td><p></p></td>
+    <td><p>No direct equivalent in Mallard. The <code xref="mal_block_figure">figure</code>
+    element accepts any block content, so you may use standard formal block element inside
+    it, including nested <code>figure</code> elements.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/filepath.html">filepath</code></p></td>
@@ -466,26 +438,6 @@ for tracking or validation.</p>
       <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/groupseq.html">groupseq</code></p></td>
     </tr>
   </tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/hasInstance.html">hasInstance</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/hasKind.html">hasKind</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/hasNarrower.html">hasNarrower</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/hasPart.html">hasPart</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/hasRelated.html">hasRelated</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/hazard-d.html">hazard-d/*</code></p></td>
     <td><p>Specializations of notes. Use style hints or other extension mechanisms
@@ -585,11 +537,16 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/longdescref.html">longdescref</code></p></td>
-    <td><p></p></td>
+    <td><p>The <code xref="mal_block_media">media</code> element in Mallard allows
+    block content as children (or inline content for the inline
+    <code xref="mal_inline_media">media</code> element). Long descriptions can be
+    provided in fallback content. If you need to separate this into another file,
+    use XInclude.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/longquoteref.html">longquoteref</code></p></td>
-    <td><p></p></td>
+    <td><p>No equivalent in Mallard. To include content from another file, use
+    XInclude.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
@@ -823,10 +780,6 @@ for tracking or validation.</p>
     <code xref="mal_links">links</code> element for details on automatic links.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/relatedSubjects.html">relatedSubjects</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/repsep.html">repsep</code></p></td>
     <td><p>Mallard does not have a structured environment for syntax diagrams.
     Extensions may provide this functionality.</p></td>
@@ -855,10 +808,6 @@ for tracking or validation.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/row.html">row</code></p></td>
     <td><p>See the <code xref="mal_table">table</code> element for details.</p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/schemeref.html">schemeref</code></p></td>
-    <td><p></p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/screen.html">screen</code></p></td>
@@ -925,7 +874,8 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/state.html">state</code></p></td>
-    <td><p></p></td>
+    <td><p>No equivalent in Mallard. Include the appropriate text in an element such as
+    <code xref="mal_inline_code">code</code> or <code xref="mal_inline_sys">sys</code>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/stentry.html">stentry</code></p></td>
@@ -976,44 +926,10 @@ for tracking or validation.</p>
     be embedded into Mallard documents.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/subjectCell.html">subjectCell</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/subjectdef.html">subjectdef</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/subjectHead.html">subjectHead</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/subjectHeadMeta.html">subjectHeadMeta</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/subjectref.html">subjectref</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/subjectRel.html">subjectRel</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/subjectRelHeader.html">subjectRelHeader</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/subjectRelTable.html">subjectRelTable</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/subjectRole.html">subjectRole</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/subjectScheme.html">subjectScheme</code></p></td>
-    <td><p></p></td>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/subjectScheme.html">subjectScheme/*</code></p></td>
+    <td><p>Classification specialization specific to DITA's mechanism of organizing
+    topics using maps; no direct equivalent in Mallard. See <link xref="mal_links"/>
+    for details on automatic linking and organization in Mallard.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
@@ -1073,11 +989,12 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/term.html">term</code></p></td>
-    <td><p></p></td>
+    <td><p>No equivalent in Mallard.  Future versions may address glossaries directly.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/text.html">text</code></p></td>
-    <td><p></p></td>
+    <td><p>No equivalent in Mallard. Use the <code xref="mal_inline_span">span</code>,
+    which is similar to the <code>ph</code> element in DITA.</p></td>   
   </tr></tbody>
   <tbody>
     <tr>
@@ -1104,30 +1021,6 @@ for tracking or validation.</p>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/topic.html">topic</code></p></td>
     <td><p>Similar to the <code xref="mal_page">page</code> element.</p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/topicapply.html">topicapply</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/topicCell.html">topicCell</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/topicSubjectHeader.html">topicSubjectHeader</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/topicsubject.html">topicsubject</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/topicSubjectRow.html">topicSubjectRow</code></p></td>
-    <td><p></p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/topicSubjectTable.html">topicSubjectTable</code></p></td>
-    <td><p></p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/tt.html">tt</code></p></td>

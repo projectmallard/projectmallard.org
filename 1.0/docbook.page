@@ -1,11 +1,11 @@
-<page xmlns="http://projectmallard.org/1.0/"
+<page xmlns="http://projectmallard.org/1.0/" version="1.0"
       type="topic" style="details"
       id="docbook">
 
 <info>
   <link type="guide" xref="details#misc"/>
 
-  <revision docversion="1.0" date="2011-02-23" status="incomplete"/>
+  <revision docversion="1.0" date="2011-05-23" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -280,7 +280,8 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/citetitle.html">citetitle</code></p></td>
-    <td><p>No equivalent in Mallard.</p></td>
+    <td><p>No equivalent in Mallard. Use the appropriate punctuation, or the
+    <code xref="mal_inline_em">em</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/city.html">city</code></p></td>
@@ -1859,10 +1860,4 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
     copyright information in <code>credit</code> elements.</p></td>
   </tr></tbody>
 </table>
-
-<comment>
-  <cite date="2009-06-17">shaunm</cite>
-  <p>This is a long list.  Bear with me as I complete it.</p>
-</comment>
-
 </page>
