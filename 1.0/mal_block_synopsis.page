@@ -115,6 +115,11 @@ int  count_beans ();
   for code.  The <code>synopsis</code> element in Mallard allows any block
   content.  Nest a <code xref="mal_block_code">code</code> element for a code
   synopsis.</p>
+
+  <p>There is no direct equivalent to the <code>synopsis</code> element in
+  <link xref="dita">DITA</link>. The
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/section.html">section</code>
+  element in DITA may be a suitable substitute for <code>listing</code>.</p>
 </section>
 <!-- END comparison -->
 

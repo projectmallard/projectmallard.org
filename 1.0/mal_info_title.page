@@ -232,8 +232,8 @@ purposes.</p>
 <section id="comparison">
   <title>Comparison to Other Formats</title>
 
-  <p>DocBook has no general mechanism for specifying different title text for
-  different purposes. Although a document is still valid with multiple
+  <p><link xref="docbook">DocBook</link> has no general mechanism for specifying different
+  title text for different purposes. Although a document is still valid with multiple
   <code href="http://www.docbook.org/tdg51/en/html/title.html">title</code>
   elements in an info element, the DocBook specification forbids having
   different values when titles appear in different contexts. DocBook does
@@ -241,7 +241,7 @@ purposes.</p>
   <code href="http://www.docbook.org/tdg51/en/html/titleabbrev.html">titleabbrev</code>
   element, which may be used by some implementations for link text.</p>
 
-  <p>DITA provides the
+  <p><link xref="dita">DITA</link> provides the
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/titlealts.html">titlealts</code>,
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/navtitle.html">navtitle</code>, and
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/searchtitle.html">searchtitle</code>
