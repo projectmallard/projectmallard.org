@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:mal="http://projectmallard.org/1.0/"
+    xmlns:cache="http://projectmallard.org/cache/1.0/"
+    ns="http://projectmallard.org/1.0/">
+
+<start>
+  <ref name="cache_cache"/>
+</start>
+
+<define name="cache_cache">
+  <element name="cache:cache">
+    <optional>
+      <attribute name="version">
+        <text/>
+      </attribute>
+    </optional>
+    <oneOrMore>
+      <ref name="cache_page"/>
+    </oneOrMore>
+  </element>
+</define>
+
+<define name="cache_page">
+  <element name="page">
+    <ref name="mal_page_attr"/>
+    <optional>
+      <ref name="mal_info"/>
+    </optional>
+    <ref name="mal_block_title"/>
+    <optional>
+      <ref name="mal_block_subtitle"/>
+    </optional>
+    <zeroOrMore>
+      <ref name="cache_section"/>
+    </zeroOrMore>
+  </element>
+</define>
+
+<define name="mal_page_attr" combine="interleave">
+  <attribute name="cache:href">
+    <text/>
+  </attribute>
+</define>
+
+<define name="mal_page_attr" combine="interleave">
+  <optional>
+    <attribute name="cache:groups">
+      <text/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="cache_section">
+  <element name="section">
+    <ref name="cache_section_attr"/>
+    <optional>
+      <ref name="mal_info"/>
+    </optional>
+    <ref name="mal_block_title"/>
+    <optional>
+      <ref name="mal_block_subtitle"/>
+    </optional>
+    <zeroOrMore>
+      <choice>
+        <ref name="mal_block"/>
+        <ref name="mal_links"/>
+      </choice>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="mal_section"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="mal_links"/>
+    </zeroOrMore>
+  </element>
+</define>
+
+<define name="cache_section_attr">
+  <group>
+    <attribute name="id">
+      <text/>
+    </attribute>
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="cache:groups">
+        <text/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+</grammar>

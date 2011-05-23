@@ -1,0 +1,84 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+
+<info>
+  <revision docversion="1.0" date="2011-05-06" status="stub"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2011</years>
+  </credit>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+</info>
+
+<title>Cache Files 1.0 DRAFT</title>
+
+<note style="sidebar">
+<title>Download Schema</title>
+<list style="compact">
+  <item><p><link href="http://projectmallard.org/cache/1.0/cache-1.0.rng">RELAX NG XML Syntax</link></p></item>
+  <item><p><link href="http://projectmallard.org/cache/1.0/cache-1.0.rnc">RELAX NG Compact Syntax</link></p></item>
+</list>
+</note>
+
+<note style="warning">
+<p>This is a draft specification.  Changes may still be made before
+the final Mallard Cache Files 1.0 specification.</p>
+</note>
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard Cache Files extension
+is maintained in <link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+default namespace mal = "http://projectmallard.org/1.0/"
+namespace cache = "http://projectmallard.org/cache/1.0/"
+
+start = cache_cache
+
+cache_cache = element cache:cache {
+  attribute version { text } ?,
+  cache_page +
+}
+
+cache_page = element page {
+  mal_page_attr,
+
+  mal_info ?,
+  mal_block_title,
+  mal_block_subtitle ?,
+  cache_section *,
+}
+mal_page_attr &amp;= attribute cache:href { text }
+mal_page_attr &amp;= attribute cache:groups { text } ?
+
+cache_section = element section {
+  cache_section_attr,
+
+  mal_info ?,
+  mal_block_title,
+  mal_block_subtitle ?,
+  ( mal_block | mal_links ) *,
+  mal_section *,
+  mal_links *
+}
+cache_section_attr = (
+  attribute id { text },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute cache:groups { text } ?
+  mal_attr_external *
+)
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

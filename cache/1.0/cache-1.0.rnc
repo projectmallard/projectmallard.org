@@ -1,0 +1,38 @@
+
+default namespace mal = "http://projectmallard.org/1.0/"
+namespace cache = "http://projectmallard.org/cache/1.0/"
+
+start = cache_cache
+
+cache_cache = element cache:cache {
+  attribute version { text } ?,
+  cache_page +
+}
+
+cache_page = element page {
+  mal_page_attr,
+
+  mal_info ?,
+  mal_block_title,
+  mal_block_subtitle ?,
+  cache_section *,
+}
+mal_page_attr &= attribute cache:href { text }
+mal_page_attr &= attribute cache:groups { text } ?
+
+cache_section = element section {
+  cache_section_attr,
+
+  mal_info ?,
+  mal_block_title,
+  mal_block_subtitle ?,
+  ( mal_block | mal_links ) *,
+  mal_section *,
+  mal_links *
+}
+cache_section_attr = (
+  attribute id { text },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute cache:groups { text } ?
+  mal_attr_external *
+)
