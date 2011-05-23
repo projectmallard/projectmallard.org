@@ -9,10 +9,14 @@ Makefile.in
 *~
 *.cache
 *.cache.in
-*.css
 *.html
-*.rnc
-*.rng
+/*.js
+/*.css
+/yelp-note-bug.png
+/yelp-note-important.png
+/yelp-note-tip.png
+/yelp-note-warning.png
+/yelp-note.png
 /1.0/META.page
 /about/learn/svg-1.svg
 /about/learn/svg-2.svg
@@ -22,3 +26,4 @@ Makefile.in
 /download/mallard-rng/INSTALL
 /download/mallard-rng/NEWS
 /download/mallard-rng/catalog
+/download/mallard-rng/*/

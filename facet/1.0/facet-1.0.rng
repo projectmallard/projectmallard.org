@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:facet="http://projectmallard.org/facet/1.0/"
+    ns="http://projectmallard.org/facet/1.0/">
+
+<define name="facet_tag">
+  <element name="tag">
+    <attribute name="key">
+      <data type="NMTOKEN" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+    </attribute>
+    <attribute name="values">
+      <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+    </attribute>
+  </element>
+</define>
+
+<!--
+This schema cannot be used on its own. It is designed to be combined
+with the core Mallard schema using the version attribute.
+-->
+
+<define name="mal_info_content" combine="interleave">
+  <interleave>
+    <zeroOrMore>
+      <ref name="facet_tag"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="facet_match"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="facet_choice"/>
+    </zeroOrMore>
+  </interleave>
+</define>
+
+<define name="facet_match">
+  <element name="match">
+    <attribute name="key">
+      <data type="NMTOKEN" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+    </attribute>
+    <optional>
+      <attribute name="values">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+  </element>
+</define>
+
+<define name="facet_choice">
+  <element name="choice">
+    <attribute name="key">
+      <data type="NMTOKEN" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+    </attribute>
+    <ref name="facet_title"/>
+    <oneOrMore>
+      <ref name="facet_case"/>
+    </oneOrMore>
+  </element>
+</define>
+
+<define name="facet_title">
+  <element name="title">
+    <ref name="mal_inline"/>
+  </element>
+</define>
+
+<define name="facet_case">
+  <element name="case">
+    <optional>
+      <attribute name="values">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <ref name="mal_inline"/>
+  </element>
+</define>
+
+</grammar>

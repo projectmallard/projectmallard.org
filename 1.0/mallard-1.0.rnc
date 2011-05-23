@@ -1,0 +1,822 @@
+
+namespace local = ""
+default namespace mal = "http://projectmallard.org/1.0/"
+start = mal_page
+mal_page = element page {
+  mal_page_attr,
+
+  mal_info ?,
+  mal_block_title,
+  mal_block_subtitle ?,
+  ( mal_block | mal_links ) *,
+  mal_section *,
+  mal_links *
+}
+mal_page_attr = (
+  attribute id { xsd:NMTOKEN },
+  attribute type { xsd:NMTOKEN } ?,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_version ?,
+  mal_attr_external *
+)
+
+mal_section = element section {
+  mal_section_attr,
+
+  mal_info ?,
+  mal_block_title,
+  mal_block_subtitle ?,
+  ( mal_block | mal_links ) *,
+  mal_section *,
+  mal_links *
+}
+mal_section_attr = (
+  attribute id { xsd:ID },
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+
+mal_info = element info {
+  mal_info_attr,
+  mal_info_content
+}
+mal_info_attr = (
+  mal_attr_external *
+)
+mal_info_content = (
+  mal_info_desc ? &
+  mal_info_credit * &
+  mal_info_license * &
+  mal_info_link * &
+  mal_info_title * &
+  mal_info_revision * &
+  mal_external *
+)
+
+mal_info_credit = element credit {
+  mal_info_credit_attr,
+  mal_info_credit_content
+}
+mal_info_credit_attr = (
+  attribute type { xsd:NMTOKENS } ?,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_info_credit_content = (
+  mal_info_name &
+  mal_info_email * &
+  mal_info_years ? &
+  mal_external *
+)
+
+mal_info_link = element link {
+  mal_info_link_attr,
+  mal_info_link_content *
+}
+mal_info_link_attr = (
+  attribute type { xsd:NMTOKEN },
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_link +,
+  attribute group { text } ?,
+  mal_attr_external *
+)
+mal_info_link_content = mal_external
+
+mal_info_title = element title {
+  mal_info_title_attr,
+  mal_info_title_inline
+}
+mal_info_title_attr = (
+  attribute type { xsd:NMTOKEN },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute role { xsd:NMTOKEN } ?,
+  mal_attr_external *
+)
+mal_info_title_inline = mal_inline
+
+mal_info_license = element license {
+  mal_info_license_attr,
+  mal_info_license_content +
+}
+mal_info_license_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute href { text } ?,
+  mal_attr_external *
+)
+mal_info_license_content = mal_block
+
+mal_info_desc = element desc {
+  mal_info_desc_attr,
+  mal_info_desc_inline
+}
+mal_info_desc_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_info_desc_inline = mal_inline
+
+mal_info_revision = element revision {
+  mal_info_revision_attr,
+  mal_block_title ?,
+  mal_block_desc ?,
+  mal_info_revision_content *
+}
+mal_info_revision_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute version { text } ?,
+  attribute docversion { text } ?,
+  attribute pkgversion { text } ?,
+  attribute date { xsd:date } ?,
+  attribute status { xsd:NMTOKEN } ?,
+  mal_attr_external *
+)
+mal_info_revision_content = mal_external
+
+mal_info_years = element years {
+  mal_info_years_attr,
+  mal_info_years_inline
+}
+mal_info_years_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_info_years_inline = mal_inline
+
+mal_info_email = element email {
+  mal_info_email_attr,
+  mal_info_email_inline
+}
+mal_info_email_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_info_email_inline = mal_inline
+
+mal_info_name = element name {
+  mal_info_name_attr,
+  mal_info_name_inline
+}
+mal_info_name_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_info_name_inline = mal_inline
+
+mal_links = element links {
+  mal_links_attr,
+  mal_block_title ?,
+  mal_links_content *
+}
+mal_links_attr = (
+  attribute type { xsd:NMTOKEN },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute groups { text } ?,
+  mal_attr_external *
+)
+mal_links_content = mal_external
+
+mal_block = (
+  mal_block_elements |
+  element * - (mal:* | local:*) {
+    attribute * { text } *,
+    ( mal_external * &
+      mal_block_elements *
+    )
+  }
+)
+mal_block_elements = (  
+  mal_block_code |
+  mal_block_comment |
+  mal_block_example |
+  mal_block_figure |
+  mal_block_list |
+  mal_block_listing |
+  mal_block_media |
+  mal_block_note |
+  mal_block_p |
+  mal_block_quote |
+  mal_block_screen |
+  mal_block_steps |
+  mal_block_synopsis |
+  mal_block_terms |
+  mal_block_tree |
+  mal_table
+)
+mal_block_attr = empty
+
+mal_block_code = element code {
+  mal_block_code_attr,
+  mal_block_code_inline
+}
+mal_block_code_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_code_inline = mal_inline
+
+mal_block_example = element example {
+  mal_block_example_attr,
+  mal_block_example_content +
+}
+mal_block_example_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_example_content = mal_block
+
+mal_block_media = element media {
+  mal_block_media_attr,
+  mal_block_media_content *
+}
+mal_block_media_attr = (
+  attribute type { "image" | "video" | "audio" | "application" } ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  attribute src { text },
+  attribute height { text } ?,
+  attribute width { text } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_media_content = mal_block
+
+mal_block_p = element p {
+  mal_block_p_attr,
+  mal_block_p_inline
+}
+mal_block_p_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_p_inline = mal_inline
+
+mal_block_screen = element screen {
+  mal_block_screen_attr,
+  mal_block_screen_inline
+}
+mal_block_screen_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_screen_inline = mal_inline
+
+mal_block_quote = element quote {
+  mal_block_quote_attr,
+  mal_block_title ?,
+  mal_block_cite ?,
+  mal_block_quote_content +  
+}
+mal_block_quote_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_quote_content = mal_block
+
+mal_block_comment = element comment {
+  mal_block_comment_attr,
+  mal_block_title ?,
+  mal_block_cite ?,
+  mal_block_comment_content +
+}
+mal_block_comment_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_comment_content = mal_block
+
+mal_block_figure = element figure {
+  mal_block_figure_attr,
+  mal_block_title ?,
+  mal_block_desc ?,
+  mal_block_figure_content +
+}
+mal_block_figure_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_figure_content = mal_block
+
+mal_block_listing = element listing {
+  mal_block_listing_attr,
+  mal_block_title ?,
+  mal_block_desc ?,
+  mal_block_listing_content +
+}
+mal_block_listing_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_listing_content = mal_block
+
+mal_block_note = element note {
+  mal_block_note_attr,
+  mal_block_title ?,
+  mal_block_note_content +
+}
+mal_block_note_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_note_content = mal_block
+
+mal_block_synopsis = element synopsis {
+  mal_block_synopsis_attr,
+  mal_block_title ?,
+  mal_block_desc ?,
+  mal_block_synopsis_content +
+}
+mal_block_synopsis_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_synopsis_content = mal_block
+
+mal_block_list = element list {
+  mal_block_list_attr,
+  mal_block_title ?,
+  mal_block_list_item +
+}
+mal_block_list_attr = (
+  attribute type { xsd:NMTOKEN } ?,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_list_item = element item {
+  mal_block_list_item_attr,
+  mal_block_list_item_content +
+}
+mal_block_list_item_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_block_list_item_content = mal_block
+
+mal_block_steps = element steps {
+  mal_block_steps_attr,
+  mal_block_title ?,
+  mal_block_steps_item +
+}
+mal_block_steps_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_steps_item = element item {
+  mal_block_steps_item_attr,
+  mal_block_steps_item_content +
+}
+mal_block_steps_item_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_block_steps_item_content = mal_block
+
+mal_block_terms = element terms {
+  mal_block_terms_attr,
+  mal_block_title ?,
+  mal_block_terms_item +
+}
+mal_block_terms_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_terms_item = element item {
+  mal_block_terms_item_attr,
+  mal_block_title +,
+  mal_block_terms_item_content +
+}
+mal_block_terms_item_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_block_terms_item_content = mal_block
+
+mal_block_tree = element tree {
+  mal_block_tree_attr,
+  mal_block_title ?,
+  mal_block_tree_item +
+}
+mal_block_tree_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_tree_item = element item {
+  mal_block_tree_item_attr,
+  mal_block_tree_item_inline,
+  mal_block_tree_item *
+}
+mal_block_tree_item_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_block_tree_item_inline = mal_inline
+
+mal_table = element table {
+  mal_table_attr,
+
+  mal_block_title ?,
+  mal_block_desc ?,
+
+  ( mal_table_col + |
+    mal_table_colgroup +
+  ) ?,
+
+  ( mal_table_tr + |
+    ( mal_table_thead ?,
+      mal_table_tbody +,
+      mal_table_tfoot ?
+    )
+  )
+}
+mal_table_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute frame {
+    "all" | "none" |
+    list { ("top" | "bottom" | "left" | "right") * }
+  } ?,
+  attribute rules {
+    "all" | "groups" | "none" |
+    list { ("rows" | "rowgroups" | "cols" | "colgroups") * }
+  } ?,
+  attribute shade {
+    "all" | "groups" | "none" |
+    list { ("rows" | "rowgroups" | "cols" | "colgroups") * }
+  } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+
+mal_table_col = element col {
+  mal_table_col_attr
+}
+mal_table_col_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_table_colgroup = element colgroup {
+  mal_table_colgroup_attr,
+  mal_table_col *
+}
+mal_table_colgroup_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+
+mal_table_tr = element tr {
+  mal_table_tr_attr,
+  mal_table_td *
+}
+mal_table_tr_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_table_thead = element thead {
+  mal_table_thead_attr,
+  mal_table_tr +
+}
+mal_table_thead_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_table_tbody = element tbody {
+  mal_table_tbody_attr,
+  mal_table_tr +
+}
+mal_table_tbody_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_table_tfoot = element tfoot {
+  mal_table_tfoot_attr,
+  mal_table_tr +
+}
+mal_table_tfoot_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+
+mal_table_td = element td {
+  mal_table_td_attr,
+  mal_table_td_content *
+}
+mal_table_td_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute rowspan { text } ?,
+  attribute colspan { text } ?,
+  mal_attr_external *
+)
+mal_table_td_content = mal_block
+
+mal_block_title = element title {
+  mal_block_title_attr,
+  mal_block_title_inline
+}
+mal_block_title_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_block_title_inline = mal_inline
+
+mal_block_subtitle = element subtitle {
+  mal_block_subtitle_attr,
+  mal_block_subtitle_inline
+}
+mal_block_subtitle_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_block_subtitle_inline = mal_inline
+
+mal_block_desc = element desc {
+  mal_block_desc_attr,
+  mal_block_desc_inline
+}
+mal_block_desc_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_block_desc_inline = mal_inline
+
+mal_block_cite = element cite {
+  mal_block_cite_attr,
+  mal_block_cite_inline
+}
+mal_block_cite_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute date { text } ?,
+  attribute href { text } ?,
+  mal_attr_external *
+)
+mal_block_cite_inline = mal_inline
+
+mal_inline = (
+  mal_inline_app * &
+  mal_inline_cmd * &
+  mal_inline_code * &
+  mal_inline_em * &
+  mal_inline_file * &
+  mal_inline_gui * &
+  mal_inline_guiseq * &
+  mal_inline_input * &
+  mal_inline_key * &
+  mal_inline_keyseq * &
+  mal_inline_link * &
+  mal_inline_media * &
+  mal_inline_output * &
+  mal_inline_span * &
+  mal_inline_sys * &
+  mal_inline_var * &
+  element * - (mal:* | local:*) {
+    attribute * { text } *,
+    mal_inline
+  } * &
+  text ?
+)
+mal_inline_attr = empty
+
+mal_inline_app = element app {
+  mal_inline_app_attr,
+  mal_inline_app_inline
+}
+mal_inline_app_attr = (
+  mal_attr_link *,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_app_inline = mal_inline
+
+mal_inline_code = element code {
+  mal_inline_code_attr,
+  mal_inline_code_inline
+}
+mal_inline_code_attr = (
+  mal_attr_link *,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_code_inline = mal_inline
+
+mal_inline_cmd = element cmd {
+  mal_inline_cmd_attr,
+  mal_inline_cmd_inline
+}
+mal_inline_cmd_attr = (
+  mal_attr_link *,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_cmd_inline = mal_inline
+
+mal_inline_output = element output {
+  mal_inline_output_attr,
+  mal_inline_output_inline
+}
+mal_inline_output_attr = (
+  mal_attr_link *,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_output_inline = mal_inline
+
+mal_inline_em = element em {
+  mal_inline_em_attr,
+  mal_inline_em_inline
+}
+mal_inline_em_attr = (
+  mal_attr_link *,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_em_inline = mal_inline
+
+mal_inline_file = element file {
+  mal_inline_file_attr,
+  mal_inline_file_inline
+}
+mal_inline_file_attr = (
+  mal_attr_link *,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_file_inline = mal_inline
+
+mal_inline_gui = element gui {
+  mal_inline_gui_attr,
+  mal_inline_gui_inline
+}
+mal_inline_gui_attr = (
+  mal_attr_link *,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_gui_inline = mal_inline
+
+mal_inline_guiseq = element guiseq {
+  mal_inline_guiseq_attr,
+  mal_inline_guiseq_inline
+}
+mal_inline_guiseq_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_guiseq_inline = (
+  mal_inline_gui + &
+  text
+)
+
+mal_inline_link = element link {
+  mal_inline_link_attr,
+  mal_inline_link_inline
+}
+mal_inline_link_attr = (
+  mal_attr_link +,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute role { text } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_link_inline = mal_inline
+
+mal_inline_media = element media {
+  mal_inline_media_attr,
+  mal_inline_media_inline
+}
+mal_inline_media_attr = (
+  mal_attr_link *,
+  attribute type { "image" | "video" | "audio" | "application" } ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  attribute src { text },
+  attribute height { text } ?,
+  attribute width { text } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_media_inline = mal_inline
+
+mal_inline_keyseq = element keyseq {
+  mal_inline_keyseq_attr,
+  mal_inline_keyseq_inline
+}
+mal_inline_keyseq_attr = (
+  attribute type { "combo" | "sequence" } ?,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_keyseq_inline = (
+  mal_inline_key * &
+  mal_inline_keyseq * &
+  text
+)
+
+mal_inline_key = element key {
+  mal_inline_key_attr,
+  mal_inline_key_inline
+}
+mal_inline_key_attr = (
+  mal_attr_link *,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_key_inline = mal_inline
+
+mal_inline_span = element span {
+  mal_inline_span_attr,
+  mal_inline_span_inline
+}
+mal_inline_span_attr = (
+  mal_attr_link *,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_span_inline = mal_inline
+
+mal_inline_sys = element sys {
+  mal_inline_sys_attr,
+  mal_inline_sys_inline
+}
+mal_inline_sys_attr = (
+  mal_attr_link *,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_sys_inline = mal_inline
+
+mal_inline_input = element input {
+  mal_inline_input_attr,
+  mal_inline_input_inline
+}
+mal_inline_input_attr = (
+  mal_attr_link *,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_input_inline = mal_inline
+
+mal_inline_var = element var {
+  mal_inline_var_attr,
+  mal_inline_var_inline
+}
+mal_inline_var_attr = (
+  mal_attr_link *,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_var_inline = mal_inline
+
+mal_external = element * - (mal:* | local:*) {
+  attribute * { text } *,
+  ( mal_anything * &
+    text ?
+  )
+}
+mal_anything = element * {
+  attribute * { text } *,
+  ( mal_anything * &
+    text ?
+  )
+}
+mal_attr_external = attribute * - (mal:* | local:*) { text }
+
+mal_attr_version = attribute version { text }
+
+mal_attr_link = (
+  attribute xref { text } |
+  attribute href { text } |
+  attribute action { text }
+)
+mal_attr_mal_link = (
+  attribute mal:xref { text } ?,
+  attribute mal:action { text } ?
+)

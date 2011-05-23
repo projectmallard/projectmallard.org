@@ -1,0 +1,32 @@
+
+facet_tag = element tag {
+  attribute key { xsd:NMTOKEN },
+  attribute values { xsd:NMTOKENS }
+}
+
+# This schema cannot be used on its own. It is designed to be combined
+# with the core Mallard schema using the version attribute.
+default namespace facet = "http://projectmallard.org/facet/1.0/"
+mal_info_content &= (
+  facet_tag * &
+  facet_match * &
+  facet_choice *
+)
+
+facet_match = element match {
+  attribute key { xsd:NMTOKEN },
+  attribute values { xsd:NMTOKENS } ?
+}
+
+facet_choice = element choice {
+  attribute key { xsd:NMTOKEN },
+  facet_title,
+  facet_case +
+}
+facet_title = element title {
+  mal_inline
+}
+facet_case = element case {
+  attribute values { xsd:NMTOKENS } ?
+  mal_inline
+}
