@@ -3,12 +3,12 @@
       id="index">
 
 <info>
-  <revision version="0.1" date="2007-02-22" status="stub"/>
+  <revision docversion="1.0" date="2011-05-23" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2007</years>
+    <years>2007-2011</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -16,22 +16,41 @@
 
 <title>Mallard 1.0 DRAFT</title>
 
-<comment>
-  <cite date="2007-02-20">Shaun McCance</cite>
-  <p>Add some intro text</p>
-</comment>
+<note style="sidebar">
+<title>Download Schema</title>
+<list style="compact">
+  <item><p><link href="http://projectmallard.org/1.0/mallard-1.0.rng">RELAX NG XML Syntax</link></p></item>
+  <item><p><link href="http://projectmallard.org/1.0/mallard-1.0.rnc">RELAX NG Compact Syntax</link></p></item>
+</list>
+</note>
+
+<p>Mallard is a markup language for dynamic, topic-oriented help. It is designed
+to be as simple as possible, while still providing the features needed for a
+modern help system. Mallard features a unique reciprocal linking system that
+allows new pages to be dropped into existing documents with no modifications to
+the existing pages.</p>
+
+<p>These pages serve as the official specification for the Mallard 1.0 markup
+language. Mallard is formally defined using a
+<link href="http://www.relaxng.org/">RELAX NG</link> schema, maintained in
+compact syntax in code blocks throughout this specification. These are
+automatically extracted to create the official schema.</p>
+
+<p>The specification is designed to be easy to read, with plenty of notes and
+examples. It can serve as a reference for those already familiar with the
+basic concepts of Mallard. For an introduction to Mallard, see
+<link xref="/about/learn/index" href="http://projectmallard.org/about/learn/index.html">Learn Mallard</link>
+on projectmallard.org.</p>
 
 <note style="warning">
 <p>This is a draft specification.  Changes may still be made before
 the final Mallard 1.0 specification.</p>
 </note>
 
-<p>Download the Mallard schema:</p>
-
-<list style="compact">
-  <item><p><link href="http://projectmallard.org/1.0/mallard-1.0.rng">RELAX NG XML Syntax</link></p></item>
-  <item><p><link href="http://projectmallard.org/1.0/mallard-1.0.rnc">RELAX NG Compact Syntax</link></p></item>
-</list>
+<comment>
+<p>Change title to not DRAFT</p>
+<p>This specification was marked final on 2011-xx-xx.</p>
+</comment>
 
 <links type="topic" groups="page section info links block inline details principles"/>
 
