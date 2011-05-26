@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="details#i18n"/>
 
-  <revision docversion="1.0" date="2011-03-08" status="review"/>
+  <revision docversion="1.0" date="2011-05-26" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -51,7 +51,8 @@ important to proper document localization.</p>
   <title>Internationalization Attributes</title>
 
   <p>Mallard does not contain its own elements to specify language or text
-  directionality. To specify language, use the standard <code>xml:lang</code>
+  directionality. To specify language, use the standard 
+  <code href="http://www.opentag.com/xfaq_lang.htm">xml:lang</code>
   attribute. To override text directionality, use the
   <code href="http://www.w3.org/TR/its/#directionality">its:dir</code>
   attribute from the <link href="http://www.w3.org/TR/its/">W3C
