@@ -26,9 +26,11 @@
 
 <p>Mallard is a markup language for dynamic, topic-oriented help. It is designed
 to be as simple as possible, while still providing the features needed for a
-modern help system. Mallard features a unique reciprocal linking system that
-allows new pages to be dropped into existing documents with no modifications to
-the existing pages.</p>
+modern help system. Mallard features a unique reciprocal linking system that helps 
+writers create flexible help frameworks that are easy to extend with new content. 
+Writers can create an outline-like structure, and as they add new help topics, the 
+reciprocal linking mechanism will neatly integrate the new help topics with 
+the existing help topics.</p>
 
 <p>These pages serve as the official specification for the Mallard 1.0 markup
 language. Mallard is formally defined using a
