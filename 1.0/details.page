@@ -20,10 +20,22 @@
 
 <title>Processing Details</title>
 
-<comment>
-  <cite date="2009-05-28">shaunm</cite>
-  <p>Add content</p>
-</comment>
+  <p>
+     The Mallard syntax is designed to be extensible and easy to translate. The 
+     following sections identify the means available to process and extend Mallard 
+     documents, as well as information to assist with internationalization and 
+     translation of Mallard documents.
+  </p>
+  <p>
+     As an additional consideration for those who are more familiar with DITA or 
+     Docbook, a comparative element reference compares elements from the 
+     Mallard 1.0 specification to those from the 
+     <link href="http://docs.oasis-open.org/dita/v1.2/spec/DITA1.2-spec.html">
+     DITA 1.2</link> specification and the <link href=
+     "http://www.docbook.org/tdg51/en/html/">DocBook 5.1</link> draft 
+     specification.
+  </p>
+     
 
 <section id="i18n">
   <title>Internationalization and Localization</title>
