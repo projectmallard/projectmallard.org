@@ -16,14 +16,8 @@
 
 <title>Conditional Processing 1.0 DRAFT</title>
 
-<note style="warning">
-<p>This is a draft specification.  Changes may still be made before
-the final Conditional Processing 1.0 specification.</p>
-</note>
-
 <note style="sidebar">
-<p>Download the Conditional Processing schema:</p>
-
+<title>Download Schema</title>
 <list style="compact">
   <item><p><link href="http://projectmallard.org/if/1.0/if-1.0.rng">RELAX NG XML Syntax</link></p></item>
   <item><p><link href="http://projectmallard.org/if/1.0/if-1.0.rnc">RELAX NG Compact Syntax</link></p></item>
@@ -38,6 +32,11 @@ as the user's current environment.</p>
 <p>Conditional processing is done by the <code xref="if_test">test</code>
 attribute, which takes an XPath expression. The expression must evaluate to
 true for the affected content to be displayed.</p>
+
+<note style="warning">
+<p>This is a draft specification.  Changes may still be made before
+the final Conditional Processing 1.0 specification.</p>
+</note>
 
 <links type="topic" groups="test if" style="linklist">
   <title>Basic Conditionals</title>

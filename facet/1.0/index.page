@@ -21,12 +21,13 @@
 the final Facets 1.0 specification.</p>
 </note>
 
-<p>Download the Facets schema:</p>
-
+<note style="sidebar">
+<title>Download Schema</title>
 <list style="compact">
   <item><p><link href="http://projectmallard.org/facet/1.0/facet-1.0.rng">RELAX NG XML Syntax</link></p></item>
   <item><p><link href="http://projectmallard.org/facet/1.0/facet-1.0.rnc">RELAX NG Compact Syntax</link></p></item>
 </list>
+</note>
 
 <links type="topic" groups="tag node match choice"/>
 
