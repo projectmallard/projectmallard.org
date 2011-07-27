@@ -1,0 +1,52 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+
+<info>
+  <revision docversion="1.0" date="2011-07-27" status="stub"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2011</years>
+  </credit>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+</info>
+
+<title>Mallard+SVG 1.0 DRAFT</title>
+
+<note style="warning">
+<p>This is a draft specification.  Changes may still be made before
+the final Mallard+SVG 1.0 specification.</p>
+</note>
+
+<note style="sidebar">
+<title>Download Schema</title>
+<list style="compact">
+  <item><p><link href="http://projectmallard.org/svg/1.0/svg-1.0.rng">RELAX NG XML Syntax</link></p></item>
+  <item><p><link href="http://projectmallard.org/svg/1.0/svg-1.0.rnc">RELAX NG Compact Syntax</link></p></item>
+</list>
+</note>
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+# This schema cannot be used on its own. It is designed to be combined
+# with the core Mallard schema using the version attribute.
+namespace svg = "http://www.w3.org/2000/svg"
+
+include "http://www.w3.org/Graphics/SVG/1.1/rng/svg11.rng" {
+start |= notAllowed
+}
+
+mal_block_elements |= svg
+
+SVG.Core.extra.attrib &amp;= mal_attr_mal_link
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

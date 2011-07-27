@@ -49,10 +49,11 @@
   </list>
 
   <list style="compact">
-    <title>Coming soon:</title>
-    <item><p>Mallard Cache Files</p></item>
-    <item><p>Mallard Sites</p></item>
-    <item><p>Mallard+SVG</p></item>
+    <title>In the works:</title>
+    <item><p><link xref="/cache/1.0/index">Mallard Cache Files</link></p></item>
+    <item><p><link xref="/if/1.0/index">Conditional Processing</link></p></item>
+    <item><p><link xref="/facet/1.0/index">Faceted Navigation</link></p></item>
+    <item><p><link xref="/svg/1.0/index">Mallard+SVG</link></p></item>
   </list>
 </section>
 

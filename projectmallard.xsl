@@ -262,9 +262,7 @@ var addthis_share = {
     <xsl:for-each select="mal:*[not(self::mal:title)
                           and ($mal2html.editor_mode or not(self::mal:comment)
                           or processing-instruction('mal2html.show_comment'))]">
-      <xsl:apply-templates mode="mal2html.block.mode" select=".">
-        <xsl:with-param name="first_child" select="position() = 1"/>
-      </xsl:apply-templates>
+      <xsl:apply-templates mode="mal2html.block.mode" select="."/>
     </xsl:for-each>
   </div>
 </xsl:template>
