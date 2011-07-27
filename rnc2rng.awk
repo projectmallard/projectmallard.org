@@ -201,6 +201,11 @@ function parse_pattern (line) {
     error = 1;
     exit 1
   }
+  else if (match(line, "^include ")) {
+    print "include appeared out of context on line " FNR | "cat 1>&2";
+    error = 1;
+    exit 1
+  }
   else if (match(line, /^xsd:[A-Za-z_]/)) {
     name = substr(line, 1);
     sub(/^xsd:/, "", name);
@@ -397,6 +402,7 @@ BEGIN {
   stack_i = 0;
   paren_i = 0;
   namespaces_i = 0;
+  include_i = 0;
   error = 0;
 }
 
@@ -458,7 +464,8 @@ mode == "grammar" && /.*=/ {
     else {
       name = substr($0, 1, nameix - 1);
     }
-    sub(/ /, "", name);
+    sub(/^ */, "", name);
+    sub(/ *$/, "", name);
     if (name == "start")
       stack[++stack_i] = "<start>"
     else {
@@ -474,6 +481,33 @@ mode == "grammar" && /.*=/ {
   }
   next;
 }
+mode == "grammar" && /^include / {
+  href = substr($0, index($0, "\"") + 1);
+  brace = substr(href, index(href, "\"") + 1);
+  href = substr(href, 1, index(href, "\"") - 1);
+  sub(/^ */, "", brace);
+  sub(/ *$/, "", brace);
+  if (brace == "{") {
+    stack[++stack_i] = "<include href=\"" href "\">";
+    include_i = stack_i;
+  }
+  else {
+    stack[++stack_i] = "<include href=\"" href "\"/>";
+  }
+}
+include_i != 0 && paren_i == 0 && /}/ {
+  if (substr(stack[include_i], 1, 8) == "<include") {
+    stack[++stack_i] = "</include>";
+  }
+  else {
+    print "Mismatched parentheses on line " FNR | "cat 1>&2";
+    error = 1;
+    exit 1
+  }
+  mode = "grammar";
+  include_i = 0;
+  next;
+}
 mode == "pattern" {
   parse_pattern($0);
   next;
@@ -483,7 +517,7 @@ mode == "name_class" {
   next;
 }
 # Doesn't handle all comments. That would require modifying
-# parse_pattern and parse_name_class and generall being a lot
+# parse_pattern and parse_name_class and generally being a lot
 # more clever about output. But it handles comments that start
 # a line outside a pattern. Enough for me.
 /#.*/ {
