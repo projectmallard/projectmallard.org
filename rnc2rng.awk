@@ -467,14 +467,13 @@ mode == "grammar" && /.*=/ {
     sub(/^ */, "", name);
     sub(/ *$/, "", name);
     if (name == "start")
-      stack[++stack_i] = "<start>"
-    else {
+      define = "<start"
+    else
       define = sprintf("<define name='%s'", name);
-      if (combine != "")
-        define = define " combine='" combine "'"
-      define = define ">"
-      stack[++stack_i] = define;
-    }
+    if (combine != "")
+      define = define " combine='" combine "'"
+    define = define ">"
+    stack[++stack_i] = define;
     mode = "pattern";
     if (length($0) >= nameix + 1)
       parse_pattern(substr($0, nameix + 1))
