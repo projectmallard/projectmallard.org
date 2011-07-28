@@ -33,6 +33,17 @@ the final Mallard+SVG 1.0 specification.</p>
 <section id="schema">
 <title>Schema</title>
 
+<comment>
+<cite>shaunm</cite>
+<p>svg:svg is allowed by SVG.Structure.class inside svg:svg. If we allow it
+in any block content, and then allow any block content in svg:svg, we have
+a non-deterministic situation where svg:svg could be matched by different
+paths inside svg:svg. So we add svg:svg to mal_block, but only allow
+mal_block_elements in SVG.svg.content. This means that extension fallback
+block content in svg:svg won't be valid. It'll work, but this schema won't
+validate it correctly.</p>
+</comment>
+
 <synopsis><code mime="application/relax-ng-compact-syntax">
 # This schema cannot be used on its own. It is designed to be combined
 # with the core Mallard schema using the version attribute.
@@ -42,9 +53,12 @@ include "http://www.w3.org/Graphics/SVG/1.1/rng/svg11.rng" {
 start |= notAllowed
 }
 
-mal_block_elements |= svg
+mal_block |= svg
+
+SVG.svg.content &amp;= mal_block_elements *
 
 SVG.Core.extra.attrib &amp;= mal_attr_mal_link
+
 </code></synopsis>
 </section>
 <!-- END schema -->

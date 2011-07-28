@@ -10,13 +10,19 @@ with the core Mallard schema using the version attribute.
 -->
 
 <include href="http://www.w3.org/Graphics/SVG/1.1/rng/svg11.rng">
-  <start>
+  <start combine="choice">
     <notAllowed/>
   </start>
 </include>
 
-<define name="mal_block_elements" combine="choice">
+<define name="mal_block" combine="choice">
   <ref name="svg"/>
+</define>
+
+<define name="SVG.svg.content" combine="interleave">
+  <zeroOrMore>
+    <ref name="mal_block_elements"/>
+  </zeroOrMore>
 </define>
 
 <define name="SVG.Core.extra.attrib" combine="interleave">

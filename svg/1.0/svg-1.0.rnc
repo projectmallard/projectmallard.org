@@ -7,6 +7,9 @@ include "http://www.w3.org/Graphics/SVG/1.1/rng/svg11.rng" {
 start |= notAllowed
 }
 
-mal_block_elements |= svg
+mal_block |= svg
+
+SVG.svg.content &= mal_block_elements *
 
 SVG.Core.extra.attrib &= mal_attr_mal_link
+
