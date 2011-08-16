@@ -6,7 +6,7 @@
   <link type="guide" xref="details"/>
   <link type="seealso" xref="mal_inline"/>
 
-  <revision docversion="1.0" date="2011-02-28" status="review"/>
+  <revision docversion="1.0" date="2011-08-15" status="candidate"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -21,7 +21,7 @@
 
 <title>Ubiquitous Linking</title>
 
-<p>Mallard contains three linking attributes that can be used all basic
+<p>Mallard contains three linking attributes that can be used with all basic
 inline elements. These attributes allow you to link to other Mallard
 pages, link to external resources, and create links that perform an
 action when clicked.</p>
@@ -45,6 +45,10 @@ action when clicked.</p>
     <item><p>The schema also provides the <code>xref</code> and <code>action</code>
     attributes in the namespace <code>http://projectmallard.org/1.0/</code>. These
     are provided for extensions.</p></item>
+
+    <!-- I'm not sure what is meant by the previous paragraph. Are the xref and 
+    action attributes in the namespace to make it easier to create extensions? -->
+
   </list>
 </section>
 <!-- END notes -->
