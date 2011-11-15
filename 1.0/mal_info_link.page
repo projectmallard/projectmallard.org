@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_info#elements"/>
 
-  <revision docversion="1.0" date="2011-03-10" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -120,10 +120,10 @@ element to express logical links between pages and sections to be collected by
   <title>Processing Expectations</title>
 
   <p>A recognized informational <code>link</code> element will generally cause
-  link to be displayed on both the page it was declared on and the page it
+  a link to be displayed on both the page it was declared on and the page it
   links to. The details of how links are displayed depends on the link type,
   and can often be controlled with the <code xref="mal_links">links</code>
-  element. See the <link xref="mal_links"/> for details.</p>
+  element. See <link xref="mal_links"/> for details.</p>
 
   <p>Informational links in Mallard generally reciprocate in some way. Topic
   links are the inverse of guide links. See-also links are symmetric. Next

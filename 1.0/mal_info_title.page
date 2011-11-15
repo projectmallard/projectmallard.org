@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_info#elements"/>
 
-  <revision docversion="1.0" date="2011-02-21" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -166,7 +166,7 @@ purposes.</p>
     <item><p>Roles defined by official specifications on projectmallard.org
     should never contain a hyphen.</p></item>
     <item><p>Roles defined by implementations for implementation-specific
-    features should be prefixed by a hyphen, and identifier for the
+    features should be prefixed by a hyphen, an identifier for the
     implementation, and another hyphen. For example, if <app>Yelp</app>
     allowed a link role for links from search results, it could use the
     role <code>-yelp-search</code>.</p></item>

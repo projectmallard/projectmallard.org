@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_info#elements"/>
 
-  <revision docversion="1.0" date="2011-03-08" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -73,7 +73,7 @@ Commons Attribution-Share Alike 3.0 United States License</link>.</p>
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>The <code>license</code> is not necessarily displayed on the page in
+  <p>The <code>license</code> element is not necessarily displayed on the page in
   which it appears.  Some tools may display license information on a separate
   informational page or dialog.  When it is displayed, its contents are treated
   as block content.</p>

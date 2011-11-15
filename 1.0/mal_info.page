@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="index" group="info"/>
 
-  <revision docversion="1.0" date="2011-03-09" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -20,8 +20,8 @@
 
 <title>Information Elements</title>
 
-<p>The <code>info</code> element contains various metadata and information
-about <link xref="mal_links">automatic links</link> for a page or section.
+<p>The <code>info</code> element contains metadata about a page or seciton and
+information about <link xref="mal_links">automatic links</link>.
 Mallard provides a core set of informational elements for most common needs.
 Informational elements like <code xref="mal_info_link">link</code>,
 <code xref="mal_info_title">title</code>, and <code xref="mal_info_desc">desc</code>

@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_info#elements"/>
 
-  <revision docversion="1.0" date="2011-02-21" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -20,7 +20,7 @@
 
 <title>Credits</title>
 
-<p>Use the <code>credit</code> element to record who has contributed to the page
+<p>Use the <code>credit</code> element to record who has contributed to a page
 or section.  You can optionally use the <code>type</code> attribute to specify
 what types of contribution the person has made.  The <code>credit</code> element
 also specifies copyright holders when used with the

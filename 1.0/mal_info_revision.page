@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_info#elements"/>
 
-  <revision docversion="1.0" date="2011-03-08" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -134,8 +134,9 @@ description of the page or section as of that revision.</p>
 
   <p>As an informational element, the <code>revision</code> element is not
   necessarily displayed directly on the page or section in which it appears.
-  Some tools may show revision on a separate informational page or dialog.
-  Tools designed for editors might show revision information directly.</p>
+  Some tools may show revision information on a separate informational page
+  or dialog. Tools designed for editors might show revision information
+  directly.</p>
 
   <p>When a <code>revision</code> element is displayed or processed, tools
   should process only those child elements that they understand, and ignore
