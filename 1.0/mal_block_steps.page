@@ -3,7 +3,7 @@
       id="mal_block_steps">
 
 <info>
-  <revision docversion="1.0" date="2011-02-21" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -20,11 +20,11 @@
 
 <p>Use the <code>steps</code> element to create a list of steps the reader
 should follow.  The <code>steps</code> element is structurally similar to
-the <code xref="mal_block_list">list</code> element, but marking the list
-as being instructions to the reader allows special display rules to be
+the <code xref="mal_block_list">list</code> element. Marking the list
+as instructions to the reader allows special display rules to be
 applied.  If you want a numbered list that is not a procedure, use the
 <code xref="mal_block_list">list</code> element with the <code>type</code>
-attribute to <code>"numbered"</code> instead.</p>
+attribute set to <code>"numbered"</code> instead.</p>
 
 <!-- BEGIN notes -->
 <section id="notes">
@@ -156,7 +156,7 @@ allowed in Mallard, though an optional <code>title</code> element is allowed.
 DocBook provides explicit
 <code href="http://www.docbook.org/tdg51/en/html/substeps.html">substeps</code> and
 <code href="http://www.docbook.org/tdg51/en/html/stepalternatives.html">stepalternatives</code>
-elements.  Mallard has no equivalent.  For substeps, next <code>steps</code>
+elements.  Mallard has no equivalent.  For substeps, use nested <code>steps</code>
 elements.  For alternatives, use a <code xref="mal_block_list">basic list</code>
 with introductory text.</p>
 
