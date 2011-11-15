@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_inline#elements"/>
 
-  <revision docversion="1.0" date="2011-02-21" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -143,7 +143,7 @@ up code with a placeholder for an argument the user should supply.
   <code href="http://www.docbook.org/tdg51/en/html/function.html">function</code>,
   <code href="http://www.docbook.org/tdg51/en/html/interfacename.html">interfacename</code>,
   <code href="http://www.docbook.org/tdg51/en/html/methodname.html">methodname</code>,
-  <code href="http://www.docbook.org/tdg51/en/html/parameter.html">parameter</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/parameter.html">parameter</code>, and
   <code href="http://www.docbook.org/tdg51/en/html/varname.html">varname</code>.
   Additionally, since Mallard does not provide separate elements for marking
   portions of markup languages, the <code>code</code> element should be used

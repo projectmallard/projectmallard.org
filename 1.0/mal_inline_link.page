@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_inline#elements"/>
 
-  <revision docversion="1.0" date="2011-02-21" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -115,16 +115,16 @@ recommendation</link>.
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>A <code>link</code> element is displayed as hyperlink which can be
+  <p>A <code>link</code> element is displayed as a hyperlink which can be
   clicked on or otherwise activated to take the user to another page,
   document, or resource.  In certain environments, such as print, it
   may not be possible to make links activatable.  In these cases, the
   target of the link may be displayed in the rendered output.</p>
 
-  <p>The target of <code>link</code> element is determined from the
-  <code>xref</code> and <code>href</code> exactly as it is for other
-  inline elements.  See <link xref="mal_attr_link"/> for information
-  on determining the link target.</p>
+  <p>The target of a <code>link</code> element is determined from the
+  <code>action</code>, <code>xref</code>, and <code>href</code> attributes
+  exactly as it is for other inline elements.  See <link xref="mal_attr_link"/>
+  for information on determining the link target.</p>
 
   <p>If the <code>link</code> element is non-empty, its contents are
   displayed as normal.  Otherwise, automatic link text is generated
@@ -145,7 +145,7 @@ recommendation</link>.
       attribute, and that page or section has an
       <link xref="mal_info_title">informational title</link> with the
       <code>type</code> attribute set to <code>"link"</code> and the
-      <code>role</code> set to the same value as the <code>role</code>
+      <code>role</code> attribute set to the same value as the <code>role</code>
       attribute of the <code>link</code> element, then the contents
       of that <code>title</code> element are used.</p></item>
 
@@ -156,7 +156,7 @@ recommendation</link>.
       element are used.</p></item>
 
       <item><p>Otherwise, the contents of the primary title of that page
-      page or section are used.</p></item>
+      or section are used.</p></item>
     </list>
     </item>
 
@@ -189,7 +189,9 @@ recommendation</link>.
   automatic link text is generated.  The behavior of this attribute is
   unspecified.  Rather than attempt to use style hints, Mallard allows
   writers to specify exact alternative link contents.  Alternative link
-  contents are important in languages with case declensions.</p>
+  contents are important in languages with case declensions. See
+  <link xref="l10n#link"/> on the page <link xref="l10n"/> for more
+  information.</p>
 
   <p>The <code>link</code> element is similar to the
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/xref.html">xref</code>

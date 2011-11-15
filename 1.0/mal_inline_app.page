@@ -6,7 +6,7 @@
 <info>
   <link type="guide" xref="mal_inline#elements"/>
 
-  <revision docversion="1.0" date="2011-02-21" status="review"/>
+  <revision docversion="1.0" date="2011-11-14" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -94,7 +94,7 @@ your desktop.
   mistakenly omitted an article, if the application name is not understood to
   be a title.</p>
 
-  <p>For example, the calculator application that comes with Gnome is called
+  <p>For example, the calculator application that comes with GNOME is called
   <app>Calculator</app>.  If an author were to write “To start Calculator…”,
   then a reader may confuse this for “To start the calculator…” with an error.
   This is even more pronounced in languages such as German where nouns are
