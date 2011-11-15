@@ -5,7 +5,7 @@
 <info>
   <link type="seealso" xref="mal_block_code"/>
 
-  <revision docversion="1.0" date="2011-02-21" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -110,13 +110,13 @@ by the user.</p>
 <screen>
 xsltproc -o mal_block_screen.html \
   --stringparam mal.cache.file `pwd`/mallard.cache \
-  `pkg-config --variable mal2html gnome-doc-utils` mal_block_screen.html
+  `pkg-config --variable mal2html yelp-xsl` mal_block_screen.html
 </screen>
 ]]></code>
     <screen>
 xsltproc -o mal_block_screen.html \
   --stringparam mal.cache.file `pwd`/mallard.cache \
-  `pkg-config --variable mal2html gnome-doc-utils` mal_block_screen.html
+  `pkg-config --variable mal2html yelp-xsl` mal_block_screen.html
 </screen>
   </example>
 

@@ -3,7 +3,7 @@
       id="mal_block_note">
 
 <info>
-  <revision docversion="1.0" date="2011-03-08" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -138,9 +138,9 @@ of your document.</p>
   <p>Before making any commits to a git repository, make sure to
   supply your name and email address so that your commits are
   correctly attributed.</p>
-  <code>
+  <screen>
 git config --global user.name <var>full_name</var>
-git config --global user.email <var>email_address</var></code>
+git config --global user.email <var>email_address</var></screen>
 </note>
 ]]></code>
     <note style="important">
@@ -148,9 +148,9 @@ git config --global user.email <var>email_address</var></code>
       <p>Before making any commits to a git repository, make sure to
       supply your name and email address so that your commits are
       correctly attributed.</p>
-      <code>
+      <screen>
 git config --global user.name <var>full_name</var>
-git config --global user.email <var>email_address</var></code>
+git config --global user.email <var>email_address</var></screen>
     </note>
   </example>
 

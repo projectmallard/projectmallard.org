@@ -3,7 +3,7 @@
       id="mal_block_p">
 
 <info>
-  <revision docversion="1.0" date="2011-02-21" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -54,10 +54,10 @@
   <example>
     <code><![CDATA[
 <p>The most basic block-level element in Mallard is the <code>p</code>
-element.  The <code>p</code> element creates a paragraph in the formatted
+element. The <code>p</code> element creates a paragraph in the formatted
 output.</p>]]></code>
     <p>The most basic block-level element in Mallard is the <code>p</code>
-    element.  The <code>p</code> element creates a paragraph in the formatted
+    element. The <code>p</code> element creates a paragraph in the formatted
     output.</p>
   </example>
 </section>
@@ -83,7 +83,7 @@ output.</p>]]></code>
   <p><link xref="docbook">DocBook</link> contains two elements for creating
   paragraphs: <code href="http://www.docbook.org/tdg51/en/html/para.html">para</code>
   and <code href="http://www.docbook.org/tdg51/en/html/simpara.html">simpara</code>.
-  The <code>p</code> in Mallard is similar to the <code>simpara</code> element
+  The <code>p</code> element in Mallard is similar to the <code>simpara</code> element
   in DocBook in that it does not allow block content.</p>
 
   <p>The <code>p</code> element in Mallard is similar to the

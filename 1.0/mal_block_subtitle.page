@@ -5,7 +5,7 @@
 <info>
   <link type="seealso" xref="mal_block_title"/>
 
-  <revision docversion="1.0" date="2011-02-21" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -32,8 +32,7 @@
     any <link xref="mal_inline">general inline elements</link>.</p></item>
 
     <item><p>The <code>subtitle</code> can occur in a <code xref="mal_page">page</code>
-    element, a <code xref="mal_section">section</code> element, and any
-    <link xref="mal_block#formal">formal block element</link>.</p></item>
+    element or a <code xref="mal_section">section</code> element.</p></item>
 
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
@@ -71,9 +70,9 @@
   <title>Processing Expectations</title>
 
   <p>A subtitle is displayed at the beginning of its containing element, after
-  its corresponding title. Its is generally displayed in a different font, size,
+  its corresponding title. It is generally displayed in a different font, size,
   or weight to make it stand out from the surrounding content, but it should be
-  less prominent its corresponding title.</p>
+  less prominent than its corresponding title.</p>
 </section>
 <!-- END processing -->
 

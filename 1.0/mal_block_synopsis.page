@@ -5,7 +5,7 @@
 <info>
   <link type="seealso" xref="mal_block_listing"/>
 
-  <revision docversion="1.0" date="2011-02-21" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -21,7 +21,7 @@
 <title>Synopses</title>
 
 <p>Use the <code>synopsis</code> element to mark up a block that provides
-an overview of the material being presented.  A synopses is useful for
+an overview of the material being presented.  A synopsis is useful for
 providing a listing of functions, commands, or options in reference
 material, or for enumerating the items in a menu or other graphical
 control element.</p>
@@ -117,9 +117,7 @@ int  count_beans ();
   synopsis.</p>
 
   <p>There is no direct equivalent to the <code>synopsis</code> element in
-  <link xref="dita">DITA</link>. The
-  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/section.html">section</code>
-  element in DITA may be a suitable substitute for <code>listing</code>.</p>
+  <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->
 
