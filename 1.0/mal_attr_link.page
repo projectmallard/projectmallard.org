@@ -6,7 +6,7 @@
   <link type="guide" xref="details"/>
   <link type="seealso" xref="mal_inline"/>
 
-  <revision docversion="1.0" date="2011-08-15" status="candidate"/>
+  <revision docversion="1.0" date="2011-11-14" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -58,8 +58,8 @@ action when clicked.</p>
 <section id="examples">
   <title>Examples</title>
 
-  <p>Link to another page with the <code>xref</code> attribute on a
-  <code xref="mal_inline_code">code</code> element:</p>
+  <p>Link to another page with the <code>xref</code> attribute on an
+  inline <code xref="mal_inline_code">code</code> element:</p>
 
   <example>
     <code><![CDATA[
@@ -68,7 +68,7 @@ action when clicked.</p>
 <p>See the <code xref="mal_inline_link">link</code> element.</p>
   </example>
 
-  <p>Use the <code>href</code> element to turn an inline image into a link:</p>
+  <p>Use the <code>href</code> attribute to turn an inline image into a link:</p>
 
   <example>
     <code><![CDATA[
@@ -79,7 +79,7 @@ action when clicked.</p>
   </example>
 
   <p>In implementations that support the <sys>install</sys> action scheme,
-  use the <code>action</code> to install a package:</p>
+  use the <code>action</code> attribute to install a package:</p>
 
   <example>
     <code><![CDATA[
@@ -139,7 +139,7 @@ action when clicked.</p>
     <item>
       <title><code><var>page_id</var>#<var>section_id</var></code></title>
       <p>Link to the section with ID <var>section_id</var> in the
-      page <var>page_id</var>.</p>
+      page with ID <var>page_id</var>.</p>
     </item>
     <item>
       <title><code>#<var>section_id</var></code></title>
@@ -192,7 +192,7 @@ similar to the <code>linkend</code> attribute in DocBook.</p>
 <p><link xref="dita">DITA</link> does not provide linking attribute on arbitrary
 inline element. Instead, the 
 <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/xref.html">xref</code>
-must be used to create links.</p>
+element must be used to create links.</p>
 </section>
 <!-- END comparison -->
 
