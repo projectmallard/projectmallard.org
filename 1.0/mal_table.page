@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_block#tables" group="#first"/>
 
-  <revision docversion="1.0" date="2011-03-11" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -58,13 +58,22 @@ formatting needs.</p>
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
 
-    <item><p>The <code>frame</code> attribute...</p></item>
+    <item><p>The <code>frame</code> attribute controls the frame around the entire table.
+    Valid values are <code>"all"</code>, <code>"none"</code>, or a space-separated list of
+    the values <code>"top"</code>, <code>"bottom"</code>, <code>"left"</code>, and
+    <code>"right"</code>.</p></item>
 
-    <item><p>The <code>rules</code> attribute...</p></item>
+    <item><p>The <code>rules</code> attribute controls lines between rows and columns.
+    Valid values are <code>"all"</code>, <code>"groups"</code>, <code>"none"</code>,
+    or a space-separated list of <code>"rows"</code>, <code>"rowgroups"</code>,
+    <code>"cols"</code>, and <code>"colgroups"</code>.</p></item>
 
-    <item><p>The <code>shade</code> attribute...</p></item>
+    <item><p>The <code>shade</code> attribute controls shading of alternating rows and columns.
+    Valid values are  <code>"all"</code>, <code>"groups"</code>, <code>"none"</code>, or a
+    space-separated list of <code>"rows"</code>, <code>"rowgroups"</code>, <code>"cols"</code>,
+    and <code>"colgroups"</code>.</p></item>
 
-    <item><p>The <code>synopsis</code> element can have attributes from external
+    <item><p>The <code>table</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes.</p></item>
   </list>
