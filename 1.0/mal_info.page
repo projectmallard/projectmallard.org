@@ -41,7 +41,7 @@ elements can be used to record any additional information you need.</p>
   <item>
     <p>The <code>info</code> element contains a mixture of the following,
     in any order:</p>
-    <list>
+    <list style="compact">
       <item><p>An optional <code xref="mal_info_desc">desc</code> element.</p></item>
       <item><p>Any number of <code xref="mal_info_credit">credit</code>
       elements.</p></item>
