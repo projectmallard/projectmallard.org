@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="index" group="details"/>
 
-  <revision docversion="1.0" date="2011-05-15" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -29,11 +29,9 @@
   <p>
      As an additional consideration for those who are more familiar with DITA or 
      Docbook, a comparative element reference compares elements from the 
-     Mallard 1.0 specification to those from the 
-     <link href="http://docs.oasis-open.org/dita/v1.2/spec/DITA1.2-spec.html">
-     DITA 1.2</link> specification and the <link href=
-     "http://www.docbook.org/tdg51/en/html/">DocBook 5.1</link> draft 
-     specification.
+     Mallard 1.0 specification to those from
+     <link href="http://docs.oasis-open.org/dita/v1.2/spec/DITA1.2-spec.html">DITA 1.2</link>
+     and <link href="http://www.docbook.org/tdg51/en/html/">DocBook 5.1</link>.
   </p>
      
 

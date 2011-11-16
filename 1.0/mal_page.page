@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="index" group="page"/>
 
-  <revision docversion="1.0" date="2011-03-11" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -47,7 +47,8 @@ guide pages serve as navigational aids.</p>
     should match the base file name (without extension) of the file containing
     the page.</p></item>
 
-    <item><p>The <code>type</code> attribute takes the values <code>"guide"</code> and
+    <item><p>The <code>type</code> attribute specifies the page type, which
+    affects processing. Types defined by this specification are <code>"guide"</code> and
     <code>"topic"</code>.  <link xref="#guide">Guide pages</link> and <link xref="#topic">topic
     pages</link> are discussed below.  If the <code>type</code> attribute is
     omitted, it is assumed to be <code>"topic"</code>.</p></item>
@@ -117,7 +118,7 @@ guide pages serve as navigational aids.</p>
 
   <p>Topic pages have the <code>type</code> attribute set to
   <code>"topic"</code>, or have no <code>type</code> attribute at all.  Topics
-  contain the bulk of the material in a document.  A Topic may be a tutorial,
+  contain the bulk of the material in a document.  A topic may be a tutorial,
   a conceptual overview, reference material, or any other type of content.
   Mallard does not distinguish between different content types, although tools
   may introduce special styling based on style hints.  Topics are distinguished
@@ -166,7 +167,7 @@ guide pages serve as navigational aids.</p>
   element introduced in <link xref="docbook">DocBook</link> 5.1. Previous
   versions of DocBook did not have a topic container element. Articles or
   books written in DocBook were sometimes chunked into pages. Compared to
-  those documents, the <code>page</code> element may be used in place as
+  those documents, the <code>page</code> element may be used in place of
   division elements like
   <code href="http://www.docbook.org/tdg51/en/html/book.html">book</code>,
   <code href="http://www.docbook.org/tdg51/en/html/article.html">article</code>, and

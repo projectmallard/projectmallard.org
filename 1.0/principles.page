@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="index" group="principles"/>
 
-  <revision docversion="1.0" date="2011-03-09" status="review"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -73,7 +73,7 @@ principles that led Mallard to be the format it is.</p>
   places, and users can navigate to them by the route that matches their own
   mental model. It also makes it easier to get lost in a document with no
   sense of context. Without contextual navigation, topics become isolated
-  and readers and readers can't explore.</p>
+  and readers can't explore.</p>
 
   <p>The <link xref="mal_links">automatic linking</link> features in Mallard
   help create navigational structures. The link types reflect how people

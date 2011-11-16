@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="details"/>
 
-  <revision docversion="1.0" date="2011-08-15" status="final"/>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -22,7 +22,7 @@
 
 <p>The <code>version</code> attribute allows you to specify the version of
 Mallard you are using, as well as the versions of any Mallard extensions.
-Future versions of Mallard, using the same XML namespace, will make
+Future versions of Mallard using the same XML namespace, will make
 backwards-compatible additions. Mallard is also designed to be extended
 using elements and attributes from <link xref="mal_external">external
 namespaces</link>. Use the <code>version</code> attribute to signal the
@@ -133,7 +133,7 @@ version and extensions to a processing tool or validator.</p>
 
   <p>The schema corresponding to the first version token is the primary schema.
   Because Mallard schemas explicitly allow elements and attribute from external
-  namespaces in well-defined placed, pages using extensions will usually be able
+  namespaces in well-defined places, pages using extensions will usually be able
   to be validated against the primary schema only. Combining the schemas, however,
   allows for stricter validation of the extensions.</p>
 
