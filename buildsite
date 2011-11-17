@@ -1,9 +1,7 @@
 #!/bin/sh
-rm -f 1.0/META.page
 mallard-site-tool cache
-./makemeta.sh 
 mallard-site-tool html -o $1/
 mallard-site-tool css -o $1/
 mallard-site-tool media -o $1/
 ./buildrng -o $1/
-cp mallard-badge.png mallard-header.png mallard-logo.svg $1/
+cp mallard-badge.png mallard-header.png mallard-logo.svg mallard-logo-80.png duckbg.png swoop.png $1/

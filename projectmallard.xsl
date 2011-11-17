@@ -29,85 +29,104 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:param name="theme.icons.size.note" select="24"/>
 
-<xsl:param name="theme.color.yellow_border" select="'#fcaf3e'"/>
+<xsl:param name="color.yellow_border" select="'#fcaf3e'"/>
+<xsl:param name="color.text_light" select="'#555753'"/>
+<xsl:param name="color.blue_border" select="'#3465a4'"/>
 
 <xsl:template name="html.css.custom">
 <xsl:text>
 body {
   background-color: #ffffff;
-  padding: 0 20px 0 20px;
   font-family: sans;
 }
-p { max-width: 60em; text-align: justify; }
-a img { border: none; }
-div.example { margin-left: 12px; }
-
-div.header {
-  padding: 20px 20px 0 20px;
-  max-width: 760px;
-  margin: 0 auto;
+div.top {
+  min-width: 540px;
+  max-width: 800px;
+  min-height: 90px;
+  margin: 20px auto 0 auto;
+  font-family: 'Lato';
+  font-weight: bold;
+  background: url(swoop.png) no-repeat;
+  background-position: 40px 0;
 }
-img.header-icon {
-  margin-bottom: 20px;
-  width: 380px;
-  height: 100px;
+div.top-mallard {
+  margin: 0 0 0 20px;
+  font-size: 64px;
+  line-height: 58px;
+}
+div.top-tagline {
+  margin: 0 0 0 20px;
+  font-size: 16px;
+}
+div.top-mallard a {
+  text-decoration: none;
+  border: none;
+  color: #555753;
+}
+div.top-tagline a {
+  text-decoration: none;
+  border: none;
+  color: #888a85;
+}
+div.top img {
+  float: right;
+  margin: 0 20px 0 20px;
+}
+div.all {
+  border: none;
+  max-width: 800px;
+  margin: 0 auto 0 auto;
+  border-top: solid 6px </xsl:text>
+    <xsl:value-of select="$color.yellow_border"/><xsl:text>;
 }
 div.linktrail {
-  padding-left: 0;
+  color: #3465a4;
+  padding: 0.5em 22px 0.5em 22px;
+  background-color: #eeeeec;
 }
+div.body {
+  padding: 1em 20px 1em 20px;
+}
+h1.title { font-family: 'Lato'; font-size: 3em; }
+h2.title { font-size: 1.73em; }
+p { max-width: 60em; text-align: justify; }
+a img { border: none; }
 
-div.footer {
-  max-width: 800px;
-  padding-bottom: 1em;
-  margin: 20px auto 0 auto;
+div.bottom {
+  background-color: #888a85;
+  color: #eeeeec;
+  margin-top: 80px;
+  text-shadow: 1px 1px 0 </xsl:text><xsl:value-of select="$color.text_light"/><xsl:text>;
 }
-div.addthis_right {
-  float: right;
-  height: 20px;
+div.bottom a {
+  color: #eeeeec;
+  text-shadow: 1px 1px 0 </xsl:text><xsl:value-of select="$color.link"/><xsl:text>;
 }
-div.addthis_left {
-  height: 20px;
+div.bottom div.content {
+  max-width: 760px;
+  margin: 0 auto 0 auto;
+  padding: 10px 0;
+  background: url(duckbg.png) no-repeat;
+  background-position: 240px 10px;
 }
-div.footer-badge {
-  margin: 2em 0 0 0;
+div.bottom-badge {
+  margin: 1em;
   text-align: center;
-  color: #3f3f3f;
   clear: both;
 }
-div.footer-badge img {
+div.bottom-badge img {
   vertical-align: middle;
 }
 
-div.body {
-  border-top: solid 4px </xsl:text>
-    <xsl:value-of select="$color.yellow_border"/><xsl:text>;
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-  margin: 0 auto;
-  padding: 1em 19px 1em 19px;
-  max-width: 760px;
-  box-shadow: 0 4px 8px </xsl:text>
-    <xsl:value-of select="$color.gray_border"/><xsl:text>;
-  -webkit-box-shadow: 0 2px 12px </xsl:text>
-    <xsl:value-of select="$color.gray_border"/><xsl:text>;
-  -moz-box-shadow: 0 2px 12px </xsl:text>
-    <xsl:value-of select="$color.gray_border"/><xsl:text>;
-}
-body.pmo-source div.body {
+body.pmo-source div.all {
   border-top: solid 4px #d3d7cf;
 }
-body.pmo-source div.header {
-  border-bottom: solid 1px #d3d7cf;
-}
 
-div.header {
-  color: #3465a4;
-  border-bottom: solid 1px </xsl:text>
-    <xsl:value-of select="$color.yellow_border"/><xsl:text>;
-}
-h1, h2, h3, h4, h5, h6, h8 { color: #3465a4; }
 
-.threecolumns h2 { font-size: 1em; }
+.threecolumns h2 {
+  font-family: 'Lato';
+  font-size: 16px;
+}
 .threecolumns li { margin-left: 1.44em; }
 .threecolumnsone {
   padding: 0;
@@ -140,6 +159,8 @@ div.pmo-source {
 </xsl:text>
 </xsl:template>
 
+<xsl:template mode="mal2html.title.mode" match="mal:page[@style='3column']/mal:title"/>
+
 <xsl:template match="mal:page[@style='3column']/mal:section">
   <xsl:param name="bypass" select="false()"/>
   <xsl:choose>
@@ -169,24 +190,7 @@ div.pmo-source {
 </xsl:template>
 
 <xsl:template name="html.head.custom">
-  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=shaunm"/>
-  <script type="text/javascript">
-<xsl:text>
-var addthis_config = {
-  data_track_clickback: true,
-  ui_508_compliant: true
-}
-var addthis_share = {
-  description: "</xsl:text>
-<xsl:for-each select="str:split(normalize-space(/mal:page/mal:info/mal:desc), '&quot;')">
-  <xsl:if test="position() != 1">
-    <xsl:text>\"</xsl:text>
-  </xsl:if>
-  <xsl:value-of select="."/>
-</xsl:for-each><xsl:text>"
-}
-</xsl:text>
-  </script>
+  <link href='http://fonts.googleapis.com/css?family=Lato:900' rel='stylesheet' type='text/css'/>
 </xsl:template>
 
 <xsl:template mode="html.body.attr.mode" match="mal:page">
@@ -197,15 +201,22 @@ var addthis_share = {
   </xsl:if>
 </xsl:template>
 
+<xsl:template name="html.top.custom">
+  <div class="top">
+    <a href="{$mal.site.root_noslash}/index.html">
+      <img class="header-icon" width="80" height="80">
+        <xsl:attribute name="src">
+          <xsl:value-of select="$mal.site.root_noslash"/>
+          <xsl:text>/mallard-logo-80.png</xsl:text>
+        </xsl:attribute>
+      </img>
+    </a>
+    <div class="top-mallard"><a href="{$mal.site.root_noslash}/index.html">Mallard</a></div>
+    <div class="top-tagline"><a href="{$mal.site.root_noslash}/index.html">Better Help for Better Software</a></div>
+  </div>
+</xsl:template>
+
 <xsl:template mode="html.header.mode" match="mal:page">
-  <a href="{$mal.site.root_noslash}/index.html">
-    <img class="header-icon">
-      <xsl:attribute name="src">
-        <xsl:value-of select="$mal.site.root_noslash"/>
-        <xsl:text>/mallard-header.png</xsl:text>
-      </xsl:attribute>
-    </img>
-  </a>
   <div style="clear:both">
     <xsl:choose>
       <xsl:when test="string(@style) = 'pmo-source'">
@@ -231,21 +242,13 @@ var addthis_share = {
   </div>
 </xsl:template>
 
-<xsl:template mode="html.footer.mode" match="mal:page">
-  <div class="addthis_toolbox addthis_default_style addthis_right">
-    <a class="addthis_button_delicious"></a>
-    <a class="addthis_button_digg"></a>
-    <a class="addthis_button_identica"></a>
-    <a class="addthis_button_reddit"></a>
-    <a class="addthis_button_stumbleupon"></a>
-    <a class="addthis_button_more"></a>
-  </div>
-  <div class="addthis_toolbox addthis_default_style addthis_left">
-    <a class="addthis_button_w3validator"></a>
-  </div>
-  <div class="footer-badge">
+<xsl:template mode="html.footer.mode" match="mal:page"/>
+
+<xsl:template name="html.bottom.custom">
+  <div class="bottom"><div class="content">
+  <div class="bottom-badge">
     <div>Powered by</div>
-    <a href="{$mal.site.root_noslash}/index.html">
+    <a href="http://projectmallard.org">
       <img alt="Mallard" width="80" height="15">
         <xsl:attribute name="src">
           <xsl:value-of select="$mal.site.root_noslash"/>
@@ -254,6 +257,11 @@ var addthis_share = {
       </img>
     </a>
   </div>
+  <div class="bottom-badge">
+    <xsl:text>Hosted by </xsl:text>
+    <a href="http://syllogist.net/">Syllogist</a>
+  </div>
+  </div></div>
 </xsl:template>
 
 <xsl:template mode="mal2html.block.mode" match="mal:note[@style='pmo-source']">
