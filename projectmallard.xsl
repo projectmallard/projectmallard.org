@@ -36,16 +36,23 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template name="html.css.custom">
 <xsl:text>
 body {
-  background-color: #ffffff;
   font-family: sans;
+  background: #888a85 url(duckbg.png) repeat-y;
+  background-position: center 0;
 }
 div.top {
-  min-width: 540px;
-  max-width: 800px;
-  min-height: 90px;
-  margin: 20px auto 0 auto;
+  width: 100%;
+  margin: 0;
+  padding-top: 20px;
+  background-color: #ffffff;
   font-family: 'Lato';
   font-weight: bold;
+}
+div.top div.content {
+  height: 90px;
+  min-width: 540px;
+  max-width: 800px;
+  margin: 0 auto 0 auto;
   background: url(swoop.png) no-repeat;
   background-position: 40px 0;
 }
@@ -73,11 +80,17 @@ div.top img {
   margin: 0 20px 0 20px;
 }
 div.all {
+  background-color: #ffffff;
   border: none;
-  max-width: 800px;
-  margin: 0 auto 0 auto;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+}
+div.header {
   border-top: solid 6px </xsl:text>
     <xsl:value-of select="$color.yellow_border"/><xsl:text>;
+  margin: 0 auto 0 auto;
+  max-width: 800px;
 }
 div.linktrail {
   color: #3465a4;
@@ -85,43 +98,37 @@ div.linktrail {
   background-color: #eeeeec;
 }
 div.body {
-  padding: 1em 20px 1em 20px;
+  max-width: 760px;
+  margin: 0 auto 0 auto;
+  padding: 1em 20px 40px 20px;
 }
 h1.title { font-family: 'Lato'; font-size: 3em; }
 h2.title { font-size: 1.73em; }
-p { max-width: 60em; text-align: justify; }
+p { max-width: 62em; text-align: justify; }
 a img { border: none; }
 
 div.bottom {
-  background-color: #888a85;
-  color: #eeeeec;
-  margin-top: 80px;
+  color: #d3d7cf;
   text-shadow: 1px 1px 0 </xsl:text><xsl:value-of select="$color.text_light"/><xsl:text>;
 }
 div.bottom a {
-  color: #eeeeec;
+  color: #d3d7cf;
   text-shadow: 1px 1px 0 </xsl:text><xsl:value-of select="$color.link"/><xsl:text>;
+}
+div.bottom a:hover {
+  color: #eeeeec;
 }
 div.bottom div.content {
   max-width: 760px;
   margin: 0 auto 0 auto;
-  padding: 10px 0;
-  background: url(duckbg.png) no-repeat;
-  background-position: 240px 10px;
+  padding: 0 0 10px 0;
 }
 div.bottom-badge {
   margin: 1em;
   text-align: center;
   clear: both;
 }
-div.bottom-badge img {
-  vertical-align: middle;
-}
-
-body.pmo-source div.all {
-  border-top: solid 4px #d3d7cf;
-}
-
+div.bottom-badge div { margin: 0; }
 
 .threecolumns h2 {
   font-family: 'Lato';
@@ -146,6 +153,9 @@ body.pmo-source div.all {
   width: 240px;
 }
 
+body.pmo-source div.header {
+  border-top: solid 4px #d3d7cf;
+}
 div.pmo-source {
   width: 240px;
   float: right;
@@ -202,7 +212,7 @@ div.pmo-source {
 </xsl:template>
 
 <xsl:template name="html.top.custom">
-  <div class="top">
+  <div class="top"><div class="content">
     <a href="{$mal.site.root_noslash}/index.html">
       <img class="header-icon" width="80" height="80">
         <xsl:attribute name="src">
@@ -213,7 +223,7 @@ div.pmo-source {
     </a>
     <div class="top-mallard"><a href="{$mal.site.root_noslash}/index.html">Mallard</a></div>
     <div class="top-tagline"><a href="{$mal.site.root_noslash}/index.html">Better Help for Better Software</a></div>
-  </div>
+  </div></div>
 </xsl:template>
 
 <xsl:template mode="html.header.mode" match="mal:page">
@@ -247,7 +257,17 @@ div.pmo-source {
 <xsl:template name="html.bottom.custom">
   <div class="bottom"><div class="content">
   <div class="bottom-badge">
-    <div>Powered by</div>
+    <xsl:for-each select="/mal:page/mal:info/mal:credit[mal:years]">
+      <div>
+        <xsl:text>© </xsl:text>
+        <xsl:value-of select="mal:years[1]"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="mal:name[1]"/>
+      </div>
+    </xsl:for-each>
+  </div>
+  <div class="bottom-badge">
+    <div>Powered by </div>
     <a href="http://projectmallard.org">
       <img alt="Mallard" width="80" height="15">
         <xsl:attribute name="src">
