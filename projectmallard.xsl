@@ -92,7 +92,7 @@ div.header {
   margin: 0 auto 0 auto;
   max-width: 800px;
 }
-div.linktrail {
+div.trails {
   color: #3465a4;
   padding: 0.5em 22px 0.5em 22px;
   background-color: #eeeeec;
