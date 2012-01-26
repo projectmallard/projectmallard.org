@@ -267,7 +267,7 @@ function parse_name_class (line) {
     stack[++stack_i] = "<anyName>";
     parse_name_class(substr(line, 2));
   }
-  else if (c == "-") {
+  else if (c == "-" && stack[stack_i] == "<anyName>") {
     stack[++stack_i] = "<except>"
     parse_name_class(substr(line, 2));
   }
@@ -310,7 +310,7 @@ function parse_name_class (line) {
   }
   else if (match(line, /^[A-Za-z_]/)) {
     name = substr(line, 1);
-    sub(/[^A-Za-z_]+.*/, "", name);
+    sub(/[^A-Za-z_-]+.*/, "", name);
     if (length(line) >= length(name) + 1)
       aft = substr(line, length(name) + 1);
     else
