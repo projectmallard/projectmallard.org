@@ -48,8 +48,8 @@ div.top {
   font-family: 'Lato';
   font-weight: bold;
 }
-div.top div.content {
-  height: 90px;
+div.top > div.content {
+  height: 120px;
   min-width: 540px;
   max-width: 800px;
   margin: 0 auto 0 auto;
@@ -58,11 +58,10 @@ div.top div.content {
 }
 div.top-mallard {
   margin: 0 0 0 20px;
-  font-size: 64px;
-  line-height: 58px;
+  font-size: 76px;
 }
 div.top-tagline {
-  margin: 0 0 0 20px;
+  margin: -10px 0 0 20px;
   font-size: 16px;
 }
 div.top-mallard a {
@@ -77,9 +76,9 @@ div.top-tagline a {
 }
 div.top img {
   float: right;
-  margin: 0 20px 0 20px;
+  margin: 20px 20px 0 20px;
 }
-div.all {
+div.page {
   background-color: #ffffff;
   border: none;
   margin: 0;
@@ -132,25 +131,34 @@ div.bottom-badge div { margin: 0; }
 
 .threecolumns h2 {
   font-family: 'Lato';
-  font-size: 16px;
+  font-size: 18px;
+}
+.threecolumns div.title {
+  margin-top: 2em;
+  font-family: 'Lato';
+  font-size: 14px;
 }
 .threecolumns li { margin-left: 1.44em; }
 .threecolumnsone {
+  display: inline-block;
+  margin: 0 20px 20px 0;
   padding: 0;
   vertical-align: top;
-  width: 240px;
-  border-right: solid 20px #ffffff;
+  width: 238px;
 }
 .threecolumnstwo {
+  display: inline-block;
+  margin: 0 20px 20px 0;
   padding: 0;
   vertical-align: top;
-  width: 240px;
-  border-right: solid 20px #ffffff;
+  width: 238px;
 }
 .threecolumnsthree {
+  display: inline-block;
+  margin: 0 0 20px 0;
   padding: 0;
   vertical-align: top;
-  width: 240px;
+  width: 236px;
 }
 
 body.pmo-source div.header {
@@ -175,23 +183,21 @@ div.pmo-source {
   <xsl:param name="bypass" select="false()"/>
   <xsl:choose>
     <xsl:when test="not(preceding-sibling::mal:section)">
-      <table class="threecolumns">
-        <tr>
-          <td class="threecolumnsone">
-            <xsl:apply-imports/>
-          </td>
-          <td class="threecolumnstwo">
-            <xsl:apply-templates select="following-sibling::mal:section[1]">
-              <xsl:with-param name="bypass" select="true()"/>
-            </xsl:apply-templates>
-          </td>
-          <td class="threecolumnsthree">
-            <xsl:apply-templates select="following-sibling::mal:section[2]">
-              <xsl:with-param name="bypass" select="true()"/>
-            </xsl:apply-templates>
-          </td>
-        </tr>
-      </table>
+      <div class="threecolumns">
+        <div class="threecolumnsone">
+          <xsl:apply-imports/>
+        </div>
+        <div class="threecolumnstwo">
+          <xsl:apply-templates select="following-sibling::mal:section[1]">
+            <xsl:with-param name="bypass" select="true()"/>
+          </xsl:apply-templates>
+        </div>
+        <div class="threecolumnsthree">
+          <xsl:apply-templates select="following-sibling::mal:section[2]">
+            <xsl:with-param name="bypass" select="true()"/>
+          </xsl:apply-templates>
+        </div>
+      </div>
     </xsl:when>
     <xsl:when test="$bypass">
       <xsl:apply-imports/>
@@ -227,29 +233,27 @@ div.pmo-source {
 </xsl:template>
 
 <xsl:template mode="html.header.mode" match="mal:page">
-  <div style="clear:both">
-    <xsl:choose>
-      <xsl:when test="string(@style) = 'pmo-source'">
-        <xsl:for-each select="$mal.cache">
-          <xsl:variable name="srclink" select="mal:p[1]/mal:link[1]"/>
-          <xsl:variable name="srckey">
-            <xsl:call-template name="mal.link.xref.linkid">
-              <xsl:with-param name="node" select="$srclink"/>
-            </xsl:call-template>
-          </xsl:variable>
-          <xsl:variable name="srcnode" select="key('mal.cache.key', $srckey)"/>
-          <xsl:call-template name="mal2html.page.linktrails">
-            <xsl:with-param name="node" select="$srcnode"/>
+  <xsl:choose>
+    <xsl:when test="string(@style) = 'pmo-source'">
+      <xsl:for-each select="$mal.cache">
+        <xsl:variable name="srclink" select="mal:p[1]/mal:link[1]"/>
+        <xsl:variable name="srckey">
+          <xsl:call-template name="mal.link.xref.linkid">
+            <xsl:with-param name="node" select="$srclink"/>
           </xsl:call-template>
-        </xsl:for-each>
-      </xsl:when>
-      <xsl:otherwise>
+        </xsl:variable>
+        <xsl:variable name="srcnode" select="key('mal.cache.key', $srckey)"/>
         <xsl:call-template name="mal2html.page.linktrails">
-          <xsl:with-param name="node" select="."/>
+          <xsl:with-param name="node" select="$srcnode"/>
         </xsl:call-template>
-      </xsl:otherwise>
-    </xsl:choose>
-  </div>
+      </xsl:for-each>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="mal2html.page.linktrails">
+        <xsl:with-param name="node" select="."/>
+      </xsl:call-template>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 <xsl:template mode="html.footer.mode" match="mal:page"/>
