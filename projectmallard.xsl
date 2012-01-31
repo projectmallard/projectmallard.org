@@ -50,7 +50,6 @@ div.top {
 }
 div.top > div.content {
   height: 120px;
-  min-width: 540px;
   max-width: 800px;
   margin: 0 auto 0 auto;
   background: url(swoop.png) no-repeat;
@@ -78,6 +77,16 @@ div.top img {
   float: right;
   margin: 20px 20px 0 20px;
 }
+@media only screen and (max-width: 400px) {
+  div.top-mallard, div.top-tagline {
+    margin-left: 6px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  div.top img {
+    display: none;
+  }
+}      
 div.page {
   background-color: #ffffff;
   border: none;
@@ -96,13 +105,23 @@ div.trails {
   padding: 0.5em 22px 0.5em 22px;
   background-color: #eeeeec;
 }
+@media only screen and (max-width: 400px) {
+  div.trails {
+    padding: 0.5em 6px 0.5em 6px;
+  }
+}
 div.body {
   max-width: 760px;
   margin: 0 auto 0 auto;
-  padding: 1em 20px 40px 20px;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 h1.title { font-family: 'Lato'; font-size: 3em; }
 h2.title { font-size: 1.73em; }
+@media only screen and (max-width: 400px) {
+  h1.title { font-size: 2em; }
+  h2.title { font-size: 1.44em; }
+}
 p { max-width: 62em; text-align: justify; }
 a img { border: none; }
 
@@ -159,6 +178,24 @@ div.bottom-badge div { margin: 0; }
   padding: 0;
   vertical-align: top;
   width: 236px;
+}
+@media only screen and (max-width: 400px) {
+  .threecolumnsone, .threecolumnstwo, .threecolumnsthree {
+    margin-right: 0;
+    width: 100%;
+  }
+  .threecolumnsone > div.hgroup > *,
+  .threecolumnstwo > div.hgroup > *,
+  .threecolumnsthree > div.hgroup > * {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+  .threecolumnsone > div.region,
+  .threecolumnstwo > div.region,
+  .threecolumnsthree > div.region {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
 }
 
 body.pmo-source div.header {
