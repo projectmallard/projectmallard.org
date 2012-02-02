@@ -150,6 +150,9 @@ element to express logical links between pages and sections to be collected by
 <!-- END processing -->
 
 
+<?no-comparison?>
+
+
 <!-- BEGIN schema -->
 <section id="schema">
 <title>Schema</title>

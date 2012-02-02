@@ -71,8 +71,10 @@ a table row.</p>
 
 <!-- BEGIN comparison -->
 <section id="comparison">
-  <title>Comparison</title>
+  <title>Comparison to Other Formats</title>
   <p>See <link xref="mal_table#comparison"/> on the page <link xref="mal_table"/>.</p>
+  <?no-docbook?>
+  <?no-dita?>
 </section>
 <!-- END comparison -->
 

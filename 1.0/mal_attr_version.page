@@ -192,6 +192,9 @@ version and extensions to a processing tool or validator.</p>
 <!-- END processing -->
 
 
+<?no-comparison?>
+
+
 <!-- BEGIN schema -->
 <section id="schema">
 <title>Schema</title>
