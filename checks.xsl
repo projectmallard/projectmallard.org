@@ -20,7 +20,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 xmlns:str="http://exslt.org/strings"
                 xmlns:mal="http://projectmallard.org/1.0/"
                 xmlns:cache="http://projectmallard.org/cache/1.0/"
-                exclude-result-prefixes="str mal cache"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                exclude-result-prefixes="str mal cache xi"
                 version="1.0">
 
 <xsl:output method="text"/>
@@ -43,6 +44,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:variable name="errors">
     <xsl:if test="string(@id) != 'index' and string(@style) != 'details' and
                   not(starts-with($cache_node/@id, '/about/'))">
+
       <!-- Check for common sections -->
       <xsl:variable name="sects" select="mal:section"/>
       <xsl:if test="not($sects[1][@id='notes'][mal:title='Notes'])">
@@ -63,6 +65,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <xsl:if test="not($sects[count($sects)][@id='schema'][mal:title='Schema'])">
         <xsl:text>Missing Schema section&#x000A;</xsl:text>
       </xsl:if>
+
       <!-- Check for comparisons -->
       <xsl:for-each select="$sects[@id='comparison']">
         <xsl:if test="not(processing-instruction('no-docbook')) and
@@ -74,12 +77,19 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
           <xsl:text>Comparison missing DITA&#x000A;</xsl:text>
         </xsl:if>
       </xsl:for-each>
+
       <!-- Check for an actual RNG schema -->
       <xsl:for-each select="$sects[@id='schema']">
         <xsl:if test="not(mal:synopsis/mal:code[@mime='application/relax-ng-compact-syntax'])">
           <xsl:text>Schema missing RNG&#x000A;</xsl:text>
         </xsl:if>
       </xsl:for-each>
+
+      <!-- Check for the license -->
+      <xsl:if test="not(mal:info/xi:include[contains(@href, 'cc-by-sa-3-0.xml')])">
+        <xsl:text>Missing XInclude for license&#x000A;</xsl:text>
+      </xsl:if>
+
     </xsl:if>
   </xsl:variable>
   <xsl:if test="$errors != ''">
