@@ -1,0 +1,222 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="details"
+      id="tokens">
+
+<info>
+  <revision docversion="1.0" date="2012-02-08" status="review"/>
+
+  <link type="guide" xref="index" group="notes"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2012</years>
+  </credit>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+</info>
+
+<title>Test Tokens</title>
+
+<p>Tokens are the basic building blocks of test expressions. See
+<link xref="if_attr_test"/> for information on how test expressions
+and test tokens are evaluated.</p>
+
+<p>Tokens can be any string of non-whitespace test characters excluding
+commas (U+002C) and exclamation points (U+0021). For consistency, tokens
+should consist of a <em>token scheme</em> and a <em>token value</em>,
+separated by a colon (U+003A).</p>
+
+<p>Processing tools can define any arbitrary tokens or token schemes, or
+allow users to define tokens or token schemes. To avoid conflicts, token
+schemes not defined on projectmallard.org should contain a hyphen (U+002D).</p>
+
+<p>Some token schemes may require processing tools to dynamically compute a
+list of defined tokens.</p>
+
+
+<!-- BEGIN target -->
+<section id="target">
+<title>Target Tokens</title>
+<p>Target tokens start with <code>target:</code>. They identify the target
+environment where the user is reading the content. This may not be the same
+as the environment the user is reading the content for. For example, a user
+might use an e-book reader to read help for a desktop operating system.</p>
+
+<p>The following table lists some common target tokens. Processing tools
+may support tokens not in this list.</p>
+
+<table rules="rows" frame="top bottom">
+<thead>
+<tr><td><p>Token</p></td><td><p>Description</p></td></tr>
+</thead>
+<tbody>
+<tr>
+  <td><p><code>target:html</code></p></td>
+  <td><p>The content has been converted to an HTML document for reading.
+  This token should be true for any version or serialization of HTML,
+  including for XHTML.</p></td>
+</tr>
+<tr>
+  <td><p><code>target:xhtml</code></p></td>
+  <td><p>The content has been converted to an XHTML document for reading.
+  To test for a non-XML serialization of HTML, use the test expression
+  <code>target:html !target:xhtml</code>.</p></td>
+</tr>
+<tr>
+  <td><p><code>target:epub</code></p></td>
+  <td><p>The content has been converted to an EPUB document for reading.</p></td>
+</tr>
+<tr>
+  <td><p><code>target:pdf</code></p></td>
+  <td><p>The content has been converted to a PDF document for reading.</p></td>
+</tr>
+<tr>
+  <td><p><code>target:mobile</code></p></td>
+  <td><p>The content is being read on a mobile device, such as a smart phone.
+  Processing tools may use heuristics for this token, such as querying the
+  width of the content area.</p></td>
+</tr>
+<tr>
+  <td><p><code>target:braille</code></p></td>
+  <td><p>The content is being read on a braille device.</p></td>
+</tr>
+<tr>
+  <td><p><code>target:speech</code></p></td>
+  <td><p>The content is being read aloud, such as by a text-to-speech program.</p></td>
+</tr>
+<tr>
+  <td><p><code>target:print</code></p></td>
+  <td><p>The content will be printed. This target may be defined when converting
+  to a print-oriented format, such as PDF.</p></td>
+</tr>
+<tr>
+  <td><p><code>target:text</code></p></td>
+  <td><p>The content is being shown in a medium that does not support images or
+  video, such as in a text terminal.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- END target -->
+
+
+<!-- BEGIN platform -->
+<section id="platform">
+<title>Platform Tokens</title>
+<p>Platform tokens start with <code>platform:</code>. They identify the platform
+that the content is relevant to. They may identify hardware devices, operating
+systems, desktop environments, or any other aspect of the computing environment
+that affects the content.</p>
+
+<p>Processing tools may define any platform tokens. The following table lists
+some example tokens that may be used.</p>
+
+<table rules="rows" frame="top bottom">
+<thead>
+<tr><td><p>Token</p></td><td><p>Description</p></td></tr>
+</thead>
+<tbody>
+<tr>
+  <td><p><code>platform:linux</code></p></td>
+  <td><p>The content applies to operating systems running the Linux kernel.</p></td>
+</tr>
+<tr>
+  <td><p><code>platform:gnome-shell</code></p></td>
+  <td><p>The content applies when running GNOME Shell, the core of GNOME 3.</p></td>
+</tr>
+<tr>
+  <td><p><code>platform:x86</code></p></td>
+  <td><p>The content applies to CPUs using an x86 architecture.</p></td>
+</tr>
+<tr>
+  <td><p><code>platform:touch</code></p></td>
+  <td><p>The content applies for touchscreen devices, such as tablets.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- END platform -->
+
+
+<!-- BEGIN feature -->
+<section id="feature">
+<title>Feature Tokens</title>
+<p>Feature tokens start with <code>mallard:</code>. They identify Mallard features
+supported by the procesing tool. Versions of the core Mallard spec are identified
+by using the version number as the token value. Extensions are identified by using
+the extension prefix and version, separated by a slash (U+002F). These values are
+exactly the same as the version tokens using by the <link xref="/1.0/mal_attr_version"
+href="http://projectmallard.org/1.0/mal_attr_version.html">Mallard <code>version</code>
+attribute</link>.</p>
+
+<p>Some extensions may define more granular feature tokens, to identify particular
+sets of functionality defined by the extension. These use the base feature token
+of the extension followed by a hash character (U+0023) and an additional string.
+These tokens will be listed in the individual extension specifications.</p>
+
+<p>The following table lists some example feature tokens.</p>
+
+<table rules="rows" frame="top bottom">
+<thead>
+<tr><td><p>Token</p></td><td><p>Description</p></td></tr>
+</thead>
+<tbody>
+<tr>
+  <td><p><code>mallard:1.0</code></p></td>
+  <td><p>The processing tool supports Mallard version 1.0.</p></td>
+</tr>
+<tr>
+  <td><p><code>mallard:if/1.0</code></p></td>
+  <td><p>The processing tool supports version 1.0 of the Mallard
+  Conditionals extension.</p></td>
+</tr>
+<tr>
+  <td><p><code>mallard:example/1.1#feature</code></p></td>
+  <td><p>The processing tool supports the feature <var>feature</var>
+  defined in version 1.1 of the extension <var>example</var>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- END feature -->
+
+
+<!-- BEGIN action -->
+<section id="action">
+<title>Action Tokens</title>
+<p>Action tokens start with <code>action:</code>. They identify action schemes
+for the <link xref="/1.0/mal_attr_link"
+href="http://projectmallard.org/1.0/mal_attr_link.html"><code>action</code>
+attribute</link> supported by the processing tool. For example, if the processing
+tool supports an <code>install:</code> action scheme, then it should define the
+test token <code>action:install</code>.</p>
+</section>
+<!-- END action -->
+
+
+<!-- BEGIN lang -->
+<section id="lang">
+<title>Language Tokens</title>
+<p>Language tokens start with <code>lang:</code>. They test the language of the
+element in the document. A language token is compared against the context language
+of the element the test condition is on. The context language is the value of the
+<code>xml:lang</code> attribute on the element, or if the element does not have an
+<code>xml:lang</code> attribute, the value of the <code>xml:lang</code> attribute
+on the nearest ancestor element which does.</p>
+
+<p>A language token is true if the context language is the same as the token value,
+or if the context language is a sublanguage of the token value. All comparisons are
+case-insensitive. This is equivalent to the
+<link href="http://www.w3.org/TR/xpath/#function-lang">XPath <code>lang</code>
+function</link>.</p>
+
+<p>As a special case for interoperability with <link
+href="http://en.wikipedia.org/wiki/Locale">POSIX locale identifiers</link>, the
+token <code>lang:C</code> (or, equivalently, <code>lang:c</code>) is true if
+there is no <code>xml:lang</code> attribute on the element or any of its
+ancestor elements.</p>
+</section>
+<!-- END lang -->
+
+</page>

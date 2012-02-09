@@ -3,7 +3,7 @@
       id="if_else">
 
 <info>
-  <revision docversion="1.0" date="2011-05-02" status="stub"/>
+  <revision docversion="1.0" date="2012-02-09" status="review"/>
 
   <link type="guide" xref="index" group="else"/>
   <link type="seealso" xref="if_choose"/>
@@ -12,7 +12,7 @@
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2011</years>
+    <years>2011, 2012</years>
   </credit>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -28,31 +28,31 @@ content when no <code xref="if_when">if:when</code> matches.</p>
 <section id="notes">
 <title>Notes</title>
 <list>
-  <item><p>The <code>if:when</code> element can contain any
+  <item><p>The <code>if:else</code> element can contain any
   <link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">general
   block content</link>.</p></item>
 
-  <item><p>The <code>if:when</code> element occurs in a
+  <item><p>The <code>if:else</code> element occurs in an
   <code xref="if_choose">if:choose</code> element.</p></item>
 
   <item><p>The <code>style</code> attribute takes a space-separated list of
   style hints.  Processing tools should adjust their behavior according to
   those style hints they understand.</p></item>
 
-  <item><p>The <code>if:when</code> element can have attributes from external
-  namespaces.  See <link xref="mal_external"/> for more information
-  on external-namespace attributes.</p></item>
+  <item><p>The <code>if:else</code> element can have attributes from external
+  namespaces.  See <link xref="/1.0/mal_external"
+  href="http://projectmallard.org/1.0/mal_external.html">External Namespaces</link>
+  for more information on external-namespace attributes.</p></item>
 </list>
 </section>
 <!-- END notes -->
 
 
 <!-- BEGIN examples -->
-<!--
 <section id="examples">
 <title>Examples</title>
+<p>See <link xref="if_choose#examples"/> on the page <link xref="if_choose"/>.</p>
 </section>
--->
 <!-- END examples -->
 
 
@@ -60,7 +60,7 @@ content when no <code xref="if_when">if:when</code> matches.</p>
 <section id="processing">
 <title>Processing Expectations</title>
 <p>The contents of an <code>if:else</code> element are only displayed if
-no previous <code>if:when</code> elements in the same
+no previous <code xref="if_when">if:when</code> elements in the same
 <code xref="if_choose">if:choose</code> were displayed. See
 <link xref="if_choose#processing"/> on the page <link xref="if_choose"/>
 for more details.</p>
@@ -68,15 +68,18 @@ for more details.</p>
 <!-- END processing -->
 
 
+<?no-comparison?>
+
+
 <!-- BEGIN schema -->
 <section id="schema">
 <title>Schema</title>
 
-<p>The formal definition of the Mallard Conditional Processing extension
+<p>The formal definition of the Mallard Conditionals extension
 is maintained in <link href="http://www.relaxng.org/">RELAX NG</link>
 <link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
 in code blocks within this specification. This is the formal definition
-for the <code>else</code> element. The namespace declarations for this
+for the <code>if:else</code> element. The namespace declarations for this
 definition are on the page <link xref="index"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
@@ -86,7 +89,7 @@ if_else = element if:else {
 }
 if_else_attr = (
   attribute style { xsd:NMTOKENS } ?,
-  <link xref="/1.0/mal_attr_external" href="http://projectmallard.org/1.0/mal_attr_external.html">mal_attr_external</link> *
+  <link xref="/1.0/mal_external" href="http://projectmallard.org/1.0/mal_external.html">mal_attr_external</link> *
 )
 </code></synopsis>
 </section>

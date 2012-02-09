@@ -3,14 +3,14 @@
       id="if_if">
 
 <info>
-  <revision docversion="1.0" date="2011-05-03" status="review"/>
+  <revision docversion="1.0" date="2012-02-08" status="review"/>
 
   <link type="guide" xref="index" group="if"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2011</years>
+    <years>2011, 2012</years>
   </credit>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -36,7 +36,7 @@ elements when there is only one condition.</p>
   <item><p>The <code>if:if</code> element can occur in any general block context</p></item>
 
   <item><p>The required <code xref="if_attr_test">test</code> attribute
-  contains an XPath expression and determines whether the content of the
+  contains a test expression that determines whether the content of the
   <code>if:if</code> element will be displayed.</p></item>
 
   <item><p>The <code>style</code> attribute takes a space-separated list of
@@ -44,8 +44,9 @@ elements when there is only one condition.</p>
   those style hints they understand.</p></item>
 
   <item><p>The <code>if:if</code> element can have attributes from external
-  namespaces.  See <link xref="mal_external"/> for more information
-  on external-namespace attributes.</p></item>
+  namespaces.  See <link xref="/1.0/mal_external"
+  href="http://projectmallard.org/1.0/mal_external.html">External Namespaces</link>
+  for more information on external-namespace attributes.</p></item>
 </list>
 </section>
 <!-- END notes -->
@@ -59,11 +60,10 @@ elements when there is only one condition.</p>
 
 <example>
 <code><![CDATA[
-<if:if test="if:env('html')">
+<if:if test="target:html">
   <p>This is only output to HTML.</p>
 </if:if>
 ]]></code>
-<p>This is only output to HTML.</p>
 </example>
 
 <p>The previous example could have been done more easily with the
@@ -73,17 +73,16 @@ paragraphs in a single condition:</p>
 
 <example>
 <code><![CDATA[
-<if:if test="if:env('html')">
+<if:if test="target:html">
   <p>This is only output to HTML.</p>
   <p>So is this.</p>
   <p>As well as this.</p>
 </if:if>
 ]]></code>
-<p>This is only output to HTML.</p>
-<p>So is this.</p>
-<p>As well as this.</p>
 </example>
 
+<p>See <link xref="if_attr_test#examples"/> on the page <link xref="if_attr_test"/>
+for examples of more complicated test expressions.</p>
 </section>
 <!-- END examples -->
 
@@ -93,11 +92,13 @@ paragraphs in a single condition:</p>
 <title>Processing Expectations</title>
 
 <p>The <code xref="if_attr_test">test</code> attribute of an <code>if:if</code>
-element is evaluated as an XPath expression. If the result is true, the children
-of the <code>if:if</code> element are processed in block context. Otherwise, the
-entire <code>if:if</code> element is skipped.</p>
+element is evaluated as a test expression according to the
+<link xref="if_attr_test#processing">processing instructions of the
+<code>test</code> attribute</link>. If the expression evaluates to true,
+the children of the <code>if:if</code> element are processed in block
+context. Otherwise, the entire <code>if:if</code> element is skipped.</p>
 
-<p>Processing tools that do no support this extension will process the children
+<p>Processing tools that do not support this extension will process the children
 in restricted block context. This means that all standard block content of an
 <code>if:if</code> element will be displayed by non-supporting tools. See
 <link xref="fallback"/> for more details.</p>
@@ -105,15 +106,18 @@ in restricted block context. This means that all standard block content of an
 <!-- END processing -->
 
 
+<?no-comparison?>
+
+
 <!-- BEGIN schema -->
 <section id="schema">
 <title>Schema</title>
 
-<p>The formal definition of the Mallard Conditional Processing extension
+<p>The formal definition of the Mallard Conditionals extension
 is maintained in <link href="http://www.relaxng.org/">RELAX NG</link>
 <link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
 in code blocks within this specification. This is the formal definition
-for the <code>if</code> element. The namespace declarations for this
+for the <code>if:if</code> element. The namespace declarations for this
 definition are on the page <link xref="index"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
@@ -124,7 +128,7 @@ if_if = element if:if {
 if_if_attr = (
   <link xref="if_attr_test">if_attr_test</link>,
   attribute style { xsd:NMTOKENS } ?,
-  <link xref="/1.0/mal_attr_external" href="http://projectmallard.org/1.0/mal_attr_external.html">mal_attr_external</link> *
+  <link xref="/1.0/mal_external" href="http://projectmallard.org/1.0/mal_external.html">mal_attr_external</link> *
 )
 <link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">mal_block_elements</link> |= if_if
 </code></synopsis>

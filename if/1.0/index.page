@@ -3,18 +3,18 @@
       id="index">
 
 <info>
-  <revision docversion="1.0" date="2011-05-02" status="stub"/>
+  <revision docversion="1.0" date="2012-02-09" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2011</years>
+    <years>2011, 2012</years>
   </credit>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
 
-<title>Conditional Processing 1.0 DRAFT</title>
+<title>Conditionals 1.0 DRAFT</title>
 
 <note style="sidebar">
 <title>Download Schema</title>
@@ -24,18 +24,19 @@
 </list>
 </note>
 
-<p>The Mallard Conditional Processing extension provides a standard mechanism
-for run-time conditional processing. Using XPath-based tests with extension
-functions, you can include or exclude certain content based on criteria such
-as the user's current environment.</p>
+<p>The Mallard Conditionals extension provides a standard mechanism for run-time
+conditional processing. Conditional processing is handled with simple but flexible
+expressions in the <code xref="if_attr_test">test</code> attribute that control
+whether or not content is shown. Test expressions are logical expressions built
+from <link xref="tokens">test tokens</link>.</p>
 
-<p>Conditional processing is done by the <code xref="if_test">test</code>
-attribute, which takes an XPath expression. The expression must evaluate to
-true for the affected content to be displayed.</p>
+<p>In addition to single conditional tests, the Conditionals extension provides
+the <code xref="if_choose">if:choose</code> element to support branching and
+fallback content for different conditions.</p>
 
 <note style="warning">
 <p>This is a draft specification.  Changes may still be made before
-the final Conditional Processing 1.0 specification.</p>
+the final Conditionals 1.0 specification.</p>
 </note>
 
 <links type="topic" groups="test if" style="linklist">
@@ -58,7 +59,7 @@ the final Conditional Processing 1.0 specification.</p>
 <section id="schema">
 <title>Schema</title>
 
-<p>The formal definition of the Mallard Conditional Processing extension
+<p>The formal definition of the Mallard Conditionals extension
 is maintained in <link href="http://www.relaxng.org/">RELAX NG</link>
 <link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
 in code blocks within this specification. This is the namespace declaration

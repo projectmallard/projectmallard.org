@@ -1,9 +1,9 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="topic"
+      type="topic" style="details"
       id="fallback">
 
 <info>
-  <revision docversion="1.0" date="2011-05-02" status="stub"/>
+  <revision docversion="1.0" date="2012-02-09" status="review"/>
 
   <link type="guide" xref="index" group="notes"/>
 
@@ -18,6 +18,87 @@
 
 <title>Fallback Behavior</title>
 
-<p>FIXME</p>
+<p>Mallard Conditionals is an extension to the core Mallard vocabulary. Not all
+Mallard processing tools will support all extensions. Mallard has well-defined
+rules for how to handle unknown extension elements and attributes. This page
+provides examples for how Conditionals elements will be handled by processing
+tools that do not support this extension.</p>
+
+<p>In Mallard, unknown attributes are ignored. When you use the
+<link xref="if_attr_test">if:test</link> attribute on any block element or
+list item, a non-supporting tool will ignore the attribute and display the
+element unconditionally. The following is always shown by a non-supporting
+tool:</p>
+
+<example>
+<code><![CDATA[
+<p if:test="target:html">YES</p>
+]]></code>
+</example>
+
+<p>The <code xref="if_if">if:if</code> and <code xref="if_choose">if:choose</code>
+elements occur in block context. When a processing tool encounters an unknown
+element in block context, it processes the children in <em>restricted</em>
+block context. In restricted block context, unknown elements are ignored.</p>
+
+<p>If you use an <code>if:if</code> element with simple block content, such as a
+paragraph, a non-supporting tool will always display the content.</p>
+
+<example>
+<code><![CDATA[
+<if:if test="target:html">
+  <p>YES</p>
+</if:if>
+]]></code>
+</example>
+
+<p>If, however, you nest an <code>if:if</code> element in an <code>if:if</code>
+element, the inner element will be processed in restricted block context, so
+it will not be shown. You can use this to hide content from a non-supporting
+tool, for example by repeating the same condition.</p>
+
+<example>
+<code><![CDATA[
+<if:if test="target:html">
+  <if:if test="target:html">
+    <p>NO</p>
+  </if:if>
+</if:if>
+]]></code>
+</example>
+
+<p>Because <code>if:when</code> elements are always children of <code>if:choose</code>
+elements, non-supporting tools will always process them in restricted block context,
+so they will not be displayed. The same is true for <code>if:else</code> elements.</p>
+
+<example>
+<code><![CDATA[
+<if:choose>
+  <if:when test="target:html">
+    <p>NO</p>
+  </if:when>
+  <if:else>
+    <p>NO</p>
+  </if:else>
+</if:choose>
+]]></code>
+</example>
+
+<p>This specification allows two different ways to provide fallback content for
+<code>if:choose</code> elements. Instead of using an <code>if:else</code> element,
+you can put fallback block content directly in the <code>if:choose</code> element.
+Supporting tools will treat this exactly as if you had used an <code>if:else</code>
+element, but non-supporting tools will show this fallback content.</p>
+
+<example>
+<code><![CDATA[
+<if:choose>
+  <if:when test="target:html">
+    <p>NO</p>
+  </if:when>
+  <p>YES</p>
+</if:choose>
+]]></code>
+</example>
 
 </page>
