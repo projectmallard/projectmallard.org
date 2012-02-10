@@ -61,7 +61,7 @@ div.top-mallard {
 }
 div.top-tagline {
   margin: -10px 0 0 20px;
-  font-size: 16px;
+  font-size: 19px;
 }
 div.top-mallard a {
   text-decoration: none;
