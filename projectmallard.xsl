@@ -118,12 +118,13 @@ div.body {
 }
 h1.title { font-family: 'Lato'; font-size: 3em; }
 h2.title { font-size: 1.73em; }
+p { max-width: 62em; text-align: justify; }
+a img { border: none; }
 @media only screen and (max-width: 400px) {
   h1.title { font-size: 2em; }
   h2.title { font-size: 1.44em; }
+  p { text-align: left; }
 }
-p { max-width: 62em; text-align: justify; }
-a img { border: none; }
 
 div.bottom {
   color: #d3d7cf;
