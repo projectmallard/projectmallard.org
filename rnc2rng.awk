@@ -49,6 +49,8 @@ function parse_define (line) {
   }
   sub(/^ */, "", name);
   sub(/ *$/, "", name);
+  if (name == "")
+    name = maybe_define;
   if (name == "start")
     define = "<start"
   else
@@ -58,6 +60,7 @@ function parse_define (line) {
   define = define ">"
   stack[++stack_i] = define;
   mode = "pattern";
+  maybe_define = "";
   if (length(line) >= nameix + 1)
     parse_pattern(substr(line, nameix + 1))
 }
@@ -259,12 +262,7 @@ function parse_pattern (line) {
     }
   }
   else if (match(line, /^[A-Za-z_.-]/)) {
-    c = stack[paren[paren_i]];
-    if (postop == 0 && (c == "||" || c == "&&" || c == ",,")) {
-      stack[paren[paren_i]] = "(" substr(c, 1, 1);
-      parse_pattern(")");
-      mode = "grammar";
-      parse_define(line);
+    if (popop(line)) {
       next;
     }
     name = substr(line, 1);
@@ -285,7 +283,19 @@ function parse_pattern (line) {
     }
   }
 }
-
+function popop (line) {
+  op = stack[paren[paren_i]];
+  if (postop == 0 && (op == "||" || op == "&&" || op == ",,")) {
+    stack[paren[paren_i]] = "(" substr(op, 1, 1);
+    parse_pattern(")");
+    mode = "grammar";
+    if (line != "") {
+      parse_define(line);
+    }
+    return 1;
+  }
+  return 0;
+}
 function parse_name_class (line) {
   sub(/^ */, "", line)
   if (length(line) == 0) return;
@@ -366,12 +376,22 @@ function parse_name_class (line) {
     else
       aft = "";
     if (length(aft) >= 2 && substr(aft, 1, 2) == ":*") {
-      for (i = 1; i <= namespaces_i; i++) {
-        if (nsnames[i] == name) {
-          stack[++stack_i] = sprintf("<nsName ns='%s'/>", namespaces[i])
-          break;
+      namespace_uri = "";
+      if (name == "xml") {
+        namespace_uri = "http://www.w3.org/XML/1998/namespace";
+      }
+      else {
+        for (i = 1; i <= namespaces_i; i++) {
+          if (nsnames[i] == name) {
+            namespace_uri = namespaces[i];
+            break;
+          }
         }
       }
+      if (namespace_uri == "")
+        stack[++stack_i] = "<nsName/>";
+      else
+        stack[++stack_i] = sprintf("<nsName ns='%s'/>", namespace_uri);
       if (length(aft) >= 3)
         aft = substr(aft, 3);
       else
@@ -429,7 +449,7 @@ function printstackone () {
     }
     print "-->";
   }
-  if (substr(stack[pos], 1, 6) == "<start") {
+  else if (substr(stack[pos], 1, 6) == "<start") {
     print stack[pos];
     pos++;
     printstackone();
@@ -455,9 +475,11 @@ BEGIN {
   include_i = 0;
   postop = 0;
   error = 0;
+  maybe_define = "";
 }
 
 END {
+  popop("");
   if (!error) {
     print "<grammar xmlns='http://relaxng.org/ns/structure/1.0'";
     pos = 1;
@@ -467,12 +489,17 @@ END {
       }
       pos++;
     }
-    printf " ns='%s'>\n", default_namespace;
+    if (default_namespace != "") {
+      printf " ns='%s'>\n", default_namespace;
+    }
+    else {
+      print ">";
+    }
     printstack()
     print "</grammar>"
   }
 }
-/^[^#]/ {
+/^[^#]/ || /^$/ {
   if (substr(stack[stack_i], 1, 1) == "#") {
     stack[++stack_i] = " "
   }
@@ -525,6 +552,11 @@ mode == "grammar" && /^include / {
     stack[++stack_i] = "<include href=\"" href "\"/>";
   }
 }
+mode == "grammar" && /^ *[A-Za-z_.-]/ {
+  maybe_define = substr($0, 1, length($0));
+  sub(/^ */, "", maybe_define);
+  sub(/ *$/, "", maybe_define);
+}
 include_i != 0 && paren_i == 0 && /}/ {
   if (substr(stack[include_i], 1, 8) == "<include") {
     stack[++stack_i] = "</include>";
@@ -538,11 +570,11 @@ include_i != 0 && paren_i == 0 && /}/ {
   include_i = 0;
   next;
 }
-mode == "pattern" {
+mode == "pattern" && /^[^#]/ {
   parse_pattern($0);
   next;
 }
-mode == "name_class" {
+mode == "name_class" && /^[^#]/ {
   parse_name_class($0);
   next;
 }
@@ -551,5 +583,7 @@ mode == "name_class" {
 # more clever about output. But it handles comments that start
 # a line outside a pattern. Enough for me.
 /#.*/ {
+  popop("");
   stack[++stack_i] = $0
+  next;
 }
