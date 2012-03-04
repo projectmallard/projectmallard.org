@@ -188,6 +188,7 @@ function parse_pattern (line) {
     txt = substr(line, 2);
     sub(/".*/, "", txt)
     stack[++stack_i] = "<value>" txt "</value>";
+    postop = 0;
     if (length(line) >= length(txt) + 3)
       parse_pattern(substr(line, length(txt) + 3));
   }
@@ -227,6 +228,7 @@ function parse_pattern (line) {
     stack[++stack_i] = "<text/>";
     aft = substr(line, 5);
     sub(/^ */, "", aft);
+    postop = 0;
     if (aft != "") { parse_pattern(aft); }
   }
   else if (match(line, "^default namespace ")) {
@@ -253,11 +255,39 @@ function parse_pattern (line) {
     name = substr(line, 1);
     sub(/^xsd:/, "", name);
     sub(/[^A-Za-z_.-]+.*/, "", name);
-    stack[++stack_i] = sprintf("<data type='%s' datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'/>",
+    stack[++stack_i] = sprintf("<data type='%s' datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'",
                                name);
     postop = 0;
+    aft = "";
     if (length(line) >= length(name) + 5) {
       aft = substr(line, length(name) + 5);
+      sub(/^ */, "", aft)
+    }
+    if (substr(aft, 1, 1) == "{") {
+      stack[stack_i] = stack[stack_i] ">";
+      aft = substr(aft, 2);
+      while (aft != "" && substr(aft, 1, 1) != "}") {
+        sub(/^ */, "", aft);
+        subpos = index(aft, "=");
+        paramname = substr(aft, 1, subpos - 1);
+        sub(/ *$/, "", paramname);
+        aft = substr(aft, subpos);
+        subpos = index(aft, "\"");
+        aft = substr(aft, subpos + 1);
+        subpos = index(aft, "\"");
+        paramval = substr(aft, 1, subpos - 1);
+        aft = substr(aft, subpos + 1);
+        sub(/^ */, "", aft);
+        stack[stack_i] = stack[stack_i] sprintf("<param name='%s'>%s</param>", paramname, paramval);
+      }
+      stack[stack_i] = stack[stack_i] "</data>";
+      if (aft != "")
+        aft = substr(aft, 2);
+    }
+    else {
+      stack[stack_i] = stack[stack_i] "/>";
+    }
+    if (aft != "") {
       parse_pattern(aft);
     }
   }
@@ -267,7 +297,10 @@ function parse_pattern (line) {
     }
     name = substr(line, 1);
     sub(/[^A-Za-z_.-]+.*/, "", name);
-    if (name == "empty") {
+    if (name == "string") {
+      stack[++stack_i] = "<data type='string'/>";
+    }
+    else if (name == "empty") {
       stack[++stack_i] = "<empty/>";
     }
     else if (name == "notAllowed") {
@@ -354,7 +387,7 @@ function parse_name_class (line) {
       error = 1;
       exit 1
     }
-    if (length(open) == 1 || substr(open, 2, 1) != "|") {
+    if (length(open) == 2 && substr(open, 2, 1) != "|") {
       print "Unknown name class pattern on line " FNR | "cat 1>&2";
       error = 1;
       exit 1
@@ -505,8 +538,8 @@ END {
   }
 }
 
-mode == "pattern" && paren_i == 0 && /.*=/ { mode = "grammar"; }
-mode == "grammar" && /.*=/ {
+mode == "pattern" && paren_i == 0 && /^[^{(]*=/ { mode = "grammar"; }
+mode == "grammar" && /^[^{(]*=/ {
   if (match($0, "^default namespace ")) {
     namespace = substr($0, index($0, "=") + 1);
     nsname = substr($0, 19, index($0, "=") - 19);
