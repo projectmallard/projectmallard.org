@@ -51,7 +51,6 @@ echo_verbose "Creating $rng_rngfile"
 LANG= awk -f rnc2rng.awk "$rng_rncfile" > "$rng_tmpfile" || (rm -f "$rng_tmpfile" && exit 1)
 xmllint --format "$rng_tmpfile" | \
     sed -e 's/^  //' \
-        -e 's/^\(<include.*>\)/\n\1/' \
         -e 's/^\(<start.*>\)/\n\1/' \
         -e 's/^\(<define.*>\)/\n\1/' \
         -e 's/^\(<!--\)/\n\1/' \

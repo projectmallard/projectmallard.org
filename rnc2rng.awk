@@ -32,6 +32,35 @@
 # you atone for your actions.  A good atonement would be contributing to
 # free software.
 
+function parse_define (line) {
+  nameix = index(line, "=");
+  combine = "";
+  if (nameix < 1) next;
+  if (substr(line, nameix - 1, 1) == "|") {
+    combine = "choice";
+    name = substr(line, 1, nameix - 2);
+  }
+  else if (substr(line, nameix - 1, 1) == "&") {
+    combine = "interleave";
+    name = substr(line, 1, nameix - 2);
+  }
+  else {
+    name = substr(line, 1, nameix - 1);
+  }
+  sub(/^ */, "", name);
+  sub(/ *$/, "", name);
+  if (name == "start")
+    define = "<start"
+  else
+    define = sprintf("<define name='%s'", name);
+  if (combine != "")
+    define = define " combine='" combine "'"
+  define = define ">"
+  stack[++stack_i] = define;
+  mode = "pattern";
+  if (length(line) >= nameix + 1)
+    parse_pattern(substr(line, nameix + 1))
+}
 function parse_pattern (line) {
   sub(/^ */, "", line)
   if (length(line) == 0) return;
@@ -121,10 +150,19 @@ function parse_pattern (line) {
       stack[paren[paren_i]] = stack[paren[paren_i]] c;
     }
     else if (length(stack[paren[paren_i]]) < 2 || substr(stack[paren[paren_i]], 2) != c) {
-      print "Mismatched infix operators on line " FNR | "cat 1>&2";
-      error = 1;
-      exit 1
+      if (paren_i == 0) {
+        tmp = stack[stack_i];
+        stack[stack_i] = c c;
+        paren[++paren_i] = stack_i;
+        stack[++stack_i] = tmp;
+      }
+      else {
+        print "Mismatched infix operators on line " FNR | "cat 1>&2";
+        error = 1;
+        exit 1
+      }
     }
+    postop = 1;
     if (length(line) >= 2)
       parse_pattern(substr(line, 2));
   }
@@ -157,6 +195,7 @@ function parse_pattern (line) {
     stack[++stack_i] = "<element";
     mode = "name_class";
     name_class_i = stack_i;
+    postop = 0;
     parse_name_class(name);
   }
   else if (match(line, "^attribute ")) {
@@ -166,6 +205,7 @@ function parse_pattern (line) {
     stack[++stack_i] = "<attribute";
     mode = "name_class";
     name_class_i = stack_i;
+    postop = 0;
     parse_name_class(name);
   }
   else if (match(line, "^list ")) {
@@ -206,20 +246,29 @@ function parse_pattern (line) {
     error = 1;
     exit 1
   }
-  else if (match(line, /^xsd:[A-Za-z_]/)) {
+  else if (match(line, /^xsd:[A-Za-z_.-]/)) {
     name = substr(line, 1);
     sub(/^xsd:/, "", name);
-    sub(/[^A-Za-z_]+.*/, "", name);
+    sub(/[^A-Za-z_.-]+.*/, "", name);
     stack[++stack_i] = sprintf("<data type='%s' datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'/>",
                                name);
+    postop = 0;
     if (length(line) >= length(name) + 5) {
       aft = substr(line, length(name) + 5);
       parse_pattern(aft);
     }
   }
-  else if (match(line, /^[A-Za-z_]/)) {
+  else if (match(line, /^[A-Za-z_.-]/)) {
+    c = stack[paren[paren_i]];
+    if (postop == 0 && (c == "||" || c == "&&" || c == ",,")) {
+      stack[paren[paren_i]] = "(" substr(c, 1, 1);
+      parse_pattern(")");
+      mode = "grammar";
+      parse_define(line);
+      next;
+    }
     name = substr(line, 1);
-    sub(/[^A-Za-z_]+.*/, "", name);
+    sub(/[^A-Za-z_.-]+.*/, "", name);
     if (name == "empty") {
       stack[++stack_i] = "<empty/>";
     }
@@ -229,6 +278,7 @@ function parse_pattern (line) {
     else {
       stack[++stack_i] = sprintf("<ref name='%s'/>", name);
     }
+    postop = 0;
     if (length(line) >= length(name) + 1) {
       aft = substr(line, length(name) + 1);
       parse_pattern(aft);
@@ -308,9 +358,9 @@ function parse_name_class (line) {
     paren_i--;
     parse_name_class(substr(line, 2));
   }
-  else if (match(line, /^[A-Za-z_]/)) {
+  else if (match(line, /^[A-Za-z_.-]/)) {
     name = substr(line, 1);
-    sub(/[^A-Za-z_-]+.*/, "", name);
+    sub(/[^A-Za-z_.-]+.*/, "", name);
     if (length(line) >= length(name) + 1)
       aft = substr(line, length(name) + 1);
     else
@@ -338,13 +388,13 @@ function parse_name_class (line) {
           }
           pos++;
         }
-        if (checkns == "") {
+        if (name != "xml" && checkns == "") {
           print "Unknown namespace prefix " name " on line " FNR | "cat 1>&2";
           error = 1;
           exit 1
         }
         localname = substr(aft, 2);
-        sub(/[^A-Za-z_]+.*/, "", localname);
+        sub(/[^A-Za-z_.-]+.*/, "", localname);
         if (length(aft) >= length(localname) + 2)
           aft = substr(aft, length(localname) + 2);
         else
@@ -403,6 +453,7 @@ BEGIN {
   paren_i = 0;
   namespaces_i = 0;
   include_i = 0;
+  postop = 0;
   error = 0;
 }
 
@@ -419,6 +470,11 @@ END {
     printf " ns='%s'>\n", default_namespace;
     printstack()
     print "</grammar>"
+  }
+}
+/^[^#]/ {
+  if (substr(stack[stack_i], 1, 1) == "#") {
+    stack[++stack_i] = " "
   }
 }
 
@@ -450,33 +506,7 @@ mode == "grammar" && /.*=/ {
     }
   }
   else {
-    nameix = index($0, "=");
-    combine = "";
-    if (nameix < 1) next;
-    if (substr($0, nameix - 1, 1) == "|") {
-      combine = "choice";
-      name = substr($0, 1, nameix - 2);
-    }
-    else if (substr($0, nameix - 1, 1) == "&") {
-      combine = "interleave";
-      name = substr($0, 1, nameix - 2);
-    }
-    else {
-      name = substr($0, 1, nameix - 1);
-    }
-    sub(/^ */, "", name);
-    sub(/ *$/, "", name);
-    if (name == "start")
-      define = "<start"
-    else
-      define = sprintf("<define name='%s'", name);
-    if (combine != "")
-      define = define " combine='" combine "'"
-    define = define ">"
-    stack[++stack_i] = define;
-    mode = "pattern";
-    if (length($0) >= nameix + 1)
-      parse_pattern(substr($0, nameix + 1))
+    parse_define($0);
   }
   next;
 }
@@ -486,6 +516,7 @@ mode == "grammar" && /^include / {
   href = substr(href, 1, index(href, "\"") - 1);
   sub(/^ */, "", brace);
   sub(/ *$/, "", brace);
+  sub(/\.rnc$/, ".rng", href);
   if (brace == "{") {
     stack[++stack_i] = "<include href=\"" href "\">";
     include_i = stack_i;

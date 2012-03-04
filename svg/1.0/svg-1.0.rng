@@ -8,7 +8,6 @@
 This schema cannot be used on its own. It is designed to be combined
 with the core Mallard schema using the version attribute.
 -->
-
 <include href="http://www.w3.org/Graphics/SVG/1.1/rng/svg11.rng">
   <start combine="choice">
     <notAllowed/>
