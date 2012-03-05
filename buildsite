@@ -5,6 +5,8 @@ mallard-site-tool html -o $1/
 mallard-site-tool css -o $1/
 mallard-site-tool js -o $1/
 mallard-site-tool media -o $1/
+cp `pkg-config --variable icondir yelp-xsl`/hicolor/24x24/status/yelp-note*.png $1/
 ./buildrng -o $1/
 cp mallard-badge.png mallard-logo.svg mallard-logo-80.png duckbg.png swoop.png $1/
+cp about/mallard-logo.svg $1/about/
 cp ttml/1.0/ttaf1-dfxp-*.rn? $1/ttml/1.0/
