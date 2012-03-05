@@ -244,6 +244,11 @@ its direct parent.</p>
 
   <p>Guide links are the inverse of topic links.</p>
 
+  <p>If a node has a guide link to another page or section, that link is shown
+  even if the target is not a guide. This allows guide links to be used for
+  upwards navigation to different types of collection pages, such as those
+  defined by extensions.</p>
+
   <p>A guide <code>links</code> element shows all guide links for the enclosing
   page or section. Links are sorted by the <link xref="mal_info_title#sort">sort
   title</link> of their target guides.</p>
