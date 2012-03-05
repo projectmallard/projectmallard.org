@@ -163,6 +163,7 @@ if_choose_attr = (
   attribute style { xsd:NMTOKENS } ?,
   <link xref="/1.0/mal_external" href="http://projectmallard.org/1.0/mal_external.html">mal_attr_external</link> *
 )
+<link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">mal_block_elements</link> |= if_choose
 </code></synopsis>
 </section>
 <!-- END schema -->

@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <grammar
     xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:if="http://projectmallard.org/if/1.0/"
-    ns="">
+    xmlns:if="http://projectmallard.org/if/1.0/">
 
 <!--
 This schema cannot be used on its own. It is designed to be combined
@@ -106,6 +105,10 @@ with the core Mallard schema using the version attribute.
   </group>
 </define>
 
+<define name="mal_block_elements" combine="choice">
+  <ref name="if_choose"/>
+</define>
+
 <define name="if_when">
   <element name="if:when">
     <ref name="if_when_attr"/>
@@ -127,10 +130,6 @@ with the core Mallard schema using the version attribute.
       <ref name="mal_attr_external"/>
     </zeroOrMore>
   </group>
-</define>
-
-<define name="mal_block_elements" combine="choice">
-  <ref name="if_if"/>
 </define>
 
 <define name="if_else">

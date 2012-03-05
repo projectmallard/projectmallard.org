@@ -32,6 +32,7 @@ if_choose_attr = (
   attribute style { xsd:NMTOKENS } ?,
   mal_attr_external *
 )
+mal_block_elements |= if_choose
 
 if_when = element if:when {
   if_when_attr,
@@ -42,7 +43,6 @@ if_when_attr = (
   attribute style { xsd:NMTOKENS } ?,
   mal_attr_external *
 )
-mal_block_elements |= if_if
 
 if_else = element if:else {
   if_else_attr,
