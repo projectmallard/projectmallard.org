@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <grammar
     xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:svg="http://www.w3.org/2000/svg"
-    ns="">
+    xmlns:svg="http://www.w3.org/2000/svg">
 
 <!--
 This schema cannot be used on its own. It is designed to be combined
