@@ -5,7 +5,7 @@ namespace tt = "http://www.w3.org/ns/ttml"
 
 # projectmallard.org hosts a copy of the schemas as published by the W3C.
 include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-animation.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-classes.rnc"i
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-classes.rnc"
 include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-content.rnc"
 include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-core-attribs.rnc"
 include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-datatypes.rnc"
