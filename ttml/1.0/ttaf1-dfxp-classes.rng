@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Class Declarations Module ..............................
+.......................................................................
+-->
+
+<!--
+attribute group classes
+-->
+
+<define name="TTAF.Core.attrib.class">
+  <empty/>
+</define>
+
+<define name="TTAF.Metadata.attrib.class">
+  <empty/>
+</define>
+
+<define name="TTAF.Parameter.attrib.class">
+  <empty/>
+</define>
+
+<define name="TTAF.RegionBinding.attrib.class">
+  <empty/>
+</define>
+
+<define name="TTAF.StyleBinding.attrib.class">
+  <empty/>
+</define>
+
+<define name="TTAF.Styled.attrib.class">
+  <empty/>
+</define>
+
+<define name="TTAF.Styling.attrib.class">
+  <empty/>
+</define>
+
+<define name="TTAF.Timed.attrib.class">
+  <empty/>
+</define>
+
+<define name="TTAF.TimedContainer.attrib.class">
+  <empty/>
+</define>
+
+<define name="TTAF.TimingInterval.attrib.class">
+  <empty/>
+</define>
+
+<!--
+element group classes
+-->
+
+<define name="TTAF.Animation.class">
+  <empty/>
+</define>
+
+<define name="TTAF.Block.class">
+  <empty/>
+</define>
+
+<define name="TTAF.BlockNoDiv.class">
+  <empty/>
+</define>
+
+<define name="TTAF.Inline.class">
+  <empty/>
+</define>
+
+<define name="TTAF.InlineNoSpan.class">
+  <empty/>
+</define>
+
+<define name="TTAF.MetadataNoAgent.class">
+  <empty/>
+</define>
+
+<define name="TTAF.Metadata.class">
+  <empty/>
+</define>
+
+<define name="TTAF.MetadataItems.class">
+  <empty/>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

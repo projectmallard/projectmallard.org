@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Header Module ..........................................
+.......................................................................
+-->
+
+<!--
+head - generic header
+-->
+
+<define name="TTAF.head">
+  <element name="head">
+    <ref name="TTAF.head.attlist"/>
+    <ref name="TTAF.head.content"/>
+  </element>
+</define>
+
+<define name="TTAF.head.attlist" combine="interleave">
+  <ref name="TTAF.Core.attrib.class"/>
+</define>
+
+<define name="TTAF.head.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.head.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.Metadata.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.Parameters.class"/>
+    </zeroOrMore>
+    <optional>
+      <ref name="TTAF.styling"/>
+    </optional>
+    <optional>
+      <ref name="TTAF.layout"/>
+    </optional>
+    <zeroOrMore>
+      <ref name="TTAF.head.content.extra"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

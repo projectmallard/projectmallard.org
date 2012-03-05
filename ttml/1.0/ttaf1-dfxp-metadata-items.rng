@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:ttm="http://www.w3.org/ns/ttml#metadata">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Metadata Items Module ......................................
+.......................................................................
+-->
+
+<!--
+# actor - specifies actor
+-->
+
+<define name="TTAF.meta.actor">
+  <element name="ttm:actor">
+    <ref name="TTAF.meta.actor.attlist"/>
+    <ref name="TTAF.meta.actor.content"/>
+  </element>
+</define>
+
+<define name="TTAF.meta.actor.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.Core.attrib.class"/>
+    <attribute name="agent">
+      <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+    </attribute>
+  </group>
+</define>
+
+<define name="TTAF.meta.actor.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.meta.actor.content">
+  <empty/>
+</define>
+
+<!--
+# agent - specifies agent
+-->
+
+<define name="TTAF.meta.agent">
+  <element name="ttm:agent">
+    <ref name="TTAF.meta.agent.attlist"/>
+    <ref name="TTAF.meta.agent.content"/>
+  </element>
+</define>
+
+<define name="TTAF.meta.agent.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.Core.attrib.class"/>
+    <attribute name="type">
+      <ref name="TTAF.MetadataAgentType.datatype"/>
+    </attribute>
+  </group>
+</define>
+
+<define name="TTAF.meta.agent.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.meta.agent.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.meta.name"/>
+    </zeroOrMore>
+    <optional>
+      <ref name="TTAF.meta.actor"/>
+    </optional>
+    <zeroOrMore>
+      <ref name="TTAF.meta.agent.content.extra"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<!--
+# copyright - specifies copyright statement
+-->
+
+<define name="TTAF.meta.copyright">
+  <element name="ttm:copyright">
+    <ref name="TTAF.meta.copyright.attlist"/>
+    <ref name="TTAF.meta.copyright.content"/>
+  </element>
+</define>
+
+<define name="TTAF.meta.copyright.attlist" combine="interleave">
+  <ref name="TTAF.Core.attrib.class"/>
+</define>
+
+<define name="TTAF.meta.copyright.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.meta.copyright.content">
+  <text/>
+</define>
+
+<!--
+# desc - specifies description
+-->
+
+<define name="TTAF.meta.desc">
+  <element name="ttm:desc">
+    <ref name="TTAF.meta.desc.attlist"/>
+    <ref name="TTAF.meta.desc.content"/>
+  </element>
+</define>
+
+<define name="TTAF.meta.desc.attlist" combine="interleave">
+  <ref name="TTAF.Core.attrib.class"/>
+</define>
+
+<define name="TTAF.meta.desc.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.meta.desc.content">
+  <text/>
+</define>
+
+<!--
+# name - specifies name
+-->
+
+<define name="TTAF.meta.name">
+  <element name="ttm:name">
+    <ref name="TTAF.meta.name.attlist"/>
+    <ref name="TTAF.meta.name.content"/>
+  </element>
+</define>
+
+<define name="TTAF.meta.name.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.Core.attrib.class"/>
+    <attribute name="type">
+      <ref name="TTAF.MetadataNameType.datatype"/>
+    </attribute>
+  </group>
+</define>
+
+<define name="TTAF.meta.name.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.meta.name.content">
+  <text/>
+</define>
+
+<!--
+# title - describes title
+-->
+
+<define name="TTAF.meta.title">
+  <element name="ttm:title">
+    <ref name="TTAF.meta.title.attlist"/>
+    <ref name="TTAF.meta.title.content"/>
+  </element>
+</define>
+
+<define name="TTAF.meta.title.attlist" combine="interleave">
+  <ref name="TTAF.Core.attrib.class"/>
+</define>
+
+<define name="TTAF.meta.title.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.meta.title.content">
+  <text/>
+</define>
+
+<!--
+# MetadataItems.class
+-->
+
+<define name="TTAF.MetadataItems.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.MetadataItems.class" combine="choice">
+  <choice>
+    <ref name="TTAF.meta.agent"/>
+    <ref name="TTAF.meta.copyright"/>
+    <ref name="TTAF.meta.desc"/>
+    <ref name="TTAF.meta.title"/>
+    <ref name="TTAF.MetadataItems.extra"/>
+  </choice>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

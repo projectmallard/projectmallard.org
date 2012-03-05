@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Styling Module .........................................
+.......................................................................
+-->
+
+<!--
+style reference attribute; must reference /tt/head/styling/style
+-->
+
+<define name="TTAF.style.attrib">
+  <optional>
+    <attribute name="style">
+      <data type="IDREFS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+    </attribute>
+  </optional>
+</define>
+
+<!--
+styling - generic styling container
+-->
+
+<define name="TTAF.styling">
+  <element name="styling">
+    <ref name="TTAF.styling.attlist"/>
+    <ref name="TTAF.styling.content"/>
+  </element>
+</define>
+
+<define name="TTAF.styling.attlist" combine="interleave">
+  <ref name="TTAF.Core.attrib.class"/>
+</define>
+
+<define name="TTAF.styling.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.styling.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.Metadata.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.styling.defs.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.styling.content.extra"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<!--
+style - style declaration
+-->
+
+<define name="TTAF.styling.style">
+  <element name="style">
+    <ref name="TTAF.styling.style.attlist"/>
+    <ref name="TTAF.styling.style.content"/>
+  </element>
+</define>
+
+<define name="TTAF.styling.style.attlist">
+  <group>
+    <ref name="TTAF.Core.attrib.class"/>
+    <ref name="TTAF.style.attrib"/>
+    <choice>
+      <ref name="TTAF.Styling.attrib.class"/>
+      <oneOrMore>
+        <ref name="TTAF.Styling.ForeignExtension.attrib"/>
+      </oneOrMore>
+    </choice>
+  </group>
+</define>
+
+<define name="TTAF.styling.style.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.styling.style.content">
+  <zeroOrMore>
+    <group>
+      <ref name="TTAF.styling.style.content.extra"/>
+    </group>
+  </zeroOrMore>
+</define>
+
+<!--
+style definitions class
+-->
+
+<define name="TTAF.styling.defs.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.styling.defs.class">
+  <choice>
+    <ref name="TTAF.styling.style"/>
+    <ref name="TTAF.styling.defs.extra"/>
+  </choice>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

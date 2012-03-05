@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:tt="http://www.w3.org/ns/ttml"
+    xmlns:ttm="http://www.w3.org/ns/ttml#metadata">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Metadata Module ........................................
+.......................................................................
+-->
+
+<!--
+namespace prefix bindings
+-->
+
+<!--
+meta - generic metadata
+-->
+
+<define name="TTAF.metadata">
+  <element name="metadata">
+    <ref name="TTAF.metadata.attlist"/>
+    <ref name="TTAF.metadata.content"/>
+  </element>
+</define>
+
+<define name="TTAF.metadata.attlist" combine="interleave">
+  <ref name="TTAF.Core.attrib.class"/>
+</define>
+
+<define name="TTAF.External.class">
+  <element>
+    <anyName>
+      <except>
+        <nsName ns="http://www.w3.org/ns/ttml"/>
+        <nsName ns="http://www.w3.org/ns/ttml#metadata"/>
+      </except>
+    </anyName>
+    <zeroOrMore>
+      <choice>
+        <attribute>
+          <anyName>
+            <except>
+              <name>xml:id</name>
+            </except>
+          </anyName>
+          <text/>
+        </attribute>
+        <text/>
+        <ref name="TTAF.External.class"/>
+      </choice>
+    </zeroOrMore>
+  </element>
+</define>
+
+<define name="TTAF.metadata.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.metadata.content">
+  <zeroOrMore>
+    <choice>
+      <ref name="TTAF.MetadataItems.class"/>
+      <ref name="TTAF.External.class"/>
+      <ref name="TTAF.metadata.content.extra"/>
+    </choice>
+  </zeroOrMore>
+</define>
+
+<define name="TTAF.Metadata.class" combine="choice">
+  <choice>
+    <ref name="TTAF.MetadataItems.class"/>
+    <ref name="TTAF.metadata"/>
+  </choice>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

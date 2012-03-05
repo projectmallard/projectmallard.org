@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Timing Attributes Module ...............................
+.......................................................................
+-->
+
+<!--
+Timing Attributes
+-->
+
+<define name="TTAF.timing.begin.attrib">
+  <optional>
+    <attribute name="begin">
+      <ref name="TTAF.TimeCoordinate.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.timing.dur.attrib">
+  <optional>
+    <attribute name="dur">
+      <ref name="TTAF.TimeDuration.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.timing.end.attrib">
+  <optional>
+    <attribute name="end">
+      <ref name="TTAF.TimeCoordinate.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.timing.timeContainer.attrib">
+  <optional>
+    <attribute name="timeContainer">
+      <ref name="TTAF.TimeContainer.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<!--
+Timing Interval Attribute class
+-->
+
+<define name="TTAF.TimingInterval.extra.attrib">
+  <empty/>
+</define>
+
+<define name="TTAF.TimingInterval.attrib.class" combine="interleave">
+  <group>
+    <ref name="TTAF.timing.begin.attrib"/>
+    <ref name="TTAF.timing.dur.attrib"/>
+    <ref name="TTAF.timing.end.attrib"/>
+    <ref name="TTAF.TimingInterval.extra.attrib"/>
+  </group>
+</define>
+
+<!--
+Timing Container Attribute class
+-->
+
+<define name="TTAF.TimingContainer.extra.attrib">
+  <empty/>
+</define>
+
+<define name="TTAF.TimingContainer.attrib.class" combine="interleave">
+  <group>
+    <ref name="TTAF.timing.timeContainer.attrib"/>
+    <ref name="TTAF.TimingContainer.extra.attrib"/>
+  </group>
+</define>
+
+<!--
+Timed Content Attribute Class
+-->
+
+<define name="TTAF.Timed.extra.attrib">
+  <empty/>
+</define>
+
+<define name="TTAF.Timed.attrib.class" combine="interleave">
+  <group>
+    <ref name="TTAF.TimingInterval.attrib.class"/>
+    <ref name="TTAF.Timed.extra.attrib"/>
+  </group>
+</define>
+
+<!--
+Timed Content Container Attribute Class
+-->
+
+<define name="TTAF.TimedContainer.extra.attrib">
+  <empty/>
+</define>
+
+<define name="TTAF.TimedContainer.attrib.class" combine="interleave">
+  <group>
+    <ref name="TTAF.Timed.attrib.class"/>
+    <ref name="TTAF.TimingContainer.attrib.class"/>
+    <ref name="TTAF.TimedContainer.extra.attrib"/>
+  </group>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

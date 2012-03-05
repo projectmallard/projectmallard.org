@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:tt="http://www.w3.org/ns/ttml"
+    xmlns:tts="http://www.w3.org/ns/ttml#styling">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Styling Attributes Module ..............................
+.......................................................................
+-->
+
+<!--
+Standard Style Attributes
+-->
+
+<define name="TTAF.backgroundColor.attrib">
+  <optional>
+    <attribute name="tts:backgroundColor">
+      <ref name="TTAF.Color.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.color.attrib">
+  <optional>
+    <attribute name="tts:color">
+      <ref name="TTAF.Color.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.direction.attrib">
+  <optional>
+    <attribute name="tts:direction">
+      <ref name="TTAF.Direction.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.display.attrib">
+  <optional>
+    <attribute name="tts:display">
+      <ref name="TTAF.Display.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.displayAlign.attrib">
+  <optional>
+    <attribute name="tts:displayAlign">
+      <ref name="TTAF.DisplayAlign.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.extent.attrib">
+  <optional>
+    <attribute name="tts:extent">
+      <ref name="TTAF.Extent.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.fontFamily.attrib">
+  <optional>
+    <attribute name="tts:fontFamily">
+      <ref name="TTAF.FontFamily.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.fontSize.attrib">
+  <optional>
+    <attribute name="tts:fontSize">
+      <ref name="TTAF.FontSize.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.fontStyle.attrib">
+  <optional>
+    <attribute name="tts:fontStyle">
+      <ref name="TTAF.FontStyle.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.fontWeight.attrib">
+  <optional>
+    <attribute name="tts:fontWeight">
+      <ref name="TTAF.FontWeight.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.lineHeight.attrib">
+  <optional>
+    <attribute name="tts:lineHeight">
+      <ref name="TTAF.LineHeight.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.opacity.attrib">
+  <optional>
+    <attribute name="tts:opacity">
+      <ref name="TTAF.Opacity.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.origin.attrib">
+  <optional>
+    <attribute name="tts:origin">
+      <ref name="TTAF.Origin.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.overflow.attrib">
+  <optional>
+    <attribute name="tts:overflow">
+      <ref name="TTAF.Overflow.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.padding.attrib">
+  <optional>
+    <attribute name="tts:padding">
+      <ref name="TTAF.Padding.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.showBackground.attrib">
+  <optional>
+    <attribute name="tts:showBackground">
+      <ref name="TTAF.ShowBackground.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.textAlign.attrib">
+  <optional>
+    <attribute name="tts:textAlign">
+      <ref name="TTAF.TextAlign.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.textDecoration.attrib">
+  <optional>
+    <attribute name="tts:textDecoration">
+      <ref name="TTAF.TextDecoration.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.textOutline.attrib">
+  <optional>
+    <attribute name="tts:textOutline">
+      <ref name="TTAF.TextOutline.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.unicodeBidi.attrib">
+  <optional>
+    <attribute name="tts:unicodeBidi">
+      <ref name="TTAF.UnicodeBidi.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.visibility.attrib">
+  <optional>
+    <attribute name="tts:visibility">
+      <ref name="TTAF.Visibility.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.wrapOption.attrib">
+  <optional>
+    <attribute name="tts:wrapOption">
+      <ref name="TTAF.WrapOption.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.writingMode.attrib">
+  <optional>
+    <attribute name="tts:writingMode">
+      <ref name="TTAF.WritingMode.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.zIndex.attrib">
+  <optional>
+    <attribute name="tts:zIndex">
+      <ref name="TTAF.ZIndex.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<!--
+Extension Style Attributes
+-->
+
+<define name="TTAF.Styling.ForeignExtension.attrib">
+  <attribute>
+    <anyName>
+      <except>
+        <nsName ns="http://www.w3.org/ns/ttml"/>
+        <nsName ns="http://www.w3.org/ns/ttml#styling"/>
+        <nsName ns="http://www.w3.org/XML/1998/namespace"/>
+        <nsName ns=""/>
+      </except>
+    </anyName>
+    <text/>
+  </attribute>
+</define>
+
+<!--
+Styling Attribute Class
+-->
+
+<define name="TTAF.Styling.attrib.class" combine="interleave">
+  <group>
+    <ref name="TTAF.backgroundColor.attrib"/>
+    <ref name="TTAF.color.attrib"/>
+    <ref name="TTAF.direction.attrib"/>
+    <ref name="TTAF.display.attrib"/>
+    <ref name="TTAF.displayAlign.attrib"/>
+    <ref name="TTAF.extent.attrib"/>
+    <ref name="TTAF.fontFamily.attrib"/>
+    <ref name="TTAF.fontSize.attrib"/>
+    <ref name="TTAF.fontStyle.attrib"/>
+    <ref name="TTAF.fontWeight.attrib"/>
+    <ref name="TTAF.lineHeight.attrib"/>
+    <ref name="TTAF.opacity.attrib"/>
+    <ref name="TTAF.origin.attrib"/>
+    <ref name="TTAF.overflow.attrib"/>
+    <ref name="TTAF.padding.attrib"/>
+    <ref name="TTAF.showBackground.attrib"/>
+    <ref name="TTAF.textAlign.attrib"/>
+    <ref name="TTAF.textDecoration.attrib"/>
+    <ref name="TTAF.textOutline.attrib"/>
+    <ref name="TTAF.unicodeBidi.attrib"/>
+    <ref name="TTAF.visibility.attrib"/>
+    <ref name="TTAF.wrapOption.attrib"/>
+    <ref name="TTAF.writingMode.attrib"/>
+    <ref name="TTAF.zIndex.attrib"/>
+  </group>
+</define>
+
+<!--
+Style Binding Attribute Class
+-->
+
+<define name="TTAF.StyleBinding.attrib.class" combine="interleave">
+  <ref name="TTAF.style.attrib"/>
+</define>
+
+<!--
+Styled Content Attribute Class
+-->
+
+<define name="TTAF.Styled.extra.attrib">
+  <empty/>
+</define>
+
+<define name="TTAF.Styled.attrib.class" combine="interleave">
+  <group>
+    <ref name="TTAF.Styling.attrib.class"/>
+    <ref name="TTAF.StyleBinding.attrib.class"/>
+    <ref name="TTAF.Styled.extra.attrib"/>
+  </group>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

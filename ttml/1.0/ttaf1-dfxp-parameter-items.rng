@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:ttp="http://www.w3.org/ns/ttml#parameter">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Parameter Items Module .................................
+.......................................................................
+-->
+
+<!--
+profile - profile definition or use declaration
+-->
+
+<define name="TTAF.parameters.profile">
+  <element name="ttp:profile">
+    <ref name="TTAF.parameters.profile.attlist"/>
+    <ref name="TTAF.parameters.profile.content"/>
+  </element>
+</define>
+
+<define name="TTAF.parameters.profile.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.id.attrib"/>
+    <optional>
+      <attribute name="use">
+        <ref name="TTAF.Profile.datatype"/>
+      </attribute>
+    </optional>
+  </group>
+</define>
+
+<define name="TTAF.parameters.profile.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.parameters.profile.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.Metadata.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.parameters.features"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.parameters.extensions"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.parameters.profile.content.extra"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<!--
+features - container for feature elements
+-->
+
+<define name="TTAF.parameters.features">
+  <element name="ttp:features">
+    <ref name="TTAF.parameters.features.attlist"/>
+    <ref name="TTAF.parameters.features.content"/>
+  </element>
+</define>
+
+<define name="TTAF.parameters.features.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.id.attrib"/>
+    <optional>
+      <attribute name="xml:base">
+        <ref name="TTAF.URI.datatype"/>
+      </attribute>
+    </optional>
+  </group>
+</define>
+
+<define name="TTAF.parameters.features.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.parameters.features.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.Metadata.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.parameters.feature"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.parameters.features.content.extra"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<!--
+feature - feature requirements declaration
+-->
+
+<define name="TTAF.parameters.feature">
+  <element name="ttp:feature">
+    <ref name="TTAF.parameters.feature.attlist"/>
+    <ref name="TTAF.parameters.feature.content"/>
+  </element>
+</define>
+
+<define name="TTAF.parameters.feature.attlist">
+  <group>
+    <ref name="TTAF.id.attrib"/>
+    <optional>
+      <attribute name="value">
+        <ref name="TTAF.FeatureValue.datatype"/>
+      </attribute>
+    </optional>
+  </group>
+</define>
+
+<define name="TTAF.parameters.feature.content">
+  <ref name="TTAF.FeatureDesignator.datatype"/>
+</define>
+
+<!--
+extensions - container for extension elements
+-->
+
+<define name="TTAF.parameters.extensions">
+  <element name="ttp:extensions">
+    <ref name="TTAF.parameters.extensions.attlist"/>
+    <ref name="TTAF.parameters.extensions.content"/>
+  </element>
+</define>
+
+<define name="TTAF.parameters.extensions.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.id.attrib"/>
+    <optional>
+      <attribute name="xml:base">
+        <ref name="TTAF.URI.datatype"/>
+      </attribute>
+    </optional>
+  </group>
+</define>
+
+<define name="TTAF.parameters.extensions.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.parameters.extensions.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.Metadata.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.parameters.extension"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.parameters.extensions.content.extra"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<!--
+extension - extension requirements declaration
+-->
+
+<define name="TTAF.parameters.extension">
+  <element name="ttp:extension">
+    <ref name="TTAF.parameters.extension.attlist"/>
+    <ref name="TTAF.parameters.extension.content"/>
+  </element>
+</define>
+
+<define name="TTAF.parameters.extension.attlist">
+  <group>
+    <ref name="TTAF.id.attrib"/>
+    <optional>
+      <attribute name="value">
+        <ref name="TTAF.ExtensionValue.datatype"/>
+      </attribute>
+    </optional>
+  </group>
+</define>
+
+<define name="TTAF.parameters.extension.content">
+  <ref name="TTAF.ExtensionDesignator.datatype"/>
+</define>
+
+<!--
+# ParameterItems.class
+-->
+
+<define name="TTAF.ParameterItems.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.ParameterItems.class" combine="choice">
+  <choice>
+    <ref name="TTAF.parameters.profile"/>
+    <ref name="TTAF.ParameterItems.extra"/>
+  </choice>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

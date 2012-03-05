@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:ttp="http://www.w3.org/ns/ttml#parameter">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Parameter Attributes Module ............................
+.......................................................................
+-->
+
+<!--
+Standard Metadata Attributes
+-->
+
+<define name="TTAF.cellResolution.attrib">
+  <optional>
+    <attribute name="ttp:cellResolution">
+      <ref name="TTAF.CellResolution.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.clockMode.attrib">
+  <optional>
+    <attribute name="ttp:clockMode">
+      <ref name="TTAF.ClockMode.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.dropMode.attrib">
+  <optional>
+    <attribute name="ttp:dropMode">
+      <ref name="TTAF.DropMode.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.frameRate.attrib">
+  <optional>
+    <attribute name="ttp:frameRate">
+      <ref name="TTAF.FrameRate.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.frameRateMultiplier.attrib">
+  <optional>
+    <attribute name="ttp:frameRateMultiplier">
+      <ref name="TTAF.FrameRateMultiplier.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.markerMode.attrib">
+  <optional>
+    <attribute name="ttp:markerMode">
+      <ref name="TTAF.MarkerMode.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.profile.attrib">
+  <optional>
+    <attribute name="ttp:profile">
+      <ref name="TTAF.Profile.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.pixelAspectRatio.attrib">
+  <optional>
+    <attribute name="ttp:pixelAspectRatio">
+      <ref name="TTAF.PixelAspectRatio.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.subFrameRate.attrib">
+  <optional>
+    <attribute name="ttp:subFrameRate">
+      <ref name="TTAF.SubFrameRate.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.tickRate.attrib">
+  <optional>
+    <attribute name="ttp:tickRate">
+      <ref name="TTAF.TickRate.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.timeBase.attrib">
+  <optional>
+    <attribute name="ttp:timeBase">
+      <ref name="TTAF.TimeBase.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<!--
+Parameter Attribute Class
+-->
+
+<define name="TTAF.Parameter.attrib.class" combine="interleave">
+  <group>
+    <ref name="TTAF.cellResolution.attrib"/>
+    <ref name="TTAF.clockMode.attrib"/>
+    <ref name="TTAF.dropMode.attrib"/>
+    <ref name="TTAF.frameRate.attrib"/>
+    <ref name="TTAF.frameRateMultiplier.attrib"/>
+    <ref name="TTAF.markerMode.attrib"/>
+    <ref name="TTAF.pixelAspectRatio.attrib"/>
+    <ref name="TTAF.profile.attrib"/>
+    <ref name="TTAF.subFrameRate.attrib"/>
+    <ref name="TTAF.tickRate.attrib"/>
+    <ref name="TTAF.timeBase.attrib"/>
+  </group>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

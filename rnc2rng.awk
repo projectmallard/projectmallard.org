@@ -421,10 +421,7 @@ function parse_name_class (line) {
           }
         }
       }
-      if (namespace_uri == "")
-        stack[++stack_i] = "<nsName/>";
-      else
-        stack[++stack_i] = sprintf("<nsName ns='%s'/>", namespace_uri);
+      stack[++stack_i] = sprintf("<nsName ns='%s'/>", namespace_uri);
       if (length(aft) >= 3)
         aft = substr(aft, 3);
       else

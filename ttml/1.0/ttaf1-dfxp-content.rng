@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Content Module .........................................
+.......................................................................
+-->
+
+<!--
+body - content body
+-->
+
+<define name="TTAF.body">
+  <element name="body">
+    <ref name="TTAF.body.attlist"/>
+    <ref name="TTAF.body.content"/>
+  </element>
+</define>
+
+<define name="TTAF.body.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.Core.attrib.class"/>
+    <ref name="TTAF.Metadata.attrib.class"/>
+    <ref name="TTAF.RegionBinding.attrib.class"/>
+    <ref name="TTAF.Styled.attrib.class"/>
+    <ref name="TTAF.TimedContainer.attrib.class"/>
+  </group>
+</define>
+
+<define name="TTAF.body.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.body.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.Metadata.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.Animation.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name="TTAF.Block.class"/>
+        <ref name="TTAF.body.content.extra"/>
+      </choice>
+    </zeroOrMore>
+  </group>
+</define>
+
+<!--
+div - division
+-->
+
+<define name="TTAF.div">
+  <element name="div">
+    <ref name="TTAF.div.attlist"/>
+    <ref name="TTAF.div.content"/>
+  </element>
+</define>
+
+<define name="TTAF.div.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.Core.attrib.class"/>
+    <ref name="TTAF.Metadata.attrib.class"/>
+    <ref name="TTAF.RegionBinding.attrib.class"/>
+    <ref name="TTAF.Styled.attrib.class"/>
+    <ref name="TTAF.TimedContainer.attrib.class"/>
+  </group>
+</define>
+
+<define name="TTAF.div.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.div.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.Metadata.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.Animation.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name="TTAF.Block.class"/>
+        <ref name="TTAF.div.content.extra"/>
+      </choice>
+    </zeroOrMore>
+  </group>
+</define>
+
+<!--
+p - paragraph
+-->
+
+<define name="TTAF.p">
+  <element name="p">
+    <ref name="TTAF.p.attlist"/>
+    <ref name="TTAF.p.content"/>
+  </element>
+</define>
+
+<define name="TTAF.p.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.Core.attrib.class"/>
+    <ref name="TTAF.Metadata.attrib.class"/>
+    <ref name="TTAF.RegionBinding.attrib.class"/>
+    <ref name="TTAF.Styled.attrib.class"/>
+    <ref name="TTAF.TimedContainer.attrib.class"/>
+  </group>
+</define>
+
+<define name="TTAF.p.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.p.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.Metadata.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.Animation.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name="TTAF.Inline.class"/>
+        <ref name="TTAF.p.content.extra"/>
+      </choice>
+    </zeroOrMore>
+  </group>
+</define>
+
+<!--
+span - intra-paragraph inline span
+-->
+
+<define name="TTAF.span">
+  <element name="span">
+    <ref name="TTAF.span.attlist"/>
+    <ref name="TTAF.span.content"/>
+  </element>
+</define>
+
+<define name="TTAF.span.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.Core.attrib.class"/>
+    <ref name="TTAF.Metadata.attrib.class"/>
+    <ref name="TTAF.RegionBinding.attrib.class"/>
+    <ref name="TTAF.Styled.attrib.class"/>
+    <ref name="TTAF.TimedContainer.attrib.class"/>
+  </group>
+</define>
+
+<define name="TTAF.span.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.span.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.Metadata.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.Animation.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name="TTAF.Inline.class"/>
+        <ref name="TTAF.span.content.extra"/>
+      </choice>
+    </zeroOrMore>
+  </group>
+</define>
+
+<!--
+br - manual line break
+-->
+
+<define name="TTAF.br">
+  <element name="br">
+    <ref name="TTAF.br.attlist"/>
+    <ref name="TTAF.br.content"/>
+  </element>
+</define>
+
+<define name="TTAF.br.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.Core.attrib.class"/>
+    <ref name="TTAF.Metadata.attrib.class"/>
+    <ref name="TTAF.Styled.attrib.class"/>
+  </group>
+</define>
+
+<define name="TTAF.br.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.br.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.Metadata.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.Animation.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.br.content.extra"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<!--
+Block.class
+-->
+
+<define name="TTAF.Block.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.BlockNoDiv.class" combine="choice">
+  <choice>
+    <ref name="TTAF.p"/>
+    <ref name="TTAF.Block.extra"/>
+  </choice>
+</define>
+
+<define name="TTAF.Block.class" combine="choice">
+  <choice>
+    <ref name="TTAF.div"/>
+    <ref name="TTAF.BlockNoDiv.class"/>
+  </choice>
+</define>
+
+<!--
+Inline.class
+-->
+
+<define name="TTAF.Inline.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.InlineNoSpan.class" combine="choice">
+  <choice>
+    <text/>
+    <ref name="TTAF.br"/>
+    <ref name="TTAF.Inline.extra"/>
+  </choice>
+</define>
+
+<define name="TTAF.Inline.class" combine="choice">
+  <choice>
+    <ref name="TTAF.span"/>
+    <ref name="TTAF.InlineNoSpan.class"/>
+  </choice>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

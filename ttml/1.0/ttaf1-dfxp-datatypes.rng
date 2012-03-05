@@ -1,0 +1,338 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Datatypes Module .......................................
+.......................................................................
+-->
+
+<define name="TTAF.Alpha.datatype">
+  <data type="float" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <param name="minInclusive">0</param>
+    <param name="maxInclusive">1</param>
+  </data>
+</define>
+
+<define name="TTAF.Agent.datatype">
+  <data type="IDREFS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+</define>
+
+<define name="TTAF.CellResolution.datatype">
+  <data type="string"/>
+</define>
+
+<define name="TTAF.ClockMode.datatype">
+  <choice>
+    <value>local</value>
+    <value>gps</value>
+    <value>utc</value>
+  </choice>
+</define>
+
+<define name="TTAF.Color.datatype">
+  <data type="string"/>
+</define>
+
+<define name="TTAF.Direction.datatype">
+  <choice>
+    <value>ltr</value>
+    <value>rtl</value>
+  </choice>
+</define>
+
+<define name="TTAF.Display.datatype">
+  <choice>
+    <value>auto</value>
+    <value>none</value>
+  </choice>
+</define>
+
+<define name="TTAF.DisplayAlign.datatype">
+  <choice>
+    <value>before</value>
+    <value>center</value>
+    <value>after</value>
+  </choice>
+</define>
+
+<define name="TTAF.DropMode.datatype">
+  <choice>
+    <value>dropNTSC</value>
+    <value>dropPAL</value>
+    <value>nonDrop</value>
+  </choice>
+</define>
+
+<define name="TTAF.ExtensionDesignator.datatype">
+  <ref name="TTAF.URI.datatype"/>
+</define>
+
+<define name="TTAF.ExtensionValue.datatype">
+  <choice>
+    <value>optional</value>
+    <value>required</value>
+    <value>use</value>
+  </choice>
+</define>
+
+<define name="TTAF.Extent.datatype">
+  <data type="string"/>
+</define>
+
+<define name="TTAF.FeatureDesignator.datatype">
+  <ref name="TTAF.URI.datatype"/>
+</define>
+
+<define name="TTAF.FeatureValue.datatype">
+  <choice>
+    <value>optional</value>
+    <value>required</value>
+    <value>use</value>
+  </choice>
+</define>
+
+<define name="TTAF.FontFamily.datatype">
+  <data type="string"/>
+</define>
+
+<define name="TTAF.FontSize.datatype">
+  <data type="string"/>
+</define>
+
+<define name="TTAF.FontStyle.datatype">
+  <choice>
+    <value>normal</value>
+    <value>italic</value>
+    <value>oblique</value>
+  </choice>
+</define>
+
+<define name="TTAF.FontWeight.datatype">
+  <choice>
+    <value>normal</value>
+    <value>bold</value>
+  </choice>
+</define>
+
+<define name="TTAF.FrameRate.datatype">
+  <data type="nonNegativeInteger" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+</define>
+
+<define name="TTAF.FrameRateMultiplier.datatype">
+  <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <param name="pattern">\p{Nd}+\s+\p{Nd}+</param>
+  </data>
+</define>
+
+<define name="TTAF.LanguageCode.datatype">
+  <data type="NMTOKEN" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+</define>
+
+<define name="TTAF.LineHeight.datatype">
+  <data type="string"/>
+</define>
+
+<define name="TTAF.MarkerMode.datatype">
+  <choice>
+    <value>continuous</value>
+    <value>discontinuous</value>
+  </choice>
+</define>
+
+<define name="TTAF.MetadataAgentType.datatype">
+  <choice>
+    <value>person</value>
+    <value>character</value>
+    <value>group</value>
+    <value>organization</value>
+    <value>other</value>
+  </choice>
+</define>
+
+<define name="TTAF.MetadataNameType.datatype">
+  <choice>
+    <value>full</value>
+    <value>family</value>
+    <value>given</value>
+    <value>alias</value>
+    <value>other</value>
+  </choice>
+</define>
+
+<define name="TTAF.MetadataRoleBaseType.datatype">
+  <choice>
+    <value>action</value>
+    <value>caption</value>
+    <value>description</value>
+    <value>dialog</value>
+    <value>expletive</value>
+    <value>kinesic</value>
+    <value>lyrics</value>
+    <value>music</value>
+    <value>narration</value>
+    <value>quality</value>
+    <value>sound</value>
+    <value>source</value>
+    <value>suppressed</value>
+    <value>reproduction</value>
+    <value>thought</value>
+    <value>title</value>
+    <value>transcription</value>
+  </choice>
+</define>
+
+<define name="TTAF.Opacity.datatype">
+  <data type="string"/>
+</define>
+
+<define name="TTAF.Origin.datatype">
+  <data type="string"/>
+</define>
+
+<define name="TTAF.Overflow.datatype">
+  <choice>
+    <value>visible</value>
+    <value>hidden</value>
+  </choice>
+</define>
+
+<define name="TTAF.Padding.datatype">
+  <data type="string"/>
+</define>
+
+<define name="TTAF.PixelAspectRatio.datatype">
+  <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <param name="pattern">\p{Nd}+\s+\p{Nd}+</param>
+  </data>
+</define>
+
+<define name="TTAF.Profile.datatype">
+  <ref name="TTAF.URI.datatype"/>
+</define>
+
+<define name="TTAF.Role.datatype">
+  <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+</define>
+
+<define name="TTAF.ShowBackground.datatype">
+  <choice>
+    <value>always</value>
+    <value>whenActive</value>
+  </choice>
+</define>
+
+<define name="TTAF.SubFrameRate.datatype">
+  <data type="positiveInteger" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+</define>
+
+<define name="TTAF.TextAlign.datatype">
+  <choice>
+    <value>left</value>
+    <value>center</value>
+    <value>right</value>
+    <value>start</value>
+    <value>end</value>
+  </choice>
+</define>
+
+<define name="TTAF.TextDecoration.datatype">
+  <choice>
+    <value>none</value>
+    <value>underline</value>
+    <value>noUnderline</value>
+    <value>overline</value>
+    <value>noOverline</value>
+    <value>lineThrough</value>
+    <value>noLineThrough</value>
+  </choice>
+</define>
+
+<define name="TTAF.TextOutline.datatype">
+  <data type="string"/>
+</define>
+
+<define name="TTAF.TickRate.datatype">
+  <data type="positiveInteger" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+</define>
+
+<define name="TTAF.TimeBase.datatype">
+  <choice>
+    <value>media</value>
+    <value>smpte</value>
+    <value>clock</value>
+  </choice>
+</define>
+
+<define name="TTAF.TimeContainer.datatype">
+  <choice>
+    <value>par</value>
+    <value>seq</value>
+  </choice>
+</define>
+
+<define name="TTAF.TimeCoordinate.datatype">
+  <data type="string"/>
+</define>
+
+<define name="TTAF.TimeDuration.datatype">
+  <data type="string"/>
+</define>
+
+<define name="TTAF.URI.datatype">
+  <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+</define>
+
+<define name="TTAF.UnicodeBidi.datatype">
+  <choice>
+    <value>normal</value>
+    <value>embed</value>
+    <value>bidiOverride</value>
+  </choice>
+</define>
+
+<define name="TTAF.Visibility.datatype">
+  <choice>
+    <value>hidden</value>
+    <value>visible</value>
+  </choice>
+</define>
+
+<define name="TTAF.WrapOption.datatype">
+  <choice>
+    <value>wrap</value>
+    <value>noWrap</value>
+  </choice>
+</define>
+
+<define name="TTAF.WritingMode.datatype">
+  <choice>
+    <value>lrtb</value>
+    <value>rltb</value>
+    <value>tbrl</value>
+    <value>tblr</value>
+    <value>lr</value>
+    <value>rl</value>
+    <value>tb</value>
+  </choice>
+</define>
+
+<define name="TTAF.XMLSpace.datatype">
+  <choice>
+    <value>default</value>
+    <value>preserve</value>
+  </choice>
+</define>
+
+<define name="TTAF.ZIndex.datatype">
+  <data type="string"/>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

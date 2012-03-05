@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Animation Module .......................................
+.......................................................................
+-->
+
+<!--
+set - discrete animation
+-->
+
+<define name="TTAF.set">
+  <element name="set">
+    <ref name="TTAF.set.attlist"/>
+    <ref name="TTAF.set.content"/>
+  </element>
+</define>
+
+<define name="TTAF.set.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.Core.attrib.class"/>
+    <ref name="TTAF.Timed.attrib.class"/>
+    <choice>
+      <ref name="TTAF.Styling.attrib.class"/>
+      <oneOrMore>
+        <ref name="TTAF.Styling.ForeignExtension.attrib"/>
+      </oneOrMore>
+    </choice>
+  </group>
+</define>
+
+<define name="TTAF.set.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.set.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.Metadata.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.set.content.extra"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<define name="TTAF.Animation.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.Animation.class" combine="choice">
+  <choice>
+    <ref name="TTAF.set"/>
+    <ref name="TTAF.Animation.extra"/>
+  </choice>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

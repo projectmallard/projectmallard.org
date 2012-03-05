@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Core Attributes Module .................................
+.......................................................................
+-->
+
+<define name="TTAF.id.attrib">
+  <optional>
+    <attribute name="xml:id">
+      <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.lang.attrib">
+  <optional>
+    <attribute name="xml:lang">
+      <ref name="TTAF.LanguageCode.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.lang.required.attrib">
+  <attribute name="xml:lang">
+    <ref name="TTAF.LanguageCode.datatype"/>
+  </attribute>
+</define>
+
+<define name="TTAF.space.attrib">
+  <optional>
+    <attribute name="xml:space">
+      <ref name="TTAF.XMLSpace.datatype"/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="TTAF.Core.extra.attrib">
+  <empty/>
+</define>
+
+<define name="TTAF.Core.attrib.class" combine="interleave">
+  <group>
+    <ref name="TTAF.id.attrib"/>
+    <ref name="TTAF.lang.attrib"/>
+    <ref name="TTAF.space.attrib"/>
+    <ref name="TTAF.Core.extra.attrib"/>
+  </group>
+</define>
+
+<define name="TTAF.Core.required.attrib.class" combine="interleave">
+  <group>
+    <ref name="TTAF.id.attrib"/>
+    <ref name="TTAF.lang.required.attrib"/>
+    <ref name="TTAF.space.attrib"/>
+    <ref name="TTAF.Core.extra.attrib"/>
+  </group>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

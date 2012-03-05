@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Document Module ........................................
+.......................................................................
+-->
+
+<!--
+# tt - generic top-level document element type
+-->
+
+<define name="TTAF.tt">
+  <element name="tt">
+    <ref name="TTAF.tt.attlist"/>
+    <ref name="TTAF.tt.content"/>
+  </element>
+</define>
+
+<define name="TTAF.tt.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.Core.required.attrib.class"/>
+    <ref name="TTAF.Parameter.attrib.class"/>
+  </group>
+</define>
+
+<define name="TTAF.tt.content">
+  <group>
+    <optional>
+      <ref name="TTAF.head"/>
+    </optional>
+    <optional>
+      <ref name="TTAF.body"/>
+    </optional>
+  </group>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>

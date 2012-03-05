@@ -1,0 +1,75 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+
+<info>
+  <revision docversion="1.0" date="2012-02-27" status="stub"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2011</years>
+  </credit>
+
+  <title type="link" role="trail">TTML 1.0 DRAFT</title>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+</info>
+
+<title>Mallard+TTML 1.0 DRAFT</title>
+
+<note style="warning">
+<p>This is a draft specification.  Changes may still be made before
+the final Mallard+SVG 1.0 specification.</p>
+</note>
+
+<note style="sidebar">
+<title>Download Schema</title>
+<list style="compact">
+  <item><p><link href="http://projectmallard.org/ttml/1.0/ttml-1.0.rng">RELAX NG XML Syntax</link></p></item>
+  <item><p><link href="http://projectmallard.org/ttml/1.0/ttml-1.0.rnc">RELAX NG Compact Syntax</link></p></item>
+</list>
+</note>
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+# This schema cannot be used on its own. It is designed to be combined
+# with the core Mallard schema using the version attribute.
+namespace tt = "http://www.w3.org/ns/ttml"
+
+# projectmallard.org hosts a copy of the schemas as published by the W3C.
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-animation.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-classes.rnc"i
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-content.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-core-attribs.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-datatypes.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-document.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-head.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-layout.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-metadata-attribs.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-metadata-items.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-metadata.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-parameter-attribs.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-parameter-items.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-parameters.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-styling-attribs.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-styling.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-timing-attribs.rnc"
+
+mal_block_media_content &amp;= TTAF.tt ?
+
+TTAF.div.content.extra = mal_block
+TTAF.p.content.extra = mal_inline
+
+TTAF.tt.attlist &amp;= mal_block_attr
+TTAF.div.attlist &amp;= mal_block_attr
+TTAF.p.attlist &amp;= mal_block_attr
+TTAF.span.attlist &amp;= mal_inline_attr
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

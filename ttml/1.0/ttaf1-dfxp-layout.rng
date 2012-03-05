@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0">
+
+<!--
+.......................................................................
+TT-AF 1.0 DFXP Layout Module ..........................................
+.......................................................................
+-->
+
+<!--
+region reference attribute; must reference /head/layout/region
+-->
+
+<define name="TTAF.region.attrib">
+  <optional>
+    <attribute name="region">
+      <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+    </attribute>
+  </optional>
+</define>
+
+<!--
+region binding attribute class
+-->
+
+<define name="TTAF.RegionBinding.attrib.class" combine="interleave">
+  <ref name="TTAF.region.attrib"/>
+</define>
+
+<!--
+layout - generic layout container
+-->
+
+<define name="TTAF.layout">
+  <element name="layout">
+    <ref name="TTAF.layout.attlist"/>
+    <ref name="TTAF.layout.content"/>
+  </element>
+</define>
+
+<define name="TTAF.layout.attlist" combine="interleave">
+  <ref name="TTAF.Core.attrib.class"/>
+</define>
+
+<define name="TTAF.layout.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.layout.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.Metadata.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.layout.region"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.layout.content.extra"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<!--
+region - region declaration
+-->
+
+<define name="TTAF.layout.region">
+  <element name="region">
+    <ref name="TTAF.layout.region.attlist"/>
+    <ref name="TTAF.layout.region.content"/>
+  </element>
+</define>
+
+<define name="TTAF.layout.region.attlist" combine="interleave">
+  <group>
+    <ref name="TTAF.Core.attrib.class"/>
+    <ref name="TTAF.TimedContainer.attrib.class"/>
+    <ref name="TTAF.style.attrib"/>
+    <choice>
+      <ref name="TTAF.Styling.attrib.class"/>
+      <oneOrMore>
+        <ref name="TTAF.Styling.ForeignExtension.attrib"/>
+      </oneOrMore>
+    </choice>
+  </group>
+</define>
+
+<define name="TTAF.layout.region.content.extra">
+  <empty/>
+</define>
+
+<define name="TTAF.layout.region.content">
+  <group>
+    <zeroOrMore>
+      <ref name="TTAF.Metadata.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.Animation.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.styling.style"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="TTAF.layout.region.content.extra"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>
