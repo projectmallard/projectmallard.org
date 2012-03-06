@@ -11,35 +11,23 @@ with the core Mallard schema using the version attribute.
 <!--
 projectmallard.org hosts a copy of the schemas as published by the W3C.
 -->
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-animation.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-classes.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-content.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-core-attribs.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-datatypes.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-document.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-head.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-layout.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-metadata-attribs.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-metadata-items.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-metadata.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-parameter-attribs.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-parameter-items.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-parameters.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-styling-attribs.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-styling.rng"/>
-<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp-timing-attribs.rng"/>
+<include href="http://projectmallard.org/ttml/1.0/ttaf1-dfxp.rng">
+  <start combine="choice">
+    <notAllowed/>
+  </start>
+</include>
 
 <define name="mal_block_media_content" combine="interleave">
-  <optional>
+  <zeroOrMore>
     <ref name="TTAF.tt"/>
-  </optional>
+  </zeroOrMore>
 </define>
 
-<define name="TTAF.div.content.extra">
+<define name="TTAF.div.content.extra" combine="interleave">
   <ref name="mal_block"/>
 </define>
 
-<define name="TTAF.p.content.extra">
+<define name="TTAF.p.content.extra" combine="interleave">
   <ref name="mal_inline"/>
 </define>
 

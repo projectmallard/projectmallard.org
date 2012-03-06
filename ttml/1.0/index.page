@@ -41,28 +41,14 @@ the final Mallard+SVG 1.0 specification.</p>
 namespace tt = "http://www.w3.org/ns/ttml"
 
 # projectmallard.org hosts a copy of the schemas as published by the W3C.
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-animation.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-classes.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-content.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-core-attribs.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-datatypes.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-document.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-head.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-layout.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-metadata-attribs.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-metadata-items.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-metadata.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-parameter-attribs.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-parameter-items.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-parameters.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-styling-attribs.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-styling.rnc"
-include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp-timing-attribs.rnc"
+include "http://projectmallard.org/ttml/1.0/ttaf1-dfxp.rnc" {
+start |= notAllowed
+}
 
-mal_block_media_content &amp;= TTAF.tt ?
+mal_block_media_content &amp;= TTAF.tt *
 
-TTAF.div.content.extra = mal_block
-TTAF.p.content.extra = mal_inline
+TTAF.div.content.extra &amp;= mal_block
+TTAF.p.content.extra &amp;= mal_inline
 
 TTAF.tt.attlist &amp;= mal_block_attr
 TTAF.div.attlist &amp;= mal_block_attr

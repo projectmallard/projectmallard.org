@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:tt="http://www.w3.org/ns/ttml"
+    ns="http://www.w3.org/ns/ttml">
+
+<!--
+.......................................................................
+TT-AF 1.0 Distribution Format Exchange Profile (DFXP) Schema ..........
+.......................................................................
+-->
+
+<!--
+default namespace
+-->
+
+<!--
+generic tt modules
+-->
+<include href="ttaf1-dfxp-datatypes.rng"/>
+<include href="ttaf1-dfxp-classes.rng"/>
+<include href="ttaf1-dfxp-core-attribs.rng"/>
+<include href="ttaf1-dfxp-parameter-attribs.rng"/>
+<include href="ttaf1-dfxp-metadata-attribs.rng"/>
+<include href="ttaf1-dfxp-styling-attribs.rng"/>
+<include href="ttaf1-dfxp-timing-attribs.rng"/>
+<include href="ttaf1-dfxp-parameter-items.rng"/>
+<include href="ttaf1-dfxp-parameters.rng"/>
+<include href="ttaf1-dfxp-metadata-items.rng"/>
+<include href="ttaf1-dfxp-metadata.rng"/>
+<include href="ttaf1-dfxp-styling.rng"/>
+<include href="ttaf1-dfxp-animation.rng"/>
+<include href="ttaf1-dfxp-layout.rng"/>
+<include href="ttaf1-dfxp-content.rng"/>
+<include href="ttaf1-dfxp-head.rng"/>
+<include href="ttaf1-dfxp-document.rng"/>
+
+<start>
+  <choice>
+    <ref name="TTAF.tt"/>
+    <ref name="TTAF.parameters.profile"/>
+  </choice>
+</start>
+
+<!--
+.......................................................................
+.......................................................................
+.......................................................................
+-->
+
+</grammar>
