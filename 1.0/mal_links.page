@@ -267,7 +267,7 @@ its direct parent.</p>
 
   <p>Guide links are valid on all pages and sections. If a node has guide links, but
   does not have a guide <code>links</code> element, the guide links are inserted
-  implicitly as if there were a guide <code>links</code> element at then end of the
+  implicitly as if there were a guide <code>links</code> element at the end of the
   node, after any block content and subsections.</p>
 </section>
 <!-- END guide -->
@@ -309,7 +309,7 @@ its direct parent.</p>
   <p>See-also links are valid on all pages and sections. If a node has see-also
   links, but does not have a see-also <code>links</code> element, the see-also
   links are inserted implicitly as if there were a see-also <code>links</code>
-  element at then end of the node, after any block content and subsections.</p>
+  element at the end of the node, after any block content and subsections.</p>
 </section>
 <!-- END seealso -->
 
