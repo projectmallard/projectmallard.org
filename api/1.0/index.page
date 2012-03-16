@@ -1,0 +1,89 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+
+<info>
+  <revision docversion="1.0" date="2012-03-16" status="stub"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2012</years>
+  </credit>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+</info>
+
+<title>Mallard API 1.0 DRAFT</title>
+
+<note style="warning">
+<p>This is a draft specification.  Changes may still be made before
+the final Mallard API 1.0 specification.</p>
+</note>
+
+<note style="sidebar">
+<title>Download Schema</title>
+<list style="compact">
+  <item><p><link href="http://projectmallard.org/api/1.0/api-1.0.rng">RELAX NG XML Syntax</link></p></item>
+  <item><p><link href="http://projectmallard.org/api/1.0/api-1.0.rnc">RELAX NG Compact Syntax</link></p></item>
+</list>
+</note>
+
+<comment>
+<p>Implicit link/sort titles with role="api:name"</p>
+<p>Automatic role="api:name" on xref? Or xref on api:* with implied role?</p>
+</comment>
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+# This schema cannot be used on its own. It is designed to be combined
+# with the core Mallard schema using the version attribute.
+namespace api = "http://projectmallard.org/api/1.0/"
+
+mal_links_attr &amp;= attribute api:mime { text }?
+
+api_function = element api:function {
+  api_returns ?,
+  api_name,
+  api_arg *
+}
+
+api_returns = element api:returns {
+  api:type ?,
+  api:name ?
+}
+
+api_name = element api:name {
+  mal_inline
+}
+
+api_type = element api:type {
+  mal_inline
+}
+
+api_arg = element api:arg {
+  api_type ?,
+  api_name ?
+}
+
+# FIXME
+# api:function/api:modifier
+# api:function/api:class
+# api:function/api:interface
+# api:modifier
+# api:class (api:class*, api:interface*, api:name)
+# api:interface (api:class*, api:interface*, api:name)
+# api:interface
+# api:property
+# api:signal
+# api:enum
+# api:type (toplevel)
+# api:value
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>
