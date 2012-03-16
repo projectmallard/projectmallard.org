@@ -6,4 +6,4 @@ catalog_DATA = catalog
 
 EXTRA_DIST =			\
 	$(mal10_DATA)		\
-	$(catalog_DATA)
+	catalog.in
