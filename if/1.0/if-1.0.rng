@@ -83,12 +83,14 @@ with the core Mallard schema using the version attribute.
     <oneOrMore>
       <ref name="if_when"/>
     </oneOrMore>
-    <interleave>
-      <ref name="if_else"/>
-      <zeroOrMore>
-        <ref name="mal_block"/>
-      </zeroOrMore>
-    </interleave>
+    <optional>
+      <choice>
+        <ref name="if_else"/>
+        <zeroOrMore>
+          <ref name="mal_block"/>
+        </zeroOrMore>
+      </choice>
+    </optional>
   </element>
 </define>
 

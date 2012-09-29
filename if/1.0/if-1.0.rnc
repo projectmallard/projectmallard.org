@@ -25,8 +25,8 @@ mal_block_elements |= if_if
 if_choose = element if:choose {
   if_choose_attr,
   if_when +,
-  ( if_else &
-    mal_block * )
+  ( if_else |
+    mal_block * ) ?
 }
 if_choose_attr = (
   attribute style { xsd:NMTOKENS } ?,

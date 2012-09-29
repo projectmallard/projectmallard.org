@@ -35,7 +35,7 @@ conditional processing. See <link xref="fallback"/> for details.</p>
 <title>Notes</title>
 <list>
   <item><p>The <code>if:choose</code> contains one or more
-  <code xref="if_when">if:when</code> elements, followed by
+  <code xref="if_when">if:when</code> elements, optionally followed by
   <link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">general
   block content</link> or an <code xref="if_else">if:else</code> element.</p></item>
 
@@ -156,8 +156,8 @@ definition are on the page <link xref="index"/>.</p>
 if_choose = element if:choose {
   if_choose_attr,
   <link xref="if_when">if_when</link> +,
-  ( <link xref="if_else">if_else</link> &amp;
-    <link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">mal_block</link> * )
+  ( <link xref="if_else">if_else</link> |
+    <link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">mal_block</link> * ) ?
 }
 if_choose_attr = (
   attribute style { xsd:NMTOKENS } ?,
