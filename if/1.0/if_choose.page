@@ -34,7 +34,7 @@ conditional processing. See <link xref="fallback"/> for details.</p>
 <section id="notes">
 <title>Notes</title>
 <list>
-  <item><p>The <code>if:choose</code> contains one or more
+  <item><p>The <code>if:choose</code> element contains one or more
   <code xref="if_when">if:when</code> elements, optionally followed by
   <link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">general
   block content</link> or an <code xref="if_else">if:else</code> element.</p></item>
