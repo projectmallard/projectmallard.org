@@ -6,7 +6,7 @@
   <link type="guide" xref="details#misc"/>
   <link type="seealso" xref="docbook"/>
 
-  <revision docversion="1.0" date="2011-05-23" status="final"/>
+  <revision docversion="1.0" date="2012-10-27" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -90,12 +90,6 @@ for tracking or validation.</p>
       <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/anchorkey.html">anchorkey</code></p></td>
     </tr>
   </tbody>
-  <tbody><tr>
-    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/classify-d.html">classify-d/*</code></p></td>
-    <td><p>Classification specialization specific to DITA's mechanism of organizing
-    topics using maps; no direct equivalent in Mallard. See <link xref="mal_links"/>
-    for details on automatic linking and organization in Mallard.</p></td>
-  </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/apiname.html">apiname</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
@@ -197,6 +191,12 @@ for tracking or validation.</p>
     <code xref="mal_inline_em">em</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/classify-d.html">classify-d/*</code></p></td>
+    <td><p>Classification specialization specific to DITA's mechanism of organizing
+    topics using maps; no direct equivalent in Mallard. See <link xref="mal_links"/>
+    for details on automatic linking and organization in Mallard.</p></td>
+  </tr></tbody>
+  <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/cmd.html">cmd</code></p></td>
     <td><p>No direct equivalent in Mallard.  Instructions for a
     <link xref="mal_block_steps">step</link> should use a simple
@@ -239,7 +239,8 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/concept.html">concept</code></p></td>
-    <td><p>No specific element in Mallard. Use the <code xref="mal_page">page</code>
+    <td><p>No specific element in Mallard. Use a <code xref="mal_page">page</code>
+    or <code xref="mal_section">section</code>
     element instead, possibly with a style hint.</p></td>
   </tr></tbody>
   <tbody><tr>
@@ -766,13 +767,14 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/reference.html">reference</code></p></td>
-    <td><p>No specific element in Mallard. Use the <code xref="mal_page">page</code>
+    <td><p>No specific element in Mallard. Use a <code xref="mal_page">page</code>
+    or <code xref="mal_section">section</code>
     element instead, possibly with a style hint.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/refsyn.html">refsyn</code></p></td>
     <td><p>No direct equivalent in Mallard. Use a <code xref="mal_section">section</code>
-    if necessary; otherwise, use <link xref="mal_block">block content</link>.</p></td>
+    if necessary. Otherwise, use <link xref="mal_block">block content</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/related-links.html">related-links</code></p></td>
@@ -819,9 +821,9 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/section.html">section</code></p></td>
-    <td><p>Similar to the <code xref="mal_section">section</code> element. Sections
-    in DITA are sometimes just block element groups. Sections in Mallard are more
-    rigid.</p></td>
+    <td><p>No equivalent in Mallard. DITA <code>section</code> elements are not like
+    Mallard <code xref="mal_section">section</code> elements. Mallard sections are
+    similar to nested topics in DITA. DITA sections are simple formal blocks.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sectiondiv.html">sectiondiv</code></p></td>
@@ -976,7 +978,8 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/task.html">task</code></p></td>
-    <td><p>No specific element in Mallard. Use the <code xref="mal_page">page</code>
+    <td><p>No specific element in Mallard. Use a <code xref="mal_page">page</code>
+    or <code xref="mal_section">section</code>
     element instead, possibly with a style hint.</p></td>
   </tr></tbody>
   <tbody><tr>
@@ -1020,7 +1023,8 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/topic.html">topic</code></p></td>
-    <td><p>Similar to the <code xref="mal_page">page</code> element.</p></td>
+    <td><p>Similar to the <code xref="mal_page">page</code> element. When nesting
+    topics, use the <code xref="mal_section">section</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/tt.html">tt</code></p></td>

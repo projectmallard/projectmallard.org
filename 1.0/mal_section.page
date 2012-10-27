@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="index" group="section"/>
 
-  <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.0" date="2012-10-27" status="final"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -123,10 +123,12 @@ more quickly.  In Mallard, sections can take part in
   <code href="http://www.docbook.org/tdg51/en/html/chapter.html">chapter</code>,
   depending on the desired level of page granularity.</p>
 
-  <p>The <code>section</code> element is similar to the
+  <p>The <code>section</code> element is similar to nested
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/topic.html">topic</code>
+  elements in <link xref="dita">DITA</link>. The Mallard <code>section</code>
+  element is a structural element. This is different from the DITA
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/section.html">section</code>
-  element in <link xref="dita">DITA</link>. Sections in DITA are more loosely
-  defined and can sometimes serve as lightweight block container elements.</p>
+  element, which is a simple formal block element.</p>
 </section>
 <!-- END comparison -->
 
