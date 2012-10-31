@@ -56,7 +56,7 @@ content when no <code xref="if_when">if:when</code> matches.</p>
 <!-- END examples -->
 
 
-<!-- BEING processing -->
+<!-- BEGIN processing -->
 <section id="processing">
 <title>Processing Expectations</title>
 <p>The contents of an <code>if:else</code> element are only displayed if

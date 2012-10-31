@@ -59,7 +59,7 @@ for one condition.</p>
 <!-- END examples -->
 
 
-<!-- BEING processing -->
+<!-- BEGIN processing -->
 <section id="processing">
 <title>Processing Expectations</title>
 <p>The contents of an <code>if:when</code> element are only displayed if
