@@ -1,5 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      xmlns:ui="http://projectmallard.org/ui/1.0/"
       type="topic"
       id="ui_expanded">
 
@@ -76,7 +76,7 @@ element is collapsed.</p>
   <media type="image" mime="image/png" src="mallard-logo.png"/>
 </figure>
 ]]></code>
-  <figure ui:expanded="yes">
+  <figure ui:expanded="true">
     <title>The Mallard Logo</title>
     <media type="image" mime="image/png" src="mallard-logo.png"/>
   </figure>
@@ -91,7 +91,7 @@ element is collapsed.</p>
   <media type="image" mime="image/png" src="mallard-logo.png"/>
 </figure>
 ]]></code>
-  <figure ui:expanded="no">
+  <figure ui:expanded="false">
     <title>The Mallard Logo</title>
     <media type="image" mime="image/png" src="mallard-logo.png"/>
   </figure>
