@@ -12,6 +12,12 @@
 
 <title>Learn Mallard</title>
 
-<links type="topic" groups="primary #default #last"/>
+<links type="topic" groups="primary #default #last extension"/>
+
+<!--
+<links type="topic" groups="extension">
+<title>Extensions</title>
+</links>
+-->
 
 </page>

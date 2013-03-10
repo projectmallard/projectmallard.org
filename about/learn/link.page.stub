@@ -1,0 +1,22 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      version="1.0"
+      id="link">
+
+<info>
+  <link type="guide" xref="index"/>
+
+  <revision version="1.0" date="2013-03-10" status="stub"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2013</years>
+  </credit>
+
+  <desc>Provide alternate titles for links and sort links into groups.</desc>
+</info>
+
+<title>Link Titles and Groups</title>
+
+</page>

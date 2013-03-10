@@ -1,0 +1,22 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      version="1.0 math/1.0"
+      id="mathml">
+
+<info>
+  <link type="guide" xref="index" group="extension"/>
+
+  <revision version="1.0" date="2013-03-10" status="stub"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2013</years>
+  </credit>
+
+  <desc>Include inline mathematical expressions and black formulas.</desc>
+</info>
+
+<title>Mallard and MathML</title>
+
+</page>
