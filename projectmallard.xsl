@@ -132,10 +132,10 @@ div.bottom {
 }
 div.bottom a {
   color: #d3d7cf;
-  text-shadow: 1px 1px 0 </xsl:text><xsl:value-of select="$color.link"/><xsl:text>;
 }
 div.bottom a:hover {
   color: #eeeeec;
+  border-bottom: none;
 }
 div.bottom div.content {
   max-width: 760px;
