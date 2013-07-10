@@ -35,17 +35,18 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:template name="html.css.custom">
 <xsl:text>
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 body {
   font-family: sans;
   background: #888a85 url(duckbg.png) repeat-y;
   background-position: center 0;
+  font-family: 'Lato';
 }
 div.top {
   width: 100%;
   margin: 0;
   padding-top: 20px;
   background-color: #ffffff;
-  font-family: 'Lato';
   font-weight: bold;
 }
 div.top > div.content {
@@ -116,7 +117,7 @@ div.body {
   padding-top: 20px;
   padding-bottom: 40px;
 }
-h1.title { font-family: 'Lato'; font-size: 3em; }
+h1.title { font-size: 3em; }
 h2.title { font-size: 1.73em; }
 p { max-width: 62em; text-align: justify; }
 a img { border: none; }
@@ -150,14 +151,13 @@ div.bottom-badge {
 div.bottom-badge div { margin: 0; }
 
 .threecolumns h2 {
-  font-family: 'Lato';
   font-size: 18px;
 }
 .threecolumns div.title {
   margin-top: 2em;
-  font-family: 'Lato';
   font-size: 14px;
 }
+.threecolumns p { text-align: left; }
 .threecolumns li { margin-left: 1.44em; }
 .threecolumnsone {
   display: inline-block;
@@ -243,10 +243,6 @@ div.pmo-source {
   </xsl:choose>
 </xsl:template>
 
-<xsl:template name="html.head.custom">
-  <link href='http://fonts.googleapis.com/css?family=Lato:900' rel='stylesheet' type='text/css'/>
-</xsl:template>
-
 <xsl:template mode="html.body.attr.mode" match="mal:page">
   <xsl:if test="string(@style) = 'pmo-source'">
     <xsl:attribute name="class">
@@ -256,8 +252,14 @@ div.pmo-source {
 </xsl:template>
 
 <xsl:template name="html.top.custom">
+  <xsl:variable name="rootlink">
+    <xsl:if test="$mal.link.extension != ''">
+      <xsl:text>index</xsl:text>
+      <xsl:value-of select="$mal.link.extension"/>
+    </xsl:if>
+  </xsl:variable>
   <div class="top"><div class="content">
-    <a href="{$mal.site.root_noslash}/index.html">
+    <a href="{$mal.site.root_noslash}/{$rootlink}">
       <img class="header-icon" width="80" height="80">
         <xsl:attribute name="src">
           <xsl:value-of select="$mal.site.root_noslash"/>
@@ -265,8 +267,8 @@ div.pmo-source {
         </xsl:attribute>
       </img>
     </a>
-    <div class="top-mallard"><a href="{$mal.site.root_noslash}/index.html">Mallard</a></div>
-    <div class="top-tagline"><a href="{$mal.site.root_noslash}/index.html">Better Help for Better Software</a></div>
+    <div class="top-mallard"><a href="{$mal.site.root_noslash}/{$rootlink}">Mallard</a></div>
+    <div class="top-tagline"><a href="{$mal.site.root_noslash}/{$rootlink}">Better Help for Better Software</a></div>
   </div></div>
 </xsl:template>
 

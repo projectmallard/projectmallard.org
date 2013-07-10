@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <site xmlns="http://projectmallard.org/site/1.0/">
   <link type="site-root" href="/"/>
-  <link type="site-custom-xsl" href="projectmallard.xsl"/>
+  <link type="site-custom-xsl" href="projectmallard-remote.xsl"/>
 </site>
