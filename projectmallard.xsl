@@ -33,21 +33,24 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:param name="color.text_light" select="'#555753'"/>
 <xsl:param name="color.blue_border" select="'#3465a4'"/>
 
+<xsl:template name="html.head.custom">
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet" type="text/css"/>
+</xsl:template>
+
 <xsl:template name="html.css.custom">
 <xsl:text>
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 body {
-  font-family: sans;
   background: #888a85 url(duckbg.png) repeat-y;
   background-position: center 0;
-  font-family: 'Lato';
+  font-family: 'Lato', sans;
+  font-size: 14px;
 }
 div.top {
   width: 100%;
   margin: 0;
   padding-top: 20px;
   background-color: #ffffff;
-  font-weight: bold;
+  font-weight: 900;
 }
 div.top > div.content {
   height: 120px;
@@ -117,6 +120,9 @@ div.body {
   padding-top: 20px;
   padding-bottom: 40px;
 }
+div.body > div.hgroup {
+  margin-top: 0;
+}
 h1.title { font-size: 3em; }
 h2.title { font-size: 1.73em; }
 p { max-width: 62em; text-align: justify; }
@@ -150,52 +156,55 @@ div.bottom-badge {
 }
 div.bottom-badge div { margin: 0; }
 
-.threecolumns h2 {
-  font-size: 18px;
-}
-.threecolumns div.title {
-  margin-top: 2em;
-  font-size: 14px;
-}
-.threecolumns p { text-align: left; }
-.threecolumns li { margin-left: 1.44em; }
-.threecolumnsone {
+div.pmo-what, div.pmo-why {
   display: inline-block;
-  margin: 0 20px 20px 0;
+  margin-top: 0;
   padding: 0;
   vertical-align: top;
-  width: 238px;
+  width: 366px;
 }
-.threecolumnstwo {
+div.pmo-what {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+div.pmo-specs div.list {
   display: inline-block;
-  margin: 0 20px 20px 0;
-  padding: 0;
   vertical-align: top;
-  width: 238px;
+  width: 240px;
+  margin-top: 0;
+  margin-bottom: 16px;
 }
-.threecolumnsthree {
-  display: inline-block;
-  margin: 0 0 20px 0;
-  padding: 0;
-  vertical-align: top;
-  width: 236px;
+div.pmo-what > div.inner > div.hgroup,
+div.pmo-why > div.inner > div.hgroup {
+  border-bottom: none;
 }
+div.pmo-index h2 { font-size: 18px; font-weight: 900; }
+div.pmo-index p { text-align: left; }
+div.pmo-index li { margin-left: 1.44em; }
+div.pmo-index div.title { margin-top: 0; font-size: 14px; }
+
 @media only screen and (max-width: 400px) {
-  .threecolumnsone, .threecolumnstwo, .threecolumnsthree {
-    margin-right: 0;
+  div.pmo-index {
+    margin: 0 0 20px 0;
     width: 100%;
+    border: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
   }
-  .threecolumnsone > div.hgroup > *,
-  .threecolumnstwo > div.hgroup > *,
-  .threecolumnsthree > div.hgroup > * {
-    margin-left: 6px;
-    margin-right: 6px;
+  .pmo-index > div.region {
+    margin-left: 0;
+    margin-right: 0;
   }
-  .threecolumnsone > div.region,
-  .threecolumnstwo > div.region,
-  .threecolumnsthree > div.region {
-    margin-left: 6px;
-    margin-right: 6px;
+  div.pmo-index > div.inner > div.hgroup {
+    padding: 0;
+    border-bottom: none;
+  }
+  div.pmo-index > div.inner > div.region {
+    padding: 0;
+  }
+  div.pmo-specs div.list {
+    display: block;
+    width: 100%;
   }
 }
 
@@ -215,32 +224,13 @@ div.pmo-source {
 </xsl:text>
 </xsl:template>
 
-<xsl:template mode="mal2html.title.mode" match="mal:page[@style='3column']/mal:title"/>
+<xsl:template mode="mal2html.title.mode" match="mal:title[@style = 'pmo-hidden']"/>
 
-<xsl:template match="mal:page[@style='3column']/mal:section">
-  <xsl:param name="bypass" select="false()"/>
-  <xsl:choose>
-    <xsl:when test="not(preceding-sibling::mal:section)">
-      <div class="threecolumns">
-        <div class="threecolumnsone">
-          <xsl:apply-imports/>
-        </div>
-        <div class="threecolumnstwo">
-          <xsl:apply-templates select="following-sibling::mal:section[1]">
-            <xsl:with-param name="bypass" select="true()"/>
-          </xsl:apply-templates>
-        </div>
-        <div class="threecolumnsthree">
-          <xsl:apply-templates select="following-sibling::mal:section[2]">
-            <xsl:with-param name="bypass" select="true()"/>
-          </xsl:apply-templates>
-        </div>
-      </div>
-    </xsl:when>
-    <xsl:when test="$bypass">
-      <xsl:apply-imports/>
-    </xsl:when>
-  </xsl:choose>
+<xsl:template mode="html.class.attr.mode" match="mal:section">
+  <xsl:if test="@style='pmo-what' or @style ='pmo-why' or @style='pmo-specs'">
+    <xsl:text>pmo-index </xsl:text>
+    <xsl:value-of select="@style"/>
+  </xsl:if>
 </xsl:template>
 
 <xsl:template mode="html.body.attr.mode" match="mal:page">

@@ -1,6 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
       type="guide"
-      style="3column"
       id="index">
 
 <info>
@@ -12,9 +11,9 @@
   <desc>Better Help for Better Software</desc>
 </info>
 
-<title>Mallard</title>
+<title style="pmo-hidden">Mallard</title>
 
-<section id="what">
+<section id="what" style="pmo-what">
   <title>What Is Mallard?</title>
   <p>Mallard is a markup language that makes it easier for you to provide better
   user help for your software.  Mallard documents are <em>topic-oriented</em>:
@@ -27,7 +26,7 @@
   </list>
 </section>
 
-<section id="why">
+<section id="why" style="pmo-why">
   <title>Why Mallard?</title>
   <list>
     <item><p>Mallard helps you write small and focused topics, making it easier
@@ -41,10 +40,11 @@
   </list>
 </section>
 
-<section id="specs">
+<section id="specs" style="pmo-specs">
   <title>Specifications &amp; Extensions</title>
 
   <list style="compact">
+    <title>Core Specifications:</title>
     <item><p><link xref="/1.0/index"/></p></item>
   </list>
 
