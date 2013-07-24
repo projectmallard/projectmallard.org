@@ -18,7 +18,7 @@
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
 
-<title>Mallard 1.0 DRAFT</title>
+<title>Mallard 1.0</title>
 
 <note style="sidebar">
 <title>Download Schema</title>
@@ -48,16 +48,10 @@ basic concepts of Mallard. For an introduction to Mallard, see
 <link xref="/about/learn/index" href="http://projectmallard.org/about/learn/index.html">Learn Mallard</link>
 on projectmallard.org.</p>
 
-<note style="warning">
-<p>This is a draft specification.  Changes may still be made before
-the final Mallard 1.0 specification.</p>
-</note>
-
-<comment>
-<p>Change title to not DRAFT</p>
-<p>This specification was marked final on 2011-xx-xx.</p>
-</comment>
-
 <links type="topic" groups="page section info links block inline details principles"/>
+
+<note style="plain">
+<p>This specification was marked final on 2013-07-23.</p>
+</note>
 
 </page>
