@@ -10,3 +10,5 @@ cp `pkg-config --variable icondir yelp-xsl`/hicolor/24x24/status/yelp-note*.png 
 cp mallard-badge.png mallard-logo.svg mallard-logo-80.png duckbg.png swoop.png $1/
 cp about/mallard-logo.svg $1/about/
 cp ttml/1.0/ttaf1-dfxp*.rn? $1/ttml/1.0/
+cp download/*.bz2 $1/download/
+cp download/*.bz2.sha256sum $1/download/
