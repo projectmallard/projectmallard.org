@@ -7,3 +7,18 @@ catalog_DATA = catalog
 EXTRA_DIST =			\
 	$(mal10_DATA)		\
 	catalog.in
+
+install-exec-hook:
+	test -n "$(DESTDIR)" || ( \
+	cd $(sysconfdir)/xml; \
+	test -f catalog && xmlcatalog --noout --del file://$(sysconfdir)/xml/mallard/catalog catalog >/dev/null; \
+	test -e catalog || xmlcatalog --noout --create catalog; \
+	xmlcatalog --noout --add nextCatalog file://$(sysconfdir)/xml/mallard/catalog "" catalog >/dev/null; \
+	)
+
+uninstall-hook:
+	test -n "$(DESTDIR)" || ( \
+	cd $(sysconfdir)/xml; \
+	xmlcatalog --noout --del file://$(sysconfdir)/xml/mallard/catalog catalog >/dev/null; \
+	test -s catalog || rm -f catalog; \
+	)

@@ -4,7 +4,7 @@ m4_define([pkg_version], [1.0.0])
 AC_INIT([mallard-rng], [pkg_version], [])
 AC_CONFIG_SRCDIR([1.0/mallard-1.0.rng])
 
-AM_INIT_AUTOMAKE([1.9])
+AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-bzip2])
 
 MALLARD_DATA_DIR=`(
         case $prefix in
