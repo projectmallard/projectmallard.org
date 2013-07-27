@@ -3,7 +3,7 @@
       id="index">
 
 <info>
-  <revision docversion="1.0" date="2011-05-06" status="stub"/>
+  <revision docversion="1.0" date="2013-07-27" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -16,11 +16,6 @@
 
 <title>Cache Files 1.0 DRAFT</title>
 
-<note style="warning">
-<p>This is a draft specification.  Changes may still be made before
-the final Mallard Cache Files 1.0 specification.</p>
-</note>
-
 <note style="sidebar">
 <title>Download Schema</title>
 <list style="compact">
@@ -28,6 +23,97 @@ the final Mallard Cache Files 1.0 specification.</p>
   <item><p><link href="http://projectmallard.org/cache/1.0/cache-1.0.rnc">RELAX NG Compact Syntax</link></p></item>
 </list>
 </note>
+
+<p>Mallard features a unique automatic linking mechanism that requires a processing
+tool to know metadata about each page in a document to process any page correctly.
+There are many ways this information could be stored. For example, it could be kept
+in memory by a program, stored in a relational database, or serialized to a file.
+This specification defines an XML cache file format that is easy to generate and is
+suitable for use with technologies like XSLT and XQuery.</p>
+
+<p>Mallard processing tools are not required to support cache files. A tool may use
+a completely different method of storing and reading page metadata.</p>
+
+<p>Cache files are not necessarily intended for interchange between different tools.
+They may be used for interchange, but there are potential issues that should be dealt
+with. Potential interchange issues are addressed throughout this specification.</p>
+
+<note style="warning">
+<p>This is a draft specification.  Changes may still be made before
+the final Mallard Cache Files 1.0 specification.</p>
+</note>
+
+
+<!-- BEGIN spec -->
+<section id="spec">
+<title>Specification</title>
+
+<p>Mallard cache files use a mixture of elements from the core Mallard namespace and
+the cache namespace. Throughout this specification, whenever the cache namespace is
+referenced, or the namespace prefix <code>cache</code> is used, the namespace is:</p>
+
+<code>http://projectmallard.org/cache/1.0/</code>
+
+<p>The root element of a cache file is a <code>cache:cache</code> element. The
+<code>cache:cache</code> element may have a <code>version</code> attribute. The
+<code>version</code> attribute can be used to validate the cache file by combining
+schemas using the method specified for <link xref="/1.0/mal_attr_version">the
+<code>version</code> attribute on Mallard pages</link>. Because the cache files
+schema is designed to be combined with the core Mallard schema, you should use
+at minimum two version tokens: the first to specify the cache file version, and
+the second to specify the Mallard version. If the <code>version</code> attribute
+is omitted, it is assumed to be <code>cache/1.0 1.0</code>.</p>
+
+<p>The <code>cache:cache</code> element contains one or more <code>page</code>
+elements, one for each page in the document. Each <code>page</code> element
+contains a copy of the attributes found on the source <code>page</code> element.
+In particular, a <code>page</code> element must have an <code>id</code> attribute.
+Cache generators may add external-namespace attributes or add style hints to the
+<code>style</code> attribute. Relying on this behavior is a potential interchange
+issue.</p>
+
+<p>In addition to the source attributes, each <code>page</code> element contains
+a <code>cache:href</code> attribute giving a URI that identifies the location of
+the source page file. The URI may be absolute or relative. A relative URI has the
+advantage that the cache file remains correct if it is moved along with the document
+to a different location, potentially on a different computer. An absolute URI has
+the advantage that the cache file can be moved independently of the document and
+continue to be valid, as long as the document is not moved.</p>
+
+<p>Each <code>page</code> element contains an optional <code>info</code> element,
+a <code>title</code> element, an optional <code>subtitle</code> element, and zero
+or more <code>section</code> elements. These correspond directly to the elements
+in the source page.</p>
+
+<p>Each <code>section</code> element contains a copy of the attributes found on the
+source <code>section</code> element, with one modification: the <code>id</code>
+attribute is modified to include the <code>id</code> of the containing page, using
+the syntax <code><var>page_id</var>#<var>section_id</var></code>. This is the same
+syntax used to link to the section from another page. Cache generators may add
+external-namespace attributes or add style hints to the <code>style</code> attribute.
+Relying on this behavior is a potential interchange issue.</p>
+
+<p>Each <code>section</code> element contains an optional <code>info</code> element,
+a <code>title</code> element, an optional <code>subtitle</code> element, and zero
+or more <code>section</code> elements. These correspond directly to the elements
+in the source section.</p>
+
+<p>Each <code>info</code> element (for pages or sections) should contain a copy of
+the elements in the source <code>info</code> element. However, cache generators may
+exclude some elements for efficiency. Since processing tools may make use of extra
+<code>info</code> elements in unexpected ways, excluding any elements is a potential
+interchange issue. At a minimum, cache generators should copy all <code>link</code>,
+<code>title</code>, and <code>desc</code> elements.</p>
+
+<p>Cache generators may also add elements to the <code>info</code> element, either
+from external namespaces, or to make default Mallard behavior explicit. For example,
+if the source element does not contain a link title, a cache generator might add one
+with the value of the primary title. This could make a processing tool simpler, but
+relying on this redundant information in the cache file is a potential interchange
+issue.</p>
+
+</section>
+<!-- END spec -->
 
 
 <!-- BEGIN schema -->
@@ -51,32 +137,23 @@ cache_cache = element cache:cache {
 }
 
 cache_page = element page {
-  mal_page_attr,
+  <link xref="/1.0/mal_page">mal_page_attr</link>,
+  attribute cache:href { text },
 
-  mal_info ?,
-  mal_block_title,
-  mal_block_subtitle ?,
+  <link xref="/1.0/mal_info">mal_info</link> ?,
+  <link xref="/1.0/mal_block_title">mal_block_title</link>,
+  <link xref="/1.0/mal_block_subtitle">mal_block_subtitle</link> ?,
   cache_section *,
 }
-mal_page_attr &amp;= attribute cache:href { text }
-mal_page_attr &amp;= attribute cache:groups { text } ?
 
 cache_section = element section {
-  cache_section_attr,
+  <link xref="/1.0/mal_section">mal_section_attr</link>,
 
-  mal_info ?,
-  mal_block_title,
-  mal_block_subtitle ?,
-  ( mal_block | mal_links ) *,
-  mal_section *,
-  mal_links *
+  <link xref="/1.0/mal_info">mal_info</link> ?,
+  <link xref="/1.0/mal_block_title">mal_block_title</link>,
+  <link xref="/1.0/mal_block_subtitle">mal_block_subtitle</link> ?,
+  cache_section *,
 }
-cache_section_attr = (
-  attribute id { text },
-  attribute style { xsd:NMTOKENS } ?,
-  attribute cache:groups { text } ?
-  mal_attr_external *
-)
 </code></synopsis>
 </section>
 <!-- END schema -->
