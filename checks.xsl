@@ -42,6 +42,17 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template match="/mal:page">
   <xsl:param name="cache_node"/>
   <xsl:variable name="errors">
+
+    <!-- Check for credits -->
+    <xsl:if test="not(mal:info/mal:credit)">
+      <xsl:text>Missing credits&#x000A;</xsl:text>
+    </xsl:if>
+
+    <!-- Check for the license -->
+    <xsl:if test="not(mal:info/xi:include[contains(@href, 'cc-by-sa-3-0.xml')])">
+      <xsl:text>Missing XInclude for license&#x000A;</xsl:text>
+    </xsl:if>
+
     <xsl:if test="string(@id) != 'index' and string(@style) != 'details' and
                   not(starts-with($cache_node/@id, '/about/'))">
 
@@ -84,12 +95,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
           <xsl:text>Schema missing RNG&#x000A;</xsl:text>
         </xsl:if>
       </xsl:for-each>
-
-      <!-- Check for the license -->
-      <xsl:if test="not(mal:info/xi:include[contains(@href, 'cc-by-sa-3-0.xml')])">
-        <xsl:text>Missing XInclude for license&#x000A;</xsl:text>
-      </xsl:if>
-
     </xsl:if>
   </xsl:variable>
   <xsl:if test="$errors != ''">

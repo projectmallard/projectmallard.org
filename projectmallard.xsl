@@ -155,6 +155,33 @@ div.bottom-badge {
   clear: both;
 }
 div.bottom-badge div { margin: 0; }
+div.bottom-badge p {
+  text-align: center;
+}
+div.bottom-badge div.hgroup {
+  color: #d3d7cf;
+  cursor: pointer;
+}
+div.bottom-badge div.contents {
+  display: inline-block;
+  max-width: 400px;
+  margin-top: 6px;
+  padding: 6px;
+  border-radius: 4px;
+  background-color: #babdb6;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #555753;
+  text-shadow: none;
+  box-shadow: inset 1px 1px 1px #555753;
+  -webkit-box-shadow: inset 1px 1px 1px #555753;
+}
+div.bottom-badge div.contents p {
+  line-height: 1.2em;
+}
+div.bottom-badge div.contents a {
+  color: </xsl:text><xsl:value-of select="$color.link"/><xsl:text>;
+  border: none;
+}
 
 div.pmo-what, div.pmo-why {
   display: inline-block;
@@ -300,6 +327,29 @@ div.pmo-source {
       </div>
     </xsl:for-each>
   </div>
+  <xsl:variable name="license" select="/mal:page/mal:info/mal:license[1]"/>
+  <xsl:if test="$license">
+    <div class="bottom-badge ui-expander">
+      <div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false"/>
+      <div class="inner">
+      <div class="hgroup">
+        <xsl:choose>
+          <xsl:when test="$license/@href = 'http://creativecommons.org/licenses/by-sa/3.0/us/'">
+            <xsl:text>cc-by-sa 3.0 (us)</xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:text>License</xsl:text>
+          </xsl:otherwise>
+        </xsl:choose>
+      </div>
+      <div class="region">
+        <div class="contents">
+          <xsl:apply-templates mode="mal2html.block.mode" select="$license/*"/>
+        </div>
+      </div>
+    </div>
+    </div>
+  </xsl:if>
   <div class="bottom-badge">
     <div>Powered by </div>
     <a href="http://projectmallard.org">

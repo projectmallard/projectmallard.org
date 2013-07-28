@@ -14,6 +14,8 @@
     <years>2008-2010</years>
   </credit>
 
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
   <desc>Create a multiple-page document in only ten minutes.</desc>
 </info>
 

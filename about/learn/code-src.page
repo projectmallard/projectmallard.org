@@ -3,6 +3,12 @@
       id="code-src">
 
 <info>
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2010</years>
+  </credit>
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
 
 <title>Code and Commands Source</title>
