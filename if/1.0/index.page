@@ -14,7 +14,7 @@
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
 
-<title>Conditionals 1.0 DRAFT</title>
+<title>Conditionals 1.0</title>
 
 <note style="sidebar">
 <title>Download Schema</title>
@@ -34,10 +34,7 @@ from <link xref="tokens">test tokens</link>.</p>
 the <code xref="if_choose">if:choose</code> element to support branching and
 fallback content for different conditions.</p>
 
-<note style="warning">
-<p>This is a draft specification.  Changes may still be made before
-the final Conditionals 1.0 specification.</p>
-</note>
+<include href="../../common.xml" xpointer="xpointer(id('candidate'))" xmlns="http://www.w3.org/2001/XInclude"/>
 
 <links type="topic" groups="test if" style="linklist">
   <title>Basic Conditionals</title>

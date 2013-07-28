@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:ui="http://projectmallard.org/ui/1.0/">
+
+<!--
+This schema cannot be used on its own. It is designed to be combined
+with the core Mallard schema using the version attribute.
+-->
+
+<define name="ui_expanded">
+  <attribute name="ui:expanded">
+    <choice>
+      <value>true</value>
+      <value>false</value>
+    </choice>
+  </attribute>
+</define>
+
+<define name="mal_section_attr" combine="interleave">
+  <optional>
+    <ref name="ui_expanded"/>
+  </optional>
+</define>
+
+<define name="mal_block_attr" combine="interleave">
+  <optional>
+    <ref name="ui_expanded"/>
+  </optional>
+</define>
+
+</grammar>

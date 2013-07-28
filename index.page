@@ -45,16 +45,22 @@
   <title>Specifications &amp; Extensions</title>
 
   <list style="compact">
-    <title>Core Specifications:</title>
+    <title>Specifications:</title>
     <item><p><link xref="/1.0/index"/></p></item>
   </list>
 
   <list style="compact">
-    <title>In the Works:</title>
-    <item><p><link xref="/cache/1.0/index">Mallard Cache Files</link></p></item>
-    <item><p><link xref="/if/1.0/index">Conditional Processing</link></p></item>
-    <item><p><link xref="/facet/1.0/index">Faceted Navigation</link></p></item>
-    <item><p><link xref="/svg/1.0/index">Mallard+SVG</link></p></item>
+    <title>Candidates:</title>
+    <item><p><link xref="/cache/1.0/index"/></p></item>
+    <item><p><link xref="/if/1.0/index"/></p></item>
+  </list>
+
+  <list style="compact">
+    <title>Early Drafts:</title>
+    <item><p><link xref="/ui/1.0/index"/></p></item>
+    <item><p><link xref="/facet/1.0/index"/></p></item>
+    <item><p><link xref="/svg/1.0/index"/></p></item>
+    <item><p><link xref="/ttml/1.0/index"/></p></item>
   </list>
 </section>
 

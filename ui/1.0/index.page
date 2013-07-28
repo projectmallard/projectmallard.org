@@ -24,7 +24,7 @@
 </list>
 </note>
 
-<p>The Mallard UI exnteions provides mechanisms for specifying user interactions
+<p>The Mallard UI extension provides mechanisms for specifying user interactions
 and visual information in Mallard documents. Mallard UI is a collection of
 features, many of which operate independently of each other. Certain tools may
 support only some Mallard UI features.</p>
@@ -41,10 +41,7 @@ tokens</link> for use with <link xref="/if/1.0/index" href="http://projectmallar
 Conditionals</link>. Pages throughout this extension specify these feature
 tokens.</p>
 
-<note style="warning">
-<p>This is a draft specification.  Changes may still be made before
-the final Mallard UI 1.0 specification.</p>
-</note>
+<include href="../../common.xml" xpointer="xpointer(id('draft'))" xmlns="http://www.w3.org/2001/XInclude"/>
 
 <!-- BEGIN schema -->
 <section id="schema">

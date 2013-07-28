@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:api="http://projectmallard.org/api/1.0/">
+
+<!--
+This schema cannot be used on its own. It is designed to be combined
+with the core Mallard schema using the version attribute.
+-->
+
+<define name="mal_links_attr" combine="interleave">
+  <optional>
+    <attribute name="api:mime">
+      <text/>
+    </attribute>
+  </optional>
+</define>
+
+<define name="api_function">
+  <element name="api:function">
+    <optional>
+      <ref name="api_returns"/>
+    </optional>
+    <ref name="api_name"/>
+    <zeroOrMore>
+      <ref name="api_arg"/>
+    </zeroOrMore>
+  </element>
+</define>
+
+<define name="api_returns">
+  <element name="api:returns">
+    <ref name="api"/>
+    <ref name="api"/>
+  </element>
+</define>
+
+<define name="api_name">
+  <element name="api:name">
+    <ref name="mal_inline"/>
+  </element>
+</define>
+
+<define name="api_type">
+  <element name="api:type">
+    <ref name="mal_inline"/>
+  </element>
+</define>
+
+<define name="api_arg">
+  <element name="api:arg">
+    <optional>
+      <ref name="api_type"/>
+    </optional>
+    <optional>
+      <ref name="api_name"/>
+    </optional>
+  </element>
+</define>
+
+<!--
+FIXME
+api:function/api:modifier
+api:function/api:class
+api:function/api:interface
+api:modifier
+api:class (api:class*, api:interface*, api:name)
+api:interface (api:class*, api:interface*, api:name)
+api:interface
+api:property
+api:signal
+api:enum
+api:type (toplevel)
+api:value
+-->
+
+</grammar>

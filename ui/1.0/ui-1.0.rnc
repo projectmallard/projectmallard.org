@@ -1,0 +1,8 @@
+
+# This schema cannot be used on its own. It is designed to be combined
+# with the core Mallard schema using the version attribute.
+namespace ui = "http://projectmallard.org/ui/1.0/"
+
+ui_expanded = attribute ui:expanded { "true" | "false" }
+mal_section_attr &= ui_expanded ?
+mal_block_attr &= ui_expanded ?

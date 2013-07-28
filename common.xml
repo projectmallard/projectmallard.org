@@ -1,0 +1,10 @@
+<notes xmlns="http://projectmallard.org/1.0/">
+  <note style="warning" xml:id="candidate">
+    <p>This is a candidate specification. Changes are unlikely, but may still
+    be made before the final specification.</p>
+  </note>
+  <note style="warning" xml:id="draft">
+    <p>This is a draft specification. It is likely that changes will still be
+    made before the final specification.</p>
+  </note>
+</notes>

@@ -10,6 +10,7 @@ Makefile.in
 *.cache
 *.cache.in
 *.html
+*.page.stub
 /*.js
 /*.css
 /yelp-note-bug.png

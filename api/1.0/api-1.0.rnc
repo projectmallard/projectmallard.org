@@ -1,0 +1,44 @@
+
+# This schema cannot be used on its own. It is designed to be combined
+# with the core Mallard schema using the version attribute.
+namespace api = "http://projectmallard.org/api/1.0/"
+
+mal_links_attr &= attribute api:mime { text }?
+
+api_function = element api:function {
+  api_returns ?,
+  api_name,
+  api_arg *
+}
+
+api_returns = element api:returns {
+  api:type ?,
+  api:name ?
+}
+
+api_name = element api:name {
+  mal_inline
+}
+
+api_type = element api:type {
+  mal_inline
+}
+
+api_arg = element api:arg {
+  api_type ?,
+  api_name ?
+}
+
+# FIXME
+# api:function/api:modifier
+# api:function/api:class
+# api:function/api:interface
+# api:modifier
+# api:class (api:class*, api:interface*, api:name)
+# api:interface (api:class*, api:interface*, api:name)
+# api:interface
+# api:property
+# api:signal
+# api:enum
+# api:type (toplevel)
+# api:value
