@@ -22,7 +22,7 @@
 <link xref="if_attr_test"/> for information on how test expressions
 and test tokens are evaluated.</p>
 
-<p>Tokens can be any string of non-whitespace test characters excluding
+<p>Tokens can be any string of non-whitespace text characters excluding
 commas (U+002C) and exclamation points (U+0021). For consistency, tokens
 should consist of a <em>token scheme</em> and a <em>token value</em>,
 separated by a colon (U+003A).</p>
