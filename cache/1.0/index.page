@@ -98,9 +98,9 @@ in the source section.</p>
 <p>Each <code>info</code> element (for pages or sections) should contain a copy of
 the elements in the source <code>info</code> element. However, cache generators may
 exclude some elements for efficiency. Since processing tools may make use of extra
-<code>info</code> elements in unexpected ways, excluding any elements is a potential
-interchange issue. At a minimum, cache generators should copy all <code>link</code>,
-<code>title</code>, and <code>desc</code> elements.</p>
+<code>info</code> child elements in unexpected ways, excluding any elements is a
+potential interchange issue. At a minimum, cache generators should copy all
+<code>link</code>, <code>title</code>, and <code>desc</code> elements.</p>
 
 <p>Cache generators may also add elements to the <code>info</code> element, either
 from external namespaces, or to make default Mallard behavior explicit. For example,
