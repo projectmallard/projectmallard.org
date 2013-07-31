@@ -1,0 +1,153 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_synopsis">
+
+<info>
+  <link type="seealso" xref="mal_block_listing"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create an overview of concepts.</desc>
+</info>
+
+<title>Synopses</title>
+
+<p>Use the <code>synopsis</code> element to mark up a block that provides
+an overview of the material being presented.  A synopsis is useful for
+providing a listing of functions, commands, or options in reference
+material, or for enumerating the items in a menu or other graphical
+control element.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>synopsis</code> element contains an optional
+    <code xref="mal_block_title">title</code> element, an optional
+    <code xref="mal_block_desc">desc</code> element, and  any
+    <code xref="mal_block">general block content</code>.</p></item>
+
+    <item><p>The <code>synopsis</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>synopsis</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>synopsis</code> to create an overview of functions:</p>
+
+  <example>
+    <code><![CDATA[<synopsis>
+<title>Beanstalk Functions</title>
+<desc>Use these methods on a <code>Beanstalk</code> object.</desc>
+<code>
+void add_bean    (Bean bean);
+int  count_beans ();
+</code>
+</synopsis>
+]]></code>
+    <synopsis>
+      <title>Beanstalk Functions</title>
+      <desc>Use these methods on a <code>beanstalk</code> object.</desc>
+      <code>
+void add_bean    (Bean bean);
+int  count_beans ();
+</code>
+    </synopsis>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>A <code>synopsis</code> element is rendered as a displayed block,
+  with each of its child elements interpreted as block elements.  Since
+  a <code>synopsis</code> element often contains large blocks, and is
+  generally offset from the running text, display tools may opt to render
+  it inside a colored box, with a border, or otherwise differently from
+  the surrounding text.</p>
+
+  <p>When present, the title and description should be displayed in a
+  way that makes their respective roles clear.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>synopsis</code> element is similar to the
+  <code href="http://www.docbook.org/tdg51/en/html/synopsis.html">synopsis</code>
+  element in <link xref="docbook">DocBook</link>, although the DocBook element
+  is not a formal element.  DocBook also provides the
+  <code href="http://www.docbook.org/tdg51/en/html/cmdsynopsis.html">cmdsynopsis</code> and
+  <code href="http://www.docbook.org/tdg51/en/html/funcsynopsis.html">funcsynopsis</code>
+  elements, which attempt to model the data for command and function synopses,
+  respectively.  Mallard does not provide modeling elements.  The various
+  synopsis elements in DocBook output preformatted text, and are only useful
+  for code.  The <code>synopsis</code> element in Mallard allows any block
+  content.  Nest a <code xref="mal_block_code">code</code> element for a code
+  synopsis.</p>
+
+  <p>There is no direct equivalent to the <code>synopsis</code> element in
+  <link xref="dita">DITA</link>.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>synopsis</code> element.  The namespace declarations for
+this definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_synopsis = element synopsis {
+  mal_block_synopsis_attr,
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  <link xref="mal_block_desc">mal_block_desc</link> ?,
+  mal_block_synopsis_content +
+}
+mal_block_synopsis_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_block">mal_block_attr</link>,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_synopsis_content = <link xref="mal_block">mal_block</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

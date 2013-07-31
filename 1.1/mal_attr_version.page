@@ -1,0 +1,214 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_attr_version">
+
+<info>
+  <link type="guide" xref="details"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Declare Mallard and extension schema versions for validation.</desc>
+</info>
+
+<title>Mallard Version</title>
+
+<p>The <code>version</code> attribute allows you to specify the version of
+Mallard you are using, as well as the versions of any Mallard extensions.
+Future versions of Mallard using the same XML namespace, will make
+backwards-compatible additions. Mallard is also designed to be extended
+using elements and attributes from <link xref="mal_external">external
+namespaces</link>. Use the <code>version</code> attribute to signal the
+version and extensions to a processing tool or validator.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>version</code> attribute takes a space-separated list
+    of version tokens that identify the Mallard version and the versions of
+    extensions used in a page.</p></item>
+
+    <item><p>The <code>version</code> attribute can occur on any
+    <code xref="mal_page">page</code> element.</p></item>
+
+    <item><p>Each version token corresponds to a RELAX NG file, either by
+    referencing it with a fully-qualified URI, or by using a shorthand
+    syntax for schemas hosted on projectmallard.org.</p></item>
+  </list>
+
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Specify that you are only using features from Mallard 1.1:</p>
+
+<example><code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      version="1.1"
+      id="index">
+]]></code></example>
+
+  <p>Specify that you are using Mallard 1.1 plus the 1.0 version of
+  the conditional processing extension:</p>
+
+<example><code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      version="1.1 if/1.0"
+      id="index">
+]]></code></example>
+
+  <p>Specify that you are using Mallard 1.1 plus two extensions:</p>
+
+<example><code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      version="1.1 if/1.0 facet/1.0"
+      id="index">
+]]></code></example>
+
+  <p>Versions and extensions hosted on projectmallard.org can use an
+  abbreviated form. For extensions hosted elsewhere, you must use a
+  full URL to a <link href="http://www.relaxng.org/">RELAX NG</link>
+  schema. Specify that you are using Mallard 1.1 plus an extension
+  hosted elsewhere:</p>
+
+<example><code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      version="1.1 http://example.com/ducks/1.0/ducks-1.0.rng"
+      id="index">
+]]></code></example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Tools for viewing or editing Mallard documents may adjust their behavior
+  according to the <code>version</code> attribute. For example, an editor might
+  offer only those elements that are valid according to the specified version.
+  This is not required, however, and this document makes no specifications on
+  the behavior of such tools.</p>
+
+  <p>The behavior for validators is specified. Mallard and its extensions are
+  defined using <link href="http://www.relaxng.org/">RELAX NG</link> schemas.
+  The core Mallard schema can be used by any validator on its own. Extension
+  schemas define only additional interfaces, or possibly remove interfaces,
+  and are not necessarily usable on their own. Extension schemas are expected
+  to be structured such that they can be combined with other schemas using the
+  method described on this page.</p>
+
+  <p>The <code>version</code> attribute takes a space-separated list of version
+  tokens. Each version token maps to a RELAX NG file, according to the following
+  rules:</p>
+
+  <list type="numbered">
+    <item><p>If the token contains a colon (U+003A), it is taken to be an
+    absolute URI to a RELAX NG file.</p></item>
+    <item><p>If the token contains a single slash (U+002F), it is split
+    into the <var>prefix</var> before the slash and the <var>number</var>
+    after the slash, and the URL to the RELAX NG file is constructed as
+    follows:</p>
+    <code>http://projectmallard.org/<var>prefix</var>/<var>number</var>/<var>prefix</var>-<var>number</var>.rng</code>
+    </item>
+    <item><p>If the token contains no colon or slash character, it is
+    taken to be a simple version number <var>token</var>, and the URL to
+    the RELAX NG file is constructed as follows:</p>
+    <code>http://projectmallard.org/<var>token</var>/mallard-<var>token</var>.rng</code>
+    </item>
+  </list>
+
+  <p>The schema corresponding to the first version token is the primary schema.
+  Because Mallard schemas explicitly allow elements and attribute from external
+  namespaces in well-defined places, pages using extensions will usually be able
+  to be validated against the primary schema only. Combining the schemas, however,
+  allows for stricter validation of the extensions.</p>
+
+  <p>Unfortunately, RELAX NG does not allow name classes to be extended. Name
+  classes are used by the Mallard schema to provide patterns for elements and
+  attributes from external namespaces. When mixing in an extension schema, the
+  namespaces used by that schema need to be added to the name class. Although
+  it is possible for a single extension to redefine the pattern that holds the
+  name class, this does not work when loading multiple extensions.</p>
+
+  <p>Consequently, extension schemas cannot be mixed using standard RELAX NG
+  inclusion mechanisms. Instead, this page details how to create a new schema
+  from a primary schema and any number of extension schemas.</p>
+
+  <p>A new RELAX NG grammar is constructed by creating a new top-level
+  <code>grammar</code> element and recursively copying into it the contents
+  of the <code>grammar</code> elements of each of the schemas, making the
+  following transformations:</p>
+
+  <list>
+    <item><p>All <code>element</code> and <code>attribute</code> elements are
+    rewritten to state the namespace explicitly using the <code>ns</code>
+    attribute. The default namespace and the namespace prefixes defined on
+    each schema's <code>grammar</code> element are not available when they
+    are copied into the constructed schema.</p></item>
+
+    <item><p>Any <code>start</code> element from a non-primary schema that
+    does not have a valid <code>combine</code> attribute is dropped.</p></item>
+
+    <item><p>A set of valid namespace URIs is constructed by extracting the
+    following from each schema's <code>grammar</code> element:</p>
+    <list>
+      <item><p>The <code>ns</code> attribute</p></item>
+      <item><p>Any namespace declared with a prefix using <code>xmlns:</code>,
+      except the implicitly-defined namespace <code>http://www.w3.org/XML/1998/namespace</code>
+      with the namespace <code>xml</code></p></item>
+      <item><p>The default namespace declared using <code>xmlns</code>, unless
+      the default namespace is <code>http://relaxng.org/ns/structure/1.0</code></p></item>
+      <item><p>The empty string</p></item>
+    </list>
+    <p>Duplicates are removed. In each schema, any <code>except</code> element inside
+    an <code>anyName</code> element is rewritten as in the following XSLT, assuming
+    the variable <code>$namespaces</code> is a node set whose elements have string
+    values holding the valid namespaces defined above:</p>
+    <code><![CDATA[
+<except>
+  <xsl:for-each select="$namespaces">
+    <nsName ns="{.}"/>
+  </xsl:for-each>
+</except>
+]]></code></item>
+  </list>
+
+  <p>The resultant schema is used to validate the page.</p>
+</section>
+<!-- END processing -->
+
+
+<?no-comparison?>
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>version</code> attribute.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_attr_version = attribute version { text }
+</code></synopsis>
+</section>
+
+</page>

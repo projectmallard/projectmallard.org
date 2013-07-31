@@ -1,0 +1,194 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_media">
+
+<info>
+  <link type="seealso" xref="mal_inline_media"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Insert an image, video, or other multimedia object.</desc>
+</info>
+
+<title>Multimedia Objects</title>
+
+<p>Use the <code>media</code> element to insert an image, video, or other
+multimedia object into your document.  Since not all display tools will be
+able to display all types of objects, you can provide fallback elements in
+the contents of a <code>media</code> element.  See <link xref="#processing"/>
+for details on how fallback elements are handled.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>media</code> element can contain any
+    <link xref="mal_block">general block content</link>.  The content is only
+    used as a fallback or alternative.</p></item>
+
+    <item><p>The <code>media</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>type</code> attribute specifies what type of object to
+    insert. It can be one of <code>"image"</code>, <code>"video"</code>,
+    <code>"audio"</code>, or <code>"application"</code>. If no <code>type</code>
+    attribute is present, <code>"image"</code> is assumed.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>mime</code> attribute takes a valid MIME type for the
+    object that is being inserted.</p></item>
+
+    <item><p>The <code>src</code> attribute provides a URL for the object,
+    possibly relative to the current page.</p></item>
+
+    <item><p>The <code>height</code> and <code>width</code> attributes can be
+    used to provide the dimensions, in pixels, of an image or video.</p></item>
+
+    <item><p>The <code>media</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+
+    <item><p>The <code>media</code> element may also be used in an inline context.
+    See <link xref="mal_inline_media"/> for more information.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>media</code> to insert an image into your document:</p>
+
+  <example>
+    <code><![CDATA[
+<media type="image" mime="image/png" src="mallard-logo.png">
+<p>The Mallard logo</p>
+</media>
+]]></code>
+    <media type="image" mime="image/png" src="mallard-logo.png">
+      <p>The Mallard logo</p>
+    </media>
+  </example>
+
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>When a <code>media</code> element occurs in a block context, it should be
+  displayed as a block element.  The exact rendering of a <code>media</code>
+  element will depend on the <code>type</code> and <code>mime</code> attributes.
+  Display tools may need to add controls for audio and video objects.</p>
+
+  <p>The <code>application</code> type is intended for embedding interactive
+  applications in documents.  There are currently no specific recommendations
+  for displaying application objects.  Behavior may vary according to the
+  type of application being embedded.</p>
+
+  <p>Some display tools will not be able to display all types of objects.
+  For example, a printed document will not be able to display video or play
+  back audio.  Even when a display tool can display the type of object, it
+  may not be able to work with the given MIME type for technical or other
+  reasons.</p>
+
+  <p>When a display tool cannot display a <code>media</code> element, it
+  should display the child elements of the element, as if the <code>media</code>
+  element itself were replaced by its children.  The child elements may consist
+  of simply another <code>media</code> element referencing a different type of
+  content.  When processing any child <code>media</code> elements, display tools
+  may need to fall back further to their child elements.</p>
+
+  <p>Frequently, the children of a <code>media</code> element will be a single
+  block element, such as another <code>media</code> element or a <code>p</code>
+  element.  Note, however, that this is not required, and fallback rendering
+  may involve displaying several block elements.</p>
+
+  <p>In some display media, multimedia objects can have alternate text.  This
+  may be displayed when a user hovers over the object, or it may be provided
+  to assistive technologies.  When displaying in such a medium, display tools
+  should extract the text value of a <code>media</code> element by processing
+  its child elements, and recursively processing any child <code>media</code>
+  elements, as if it can not display any types of <code>media</code> elements.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>media</code> element can be used in place of the
+  <link xref="docbook">DocBook</link> elements
+  <code href="http://www.docbook.org/tdg51/en/html/audioobject.html">audioobject</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/imageobject.html">imageobject</code>, and
+  <code href="http://www.docbook.org/tdg51/en/html/videoobject.html">videoobject</code>.
+  DocBook uses the
+  <code href="http://www.docbook.org/tdg51/en/html/mediaobject.html">mediaobject</code>
+  element to provide alternative objects.  In Mallard, alternative objects are
+  nested, obviating the need for a container element.</p>
+
+  <p>The <code>media</code> element can be used in place of the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/image.html">image</code>
+  element in <link xref="dita">DITA</link>. DITA does not provide a mechanism to
+  embed video, audio, or other types of rich media content in documents. In DITA,
+  the <code>image</code> element may contain a single
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/alt.html">alt</code>
+  element to provide fallback content. In Mallard, alternative content is nested
+  with no need for a container element. In DITA, the <code>placement</code>
+  attribute specifies whether an image is inline or block content. In Mallard,
+  inline or block context is always unambiguous from placement.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the block <code>media</code> element.  The namespace declarations for
+this definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_media = element media {
+  mal_block_media_attr,
+  mal_block_media_content *
+}
+mal_block_media_attr = (
+  attribute type { "image" | "video" | "audio" | "application" } ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  attribute src { text },
+  attribute height { text } ?,
+  attribute width { text } ?,
+  <link xref="mal_block">mal_block_attr</link>,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_media_content = <link xref="mal_block">mal_block</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

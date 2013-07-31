@@ -1,0 +1,188 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_external">
+
+<info>
+  <link type="guide" xref="details"/>
+  <link type="seealso" xref="mal_info"/>
+  <link type="seealso" xref="mal_block"/>
+  <link type="seealso" xref="mal_inline"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Use elements and attributes from other namespaces in Mallard
+  documents.</desc>
+</info>
+
+<title>External Namespaces</title>
+
+<p>Mallard allows elements and attributes from external namespaces to be
+used in well-defined places throughout the language. External-namespace
+elements and attributes allow extensions to add functionality to Mallard,
+while keeping the core Mallard specification simple.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+<title>Notes</title>
+
+<list>
+  <item><p>All elements in Mallard can have attributes from external namespaces.
+  This can be used to clarify the meaning of an element in a particular context,
+  to provide additional information to processing tools, or to embed richer
+  semantic data into a document.</p></item>
+
+  <item><p>Any external-namespace element can be used in an
+  <code xref="mal_info">info</code> element to provide additional information
+  about a page or section. External-namespace informational elements are
+  ignored if not understood. See <link xref="mal_info#processing"/> on
+  <link xref="mal_info"/> for details.</p></item>
+
+  <item><p>External-namespace elements can also be used inside some informational
+  elements with structured content, such as <code xref="mal_info_credit">credit</code>,
+  <link xref="mal_info_link">link</link>, and <code xref="mal_info_revision">revision</code>.
+  In these elements, any elements that are not understood are ignored.</p></item>
+
+  <item><p>External-namespace elements can be used in any
+  <link xref="mal_block">block context</link>. When not understood, these are
+  processed in a restricted block context. See <link xref="mal_block#processing"/>
+  for details.</p></item>
+
+  <item><p>External-namespace elements can be used in any
+  <link xref="mal_inline">inline context</link>. When not understood, these are
+  processed as if they were replaced by their child content. See
+  <link xref="mal_inline#processing"/> for details.</p></item>
+</list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+<title>Examples</title>
+
+<p>A translation tool might copy <link xref="mal_block_code">code blocks</link>
+directly into the translated document without presenting them to translators.
+Force a code block to be translated using the <code>its:translate</code>
+attribute from the <link href="http://www.w3.org/TR/its/">Internationalization
+Tag Set</link>:</p>
+
+<example><code><![CDATA[
+<code xmlns:its="http://www.w3.org/2005/11/its" 
+      its:version="1.0" its:translate="yes">
+// This code block should be translated because it contains this comment.
+some_code ()
+</code>
+]]></code></example>
+
+<p>In an <code xref="mal_info">info</code> element, elements can be taken from
+RDF vocabularies to provide additional information about a page. Specify a bug
+database using <link href="http://trac.usefulinc.com/doap">DOAP</link>:</p>
+
+<example><code><![CDATA[
+<info xmlns:doap="http://usefulinc.com/ns/doap#"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <doap:bug-database rdf:resource="http://bugs.example.com/"/>
+</info>
+]]></code></example>
+
+<p>Inline elements can be borrowed from other formats. Use
+<link href="http://www.w3.org/TR/ruby/">Ruby Annotation</link>
+inside a paragraph:</p>
+
+<example>
+<code><![CDATA[
+<p>
+<ruby xmlns="http://www.w3.org/1999/xhtml">
+<rb>紙芝居</rb>
+<rp>(</rp><rt>かみしばい</rt><rp>)</rp>
+</ruby>
+</p>]]></code>
+<p>
+<ruby xmlns="http://www.w3.org/1999/xhtml">
+<rb>紙芝居</rb>
+<rp>(</rp><rt>かみしばい</rt><rp>)</rp>
+</ruby>
+</p>
+</example>
+
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+<title>Processing Expectations</title>
+<p>When an element or attribute from an external namespace is understood, they
+are processed according to the expectations of the defining specification.</p>
+
+<p>When an external-namespace attribute is not understood on any element, it
+is always ignored.</p>
+
+<p>How external-namespace elements are handled when not understood depends on
+context. In an <link xref="mal_info">informational context</link>, they are
+ignored. In a <link xref="mal_block">block context</link>, their child content
+is processed in a restricted block context. In an <link xref="mal_inline">inline
+context</link>, they are processed as if they were replaced by their child
+content.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- comparison -->
+<section id="comparison">
+<title>Comparison to Other Formats</title>
+<p><link xref="docbook">DocBook</link> 4 does not use namespaces, but provides
+a customizable DTD definition that allows explicit extension. DocBook 5 uses
+namespaces and is defined by a RELAX NG schema. Although the schema is designed
+to be customizable for extensions, arbitrary external-namespace content will
+not validate against the base schema.</p>
+
+<p><link xref="dita">DITA</link> does not use namespaces, and is defined by a
+DTD. The DITA DTD allows customizations by specializing base element types.
+Using <sys>#IMPLIED</sys> attribute values in the DTD allows these to fall
+back by any compliant processing tool. This method works well for refinements
+to meet domain criteria, but it does not allow arbitrary extensions for new
+features.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the external-namespace elements and attributes.  The namespace declarations
+for these definitions are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_external = element * - (mal:* | local:*) {
+  attribute * { text } *,
+  ( mal_anything * &amp;
+    text ?
+  )
+}
+mal_anything = element * {
+  attribute * { text } *,
+  ( mal_anything * &amp;
+    text ?
+  )
+}
+mal_attr_external = attribute * - (mal:* | local:*) { text }
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

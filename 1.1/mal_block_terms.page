@@ -1,0 +1,219 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_terms">
+
+<info>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create a list of terms and associated descriptions.</desc>
+</info>
+
+<title>Term Lists</title>
+
+<p>Use the <code>terms</code> element to create a list of terms and associated
+definitions or descriptions.  This type of list is often called a definition
+list or a variable list.</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>terms</code> element can contain an optional
+    <code xref="mal_block_title">title</code> element followed by one or more
+    <code>item</code> elements.  Each child <code>item</code> element can
+    contain one or more <code xref="mal_block_title">title</code> elements
+    followed by <link xref="mal_block">general block content</link>.</p></item>
+
+    <item><p>The <code>terms</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>terms</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Create a simple definition list with a title:</p>
+
+  <example>
+    <code><![CDATA[
+<terms>
+  <title>Selected Basic Block Elements</title>
+  <item>
+    <title><code>code</code></title>
+    <p>Mark up a block of code or the contents of a file.</p>
+  </item>
+  <item>
+    <title><code>example</code></title>
+    <p>Mark up a group of block elements as being part of a single example.</p>
+  </item>
+  <item>
+    <title><code>screen</code></title>
+    <p>Mark up a textual user interface or an interactive shell session.</p>
+  </item>
+</terms>]]></code>
+    <terms>
+      <title>Selected Basic Block Elements</title>
+      <item>
+        <title><code>code</code></title>
+        <p>Mark up a block of code or the contents of a file.</p>
+      </item>
+      <item>
+        <title><code>example</code></title>
+        <p>Mark up a group of block elements as being part of a single example.</p>
+      </item>
+      <item>
+        <title><code>screen</code></title>
+        <p>Mark up a textual user interface or an interactive shell session.</p>
+      </item>
+    </terms>
+  </example>
+
+  <p>Create a definition list with multiple terms per entry:</p>
+
+  <example>
+    <code><![CDATA[
+<terms>
+  <item>
+    <title><code>comment</code></title>
+    <title><code>quote</code></title>
+    <p>Formal elements which allow a <code>cite</code> element.</p>
+  </item>
+  <item>
+    <title><code>figure</code></title>
+    <title><code>listing</code></title>
+    <title><code>synopsis</code></title>
+    <p>Formal elements which allow a <code>desc</code> element.</p>
+  </item>
+  <item>
+    <title><code>note</code></title>
+    <p>Formal elements which only allow a <code>title</code> element.</p>
+  </item>
+</terms>]]></code>
+    <terms>
+      <item>
+        <title><code>comment</code></title>
+        <title><code>quote</code></title>
+        <p>Formal elements which allow a <code>cite</code> element.</p>
+      </item>
+      <item>
+        <title><code>figure</code></title>
+        <title><code>listing</code></title>
+        <title><code>synopsis</code></title>
+        <p>Formal elements which allow a <code>desc</code> element.</p>
+      </item>
+      <item>
+        <title><code>note</code></title>
+        <p>Formal elements which only allow a <code>title</code> element.</p>
+      </item>
+    </terms>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Term lists are displayed as block elements, with each child
+  <code>item</code> displayed as some number of list items.  When present, the
+  title should be displayed in a way that makes it clear that it is the title
+  of the list.  Each <code>title</code> element of each list item is treated
+  as a term, and is displayed as a block element.  The remaining block content
+  is then treated as the description and displayed as normal.  The description
+  blocks should be indented or otherwise styled to make their role clear.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+  
+  <p>The <code>terms</code> element is similar to the
+  <code href="http://www.docbook.org/tdg51/en/html/variablelist.html">variablelist</code>
+  element in <link xref="docbook">DocBook</link>.  Like DocBook, Mallard groups
+  terms with their corresponding descriptions.  In DocBook, the description is
+  wrapped with a
+  <code href="http://www.docbook.org/tdg51/en/html/listitem.html">listitem</code>
+  element inside the
+  <code href="http://www.docbook.org/tdg51/en/html/varlistentry.html">varlistentry</code>
+  element.  In Mallard, the description is simply all of the block content except the
+  <code xref="mal_block_title">title</code> elements.</p>
+
+  <p>The <code>terms</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dl.html">dl</code>
+  element in <link xref="dita">DITA</link>.  Like DITA, Mallard groups terms
+  with their corresponding descriptions.  In DITA, each description is wrapped
+  with a
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dd.html">dd</code>
+  element inside the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dlentry.html">dlentry</code>
+  element.  In Mallard, the description is simply all of the block content except the
+  <code xref="mal_block_title">title</code> elements.  DITA allows you to specify
+  headers for the terms and descriptions with the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dlhead.html">dlhead</code>
+  element.  Mallard does not have this feature.  If tabular headers are needed,
+  use a <link xref="mal_table">table</link> instead.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>terms</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_terms = element terms {
+  mal_block_terms_attr,
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  mal_block_terms_item +
+}
+mal_block_terms_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_block">mal_block_attr</link>,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_terms_item = element item {
+  mal_block_terms_item_attr,
+  <link xref="mal_block_title">mal_block_title</link> +,
+  mal_block_terms_item_content +
+}
+mal_block_terms_item_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_terms_item_content = <link xref="mal_block">mal_block</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

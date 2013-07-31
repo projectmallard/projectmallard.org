@@ -1,0 +1,184 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_info_link">
+
+<info>
+  <link type="guide" xref="mal_info#elements"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2009-2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create automatic links between pages and other resources.</desc>
+</info>
+
+<title>Informational Links</title>
+
+<p>Use the <code>link</code> element inside an <code xref="mal_info">info</code>
+element to express logical links between pages and sections to be collected by
+<link xref="mal_links">automatic links</link>.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The informational <code>link</code> element has no content, although
+    it may contain elements from external namespaces.</p></item>
+
+    <item><p>The <code>link</code> element can occur in any
+    <code xref="mal_info">info</code> element.</p></item>
+
+    <item><p>The <code>type</code> attribute specifies what type of link is
+    being expressed. The following values are currently recognized:</p>
+    <table>
+      <tr>
+        <td><p><code>"topic"</code></p></td>
+        <td><p>specifies a topic link from a guide; target implicitly
+        has a guide link back to the source</p></td>
+      </tr>
+      <tr>
+        <td><p><code>"guide"</code></p></td>
+        <td><p>specifies a link to a guide; target implicitly has a
+        topic link back to the source</p></td>
+      </tr>
+      <tr>
+        <td><p><code>"seealso"</code></p></td>
+        <td><p>specifies a see-also link to another page or section; target
+        implicitly has a see-also link back to the source</p></td>
+      </tr>
+      <tr>
+        <td><p><code>"next"</code></p></td>
+        <td><p>specifies another page to follow in a linear sequence</p></td>
+      </tr>
+    </table>
+    </item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>link</code> element can contain any of the
+    <link xref="mal_attr_link">linking attributes</link>. The link types in
+    this specification only use the <code>xref</code> attribute.</p></item>
+
+    <item><p>The <code>group</code> attribute specifies a link group for
+    explicit topic links, or for implicit topic links from guide links.</p></item>
+
+    <item><p>The <code>link</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+
+    <item><p>The <code>link</code> element can also be used in an inline context.
+    See <link xref="mal_inline_link"/> for more information.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Provide a topic link from a guide page to another page:</p>
+
+  <example>
+<code><![CDATA[
+<page type="guide" id="page1">
+  <info>
+    <link type="topic" xref="page2"/>
+  </info>
+</page>]]></code>
+  </example>
+
+  <p>Instead of the previous example, provide a guide link from the
+  other page back to the guide:</p>
+
+  <example>
+<code><![CDATA[
+<page id="page2">
+  <info>
+    <link type="guide" xref="page1"/>
+  </info>
+</page>
+]]></code>
+  </example>
+
+  <p>The previous two examples are equivalent, and produce the same results.</p>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>A recognized informational <code>link</code> element will generally cause
+  a link to be displayed on both the page it was declared on and the page it
+  links to. The details of how links are displayed depends on the link type,
+  and can often be controlled with the <code xref="mal_links">links</code>
+  element. See <link xref="mal_links"/> for details.</p>
+
+  <p>Informational links in Mallard generally reciprocate in some way. Topic
+  links are the inverse of guide links. See-also links are symmetric. Next
+  links create implicit previous links. Tools must look at links originating
+  from all pages to display the links for any page properly.</p>
+
+  <p>Most links can occur in pages or sections, and link to pages or sections.
+  Next links, however, are only supported between pages.</p>
+
+  <p>Informational <code>link</code> elements must have a <code>type</code>
+  attribute. This page lists standard link types that must be supported by
+  any Mallard 1.1 processor. Extensions may add other link types. Although
+  the <code>href</code> and <code>action</code> attributes are not used by
+  any of the standard link types, they may be used by extensions. To avoid
+  name conflicts, extensions should include a hyphen in the name of link
+  types.</p>
+
+  <p>Informational links do not have child content. The text for the displayed
+  links they cause is taken from <code>title</code> and <code>desc</code>
+  elements. <link xref="mal_external">External-namespace elements</link> are
+  allowed. Child content should be treated as data in an informational context,
+  and any unrecognized content should be ignored.</p>
+</section>
+<!-- END processing -->
+
+
+<?no-comparison?>
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the informational <code>link</code> element.  The namespace declarations
+for this definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_link = element link {
+  mal_info_link_attr,
+  mal_info_link_content *
+}
+mal_info_link_attr = (
+  attribute type { xsd:NMTOKEN },
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_attr_link">mal_attr_link</link> +,
+  attribute group { text } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_info_link_content = <link xref="mal_external">mal_external</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

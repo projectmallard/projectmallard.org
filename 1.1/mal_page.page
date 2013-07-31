@@ -1,0 +1,226 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_page">
+
+<info>
+  <link type="guide" xref="index" group="page"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Individual tutorials, overviews, references, and navigational guides.</desc>
+</info>
+
+<title>Pages</title>
+
+<p>The <code>page</code> element is the root element of any Mallard page file.
+In Mallard, documents are composed of discrete pages which are  interlinked
+using various linking mechanisms.  There are two types of pages in Mallard:
+<link xref="#guide">guide pages</link> and <link xref="#topic">topic pages</link>.
+Topic pages contain the bulk of the material discussed in a document, whereas
+guide pages serve as navigational aids.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>page</code> element contains an optional
+    <code xref="mal_info">info</code> element, a <code xref="mal_block_title">title</code>
+    element, an optional <code xref="mal_block_subtitle">subtitle</code>
+    element, any mixture of <link xref="mal_block">general block content</link>
+    and <code xref="mal_links">links</code> elements, any number of
+    <code xref="mal_section">section</code> elements, and any number
+    of <code xref="mal_links">links</code> elements.</p></item>
+
+    <item><p>The <code>page</code> element is the top-level element in any
+    Mallard page file, and cannot occur in any other elements.</p></item>
+
+    <item><p>The <code>id</code> attribute takes a unique identifier, which
+    should match the base file name (without extension) of the file containing
+    the page.</p></item>
+
+    <item><p>The <code>type</code> attribute specifies the page type, which
+    affects processing. Types defined by this specification are <code>"guide"</code> and
+    <code>"topic"</code>.  <link xref="#guide">Guide pages</link> and <link xref="#topic">topic
+    pages</link> are discussed below.  If the <code>type</code> attribute is
+    omitted, it is assumed to be <code>"topic"</code>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>page</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Create a very basic Mallard page:</p>
+
+  <example><code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" id="index">
+<title>A Simple Page</title>
+</page>]]></code></example>
+
+  <p>Pages are topic pages by default. Create a guide page instead:</p>
+
+  <example><code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="index">
+<title>A Simple Guide Page</title>
+</page>]]></code></example>
+
+  <p>Add an introductory paragraph:</p>
+
+  <example><code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="index">
+<title>A Simple Guide Page</title>
+<p>This is a paragraph</p>
+</page>]]></code></example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN guide -->
+<section id="guide">
+  <title>Guide Pages</title>
+
+  <p>Guide pages have the <code>type</code> attribute set to
+  <code>"guide"</code>.  They serve as navigational aids, linking to topics and
+  other guides.  Readers can browse through guides much as they would browse
+  through container sections in a linear document.  Since pages can be included
+  in multiple guides, however, readers are able to reach the same content by
+  navigating different paths.</p>
+
+  <p>In addition to other types of <link xref="mal_links">automatic links</link>,
+  guide pages have topic links inserted. See <link xref="mal_links#topic"/> for
+  details.</p>
+</section>
+<!-- END guide -->
+
+
+<!-- BEGIN topic -->
+<section id="topic">
+  <title>Topic Pages</title>
+
+  <p>Topic pages have the <code>type</code> attribute set to
+  <code>"topic"</code>, or have no <code>type</code> attribute at all.  Topics
+  contain the bulk of the material in a document.  A topic may be a tutorial,
+  a conceptual overview, reference material, or any other type of content.
+  Mallard does not distinguish between different content types, although tools
+  may introduce special styling based on style hints.  Topics are distinguished
+  from guides only in that their primary purpose is to convey information,
+  whereas guides serve as navigational aids.</p>
+</section>
+<!-- END topic -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>In on-screen media, a <code>page</code> element is displayed as a single
+  page.  In this case, <em>page</em> is used in the sense of <em>web page</em>:
+  something which can be read top-to-bottom by scrolling.  This should not be
+  confused with physical pages—one side of a leaf of paper—or with any
+  fixed-height electronic pages such as those used by word processors and
+  e-books.</p>
+
+  <p>The <code>info</code> child element is not displayed directly, although
+  certain informational elements may be displayed or affect aspects of the
+  page display.  In particular, the <code>info</code> element may contain
+  <code>link</code> elements which will cause automatic links to be inserted
+  into the displayed output.  See <link xref="mal_links"/> for more
+  information.</p>
+
+  <p>The title of a page is displayed prominently at the top, followed by any
+  child block content, and finally by each child section.  Note that automatic
+  links, style hints, or other special features may insert material or change
+  the way pages are displayed.</p>
+
+  <p>All pages may have links inserted automatically based on
+  <link xref="mal_info_link">informational links</link> found on in pages and
+  sections throughout the document. See <link xref="mal_links"/> for details.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>page</code> element is similar to the
+  <code href="http://www.docbook.org/tdg51/en/html/topic.html">topic</code>
+  element introduced in <link xref="docbook">DocBook</link> 5.1. Previous
+  versions of DocBook did not have a topic container element. Articles or
+  books written in DocBook were sometimes chunked into pages. Compared to
+  those documents, the <code>page</code> element may be used in place of
+  division elements like
+  <code href="http://www.docbook.org/tdg51/en/html/book.html">book</code>,
+  <code href="http://www.docbook.org/tdg51/en/html/article.html">article</code>, and
+  <code href="http://www.docbook.org/tdg51/en/html/chapter.html">chapter</code>.</p>
+
+  <p>The <code>page</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/topic.html">topic</code>
+  element in <link xref="dita">DITA</link>. DITA allows specializations of the
+  <code>topic</code> element, such as the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/concept.html">concept</code>,
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/reference.html">reference</code>,
+  and <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/task.html">task</code>
+  elements. Mallard does not use the same specialization mechanism. Style hints
+  may be used to indicate semantic distinctions for validation or formatting.
+  For substantial functional differences, different page types should be
+  introduced.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>page</code> element.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+namespace local = ""
+default namespace mal = "http://projectmallard.org/1.0/"
+start = mal_page
+mal_page = element page {
+  mal_page_attr,
+
+  <link xref="mal_info">mal_info</link> ?,
+  <link xref="mal_block_title">mal_block_title</link>,
+  <link xref="mal_block_subtitle">mal_block_subtitle</link> ?,
+  ( <link xref="mal_block">mal_block</link> | <link xref="mal_links">mal_links</link> ) *,
+  <link xref="mal_section">mal_section</link> *,
+  <link xref="mal_links">mal_links</link> *
+}
+mal_page_attr = (
+  attribute id { xsd:NMTOKEN },
+  attribute type { xsd:NMTOKEN } ?,
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_attr_version">mal_attr_version</link> ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

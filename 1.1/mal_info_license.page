@@ -1,0 +1,137 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_info_license">
+
+<info>
+  <link type="guide" xref="mal_info#elements"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Provide information about the licensing terms of the material.</desc>
+</info>
+
+<title>License Information</title>
+
+<p>Use the <code>license</code> element to provide information about the
+licensing terms of the material in a page or section.  The <code>href</code>
+attribute can be used to uniquely identify certain licenses.</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>license</code> element can contain any
+    <link xref="mal_block">general block content</link>.</p></item>
+
+    <item><p>The <code>license</code> element can occur in any
+    <code xref="mal_info">info</code> element.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>href</code> attribute can be used to provide a URI which
+    uniquely identifies the license terms.</p></item>
+
+    <item><p>The <code>license</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>license</code> to put a page under a Creative Commons license:</p>
+
+  <example>
+    <code><![CDATA[
+<license
+  href="http://creativecommons.org/licenses/by-sa/3.0/us/">
+<p>This work is licensed under a
+<link href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative
+Commons Attribution-Share Alike 3.0 United States License</link>.</p>
+</license>
+]]></code>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>The <code>license</code> element is not necessarily displayed on the page in
+  which it appears.  Some tools may display license information on a separate
+  informational page or dialog.  When it is displayed, its contents are treated
+  as block content.</p>
+
+  <p>There is no requirement that the URI in the <code>href</code> attribute
+  will actually be displayed, or that the <code>href</code> attribute will
+  cause a link to be displayed. If authors wish to ensure that an external
+  resource is linked to, they should add a link into the block content.
+  Processing tools may recognize certain license URIs for special processing.
+  This could be used, for instance, to place a license badge at the bottom of
+  a displayed page for certain common licenses.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p><link xref="docbook">DocBook</link> contains the more general-purpose
+  <code href="http://www.docbook.org/tdg51/en/html/legalnotice.html">legalnotice</code>
+  element, which is frequently used to include licensing terms.  The
+  <code>license</code> element is intended mostly for redistribution
+  terms, which are not immediately relevant to most readers.  When it
+  is important that readers see certain legal information, authors
+  should provide that information in the main content, possibly on a
+  separate page.</p>
+
+  <p><link xref="dita">DITA</link> does not provide an element to
+  specify terms of use or redistribution.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>license</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_license = element license {
+  mal_info_license_attr,
+  mal_info_license_content +
+}
+mal_info_license_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute href { text } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_info_license_content = <link xref="mal_block">mal_block</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

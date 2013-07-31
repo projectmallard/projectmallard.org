@@ -1,0 +1,134 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_figure">
+
+<info>
+  <link type="seealso" xref="mal_block_media"/>
+  <link type="seealso" xref="mal_block_listing"/>
+
+  <revision docversion="1.0" date="2011-08-27" status="final"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Provide a title or caption for a multimedia object.</desc>
+</info>
+
+<title>Figures</title>
+
+<p>Use the <code>figure</code> element to provide a title or caption for a
+<link xref="mal_block_media">multimedia object</link> or other block object.
+To provide a title for the contents of a file, such as a
+<link xref="mal_block_code">code block</link>, use the
+<code xref="mal_block_listing">listing</code> element instead.</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>figure</code> element contains an optional
+    <code xref="mal_block_title">title</code> element, an optional
+    <code xref="mal_block_desc">desc</code> element, and  any
+    <code xref="mal_block">general block content</code>.</p></item>
+
+    <item><p>The <code>figure</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>figure</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>figure</code> to provide a title and caption for an image:</p>
+
+  <example>
+    <code><![CDATA[
+<figure>
+  <title>The Mallard Logo</title>
+  <desc>The Mallard logo is a question-mark-shaped duck head in a blue circle.</desc>
+  <media type="image" mime="image/png" src="mallard-logo.png"/>
+</figure>
+]]></code>
+    <figure>
+      <title>The Mallard Logo</title>
+      <desc>The Mallard logo is a question-mark-shaped duck head in a blue circle.</desc>
+      <media type="image" mime="image/png" src="mallard-logo.png"/>
+    </figure>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Figures are displayed as block elements, with each of their child elements
+  interpreted as block elements.  When present, the title and description
+  should be displayed in a way that makes their respective roles clear.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>figure</code> element is similar to the
+  <code href="http://www.docbook.org/tdg51/en/html/figure.html">figure</code>
+  element in <link xref="docbook">DocBook</link>.  DocBook only provides a title
+  for figures, whereas Mallard distinguishes between a title and a caption.</p>
+
+  <p>The <code>figure</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/fig.html">fig</code>
+  element in <link xref="dita">DITA</link>.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>figure</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_figure = element figure {
+  mal_block_figure_attr,
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  <link xref="mal_block_desc">mal_block_desc</link> ?,
+  mal_block_figure_content +
+}
+mal_block_figure_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_block">mal_block_attr</link>,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_figure_content = <link xref="mal_block">mal_block</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

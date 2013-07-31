@@ -1,0 +1,229 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_attr_link">
+
+<info>
+  <link type="guide" xref="details"/>
+  <link type="seealso" xref="mal_inline"/>
+
+  <revision docversion="1.0" date="2011-11-14" status="final"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2010</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Link to other pages or documents directly from most inline elements.</desc>
+</info>
+
+<title>Ubiquitous Linking</title>
+
+<p>Mallard contains three linking attributes that can be used with all basic
+inline elements. These attributes allow you to link to other Mallard
+pages, link to external resources, and create links that perform an
+action when clicked.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>xref</code> attribute links to another page within
+    the same Mallard document. See <link xref="#processing"/> for details
+    on valid <code>xref</code> attribute values.</p></item>
+
+    <item><p>The <code>href</code> attribute links to an external resource
+    by a URI.</p></item>
+
+    <item><p>The <code>action</code> attribute allows you to specify an action
+    to perform when a user clicks a link. See <link xref="#processing"/> for
+    details on the <code>action</code> attribute.</p></item>
+
+    <item><p>The schema also provides the <code>xref</code> and <code>action</code>
+    attributes in the namespace <code>http://projectmallard.org/1.0/</code>. These
+    are provided for extensions.</p></item>
+
+    <!-- I'm not sure what is meant by the previous paragraph. Are the xref and 
+    action attributes in the namespace to make it easier to create extensions? -->
+
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Link to another page with the <code>xref</code> attribute on an
+  inline <code xref="mal_inline_code">code</code> element:</p>
+
+  <example>
+    <code><![CDATA[
+<p>See the <code xref="mal_inline_link">link</code> element.</p>
+]]></code>
+<p>See the <code xref="mal_inline_link">link</code> element.</p>
+  </example>
+
+  <p>Use the <code>href</code> attribute to turn an inline image into a link:</p>
+
+  <example>
+    <code><![CDATA[
+<p><media href="http://projectmallard.org/"
+          type="image" mime="image/png" src="mallard-logo.png"/></p>
+]]></code>
+<p><media href="http://projectmallard.org/" type="image" mime="image/png" src="mallard-logo.png"/></p>
+  </example>
+
+  <p>In implementations that support the <sys>install</sys> action scheme,
+  use the <code>action</code> attribute to install a package:</p>
+
+  <example>
+    <code><![CDATA[
+<link action="install:yelp">Click here to install Yelp.</link>
+]]></code>
+  </example>
+
+  <p>For implementations that don't support the <sys>install</sys> action
+  scheme, provide a fallback with the <code>href</code> attribute:</p>
+
+  <example>
+    <code><![CDATA[
+<link action="install:yelp"
+      href="http://projects.gnome.org/yelp/">Click here to install Yelp.</link>
+]]></code>
+    <p><link action="install:yelp"
+             href="http://projects.gnome.org/yelp/">Click here to install Yelp.</link></p>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>All basic inline elements optionally allow linking attributes. Linking
+  attributes are mandatory on <link xref="mal_inline_link">inline links</link>
+  and <link xref="mal_info_link">informational links</link>; see their
+  respective pages for details. An inline linking element is only expected to
+  link to one resource or action, regardless of how many linking attributes
+  are specified on the element. Link targets are used in the following order:</p>
+
+  <list style="numbered">
+    <item><p>If an <code>action</code> attribute is present, and if the
+    processing tool supports that action, the <code>action</code>
+    attribute is used.</p></item>
+
+    <item><p>Otherwise, if an <code>xref</code> attribute is present, and
+    if processing tool supports the target, the <code>xref</code>
+    attribute is used.</p></item>
+
+    <item><p>Otherwise, if an <code>href</code> attribute is present, it
+    is used.</p></item>
+  </list>
+
+  <p>The <code>xref</code> attribute can take three basic forms to link to
+  pages and sections within the same document. Additionally, it can be
+  extended to point to resources in other documents. The three basic forms
+  are as follows:</p>
+
+  <terms>
+    <item>
+      <title><code><var>page_id</var></code></title>
+      <p>Link to another page with ID <var>page_id</var>.</p>
+    </item>
+    <item>
+      <title><code><var>page_id</var>#<var>section_id</var></code></title>
+      <p>Link to the section with ID <var>section_id</var> in the
+      page with ID <var>page_id</var>.</p>
+    </item>
+    <item>
+      <title><code>#<var>section_id</var></code></title>
+      <p>Link to the section with ID <var>section_id</var> in the
+      current page.</p>
+    </item>
+  </terms>
+
+  <p>In all three basic forms, <var>page_id</var> and <var>section_id</var>
+  must match the
+  <code href="http://www.w3.org/TR/2000/WD-xml-2e-20000814#NT-Nmtoken">Nmtoken</code>
+  production.</p>
+
+  <p>The <code>xref</code> attribute can be extended using either the slash
+  (U+002F) or colon (U+003A) character. If an <code>xref</code> attribute
+  contains either character, the linking behavior depends on the processing
+  tool. Processing tools should ignore any extended <code>xref</code>
+  attributes they don't explicitly know how to deal with.</p>
+
+  <p>The <code>action</code> attribute allows you to create links that perform
+  a particular action. Action attribute values resemble URIs. They begin with
+  an action scheme that identifies the type of action. The action scheme is
+  followed by a colon (U+003A) character and then scheme-specific data.</p>
+
+  <p>This specification makes no recommendations for particular action schemes.
+  Support for particular action schemes depends entirely on the implementation.
+  Processing tools should ignore any <code>action</code> attributes using an
+  action scheme they don't understand.</p>
+
+  <p>The schema also provides the <code>xref</code> and <code>action</code>
+  attributes in the namespace <code>http://projectmallard.org/1.0/</code>.
+  When used on core Mallard elements, or extension formats defined on the
+  projectmallard.org site, the attributes are in the local namespace. The
+  namespaced versions are provided to add Mallard linking functionality to
+  existing XML vocabularies when they are embedded into Mallard, such as
+  SVG, MathML, or Ruby.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+<title>Comparison to Other Formats</title>
+<p><link xref="docbook">DocBook</link> 4 requires explicit linking elements to
+create links within the document or to external resources. DocBook 5 provides
+<link href="http://www.docbook.org/tdg5/en/html/ref-elements.html#common.linking.attributes">common
+linking attributes</link> for all elements. The <code>xref</code> element is
+similar to the <code>linkend</code> attribute in DocBook.</p>
+
+<p><link xref="dita">DITA</link> does not provide linking attribute on arbitrary
+inline element. Instead, the 
+<code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/xref.html">xref</code>
+element must be used to create links.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the linking attributes.  The namespace declarations for these
+definitions are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_attr_link = (
+  attribute xref { text } |
+  attribute href { text } |
+  attribute action { text }
+)
+mal_attr_mal_link = (
+  attribute mal:xref { text } ?,
+  attribute mal:action { text } ?
+)
+</code></synopsis>
+
+<p>The namespaced versions of the <code>action</code> and <code>xref</code>
+attributes are not used in basic Mallard documents. They are designed to
+be embedded in other XML vocabularies to create Mallard-based links and
+actions.</p>
+</section>
+
+</page>

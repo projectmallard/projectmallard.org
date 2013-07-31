@@ -1,0 +1,1098 @@
+<page xmlns="http://projectmallard.org/1.0/" version="1.0"
+      type="topic" style="details"
+      id="dita">
+
+<info>
+  <link type="guide" xref="details#misc"/>
+  <link type="seealso" xref="docbook"/>
+
+  <revision docversion="1.0" date="2012-10-27" status="final"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2010-2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mallard recommendations for people familiar with DITA.</desc>
+
+  <its:rules xmlns:its="http://www.w3.org/2005/11/its"
+             xmlns:mal="http://projectmallard.org/1.0/"
+             version="1.0">
+    <its:translateRule selector="//mal:tr/mal:td[1]" translate="no"/>
+    <its:translateRule selector="//mal:item" translate="no"/>
+  </its:rules>
+</info>
+
+<title>DITA Element Reference</title>
+
+<p>This page lists elements in DITA and provides recommendations for equivalent
+or similar functionality in Mallard, when available. This list includes elements
+that are specializations of other elements, because sometimes more specific
+recommendations can be made for specializations than for base elements.</p>
+
+<p>Some specialization domains provide functionality that has no equivalent
+in Mallard, or for which a single recommendation can be made. The following
+domains do not have their elements listed explicitly:</p>
+
+<list style="compact">
+  <item><p><code>bookmap</code></p></item>
+  <item><p><code>classify-d</code></p></item>
+  <item><p><code>glossentry</code></p></item>
+  <item><p><code>hazard-d</code></p></item>
+  <item><p><code>indexing-d</code></p></item>
+  <item><p><code>map</code></p></item>
+  <item><p><code>mapgroup-d</code></p></item>
+  <item><p><code>mitask-d</code></p></item>
+  <item><p><code>subjectScheme</code></p></item>
+  <item><p><code>xnal-d</code></p></item>
+</list>
+
+<p>This page does not list elements used in a DITAVAL file. Conditional
+processing is not addressed by the core Mallard specification, although
+extensions may provide this functionality. Additionally, this page does
+not list any of the highly specialized
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langRef-learningTraining.html">learning
+and training elements</link>.</p>
+
+<p>In general, Mallard does not attempt to model data as explicitly as DITA.
+Mallard allows elements and attributes from <link xref="mal_external">external
+namespaces</link> and allows a <code>style</code> attribute on all elements.
+These mechanisms are preferred when additional semantic information is needed
+for tracking or validation.</p>
+
+<table rules="cols" shade="rowgroups" frame="all">
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/abbreviated-form.html">abbreviated-form</code></p></td>
+    <td><p>No equivalent in Mallard.  Future versions may address glossaries directly.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/abstract.html">abstract</code></p></td>
+    <td><p>No equivalent as a block element. Use <link xref="mal_block">block content</link>
+    instead. For link preview text, Mallard provides this separately from the block content
+    using the informational <code xref="mal_info_desc">desc</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/alt.html">alt</code></p></td>
+    <td><p>Media elements in Mallard (both <link xref="mal_inline_media">inline</link> and
+    <link xref="mal_block_media">block</link>) use their contents as fallback content.
+    Fallback content can contain any content that would be valid where the media element
+    occurs.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/anchorid.html">anchorid</code></p></td>
+      <td rowspan="2"><p>Specific to DITA conrefs. No equivalent in Mallard.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/anchorkey.html">anchorkey</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/apiname.html">apiname</code></p></td>
+    <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
+    element instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/area.html">area</code></p></td>
+    <td><p>Mallard does not have image maps. Extensions may provide this functionality.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/audience.html">audience</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
+    provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/author.html">author</code></p></td>
+    <td><p>Use the common <code xref="mal_info_credit">credit</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/b.html">b</code></p></td>
+    <td><p>See the <code xref="mal_inline_em">em</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/body.html">body</code></p></td>
+    <td><p>Mallard does not wrap page contents in a body tag.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/bodydiv.html">bodydiv</code></p></td>
+    <td><p>Mallard does not contain a generic block container element.
+    <link xref="mal_external">External-namespace elements</link> may be used in
+    a block content to group block elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/bookmap-elements.html">bookmap/*</code></p></td>
+    <td><p>No equivalent in Mallard, as Mallard documents are not mapped to linear books.
+    Extensions may provide this functionality. For credits and other contributor information,
+    see the <code xref="mal_info_credit">credit</code> element. For revision and review
+    information, see the <code xref="mal_info_revision">revision</code> element. For other
+    metadata, use <link xref="mal_external">external-namespace elements</link> in
+    <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/boolean.html">boolean</code></p></td>
+    <td><p>No equivalent in Mallard. Include the appropriate text in an element such as
+    <code xref="mal_inline_code">code</code> or <code xref="mal_inline_sys">sys</code>.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/brand.html">brand</code></p></td>
+      <td rowspan="2"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
+      may provide this information in <code xref="mal_info">info</code> elements.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/category.html">category</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/chdesc.html">chdesc</code></p></td>
+      <td rowspan="7"><p>No direct equivalent in Mallard.  Use a
+      <link xref="mal_table">table</link> inside a
+      <link xref="mal_block_steps">step</link> to mark up a table of
+      choices or alternatives.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/chdeschd.html">chdeschd</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/chhead.html">chhead</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/choicetable.html">choicetable</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/choption.html">choption</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/choptionhd.html">choptionhd</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/chrow.html">chrow</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/choice.html">choice</code></p></td>
+      <td rowspan="2"><p>No direct equivalent in Mallard.  Use a
+      <link xref="mal_block_list">basic list</link> inside a
+      <link xref="mal_block_steps">step</link> to mark up a list of
+      choices or alternatives.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/choices.html">choices</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/cite.html">cite</code></p></td>
+    <td><p>No equivalent in Mallard. Use the appropriate punctuation, or the
+    <code xref="mal_inline_em">em</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/classify-d.html">classify-d/*</code></p></td>
+    <td><p>Classification specialization specific to DITA's mechanism of organizing
+    topics using maps; no direct equivalent in Mallard. See <link xref="mal_links"/>
+    for details on automatic linking and organization in Mallard.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/cmd.html">cmd</code></p></td>
+    <td><p>No direct equivalent in Mallard.  Instructions for a
+    <link xref="mal_block_steps">step</link> should use a simple
+    <link xref="mal_block_p">paragraph</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/cmdname.html">cmdname</code></p></td>
+    <td><p>Similar to the <code xref="mal_inline_cmd">cmd</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/codeblock.html">codeblock</code></p></td>
+    <td><p>Similar to the block <code xref="mal_block_code">code</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/codeph.html">codeph</code></p></td>
+    <td><p>Similar to the inline <code xref="mal_inline_code">code</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/coderef.html">coderef</code></p></td>
+    <td><p>Use <link href="http://www.w3.org/TR/xinclude/">XInclude</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/colspec.html">colspec</code></p></td> 
+    <td><p>See the <code xref="mal_table">table</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/component.html">component</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
+    may provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/conbody.html">conbody</code></p></td>
+    <td><p>Mallard does not wrap page contents in a body tag.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/conbodydiv.html">conbodydiv</code></p></td>
+    <td><p>Mallard does not contain a generic block container element.
+    <link xref="mal_external">External-namespace elements</link> may be used in
+    a block content to group block elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/concept.html">concept</code></p></td>
+    <td><p>No specific element in Mallard. Use a <code xref="mal_page">page</code>
+    or <code xref="mal_section">section</code>
+    element instead, possibly with a style hint.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/context.html">context</code></p></td>
+    <td><p>No direct equivalent in Mallard. Simply use a <link xref="mal_block_p">paragraph</link>
+    or other <link xref="mal_block">block content</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/coords.html">coords</code></p></td>
+    <td><p>Mallard does not have image maps. Extensions may provide this functionality.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/copyrholder.html">copyrholder</code></p></td>
+      <td rowspan="3"><p>Use the <code xref="mal_info_credit">credit</code> element to record
+      copyright information.  Use the <code xref="mal_info_name">name</code> element to record
+      the copyright holder.  Use the <code xref="mal_info_years">years</code> element to record
+      copyright years.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/copyright.html">copyright</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/copyryear.html">copyryear</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/created.html">created</code></p></td>
+    <td><p>No direct equivalent in Mallard.  The <code xref="mal_info_revision">revision</code>
+    element may be used to record this information.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/critdates.html">critdates</code></p></td>
+    <td><p>No equivalent in Mallard.  Creation or revision dates can be recorded with
+    <code xref="mal_info_revision">revision</code> elements or <link xref="mal_external">external-namespace
+    elements</link> in an <code xref="mal_info">info</code> element.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/data-about.html">data-about</code></p></td>
+      <td rowspan="2"><p>No equivalent in Mallard. <link xref="mal_external">External-namespace
+      elements</link> may provide additional data in <code xref="mal_info">info</code> elements.
+      <link href="http://www.w3.org/TR/REC-rdf-syntax/">RDF/XML</link> may be used in <code>info</code>
+      elements for structured data. Currently, <code>info</code> elements can only be used on
+      <code xref="mal_page">page</code> and <code xref="mal_section">section</code> elements.
+      Future versions may allow <code>info</code> elements on some block elements.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/data.html">data</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dd.html">dd</code></p></td>
+    <td><p>See the <code xref="mal_block_terms">terms</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ddhd.html">ddhd</code></p></td>
+    <td><p>Mallard does not provide header information for <link xref="mal_block_terms">term lists</link>.
+    Use a <link xref="mal_table">table</link> instead if necessary.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/delim.html">delim</code></p></td>
+    <td><p>Mallard does not have a structured environment for syntax diagrams.
+    Extensions may provide this functionality.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/desc.html">desc</code></p></td>
+    <td><p>In a
+    <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/fig.html">fig</code>,
+    <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/table.html">table</code>, or
+    <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/linklist.html">linklist</code>
+    element, similar to the block <code xref="mal_block_desc">desc</code> element.
+    In a
+    <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/link.html">link</code> or
+    <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/xref.html">xref</code>
+    element, use the informational <code xref="mal_info_desc">desc</code> element
+    on the target page or section. In an
+    <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/object.html">object</code>
+    element, see the processing expectations for the <link xref="mal_inline_media">inline</link>
+    and <link xref="mal_block_media">block</link> <code>media</code> element for details
+    on fallback content.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dita.html">dita</code></p></td>
+    <td><p>Mallard does not currently have a mechanism to include multiple pages in
+    a single file. Future versions or extensions may provide this functionality.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dl.html">dl</code></p></td>
+      <td rowspan="2"><p>Use the <code xref="mal_block_terms">terms</code> element with
+      <code>item</code> elements.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dlentry.html">dlentry</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dlhead.html">dlhead</code></p></td>
+    <td><p>Mallard does not provide header information for <link xref="mal_block_terms">term lists</link>.
+    Use a <link xref="mal_table">table</link> instead if necessary.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/draft-comment.html">draft-comment</code></p></td>
+    <td><p>Similar to the <code xref="mal_block_comment">comment</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dt.html">dt</code></p></td>
+    <td><p>See the <code xref="mal_block_terms">terms</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/dthd.html">dthd</code></p></td>
+    <td><p>Mallard does not provide header information for <link xref="mal_block_terms">term lists</link>.
+    Use a <link xref="mal_table">table</link> instead if necessary.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/entry.html">entry</code></p></td>
+    <td><p>See the <code xref="mal_table">table</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/example.html">example</code></p></td>
+    <td><p>Depends on usage.  For simple examples, use the <code xref="mal_block_example">example</code>
+    element.  Otherwise, use the <code xref="mal_section">section</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/exportanchors.html">exportanchors</code></p></td>
+    <td><p>Specific to DITA conrefs. No equivalent in Mallard.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/featnum.html">featnum</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
+    may provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/fig.html">fig</code></p></td>
+    <td><p>Similar to the <code xref="mal_block_figure">figure</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/figgroup.html">figgroup</code></p></td>
+    <td><p>No direct equivalent in Mallard. The <code xref="mal_block_figure">figure</code>
+    element accepts any block content, so you may use standard formal block element inside
+    it, including nested <code>figure</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/filepath.html">filepath</code></p></td>
+    <td><p>Similar to the <code xref="mal_inline_file">file</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/fn.html">fn</code></p></td>
+    <td><p>Mallard does not currently have support for footnotes.  Future
+    versions may add annotations.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/foreign.html">foreign</code></p></td>
+    <td><p>No equivalent in Mallard. <link xref="mal_external">External-namespace
+    elements</link> may be embedded in most contexts, with well-defined rules for
+    fallback processing.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/fragment.html">fragment</code></p></td>
+      <td rowspan="2"><p>Mallard does not have a structured environment for syntax diagrams.
+      Extensions may provide this functionality.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/fragref.html">fragref</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/glossary-elements.html">glossentry/*</code></p></td>
+      <td rowspan="2"><p>Mallard does not currently have a structured environment for glossaries.
+      Use the <code xref="mal_block_terms">terms</code> element instead.  Future versions
+      or extensions may address glossaries directly.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/glossgroup.html">glossgroup</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/glossref.html">glossref</code></p></td>
+    <td><p>Specific to DITA's mechanism of organizing topics using maps;
+    no direct equivalent in Mallard. See <link xref="mal_links"/> for details on
+    automatic linking and organization in Mallard.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/groupchoice.html">groupchoice</code></p></td>
+      <td rowspan="3"><p>Mallard does not have a structured environment for syntax diagrams.
+      Extensions may provide this functionality.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/groupcomp.html">groupcomp</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/groupseq.html">groupseq</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/hazard-d.html">hazard-d/*</code></p></td>
+    <td><p>Specializations of notes. Use style hints or other extension mechanisms
+    along with the <code xref="mal_block_note">note</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/i.html">i</code></p></td>
+    <td><p>See the <code xref="mal_inline_em">em</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/image.html">image</code></p></td>
+    <td><p>Use the <code>media</code> element, either <link xref="mal_inline_media">inline</link>
+    or <link xref="mal_block_media">block</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/imagemap.html">imagemap</code></p></td>
+    <td><p>Mallard does not have image maps. Extensions may provide this functionality.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/index-base.html">index-base</code></p></td>
+      <td rowspan="4"><p>Mallard does not currently have a structured environment for indexes.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/indexing-d.html">indexing-d/*</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/indexterm.html">indexterm</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/indextermref.html">indextermref</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/info.html">info</code></p></td>
+    <td><p>No direct equivalent in Mallard.  Additional information for a
+    <link xref="mal_block_steps">step</link> should be written in additional
+    <link xref="mal_block_p">paragraphs</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/itemgroup.html">itemgroup</code></p></td>
+    <td><p>Specific to DITA's specialization mechanisms; no equivalent in Mallard. See
+    <link xref="mal_external"/> for details on extending Mallard.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/keyword.html">keyword</code></p></td>
+    <td><p>Use an appropriate <link xref="mal_inline">inline element</link>, or an
+    <link xref="mal_external">external-namespace element</link> if necessary. More
+    specific recommendations can be made for specializations of the <code>keyword</code>
+    element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/keywords.html">keywords</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
+    may provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/kwd.html">kwd</code></p></td>
+    <td><p>Mallard does not have a structured environment for syntax diagrams.
+    Extensions may provide this functionality.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/li.html">li</code></p></td>
+    <td><p>See the <code>item</code> element for each <link xref="mal_block#lists">list
+    element</link> for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/lines.html">lines</code></p></td>
+    <td><p>Use either the <code xref="mal_block_code">code</code> or the
+    <code xref="mal_block_screen">screen</code> element. Mallard does not
+    have a non-semantic preformatted block element.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/link.html">link</code></p></td>
+      <td rowspan="4"><p>Different link types are aggregated automatically in Mallard. See the
+      informational <code xref="mal_info_link">link</code> element and the
+      <code xref="mal_links">links</code> element for details on automatic links.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/linkinfo.html">linkinfo</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/linklist.html">linklist</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/linkpool.html">linkpool</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/linktext.html">linktext</code></p></td>
+    <td><p>See <link xref="mal_info_title#link"/> for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/lq.html">lq</code></p></td>
+    <td><p>Similar to the <code xref="mal_block_quote">quote</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/longdescref.html">longdescref</code></p></td>
+    <td><p>The <code xref="mal_block_media">media</code> element in Mallard allows
+    block content as children (or inline content for the inline
+    <code xref="mal_inline_media">media</code> element). Long descriptions can be
+    provided in fallback content. If you need to separate this into another file,
+    use XInclude.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/longquoteref.html">longquoteref</code></p></td>
+    <td><p>No equivalent in Mallard. To include content from another file, use
+    XInclude.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/map_elements.html">map/*</code></p></td>
+      <td rowspan="2"><p>Specific to DITA's mechanism of organizing topics using maps; no direct
+      equivalent in Mallard. See <link xref="mal_links"/> for details on automatic
+      linking and organization in Mallard.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/mapgroup-d.html">mapgroup-d/*</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/menucascade.html">menucascade</code></p></td>
+    <td><p>Similar to the <code xref="mal_inline_guiseq">guiseq</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/metadata.html">metadata</code></p></td>
+    <td><p>Mallard does not provide an additional metadata holder inside the <code xref="mal_info">info</code>
+    element.  Simply place all metadata directly in the <code>info</code> element, possibly using
+    <link xref="mal_external">external-namespace elements</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/mitask-d.html">mitask-d/*</code></p></td>
+    <td><p>No direct equivalent in Mallard. Simply use a <link xref="mal_block_p">paragraph</link>,
+    <link xref="mal_block_list">list</link>, or other <link xref="mal_block">block content</link>.
+    Style hints or <link xref="mal_external">external-namespace attributes</link> can provide
+    additional semantic information and display expectations.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/msgblock.html">msgblock</code></p></td>
+    <td><p>No direct equivalent in Mallard. For output from a running program, the
+    <code xref="mal_block_screen">screen</code> element may be appropriate, possibly
+    with an inline <code xref="mal_inline_output">output</code> element.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/msgnum.html">msgnum</code></p></td>
+      <td rowspan="2"><p>No direct equivalent in Mallard. Use the
+      <code xref="mal_inline_sys">sys</code> element if necessary.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/msgph.html">msgph</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/navtitle.html">navtitle</code></p></td>
+    <td><p>See <link xref="mal_info_title"/> for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/no-topic-nesting.html">no-topic-nesting</code></p></td>
+    <td><p>Specific to DITA's specialization mechanisms; no equivalent in Mallard. See
+    <link xref="mal_external"/> for details on extending Mallard.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/note.html">note</code></p></td>
+    <td><p>Similar to the <code xref="mal_block_note">note</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/object.html">object</code></p></td>
+    <td><p>Media elements in Mallard (both <link xref="mal_inline_media">inline</link> and
+    <link xref="mal_block_media">block</link>) can embed standard image, audio, and video
+    data. For non-standard embedded objects, the <code>type</code> attribute can be set to
+    <code>"application"</code>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ol.html">ol</code></p></td>
+    <td><p>See the <code xref="mal_block_list">list</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/oper.html">oper</code></p></td>
+    <td><p>Mallard does not have a structured environment for syntax diagrams.
+    Extensions may provide this functionality.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/option.html">option</code></p></td>
+    <td><p>No specific element in Mallard.  Use the <code xref="mal_inline_cmd">cmd</code>
+    or <code xref="mal_inline_code">code</code> element instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/othermeta.html">othermeta</code></p></td>
+    <td><p>No equivalent in Mallard.  Use <link xref="mal_external">external-namespace elements</link>
+    to record additional metadata about a page or section.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/p.html">p</code></p></td>
+    <td><p>Similar to the <code xref="mal_block_p">p</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/param.html">param</code></p></td>
+    <td><p>Media elements in Mallard (both <link xref="mal_inline_media">inline</link> and
+    <link xref="mal_block_media">block</link>) can embed standard image, audio, and video
+    data. For non-standard embedded objects, the <code>type</code> attribute can be set to
+    <code>"application"</code>. When necessary, additional parameters can be passed with
+    <link xref="mal_external">external-namespace attributes</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/parml.html">parml</code></p></td>
+    <td><p>Mallard does not contain a specific element for parameter lists.  Use a
+    <link xref="mal_block_terms">term list</link> instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/parmname.html">parmname</code></p></td>
+    <td><p>No specific element in Mallard.  Use the <code xref="mal_inline_cmd">cmd</code>
+    or <code xref="mal_inline_code">code</code> element instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/pd.html">pd</code></p></td>
+    <td><p>Mallard does not contain a specific element for parameter lists.  Use a
+    <link xref="mal_block_terms">term list</link> instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/permissions.html">permissions</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
+    may provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ph.html">ph</code></p></td>
+    <td><p>Similar to the <code xref="mal_inline_span">span</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/platform.html">platform</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
+    may provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/plentry.html">plentry</code></p></td>
+    <td><p>Mallard does not contain a specific element for parameter lists.  Use a
+    <link xref="mal_block_terms">term list</link> instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/postreq.html">postreq</code></p></td>
+    <td><p>No direct equivalent in Mallard. Simply use a <link xref="mal_block_p">paragraph</link>
+    or other <link xref="mal_block">block content</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/pre.html">pre</code></p></td>
+    <td><p>Use either the <code xref="mal_block_code">code</code> or the
+    <code xref="mal_block_screen">screen</code> element. Mallard does not
+    have a non-semantic preformatted block element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/prereq.html">prereq</code></p></td>
+    <td><p>No direct equivalent in Mallard. Simply use a <link xref="mal_block_p">paragraph</link>
+    or other <link xref="mal_block">block content</link>.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/prodinfo.html">prodinfo</code></p></td>
+      <td rowspan="3"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
+      may provide this information in <code xref="mal_info">info</code> elements.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/prodname.html">prodname</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/prognum.html">prognum</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/prolog.html">prolog</code></p></td>
+    <td><p>Similar to the <code xref="mal_info">info</code> element.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/propdesc.html">propdesc</code></p></td>
+      <td rowspan="9"><p>No semantic equivalent in Mallard. Use a regular
+      <link xref="mal_table">table</link> instead.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/propdeschd.html">propdeschd</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/properties.html">properties</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/property.html">property</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/prophead.html">prophead</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/proptype.html">proptype</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/proptypehd.html">proptypehd</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/propvalue.html">propvalue</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/propvaluehd.html">propvaluehd</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/pt.html">pt</code></p></td>
+    <td><p>Mallard does not contain a specific element for parameter lists.  Use a
+    <link xref="mal_block_terms">term list</link> instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/publisher.html">publisher</code></p></td>
+    <td><p>Use the common <code xref="mal_info_credit">credit</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/q.html">q</code></p></td>
+    <td><p>No equivalent in Mallard.  Use plain text instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/refbody.html">refbody</code></p></td>
+    <td><p>Mallard does not wrap page contents in a body tag.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/refbodydiv.html">refbodydiv</code></p></td>
+    <td><p>Mallard does not contain a generic block container element.
+    <link xref="mal_external">External-namespace elements</link> may be used in
+    a block content to group block elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/reference.html">reference</code></p></td>
+    <td><p>No specific element in Mallard. Use a <code xref="mal_page">page</code>
+    or <code xref="mal_section">section</code>
+    element instead, possibly with a style hint.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/refsyn.html">refsyn</code></p></td>
+    <td><p>No direct equivalent in Mallard. Use a <code xref="mal_section">section</code>
+    if necessary. Otherwise, use <link xref="mal_block">block content</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/related-links.html">related-links</code></p></td>
+    <td><p>Different link types are aggregated automatically in Mallard. See the
+    <code xref="mal_links">links</code> element for details on automatic links.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/repsep.html">repsep</code></p></td>
+    <td><p>Mallard does not have a structured environment for syntax diagrams.
+    Extensions may provide this functionality.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/required-cleanup.html">required-cleanup</code></p></td>
+    <td><p>No equivalent in Mallard. Unhandled migrated material may be left in the original
+    namespace, or it may be wrapped in an <link xref="mal_external">external-namespace
+    element</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/resourceid.html">resourceid</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
+    provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/result.html">result</code></p></td>
+    <td><p>No direct equivalent in Mallard. Simply use a <link xref="mal_block_p">paragraph</link>
+    or other <link xref="mal_block">block content</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/revised.html">revised</code></p></td>
+    <td><p>No direct equivalent in Mallard.  The <code xref="mal_info_revision">revision</code>
+    element may be used to record this information.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/row.html">row</code></p></td>
+    <td><p>See the <code xref="mal_table">table</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/screen.html">screen</code></p></td>
+    <td><p>Similar to the <code xref="mal_block_screen">screen</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/searchtitle.html">searchtitle</code></p></td>
+    <td><p>See <link xref="mal_info_title"/> for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/section.html">section</code></p></td>
+    <td><p>No equivalent in Mallard. DITA <code>section</code> elements are not like
+    Mallard <code xref="mal_section">section</code> elements. Mallard sections are
+    similar to nested topics in DITA. DITA sections are simple formal blocks.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sectiondiv.html">sectiondiv</code></p></td>
+    <td><p>Mallard does not contain a generic block container element.
+    <link xref="mal_external">External-namespace elements</link> may be used in
+    a block content to group block elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sep.html">sep</code></p></td>
+    <td><p>Mallard does not have a structured environment for syntax diagrams.
+    Extensions may provide this functionality.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/series.html">series</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
+    provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/shape.html">shape</code></p></td>
+    <td><p>Mallard does not have image maps. Extensions may provide this functionality.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/shortcut.html">shortcut</code></p></td>
+    <td><p>No equivalent in Mallard.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/shortdesc.html">shortdesc</code></p></td>
+    <td><p>No equivalent as a block element. Use <link xref="mal_block">block content</link>
+    instead. For link preview text, Mallard provides this separately from the block content
+    using the informational <code xref="mal_info_desc">desc</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/simpletable.html">simpletable</code></p></td>
+    <td><p>See the <code xref="mal_table">table</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sl.html">sl</code></p></td>
+      <td rowspan="2"><p>No direct equivalent in Mallard, although the
+      <code xref="mal_block_tree">tree</code> element will give similar results.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sli.html">sli</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/source.html">source</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
+    provide this information in <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/state.html">state</code></p></td>
+    <td><p>No equivalent in Mallard. Include the appropriate text in an element such as
+    <code xref="mal_inline_code">code</code> or <code xref="mal_inline_sys">sys</code>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/stentry.html">stentry</code></p></td>
+    <td><p>See the <code xref="mal_table">table</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/step.html">step</code></p></td>
+      <td rowspan="3"><p>Use an <code>item</code> element in a <link xref="mal_block_steps">step list</link>
+      for a step in a procedure.  Mallard does not provide a structured element to mark up step examples
+      or step results.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/stepresult.html">stepresult</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/stepxmp.html">stepxmp</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/steps.html">steps</code></p></td>
+      <td rowspan="4"><p>See the <code xref="mal_block_steps">steps</code> element for details.  Mallard does
+      not provide a dedicated element for unordered step lists or an informal steps element.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/steps-unordered.html">steps-unordered</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/steps-informal.html">steps-informal</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/stepsection.html">stepsection</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sthead.html">sthead</code></p></td>
+      <td rowspan="2"><p>See the <code xref="mal_table">table</code> element for details.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/strow.html">strow</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sub.html">sub</code></p></td>
+    <td><p>No equivalent in Mallard.  MathML or other domain-specific languages may
+    be embedded into Mallard documents.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/subjectScheme.html">subjectScheme/*</code></p></td>
+    <td><p>Classification specialization specific to DITA's mechanism of organizing
+    topics using maps; no direct equivalent in Mallard. See <link xref="mal_links"/>
+    for details on automatic linking and organization in Mallard.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/substep.html">substep</code></p></td>
+      <td rowspan="2"><p>Mallard does not provide a structured element to mark up substeps
+      in a <link xref="mal_block_steps">step list</link>.  Nested lists can be used to
+      mark up substeps.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/substeps.html">substeps</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sup.html">sup</code></p></td>
+    <td><p>No equivalent in Mallard.  MathML or other domain-specific languages may
+    be embedded into Mallard documents.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/synblk.html">synblk</code></p></td>
+      <td rowspan="5"><p>Mallard does not have a structured environment for syntax diagrams.
+      Extensions may provide this functionality.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/synnote.html">synnote</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/synnoteref.html">synnoteref</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/synph.html">synph</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/syntaxdiagram.html">syntaxdiagram</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/systemoutput.html">systemoutput</code></p></td>
+    <td><p>Similar to the <code xref="mal_inline_output">output</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/table.html">table</code></p></td>
+    <td><p>See the <code xref="mal_table">table</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/task.html">task</code></p></td>
+    <td><p>No specific element in Mallard. Use a <code xref="mal_page">page</code>
+    or <code xref="mal_section">section</code>
+    element instead, possibly with a style hint.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/taskbody.html">taskbody</code></p></td>
+    <td><p>Mallard does not wrap page contents in a body tag.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/tbody.html">tbody</code></p></td>
+    <td><p>See the <code xref="mal_table">table</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/term.html">term</code></p></td>
+    <td><p>No equivalent in Mallard.  Future versions may address glossaries directly.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/text.html">text</code></p></td>
+    <td><p>No equivalent in Mallard. Use the <code xref="mal_inline_span">span</code>,
+    which is similar to the <code>ph</code> element in DITA.</p></td>   
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/tgroup.html">tgroup</code></p></td>
+      <td rowspan="2"><p>See the <code xref="mal_table">table</code> element for details.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/thead.html">thead</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/title.html">title</code></p></td>
+    <td><p>Similar to the <code xref="mal_block_title">title</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/titlealts.html">titlealts</code></p></td>
+    <td><p>See <link xref="mal_info_title"/> for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/tm.html">tm</code></p></td>
+    <td><p>No equivalent in Mallard.  Simply use the Unicode characters ©, ®, ℠, and ™
+    instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/topic.html">topic</code></p></td>
+    <td><p>Similar to the <code xref="mal_page">page</code> element. When nesting
+    topics, use the <code xref="mal_section">section</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/tt.html">tt</code></p></td>
+    <td><p>Similar to the <code xref="mal_inline_sys">sys</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/tutorialinfo.html">tutorialinfo</code></p></td>
+    <td><p>No direct equivalent in Mallard.  Additional instructions for a
+    <link xref="mal_block_steps">step</link> should be written in additional
+    <link xref="mal_block_p">paragraphs</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/u.html">u</code></p></td>
+    <td><p>See the <code xref="mal_inline_em">em</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/uicontrol.html">uicontrol</code></p></td>
+    <td><p>Similar to the <code xref="mal_inline_gui">gui</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ul.html">ul</code></p></td>
+    <td><p>See the <code xref="mal_block_list">list</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/unknown.html">unknown</code></p></td>
+    <td><p>See <link xref="mal_external"/> for details on extending Mallard.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/userinput.html">userinput</code></p></td>
+    <td><p>Similar to the <code xref="mal_inline_input">input</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/var.html">var</code></p></td>
+    <td><p>Mallard does not have a structured environment for syntax diagrams.
+    Extensions may provide this functionality.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/varname.html">varname</code></p></td>
+    <td><p>Similar to the <code xref="mal_inline_var">var</code> element.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/vrm.html">vrm</code></p></td>
+      <td rowspan="2"><p>The <code xref="mal_info_revision">revision</code> element is placed directly in the
+      <code xref="mal_info">info</code> element and records revision information.  Additional information about
+      revisions can be recorded with <link xref="mal_external">external-namespace elements and attributes</link>.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/vrmlist.html">vrmlist</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/wintitle.html">wintitle</code></p></td>
+    <td><p>Use either the <code xref="mal_inline_app">app</code> or the
+    <code xref="mal_inline_gui">gui</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/xnal-d.html">xnal-d/*</code></p></td>
+    <td><p>Mallard provides fewer details in <link xref="mal_info_credit">credits</link>
+    and other places where people or organizations are mentioned.
+    <link xref="mal_external">External-namespace</link> elements may provide additional
+    information, including <link href="http://www.e.govt.nz/standards/xnal">xNAL</link>
+    elements and <link href="http://www.w3.org/TR/REC-rdf-syntax/">RDF/XML</link> using
+    vocabularies like <link href="http://www.foaf-project.org/">FOAF</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/xref.html">xref</code></p></td>
+    <td><p>Similar to the <code xref="mal_inline_link">link</code> element.</p></td>
+  </tr></tbody>
+</table>
+</page>

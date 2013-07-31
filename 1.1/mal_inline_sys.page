@@ -1,0 +1,136 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_inline_sys">
+
+<info>
+  <link type="guide" xref="mal_inline#elements"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mark up general identifiers found on computer systems.</desc>
+</info>
+
+<title>System Items</title>
+
+<p>Use the <code>sys</code> element to mark up any type of system item that
+isn't covered by other elements such as <code xref="mal_inline_file">file</code>,
+<code xref="mal_inline_cmd">cmd</code>, or
+<code xref="mal_inline_code">code</code>.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>sys</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>sys</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>sys</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>sys</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>sys</code> to mark up a domain name:</p>
+
+  <example>
+    <code><![CDATA[The Linux kernel is hosted on <sys>git.kernel.org</sys>.]]></code>
+    <p>The Linux kernel is hosted on <sys>git.kernel.org</sys>.</p>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>System items are displayed in a fixed-width font.  Fixed-width fonts
+  tend to have more distinction between visually similar characters. This
+  is particularly important in system items, since letters often appear
+  without the context of a known word that helps make them discernible in
+  normal prose.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>sys</code> element is similar to the
+  <code href="http://www.docbook.org/tdg51/en/html/systemitem.html">systemitem</code>
+  element in <link xref="docbook">DocBook</link>.  DocBook has gained numerous
+  elements which were once marked using the <code>class</code> attribute on the
+  <code>systemitem</code> element.  Since Mallard does not provide the level of
+  markup specificity that DocBook does, the <code>sys</code> element should be
+  used in place of these and various other elements.</p>
+
+  <p>The <code>sys</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/keyword.html">keyword</code>
+  element in <link xref="dita">DITA</link>.  The <code>keyword</code> element
+  serves as a base element for many specializations, including for the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/cmdname.html">cmdname</code>
+  element, which is similar to the <code xref="mal_inline_cmd">cmd</code>
+  element in Mallard.  Unless a more specific Mallard element is available,
+  the <code>sys</code> element should be used in placed of specializations
+  of the <code>keyword</code> element.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>sys</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_sys = element sys {
+  mal_inline_sys_attr,
+  mal_inline_sys_inline
+}
+mal_inline_sys_attr = (
+  <link xref="mal_attr_link">mal_attr_link</link> *,
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_inline">mal_inline_attr</link>,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_inline_sys_inline = <link xref="mal_inline">mal_inline</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

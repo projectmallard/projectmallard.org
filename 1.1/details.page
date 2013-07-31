@@ -1,0 +1,50 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="details"
+      id="details">
+
+<info>
+  <link type="guide" xref="index" group="details"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008</years>
+  </credit>
+  <credit type="author">
+    <name>Jim Campbell</name>
+    <years>2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>How to process and work with Mallard documents.</desc>
+</info>
+
+<title>Processing Details</title>
+
+  <p>
+     The Mallard syntax is designed to be extensible and easy to translate. The 
+     following sections identify the means available to process and extend Mallard 
+     documents, as well as information to assist with internationalization and 
+     translation of Mallard documents.
+  </p>
+  <p>
+     As an additional consideration for those who are more familiar with DITA or 
+     Docbook, a comparative element reference compares elements from the 
+     Mallard 1.1 specification to those from
+     <link href="http://docs.oasis-open.org/dita/v1.2/spec/DITA1.2-spec.html">DITA 1.2</link>
+     and <link href="http://www.docbook.org/tdg51/en/html/">DocBook 5.1</link>.
+  </p>
+     
+
+<section id="i18n">
+  <title>Internationalization and Localization</title>
+</section>
+
+<section id="misc">
+  <title>Additional Reference Material</title>
+</section>
+
+</page>
