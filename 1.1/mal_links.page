@@ -48,6 +48,11 @@ its direct parent.</p>
     <code xref="mal_page">page</code> and <code xref="mal_section">section</code>
     elements, either where <link xref="mal_block">block content</link>
     occurs, or following any subsections.</p></item>
+<!--
+FIXME
+prevnext
+section
+-->
 
     <item>
       <p>The <code>type</code> attribute specifies the type of links to be
@@ -84,6 +89,9 @@ its direct parent.</p>
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
+
+    <item><p>The <code>role</code> attribute can be used to select alternative
+    titles of the target page or section to be used as automatic content.</p></item>
 
     <item><p>The <code>groups</code> attribute takes a space-separated list
     of link groups. Links groups are used by <link xref="#topic">topic
@@ -200,7 +208,11 @@ its direct parent.</p>
   as follows:</p>
 
   <list type="numbered">
-    <item><p>If the target node has a <link xref="mal_info_title#link">link
+    <item><p>If the <code>links</code> element has a <code>role</code> attribute,
+    and the target node has a <link xref="mal_info_title#link">link title</link>
+    with the <code>role</code> attribute set to the same value as the <code>role</code>
+    attribute of the <code>links</code> element, that title is used.</p></item>
+    <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
     title</link> with the <code>role</code> attribute set to <code>"topic"</code>,
     that title is used.</p></item>
     <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
@@ -257,7 +269,11 @@ its direct parent.</p>
   as follows:</p>
 
   <list type="numbered">
-    <item><p>If the target node has a <link xref="mal_info_title#link">link
+    <item><p>If the <code>links</code> element has a <code>role</code> attribute,
+    and the target node has a <link xref="mal_info_title#link">link title</link>
+    with the <code>role</code> attribute set to the same value as the <code>role</code>
+    attribute of the <code>links</code> element, that title is used.</p></item>
+    <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
     title</link> with the <code>role</code> attribute set to <code>"guide"</code>,
     that title is used.</p></item>
     <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
@@ -298,7 +314,11 @@ its direct parent.</p>
   as follows:</p>
 
   <list type="numbered">
-    <item><p>If the target node has a <link xref="mal_info_title#link">link
+    <item><p>If the <code>links</code> element has a <code>role</code> attribute,
+    and the target node has a <link xref="mal_info_title#link">link title</link>
+    with the <code>role</code> attribute set to the same value as the <code>role</code>
+    attribute of the <code>links</code> element, that title is used.</p></item>
+    <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
     title</link> with the <code>role</code> attribute set to <code>"seealso"</code>,
     that title is used.</p></item>
     <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
@@ -364,7 +384,11 @@ its direct parent.</p>
   as follows:</p>
 
   <list type="numbered">
-    <item><p>If the target node has a <link xref="mal_info_title#link">link
+    <item><p>If the <code>links</code> element has a <code>role</code> attribute,
+    and the target node has a <link xref="mal_info_title#link">link title</link>
+    with the <code>role</code> attribute set to the same value as the <code>role</code>
+    attribute of the <code>links</code> element, that title is used.</p></item>
+    <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
     title</link> with the <code>role</code> attribute set to <code>"series"</code>,
     that title is used.</p></item>
     <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
@@ -454,6 +478,7 @@ mal_links = element links {
 mal_links_attr = (
   attribute type { xsd:NMTOKEN },
   attribute style { xsd:NMTOKENS } ?,
+  attribute role { text } ?,
   attribute groups { text } ?,
   <link xref="mal_external">mal_attr_external</link> *
 )

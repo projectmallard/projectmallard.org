@@ -130,7 +130,7 @@ recommendation</link>.
   displayed as normal.  Otherwise, automatic link text is generated
   as follows:</p>
 
-  <list>
+  <list type="numbered">
     <item><p>If the <code>link</code> element has an <code>action</code>
     attribute, and the processing tool understands the action scheme,
     then the tool may generate automatic text based on the action scheme
@@ -140,18 +140,15 @@ recommendation</link>.
     <code>xref</code> attribute that points to a page or section in
     the same document:</p>
 
-    <list>
-      <item><p>If the <code>link</code> element has a <code>role</code>
-      attribute, and that page or section has an
-      <link xref="mal_info_title">informational title</link> with the
-      <code>type</code> attribute set to <code>"link"</code> and the
-      <code>role</code> attribute set to the same value as the <code>role</code>
-      attribute of the <code>link</code> element, then the contents
-      of that <code>title</code> element are used.</p></item>
+    <list type="numbered">
+      <item><p>If the <code>link</code> element has a <code>role</code> attribute,
+      and the target page or section has a <link xref="mal_info_title#link">link
+      title</link> with the <code>role</code> attribute set to the same value as
+      the <code>role</code> attribute of the <code>link</code> element, then the
+      contents of that <code>title</code> element are used.</p></item>
 
-      <item><p>Otherwise, if that page or section has an
-      <link xref="mal_info_title">informational title</link> with the
-      <code>type</code> attribute set to <code>"link"</code> and without
+      <item><p>Otherwise, if that page or section has a
+      <link xref="mal_info_title#link">link title</link> without
       a <code>role</code> attribute, the contents of that <code>title</code>
       element are used.</p></item>
 
