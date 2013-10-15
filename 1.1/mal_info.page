@@ -20,7 +20,7 @@
 
 <title>Information Elements</title>
 
-<p>The <code>info</code> element contains metadata about a page or seciton and
+<p>The <code>info</code> element contains metadata about a page or section and
 information about <link xref="mal_links">automatic links</link>.
 Mallard provides a core set of informational elements for most common needs.
 Informational elements like <code xref="mal_info_link">link</code>,
