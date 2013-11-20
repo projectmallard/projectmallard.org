@@ -1,0 +1,308 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      version="1.0"
+      id="mep0001">
+
+<info>
+  <link type="guide" xref="index" group="process"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2013</years>
+  </credit>
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <revision date="2013-08-17" status="proposed"/>
+
+  <title type="text">Mallard Enhancement Proposals</title>
+  <title type="link">MEP-0001: Mallard Enhancement Proposals</title>
+
+  <desc>Introduce a process for proposing new Mallard features and extensions.</desc>
+</info>
+
+<title>MEP-0001</title>
+<subtitle>Mallard Enhancement Proposals</subtitle>
+
+<p style="lead">This page outlines the process of proposing and evaluating
+changes to Mallard and the core Mallard extensions.</p>
+
+<links type="section"/>
+
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard is developed by an open source community. Often, an idea for a Mallard
+  feature or extension will come about during a doc sprint or design session. This
+  will get added to somebody's private TODO list and possibly implemented in an
+  experimental namespace. As the problem space becomes more clear, the feature will
+  change until a specification written is finalized.</p>
+
+  <p>This process does a poor job of recording the problems, the ideas for solving
+  those problems, the community input, and the design changes that lead up to the
+  final specification.</p>
+
+  <p>There are three goals for this proposed process:</p>
+
+  <list>
+    <item><p>Allow people to participate in the development of Mallard without
+    requiring them to write full specifications, develop schemas, or implement
+    features in processing tools.</p></item>
+
+    <item><p>Record the current state of experimental features that do not yet
+    have a formal specification, allowing people to use these features and
+    provide feedback on them.</p></item>
+
+    <item><p>Provide a historical record for the design decisions that led to
+    features in Mallard and core Mallard extensions.</p></item>
+  </list>
+
+</section>
+
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>A Mallard Enhancement Proposal (MEP) is a page that records the rationale
+  and design of a Mallard feature or extension. MEPs are modeled after similar
+  documents used by other projects, most notably Python. A MEP is a Mallard
+  page file hosted on projectmallard.org alongside other MEPs.</p>
+
+  <links type="section"/>
+
+  <section id="proposing">
+    <title>Proposing</title>
+
+    <p>To propose a large change to Mallard or to a core extension, to propose
+    a new extension to be hosted on projectmallard.org, or to propose a change
+    in the process for developing Mallard and core Mallard extensions, write a
+    Mallard Enhancement Proposal following the format outlined in this proposal.
+    Send the proposal to
+    <link href="http://projectmallard.org/mailman/listinfo/mallard-list">mallard-list</link>.
+    If accepted as a proposal, it will be assigned a number and added to the
+    projectmallard git repository. Acceptance as a proposal does not imply that
+    the proposed functionality or process will be approved.</p>
+
+    <p>You may submit an incomplete proposal, or even a page that does not yet make
+    a concrete proposal and just outlines a problem to solve. After the proposal is
+    accepted, the authors of the proposal are responsible for driving discussion,
+    addressing the concerns of the community, and convincing the community that the
+    proposal should be implemented. The authors of the proposal are not necessarily
+    responsible for implementing the proposed functionality, but they are responsible
+    for convincing others to implement it.</p>
+
+    <p>For proposals that target existing specifications, the final decision rests
+    with the maintainers of those specifications. Proposals for a new specification
+    require somebody to volunteer to write and maintain the specification.</p>
+  </section>
+
+  <section id="status">
+    <title>Revisions and Status</title>
+
+    <p>Each proposal should have at least one <code>revision</code> element, and
+    each <code>revision</code> element should have a <code>date</code> attribute
+    and a <code>status</code> attribute. You should add a <code>revision</code>
+    element each time you change the status or make a substantive revision. Do
+    not remove or change previous <code>revision</code> elements, unless they
+    were incorrect to begin with.</p>
+
+    <p>The current revision is the <code>revision</code> element with the latest
+    date. If there are multiple <code>revision</code> elements that share the
+    latest date, the current revision is the last of these in document order.</p>
+
+    <p>If the proposal is targeted for a specification, record that using the
+    <code>docversion</code> attribute on the <code>revision</code> element. Use
+    the <link xref="/1.0/mal_attr_version">version</link> token as the attribute
+    value. If there are multiple affected specifications, use a space-separated
+    list of version tokens. The current target is the <code>docversion</code>
+    attribute (if it exists) of the current revision.</p>
+
+    <p>The current status of the proposal is the <code>status</code> attribute
+    of the current revision. A proposal moves through the following statuses:</p>
+
+    <terms>
+      <item>
+        <title>incomplete</title>
+        <p>The page does not yet make a concrete proposal. Pages without proposals
+        may be accepted as proposals if they outline a real problem and there is
+        clear intent to gather information and make a proposal.</p>
+      </item>
+
+      <item>
+        <title>proposed</title>
+        <p>The page makes a concrete proposal on how to solve a problem. It may
+        not have all non-normative sections completed, such as comparisons to
+        other formats or impact on accessibility or internationalization.</p>
+      </item>
+
+      <item>
+        <title>revised</title>
+        <p>A substantive revision was made to an existing proposal. A proposal may
+        be revised any number of times, and each is recorded with this status. A
+        revision with the revised status should include a <code>desc</code> element
+        that briefly describes the change and links to any online discussion of the
+        change.</p>
+      </item>
+
+      <item>
+        <title>implemented</title>
+        <p>All sections of the proposal have been completed, a specification has
+        been written and is hosted on projectmallard.org, and the behavior has
+        been implemented in a reference implementation. The specification may
+        still be incomplete in non-normative sections, such as examples or
+        comparisons to other formats. The reference implementation may use a
+        temporary experimental namespace instead of the final namespace used
+        by the specification.</p>
+        <p>If a substantive revision is made after a proposal is marked implemented,
+        it must include a revision marking it revised before being marked implemented
+        again. Both revisions may be added in a single commit.</p>
+      </item>
+
+      <item>
+        <title>final</title>
+        <p>The specification including the proposed behavior has been marked final,
+        and a complete reference implementation exists.</p>
+      </item>
+
+      <item>
+        <title>rejected</title>
+        <p>The proposal was rejected by the maintainers of the target specification.
+        A revision with the rejected status should include a <code>desc</code> element
+        that briefly describes why the proposal was rejected and links to any online
+        discussion of the rejection.</p>
+      </item>
+
+      <item>
+        <title>replaced</title>
+        <p>The proposal was rejected or withdrawn in favor of another proposal that
+        addresses a similar set of problems. A revision with the replaced status
+        should include a <code>desc</code> element that links to the replacement
+        proposal.</p>
+      </item>
+
+      <item>
+        <title>withdrawn</title>
+        <p>The proposal was withdrawn by the authors. A revision with the withdrawn
+        status should include a <code>desc</code> element that briefly describes why
+        the proposal with withdrawn and links to any online discussion of the
+        withdrawal.</p>
+      </item>
+    </terms>
+  </section>
+
+  <section id="info">
+    <title>Info and Introduction</title>
+
+    <p>All authors and copyright holders must be properly credited with the
+    <code>credit</code> element, including email addresses and copyright years.
+    The proposal must be licensed under the currently preferred open license
+    for specifications on projectmallard.org. At the time of this proposal,
+    that is the Creative Commons Attribution-ShareAlike US 3.0, with a special
+    exception for example code.</p>
+
+    <listing>
+      <title><file>cc-by-sa-3-0.xml</file></title>
+      <code mime="application/xml"><include href="../cc-by-sa-3-0.xml" parse="text" xmlns="http://www.w3.org/2001/XInclude"/></code>
+    </listing>
+
+    <p>If a proposal depends on another proposal that is still under
+    development, record that as an informational link to the other proposal
+    with the <code>type</code> attribute set to <code>"mep:depends"</code>.
+    Do not record dependencies to proposals that are already final at the
+    time of proposal. If a proposal replaces another proposal, record that
+    as an informational link with the <code>type</code> attribute set to
+    <code>"mep:replaces"</code>. If another proposal is interesting in
+    any other way, record that as a <code>"seealso"</code> link.</p>
+
+    <p>Set the primary title to the MEP identifier (“MEP-0001” for this
+    proposal), and the subtitle to the MEP title (“Mallard Enhancement
+    Proposals” for this proposal). Set the link title to the MEP identifier
+    and the MEP title joined with a colon (“MEP-0001: Mallard Enhancement
+    Proposals”), and the text title to just the MEP title. Include a
+    <code>desc</code> element with a brief synopsis of the proposal, and
+    include a lead paragraph that states the intent of the proposal.</p>
+  </section>
+
+  <section id="sections">
+    <title>Sections</title>
+
+    <terms>
+      <item>
+        <title><em style="strong">Background</em></title>
+        <p>Describe the problems and situations that have led up to this proposal,
+        as well as any goals this proposal should be evaluated against.</p>
+      </item>
+      <item>
+        <title><em style="strong">Proposal</em></title>
+        <p>Describe the proposal in detail, accounting for all changes to schemas
+        and processing expectations. Be specific, but assume the reader is already
+        very familiar with Mallard and any referenced extensions or technologies.</p>
+      </item>
+      <item>
+        <title><em style="strong">Addendums</em></title>
+        <p>Once a proposal has been marked final, the main proposal should be left
+        alone for historical reference. If a small change is made after the proposal
+        has been marked final, it should be noted in this section. If a large change
+        is made, it should have its own MEP, and that MEP should be linked to from
+        this section. Only add this section when addendums are made.</p>
+      </item>
+      <item>
+        <title><em style="strong">Examples</em></title>
+        <p>Provide examples that illustrate the proposed functionality. For each
+        example, show the markup and explain the expected behavior. Try to make
+        the examples illustrative of real-world needs that are addressed by this
+        proposal.</p>
+      </item>
+      <item>
+        <title><em style="strong">Accessibility</em></title>
+        <p>If the proposal has an impact on the accessibility of pages to users of
+        assistive technologies, note that impact in its own section. You may omit
+        this section if there is no accessibility impact.</p>
+      </item>
+      <item>
+        <title><em style="strong">Internationalization</em></title>
+        <p>If the proposal has an impact on the internationalization or localization
+        of pages, note that impact in its own section. You may omit this section if
+        there is no internationalization impact.</p>
+      </item>
+      <item>
+        <title><em style="strong">Alternatives</em></title>
+        <p>Describe any alternatives that were also considered to solve the same
+        problems. Update this section throughout the proposal process to include
+        any additional alternatives that arise, including proposals made in
+        previous revisions of the proposal. You may omit this section if no
+        alternatives were considered.</p>
+      </item>
+      <item>
+        <title><em style="strong">Compatibility and Fallback</em></title>
+        <p>Explain any backwards incompatibilities in detail. For this purpose, an
+        incompatibility is any issue that arises when a page that was not written
+        with this proposal in mind is processed by a tool that supports this
+        proposal. Incompatibilities should be avoided. If they exist, explain the
+        impact and why you feel it's acceptable.</p>
+        <p>Also explain the fallback behavior of this proposal. Mallard defines
+        fallback behavior for unrecognized elements in various contexts. Proposals
+        should try to take advantage of these behaviors so that pages that use the
+        proposal have a reasonable presentation with non-supporting tools. If this
+        is not possible, explain why.</p>
+        <p>Omit this section for process proposals.</p>
+      </item>
+      <item>
+        <title><em style="strong">Comparison to Other Formats</em></title>
+        <p>Describe any similar elements or behaviors from comparable formats,
+        such as DocBook, DITA, or XHTML. It is sometimes worthwhile to reuse
+        behavior from other formats. Explain any interesting differences and
+        similarities.</p>
+        <p>Omit this section for process proposals.</p>
+      </item>
+    </terms>
+  </section>
+</section>
+
+<section id="template">
+  <title>Template</title>
+  <code mime="application/xml"><include href="mepXXXX.page.xml" parse="text" xmlns="http://www.w3.org/2001/XInclude"/></code>
+</section>
+
+</page>

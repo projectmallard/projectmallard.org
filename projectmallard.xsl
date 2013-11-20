@@ -210,6 +210,12 @@ div.pmo-index p { text-align: left; }
 div.pmo-index li { margin-left: 1.44em; }
 div.pmo-index div.title { margin-top: 0; font-size: 14px; }
 
+td.pmo-mep-history td:first-child { padding-left: 0; }
+td.pmo-mep-history div.title {
+  font-weight: normal;
+  color: </xsl:text><xsl:value-of select="$color.link"/><xsl:text>;
+}
+
 @media only screen and (max-width: 400px) {
   div.pmo-index {
     margin: 0 0 20px 0;
@@ -376,6 +382,123 @@ div.pmo-source {
                           or processing-instruction('mal2html.show_comment'))]">
       <xsl:apply-templates mode="mal2html.block.mode" select="."/>
     </xsl:for-each>
+  </div>
+</xsl:template>
+
+<xsl:template match="/mal:page/mal:links[@type = 'section']">
+  <xsl:if test="contains(concat(' ', /mal:page/@style, ' '), ' mep ')">
+    <xsl:call-template name="mep.info"/>
+  </xsl:if>
+  <xsl:call-template name="mal2html.links.section"/>
+</xsl:template>
+
+<xsl:template name="mep.info">
+  <div class="mep-info">
+    <table>
+      <tr>
+        <th>Authors:</th>
+        <td>
+          <xsl:for-each select="/mal:page/mal:info/mal:credit[contains(concat(' ', @type, ' '), ' author ')]">
+            <xsl:if test="position() != 1">
+              <xsl:text>, </xsl:text>
+            </xsl:if>
+            <xsl:value-of select="mal:name"/>
+          </xsl:for-each>
+        </td>
+      </tr>
+      <tr>
+        <th>Created:</th>
+        <td>
+          <xsl:for-each select="/mal:page/mal:info/mal:revision[@date]">
+            <xsl:sort select="@date"/>
+            <xsl:if test="position() = 1">
+              <xsl:value-of select="@date"/>
+            </xsl:if>
+          </xsl:for-each>
+        </td>
+      </tr>
+      <tr>
+        <th>Status:</th>
+        <td>
+          <xsl:for-each select="/mal:page/mal:info/mal:revision[@date]">
+            <xsl:sort select="@date"/>
+            <xsl:if test="position() = last()">
+              <xsl:value-of select="concat(@status, ' (', @date, ')')"/>
+            </xsl:if>
+          </xsl:for-each>
+        </td>
+      </tr>
+      <xsl:variable name="target">
+        <xsl:for-each select="/mal:page/mal:info/mal:revision[@date]">
+          <xsl:sort select="@date"/>
+          <xsl:if test="position() = last()">
+            <xsl:value-of select="@docversion"/>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:variable>
+      <xsl:if test="$target != ''">
+        <tr>
+          <th>Target:</th>
+          <td class="pmo-mep-target">
+            <xsl:choose>
+              <xsl:when test="$mal.cache/mal:page[@id=concat('/', $target, '/index')]">
+                <a>
+                  <xsl:attribute name="href">
+                    <xsl:call-template name="mal.link.target">
+                      <xsl:with-param name="xref" select="concat('/', $target, '/index')"/>
+                    </xsl:call-template>
+                  </xsl:attribute>
+                  <xsl:attribute name="title">
+                    <xsl:call-template name="mal.link.tooltip">
+                      <xsl:with-param name="xref" select="concat('/', $target, '/index')"/>
+                    </xsl:call-template>
+                  </xsl:attribute>
+                  <xsl:value-of select="$target"/>
+                </a>
+              </xsl:when>
+              <xsl:otherwise>
+                <span>
+                  <xsl:value-of select="$target"/>
+                </span>
+              </xsl:otherwise>
+            </xsl:choose>
+          </td>
+        </tr>
+      </xsl:if>
+      <tr>
+        <th>History:</th>
+        <td class="pmo-mep-history">
+          <div class="table ui-expander">
+            <div class="yelp-data yelp-data-ui-expander" data-yelp-expanded="false">
+              <div class="yelp-title-collapsed">show history</div>
+              <div class="yelp-title-expanded">hide history</div>
+            </div>
+            <div class="inner">
+              <div class="title"><span class="title">history</span></div>
+              <div class="region">
+                <div class="contents">
+                  <table>
+                    <xsl:for-each select="/mal:page/mal:info/mal:revision[@date and @status]">
+                      <tr>
+                        <td>
+                          <xsl:value-of select="@date"/>
+                        </td>
+                        <td>
+                          <xsl:value-of select="@status"/>
+                        </td>
+                        <td>
+                          <xsl:apply-templates mode="mal2html.inline.mode" select="mal:desc/node()"/>
+                        </td>
+                      </tr>
+                    </xsl:for-each>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
 </xsl:template>
 

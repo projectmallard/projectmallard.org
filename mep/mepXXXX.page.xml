@@ -1,0 +1,75 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mepXXXX">
+
+<info>
+  <link type="guide" xref="index" group="TARGET"/>
+
+  <!--
+  <link type="mep:depends" xref="mepYYYY"/>
+  <link type="mep:replaces" xref="mepYYYY"/>
+  <link type="seealso" xref="mepYYYY"/>
+  -->
+
+  <credit type="author copyright">
+    <name>Author Name</name>
+    <email>author.email@example.com</email>
+    <years>YEARS</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <revision date="DATE-PROPOSED" docversion="TARGET" status="proposed"/>
+
+  <title type="text">PRIMARY TITLE</title>
+  <title type="link">MEP-XXXX: PRIMARY TITLE</title>
+
+  <desc>MEP DESCRIPTION</desc>
+</info>
+
+<title>MEP-XXXX</title>
+<subtitle>PRIMARY TITLE</subtitle>
+
+<p style="lead">This page outlines...</p>
+
+<links type="section"/>
+
+<section id="background">
+  <title>Background</title>
+</section>
+
+<section id="proposal">
+  <title>Proposal</title>
+</section>
+
+<!--
+<section id="addendums">
+  <title>Addendums</title>
+</section>
+-->
+
+<section id="examples">
+  <title>Examples</title>
+</section>
+
+<section id="a11y">
+  <title>Accessibility</title>
+</section>
+
+<section id="i18n">
+  <title>Internationalization</title>
+</section>
+
+<section id="alternatives">
+  <title>Alternatives</title>
+</section>
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+</section>
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+</section>
+
+</page>

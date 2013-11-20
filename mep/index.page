@@ -1,0 +1,30 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+
+<info>
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2013</years>
+  </credit>
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <title type="link" role="trail">Proposals</title>
+</info>
+
+<title>Mallard Enhancement Proposals</title>
+
+<links type="topic" groups="#first #default #last">
+  <title>Unsorted Proposals</title>
+</links>
+
+<links type="topic" groups="process">
+  <title>Process</title>
+</links>
+
+<links type="topic" groups="1.1">
+  <title><link xref="/1.1/index">Mallard 1.1</link></title>
+</links>
+
+</page>
