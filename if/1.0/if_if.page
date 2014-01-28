@@ -33,7 +33,7 @@ elements when there is only one condition.</p>
   <link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">general
   block content</link>.</p></item>
 
-  <item><p>The <code>if:if</code> element can occur in any general block context</p></item>
+  <item><p>The <code>if:if</code> element can occur in any general block context.</p></item>
 
   <item><p>The required <code xref="if_attr_test">test</code> attribute
   contains a test expression that determines whether the content of the

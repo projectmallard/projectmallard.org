@@ -39,7 +39,7 @@ conditional processing. See <link xref="fallback"/> for details.</p>
   <link xref="/1.0/mal_block" href="http://projectmallard.org/1.0/mal_block.html">general
   block content</link> or an <code xref="if_else">if:else</code> element.</p></item>
 
-  <item><p>The <code>if:choose</code> element can occur in any general block context</p></item>
+  <item><p>The <code>if:choose</code> element can occur in any general block context.</p></item>
 
   <item><p>At most one child <code>if:when</code> element is displayed, or the
   fallback block content or <code>if:else</code> element is displayed.</p></item>
