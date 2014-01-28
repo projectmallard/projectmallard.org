@@ -1,0 +1,28 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="pmo-source"
+      id="if-src">
+
+<info>
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2010</years>
+  </credit>
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+</info>
+
+<title>Conditional Processing Source</title>
+
+<p>This is the source markup for <link xref="if"/>.  It is written in a
+Mallard extension format called Mallard Sites.  Mallard Sites pages are just like
+regular Mallard pages, except that <code>xref</code> attributes may contain the
+<code>/</code> character.</p>
+
+<listing>
+<title><file>if.page</file></title>
+<code>
+<include xmlns="http://www.w3.org/2001/XInclude" href="if.page" parse="text"/>
+</code>
+</listing>
+
+</page>

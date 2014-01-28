@@ -1,0 +1,364 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:if="http://projectmallard.org/if/1.0/"
+      type="topic" version="1.0 if/1.0"
+      id="if">
+
+<info>
+  <link type="guide" xref="index"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2014</years>
+  </credit>
+  <credit type="editor">
+    <name>Ekaterina Gerasimova</name>
+    <email>kittykat3756@gmail.com</email>
+  </credit>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create content that is only output for certain environments or
+  target formats.</desc>
+</info>
+
+<title>Conditional Processing</title>
+
+<note style="pmo-source">
+<title>Learn by Example</title>
+<p>This page was written in a Mallard extension format called Mallard Sites.
+<link xref="if-src">Read the source markup</link> for this page to
+learn Mallard from real-world examples.</p>
+</note>
+
+<p>Writers often need to document software in different environments or on
+different platforms, reusing as much common content as possible. Additionally,
+some content is only suitable for certain reading targets (such as print or
+online) or certain languages, and occasionally it's useful to use different
+content based on which Mallard features or extensions are supported.</p>
+
+<p>Mallard provides a powerful conditional processing system that allows
+you to mark blocks with conditions. In addition to simple conditions, you
+can also write a set of conditional branches such that only one will be
+used, and you can combine conditions in logical expressions.</p>
+
+<section id="test">
+<title>Basic Conditionals</title>
+
+<p>The simplest way to use conditionals is to use the
+<code xref="/if/1.0/if__attr_test">if:test</code> attribute on any block
+element, such as on the <code xref="/1.0/mal_block_p">p</code> element for
+a conditional paragraph. Because conditional processing is a Mallard
+extension, the <code>if:test</code> attribute is in a separate namespace.
+Declare this namespace on the top-level <code>page</code> element.</p>
+
+<example>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:if="http://projectmallard.org/if/1.0/"
+      type="topic" version="1.0 if/1.0"
+      id="THE_PAGE_ID">
+]]></code>
+</example>
+
+<p>All the examples throughout this page assume you've added added the
+<code>xmlns:if</code> declaration as above. Additionally, this example
+shows the <code>version</code> attribute set to <code>"1.0 if/1.0"</code>.
+This isn't necessary to use conditional processing, but it will make
+validation better with tools that support <link
+xref="/1.0/mal_attr_version">Mallard schema merging</link>.</p>
+
+<p>Conditionals use test tokens, which consist of a token scheme and
+a token value separated by a colon. For example, to test if the user
+is running GNOME 3 when reading the help with the <app>Yelp</app> help
+viewer, use the test token <code>platform:gnome-shell</code>.</p>
+
+<example>
+<code><![CDATA[
+<p if:test="platform:gnome-shell">This content is only shown when
+running under GNOME 3.</p>
+]]></code>
+<p>This content is only shown when running under GNOME 3.</p>
+</example>
+
+<p>Token schemes help group related types of conditions. Some other
+languages with conditional processing have separate test attributes
+for different types of conditions. Mallard uses a single attribute,
+but uses test tokens to identify the type of test. This allows
+conditions to be combined in powerful ways.</p>
+
+<p>Tokens that test something about the environment the user is
+getting help for use the <code>platform:</code> scheme. This could
+test for the operating system, the desktop environment, the computer
+architecture, or even the user's default applications or other
+preferences.</p>
+
+<p>Tokens that test something about the environment where the user
+is <em>reading</em> the help use the <code>target:</code> scheme.
+This can be used to provide different content in online and print
+editions of the help, to provide extra information for assistive
+technologies like screen readers and braille displays, or to create
+responsive content for mobile devices.</p>
+
+<p>To test if the help is being read as an HTML page, use the
+<code>target:html</code> token.</p>
+
+<example>
+<code><![CDATA[
+<p if:test="target:html">This content is only shown when viewing
+the help as an HTML page.</p>
+]]></code>
+<p>This content is only shown when viewing the help as an HTML page.</p>
+</example>
+
+<p>To test if the help is being read on a mobile device, use the
+<code>target:mobile</code> token.</p>
+
+<example>
+<code><![CDATA[
+<p if:test="target:mobile">This content is only shown when viewing
+the help on a mobile device.</p>
+]]></code>
+<p if:test="target:mobile">This content is only shown when viewing
+the help on a mobile device.</p>
+</example>
+
+<p>(When viewing this tutorial online, the above example is responsive
+and will show the output only on mobile devices. Try it with your
+phone.)</p>
+
+</section>
+
+<section id="blocks">
+<title>List Items and Other Blocks</title>
+
+<p>You can use the <code>if:test</code> attribute on any other
+<link xref="/1.0/mal_block">block elements</link> exactly as you
+would with paragraphs. For example, use the <code>if:test</code>
+attribute on the <code xref="/1.0/mal_block_media">media</code>
+element to add an image that's only shown in HTML output.</p>
+
+<example>
+<code><![CDATA[
+<media type="image" src="mallard-logo.png" if:test="target:html"/>
+]]></code>
+<media type="image" src="mallard-logo.png"/>
+</example>
+
+<p>You can also use the <code>if:test</code> attribute on any
+<code>item</code> element in a
+<code xref="/1.0/mal_block_list">list</code>,
+<code xref="/1.0/mal_block_steps">steps</code>,
+<code xref="/1.0/mal_block_terms">terms</code>, or
+<code xref="/1.0/mal_block_tree">tree</code> element. For example,
+use <code>if:test</code> to make one step in a procedure conditional.</p>
+
+<example>
+<code><![CDATA[
+<steps>
+<item if:test="platform:windows"><p>Download and install an SSH
+client for Windows.<p></item>
+<item><p>SSH into <sys>example.com</sys>.</p></item>
+<item><p>Run some commands.</p></item>
+</steps>
+]]></code>
+<steps>
+<item><p>SSH into <sys>example.com</sys>.</p></item>
+<item><p>Run some commands.</p></item>
+</steps>
+</example>
+
+<p>But be careful, you can only use the <code>if:test</code> attribute
+on general block elements and list items. You cannot currently use it
+on table rows or columns, <code xref="/1.0/mal_block_title">title</code>
+or <code xref="/1.0/mal_block_desc">desc</code> elements, sections, or
+entire pages. Unlike other languages, Mallard conditionals do not assume
+a pre-processing step. They are designed to be evaluated at run-time, and
+are somewhat constrained by the extension mechanisms that Mallard
+provides.</p>
+
+</section>
+
+<section id="branch">
+<title>Branching and Fallback</title>
+
+<p>The simplest way to use conditionals is to just use the <code>if:test</code>
+attributes, but you can also create multiple conditional branches using the
+<code xref="/if/1.0/if_choose">if:choose</code>,
+<code xref="/if/1.0/if_when">if:when</code>, and
+<code xref="/if/1.0/if_else">if:else</code> elements. You can use an
+<code>if:choose</code> element in the same way and places that you can use any
+other block element. The <code>if:choose</code> element can contain one or more
+<code>if:when</code> elements, each of which has a <code>test</code>
+attribute that's evaluated the same as the <code>if:test</code> attribute
+on block elements. The first <code>if:when</code> element that is true
+is used, and the remainder are ignored.</p>
+
+<p>For example, use <code>if:choose</code> and <code>if:when</code> to create
+two different paragraphs for GNOME 3 and Unity.</p>
+
+<example>
+<code><![CDATA[
+<if:choose>
+  <if:when test="platform:gnome-shell">
+    <p>This is shown in GNOME 3.</p>
+  </if:when>
+  <if:when test="platform:unity">
+    <p>This is shown in Unity.</p>
+  </if:when>
+</if:choose>
+]]></code>
+<p>This is shown in GNOME 3.</p>
+</example>
+
+<p>Because these conditions are mutually exclusive, this example could
+have just as easily been done using two <code>p</code> elements with
+<code>if:test</code> attributes. There are, however, advantages to using
+<code>if:choose</code>. If you have a group of elements you want to make
+conditional, putting them in a single <code>if:when</code> keeps you from
+having to write the same conditional multiple times. Also, grouping the
+content makes it easier for you to check that all conditional content
+has material for all the conditions you intend to support.</p>
+
+<p>Another advantage to <code>if:choose</code> is that it lets you
+provide content that's used when none of the other content is used,
+even if you can't test for it explicitly. Use the <code>if:else</code>
+element after all <code>if:when</code> elements to provide fallback
+content.</p>
+
+<example>
+<code><![CDATA[
+<if:choose>
+  <if:when test="platform:gnome-shell">
+    <p>This is shown in GNOME 3.</p>
+  </if:when>
+  <if:when test="platform:unity">
+    <p>This is shown in Unity.</p>
+  </if:when>
+  <if:else>
+    <p>This is shown under any other environment.</p>
+  </if:else>
+</if:choose>
+]]></code>
+<p>This is shown in GNOME 3.</p>
+</example>
+
+<p>You can also just put the fallback content directly at the end
+of the <code>if:choose</code> element, without an <code>if:else</code>
+element.</p>
+
+<example>
+<code><![CDATA[
+<if:choose>
+  <if:when test="platform:gnome-shell">
+    <p>This is shown in GNOME 3.</p>
+  </if:when>
+  <if:when test="platform:unity">
+    <p>This is shown in Unity.</p>
+  </if:when>
+  <p>This is shown under any other environment.</p>
+</if:choose>
+]]></code>
+<p>This is shown in GNOME 3.</p>
+</example>
+
+<p>There is a subtle difference between these two examples. They will
+behave exactly the same in any tool that supports conditionals, but
+Mallard does not require tools to support extensions like conditionals.
+Because of the way Mallard defines fallback behavior for unsupported
+extension content, the first example will show nothing in an unsupporting
+tool, and the second will shown the fallback content. For more details,
+see <link xref="/if/1.0/fallback">Fallback Behavior</link> in the
+conditionals specification.</p>
+
+<p>You can only use the <code>if:choose</code> element for general block
+content. There is currently no way to do branching on list items.</p>
+
+</section>
+
+<section id="advanced">
+<title>Advanced Test Conditions</title>
+
+<p>Until this point, all the conditionals have tested for a single
+token to be set. You can combine tokens in logical expressions to
+test for tokens to be not set, for all of a set of tokens to be
+set, or for any of a set of tokens to be set.</p>
+
+<p>To test for a token to be not set, put an exclamation point
+in front of it.</p>
+
+<example>
+<code><![CDATA[
+<media type="image" src="mallard-logo.png" if:test="!target:mobile"/>
+]]></code>
+<media type="image" src="mallard-logo.png" if:test="!target:mobile"/>
+</example>
+
+<p>(When viewing this tutorial online, the above example is responsive
+and will not show the image on mobile devices. Try it with your
+phone.)</p>
+
+<p>To test for a set of tokens to all be set, put them all into the
+condition separated by spaces.</p>
+
+<example>
+<code><![CDATA[
+<p if:test="platform:gnome-shell platform:fedora">This is only shown
+when running GNOME 3 on Fedora.</p>
+]]></code>
+<p>This is only shown when running GNOME 3 on Fedora.</p>
+</example>
+
+<p>You can combine these two to test for any combination of tokens
+being set and not set. For example, the <code>target:html</code>
+token is set for any serialization of HTML, while the
+<code>target:xhtml</code> token is only defined for the XML
+serialization. Combine them to test for non-XML HTML.</p>
+
+<example>
+<code><![CDATA[
+<p if:test="target:html !target:xhtml">This is only shown when
+converted to HTML that is not XHTML.</p>
+]]></code>
+<p>This is only shown when converted to HTML that is not XHTML.</p>
+</example>
+
+<p>You can also test if any of a group of conditions is met by
+putting them all into a condition separated by commas.</p>
+
+<example>
+<code><![CDATA[
+<p if:test="platform:gnome-shell, platform:unity">This is in both
+GNOME 3 and Unity, but not other environments.</p>
+]]></code>
+<p>This is in both GNOME 3 and Unity, but not other environments.</p>
+</example>
+
+<p>You can combine all three of these techniques. There is no grouping
+of logical expressions, however. Conditions are first split on commas,
+then on spaces, and then negations are considered. Sometimes this means
+you have to write longer conditionals, but it's always possible to put
+any logical expression into this form.</p>
+
+<p>For example, say you want to test that the user is running GNOME 3,
+but only if the user is running Fedora or Ubuntu. In an expression with
+grouping, you might write something like
+<code>"gnome-shell AND (fedora OR ubuntu)"</code>. Instead, you must
+split this up and write the <code>gnome-shell</code> condition twice,
+as <code>"(gnome-shell AND fedora) OR (gnome-shell AND ubuntu)"</code>.</p>
+
+<example>
+<code><![CDATA[
+<p if:test="platform:gnome-shell platform:fedora,
+            platform:gnome-shell platform:ubuntu">This is shown under
+GNOME 3, but only on Fedora or Ubuntu.</p>
+]]></code>
+<p>This is shown under GNOME 3, but only on Fedora or Ubuntu.</p>
+</example>
+
+<p>You can find more
+<link xref="/if/1.0/if_attr_test#examples">advanced conditional examples</link>
+in the conditionals specification.</p>
+
+</section>
+</page>
