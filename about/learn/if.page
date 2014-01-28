@@ -171,7 +171,7 @@ client for Windows.<p></item>
 <p>But be careful, you can only use the <code>if:test</code> attribute
 on general block elements and list items. You cannot currently use it
 on table rows or columns, <code xref="/1.0/mal_block_title">title</code>
-or <code xref="/1.0/mal_block_desc">desc</code> elements, sections, or
+or <code xref="/1.0/mal_block_desc">desc</code> elements, inline elements, sections, or
 entire pages. Unlike other languages, Mallard conditionals do not assume
 a pre-processing step. They are designed to be evaluated at run-time, and
 are somewhat constrained by the extension mechanisms that Mallard
