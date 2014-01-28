@@ -1,9 +1,4 @@
 #!/bin/sh
-gnused=`sed --version | head -n 1 | grep '^GNU sed'`
-if [ "x$gnused" = "x" ]; then
-    echo "This script requires GNU sed" 1>&2
-    exit 1
-fi
 
 SPECS=`ls -d *.*/index.page */*.*/index.page | sed -e 's/\/index\.page$//'`
 
