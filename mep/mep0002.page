@@ -1,0 +1,217 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      version="1.0"
+      id="mep-block-info">
+
+<info>
+  <link type="guide" xref="index" group="1.1"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2013</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude">
+    <fallback/>
+  </include>
+
+  <revision date="2013-10-20" docversion="1.1" status="incomplete"/>
+  <revision date="2014-02-01" docversion="1.1" status="proposed"/>
+
+  <title type="text">Block info element</title>
+  <title type="link">MEP-0002: Block <code>info</code> element</title>
+
+  <desc>Allow the <code>info</code> element on formal block elements and
+  block <code>media</code> element to provide metadata about them.</desc>
+</info>
+
+<title>MEP-0002</title>
+<subtitle>Block <code>info</code> element</subtitle>
+
+<p style="lead">This page proposes allowing the <code>info</code> element
+to be used on certain block elements, possibly with a modified content model.
+This allows finer-grained metadata and opens more possibilities for
+extensions.</p>
+
+<links type="section"/>
+
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard provides an <code>info</code> element that can be placed at the
+  beginning of a <code>page</code> or <code>section</code> element and may
+  contain any number of informational elements to provide automatic linking,
+  alternate titles, credits and copyright information, and much more.</p>
+
+  <p>Sometimes it's useful to provide some of this information for a smaller
+  portion of a page. For example, you may wish to credit the programmer who
+  contributed a code block, or the illustrator who created an image. You might
+  also want to provide alternate titles, even without linking, as these can be
+  used by extensions such as <link xref="/ui/1.0/ui_expanded">UI Expanders</link>.</p>
+</section>
+
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes alloing the <code>info</code> element as an optional
+  first element in any block element that contains other block elements, as
+  well as any block elements with structured content. As of Mallard 1.0, that
+  includes
+  <code xref="/1.0/mal_block_media">media</code>,
+  <code xref="/1.0/mal_block_comment">comment</code>,
+  <code xref="/1.0/mal_block_example">example</code>,
+  <code xref="/1.0/mal_block_figure">figure</code>,
+  <code xref="/1.0/mal_block_listing">listing</code>,
+  <code xref="/1.0/mal_block_note">note</code>,
+  <code xref="/1.0/mal_block_quote">quote</code>,
+  <code xref="/1.0/mal_block_synopsis">synopsis</code>,
+  <code xref="/1.0/mal_block_list">list</code>,
+  <code xref="/1.0/mal_block_steps">steps</code>,
+  <code xref="/1.0/mal_block_terms">terms</code>,
+  <code xref="/1.0/mal_block_tree">tree</code>,
+  and <code xref="/1.0/mal_block_table">table</code>.</p>
+
+  <p>As with the existing <code>info</code> element, there are no processing
+  expectations associated with the <code>info</code> element used on block
+  elements. Certain informational elements may introduce processing expectations
+  of their own. In Mallard 1.0, the only informational elements that normatively
+  affect page processing are related to linking. This page does not propose
+  adding block elements to automatic linking (although this proposal would be
+  a prerequisite for doing so).</p>
+</section>
+
+
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Specify that a code block may be reused under the terms of the MIT license
+  as published by the OSI.</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[<listing>
+<info>
+<license href="http://opensource.org/licenses/MIT"/>
+</info>
+<code>
+def match_locale(extrange, locale):
+    # Extended filtering for extended language ranges as                                                    
+    # defined by RFC4647, part of BCP47.                                                                    
+    # http://tools.ietf.org/html/rfc4647#section-3.3.2                                                      
+    rangelist = [x.lower() for x in extrange.split('-')]
+    localelist = [x.lower() for x in locale.split('-')]
+    if rangelist[0] not in ('*', localelist[0]):
+        return False
+    rangei = localei = 0
+    while rangei < len(rangelist):
+        if rangelist[rangei] == '*':
+            rangei += 1
+            continue
+        if localei >= len(localelist):
+            return False
+        if rangelist[rangei] in ('*', localelist[localei]):
+            rangei += 1
+            localei += 1
+            continue
+        if len(localelist[localei]) == 1:
+            return False
+        localei += 1
+    return True
+</code>
+</listing>]]></code>
+  </example>
+
+  <p>Give credit to illustrators and videographers.</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<media type="image" src="graph.png">
+  <info>
+    <credit type="illustrator copyright">
+      <name>Rupert</name>
+      <email>rupert@example.com</email>
+      <years>2013</years>
+    </credit>
+  </info>
+</media>]]></code>
+    <code mime="application/xml"><![CDATA[
+<media type="video" src="presentation.webm">
+  <info>
+    <credit type="videographer copyright">
+      <name>Wanda</name>
+      <email>wanda@example.com</email>
+      <years>2013</years>
+    </credit>
+  </info>
+</media>]]></code>
+  </example>
+
+  <p>Provide an alternate title for when a figure is collapsed using
+  <link xref="/ui/1.0/ui_expanded">UI Expanders</link>.</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<figure ui:expanded="false">
+  <info>
+    <title type="ui:collapsed">Show Chart</title>
+  </info>
+  <title>Chart</title>
+  <media type="image" src="chart.png"/>
+</figure>
+]]></code>
+  </example>
+</section>
+
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>This proposal makes no backwards-incompatible changes. That is, any page
+  written in a version prior to the implementation of this proposal will work
+  exactly the same in a processing tool that implements this proposal.</p>
+
+  <p>This proposal adds an element where a block element may be expected.
+  Normally, if a new block element were to be added, its fallback behavior
+  would be subject to the default <link xref="/1.0/mal_block#processing">block
+  context fallback behavior</link>. This behavior is mostly suitable for this
+  addition, although there is potential for a multi-purpose element to be
+  accidentally processed in restricted block context.</p>
+
+  <p>However, the <link xref="/1.0/mal_info#processing">processing expectations
+  for the <code>info</code> element</link> explicitly say "If an <code>info</code>
+  element appears in any context other than as the first element of a page or
+  section, it is ignored." Therefore, the fallback behavior for any conformant
+  processor that does not implement this proposal is to ignore the additional
+  element, which is the desired behavior.</p>
+
+  <p>This page also proposes allowing the <code>info</code> element in list
+  and table elements. These elements do not take block content, but rather have
+  structured content specific to each element. None of these elements specifies
+  the fallback behavior for unrecognized elements. All known implementations
+  ignore unrecognized elements, so this change is considered safe.</p>
+</section>
+
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>Docbook 5 allows the generic
+  <code href="http://www.docbook.org/tdg51/en/html/titleonly.info.html">info</code>
+  element to be used on many block-level elements, similar to this proposal.
+  DocBook 4 contained more specialized info elements, including the
+  <code href="http://www.docbook.org/tdg/en/html/blockinfo.html">blockinfo</code>
+  element for many block elements and the
+  <code href="http://www.docbook.org/tdg/en/html/objectinfo.html">objectinfo</code>
+  element for media objects.</p>
+
+  <p>DITA does not contain an element to record metadata about block elements,
+  and only allows the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/prolog.html">prolog</code>
+  elements on
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/topic.html">topic</code>
+  and derivative elements.</p>
+</section>
+
+</page>
