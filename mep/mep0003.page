@@ -1,0 +1,119 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      version="1.0"
+      id="mep0003">
+
+<info>
+  <link type="guide" xref="index" group="1.1"/>
+  <link type="seealso" xref="/1.0/mal_links"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2013</years>
+  </credit>
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude">
+    <fallback/>
+  </include>
+
+  <revision date="2013-10-24" docversion="1.1" status="incomplete"/>
+  <revision date="2014-02-01" docversion="1.1" status="proposed"/>
+
+  <title type="text">The role Attribute on the links Element</title>
+  <title type="link">MEP-0003: The <code>role</code> Attribute on the <code>links</code> Element</title>
+
+  <desc>Allow users to select the link title role used to provide the text
+  for automatic links controlled by the <code>links</code> element.</desc>
+</info>
+
+<title>MEP-0003</title>
+<subtitle>The <code>role</code> Attribute on the <code>links</code> Element</subtitle>
+
+<p style="lead">This page outlines a mechanism for explicitly specifying the
+role to use when selecting alternate link titles for automatic links using
+the <code>links</code> element.</p>
+
+<links type="section"/>
+
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard allows you to have multiple titles in an <code>info</code> element.
+  These are used for different purposes, specified by the <code>type</code>
+  attribute. One of those types is link titles. Link titles can also take a
+  <code>role</code> attribute, which gets used in two ways:</p>
+
+  <list>
+    <item><p>Inline link elements can specify the title to use for link text
+    with the role attribute on the link element.</p></item>
+    <item><p>Automatic links automatically use a role. For example, topic links
+    will use (as a first pick) a link title with role="topic".</p></item>
+  </list>
+
+  <p>Sometimes, however, you want to use different titles in one place where you
+  use automatic links than in another. For example, if a topic is in two guides,
+  and one of the guides uses thumbnails to display its topic links, that guide
+  might want to use shorter titles than a guide that uses a standard list.</p>
+</section>
+
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes allowing an optional <code>role</code> attribute on the
+  <code>links</code> element. In Mallard 1.0, automatic links created from a
+  <code>links</code> element (or implicitly) use a role by default to look up
+  a link title for link text. For example, topic links will use link titles with
+  the role <code>topic</code> by default. The general process for most types of
+  links is:</p>
+
+  <list type="numbered">
+    <item><p>Use the link title with the correct <code>role</code> attribute for
+    this type of <code>links</code> element, if available.</p></item>
+    <item><p>Use the link title without a <code>role</code> attribute, if
+    available.</p></item>
+    <item><p>Use the primary title.</p></item>
+  </list>
+
+  <p>This page proposes keeping the default role for each links type and the
+  general procedure above, but adding a step at the beginning, such that the
+  procedure becomes:</p>
+
+  <list type="numbered">
+    <item><p>If the <code>links</code> element has a <code>role</code>
+    attribute, use the link title with a matching <code>role</code> attribute,
+    if available.</p></item>
+    <item><p>Use the link title with the correct <code>role</code> attribute for
+    this type of <code>links</code> element, if available.</p></item>
+    <item><p>Use the link title without a <code>role</code> attribute, if
+    available.</p></item>
+    <item><p>Use the primary title.</p></item>
+  </list>
+</section>
+
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>This proposal makes no backwards-incompatible changes. That is, any page
+  written in a version prior to the implementation of this proposal will work
+  exactly the same in a processing tool that implements this proposal.</p>
+
+  <p>The fallback behavior for a processing tool that does not implement this
+  proposal is that the lookup according to the <code>role</code> attribute on
+  the <code>links</code> element will not be performed. Instead, the remaining
+  lookups will be performed as specified by Mallard 1.0.</p>
+</section>
+
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>No other format has a comparable mechanism for selecting the title to use
+  for link text. Also, the <code>links</code> element is particular to the
+  unique automatic linking mechanism in Mallard. No comparison can be made to
+  other formats for this proposal.</p>
+</section>
+
+</page>
