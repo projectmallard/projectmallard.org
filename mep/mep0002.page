@@ -19,15 +19,15 @@
   <revision date="2013-10-20" docversion="1.1" status="incomplete"/>
   <revision date="2014-02-01" docversion="1.1" status="proposed"/>
 
-  <title type="text">Block info element</title>
-  <title type="link">MEP-0002: Block <code>info</code> element</title>
+  <title type="text">Block info Element</title>
+  <title type="link">MEP-0002: Block <code>info</code> Element</title>
 
   <desc>Allow the <code>info</code> element on formal block elements and
   block <code>media</code> element to provide metadata about them.</desc>
 </info>
 
 <title>MEP-0002</title>
-<subtitle>Block <code>info</code> element</subtitle>
+<subtitle>Block <code>info</code> Element</subtitle>
 
 <p style="lead">This page proposes allowing the <code>info</code> element
 to be used on certain block elements, possibly with a modified content model.
