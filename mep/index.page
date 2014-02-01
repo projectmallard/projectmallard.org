@@ -10,6 +10,7 @@
   </credit>
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
+  <title type="link">Enhancement Proposals</title>
   <title type="link" role="trail">Proposals</title>
 </info>
 
