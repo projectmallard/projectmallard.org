@@ -56,7 +56,7 @@ extensions.</p>
 <section id="proposal">
   <title>Proposal</title>
 
-  <p>This page proposes alloing the <code>info</code> element as an optional
+  <p>This page proposes allowing the <code>info</code> element as an optional
   first element in any block element that contains other block elements, as
   well as any block elements with structured content. As of Mallard 1.0, that
   includes
