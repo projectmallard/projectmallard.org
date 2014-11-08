@@ -1,0 +1,238 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      version="1.0"
+      id="mep0004">
+
+<info>
+  <link type="guide" xref="index" group="ui/1.0"/>
+  <link type="mep:depends" xref="mep0002"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2014</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude">
+    <fallback/>
+  </include>
+
+  <revision date="2014-02-04" docversion="ui/1.0" status="proposed"/>
+
+  <title type="text">The <code>thumb</code> Element</title>
+  <title type="link">MEP-0004: The <code>thumb</code> Element</title>
+
+  <desc>Provide an informational <code>thumb</code> element that can be used
+  to provide thumbnail images for pages, sections, and media objects.</desc>
+</info>
+
+<title>MEP-0004</title>
+<subtitle>The <code>thumb</code> Element</subtitle>
+
+<p style="lead">This page outlines a new element called <code>thumb</code> that
+would be allowed inside <code xref="/1.0/mal_info">info</code> elements to provide
+a thumbnail image that may be used for the parent element. This proposal attempts
+to provide a generic <code>thumb</code> element that may be used by different
+extensions.</p>
+
+<links type="section"/>
+
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard provides <code>title</code> and <code>desc</code> elements for pages
+  and sections, and even allows for multiple titles for different purposes. These
+  can be used to create rich text links. For some designs and extensions, it's
+  useful to associate an image with a page or section. For example, a page may
+  provide a representative screenshot or an icon that indicates its contents,
+  and this could be shown along with the topic link from a guide page.</p>
+
+  <p>Additionally, some extensions may display galleries or images or videos
+  that open the media in a popup or fullscreen window. These extensions can
+  benefit from allowing a separate thumbnail image for the media objects that
+  is distinct from a scaled-down version of the image or a randomly selected
+  video frame.</p>
+</section>
+
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes allowing zero or more <code>ui:thumb</code> elements
+  in any <code>info</code> element, where the namespace of the <code>ui:thumb</code>
+  element is the Mallard UI namespace:</p>
+
+  <code>http://projectmallard.org/ui/1.0/</code>
+
+  <p>The <code>ui:thumb</code> element has no content, and it may contain the
+  following attributes:</p>
+
+  <terms>
+    <item>
+      <title><code>src</code></title>
+      <p>The URL of the media file being used as a thumbnail.</p>
+    </item>
+    <item>
+      <title><code>width</code></title>
+      <title><code>height</code></title>
+      <p>The width and height of the file referenced by the
+      <code>src</code> attribute.</p>
+    </item>
+    <item>
+      <title><code>mime</code></title>
+      <p>The MIME type of the thumbnail.</p>
+    </item>
+    <item>
+      <title><code>role</code></title>
+      <p>A role, similar to the role on link titles, that may be used to select
+      the most appropriate thumbnail.</p>
+    </item>
+  </terms>
+
+  <p>Unlike the <code xref="/1.0/mal_block_media">media</code> element, the
+  <code>ui:thumb</code> element does not take a <code>type</code> attribute,
+  because it is assumed that thumbnails will be images. If this is a problem
+  in the future, a <code>type</code> attribute can easily be added, since it
+  defaults to <code>"image"</code> anyway.</p>
+
+  <p>The <code>role</code> attribute works similarly to the <code>role</code>
+  attribute on link titles. It may be used to select the most appropriate
+  thumbnail from a list of alternatives. When thumbnails are used for links
+  such as from a <code xref="/1.0/mal_links">links</code> element, the same
+  logic used to select a link title should be used to select a thumbnail.
+  Other uses of thumbnails may specify roles to prefer.</p>
+
+  <p>In some cases, it may be useful to provide alternative sizes of the same
+  thumbnail for the same role. In additional to using the <code>role</code>
+  attribute, implementations may check the <code>width</code> and
+  <code>height</code> attribute to select a thumbnail that has the most
+  optimal dimensions.</p>
+</section>
+
+
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use a scaled down screenshot as a thumbnail for a page.</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[<page xmlns="http://projectmallard.org"
+      xmlns:ui="http://projectmallard.org/ui/1.0/"
+      id="network-panel">
+  <info>
+    <ui:thumb src="network-panel-screenshot.png" width="300" height="200"/>
+  </info>
+  ...
+</page>]]></code>
+  </example>
+
+  <p>Provide multiple thumbnails with roles for a page to match the roles
+  of the link titles.</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[<page xmlns="http://projectmallard.org"
+      xmlns:ui="http://projectmallard.org/ui/1.0/"
+      id="network-panel">
+  <info>
+    <title type="link" role="topic">Network Panel</title>
+    <ui:thumb src="network-panel-big.png" role="topic" width="300" height="200"/>
+    <title type="link" role="gallery">Network</title>
+    <ui:thumb src="network-panel-small.png" role="gallery" width="150" height="100"/>
+  </info>
+  ...
+</page>]]></code>
+  </example>
+
+  <p>Provide a thumbnail image to be used for a video.</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[<media src="open-apps.webm" type="video" width="300" height="200">
+  <info>
+    <ui:thumb src="open-apps-thumb.png" width="300" height="200"/>
+  </info>
+</media>]]></code>
+  </example>
+</section>
+
+
+<section id="accessibility">
+  <title>Accessibility</title>
+
+  <p>This proposal provides no way to provide alternative text for thumbnails.
+  However, the title and desc of the parent elements is available. Implementations
+  should take care to either set alternative text from these elements or to show
+  the thumbnails in a way that obviates the need for alternative text, such as
+  with background images.</p>
+</section>
+
+
+<section id="internationalization">
+  <title>Internationalization</title>
+
+  <p>Thumbnails, like all media objects, may contain translatable material, such
+  as user interface text in a screenshot. Translation tools should allow thumbnails
+  to be translated using the same mechanism used for
+  <code xref="/1.0/mal_block_media">media</code> elements.</p>
+</section>
+
+
+<section id="alternatives">
+  <title>Alternatives</title>
+
+  <p>Yelp contains a number of features that use thumbnails provided by similar
+  elements in an experimental namespace. When used on <code>media</code> elements,
+  those features allow a <code>uix:caption</code> element to be a child of the
+  <code>uix:thumb</code> element. The <code>uix:caption</code> element, in turn,
+  may contain a <code>title</code> and <code>desc</code> element. (The extra
+  wrapper element is necessary for proper fallback processing.)</p>
+
+  <p>The title and desc provided by <code>uix:caption</code> are used alongside
+  thumbnails, which open the full media object in a popup. Because this proposal
+  depends on <link xref="mep0002">MEP-0002</link> to provide an <code>info</code>
+  element in block elements, a title and desc can simply be placed in that
+  <code>info</code> element instead, possibly with <code>role</code> attributes.</p>
+
+  <p>Although thumbnails will be useful for a number of Mallard UI features, they
+  may also be useful for designs that are accomplished only with the style hint,
+  or from other extensions. It may be better to add the <code>thumb</code> element
+  to Mallard core.</p>
+</section>
+
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>This proposal makes no backwards-incompatible changes. That is, any page
+  written in a version prior to the implementation of this proposal will work
+  exactly the same in a processing tool that implements this proposal.</p>
+
+  <p>This page adds an informational element. Unknown informational elements
+  are ignored by non-supporting tools, so pages using this extension will be
+  processed as well as can be expected with non-supporting tools. It's worth
+  noting that, because this proposal depends on <link xref="mep0002">MEP-0002</link>
+  to add <code>info</code> elements to block elements, the compatiblity notes
+  of that MEP apply to the <code>info</code> element. Inside the <code>info</code>
+  element, however, there are no compatibility issues.</p>
+</section>
+
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>DocBook allows any number of
+  <code href="http://docbook.org/tdg51/en/html/mediaobject.html">mediaobject</code>
+  elements inside
+  <code href="http://docbook.org/tdg51/en/html/titleforbidden.info.html">info</code>
+  elements, although there are no processing expectations for these. It's possible
+  to create some special stylings that use these elements for thumbnails.</p>
+
+  <p>DITA does not have a mechanism for providing thumbnails, but a specialization
+  could do so by specializing the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/data.html">data</code>
+  element in the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/prolog.html">prolog</code>
+  of a topic.</p>
+</section>
+
+</page>

@@ -28,4 +28,8 @@
   <title><link xref="/1.1/index">Mallard 1.1</link></title>
 </links>
 
+<links type="topic" groups="ui/1.0">
+  <title><link xref="/ui/1.0/index">Mallard UI 1.0</link></title>
+</links>
+
 </page>
