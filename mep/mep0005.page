@@ -1,0 +1,138 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mep0005">
+
+<info>
+  <link type="guide" xref="index" group="1.1"/>
+
+  <link type="seealso" xref="mep0002"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2014</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <revision date="2014-11-08" docversion="1.1" status="proposed"/>
+
+  <title type="text">Generic <code>div</code> element</title>
+  <title type="link">MEP-0005: Generic <code>div</code> element</title>
+
+  <desc>Create a generic formal element that can carry a title and
+  informational elements with no extra semantics.</desc>
+</info>
+
+<title>MEP-0005</title>
+<subtitle>Generic <code>div</code> element</subtitle>
+
+<p style="lead">This page proposes adding <code>div</code> as a formal block
+container element to allow better integration for extensions.</p>
+
+<links type="section"/>
+
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard provides multiple formal block container elements, such as
+  <code>figure</code>, <code>listing</code>, and <code>note</code>. These
+  provide base semantics that are suitable for most documents, and can be
+  made more specific using style hints. Extensions can be used when these
+  are not sufficient.</p>
+
+  <p>Mallard allows extensions to add elements to the core vocabulary with
+  predictable fallback behavior. For block elements, the fallback behavior
+  is to process the child elements as block, but ignoring unknown child
+  elements. If an extension adds a formal element with a title, and this
+  element is processed in fallback mode, the title is left dangling without
+  a parent formal block element.</p>
+</section>
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes adding a formal <code>div</code> element which can
+  take an optional <code>title</code> element followed by any general block
+  content. Pending <link xref="mep0002"/>, it may also contain a leading
+  <code>info</code> element.</p>
+
+  <p>The processing expectations for <code>div</code> would be to process
+  its block content as normal, with no expectation of extra visuals to
+  show grouping. The title should look like a title, although without
+  extra visuals, the extent of the text under the title may not be clear.
+  Style hints may override the default rendering.</p>
+
+  <p>With this change, the specified fallback behavior should mention the
+  <code>div</code> element. Block fallback behavior would be to process
+  the element as if it were a <code>div</code> element, but processing
+  the children in restricted block context.</p>
+</section>
+
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>div</code> to provide a title for a paragraph.</p>
+
+  <example>
+    <code><![CDATA[<div>
+  <title>Know Your Audience</title>
+  <p>When writing, it is important to know who you're writing for.</p>
+</div>]]></code>
+  </example>
+
+  <p>Use <code>div</code> to group together block elements so you can
+  transclude them as a whole, easing content reuse.</p>
+
+  <example>
+    <code><![CDATA[<div>
+  <p>Planing magic beans is fun and easy.</p>
+  <steps>
+    <item><p>Dig a hole 10cm deep.</p></item>
+    <item><p>Place magic beans in the hole.</p></item>
+    <item><p>Fill hole with fertilized soil.</p></item>
+    <item><p>Water frequently.</p></item>
+  </steps>
+  <note style="warning">
+    <p>Watch out for giants!</p>
+  </note>
+</div>]]></code>
+  </example>
+</section>
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>This proposal makes no backwards-incompatible changes. That is, any page
+  written in a version prior to the implementation of this proposal will work
+  exactly the same in a processing tool that implements this proposal.</p>
+
+  <p>The fallback behavior for a new block element is that its child elements
+  are processed as block elements, ignoring child elements that are unknown.
+  How a child <code>title</code> element is processed is unclear. The aim of
+  the <code>div</code> element is to make the fallback behavior more clear
+  for other formal elements in the future.</p>
+</section>
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>DocBook has the 
+  <code href="http://docbook.org/tdg51/en/html/formalpara.html">formalpara</code>
+  element for adding a title to a paragraph without any additional semantics.
+  The title is required, and it can only contain a single paragraph. There is
+  no element to contain multiple blocks without additional semantics.</p>
+
+  <p>In DITA, the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/bodydiv.html">bodydiv</code> and
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sectiondiv.html">sectiondiv</code>
+  elements allow you to add multiple block elements without additional semantics.
+  These elements do not allow a title, but the  
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/section.html">section</code>
+  can be used to have a titled group with at least little additional semantics.
+  Sections in DITA are lightweight block containers because sectioning is more
+  often done by nesting <code>topic</code> elements.</p>
+</section>
+
+</page>

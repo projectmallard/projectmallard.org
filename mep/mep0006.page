@@ -1,0 +1,181 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mep0006">
+
+<info>
+  <link type="guide" xref="index" group="1.1"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2014</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <revision date="2014-12-16" docversion="1.1" status="proposed"/>
+
+  <title type="text">More flexible version attribute</title>
+  <title type="link">MEP-0006: More flexible <code>version</code> attribute</title>
+
+  <desc>Extend the <code>version</code> attribute of the <code>revision</code>
+  element to allow an arbitrary number of keyed version numbers.</desc>
+</info>
+
+<title>MEP-0006</title>
+<subtitle>More flexible <code>version</code> attribute</subtitle>
+
+<p style="lead">This page proposes an extended form for the <code>version</code>
+attribute of the informational <link xref="/1.0/mal_info_revision">revision</link>
+element. It allows an arbitrary number of versions for different products, documents,
+or other resources. It also proposes deprecating the <code>docversion</code> and
+<code>pkgversion</code> attributes.</p>
+
+<links type="section"/>
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard 1.0 provides for three types of version numbers to be recorded for
+  each revision of a page or section:</p>
+
+  <list>
+    <item><p><code>version</code>: The version of the page, or the overall version
+    if no separate resources are used.</p></item>
+    <item><p><code>docversion</code>: The version of the document containing the
+    page. Documents contain multiple pages.</p></item>
+    <item><p><code>pkgversion</code>: For shipped packages, the version of the
+    package containing the document. Packages may contain multiple documents, and
+    the package version may correspond to the version of an application.</p></item>
+  </list>
+
+  <p>In actual practice, this trichotomy is seldom used, and it fails to address
+  real-world needs for multiple version numbers. In particular, it doesn't account
+  for the case where individual pages are included in multiple documents. This is
+  important in two common use cases:</p>
+
+  <list>
+    <item><p>If Project B is a fork or downstream of Project A, it may reuse some
+    pages, and periodically sync pages from Project A, possibly applying minor
+    patches in the process. In this case, it is useful for Project B to know which
+    version of Project A pages are taken from, or if the pages are original to
+    Project B.</p></item>
+
+    <item><p>A team may make multiple products with common components, such as
+    configuration systems or user interface elements. Or, a team may make multiple
+    documents for a single product, each aimed at a different audience. In either
+    case, common practice is to have a common content pool of pages that multiple
+    documents can use. In this case, it is useful to know against which versions
+    of each product or document the pages have been reviewed.</p></item>
+  </list>
+</section>
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes allowing the <code>version</code> attribute of the
+  informational <code>revision</code> take a space-separated list of version
+  token. A version token may be a bare version number, or it may be a
+  colon-separated pair consisting of a version key on the left and a version
+  number on the right.</p>
+
+  <p>This can be taken as a mapping from strings to version numbers, with a
+  bare version number being the value for the empty string. (This would make
+  a bare version number equivalent to preceding a version number with a colon
+  with no text before it.) It's useful to be able to get exactly one version
+  number for a version key, so if a version number is specified multiple times
+  for a version key, the last one is used.</p>
+
+  <p>Since this system can easily encapsulate the extra information from the
+  <code>docversion</code> and <code>pkgversion</code> attributes, usage of
+  those attributes would be deprecated, though they would remain in the schema
+  for compatibility reasons. To allow new tools to work with all statuses in
+  the same way, if the <code>docversion</code> or <code>pkgversion</code>
+  attributes are used, then those version numbers are <em>prepended</em> to
+  the version list with the <code>doc</code> and <code>pkg</code> version
+  keys, respectively.</p>
+</section>
+
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Record a version number along with the version of an upstream project
+  the page was last synced with.</p>
+
+  <example>
+    <code><![CDATA[
+<revision version="14.04 upstream:3.10" date="2014-04-01" version="final"/>
+]]></code>
+  </example>
+
+  <p>Record the version of multiple documents, indicating the last time a
+  page was reviewed in the context of each document.</p>
+
+  <example>
+    <code><![CDATA[
+<revision version="user-guide:1.4 admin-guide:1.3 install-guide:1.0"/>
+]]></code>
+  </example>
+
+  <p>Alternatively, use multiple <code>revision</code> elements, each with
+  a keyed version, to record separate status information for the page in
+  each document.</p>
+
+  <example>
+    <code><![CDATA[
+<revision version="user-guide:1.4" date="2014-06-3" status="outdated"/>
+<revision version="admin-guide:1.3" date="2013-06-03" status="review"/>
+<revision version="install-guide:1.0" date="2011-06-03" status="final"/>
+]]></code>
+  </example>
+</section>
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>This proposal has one potential backwards incompatibility. Because the
+  colon character will be used to separate version keys from version numbers,
+  any page which uses colons in version numbers will not be interpreted the
+  same way by a processing tool that implements this proposal. Although this
+  is valid, it is uncommon.</p>
+
+  <p>This proposal deprecates two attributes, but provides an automated
+  upgrade path for pages using those attributes.</p>
+
+  <p>The fallback behavior for multiple version tokens in one attribute is
+  not ideal. Any tool that does not implement this proposal will treat the
+  entire attribute value as a single version number. Authors who need to
+  use these tools should instead use multiple <code>revision</code>
+  elements, each with only one version token.</p>
+</section>
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The DocBook
+  <code href="http://docbook.org/tdg51/en/html/revision.html">revision</code>
+  element can contain at most one
+  <code href="http://docbook.org/tdg51/en/html/revnumber.html">revnumber</code>
+  element. There are no restrictions on the content of the <code>revnumber</code>
+  element, so a similar system to this proposal could be used without any
+  validity problems. Without a formal recommendation, however, it is
+  unlikely that revision-tracking tools will produce the desired result.
+  Another potential way to specify versions of multiple products is to
+  have multiple
+  <code href="http://docbook.org/tdg51/en/html/revhistory.html">revhistory</code>
+  elements, one for each product, using distinct <code>id</code> attributes
+  or <code>title</code> elements.</p>
+
+  <p>The DITA
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/vrmlist.html">vrmlist</code>
+  element allows you to specify versions of a product to which a topic
+  applies. The <code>vrmlist</code> element is contained by the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/prodinfo.html">prodinfo</code>
+  element, and you can have multiple <code>prodinfo</code> elements for
+  a single topic. To specify versions of different products, you can
+  have multiple <code>prodinfo</code> elements, one for each product,
+  using distinct <code>id</code> attributes or <code>prodname</code>
+  elements.</p>
+</section>
+
+</page>
