@@ -512,6 +512,22 @@ div.pmo-source {
       </tr>
     </table>
   </div>
+  <xsl:variable name="status">
+    <xsl:for-each select="/mal:page/mal:info/mal:revision[@date]">
+      <xsl:sort select="@date"/>
+      <xsl:if test="position() = last()">
+        <xsl:value-of select="@status"/>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:variable>
+  <xsl:if test="$status != 'final' and $status != 'rejected' and
+                $status != 'replaced' and $status != 'withdrawn'">
+    <div class="note"><div class="inner"><div class="region"><div class="contents">
+      <p>This proposal is still under consideration. Revisions may
+      still be made based on your input. Discuss this proposal on
+      <a href="{$mal.site.root_noslash}/about/contact{$mal.link.extension}">mallard-list</a>.</p>
+    </div></div></div></div>
+  </xsl:if>
 </xsl:template>
 
 </xsl:stylesheet>
