@@ -5,7 +5,6 @@
 
 <info>
   <link type="guide" xref="index" group="1.1"/>
-  <link type="seealso" xref="/1.0/mal_links"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -31,7 +30,7 @@
 
 <p style="lead">This page outlines a mechanism for explicitly specifying the
 role to use when selecting alternate link titles for automatic links using
-the <code>links</code> element.</p>
+the <code xref="/1.0/mal_links">links</code> element.</p>
 
 <links type="section"/>
 
