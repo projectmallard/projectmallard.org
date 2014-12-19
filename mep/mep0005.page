@@ -87,7 +87,7 @@ container element to allow better integration for extensions.</p>
 
   <example>
     <code><![CDATA[<div>
-  <p>Planing magic beans is fun and easy.</p>
+  <p>Planting magic beans is fun and easy.</p>
   <steps>
     <item><p>Dig a hole 10cm deep.</p></item>
     <item><p>Place magic beans in the hole.</p></item>
@@ -130,7 +130,7 @@ container element to allow better integration for extensions.</p>
   elements allow you to add multiple block elements without additional semantics.
   These elements do not allow a title, but the  
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/section.html">section</code>
-  can be used to have a titled group with at least little additional semantics.
+  element can be used to have a titled group with at least little additional semantics.
   Sections in DITA are lightweight block containers because sectioning is more
   often done by nesting <code>topic</code> elements.</p>
 </section>
