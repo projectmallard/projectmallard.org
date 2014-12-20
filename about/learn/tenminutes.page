@@ -101,6 +101,16 @@ the page files.  For example, if you have placed <file>index.page</file> in
 <file>/home/drake/mydocument/</file>, enter this at the command line:</p>
 
 <screen>yelp /home/drake/mydocument/</screen>
+
+<p>Alternatively, you can build static HTML pages using the <cmd>yelp-build</cmd>
+tool, part of the <sys>yelp-tools</sys> package:</p>
+
+<screen>cd /home/drake/mydocument/
+yelp-build html *.page</screen>
+
+<p>The <sys>yelp-tools</sys> package contains various utilities to help you
+build and manage your documentation. See
+<link href="https://wiki.gnome.org/Apps/Yelp/Tools"/> for more information.</p>
 </section>
 
 <section id="topic">
