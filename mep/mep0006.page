@@ -74,10 +74,10 @@ or other resources. It also proposes deprecating the <code>docversion</code> and
   <title>Proposal</title>
 
   <p>This page proposes allowing the <code>version</code> attribute of the
-  informational <code>revision</code> take a space-separated list of version
-  token. A version token may be a bare version number, or it may be a
-  colon-separated pair consisting of a version key on the left and a version
-  number on the right.</p>
+  informational <code>revision</code> element to take a space-separated list
+  of version tokens. A version token may be a bare version number, or it may
+  be a colon-separated pair consisting of a version key on the left and a
+  version number on the right.</p>
 
   <p>This can be taken as a mapping from strings to version numbers, with a
   bare version number being the value for the empty string. (This would make
