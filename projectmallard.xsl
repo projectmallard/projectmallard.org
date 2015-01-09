@@ -34,14 +34,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:param name="color.blue_border" select="'#3465a4'"/>
 
 <xsl:template name="html.head.custom">
-  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet" type="text/css"/>
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css"/>
+  <link href="http://fonts.googleapis.com/css?family=Bitter:400,700" rel="stylesheet" type="text/css"/>
+  <link href="http://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet" type="text/css"/>
 </xsl:template>
 
 <xsl:template name="html.css.custom">
 <xsl:text>
 body {
-  background: #888a85 url(duckbg.png) repeat-y;
-  background-position: center 0;
   font-family: 'Lato', sans;
   font-size: 14px;
 }
@@ -49,37 +49,40 @@ div.top {
   width: 100%;
   margin: 0;
   padding-top: 20px;
-  background-color: #ffffff;
-  font-weight: 900;
+  background: #2e3436 url(noise.png);
+  color: #eeeeec;
 }
 div.top > div.content {
-  height: 120px;
   max-width: 800px;
   margin: 0 auto 0 auto;
-  background: url(swoop.png) no-repeat;
-  background-position: 40px 0;
-}
-div.top-mallard {
-  margin: 0 0 0 20px;
-  font-size: 76px;
-}
-div.top-tagline {
-  margin: -10px 0 0 20px;
-  font-size: 19px;
-}
-div.top-mallard a {
-  text-decoration: none;
-  border: none;
-  color: #555753;
-}
-div.top-tagline a {
-  text-decoration: none;
-  border: none;
-  color: #888a85;
+  padding: 0 0 10px 0;
+  border-bottom: solid 6px #fcaf3e;
 }
 div.top img {
-  float: right;
-  margin: 20px 20px 0 20px;
+  float: left;
+  margin: 4px 10px 0 0;
+}
+div.top-mallard {
+  font-family: Bitter;
+  font-weight: bold;
+  font-size: 74px;
+  line-height: 0.83em;
+  margin: 0;
+  padding-left: 100px;
+}
+div.top-tagline {
+  font-family: 'Special Elite';
+  font-weight: normal;
+  margin: 8px 0 0 0;
+  font-size: 22px;
+  line-height: 1em;
+  padding-left: 100px;
+}
+div.top a {
+  text-decoration: none;
+  border: none;
+  color: #eeeeec;
+  text-shadow: 2px 2px 0 #1c1f20;
 }
 @media only screen and (max-width: 400px) {
   div.top-mallard, div.top-tagline {
@@ -99,8 +102,6 @@ div.page {
   max-width: 100%;
 }
 div.header {
-  border-top: solid 6px </xsl:text>
-    <xsl:value-of select="$color.yellow_border"/><xsl:text>;
   margin: 0 auto 0 auto;
   max-width: 800px;
 }
@@ -108,6 +109,7 @@ div.trails {
   color: #3465a4;
   padding: 0.5em 22px 0.5em 22px;
   background-color: #eeeeec;
+  font-family: Bitter;
 }
 @media only screen and (max-width: 400px) {
   div.trails {
@@ -123,6 +125,7 @@ div.body {
 div.body > div.hgroup {
   margin-top: 0;
 }
+h1, h2, h3, h4, h5, h6, h7 { font-family: Bitter; }
 h1.title { font-size: 3em; }
 h2.title { font-size: 1.73em; }
 p { max-width: 62em; text-align: justify; }
@@ -134,8 +137,10 @@ a img { border: none; }
 }
 
 div.bottom {
+  background: #2e3436 url(noise.png);
   color: #d3d7cf;
-  text-shadow: 1px 1px 0 </xsl:text><xsl:value-of select="$color.text_light"/><xsl:text>;
+  text-shadow: 1px 1px 0 #1c1f20;
+  padding: 0;
 }
 div.bottom a {
   color: #d3d7cf;
@@ -145,9 +150,11 @@ div.bottom a:hover {
   border-bottom: none;
 }
 div.bottom div.content {
+  background: url(duckbg.png) repeat-y;
+  background-position: center 6px;
   max-width: 760px;
   margin: 0 auto 0 auto;
-  padding: 0 0 10px 0;
+  padding: 1px 0 10px 0;
 }
 div.bottom-badge {
   margin: 1em;
@@ -205,7 +212,7 @@ div.pmo-what > div.inner > div.hgroup,
 div.pmo-why > div.inner > div.hgroup {
   border-bottom: none;
 }
-div.pmo-index h2 { font-size: 18px; font-weight: 900; }
+div.pmo-index h2 { font-size: 18px; font-weight: bold; }
 div.pmo-index p { text-align: left; }
 div.pmo-index li { margin-left: 1.44em; }
 div.pmo-index div.title { margin-top: 0; font-size: 14px; }
@@ -298,12 +305,12 @@ div.pmo-source {
       <img class="header-icon" width="80" height="80">
         <xsl:attribute name="src">
           <xsl:value-of select="$mal.site.root_noslash"/>
-          <xsl:text>/mallard-logo-80.png</xsl:text>
+          <xsl:text>/mallard-logo-border-80.png</xsl:text>
         </xsl:attribute>
       </img>
     </a>
     <div class="top-mallard"><a href="{$mal.site.root_noslash}/{$rootlink}">Mallard</a></div>
-    <div class="top-tagline"><a href="{$mal.site.root_noslash}/{$rootlink}">Better Help for Better Software</a></div>
+    <div class="top-tagline"><a href="{$mal.site.root_noslash}/{$rootlink}">We built the help system.</a></div>
   </div></div>
 </xsl:template>
 
