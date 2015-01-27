@@ -11,6 +11,9 @@ Makefile.in
 *.cache.in
 *.html
 *.page.stub
+/__build__
+/__stage__
+/__tools__
 /*.js
 /*.css
 /yelp-note-bug.png

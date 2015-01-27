@@ -25,7 +25,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 exclude-result-prefixes="mal str"
                 version="1.0">
 
-<!-- We shouldn't depend on mal.site.root_noslash; it's not public -->
+<xsl:param name="mal.link.extension" select="''"/>
 
 <xsl:param name="theme.icons.size.note" select="24"/>
 
@@ -301,16 +301,16 @@ div.pmo-source {
     </xsl:if>
   </xsl:variable>
   <div class="top"><div class="content">
-    <a href="{$mal.site.root_noslash}/{$rootlink}">
+    <a href="{$mal.site.root}{$rootlink}">
       <img class="header-icon" width="80" height="80">
         <xsl:attribute name="src">
-          <xsl:value-of select="$mal.site.root_noslash"/>
-          <xsl:text>/mallard-logo-border-80.png</xsl:text>
+          <xsl:value-of select="$mal.site.root"/>
+          <xsl:text>mallard-logo-border-80.png</xsl:text>
         </xsl:attribute>
       </img>
     </a>
-    <div class="top-mallard"><a href="{$mal.site.root_noslash}/{$rootlink}">Mallard</a></div>
-    <div class="top-tagline"><a href="{$mal.site.root_noslash}/{$rootlink}">We built the help system.</a></div>
+    <div class="top-mallard"><a href="{$mal.site.root}{$rootlink}">Mallard</a></div>
+    <div class="top-tagline"><a href="{$mal.site.root}{$rootlink}">We built the help system.</a></div>
   </div></div>
 </xsl:template>
 
@@ -380,8 +380,8 @@ div.pmo-source {
     <a href="http://projectmallard.org">
       <img alt="Mallard" width="80" height="15">
         <xsl:attribute name="src">
-          <xsl:value-of select="$mal.site.root_noslash"/>
-          <xsl:text>/mallard-badge.png</xsl:text>
+          <xsl:value-of select="$mal.site.root"/>
+          <xsl:text>mallard-badge.png</xsl:text>
         </xsl:attribute>
       </img>
     </a>
@@ -532,7 +532,7 @@ div.pmo-source {
     <div class="note"><div class="inner"><div class="region"><div class="contents">
       <p>This proposal is still under consideration. Revisions may
       still be made based on your input. Discuss this proposal on
-      <a href="{$mal.site.root_noslash}/about/contact{$mal.link.extension}">mallard-list</a>.</p>
+      <a href="{$mal.site.root}about/contact{$mal.link.extension}">mallard-list</a>.</p>
     </div></div></div></div>
   </xsl:if>
 </xsl:template>
