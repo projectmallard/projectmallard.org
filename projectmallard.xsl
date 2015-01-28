@@ -202,12 +202,38 @@ div.pmo-what {
   margin-bottom: 20px;
 }
 div.pmo-specs div.list {
-  display: inline-block;
-  vertical-align: top;
-  width: 240px;
   margin-top: 0;
   margin-bottom: 16px;
 }
+div.pmo-specs li.list {
+  display: inline-block;
+  background: #3465a4 url(noiseblue.png);
+  border-radius: 4px;
+  margin: 0 10px 10px 0;
+  padding: 0;
+}
+div.pmo-specs li a {
+  background: url(duckbg.png) repeat-y;
+  display: block;
+  width: 216px;
+  border: none;
+  padding: 4px 12px;
+  color: #eeeeec;
+  text-shadow: 1px 1px 0 #3465a4;
+  font-family: Bitter;
+  font-weight: bold;
+}
+div.pmo-specs li a:hover {
+  color: white;
+}
+div.pmo-specs span.em {
+  font-style: normal;
+  font-family: 'Special Elite';
+  font-weight: normal;
+  padding-left: 6px;
+}
+
+
 div.pmo-what > div.inner > div.hgroup,
 div.pmo-why > div.inner > div.hgroup {
   border-bottom: none;

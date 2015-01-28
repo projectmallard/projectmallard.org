@@ -12,6 +12,7 @@
   </credit>
 
   <title type="link" role="trail">TTML 1.0 DRAFT</title>
+  <title type="link" role="-index">Mallard+TTML 1.0 <em>DRAFT</em></title>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
