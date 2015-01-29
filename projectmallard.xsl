@@ -25,8 +25,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 exclude-result-prefixes="mal str"
                 version="1.0">
 
-<xsl:param name="mal.link.extension" select="''"/>
-
 <xsl:param name="theme.icons.size.note" select="24"/>
 
 <xsl:param name="color.yellow_border" select="'#fcaf3e'"/>
