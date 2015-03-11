@@ -24,6 +24,10 @@
 <title>Changes in Mallard 1.1</title>
 
 <list>
+  <item><p>The <code xref="mal_inline_guiseq">guiseq</code> and
+  <code xref="mal_inline_keyseq">keyseq</code> elements allow linking attributes
+  like other inline elements.</p></item>
+
   <item><p>The <code xref="mal_links">links</code> element accepts a <code>role</code>
   attribute, allowing you to specify a link title role to try before using the standard
   link title role for the particular type of <code>links</code> element.</p></item>

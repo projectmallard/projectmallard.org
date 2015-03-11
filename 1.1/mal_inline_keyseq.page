@@ -45,6 +45,9 @@ key press.  You can use text without markup to indicate a class of keys, such as
     pressed together (<code>"combo"</code>) or in sequence (<code>"sequence"</code>).
     The default is <code>"combo"</code>.</p></item>
 
+    <item><p>The <code>keyseq</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
@@ -175,6 +178,7 @@ mal_inline_keyseq = element keyseq {
   mal_inline_keyseq_inline
 }
 mal_inline_keyseq_attr = (
+  <link xref="mal_attr_link">mal_attr_link</link> *,
   attribute type { "combo" | "sequence" } ?,
   attribute style { xsd:NMTOKENS } ?,
   <link xref="mal_inline">mal_inline_attr</link>,
