@@ -1,0 +1,479 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      version="1.0 ttml/1.0"
+      id="ttml">
+
+<info>
+  <link type="guide" xref="index" group="extension"/>
+  <link type="seealso" xref="media"/>
+
+  <revision version="0.1" date="2010-03-08" status="incomplete"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2015</years>
+  </credit>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Embed TTML into your Mallard pages to create subtitles for video and audio.</desc>
+</info>
+
+<title>Mallard and TTML</title>
+
+<p>The core Mallard language is intentionally as simple as possible.  It
+addresses a specific set of problems, allowing domain-specific languages to
+handle other areas.  As a well-designed, modern XML vocabulary, Mallard
+defines exactly where and how you can mix XML markup from external
+namespaces.  With proper tool support, you can embed almost any XML
+vocabulary into Mallard.</p>
+
+<p>This tutorial explains how to embed
+<link href="http://www.w3.org/TR/ttaf1-dfxp/">Timed Text Markup Language (TTML)</link>
+into your Mallard documents. TTML is an XML vocabulary for marking up timed text,
+or text that is shown only at certain times for timed media like videos. This
+is generally used to subtitle spoken parts of a video, or to provide captions
+for demonstrations that may not contain spoken audio.</p>
+
+<p>One of the advantages of embedding TTML into Mallard is that the subtitles
+can be translated as part of the normal translation workflow. Translating
+video is expensive in terms of both translator time and storage requirements.
+Whether or not the video is translated, embedding subtitles into your Mallard
+document with TTML allows a relatively low-cost localization.</p>
+
+
+<note>
+<p>To see the results of the examples in this tutorial, your browser
+needs to support HTML5 video.</p>
+</note>
+
+<section id="basic">
+<title>Basic TTML</title>
+
+<p>The Mallard <code xref="/1.0/mal_block_media">media</code> element allows
+you to add images, video, audio, and external applications to a page. To add
+a video, set the <code>type</code> attribute to <code>video</code>. This
+tutorial uses a video from the 
+<link href="https://git.gnome.org/browse/gnome-getting-started-docs">GNOME
+Getting Started videos</link>.</p>
+
+<example>
+<code><![CDATA[
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394"/>
+]]></code>
+<media type="video" src="gnome-change-wallpaper.webm" width="700" height="394"/>
+</example>
+
+<p>You can add child content to the <code>media</code> element. This can be
+used to add fallback content (for example, to use an image instead of a video
+in print media), or to enable extention content. In this case, TTML is extension
+content. Mallard implementations that understand TTML will show the subtitles.
+Implementations that do not will just show the video without subtitles.</p>
+
+<p>TTML subtitles are defined with elements in the namespace
+<code>http://www.w3.org/ns/ttml</code>. This tutorial uses the <code>tt</code>
+prefix for that namespace. Subtitles are contained in a <code>tt:tt</code>
+element, which in turn contains a single <code>tt:body</code> element. The
+<code>tt:body</code> element contains any number of <code>tt:div</code>
+elements, which contains <code>tt:p</code> elements. The <code>begin</code>
+and <code>end</code> attributes specify when the content should be shown.</p>
+
+<p>This example adds a single caption for the introductory text that starts
+after one second and ends at the five-second mark.</p>
+
+<example>
+<code><![CDATA[
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+]]><e:hi><![CDATA[  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing Wallpaper</tt:p>
+      </tt:div>
+    </tt:body>
+  </tt:tt>]]></e:hi><![CDATA[
+</media>
+]]></code>
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing Wallpaper</tt:p>
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+</example>
+
+<p>You can also use the <code>dur</code> attribute instead of the <code>end</code>
+attribute. This specifies how long the caption is displayed, rather than the
+time at which it is hidden.</p>
+
+<example>
+<code><![CDATA[
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" ]]><e:hi>dur="4s"</e:hi><![CDATA[>
+        <tt:p>Changing Wallpaper</tt:p>
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+]]></code>
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" dur="4s">
+        <tt:p>Changing Wallpaper</tt:p>
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+</example>
+
+<p>You can then add more <code>tt:div</code> elements for more captions.</p>
+
+<example>
+<code><![CDATA[
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing Wallpaper</tt:p>
+      </tt:div>
+]]><e:hi><![CDATA[      <tt:div begin="6s" end="9s">
+        <tt:p>Click the system menu on the right side of the top bar
+        and press the settings button.</tt:p>
+      </tt:div>]]></e:hi><![CDATA[
+    </tt:body>
+  </tt:tt>
+</media>
+]]></code>
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing Wallpaper</tt:p>
+      </tt:div>
+      <tt:div begin="6s" end="9s">
+        <tt:p>Click the system menu on the right side of the top bar
+        and press the settings button.</tt:p>
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+</example>
+
+</section>
+
+<section id="nesting">
+<title>Nesting Timed Content</title>
+
+<p>You can add more than one <code>tt:p</code> element to a <code>tt:div</code>,
+or even nest <code>tt:div</code> elements inside other <code>tt:div</code>
+elements. Nested <code>tt:div</code> elements and <code>tt:p</code> elements
+can both take timing attributes, which are calculated relative to their parent
+elements.</p>
+
+<p>This example shows the word “Wallpaper” in its own paragraph, starting one
+second after the enclosing caption is shown, or at the two-second mark. Because
+it does not have an <code>end</code> or <code>dur</code> attribute, it is shown
+as long as the enclosing caption is shown.</p>
+
+<example>
+<code><![CDATA[
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing</tt:p>
+]]><e:hi><![CDATA[        <tt:p begin="1s">Wallpaper</tt:p>]]></e:hi><![CDATA[
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+]]></code>
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing</tt:p>
+        <tt:p begin="1s">Wallpaper</tt:p>
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+</example>
+
+<p>TTML also provides the <code>tt:span</code> element, which is an inline
+element. You can put timing attributes on <code>tt:span</code> as well to
+show certain spans of text in a paragraph at certain times. Like the previous
+example, this example shows the word “Wallpaper” at the two-second mark, but
+it keeps it within the same paragraph.</p>
+
+<example>
+<code><![CDATA[
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing ]]><e:hi><![CDATA[<tt:span begin="1s">Wallpaper</tt:span>]]></e:hi><![CDATA[</tt:p>
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+]]></code>
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing <tt:span begin="1s">Wallpaper</tt:span></tt:p>
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+</example>
+
+<p>This can get arbitrarily complex. The following example uses millisecond
+timing to progressively show words. This may appear somewhat choppy, depending
+how the resolution of timing events in your browser.</p>
+
+<example>
+<code><![CDATA[
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing Wallpaper</tt:p>
+      </tt:div>
+      <tt:div begin="6s" end="9s">
+]]><e:hi><![CDATA[        <tt:p>Click <tt:span begin="100ms">the
+          <tt:span begin="100ms">system <tt:span begin="100ms">menu
+          <tt:span begin="100ms">on <tt:span begin="100ms">the
+          <tt:span begin="100ms">right <tt:span begin="100ms">side
+          <tt:span begin="100ms">of <tt:span begin="100ms">the
+          <tt:span begin="100ms">top <tt:span begin="100ms">bar
+          <tt:span begin="100ms">and <tt:span begin="100ms">press
+          <tt:span begin="100ms">the <tt:span begin="100ms">settings
+          <tt:span begin="100ms">button.</tt:span></tt:span></tt:span>
+        </tt:span></tt:span></tt:span></tt:span></tt:span></tt:span>
+        </tt:span></tt:span></tt:span></tt:span></tt:span></tt:span>
+        </tt:span></tt:p>]]></e:hi><![CDATA[
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+]]></code>
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing Wallpaper</tt:p>
+      </tt:div>
+      <tt:div begin="6s" end="9s">
+        <tt:p>Click <tt:span begin="100ms">the
+          <tt:span begin="100ms">system <tt:span begin="100ms">menu
+          <tt:span begin="100ms">on <tt:span begin="100ms">the
+          <tt:span begin="100ms">right <tt:span begin="100ms">side
+          <tt:span begin="100ms">of <tt:span begin="100ms">the
+          <tt:span begin="100ms">top <tt:span begin="100ms">bar
+          <tt:span begin="100ms">and <tt:span begin="100ms">press
+          <tt:span begin="100ms">the <tt:span begin="100ms">settings
+          <tt:span begin="100ms">button.</tt:span></tt:span></tt:span>
+        </tt:span></tt:span></tt:span></tt:span></tt:span></tt:span>
+        </tt:span></tt:span></tt:span></tt:span></tt:span></tt:span>
+        </tt:span></tt:p>
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+</example>
+
+</section>
+
+<section id="mixing">
+<title>Mixing Mallard and TTML</title>
+
+<p>Mallard is designed to have other XML vocabularies mixed in, but it’s also
+designed to be mixed into those vocabularies. So just as you can put TTML in
+your Mallard pages, you can put Mallard elements in the TTML elements in your
+Mallard pages.</p>
+
+<p>This example uses the inline Mallard <code xref="/1.0/mal_inline_gui">gui</code>
+element to mark up the label of a user interface element when it appears in
+a TTML subtitle.</p>
+
+<example>
+<code><![CDATA[
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing Wallpaper</tt:p>
+      </tt:div>
+      <tt:div begin="6s" end="9s">
+        <tt:p>Click the system menu on the right side of the top bar
+        and press the settings button.</tt:p>
+      </tt:div>
+      <tt:div begin="10s" end="12s">
+]]><e:hi><![CDATA[        <tt:p>Select <gui>Background</gui>.</tt:p>]]></e:hi><![CDATA[
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+]]></code>
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing Wallpaper</tt:p>
+      </tt:div>
+      <tt:div begin="6s" end="9s">
+        <tt:p>Click the system menu on the right side of the top bar
+        and press the settings button.</tt:p>
+      </tt:div>
+      <tt:div begin="10s" end="12s">
+        <tt:p>Select <gui>Background</gui>.</tt:p>
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+</example>
+
+<p>Just as you can use inline Mallard elements inside a <code>tt:p</code>
+element, you can also use block Mallard elements inside a <code>tt:div</code>
+element. This example puts all the steps into Mallard
+<code xref="/1.0/mal_block_steps">steps</code> element. It uses the
+<code>continues</code> style hint to number them correctly, even though
+only one step is shown at a time.</p>
+
+<example>
+<code><![CDATA[
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing Wallpaper</tt:p>
+      </tt:div>
+      <tt:div begin="6s" end="10s">
+]]><e:hi><![CDATA[        <steps>
+          <item>
+            <p>Click the system menu on the right side of the top bar
+            and press the settings button.</p>
+          </item>
+        </steps>]]></e:hi><![CDATA[
+      </tt:div>
+      <tt:div begin="10s" end="12s">
+]]><e:hi><![CDATA[        <steps style="continues">
+          <item>
+            <p>Select <gui>Background</gui>.</p>
+          </item>
+        </steps>]]></e:hi><![CDATA[
+      </tt:div>
+      <tt:div begin="12s" end="13s">
+]]><e:hi><![CDATA[        <steps style="continues">
+          <item>
+            <p>Click the current background image.</p>
+          </item>
+        </steps>]]></e:hi><![CDATA[
+      </tt:div>
+      <tt:div begin="13s" end="16s">
+]]><e:hi><![CDATA[        <steps style="continues">
+          <item>
+            <p>Click the background image you want to use.</p>
+          </item>
+        </steps>]]></e:hi><![CDATA[
+      </tt:div>
+      <tt:div begin="16s" end="18s">
+]]><e:hi><![CDATA[        <steps style="continues">
+          <item>
+            <p>Click the <gui>Select</gui> button.</p>
+          </item>
+        </steps>]]></e:hi><![CDATA[
+      </tt:div>
+      <tt:div begin="18s" end="21s">
+]]><e:hi><![CDATA[        <steps style="continues">
+          <item>
+            <p>Close the <gui>Background</gui> window.</p>
+          </item>
+        </steps>]]></e:hi><![CDATA[
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+]]></code>
+<media type="video" src="gnome-change-wallpaper.webm"
+       width="700" height="394">
+  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <tt:body>
+      <tt:div begin="1s" end="5s">
+        <tt:p>Changing Wallpaper</tt:p>
+      </tt:div>
+      <tt:div begin="6s" end="10s">
+        <steps>
+          <item>
+            <p>Click the system menu on the right side of the top bar
+            and press the settings button.</p>
+          </item>
+        </steps>
+      </tt:div>
+      <tt:div begin="10s" end="12s">
+        <steps style="continues">
+          <item>
+            <p>Select <gui>Background</gui>.</p>
+          </item>
+        </steps>
+      </tt:div>
+      <tt:div begin="12s" end="13s">
+        <steps style="continues">
+          <item>
+            <p>Click the current background image.</p>
+          </item>
+        </steps>
+      </tt:div>
+      <tt:div begin="13s" end="16s">
+        <steps style="continues">
+          <item>
+            <p>Click the background image you want to use.</p>
+          </item>
+        </steps>
+      </tt:div>
+      <tt:div begin="16s" end="18s">
+        <steps style="continues">
+          <item>
+            <p>Click the <gui>Select</gui> button.</p>
+          </item>
+        </steps>
+      </tt:div>
+      <tt:div begin="18s" end="21s">
+        <steps style="continues">
+          <item>
+            <p>Close the <gui>Background</gui> window.</p>
+          </item>
+        </steps>
+      </tt:div>
+    </tt:body>
+  </tt:tt>
+</media>
+</example>
+
+</section>
+
+</page>
