@@ -248,7 +248,7 @@ it keeps it within the same paragraph.</p>
 
 <p>This can get arbitrarily complex. The following example uses millisecond
 timing to progressively show words. This may appear somewhat choppy, depending
-how the resolution of timing events in your browser.</p>
+on the resolution of timing events in your browser.</p>
 
 <example>
 <code><![CDATA[
