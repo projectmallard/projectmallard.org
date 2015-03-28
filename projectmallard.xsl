@@ -35,6 +35,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css"/>
   <link href="http://fonts.googleapis.com/css?family=Bitter:400,700" rel="stylesheet" type="text/css"/>
   <link href="http://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet" type="text/css"/>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 </xsl:template>
 
 <xsl:template name="html.css.custom">
@@ -285,6 +286,24 @@ div.pmo-source {
   background-color: </xsl:text>
     <xsl:value-of select="$color.yellow_background"/><xsl:text>;
 }
+
+div.editongithub {
+  float: right;
+  margin: -1.5em 0 0 0;
+}
+div.editongithub a {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  border-radius: 2px;
+  color: #eeeeec;
+  color: #d3d7cf;
+  text-shadow: 1px 1px 0 #1c1f20;
+}
+div.editongithub a:hover {
+  border: none;
+  background: #3465a4 url(noiseblue.png);
+  color: white;
+}
 </xsl:text>
 </xsl:template>
 
@@ -318,6 +337,7 @@ div.pmo-source {
 </xsl:template>
 
 <xsl:template name="html.top.custom">
+  <xsl:param name="node" select="."/>
   <xsl:variable name="rootlink">
     <xsl:if test="$mal.link.extension != ''">
       <xsl:text>index</xsl:text>
@@ -335,6 +355,18 @@ div.pmo-source {
     </a>
     <div class="top-mallard"><a href="{$mal.site.root}{$rootlink}">Mallard</a></div>
     <div class="top-tagline"><a href="{$mal.site.root}{$rootlink}">We built the help system.</a></div>
+    <div class="editongithub">
+      <a>
+        <xsl:attribute name="href">
+          <xsl:text>https://github.com/projectmallard/projectmallard.org/edit/master</xsl:text>
+          <xsl:value-of select="$mal.site.dir"/>
+          <xsl:value-of select="$node/@id"/>
+          <xsl:text>.page</xsl:text>
+        </xsl:attribute>
+        <i class="fa fa-github"></i>
+        <xsl:text> Edit on GitHub</xsl:text>
+      </a>
+    </div>
   </div></div>
 </xsl:template>
 
