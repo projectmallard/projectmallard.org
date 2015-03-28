@@ -34,8 +34,6 @@ from <link xref="tokens">test tokens</link>.</p>
 the <code xref="if_choose">if:choose</code> element to support branching and
 fallback content for different conditions.</p>
 
-<include href="../../common.xml" xpointer="xpointer(id('candidate'))" xmlns="http://www.w3.org/2001/XInclude"/>
-
 <links type="topic" groups="test if" style="linklist">
   <title>Basic Conditionals</title>
 </links>
