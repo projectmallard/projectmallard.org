@@ -50,12 +50,12 @@
   <list style="compact">
     <title>Specifications:</title>
     <item><p><link xref="/1.0/index"/></p></item>
+    <item><p><link xref="/if/1.0/index"/></p></item>
   </list>
 
   <list style="compact">
     <title>Candidates:</title>
     <item><p><link xref="/cache/1.0/index"/></p></item>
-    <item><p><link xref="/if/1.0/index"/></p></item>
   </list>
 
   <list style="compact">
