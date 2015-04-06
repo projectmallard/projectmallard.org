@@ -1,6 +1,6 @@
 AC_PREREQ(2.53)
 
-m4_define([pkg_version], [1.0.0])
+m4_define([pkg_version], [1.0.1])
 AC_INIT([mallard-rng], [pkg_version], [])
 AC_CONFIG_SRCDIR([1.0/mallard-1.0.rng])
 

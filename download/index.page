@@ -6,7 +6,7 @@
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2011</years>
+    <years>2011-2015</years>
   </credit>
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
@@ -19,6 +19,14 @@ provided in both XML and compact syntax. The package automatically integrates
 with your system's XML catalog.</p>
 
 <terms>
+  <item>
+    <title><sys href="mallard-rng-1.0.1.tar.bz2"><span style="package">mallard-rng</span>
+    <span style="version">1.0.1</span></sys>
+    (<link href="mallard-rng-1.0.1.tar.bz2.sha256sum">checksum</link>)</title>
+    <list>
+      <item><p>Added <link xref="/if/1.0/index">Mallard Conditionals 1.0</link> schema</p></item>
+    </list>
+  </item>
   <item>
     <title><sys href="mallard-rng-1.0.0.tar.bz2"><span style="package">mallard-rng</span>
     <span style="version">1.0.0</span></sys>
