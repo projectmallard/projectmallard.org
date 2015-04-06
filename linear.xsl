@@ -30,23 +30,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:output method="text"/>
 
-<!--
-<xsl:key name="links.key" match="mal:link" use="@xref"/>
-
-<xsl:template match="/cache:cache">
-  <xsl:variable name="links">
-    <xsl:call-template name="linear">
-      <xsl:with-param name="node" select="key('mal.cache.key', $root)"/>
-    </xsl:call-template>
-  </xsl:variable>
-  <xsl:for-each select="exsl:node-set($links)/mal:link">
-    <xsl:if test="set:has-same-node(key('links.key', @xref)[1], .)">
-      <xsl:value-of select="concat(@xref, '&#x000A;')"/>
-    </xsl:if>
-  </xsl:for-each>
-</xsl:template>
--->
-
 <xsl:template match="/cache:cache">
   <xsl:variable name="links">
     <xsl:call-template name="mal.sort.tsort"/>

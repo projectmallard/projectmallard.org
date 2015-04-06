@@ -1,4 +1,0 @@
-<?xml version="1.0"?>
-<site xmlns="http://projectmallard.org/site/1.0/">
-  <link type="site-custom-xsl" href="projectmallard.xsl"/>
-</site>

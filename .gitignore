@@ -7,13 +7,8 @@ missing
 Makefile
 Makefile.in
 *~
-*.cache
-*.cache.in
-*.html
 *.page.stub
-/__build__
-/__stage__
-/__tools__
+/__pintail__
 /*.js
 /*.css
 /yelp-note-bug.png
