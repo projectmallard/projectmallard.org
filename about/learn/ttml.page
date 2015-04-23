@@ -68,7 +68,7 @@ Getting Started videos</link>.</p>
 
 <p>You can add child content to the <code>media</code> element. This can be
 used to add fallback content (for example, to use an image instead of a video
-in print media), or to enable extention content. In this case, TTML is extension
+in print media), or to enable extension content. In this case, TTML is extension
 content. Mallard implementations that understand TTML will show the subtitles.
 Implementations that do not will just show the video without subtitles.</p>
 
