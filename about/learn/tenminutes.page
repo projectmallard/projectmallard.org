@@ -153,7 +153,7 @@ them. Do this by adding a link element to <file>planting.page</file>:</p>
 <p>The <code>link</code> element specifies that this page should be linked
 to from the guide page <code>index</code>, which we created above.  This
 element has no content, so we use the XML empty element syntax, ending
-the tag with <code>/></code>.  The <code>link</code> element is inside a
+the tag with <code>/></code>.  The <code>link</code> element is inside an
 <code>info</code> element.  The <code>info</code> element contains various
 information about a page, including links to other pages.</p>
 
