@@ -6,19 +6,21 @@
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2009</years>
+    <years>2009-2015</years>
   </credit>
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
 
 <title>Learn Mallard</title>
 
-<links type="topic" groups="primary #default #last extension"/>
+<links type="topic" groups="primary"/>
 
-<!--
-<links type="topic" groups="extension">
-<title>Extensions</title>
+<links type="topic" groups="#default #last" style="2column">
+  <title>Core Functionality</title>
 </links>
--->
+
+<links type="topic" groups="extension" style="2column">
+  <title>Core Extensions</title>
+</links>
 
 </page>

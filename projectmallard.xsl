@@ -52,7 +52,7 @@ div.top {
   color: #eeeeec;
 }
 div.top > div.content {
-  max-width: 800px;
+  max-width: 940px;
   margin: 0 auto 0 auto;
   padding: 0 0 10px 0;
   border-bottom: solid 6px #fcaf3e;
@@ -102,7 +102,7 @@ div.page {
 }
 div.header {
   margin: 0 auto 0 auto;
-  max-width: 800px;
+  max-width: 940px;
 }
 div.trails {
   color: #3465a4;
@@ -116,7 +116,7 @@ div.trails {
   }
 }
 div.body {
-  max-width: 760px;
+  max-width: 940px;
   margin: 0 auto 0 auto;
   padding-top: 20px;
   padding-bottom: 40px;
@@ -124,6 +124,181 @@ div.body {
 div.body > div.hgroup {
   margin-top: 0;
 }
+body.pmo-splash div.body {
+  max-width: none;
+  margin: 0; padding: 0;
+}
+body.pmo-splash div.body > div.region > div.sect {
+  margin: 0; padding: 0;
+}
+body.pmo-splash div.body > div.region > div.contents,
+body.pmo-splash div.body > div.region > div.sect > div.inner {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 20px 0 40px 0;
+}
+body.pmo-splash div.body > div.region > div.contents { padding-top: 0; }
+body.pmo-splash div.body > div.region > div.sect > div.inner > div.hgroup {
+  border-bottom: none;
+  text-align: center;
+}
+body.pmo-splash div.body > div.region > div.sect > div.inner > div.hgroup > h2.title {
+  font-size: 36px;
+}
+body.pmo-splash p {
+  font-size: 18px;
+}
+@media only screen and (max-width: 980px) {
+  body.pmo-splash div.body > div.region > div.contents,
+  body.pmo-splash div.body > div.region > div.sect > div.inner {
+    margin: 0 20px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body.pmo-splash div.body > div.region > div.sect > div.inner > div.hgroup > h2.title {
+    font-size: 24px;
+  }
+}
+
+div.pmo-jump {
+  max-width: 300px;
+  margin: 1em 20px 0 0;
+  padding: 0;
+  vertical-align: top;
+  float: left;
+}
+div.pmo-jump-right {
+  margin-right: 0;
+}
+@media only screen and (max-width: 960px) {
+  div.pmo-jump {
+    float: none;
+    max-width: 620px;
+    margin: 1em 0 0 0;
+  }
+  div.pmo-jump-right {
+    margin-top: 0;
+  }
+}
+div.pmo-jump li {
+  margin: 1em 0 2em 0;
+  padding: 0;
+  list-style: none;
+  min-height: 4em;
+}
+div.pmo-jump-top {
+  margin: 2em 0 0 0;
+  max-width: 620px;
+  float: none;
+}
+div.pmo-jump-top ul {
+  max-width: 300px;
+  margin: 0 auto;
+}
+div.pmo-jump-top li {
+  min-height: none;
+  margin: 0;
+}
+div.pmo-jump li a {
+  border-bottom: none;
+  vertical-align: top;
+  display: block;
+  color: #3465a4;
+  line-height: 1em;
+}
+div.pmo-jump li a > span {
+  color: #888a85;
+  display: block;
+  margin-top: 4px;
+  padding-left: 48px;
+  font-size: 0.83em;
+  text-align: left;
+}
+div.pmo-jump li a > span.em {
+  color: #3465a4;
+  margin-top: 0;
+  font-size: 1em;
+}
+div.pmo-jump li a:hover > span {
+  color: #729fcf;
+}
+div.pmo-jump li a:hover > span.em {
+  color: #3465a4;
+}
+div.pmo-jump li a:before {
+  font-family: FontAwesome;
+  font-size: 40px;
+  width: 40px;
+  text-align: center;
+  margin-top: 8px;
+  margin-right: 8px;
+  vertical-align: top;
+  float: left;
+}
+li.pmo-jump-event a:before {
+  content: "&#xf073;";
+}
+li.pmo-jump-about a:before {
+  content: "&#xf05a;";
+}
+li.pmo-jump-learn a:before {
+  content: "&#xf1cd;";
+}
+li.pmo-jump-download a:before {
+  content: "&#xf019;";
+}
+li.pmo-jump-contact a:before {
+  content: "&#xf086;";
+}
+li.pmo-jump-mep a:before {
+  content: "&#xf0c3;";
+}
+li.pmo-jump-issues a:before {
+  content: "&#xf188;";
+}
+
+body.pmo-splash div#happy {
+  border-top: solid 1px #204a87;
+  border-bottom: solid 1px #204a87;
+  background-size: 30px 30px;
+  background-color: #3465a4;
+  background-image:
+  linear-gradient(
+    rgba(255, 255, 255, .05), rgba(255, 255, 255, .05) 1px,
+    transparent 1px, transparent),
+  linear-gradient(90deg,
+    rgba(255, 255, 255, .05), rgba(255, 255, 255, .05) 1px,
+    transparent 1px, transparent),
+  linear-gradient(
+    transparent, transparent 15px,
+    rgba(255, 255, 255, .1) 15px, rgba(255, 255, 255, .1) 16px,
+    transparent 16px, transparent),
+  linear-gradient(90deg,
+    transparent, transparent 15px,
+    rgba(255, 255, 255, .1) 15px, rgba(255, 255, 255, .1) 16px,
+    transparent 16px, transparent);
+  color: white;
+  text-shadow: 1px 1px 0 #204a87;
+}
+body.pmo-splash div#happy > div.inner {
+  background-image: linear-gradient(90deg,
+    transparent, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0.1) 70%, transparent);
+}
+body.pmo-splash div#happy h2 {
+  color: white;
+}
+body.pmo-splash div#happy li {
+  margin-left: 1em;
+}
+body.pmo-splash div#happy a {
+  color: #b2d8ff;
+  border-bottom: none;
+  transition: text-shadow 1s;
+}
+body.pmo-splash div#happy a:hover {
+  text-shadow: 1px 1px 0 #204a87, 0 0 4px #204a87, 0 0 12px white;
+}
+
 h1, h2, h3, h4, h5, h6, h7 { font-family: Bitter; }
 h1.title { font-size: 3em; }
 h2.title { font-size: 1.73em; }
@@ -134,7 +309,25 @@ a img { border: none; }
   h2.title { font-size: 1.44em; }
   p { text-align: left; }
 }
-
+div.code {
+  background-color: #fafaf8;
+  background-size: 30px 30px;
+  background-image:
+  linear-gradient(
+    rgba(136, 138, 133, .05), rgba(136, 138, 133, .05) 1px,
+    transparent 1px, transparent),
+  linear-gradient(90deg,
+    rgba(136, 138, 133, .05), rgba(136, 138, 133, .05) 1px,
+    transparent 1px, transparent),
+  linear-gradient(
+    transparent, transparent 15px,
+    rgba(136, 138, 133, .1) 15px, rgba(136, 138, 133, .1) 16px,
+    transparent 16px, transparent),
+  linear-gradient(90deg,
+    transparent, transparent 15px,
+    rgba(136, 138, 133, .1) 15px, rgba(136, 138, 133, .1) 16px,
+    transparent 16px, transparent);
+}
 div.bottom {
   background: #2e3436 url(noise.png);
   color: #d3d7cf;
@@ -188,33 +381,35 @@ div.bottom-badge div.contents a {
   color: </xsl:text><xsl:value-of select="$color.link"/><xsl:text>;
   border: none;
 }
-
-div.pmo-what, div.pmo-why {
-  display: inline-block;
-  margin-top: 0;
+div.pmo-twitter {
+  float: right;
+  margin: 0 0 0 20px;
+  width: 300px;
   padding: 0;
-  vertical-align: top;
-  width: 366px;
+  height: 420px;
 }
-div.pmo-what {
-  margin-right: 20px;
-  margin-bottom: 20px;
+div.pmo-twitter > a {
+  display: none;
 }
-div.pmo-specs div.list {
+div.pmo-twitter + p {
+  margin: 0;
+}
+
+body.pmo-splash div#specs div.list {
   margin-top: 0;
   margin-bottom: 16px;
 }
-div.pmo-specs li.list {
+body.pmo-splash div#specs li.list {
   display: inline-block;
   background: #3465a4 url(noiseblue.png);
   border-radius: 4px;
   margin: 0 10px 10px 0;
   padding: 0;
 }
-div.pmo-specs li a {
+body.pmo-splash div#specs li a {
   background: url(duckbg.png) repeat-y;
   display: block;
-  width: 216px;
+  width: 260px;
   border: none;
   padding: 4px 12px;
   color: #eeeeec;
@@ -222,55 +417,26 @@ div.pmo-specs li a {
   font-family: Bitter;
   font-weight: bold;
 }
-div.pmo-specs li a:hover {
+body.pmo-splash div#specs li a:hover {
   color: white;
 }
-div.pmo-specs span.em {
+body.pmo-splash div#specs span.em {
   font-style: normal;
   font-family: 'Special Elite';
   font-weight: normal;
   padding-left: 6px;
 }
-
-
-div.pmo-what > div.inner > div.hgroup,
-div.pmo-why > div.inner > div.hgroup {
-  border-bottom: none;
+@media only screen and (max-width: 400px) {
+  body.pmo-splash div#specs div.list {
+    display: block;
+    width: 100%;
+  }
 }
-div.pmo-index h2 { font-size: 18px; font-weight: bold; }
-div.pmo-index p { text-align: left; }
-div.pmo-index li { margin-left: 1.44em; }
-div.pmo-index div.title { margin-top: 0; font-size: 14px; }
 
 td.pmo-mep-history td:first-child { padding-left: 0; }
 td.pmo-mep-history div.title {
   font-weight: normal;
   color: </xsl:text><xsl:value-of select="$color.link"/><xsl:text>;
-}
-
-@media only screen and (max-width: 400px) {
-  div.pmo-index {
-    margin: 0 0 20px 0;
-    width: 100%;
-    border: none;
-    box-shadow: none;
-    -moz-box-shadow: none;
-  }
-  .pmo-index > div.region {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  div.pmo-index > div.inner > div.hgroup {
-    padding: 0;
-    border-bottom: none;
-  }
-  div.pmo-index > div.inner > div.region {
-    padding: 0;
-  }
-  div.pmo-specs div.list {
-    display: block;
-    width: 100%;
-  }
 }
 
 body.pmo-source div.header {
@@ -321,17 +487,25 @@ div.editongithub a:hover {
 
 <xsl:template mode="mal2html.title.mode" match="mal:title[@style = 'pmo-hidden']"/>
 
-<xsl:template mode="html.class.attr.mode" match="mal:section">
-  <xsl:if test="@style='pmo-what' or @style ='pmo-why' or @style='pmo-specs'">
-    <xsl:text>pmo-index </xsl:text>
-    <xsl:value-of select="@style"/>
-  </xsl:if>
+<xsl:template mode="html.class.attr.mode"
+              match="mal:list[starts-with(@style, 'pmo-')]">
+  <xsl:value-of select="@style"/>
+</xsl:template>
+
+<xsl:template mode="html.class.attr.mode"
+              match="mal:item[starts-with(@style, 'pmo-')]">
+  <xsl:value-of select="@style"/>
 </xsl:template>
 
 <xsl:template mode="html.body.attr.mode" match="mal:page">
   <xsl:if test="string(@style) = 'pmo-source'">
     <xsl:attribute name="class">
       <xsl:text>pmo-source</xsl:text>
+    </xsl:attribute>
+  </xsl:if>
+  <xsl:if test="contains(concat(' ', @style, ' '), ' pmo-splash ')">
+    <xsl:attribute name="class">
+      <xsl:text>pmo-splash</xsl:text>
     </xsl:attribute>
   </xsl:if>
 </xsl:template>
@@ -447,6 +621,11 @@ div.editongithub a:hover {
     <a href="http://syllogist.net/">Syllogist</a>
   </div>
   </div></div>
+</xsl:template>
+
+<xsl:template mode="mal2html.block.mode"
+              match="mal:media[@type='application'][@mime='application/html']">
+  <xsl:copy-of select="*"/>
 </xsl:template>
 
 <xsl:template mode="mal2html.block.mode" match="mal:note[@style='pmo-source']">

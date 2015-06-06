@@ -4,7 +4,7 @@
       id="if">
 
 <info>
-  <link type="guide" xref="index"/>
+  <link type="guide" xref="index" group="extension"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
