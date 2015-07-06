@@ -72,7 +72,7 @@ extensions.</p>
   <code xref="/1.0/mal_block_steps">steps</code>,
   <code xref="/1.0/mal_block_terms">terms</code>,
   <code xref="/1.0/mal_block_tree">tree</code>,
-  and <code xref="/1.0/mal_block_table">table</code>.</p>
+  and <code xref="/1.0/mal_table">table</code>.</p>
 
   <p>As with the existing <code>info</code> element, there are no processing
   expectations associated with the <code>info</code> element used on block

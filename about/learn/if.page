@@ -46,7 +46,7 @@ used, and you can combine conditions in logical expressions.</p>
 <title>Basic Conditionals</title>
 
 <p>The simplest way to use conditionals is to use the
-<code xref="/if/1.0/if__attr_test">if:test</code> attribute on any block
+<code xref="/if/1.0/if_attr_test">if:test</code> attribute on any block
 element, such as on the <code xref="/1.0/mal_block_p">p</code> element for
 a conditional paragraph. Because conditional processing is a Mallard
 extension, the <code>if:test</code> attribute is in a separate namespace.
