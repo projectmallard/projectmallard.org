@@ -27,15 +27,13 @@ user help for your software.  Mallard documents are <em>topic-oriented</em>:
 They provide information in small chunks that match your users’ needs without
 forcing them to read lengthy manuals.</p>
 
-<!--
 <list style="pmo-jump pmo-jump-top">
   <item style="pmo-jump-event"><p>
-    <link xref="/">
-      <em style="strong">Quackfest</em>
-      <span>...</span>
+    <link href="https://github.com/projectmallard/projectmallard.org/wiki/Quackfest-2015-09">
+      <em style="strong">Quackfest @ Open Help</em>
+      <span>Help us shape the future of Mallard at our first ever quackfest.</span>
   </link></p></item>
 </list>
--->
 <list style="pmo-jump pmo-jump-left">
   <item style="pmo-jump-about"><p>
     <link xref="/about/index">
