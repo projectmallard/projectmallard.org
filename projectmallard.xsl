@@ -433,6 +433,20 @@ body.pmo-splash div#specs span.em {
   }
 }
 
+span.mep-status {
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 0 8px;
+  background: </xsl:text><xsl:value-of select="$color.yellow_background"/><xsl:text>;
+  border: solid 1px </xsl:text><xsl:value-of select="$color.yellow_border"/><xsl:text>;
+  color: </xsl:text><xsl:value-of select="$color.text_light"/><xsl:text>;
+  border-radius: 2px;
+}
+span.mep-status-implemented {
+  background: </xsl:text><xsl:value-of select="$color.gray_background"/><xsl:text>;
+  border-color: </xsl:text><xsl:value-of select="$color.gray_border"/><xsl:text>;
+}
+
 td.pmo-mep-history td:first-child { padding-left: 0; }
 td.pmo-mep-history div.title {
   font-weight: normal;
@@ -644,6 +658,22 @@ div.editongithub a:hover {
     <xsl:call-template name="mep.info"/>
   </xsl:if>
   <xsl:call-template name="mal2html.links.section"/>
+</xsl:template>
+
+<!--
+We're not using normal editor mode badges anywhere on the site anyway, so
+this is a convenient override to stick in badges for MEP status. Yelp needs
+to grow the ability to provide custom tags/badges on links.
+-->
+<xsl:template name="mal2html.editor.badge">
+  <xsl:param name="target"/>
+  <xsl:if test="$target/@style = 'mep'">
+    <xsl:variable name="status" select="$target/mal:info/mal:revision[last()]/@status"/>
+    <xsl:text> </xsl:text>
+    <span class="mep-status mep-status-{$status}">
+      <xsl:value-of select="$status"/>
+    </span>
+  </xsl:if>
 </xsl:template>
 
 <xsl:template name="mep.info">
