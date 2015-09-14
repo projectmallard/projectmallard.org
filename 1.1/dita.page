@@ -362,8 +362,7 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/example.html">example</code></p></td>
-    <td><p>Depends on usage.  For simple examples, use the <code xref="mal_block_example">example</code>
-    element.  Otherwise, use the <code xref="mal_section">section</code> element.</p></td>
+    <td><p>Similar to the <code xref="mal_block_example">example</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/exportanchors.html">exportanchors</code></p></td>

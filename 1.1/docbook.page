@@ -515,9 +515,7 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   </tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/example.html">example</code></p></td>
-    <td><p>Similar to the <code xref="mal_block_example">example</code> element, except that
-    examples in Mallard are not formal elements. The <code xref="mal_block_listing">listing</code>
-    element may be a suitable replacement when a title is needed.</p></td>
+    <td><p>Similar to the <code xref="mal_block_example">example</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/exceptionname.html">exceptionname</code></p></td>

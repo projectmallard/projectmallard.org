@@ -4,11 +4,12 @@
 
 <info>
   <revision docversion="1.0" date="2011-08-27" status="final"/>
+  <revision docversion="1.1" date="2015-09-09" status="review"/>
 
-  <credit type="author">
+  <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2011</years>
+    <years>2008-2015</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -29,8 +30,10 @@ paragraphs together.</p>
 <section id="notes">
   <title>Notes</title>
   <list>
-    <item><p>The <code>example</code> element can contain any
-    <link xref="mal_block">general block content</link>.</p></item>
+    <item><p>The <code>example</code> element contains an optional
+    <code xref="mal_block_title">title</code> element, an optional
+    <code xref="mal_block_desc">desc</code> element, and  any
+    <code xref="mal_block">general block content</code>.</p></item>
 
     <item><p>The <code>example</code> element can occur in any
     general block context, including inside
@@ -99,9 +102,11 @@ xsltproc -o mal_block_screen.html \
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>The contents of an <code>example</code> element are each be rendered as
-  block elements as normal.  Processing tools should use margins, borders, or
-  other styling effects to provide a clear visual indication of the grouping.</p>
+  <p>Examples are displayed as block elements, with each of their child elements
+  being interpreted as block elements. When present, the title and description
+  should be displayed in a way that makes their respective roles clear. Processing
+  tools should use margins, borders, or other styling effects to provide a clear
+  visual indication of the grouping.</p>
 </section>
 <!-- END processing -->
 
@@ -112,19 +117,11 @@ xsltproc -o mal_block_screen.html \
 
   <p>The <code>example</code> element is similar to the
   <code href="http://www.docbook.org/tdg51/en/html/example.html">example</code>
-  element in <link xref="docbook">DocBook</link>.  In DocBook, the <code>example</code>
-  element is a formal element.  In Mallard, <code>example</code> is a simple container
-  element, and does not allow a <code xref="mal_block_title">title</code>
-  element.</p>
+  element in <link xref="docbook">DocBook</link>.</p>
 
   <p>The <code>example</code> element is similar to the
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/example.html">example</code>
-  element in <link xref="dita">DITA</link>.  In DITA, the <code>example</code>
-  element is a specialization of the
-  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/section.html">section</code>
-  element.  It contains a title and is used in contexts where sections are permitted.
-  The <code>example</code> element in Mallard is more lightweight, and is designed to
-  be used in general block contexts.</p>
+  element in <link xref="dita">DITA</link>.</p>
 </section>
 <!-- END comparison -->
 
@@ -143,6 +140,8 @@ definition are on the page <link xref="mal_page"/>.</p>
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_example = element example {
   mal_block_example_attr,
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  <link xref="mal_block_desc">mal_block_desc</link> ?,
   mal_block_example_content +
 }
 mal_block_example_attr = (
