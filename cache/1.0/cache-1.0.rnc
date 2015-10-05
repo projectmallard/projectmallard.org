@@ -10,20 +10,34 @@ cache_cache = element cache:cache {
 }
 
 cache_page = element page {
-  mal_page_attr,
-  attribute cache:href { text },
+  cache_page_attr,
 
   mal_info ?,
   mal_block_title,
   mal_block_subtitle ?,
   cache_section *,
 }
+
+cache_page_attr = (
+  attribute cache:href { text },
+  attribute id { text },
+  attribute type { xsd:NMTOKEN } ?,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_version ?,
+  mal_attr_external *
+)
 
 cache_section = element section {
-  mal_section_attr,
+  cache_section_attr,
 
   mal_info ?,
   mal_block_title,
   mal_block_subtitle ?,
   cache_section *,
 }
+
+cache_section_attr = (
+  attribute id { text },
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)

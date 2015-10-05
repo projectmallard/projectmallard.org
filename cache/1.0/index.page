@@ -134,23 +134,37 @@ cache_cache = element cache:cache {
 }
 
 cache_page = element page {
-  <link xref="/1.0/mal_page">mal_page_attr</link>,
-  attribute cache:href { text },
+  cache_page_attr,
 
   <link xref="/1.0/mal_info">mal_info</link> ?,
   <link xref="/1.0/mal_block_title">mal_block_title</link>,
   <link xref="/1.0/mal_block_subtitle">mal_block_subtitle</link> ?,
   cache_section *,
 }
+
+cache_page_attr = (
+  attribute cache:href { text },
+  attribute id { text },
+  attribute type { xsd:NMTOKEN } ?,
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="/1.0/mal_attr_version">mal_attr_version</link> ?,
+  <link xref="/1.0/mal_external">mal_attr_external</link> *
+)
 
 cache_section = element section {
-  <link xref="/1.0/mal_section">mal_section_attr</link>,
+  cache_section_attr,
 
   <link xref="/1.0/mal_info">mal_info</link> ?,
   <link xref="/1.0/mal_block_title">mal_block_title</link>,
   <link xref="/1.0/mal_block_subtitle">mal_block_subtitle</link> ?,
   cache_section *,
 }
+
+cache_section_attr = (
+  attribute id { text },
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="/1.0/mal_external">mal_attr_external</link> *
+)
 </code></synopsis>
 </section>
 <!-- END schema -->

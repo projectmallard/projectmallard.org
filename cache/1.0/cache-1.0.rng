@@ -24,10 +24,7 @@
 
 <define name="cache_page">
   <element name="page">
-    <ref name="mal_page_attr"/>
-    <attribute name="cache:href">
-      <text/>
-    </attribute>
+    <ref name="cache_page_attr"/>
     <optional>
       <ref name="mal_info"/>
     </optional>
@@ -41,9 +38,36 @@
   </element>
 </define>
 
+<define name="cache_page_attr">
+  <group>
+    <attribute name="cache:href">
+      <text/>
+    </attribute>
+    <attribute name="id">
+      <text/>
+    </attribute>
+    <optional>
+      <attribute name="type">
+        <data type="NMTOKEN" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <optional>
+      <ref name="mal_attr_version"/>
+    </optional>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+  </group>
+</define>
+
 <define name="cache_section">
   <element name="section">
-    <ref name="mal_section_attr"/>
+    <ref name="cache_section_attr"/>
     <optional>
       <ref name="mal_info"/>
     </optional>
@@ -55,6 +79,22 @@
       <ref name="cache_section"/>
     </zeroOrMore>
   </element>
+</define>
+
+<define name="cache_section_attr">
+  <group>
+    <attribute name="id">
+      <text/>
+    </attribute>
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+  </group>
 </define>
 
 </grammar>
