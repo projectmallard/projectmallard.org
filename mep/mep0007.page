@@ -1,0 +1,142 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      id="mep0007">
+
+<info>
+  <link type="guide" xref="index" group="1.1"/>
+
+  <!--
+  <link type="mep:depends" xref="mepYYYY"/>
+  <link type="mep:replaces" xref="mepYYYY"/>
+  <link type="seealso" xref="mepYYYY"/>
+  -->
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2015</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <revision date="2015-11-04" docversion="1.1" status="proposed"/>
+
+  <title type="text">External Info Links</title>
+  <title type="link">MEP-0007: External Info Links</title>
+
+  <desc>Allow informational links to point to external pages with an
+  <code>href</code> attribute.</desc>
+</info>
+
+<title>MEP-0007</title>
+<subtitle>External Info Links</subtitle>
+
+<p style="lead">This page outlines a way to link to external pages within
+informational link sets like topic and seealso links, and proposes a way
+to specify title, desc, and other information for those pages.</p>
+
+<links type="section"/>
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard allows semantic information links for a number of things.
+  Most notably, this is the basis for Mallard's topic/guide navigation
+  structure, and it provides reciprocal seealso links. More info link
+  types can be provided by extensions or future Mallard versions.</p>
+
+  <p>Informational links, however, are limited to links within the same
+  document using the <code>xref</code> attribute (or, potentially, to
+  other documents within a site or controlled document set using an
+  extended <code>xref</code> syntax).</p>
+
+  <p>This page proposes allowing informational links with an
+  <code>href</code> attribute to point to arbitrary external pages.
+  Obviously, external pages cannot be made to automatically reciprocate
+  links, so this feature should be used with care. Furthermore, it may
+  only make sense to support external info links for certain link types.
+  For example, creating a series out of next links requires each page
+  to specify its next page. An external page would necessarily be the
+  final page in a series.</p>
+</section>
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes allowing informational <code>link</code> elements
+  with an <code>href</code> attribute to be processed in certain semantic
+  link sets. The <code>href</code> attribute is already allowed by the
+  Mallard 1.0 schema, but there is no specified behavior.</p>
+
+  <p>Under this proposal, informational <code>link</code> elements with
+  an <code>href</code> attribute would be included in topic, guide, and
+  seealso link sets for the source page or section. They would not be
+  used by next link sets, but they could be used by extensions or by
+  link sets defined in future Mallard versions. Each informational link
+  type should specify whether it can use external links.</p>
+
+  <p>This page currently does not propose anything with the <code>action</code>
+  attribute, although that linking attribute is also currently allowed
+  by the Mallard 1.0 schema.</p>
+
+  <p>Link sets using informational links rely on information found in
+  the <code>info</code> element of the target node. Because we can't
+  reasonably expect processing tools to try to find such information
+  on external pages, this page proposes allowing informational elements
+  as child elements to the <code>link</code> element to provide that
+  information.</p>
+
+  <p>The allowed contents of informational <code>link</code> element
+  would then be
+  <code href="http://projectmallard.org/1.0/mal_info#schema">mal_info_content</code>.
+  The current allowed contents is any external-namespace content. This
+  is allowed in <code>mal_info_content</code>, so there would be no
+  backwards compatibility issues for validity.</p>
+
+  <p>The information supplied with the <code>link</code> element would
+  <em>only</em> be used for external links. It would not override or
+  supplement information for <code>xref</code> links in any way. It may,
+  in fact, be better to split the schema definitions to only allow the
+  informational child elements for external links.</p>
+</section>
+
+<!--
+<section id="addendums">
+  <title>Addendums</title>
+</section>
+-->
+
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Include the Ten Minute Tour in your seealso links.</p>
+
+  <example>
+    <code><![CDATA[
+<info>
+  <link type="seealso" href="http://projectmallard.org/about/learn/tenminutes">
+    <title>Ten Minute Tour</title>
+    <desc>Create a multiple-page document in only ten minutes.</desc>
+  </link>
+</info>
+]]></code>
+</example>
+</section>
+
+<section id="i18n">
+  <title>Internationalization</title>
+</section>
+
+<section id="alternatives">
+  <title>Alternatives</title>
+</section>
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+</section>
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+</section>
+
+</page>
