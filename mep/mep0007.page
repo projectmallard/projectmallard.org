@@ -20,6 +20,7 @@
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
   <revision date="2015-11-04" docversion="1.1" status="proposed"/>
+  <revision date="2016-01-03" docversion="1.1" status="implemented"/>
 
   <title type="text">External Info Links</title>
   <title type="link">MEP-0007: External Info Links</title>
