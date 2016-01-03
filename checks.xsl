@@ -16,10 +16,15 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 02111-1307, USA.
 -->
 
+<!--
+xsltproc checks.xsl __pintail__/tools/pintail.cache
+-->
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:str="http://exslt.org/strings"
                 xmlns:mal="http://projectmallard.org/1.0/"
                 xmlns:cache="http://projectmallard.org/cache/1.0/"
+                xmlns:site="http://projectmallard.org/site/1.0/"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 exclude-result-prefixes="str mal cache xi"
                 version="1.0">
@@ -32,7 +37,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:for-each select="mal:page">
     <xsl:variable name="cache_node" select="."/>
     <xsl:if test="starts-with(@id, $prefix)">
-      <xsl:apply-templates select="document(@cache:href)/mal:page">
+      <!-- We want the real source pages, not Pintail's staged sources,
+           because we want to do pre-XInclude checks. -->
+      <xsl:variable name="uri">
+        <xsl:value-of select="substring-before(@cache:href, '/__pintail__/stage/')"/>
+        <xsl:text>/</xsl:text>
+        <xsl:value-of select="substring-after(@cache:href, '/__pintail__/stage/')"/>
+      </xsl:variable>
+      <xsl:apply-templates select="document($uri)/mal:page">
         <xsl:with-param name="cache_node" select="$cache_node"/>
       </xsl:apply-templates>
     </xsl:if>
@@ -47,13 +59,30 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:if test="not(mal:info/mal:credit)">
       <xsl:text>Missing credits&#x000A;</xsl:text>
     </xsl:if>
+    <xsl:if test="not(mal:info/mal:credit[contains(concat(' ', @type, ' '), ' author ')])">
+      <xsl:text>Missing author credits&#x000A;</xsl:text>
+    </xsl:if>
+    <xsl:if test="not(mal:info/mal:credit[contains(concat(' ', @type, ' '), ' copyright ')])">
+      <xsl:text>Missing copyright credits&#x000A;</xsl:text>
+    </xsl:if>
+    <xsl:if test="not(mal:info/mal:credit/mal:years)">
+      <xsl:text>Missing copyright years&#x000A;</xsl:text>
+    </xsl:if>
 
     <!-- Check for the license -->
     <xsl:if test="not(mal:info/xi:include[contains(@href, 'cc-by-sa-3-0.xml')])">
       <xsl:text>Missing XInclude for license&#x000A;</xsl:text>
+      <xsl:for-each select="mal:info/mal:license/@*">
+        <xsl:value-of select="name(.)"/>
+        <xsl:text>&#x000A;</xsl:text>
+      </xsl:for-each>
+      <xsl:text>:</xsl:text>
+      <xsl:value-of select="xml:base"/>
+      <xsl:text>&#x000A;</xsl:text>
     </xsl:if>
 
-    <xsl:if test="string(@id) != 'index' and string(@style) != 'details' and
+    <xsl:if test="string(@id) != 'index' and
+                  string(@style) != 'details' and string(@style) != 'mep' and
                   not(starts-with($cache_node/@id, '/about/'))">
 
       <!-- Check for common sections -->
