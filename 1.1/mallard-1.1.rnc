@@ -69,14 +69,32 @@ mal_info_credit_content = (
   mal_external *
 )
 
-mal_info_link = element link {
+mal_info_link = ( mal_info_link_xref | mal_info_link_href )
+mal_info_link_xref = element link {
+  attribute xref { text },
   mal_info_link_attr,
   mal_info_link_content *
+}
+mal_info_link_href = element link {
+  attribute href { text },
+  mal_info_link_attr,
+  mal_info_link_href_title,
+  mal_info_link_href_desc ?,
+  mal_info_link_content *
+}
+mal_info_link_href_title = element title {
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+  mal_info_title_inline
+}
+mal_info_link_href_desc = element desc {
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+  mal_info_desc_inline
 }
 mal_info_link_attr = (
   attribute type { xsd:NMTOKEN },
   attribute style { xsd:NMTOKENS } ?,
-  mal_attr_link +,
   attribute group { text } ?,
   mal_attr_external *
 )

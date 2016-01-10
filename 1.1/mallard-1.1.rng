@@ -180,11 +180,65 @@
 </define>
 
 <define name="mal_info_link">
+  <choice>
+    <ref name="mal_info_link_xref"/>
+    <ref name="mal_info_link_href"/>
+  </choice>
+</define>
+
+<define name="mal_info_link_xref">
   <element name="link">
+    <attribute name="xref">
+      <text/>
+    </attribute>
     <ref name="mal_info_link_attr"/>
     <zeroOrMore>
       <ref name="mal_info_link_content"/>
     </zeroOrMore>
+  </element>
+</define>
+
+<define name="mal_info_link_href">
+  <element name="link">
+    <attribute name="href">
+      <text/>
+    </attribute>
+    <ref name="mal_info_link_attr"/>
+    <ref name="mal_info_link_href_title"/>
+    <optional>
+      <ref name="mal_info_link_href_desc"/>
+    </optional>
+    <zeroOrMore>
+      <ref name="mal_info_link_content"/>
+    </zeroOrMore>
+  </element>
+</define>
+
+<define name="mal_info_link_href_title">
+  <element name="title">
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+    <ref name="mal_info_title_inline"/>
+  </element>
+</define>
+
+<define name="mal_info_link_href_desc">
+  <element name="desc">
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+    <ref name="mal_info_desc_inline"/>
   </element>
 </define>
 
@@ -198,9 +252,6 @@
         <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
       </attribute>
     </optional>
-    <oneOrMore>
-      <ref name="mal_attr_link"/>
-    </oneOrMore>
     <optional>
       <attribute name="group">
         <text/>

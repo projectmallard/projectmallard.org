@@ -34,6 +34,11 @@ how automatic links are displayed.</p>
 are absent. See the descriptions of the different types of links for
 details on implicit links.</p>
 
+<p>Some types of links also allow you to link to external resource using the
+<code>href</code> attribute of an informational link. The title and other
+metadata for these links are taken from the <code>link</code> element itself,
+rather than a target node.</p>
+
 <p>A <code>links</code> element belongs only to the page or section that is
 its direct parent.</p>
 
@@ -160,10 +165,13 @@ section
   <title>Topic Links</title>
 
   <p>A <code>links</code> element with type <code>"topic"</code> inserts topic links
-  from a guide page or section. A guide has a topic link to another node if either
-  of the following conditions is true:</p>
+  from a guide page or section. Guides may also have topic links to external resources
+  using an <code>href</code> attribute. A guide has a topic link to an external
+  resource or to another node if one of the following conditions is true:</p>
 
   <list>
+    <item><p>The guide has an informational link with type <code>"topic"</code>
+    whose <code>href</code> attribute points to the external resource.</p></item>
     <item><p>The guide has an informational link with type <code>"topic"</code>
     whose <code>xref</code> attribute points to the target node.</p></item>
     <item><p>The target node has an informational link with type
@@ -171,7 +179,8 @@ section
     to the guide.</p></item>
   </list>
 
-  <p>Topic links are the inverse of guide links.</p>
+  <p>Topic links are the inverse of guide links for internal links using
+  the <code>xref</code> attribute.</p>
 
   <p>There may be more than one topic <code>links</code> element in a single guide,
   each one displaying links from a different list of groups. The groups for a
@@ -205,11 +214,14 @@ section
   They are then sorted by their <link xref="mal_info_title#sort">sort titles</link>.</p>
 
   <p>The link text for a topic link is taken from the title of the target node,
-  as follows:</p>
+  or from the <code>link</code> element itself for external links, as follows:</p>
 
   <list type="numbered">
-    <item><p>If the <code>links</code> element has a <code>role</code> attribute,
-    and the target node has a <link xref="mal_info_title#link">link title</link>
+    <item><p>If the link uses an <code>href</code> attribute to point to an
+    external resource, the child <code>title</code> of that <code>link</code>
+    element without a <code>type</code> attribute is used.</p></item>
+    <item><p>Otherwise, if the <code>links</code> element has a <code>role</code>
+    attribute, and the target node has a <link xref="mal_info_title#link">link title</link>
     with the <code>role</code> attribute set to the same value as the <code>role</code>
     attribute of the <code>links</code> element, that title is used.</p></item>
     <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
@@ -243,10 +255,13 @@ section
   <title>Guide Links</title>
 
   <p>A <code>links</code> element with type <code>"guide"</code> inserts guide links
-  to guide pages or sections. A node has a guide link to a guide if either of the
-  following conditions is true:</p>
+  to guide pages or sections. A node may also have guide links to external resources
+  using an <code>href</code> attribute. A node has a guide link to an external
+  resource or to a guide if any of the following conditions is true:</p>
 
   <list>
+    <item><p>The node has an informational link with type <code>"guide"</code>
+    whose <code>href</code> attribute points to the external resource.</p></item>
     <item><p>The node has an informational link with type <code>"guide"</code>
     whose <code>xref</code> attribute points to the target guide.</p></item>
     <item><p>The target guide has an informational link with type
@@ -254,7 +269,8 @@ section
     the node.</p></item>
   </list>
 
-  <p>Guide links are the inverse of topic links.</p>
+  <p>Guide links are the inverse of topic links for internal links using the
+  <code>xref</code> attribute.</p>
 
   <p>If a node has a guide link to another page or section, that link is shown
   even if the target is not a guide. This allows guide links to be used for
@@ -266,11 +282,14 @@ section
   title</link> of their target guides.</p>
 
   <p>The link text for a guide link is taken from the title of the target node,
-  as follows:</p>
+  or from the <code>link</code> element itself for external links, as follows:</p>
 
   <list type="numbered">
-    <item><p>If the <code>links</code> element has a <code>role</code> attribute,
-    and the target node has a <link xref="mal_info_title#link">link title</link>
+    <item><p>If the link uses an <code>href</code> attribute to point to an
+    external resource, the child <code>title</code> of that <code>link</code>
+    element without a <code>type</code> attribute is used.</p></item>
+    <item><p>Otherwise, if the <code>links</code> element has a <code>role</code>
+    attribute, and the target node has a <link xref="mal_info_title#link">link title</link>
     with the <code>role</code> attribute set to the same value as the <code>role</code>
     attribute of the <code>links</code> element, that title is used.</p></item>
     <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
@@ -293,27 +312,35 @@ section
 <section id="seealso">
   <title>See-Also Links</title>
 
-  <p>See-also links are links from nodes to any other nodes. A node has a see-also
-  link to another node if either of the following two conditions is true:</p>
+  <p>See-also links are links from nodes to any other nodes. Nodes may also
+  have see-also links to external resources using an <code>href</code> attribute.
+  A node has a see-also link to an external resource or to another node if any
+  of the following two conditions is true:</p>
 
   <list>
+    <item><p>The node has an informational link with type <code>"seealso"</code>
+    whose <code>href</code> attribute points to the external resource.</p></item>
     <item><p>The node has an informational link with type <code>"seealso"</code>
     whose <code>xref</code> attribute points to the target node.</p></item>
     <item><p>The target node has an informational link with type <code>"seealso"</code>
     whose <code>xref</code> attribute points to the source node.</p></item>
   </list>
 
-  <p>See-also links always reciprocate; that is, if <var>A</var> has a see-also link
-  to <var>B</var>, <var>B</var> always has a see-also link back to <var>A</var>.</p>
+  <p>Internal see-also links always reciprocate; that is, if <var>A</var> has
+  a see-also link to <var>B</var>, <var>B</var> always has a see-also link back
+  to <var>A</var>.</p>
 
   <p>A <code>links</code> element with type <code>"seealso"</code> inserts the
   see-also links for the containing node. Links are sorted by the <link
   xref="mal_info_title#sort">sort title</link> of their target nodes.</p>
 
   <p>The link text for a see-also link is taken from the title of the target node,
-  as follows:</p>
+  or from the <code>link</code> element itself for external links, as follows:</p>
 
   <list type="numbered">
+    <item><p>If the link uses an <code>href</code> attribute to point to an
+    external resource, the child <code>title</code> of that <code>link</code>
+    element without a <code>type</code> attribute is used.</p></item>
     <item><p>If the <code>links</code> element has a <code>role</code> attribute,
     and the target node has a <link xref="mal_info_title#link">link title</link>
     with the <code>role</code> attribute set to the same value as the <code>role</code>
@@ -339,7 +366,8 @@ section
   <title>Previous and Next Links</title>
   <p>Previous and next links are links between pages that allow you to create
   simple linear series of pages within a Mallard document. Previous and next
-  links are only expected to be supported on pages.</p>
+  links are only expected to be supported on pages. Previous and next links
+  may not reference external resources with the <code>href</code> attribute.</p>
 
   <p>A page has a next link to another page if it has an informational link
   with type <code>"next"</code> whose <code>xref</code> attribute points to

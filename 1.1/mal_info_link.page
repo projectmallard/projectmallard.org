@@ -29,8 +29,16 @@ element to express logical links between pages and sections to be collected by
 <section id="notes">
   <title>Notes</title>
   <list>
-    <item><p>The informational <code>link</code> element has no content, although
-    it may contain elements from external namespaces.</p></item>
+    <item><p>The informational <code>link</code> element contains either an
+    <code>xref</code> or an <code>href</code> attribute.</p></item>
+
+    <item><p>With an <code>xref</code> element, the informational <code>link</code>
+    element has no content, although it may contain elements from external
+    namespaces.</p></item>
+
+    <item><p>With an <code>href</code> element, the informational <code>link</code>
+    element contains a <code>title</code> element and an optional <code>desc</code>
+    element, optionally followed by elements from external namespaces.</p></item>
 
     <item><p>The <code>link</code> element can occur in any
     <code xref="mal_info">info</code> element.</p></item>
@@ -63,10 +71,6 @@ element to express logical links between pages and sections to be collected by
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
-
-    <item><p>The <code>link</code> element can contain any of the
-    <link xref="mal_attr_link">linking attributes</link>. The link types in
-    this specification only use the <code>xref</code> attribute.</p></item>
 
     <item><p>The <code>group</code> attribute specifies a link group for
     explicit topic links, or for implicit topic links from guide links.</p></item>
@@ -111,6 +115,34 @@ element to express logical links between pages and sections to be collected by
   </example>
 
   <p>The previous two examples are equivalent, and produce the same results.</p>
+
+  <p>Provide a see-also link to another page:</p>
+
+  <example>
+<code><![CDATA[
+<page id="page1">
+  <info>
+    <link type="seealso" xref="page2"/>
+  </info>
+</page>
+]]></code>
+  </example>
+
+  <p>You can also link to external resources. Since processing tools can't
+  extract metadata from external resources, you provide the title and other
+  metadata as child elements:</p>
+
+  <example>
+<code><![CDATA[
+<page id="page1">
+  <info>
+    <link type="seealso" href="http://projectmallard.org/">
+      <title>Mallard</title>
+    </link>
+  </info>
+</page>
+]]></code>
+  </example>
 </section>
 <!-- END examples -->
 
@@ -138,14 +170,26 @@ element to express logical links between pages and sections to be collected by
   any Mallard 1.1 processor. Extensions may add other link types. Although
   the <code>href</code> and <code>action</code> attributes are not used by
   any of the standard link types, they may be used by extensions. To avoid
-  name conflicts, extensions should include a hyphen in the name of link
+  name conflicts, extensions should include a colon in the name of link
   types.</p>
 
-  <p>Informational links do not have child content. The text for the displayed
-  links they cause is taken from <code>title</code> and <code>desc</code>
-  elements. <link xref="mal_external">External-namespace elements</link> are
-  allowed. Child content should be treated as data in an informational context,
-  and any unrecognized content should be ignored.</p>
+  <p>Informational links normally use the <code>xref</code> attribute to
+  reference another page or section. When used this way, they do not have
+  child content. The text for the displayed links they cause is taken from
+  <code>title</code> and <code>desc</code> elements.</p>
+
+  <p>Mallard also allows certain informational link type to reference
+  external resources with an <code>href</code> attribute. When used this
+  way, the <code>link</code> element must contain a <code>title</code>
+  element, and may optionally contain a <code>desc</code> element.</p>
+
+  <p>In either case,
+  <link xref="mal_external">external-namespace elements</link> are always
+  allowed as child content. Child content should be treated as data in an
+  informational context, and any unrecognized content should be ignored.</p>
+
+  <p>See <link xref="mal_links"/> for detailed processing expectations of
+  different types of informational links.</p>  
 </section>
 <!-- END processing -->
 
@@ -165,14 +209,32 @@ for the informational <code>link</code> element.  The namespace declarations
 for this definition are on the page <link xref="mal_page"/>.</p>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_info_link = element link {
+mal_info_link = ( mal_info_link_xref | mal_info_link_href )
+mal_info_link_xref = element link {
+  attribute <link xref="mal_attr_link">xref</link> { text },
   mal_info_link_attr,
   mal_info_link_content *
+}
+mal_info_link_href = element link {
+  attribute <link xref="mal_attr_link">href</link> { text },
+  mal_info_link_attr,
+  mal_info_link_href_title,
+  mal_info_link_href_desc ?,
+  mal_info_link_content *
+}
+mal_info_link_href_title = element title {
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+  <link xref="mal_info_title">mal_info_title_inline</link>
+}
+mal_info_link_href_desc = element desc {
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+  <link xref="mal_info_desc">mal_info_desc_inline</link>
 }
 mal_info_link_attr = (
   attribute type { xsd:NMTOKEN },
   attribute style { xsd:NMTOKENS } ?,
-  <link xref="mal_attr_link">mal_attr_link</link> +,
   attribute group { text } ?,
   <link xref="mal_external">mal_attr_external</link> *
 )

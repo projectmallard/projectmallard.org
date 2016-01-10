@@ -24,17 +24,30 @@
 <title>Changes in Mallard 1.1</title>
 
 <list>
+  <item><p>Informational <code xref="mal_info_link">link</code> elements may
+  now point to external resources using an <code>href</code> attribute and
+  provide a title and other metadata as child content. Support for external
+  informational links depends on <link xref="mal_links">the type of link</link>.
+  See <link xref="/mep/mep0007">MEP-0007</link> and
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/30">Issue
+  30</link>.</p></item>
+
   <item><p>The <code xref="mal_block_example">example</code> element is now a
   formal element, accepting optional <code xref="mal_block_title">title</code>
-  and <code xref="mal_block_desc">desc</code> elements.</p></item>
+  and <code xref="mal_block_desc">desc</code> elements. See
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/4">Issue
+  4</link>.</p></item>
 
   <item><p>The <code xref="mal_inline_guiseq">guiseq</code> and
   <code xref="mal_inline_keyseq">keyseq</code> elements allow linking attributes
-  like other inline elements.</p></item>
+  like other inline elements. See
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/20">Issue
+  20</link>.</p></item>
 
   <item><p>The <code xref="mal_links">links</code> element accepts a <code>role</code>
   attribute, allowing you to specify a link title role to try before using the standard
-  link title role for the particular type of <code>links</code> element.</p></item>
+  link title role for the particular type of <code>links</code> element. See
+  <link xref="/mep/mep0003">MEP-0003</link>.</p></item>
 </list>
 
 </section>
