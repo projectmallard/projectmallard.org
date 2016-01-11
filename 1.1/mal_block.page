@@ -40,7 +40,6 @@ information.</p>
   <info>
     <title type="link">Basic Block Elements</title>
     <link type="topic" xref="mal_block_code"/>
-    <link type="topic" xref="mal_block_example"/>
     <link type="topic" xref="mal_block_media"/>
     <link type="topic" xref="mal_block_p"/>
     <link type="topic" xref="mal_block_screen"/>
@@ -62,6 +61,7 @@ information.</p>
   <info>
     <title type="link">Formal Block Elements</title>
     <link type="topic" xref="mal_block_comment"/>
+    <link type="topic" xref="mal_block_example"/>
     <link type="topic" xref="mal_block_figure"/>
     <link type="topic" xref="mal_block_listing"/>
     <link type="topic" xref="mal_block_note"/>
