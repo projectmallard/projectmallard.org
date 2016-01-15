@@ -218,8 +218,7 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   </tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/blockinfo.html">blockinfo</code> [4]</p></td>
-    <td><p>No equivalent in Mallard.  Future versions may add metadata holders for block elements
-    to record credits and licensing information for external resources.</p></td>
+    <td><p>Similar to the <code xref="mal_info">info</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/blockquote.html">blockquote</code></p></td>
@@ -1015,8 +1014,7 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/objectinfo.html">objectinfo</code> [4]</p></td>
-    <td><p>No equivalent in Mallard.  Future versions may add metadata holders for block elements
-    to record credits and licensing information for external resources.</p></td>
+    <td><p>Similar to the <code xref="mal_info">info</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/olink.html">olink</code></p></td>

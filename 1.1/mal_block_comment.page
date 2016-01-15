@@ -8,7 +8,7 @@
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2007-2011</years>
+    <years>2007-2016</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -38,8 +38,9 @@ person making the comment.  Writers are highly encouraged to provide a
   <title>Notes</title>
   <list>
     <item><p>The <code>comment</code> element contains an optional
-    <link xref="mal_block_title">title</link> element, an optional
-    <link xref="mal_block_cite">cite</link> element, and  any
+    <code xref="mal_info">info</code> element, an optional
+    <code xref="mal_block_title">title</code> element, an optional
+    <code xref="mal_block_cite">cite</code> element, and any
     <link xref="mal_block">general block content</link>.</p></item>
 
     <item><p>The <code>comment</code> element can occur in any
@@ -143,6 +144,10 @@ person making the comment.  Writers are highly encouraged to provide a
   of the comment.  The <code>cite</code> element may require special processing
   to display both its inline content and its <code>date</code> attribute.
   Automatic text may be used for this.</p>
+
+  <p>The optional <code xref="mal_info">info</code> element can provide metadata
+  for the comment, such as attributions, licensing information, and additional
+  titles for extensions. It is not displayed directly.</p>
 </section>
 <!-- END processing -->
 
@@ -168,7 +173,6 @@ person making the comment.  Writers are highly encouraged to provide a
   recorded in attributes on the <code>draft-comment</code> element.  In
   Mallard, these are recorded with the <code xref="mal_block_cite">cite</code>
   child element.</p>
-
 </section>
 <!-- END comparison -->
 
@@ -187,6 +191,7 @@ definition are on the page <link xref="mal_page"/>.</p>
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_comment = element comment {
   mal_block_comment_attr,
+  <link xref="mal_info">mal_info</link> ?,
   <link xref="mal_block_title">mal_block_title</link> ?,
   <link xref="mal_block_cite">mal_block_cite</link> ?,
   mal_block_comment_content +

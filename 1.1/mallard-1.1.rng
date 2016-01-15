@@ -608,42 +608,12 @@
   <ref name="mal_inline"/>
 </define>
 
-<define name="mal_block_example">
-  <element name="example">
-    <ref name="mal_block_example_attr"/>
-    <optional>
-      <ref name="mal_block_title"/>
-    </optional>
-    <optional>
-      <ref name="mal_block_desc"/>
-    </optional>
-    <oneOrMore>
-      <ref name="mal_block_example_content"/>
-    </oneOrMore>
-  </element>
-</define>
-
-<define name="mal_block_example_attr">
-  <group>
-    <optional>
-      <attribute name="style">
-        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-      </attribute>
-    </optional>
-    <ref name="mal_block_attr"/>
-    <zeroOrMore>
-      <ref name="mal_attr_external"/>
-    </zeroOrMore>
-  </group>
-</define>
-
-<define name="mal_block_example_content">
-  <ref name="mal_block"/>
-</define>
-
 <define name="mal_block_media">
   <element name="media">
     <ref name="mal_block_media_attr"/>
+    <optional>
+      <ref name="mal_info"/>
+    </optional>
     <zeroOrMore>
       <ref name="mal_block_media_content"/>
     </zeroOrMore>
@@ -755,6 +725,9 @@
   <element name="quote">
     <ref name="mal_block_quote_attr"/>
     <optional>
+      <ref name="mal_info"/>
+    </optional>
+    <optional>
       <ref name="mal_block_title"/>
     </optional>
     <optional>
@@ -788,6 +761,9 @@
   <element name="comment">
     <ref name="mal_block_comment_attr"/>
     <optional>
+      <ref name="mal_info"/>
+    </optional>
+    <optional>
       <ref name="mal_block_title"/>
     </optional>
     <optional>
@@ -817,9 +793,48 @@
   <ref name="mal_block"/>
 </define>
 
+<define name="mal_block_example">
+  <element name="example">
+    <ref name="mal_block_example_attr"/>
+    <optional>
+      <ref name="mal_info"/>
+    </optional>
+    <optional>
+      <ref name="mal_block_title"/>
+    </optional>
+    <optional>
+      <ref name="mal_block_desc"/>
+    </optional>
+    <oneOrMore>
+      <ref name="mal_block_example_content"/>
+    </oneOrMore>
+  </element>
+</define>
+
+<define name="mal_block_example_attr">
+  <group>
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <ref name="mal_block_attr"/>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<define name="mal_block_example_content">
+  <ref name="mal_block"/>
+</define>
+
 <define name="mal_block_figure">
   <element name="figure">
     <ref name="mal_block_figure_attr"/>
+    <optional>
+      <ref name="mal_info"/>
+    </optional>
     <optional>
       <ref name="mal_block_title"/>
     </optional>
@@ -854,6 +869,9 @@
   <element name="listing">
     <ref name="mal_block_listing_attr"/>
     <optional>
+      <ref name="mal_info"/>
+    </optional>
+    <optional>
       <ref name="mal_block_title"/>
     </optional>
     <optional>
@@ -887,6 +905,9 @@
   <element name="note">
     <ref name="mal_block_note_attr"/>
     <optional>
+      <ref name="mal_info"/>
+    </optional>
+    <optional>
       <ref name="mal_block_title"/>
     </optional>
     <oneOrMore>
@@ -916,6 +937,9 @@
 <define name="mal_block_synopsis">
   <element name="synopsis">
     <ref name="mal_block_synopsis_attr"/>
+    <optional>
+      <ref name="mal_info"/>
+    </optional>
     <optional>
       <ref name="mal_block_title"/>
     </optional>
@@ -949,6 +973,9 @@
 <define name="mal_block_list">
   <element name="list">
     <ref name="mal_block_list_attr"/>
+    <optional>
+      <ref name="mal_info"/>
+    </optional>
     <optional>
       <ref name="mal_block_title"/>
     </optional>
@@ -1007,6 +1034,9 @@
   <element name="steps">
     <ref name="mal_block_steps_attr"/>
     <optional>
+      <ref name="mal_info"/>
+    </optional>
+    <optional>
       <ref name="mal_block_title"/>
     </optional>
     <oneOrMore>
@@ -1058,6 +1088,9 @@
 <define name="mal_block_terms">
   <element name="terms">
     <ref name="mal_block_terms_attr"/>
+    <optional>
+      <ref name="mal_info"/>
+    </optional>
     <optional>
       <ref name="mal_block_title"/>
     </optional>
@@ -1114,6 +1147,9 @@
   <element name="tree">
     <ref name="mal_block_tree_attr"/>
     <optional>
+      <ref name="mal_info"/>
+    </optional>
+    <optional>
       <ref name="mal_block_title"/>
     </optional>
     <oneOrMore>
@@ -1166,6 +1202,9 @@
 <define name="mal_table">
   <element name="table">
     <ref name="mal_table_attr"/>
+    <optional>
+      <ref name="mal_info"/>
+    </optional>
     <optional>
       <ref name="mal_block_title"/>
     </optional>

@@ -8,7 +8,7 @@
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2011</years>
+    <years>2008-2016</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -31,7 +31,8 @@ of your document.</p>
   <title>Notes</title>
   <list>
     <item><p>The <code>note</code> element contains an optional
-    <link xref="mal_block_title">title</link> element and  any
+    <code xref="mal_info">info</code> element, an optional
+    <code xref="mal_block_title">title</code> element and any
     <link xref="mal_block">general block content</link>.</p></item>
 
     <item><p>The <code>note</code> element can occur in any
@@ -195,6 +196,10 @@ git config --global user.email <var>email_address</var></screen>
   Notes should have a border, background color, or other styling effect to
   distinguish them from the surrounding block content.  Notes often use an
   icon to identify what type of note is being displayed.</p>
+
+  <p>The optional <code xref="mal_info">info</code> element can provide metadata
+  for the note, such as attributions, licensing information, and additional
+  titles for extensions. It is not displayed directly.</p>
 </section>
 <!-- END processing -->
 
@@ -239,6 +244,7 @@ definition are on the page <link xref="mal_page"/>.</p>
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_note = element note {
   mal_block_note_attr,
+  <link xref="mal_info">mal_info</link> ?,
   <link xref="mal_block_title">mal_block_title</link> ?,
   mal_block_note_content +
 }

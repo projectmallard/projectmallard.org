@@ -235,21 +235,9 @@ mal_block_code_attr = (
 )
 mal_block_code_inline = mal_inline
 
-mal_block_example = element example {
-  mal_block_example_attr,
-  mal_block_title ?,
-  mal_block_desc ?,
-  mal_block_example_content +
-}
-mal_block_example_attr = (
-  attribute style { xsd:NMTOKENS } ?,
-  mal_block_attr,
-  mal_attr_external *
-)
-mal_block_example_content = mal_block
-
 mal_block_media = element media {
   mal_block_media_attr,
+  mal_info ?,
   mal_block_media_content *
 }
 mal_block_media_attr = (
@@ -289,6 +277,7 @@ mal_block_screen_inline = mal_inline
 
 mal_block_quote = element quote {
   mal_block_quote_attr,
+  mal_info ?,
   mal_block_title ?,
   mal_block_cite ?,
   mal_block_quote_content +  
@@ -302,6 +291,7 @@ mal_block_quote_content = mal_block
 
 mal_block_comment = element comment {
   mal_block_comment_attr,
+  mal_info ?,
   mal_block_title ?,
   mal_block_cite ?,
   mal_block_comment_content +
@@ -313,8 +303,23 @@ mal_block_comment_attr = (
 )
 mal_block_comment_content = mal_block
 
+mal_block_example = element example {
+  mal_block_example_attr,
+  mal_info ?,
+  mal_block_title ?,
+  mal_block_desc ?,
+  mal_block_example_content +
+}
+mal_block_example_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_example_content = mal_block
+
 mal_block_figure = element figure {
   mal_block_figure_attr,
+  mal_info ?,
   mal_block_title ?,
   mal_block_desc ?,
   mal_block_figure_content +
@@ -328,6 +333,7 @@ mal_block_figure_content = mal_block
 
 mal_block_listing = element listing {
   mal_block_listing_attr,
+  mal_info ?,
   mal_block_title ?,
   mal_block_desc ?,
   mal_block_listing_content +
@@ -341,6 +347,7 @@ mal_block_listing_content = mal_block
 
 mal_block_note = element note {
   mal_block_note_attr,
+  mal_info ?,
   mal_block_title ?,
   mal_block_note_content +
 }
@@ -353,6 +360,7 @@ mal_block_note_content = mal_block
 
 mal_block_synopsis = element synopsis {
   mal_block_synopsis_attr,
+  mal_info ?,
   mal_block_title ?,
   mal_block_desc ?,
   mal_block_synopsis_content +
@@ -366,6 +374,7 @@ mal_block_synopsis_content = mal_block
 
 mal_block_list = element list {
   mal_block_list_attr,
+  mal_info ?,
   mal_block_title ?,
   mal_block_list_item +
 }
@@ -387,6 +396,7 @@ mal_block_list_item_content = mal_block
 
 mal_block_steps = element steps {
   mal_block_steps_attr,
+  mal_info ?,
   mal_block_title ?,
   mal_block_steps_item +
 }
@@ -407,6 +417,7 @@ mal_block_steps_item_content = mal_block
 
 mal_block_terms = element terms {
   mal_block_terms_attr,
+  mal_info ?,
   mal_block_title ?,
   mal_block_terms_item +
 }
@@ -428,6 +439,7 @@ mal_block_terms_item_content = mal_block
 
 mal_block_tree = element tree {
   mal_block_tree_attr,
+  mal_info ?,
   mal_block_title ?,
   mal_block_tree_item +
 }
@@ -450,6 +462,7 @@ mal_block_tree_item_inline = mal_inline
 mal_table = element table {
   mal_table_attr,
 
+  mal_info ?,
   mal_block_title ?,
   mal_block_desc ?,
 

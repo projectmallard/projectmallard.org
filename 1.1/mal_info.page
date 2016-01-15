@@ -10,7 +10,7 @@
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2011</years>
+    <years>2008-2016</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -141,7 +141,7 @@ elements can be used to record any additional information you need.</p>
   information. Tools should ignore any elements they do not understand.</p>
 
   <p>If an <code>info</code> element appears in any context other than as the
-  first element of a page or section, it is ignored.</p>
+  first element of a page, section, or block element, it is ignored.</p>
 </section>
 <!-- END processing -->
 
@@ -155,8 +155,9 @@ elements can be used to record any additional information you need.</p>
   in <link xref="docbook">DocBook</link> 5, or to the various <code>*info</code>
   elements in DocBook 4, such as
   <code href="http://www.docbook.org/tdg/en/html/articleinfo.html">articleinfo</code>,
-  <code href="http://www.docbook.org/tdg/en/html/bookinfo.html">bookinfo</code>, and
-  <code href="http://www.docbook.org/tdg/en/html/chapterinfo.html">chapterinfo</code>.</p>
+  <code href="http://www.docbook.org/tdg/en/html/bookinfo.html">bookinfo</code>,
+  <code href="http://www.docbook.org/tdg/en/html/chapterinfo.html">chapterinfo</code>, and
+  <code href="http://www.docbook.org/tdg/en/html/blockinfo.html">blockinfo</code>.</p>
 
   <p>The <code>info</code> element is similar to the
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/prolog.html">prolog</code>

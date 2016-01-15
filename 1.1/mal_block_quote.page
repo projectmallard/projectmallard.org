@@ -8,7 +8,7 @@
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2011</years>
+    <years>2008-2016</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -29,8 +29,9 @@ and have it automatically formatted by display tools.</p>
   <title>Notes</title>
   <list>
     <item><p>The <code>quote</code> element contains an optional
-    <link xref="mal_block_title">title</link> element, an optional
-    <link xref="mal_block_cite">cite</link> element, and any
+    <code xref="mal_info">info</code> element, an optional
+    <code xref="mal_block_title">title</code> element, an optional
+    <code xref="mal_block_cite">cite</code> element, and any
     <link xref="mal_block">general block content</link>.</p></item>
 
     <item><p>The <code>quote</code> element can occur in any
@@ -126,6 +127,10 @@ and have it automatically formatted by display tools.</p>
   marks.  Processing tools should ensure any quotation marks used in the
   formatting of quotes, including watermark images, are appropriate for the
   document's language.</p>
+
+  <p>The optional <code xref="mal_info">info</code> element can provide metadata
+  for the quote, such as attributions, licensing information, and additional
+  titles for extensions. It is not displayed directly.</p>
 </section>
 <!-- END processing -->
 
@@ -161,6 +166,7 @@ definition are on the page <link xref="mal_page"/>.</p>
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_quote = element quote {
   mal_block_quote_attr,
+  <link xref="mal_info">mal_info</link> ?,
   <link xref="mal_block_title">mal_block_title</link> ?,
   <link xref="mal_block_cite">mal_block_cite</link> ?,
   mal_block_quote_content +  
