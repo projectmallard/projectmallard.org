@@ -1128,7 +1128,7 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/partintro.html">partintro</code></p></td>
+    <td><p><code href="http://docbook.org/tdg51/en/html/phrase.html">phrase</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_span">span</code> element.</p></td>
   </tr></tbody>
   <tbody>
