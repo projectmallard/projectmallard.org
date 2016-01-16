@@ -10,7 +10,7 @@
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2010-2011</years>
+    <years>2010-2016</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -82,6 +82,11 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/anchor.html">anchor</code></p></td>
     <td><p>Currently no equivalent in Mallard.  Future versions may address this.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docbook.org/tdg51/en/html/annotation.html">annotation</code> [5]</p></td>
+    <td><p>No equivalent in Mallard. <link xref="mal_external">External-namespace elements</link>
+    may provide similar functionality.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/answer.html">answer</code></p></td>
@@ -548,8 +553,10 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/firstname.html">firstname</code></p></td>
-    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
-    provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
+    <td><p>No equivalent in Mallard. Mallard records the <link xref="mal_info_name">whole
+    name</link> as it should be presented. <link xref="mal_external">External-namespace
+    elements</link> may provide parts of names for
+    <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/firstterm.html">firstterm</code></p></td>
@@ -598,6 +605,13 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
     <td><p><code href="http://www.docbook.org/tdg51/en/html/function.html">function</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docbook.org/tdg51/en/html/givenname.html">givenname</code> [5]</p></td>
+    <td><p>No equivalent in Mallard. Mallard records the <link xref="mal_info_name">whole
+    name</link> as it should be presented. <link xref="mal_external">External-namespace
+    elements</link> may provide parts of names for
+    <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
@@ -912,6 +926,12 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
     <td><p>Currently no equivalent in Mallard.  Future versions may address this.</p></td>
   </tr></tbody>
   <tbody><tr>
+    <td><p><code href="http://docbook.org/tdg51/en/html/mathphrase.html">mathphrase</code></p></td>
+    <td><p>No equivalent in Mallard. <link xref="mal_external">External-namespace
+    elements</link> may provide this, or may embed MathML instead with a supporting
+    tool.</p></td>
+  </tr></tbody>
+  <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/medialabel.html">medialabel</code> [4]</p></td>
     <td><p>No equivalent in Mallard.  Use plain text instead.</p></td>
   </tr></tbody>
@@ -1004,6 +1024,12 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
       <td><p><code href="http://www.docbook.org/tdg51/en/html/msgtext.html">msgtext</code></p></td>
     </tr>
   </tbody>
+  <tbody><tr>
+    <td><p><code href="http://docbook.org/tdg51/en/html/multimediaparam.html">multimediaparam</code> [5]</p></td>
+    <td><p>No equivalent in Mallard. Style hints or <link xref="mal_external">External-namespace
+    elements or attributes</link> may provide extra information for video or audio
+    <code xref="mal_block_media">media</code> elements.</p></td>
+  </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/nonterminal.html">nonterminal</code></p></td>
     <td><p>Mallard does not have structured EBNF productions.</p></td>
@@ -1124,7 +1150,7 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/partintro.html">partintro</code></p></td>
+    <td><p><code href="http://docbook.org/tdg51/en/html/phrase.html">phrase</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_span">span</code> element.</p></td>
   </tr></tbody>
   <tbody>
@@ -1326,6 +1352,11 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/replaceable.html">replaceable</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_var">var</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://docbook.org/tdg51/en/html/result.html">result</code></p></td>
+    <td><p>Mallard does not provide a structured element to mark up step results.
+    Use a regular <link xref="mal_block_p">paragraph</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/returnvalue.html">returnvalue</code></p></td>
@@ -1605,8 +1636,10 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/surname.html">surname</code></p></td>
-    <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
-    provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
+    <td><p>No equivalent in Mallard. Mallard records the <link xref="mal_info_name">whole
+    name</link> as it should be presented. <link xref="mal_external">External-namespace
+    elements</link> may provide parts of names for
+    <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/symbol.html">symbol</code></p></td>
