@@ -17,7 +17,7 @@
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
   <desc>A generic inline element that can be used for semantic,
-  localization, and styling purpose.</desc>
+  localization, and styling purposes.</desc>
 </info>
 
 <title>Spans</title>
