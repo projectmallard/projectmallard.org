@@ -7,7 +7,7 @@
 
   <revision docversion="1.0" date="2011-11-15" status="final"/>
 
-  <credit type="author">
+  <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
     <years>2009-2011</years>

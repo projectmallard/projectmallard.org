@@ -8,7 +8,7 @@
 
   <link type="guide" xref="index" group="test"/>
 
-  <credit type="author">
+  <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
     <years>2011, 2012</years>

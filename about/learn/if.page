@@ -6,7 +6,7 @@
 <info>
   <link type="guide" xref="index" group="extension"/>
 
-  <credit type="author">
+  <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
     <years>2014</years>
