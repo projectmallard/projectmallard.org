@@ -48,6 +48,24 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
         <xsl:with-param name="cache_node" select="$cache_node"/>
       </xsl:apply-templates>
     </xsl:if>
+    <!-- Make sure every site:dir has an index.page -->
+    <xsl:if test="not(preceding-sibling::mal:page[@site:dir=$cache_node/@site:dir])">
+      <xsl:variable name="dirs" select="str:split(@site:dir, '/')"/>
+      <xsl:for-each select="$dirs">
+        <xsl:variable name="pos" select="position()"/>
+        <xsl:variable name="pardir">
+          <xsl:text>/</xsl:text>
+          <xsl:for-each select="$dirs[position() &lt;= $pos]">
+            <xsl:value-of select="."/>
+            <xsl:text>/</xsl:text>
+          </xsl:for-each>
+        </xsl:variable>
+        <xsl:if test="not($cache_node/../mal:page[@id=concat($pardir, 'index')])">
+          <xsl:value-of select="$pardir"/>
+          <xsl:text>&#x000A;Missing index.page&#x000A;&#x000A;</xsl:text>
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:if>
   </xsl:for-each>
 </xsl:template>
 
