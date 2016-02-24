@@ -99,6 +99,16 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
       <xsl:text>&#x000A;</xsl:text>
     </xsl:if>
 
+    <!-- Check for desc elements on non-index pages -->
+    <xsl:if test="string(@id) != 'index' and not(mal:info/mal:desc)">
+      <xsl:text>Missing desc element&#x000A;</xsl:text>
+    </xsl:if>
+
+    <!-- Check for revision elements -->
+    <xsl:if test="not(mal:info/mal:revision[@date][@docversion][@status])">
+      <xsl:text>Missing revision element&#x000A;</xsl:text>
+    </xsl:if>
+
     <xsl:if test="string(@id) != 'index' and
                   string(@style) != 'details' and string(@style) != 'mep' and
                   not(starts-with($cache_node/@id, '/about/'))">
@@ -142,6 +152,102 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
           <xsl:text>Schema missing RNG&#x000A;</xsl:text>
         </xsl:if>
       </xsl:for-each>
+    </xsl:if>
+
+    <!-- Check for MEP structure -->
+    <xsl:if test="string(@style) = 'mep'">
+      <xsl:variable name="sects" select="mal:section"/>
+      <xsl:if test="not(mal:p[1][@style='lead'])">
+        <xsl:text>Missing lead paragraph&#x000A;</xsl:text>
+      </xsl:if>
+      <xsl:if test="not($sects[1][@id='background'][mal:title='Background'])">
+        <xsl:text>Missing Background section&#x000A;</xsl:text>
+      </xsl:if>
+      <xsl:if test="not($sects[2][@id='proposal'][mal:title='Proposal'])">
+        <xsl:text>Missing Proposal section&#x000A;</xsl:text>
+      </xsl:if>
+      <xsl:if test="$sects[3][@id='addendums']">
+        <xsl:if test="not($sects[3][mal:title='Addendums'])">
+          <xsl:text>Missing Addendums section&#x000A;</xsl:text>
+        </xsl:if>
+      </xsl:if>
+      <xsl:variable name="posex" select="3 + count($sects[3][@id='addendums'])"/>
+      <xsl:if test="not($sects[$posex][@id='examples'][mal:title='Examples'])">
+        <xsl:text>Missing Examples section&#x000A;</xsl:text>
+      </xsl:if>
+      <xsl:variable name="posac" select="$posex + 1"/>
+      <xsl:if test="$sects[$posac][@id='accessibility']">
+        <xsl:if test="not($sects[$posac][mal:title='Accessibility'])">
+          <xsl:text>Missing Accessibility section&#x000A;</xsl:text>
+        </xsl:if>
+      </xsl:if>
+      <xsl:variable name="posin" select="$posac + count($sects[$posac][@id='accessibility'])"/>
+      <xsl:if test="$sects[$posin][@id='internationalization']">
+        <xsl:if test="not($sects[$posin][mal:title='Internationalization'])">
+          <xsl:text>Missing Internationalization section&#x000A;</xsl:text>
+        </xsl:if>
+      </xsl:if>
+      <xsl:variable name="posalt" select="$posin + count($sects[$posin][@id='internationalization'])"/>
+      <xsl:if test="$sects[$posalt][@id='alternatives']">
+        <xsl:if test="not($sects[$posalt][mal:title='Alternatives'])">
+          <xsl:text>Missing Alternatives section&#x000A;</xsl:text>
+        </xsl:if>
+      </xsl:if>
+      <xsl:variable name="poscom" select="$posalt + count($sects[$posalt][@id='alternatives'])"/>
+      <xsl:if test="not($sects[$poscom][@id='compatibility'][mal:title='Compatibility and Fallback'])">
+        <xsl:text>Missing Compatibility and Fallback section&#x000A;</xsl:text>
+      </xsl:if>
+      <xsl:variable name="poscmp" select="$poscom + 1"/>
+      <xsl:if test="not($sects[$poscmp][@id='comparison'][mal:title='Comparison to Other Formats'])">
+        <xsl:text>Missing Comparison section&#x000A;</xsl:text>
+      </xsl:if>
+
+      <!-- MEP titles -->
+      <xsl:if test="not(mal:info/mal:title[@type='text'])">
+        <xsl:text>Missing text title&#x000A;</xsl:text>
+      </xsl:if>
+      <xsl:if test="not(mal:info/mal:title[@type='link'])">
+        <xsl:text>Missing link title&#x000A;</xsl:text>
+      </xsl:if>
+      <xsl:if test="not(mal:subtitle)">
+        <xsl:text>Missing subtitle&#x000A;</xsl:text>
+      </xsl:if>
+      <xsl:if test="string(mal:info/mal:title[@type='text']) != string(mal:subtitle)">
+        <xsl:text>Mismatched text title and subtitle&#x000A;</xsl:text>
+      </xsl:if>
+      <xsl:if test="concat(mal:title, ': ', mal:subtitle) !=
+                    string(mal:info/mal:title[@type='link'])">
+        <xsl:text>Mismatched link title and title/subtitle&#x000A;</xsl:text>
+      </xsl:if>
+
+      <!-- MEP status checks -->
+      <xsl:variable name="status">
+        <xsl:for-each select="mal:info/mal:revision">
+          <xsl:sort select="@date"/>
+          <xsl:if test="position() = last()">
+            <xsl:value-of select="@status"/>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:variable>
+      <xsl:if test="not(contains(
+                    ' incomplete proposed revised implemented final rejected replaced withdrawn ',
+                    concat(' ', $status, ' ') ))">
+        <xsl:text>Unknown MEP status </xsl:text>
+        <xsl:value-of select="$status"/>
+        <xsl:text>&#x000A;</xsl:text>
+      </xsl:if>
+      <xsl:variable name="docversion">
+        <xsl:for-each select="mal:info/mal:revision">
+          <xsl:sort select="@date"/>
+          <xsl:if test="position() = last()">
+            <xsl:value-of select="@docversion"/>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:variable>
+      <xsl:if test="$docversion != mal:info/mal:link[@type='guide' and @xref='index']/@group">
+        <xsl:text>Mismatched docversion and link group&#x000A;</xsl:text>
+      </xsl:if>
+
     </xsl:if>
   </xsl:variable>
   <xsl:if test="$errors != ''">
