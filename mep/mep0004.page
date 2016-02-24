@@ -48,7 +48,7 @@ extensions.</p>
   provide a representative screenshot or an icon that indicates its contents,
   and this could be shown along with the topic link from a guide page.</p>
 
-  <p>Additionally, some extensions may display galleries or images or videos
+  <p>Additionally, some extensions may display galleries of images or videos
   that open the media in a popup or fullscreen window. These extensions can
   benefit from allowing a separate thumbnail image for the media objects that
   is distinct from a scaled-down version of the image or a randomly selected
