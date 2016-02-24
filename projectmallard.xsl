@@ -242,6 +242,12 @@ div.code {
     rgba(136, 138, 133, .1) 15px, rgba(136, 138, 133, .1) 16px,
     transparent 16px, transparent);
 }
+span.hi { background: </xsl:text>
+<xsl:call-template name="color.blend">
+  <xsl:with-param name="bg" select="$color.yellow"/>
+  <xsl:with-param name="fg" select="$color.bg.yellow"/>
+  <xsl:with-param name="mix" select="0.8"/>
+</xsl:call-template><xsl:text>; }
 div.bottom {
   background: #2e3436 url(noise.png);
   color: #d3d7cf;
