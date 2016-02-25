@@ -213,14 +213,16 @@ li.pmo-jump-issues a:before {
   content: "&#xf188;";
 }
 
-h1, h2, h3, h4, h5, h6, h7 { font-family: Bitter; }
-h1.title { font-size: 3em; }
-h2.title { font-size: 1.73em; }
+h1, h2, h3, h4, h5, h6, h7 { font-family: 'Lato', sans; font-weight: normal; }
+h1.title { font-size: 48px; }
+h2.title { font-size: 36px; }
+h3.title { font-size: 24px; }
 p { max-width: 62em; text-align: justify; }
 a img { border: none; }
 @media only screen and (max-width: 400px) {
-  h1.title { font-size: 2em; }
-  h2.title { font-size: 1.44em; }
+  h1.title { font-size: 36px; }
+  h2.title { font-size: 30px; }
+  h3.title { font-size: 24px; }
   p { text-align: left; }
 }
 div.code {
@@ -326,9 +328,6 @@ body.pmo-splash article > div.region > section > div.inner > div.hgroup {
   border-bottom: none;
   text-align: center;
 }
-body.pmo-splash article > div.region > section > div.inner > div.hgroup > h2 {
-  font-size: 36px;
-}
 body.pmo-splash section#happy {
   border-top: solid 1px #204a87;
   border-bottom: solid 1px #204a87;
@@ -358,6 +357,8 @@ body.pmo-splash section#happy > div.inner {
     transparent, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0.1) 70%, transparent);
 }
 body.pmo-splash section#happy h2 {
+  font-family: Bitter;
+  font-weight: bold;
   color: white;
 }
 body.pmo-splash section#happy li {
