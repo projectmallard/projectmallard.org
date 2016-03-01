@@ -24,6 +24,13 @@
 <title>Changes in Mallard 1.1</title>
 
 <list>
+  <item><p>The new <code xref="mal_block_div">div</code> element is a generic
+  block container element without semantics, allowing simple formal paragraphs,
+  easier content reuse, and better behavior for extensions. See
+  <link xref="/mep/mep0005">MEP-0005</link> and
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/15">Issue
+  15</link>.</p></item>
+
   <item><p>Formal block elements, including lists and tables, may now contain
   an optional <code xref="mal_info">info</code> element to provide metadata
   such as attributions, licensing information, and additional titles for

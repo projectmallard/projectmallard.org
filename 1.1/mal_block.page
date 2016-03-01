@@ -61,6 +61,7 @@ information.</p>
   <info>
     <title type="link">Formal Block Elements</title>
     <link type="topic" xref="mal_block_comment"/>
+    <link type="topic" xref="mal_block_div"/>
     <link type="topic" xref="mal_block_example"/>
     <link type="topic" xref="mal_block_figure"/>
     <link type="topic" xref="mal_block_listing"/>
@@ -153,13 +154,19 @@ information.</p>
   each block element's specification for more details.</p>
 
   <p>Mallard allows elements from external namespaces to be used in any block
-  context.  Processing tools may have special behavior for particular elements
-  they understand.  If a processing tool does not understand an element in
+  context. Processing tools may have special behavior for particular elements
+  they understand. If a processing tool does not understand an element in
   block context, it should process the children of the element as if they
   were block elements, except it should ignore any child elements it does
-  not understand.  This restricted block context allows extensions to have
+  not understand. This restricted block context allows extensions to have
   any content model while still providing a standard mechanism for fallback
   content.</p>
+
+  <p>Sometimes extension block elements will use
+  <code xref="mal_block_title">title</code> or <code xref="mal_block_desc">desc</code>
+  elements. Processing tools should process <code>title</code> and <code>desc</code>
+  elements as if the unrecognized block element were a <code xref="mal_block_div">div</code>
+  element, processing other child content in restricted block context.</p>
 </section>
 <!-- END processing -->
 

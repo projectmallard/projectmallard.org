@@ -580,7 +580,8 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg51/en/html/formalpara.html">formalpara</code></p></td>
-    <td><p>No equivalent in Mallard.</p></td>
+    <td><p>The Mallard <code xref="mal_block_div">div</code> element has no formal
+    semantics, but is usable to add a title to a paragraph.</p></td>
   </tr></tbody>
   <tbody>
     <tr>

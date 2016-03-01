@@ -1,0 +1,215 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="mal_block_div">
+
+<info>
+  <link type="seealso" xref="mal_inline_span"/>
+
+  <revision docversion="1.1" date="2016-02-29" status="review"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2016</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>A generic formal block element that can be used for semantic,
+  localization, and styling purpose.</desc>
+</info>
+
+<title>Divs</title>
+
+<p>Use the <code>div</code> element to surround block elements without using any
+of the semantic block container elements. Divs may be used along with style hints
+to provide lightweight extensions or to provide information for localization and
+other tools. They also serve as the basis for formal block extensions.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>div</code> element contains an optional
+    <code xref="mal_info">info</code> element, an optional
+    <code xref="mal_block_title">title</code> element, an optional
+    <code xref="mal_block_desc">desc</code> element, and any
+    <link xref="mal_block">general block content</link>.</p></item>
+
+    <item><p>The <code>div</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>div</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>div</code> to create a formal paragraph:</p>
+
+  <example>
+    <code><![CDATA[
+<div>
+  <title>Hello world</title>
+  <p>This is a paragraph about saying hello to the world.</p>
+</div>
+]]></code>
+    <div>
+      <title>Hello world</title>
+      <p>This is a paragraph about saying hello to the world.</p>
+    </div>
+  </example>
+
+  <p>Use <code>div</code> to group together block elements so you can
+  transclude them as a whole, easing content reuse:</p>
+
+  <example>
+    <code><![CDATA[<div>
+  <p>Planting magic beans is fun and easy.</p>
+  <steps>
+    <item><p>Dig a hole 10cm deep.</p></item>
+    <item><p>Place magic beans in the hole.</p></item>
+    <item><p>Fill hole with fertilized soil.</p></item>
+    <item><p>Water frequently.</p></item>
+  </steps>
+  <note style="warning">
+    <p>Watch out for giants!</p>
+  </note>
+</div>]]></code>
+    <div>
+      <p>Planting magic beans is fun and easy.</p>
+      <steps>
+        <item><p>Dig a hole 10cm deep.</p></item>
+        <item><p>Place magic beans in the hole.</p></item>
+        <item><p>Fill hole with fertilized soil.</p></item>
+        <item><p>Water frequently.</p></item>
+      </steps>
+      <note style="warning">
+        <p>Watch out for giants!</p>
+      </note>
+    </div>
+  </example>
+
+  <p>Use <code>div</code> to mark multiple block elements as untranslatable
+  using the
+  <link href="http://www.w3.org/TR/its/">Internationalization Tag Set</link>:</p>
+
+  <example>
+    <code><![CDATA[<div xmlns:its="http://www.w3.org/2005/11/its" its:translate="no">
+  <p>This paragraph should not be translated.</p>
+  <code>// Neither should this code block.</code>
+</div>]]></code>
+    <div xmlns:its="http://www.w3.org/2005/11/its" its:translate="no">
+      <p>This paragraph should not be translated.</p>
+      <code>// Neither should this code block.</code>
+    </div>
+  </example>
+
+  <p>Use <code>div</code> as a generic container for
+  <link xref="/ui/1.0/ui_expanded">UI expanders</link>:</p>
+
+  <example>
+    <code><![CDATA[
+<div xmlns:ui="http://projectmallard.org/ui/1.0/" ui:expanded="false">
+  <info>
+    <title type="ui:collapsed">Click to say hello</title>
+  </info>
+  <title>Hello world</title>
+  <p>This is a paragraph about saying hello to the world.</p>
+</div>
+]]></code>
+    <div xmlns:ui="http://projectmallard.org/ui/1.0/" ui:expanded="false">
+      <info>
+        <title type="ui:collapsed">Click to say hello</title>
+      </info>
+      <title>Hello world</title>
+      <p>This is a paragraph about saying hello to the world.</p>
+    </div>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Figures are displayed as block elements, with each of their child elements
+  interpreted as block elements.  When present, the title and description
+  should be displayed in a way that makes their respective roles clear. There
+  is no expectation of a visual indication of grouping. Style hints or
+  extension attributes may override this.</p>
+
+  <p>The optional <code xref="mal_info">info</code> element can provide metadata
+  for the div, such as attributions, licensing information, and additional
+  titles for extensions. It is not displayed directly.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p><link xref="docbook">DocBook</link> does not have a generic block container
+  element with no semantics. The <code>div</code> element may be used in place
+  of the DocBook
+  <code href="http://docbook.org/tdg51/en/html/formalpara.html">formalpara</code>
+  element.</p>
+
+  <p>When used without a title as a grouping element, the <code>div</code> element
+  is similar to the 
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/bodydiv.html">bodydiv</code> and
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sectiondiv.html">sectiondiv</code>
+  elements in <link xref="dita">DITA</link>, although the <code>div</code> element
+  is allowed in more places. When used with a title, the <code>div</code> element
+  is similar to the DITA
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/section.html">section</code>
+  element, which is a lightweight formal block container.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>figure</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_div = element div {
+  mal_block_div_attr,
+  <link xref="mal_info">mal_info</link> ?,
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  <link xref="mal_block_desc">mal_block_desc</link> ?,
+  mal_block_div_content +
+}
+mal_block_div_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_block">mal_block_attr</link>,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_div_content = <link xref="mal_block">mal_block</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

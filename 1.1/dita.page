@@ -118,9 +118,7 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/bodydiv.html">bodydiv</code></p></td>
-    <td><p>Mallard does not contain a generic block container element.
-    <link xref="mal_external">External-namespace elements</link> may be used in
-    a block content to group block elements.</p></td>
+    <td><p>Use the <code xref="mal_block_div">div</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/common/bookmap-elements.html">bookmap/*</code></p></td>
@@ -820,15 +818,13 @@ for tracking or validation.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/section.html">section</code></p></td>
-    <td><p>No equivalent in Mallard. DITA <code>section</code> elements are not like
-    Mallard <code xref="mal_section">section</code> elements. Mallard sections are
-    similar to nested topics in DITA. DITA sections are simple formal blocks.</p></td>
+    <td><p>Similar to the <code xref="mal_block_div">div</code> element with a title.
+    DITA sections are lightweight formal blocks and are not like Mallard
+    <code xref="mal_section">section</code> elements.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sectiondiv.html">sectiondiv</code></p></td>
-    <td><p>Mallard does not contain a generic block container element.
-    <link xref="mal_external">External-namespace elements</link> may be used in
-    a block content to group block elements.</p></td>
+    <td><p>Use the <code xref="mal_block_div">div</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sep.html">sep</code></p></td>
