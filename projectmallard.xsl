@@ -410,14 +410,16 @@ body.pmo-splash section#specs span.em {
   }
 }
 
+div.mep-info ul, div.mep-info li { list-style-type: none; margin: 0; }
+div.mep-info li + li { margin-top: 0.2em; }
 span.mep-status {
+  font-weight: normal;
   display: inline-block;
-  padding: 2px 8px;
+  padding: 0 4px 0 4px;
   margin: 0 8px;
   background: </xsl:text><xsl:value-of select="$color.yellow_background"/><xsl:text>;
-  border: solid 1px </xsl:text><xsl:value-of select="$color.yellow_border"/><xsl:text>;
-  color: </xsl:text><xsl:value-of select="$color.text_light"/><xsl:text>;
-  border-radius: 2px;
+  border-left: solid 2px </xsl:text><xsl:value-of select="$color.yellow_border"/><xsl:text>;
+  color: </xsl:text><xsl:value-of select="$color.fg.gray"/><xsl:text>;
 }
 span.mep-status-implemented {
   background: </xsl:text><xsl:value-of select="$color.gray_background"/><xsl:text>;
@@ -642,6 +644,7 @@ to grow the ability to provide custom tags/badges on links.
 </xsl:template>
 
 <xsl:template name="mep.info">
+  <xsl:variable name="id" select="/mal:page/@id"/>
   <div class="mep-info">
     <table>
       <tr>
@@ -711,6 +714,53 @@ to grow the ability to provide custom tags/badges on links.
                 </span>
               </xsl:otherwise>
             </xsl:choose>
+          </td>
+        </tr>
+      </xsl:if>
+      <xsl:variable name="depends" select="/mal:page/mal:info/mal:link[@type='mep:depends']"/>
+      <xsl:if test="$depends">
+        <tr>
+          <th>Depends:</th>
+          <td>
+            <ul>
+              <xsl:for-each select="$depends">
+                <xsl:call-template name="mal2html.links.ul.li">
+                  <xsl:with-param name="xref" select="concat('/mep/', @xref)"/>
+                  <xsl:with-param name="nodesc" select="true()"/>
+                </xsl:call-template>
+              </xsl:for-each>
+            </ul>
+          </td>
+        </tr>
+      </xsl:if>
+      <xsl:variable name="blocks" select="$mal.cache/mal:page/mal:info/mal:link
+                                          [@type='mep:depends'][@xref=concat('/mep/', $id)]"/>
+      <xsl:if test="$blocks">
+        <tr>
+          <th>Blocks:</th>
+          <td>
+            <ul>
+              <xsl:for-each select="$blocks">
+                <xsl:call-template name="mal2html.links.ul.li">
+                  <xsl:with-param name="xref" select="ancestor::mal:page/@id"/>
+                  <xsl:with-param name="nodesc" select="true()"/>
+                </xsl:call-template>
+              </xsl:for-each>
+            </ul>
+          </td>
+        </tr>
+      </xsl:if>
+      <xsl:variable name="issue" select="/mal:page/mal:info/mal:link[@type='mep:issue'][@href][1]"/>
+      <xsl:if test="$issue">
+        <tr>
+          <th>Issue:</th>
+          <td>
+            <a>
+              <xsl:attribute name="href">
+                <xsl:value-of select="$issue/@href"/>
+              </xsl:attribute>
+              <xsl:value-of select="$issue/@href"/>
+            </a>
           </td>
         </tr>
       </xsl:if>

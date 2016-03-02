@@ -4,6 +4,7 @@
 
 <info>
   <link type="guide" xref="index" group="1.1"/>
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/27"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>

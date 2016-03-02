@@ -248,6 +248,11 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
         <xsl:text>Mismatched docversion and link group&#x000A;</xsl:text>
       </xsl:if>
 
+      <!-- MEP links -->
+      <xsl:if test="not(mal:info/mal:link[@type='mep:issue'][startswith(@href, 'https://github.com/projectmallard/projectmallard.org/issues/')])">
+        <xsl:text>Mising GitHub issue link&#x000A;</xsl:text>
+      </xsl:if>
+
     </xsl:if>
   </xsl:variable>
   <xsl:if test="$errors != ''">
