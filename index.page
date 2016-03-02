@@ -15,7 +15,7 @@
 
 <title style="pmo-hidden">Mallard</title>
 
-<media type="application" mime="application/html">
+<media type="application" mime="application/html" src="#">
   <div xmlns="http://www.w3.org/1999/xhtml" class="pmo-twitter">
     <a class="twitter-timeline"  href="https://twitter.com/projectmallard" data-widget-id="591335057329156096" data-chrome="noborders" height="400">Tweets by @projectmallard</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
