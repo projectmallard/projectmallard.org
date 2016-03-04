@@ -162,7 +162,7 @@ DocBook provides explicit
 <code href="http://www.docbook.org/tdg51/en/html/substeps.html">substeps</code> and
 <code href="http://www.docbook.org/tdg51/en/html/stepalternatives.html">stepalternatives</code>
 elements.  Mallard has no equivalent.  For substeps, use nested <code>steps</code>
-elements.  For alternatives, use a <code xref="mal_block_list">basic list</code>
+elements.  For alternatives, use a <link xref="mal_block_list">basic list</link>
 with introductory text.</p>
 
 <p>The <code>steps</code> element is similar to the
