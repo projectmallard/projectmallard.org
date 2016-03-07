@@ -17,7 +17,7 @@
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
   <revision date="2014-11-08" docversion="1.1" status="proposed"/>
-  <revision date="2015-02-29" docversion="1.1" status="implemented"/>
+  <revision date="2016-02-29" docversion="1.1" status="implemented"/>
 
   <title type="text">Generic <code>div</code> element</title>
   <title type="link">MEP-0005: Generic <code>div</code> element</title>
