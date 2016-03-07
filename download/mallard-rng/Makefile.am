@@ -7,10 +7,14 @@ if10_DATA = if/1.0/if-1.0.rnc if/1.0/if-1.0.rng
 catalogdir = $(sysconfdir)/xml/mallard
 catalog_DATA = catalog
 
+pkgconfigdir = $(datadir)/pkgconfig
+pkgconfig_DATA = mallard-rng.pc
+
 EXTRA_DIST =			\
 	$(mal10_DATA)		\
 	$(if10_DATA)		\
-	catalog.in
+	catalog.in		\
+	mallard-rng.pc.in
 
 install-exec-hook:
 	test -n "$(DESTDIR)" || ( \

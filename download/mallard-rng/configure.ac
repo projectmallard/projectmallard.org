@@ -20,6 +20,7 @@ AC_SUBST(rngdir, "\${datadir}/xml/mallard")
 AC_CONFIG_FILES([
 Makefile
 catalog
+mallard-rng.pc
 ])
 
 AC_OUTPUT
