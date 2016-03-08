@@ -3,7 +3,7 @@
       id="index">
 
 <info>
-  <revision docversion="1.0" date="2013-07-27" status="review"/>
+  <revision docversion="1.0" date="2016-03-07" status="final"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -37,8 +37,6 @@ a completely different method of storing and reading page metadata.</p>
 <p>Cache files are not necessarily intended for interchange between different tools.
 They may be used for interchange, but there are potential issues that should be dealt
 with. Potential interchange issues are addressed throughout this specification.</p>
-
-<include href="../../common.xml" xpointer="xpointer(id('candidate'))" xmlns="http://www.w3.org/2001/XInclude"/>
 
 
 <!-- BEGIN spec -->
