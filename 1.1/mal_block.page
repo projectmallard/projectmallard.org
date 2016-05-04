@@ -195,6 +195,7 @@ mal_block = (
 mal_block_elements = (  
   <link xref="mal_block_code">mal_block_code</link> |
   <link xref="mal_block_comment">mal_block_comment</link> |
+  <link xref="mal_block_div">mal_block_div</link> |
   <link xref="mal_block_example">mal_block_example</link> |
   <link xref="mal_block_figure">mal_block_figure</link> |
   <link xref="mal_block_list">mal_block_list</link> |
