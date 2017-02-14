@@ -1,6 +1,6 @@
 <page xmlns="http://projectmallard.org/1.0/"
       xmlns:if="http://projectmallard.org/if/1.0/"
-      type="topic" version="1.0 if/1.0"
+      type="topic" style="tutorial" version="1.0 if/1.0"
       id="if">
 
 <info>

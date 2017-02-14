@@ -1,6 +1,6 @@
 <page xmlns="http://projectmallard.org/1.0/"
       xmlns:ui="http://projectmallard.org/ui/1.0/"
-      type="topic"
+      type="topic" style="spec"
       id="ui_expanded">
 
 <info>
