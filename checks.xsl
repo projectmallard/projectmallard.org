@@ -71,6 +71,7 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
 
 <xsl:template match="/mal:page">
   <xsl:param name="cache_node"/>
+  <xsl:variable name="style" select="concat(' ', @style, ' ')"/>
   <xsl:variable name="errors">
 
     <!-- Check for credits -->
@@ -105,15 +106,25 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
     </xsl:if>
 
     <!-- Check for revision elements -->
-    <xsl:if test="not(mal:info/mal:revision[@date][@docversion][@status])">
-      <xsl:text>Missing revision element&#x000A;</xsl:text>
+    <xsl:if test="contains($style, ' spec ') or contains($style, ' details ')">
+      <xsl:if test="not(mal:info/mal:revision[@date][@docversion][@status])">
+        <xsl:text>Missing revision element&#x000A;</xsl:text>
+      </xsl:if>
     </xsl:if>
 
-    <xsl:if test="string(@id) != 'index' and
-                  string(@style) != 'details' and string(@style) != 'mep' and
-                  not(starts-with($cache_node/@id, '/about/'))">
+    <!-- Checks only for spec pages -->
+    <xsl:if test="contains($style, ' spec ')">
 
       <!-- Check for common sections -->
+      <!--
+          Notes
+          Examples
+          **
+          Processing Expectations | Specification
+          Feature Token ?
+          Comparison to Other Formats ? spec-no-comparison
+          Schema ? spec-no-schema
+      -->
       <xsl:variable name="sects" select="mal:section"/>
       <xsl:if test="not($sects[1][@id='notes'][mal:title='Notes'])">
         <xsl:text>Missing Notes section&#x000A;</xsl:text>
@@ -121,16 +132,24 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
       <xsl:if test="not($sects[2][@id='examples'][mal:title='Examples'])">
         <xsl:text>Missing Examples section&#x000A;</xsl:text>
       </xsl:if>
-      <xsl:variable name="no_comparison" select="processing-instruction('no-comparison')"/>
-      <xsl:if test="not($sects[count($sects) - (1 + not($no_comparison))]
-                    [@id='processing'][mal:title='Processing Expectations'])">
-        <xsl:text>Missing Processing section&#x000A;</xsl:text>
+      <xsl:variable name="no_comparison" select="contains($style, ' spec-no-comparison ')"/>
+      <xsl:variable name="no_schema" select="contains($style, ' spec-no-schema ')"/>
+      <xsl:variable name="token" select="$sects[count($sects) - (not($no_comparison) + not($no_schema))]
+                                         [@id='token'][mal:title='Feature Token']"/>
+      <xsl:if test="not($sects[count($sects) - (not($no_comparison) + not($no_schema) + count($token))]
+                              [@id='processing'][mal:title='Processing Expectations']
+                        or
+                        $sects[count($sects) - (not($no_comparison) + not($no_schema) + count($token))]
+                              [@id='spec'][mal:title='Specification']
+                       )">
+        <xsl:text>Missing Processing or Specification section&#x000A;</xsl:text>
       </xsl:if>
       <xsl:if test="not($no_comparison) and
                     not($sects[count($sects)-1][@id='comparison'][mal:title='Comparison to Other Formats'])">
         <xsl:text>Missing Comparison section&#x000A;</xsl:text>
       </xsl:if>
-      <xsl:if test="not($sects[count($sects)][@id='schema'][mal:title='Schema'])">
+      <xsl:if test="not($no_schema) and
+                    not($sects[count($sects)][@id='schema'][mal:title='Schema'])">
         <xsl:text>Missing Schema section&#x000A;</xsl:text>
       </xsl:if>
 
@@ -155,7 +174,7 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
     </xsl:if>
 
     <!-- Check for MEP structure -->
-    <xsl:if test="string(@style) = 'mep'">
+    <xsl:if test="contains($style, ' mep ')">
       <xsl:variable name="sects" select="mal:section"/>
       <xsl:if test="not(mal:p[1][@style='lead'])">
         <xsl:text>Missing lead paragraph&#x000A;</xsl:text>
@@ -249,7 +268,7 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
       </xsl:if>
 
       <!-- MEP links -->
-      <xsl:if test="not(mal:info/mal:link[@type='mep:issue'][startswith(@href, 'https://github.com/projectmallard/projectmallard.org/issues/')])">
+      <xsl:if test="not(mal:info/mal:link[@type='mep:issue'][starts-with(@href, 'https://github.com/projectmallard/projectmallard.org/issues/')])">
         <xsl:text>Mising GitHub issue link&#x000A;</xsl:text>
       </xsl:if>
 

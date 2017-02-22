@@ -1,5 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="topic" style="spec"
+      type="topic" style="spec spec-no-comparison"
       id="if_else">
 
 <info>
@@ -14,6 +14,8 @@
     <email>shaunm@gnome.org</email>
     <years>2011, 2012</years>
   </credit>
+
+  <desc>Provide fallback content in a list of choices.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
@@ -66,9 +68,6 @@ no previous <code xref="if_when">if:when</code> elements in the same
 for more details.</p>
 </section>
 <!-- END processing -->
-
-
-<?no-comparison?>
 
 
 <!-- BEGIN schema -->

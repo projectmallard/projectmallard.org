@@ -1,5 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="topic" style="spec"
+      type="topic" style="spec spec-no-comparison"
       id="if_if">
 
 <info>
@@ -12,6 +12,8 @@
     <email>shaunm@gnome.org</email>
     <years>2011, 2012</years>
   </credit>
+
+  <desc>Wrap arbitrary content in a single conditional.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
@@ -104,9 +106,6 @@ in restricted block context. This means that all standard block content of an
 <link xref="fallback"/> for more details.</p>
 </section>
 <!-- END processing -->
-
-
-<?no-comparison?>
 
 
 <!-- BEGIN schema -->

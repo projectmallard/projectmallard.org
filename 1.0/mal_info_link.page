@@ -1,5 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="topic" style="spec"
+      type="topic" style="spec spec-no-comparison"
       id="mal_info_link">
 
 <info>
@@ -148,9 +148,6 @@ element to express logical links between pages and sections to be collected by
   and any unrecognized content should be ignored.</p>
 </section>
 <!-- END processing -->
-
-
-<?no-comparison?>
 
 
 <!-- BEGIN schema -->

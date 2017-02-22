@@ -1,6 +1,6 @@
 <page xmlns="http://projectmallard.org/1.0/"
       xmlns:if="http://projectmallard.org/if/1.0/"
-      type="topic" style="spec"
+      type="topic" style="spec spec-no-comparison"
       id="if_attr_test">
 
 <info>
@@ -13,6 +13,8 @@
     <email>shaunm@gnome.org</email>
     <years>2011, 2012</years>
   </credit>
+
+  <desc>Use test expressions to specify conditions.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
@@ -188,9 +190,6 @@ accordingly. Some processing tools may assign <em>maybe</em> values to some
 tokens to defer certain conditionals to a target format.</p>
 </section>
 <!-- END processing -->
-
-
-<?no-comparison?>
 
 
 <!-- BEGIN schema -->

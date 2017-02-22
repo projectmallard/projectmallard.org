@@ -13,6 +13,8 @@
     <years>2012</years>
   </credit>
 
+  <desc>Standard tokens and prefixes for use in test expressions.</desc>
+
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
 

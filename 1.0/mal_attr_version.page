@@ -1,5 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="topic" style="spec"
+      type="topic" style="spec spec-no-comparison"
       id="mal_attr_version">
 
 <info>
@@ -190,9 +190,6 @@ version and extensions to a processing tool or validator.</p>
   <p>The resultant schema is used to validate the page.</p>
 </section>
 <!-- END processing -->
-
-
-<?no-comparison?>
 
 
 <!-- BEGIN schema -->

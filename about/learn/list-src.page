@@ -9,6 +9,8 @@
     <years>2010</years>
   </credit>
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Source markup for the Lists, Steps, and Terms tutorial.</desc>
 </info>
 
 <title>Lists, Steps, and Terms Source</title>
