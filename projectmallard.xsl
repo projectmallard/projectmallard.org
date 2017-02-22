@@ -809,11 +809,9 @@ to grow the ability to provide custom tags/badges on links.
   </xsl:variable>
   <xsl:if test="$status != 'final' and $status != 'rejected' and
                 $status != 'replaced' and $status != 'withdrawn'">
-    <div class="note"><div class="inner"><div class="region"><div class="contents">
-      <p>This proposal is still under consideration. Revisions may
-      still be made based on your input. Discuss this proposal on
-      <a href="{$mal.site.root}about/contact{$mal.link.extension}">mallard-list</a>.</p>
-    </div></div></div></div>
+    <xsl:for-each select="document('common.xml')/*/mal:note[@xml:id = 'mep-draft']">
+      <xsl:apply-templates mode="mal2html.block.mode" select="."/>
+    </xsl:for-each>
   </xsl:if>
 </xsl:template>
 

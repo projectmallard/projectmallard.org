@@ -7,4 +7,9 @@
     <p>This is a draft specification. It is likely that changes will still be
     made before the final specification.</p>
   </note>
+  <note xml:id="mep-draft">
+    <p>This proposal is still under consideration. Revisions may
+    still be made based on your input. Discuss this proposal on
+    <link xref="/about/contact">mallard-list</link>.</p>
+  </note>
 </notes>
