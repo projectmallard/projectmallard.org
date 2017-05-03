@@ -16,15 +16,15 @@
 
   <revision date="2014-12-16" docversion="1.1" status="proposed"/>
 
-  <title type="text">More flexible version attribute</title>
-  <title type="link">MEP-0006: More flexible <code>version</code> attribute</title>
+  <title type="text">More Flexible version Attribute</title>
+  <title type="link">MEP-0006: More Flexible <code>version</code> Attribute</title>
 
   <desc>Extend the <code>version</code> attribute of the <code>revision</code>
   element to allow an arbitrary number of keyed version numbers.</desc>
 </info>
 
 <title>MEP-0006</title>
-<subtitle>More flexible <code>version</code> attribute</subtitle>
+<subtitle>More Flexible <code>version</code> Attribute</subtitle>
 
 <p style="lead">This page proposes an extended form for the <code>version</code>
 attribute of the informational <link xref="/1.0/mal_info_revision">revision</link>

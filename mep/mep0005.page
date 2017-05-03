@@ -19,15 +19,15 @@
   <revision date="2014-11-08" docversion="1.1" status="proposed"/>
   <revision date="2016-02-29" docversion="1.1" status="implemented"/>
 
-  <title type="text">Generic <code>div</code> element</title>
-  <title type="link">MEP-0005: Generic <code>div</code> element</title>
+  <title type="text">Generic <code>div</code> Element</title>
+  <title type="link">MEP-0005: Generic <code>div</code> Element</title>
 
   <desc>Create a generic formal element that can carry a title and
   informational elements with no extra semantics.</desc>
 </info>
 
 <title>MEP-0005</title>
-<subtitle>Generic <code>div</code> element</subtitle>
+<subtitle>Generic <code>div</code> Element</subtitle>
 
 <p style="lead">This page proposes adding <code>div</code> as a formal block
 container element to allow better integration for extensions.</p>
@@ -106,7 +106,7 @@ container element to allow better integration for extensions.</p>
 <section id="compatibility">
   <title>Compatibility and Fallback</title>
 
-  <p>This proposal makes no backwards-incompatible changes. That is, any page
+  <p>This proposal makes no backwards-incompatible changes. Any page
   written in a version prior to the implementation of this proposal will work
   exactly the same in a processing tool that implements this proposal.</p>
 

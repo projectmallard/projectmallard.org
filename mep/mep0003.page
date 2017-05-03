@@ -96,7 +96,7 @@ the <code xref="/1.0/mal_links">links</code> element.</p>
 <section id="compatibility">
   <title>Compatibility and Fallback</title>
 
-  <p>This proposal makes no backwards-incompatible changes. That is, any page
+  <p>This proposal makes no backwards-incompatible changes. Any page
   written in a version prior to the implementation of this proposal will work
   exactly the same in a processing tool that implements this proposal.</p>
 
