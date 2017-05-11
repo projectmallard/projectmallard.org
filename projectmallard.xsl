@@ -815,4 +815,13 @@ to grow the ability to provide custom tags/badges on links.
   </xsl:if>
 </xsl:template>
 
+<xsl:template mode="html.content.pre.mode"
+              match="mal:section[ancestor::mal:page[contains(concat(' ', @style, ' '), ' mep ')]]">
+  <xsl:if test="count(*) = count(mal:title | mal:info)">
+    <xsl:for-each select="document('common.xml')/*/mal:note[@xml:id = 'mep-section-stub']">
+      <xsl:apply-templates mode="mal2html.block.mode" select="."/>
+    </xsl:for-each>
+  </xsl:if>
+</xsl:template>
+
 </xsl:stylesheet>
