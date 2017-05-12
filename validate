@@ -1,3 +1,0 @@
-#!/bin/sh
-
-xmllint --noout --xinclude --relaxng $(dirname $0)/1.0/mallard-1.0.rng `find . -name '*.page'` 2>&1 | grep -v 'validates$'
