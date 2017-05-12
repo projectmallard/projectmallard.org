@@ -213,12 +213,13 @@ mal_page = element page {
   <link xref="mal_links">mal_links</link> *
 }
 mal_page_attr = (
-  attribute id { xsd:NMTOKEN },
+  mal_page_id,
   attribute type { xsd:NMTOKEN } ?,
   attribute style { xsd:NMTOKENS } ?,
   <link xref="mal_attr_version">mal_attr_version</link> ?,
   <link xref="mal_external">mal_attr_external</link> *
 )
+mal_page_id = attribute id { xsd:NMTOKEN }
 </code></synopsis>
 </section>
 <!-- END schema -->

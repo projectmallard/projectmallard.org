@@ -35,9 +35,7 @@
 
 <define name="mal_page_attr">
   <group>
-    <attribute name="id">
-      <data type="NMTOKEN" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-    </attribute>
+    <ref name="mal_page_id"/>
     <optional>
       <attribute name="type">
         <data type="NMTOKEN" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
@@ -55,6 +53,12 @@
       <ref name="mal_attr_external"/>
     </zeroOrMore>
   </group>
+</define>
+
+<define name="mal_page_id">
+  <attribute name="id">
+    <data type="NMTOKEN" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+  </attribute>
 </define>
 
 <define name="mal_section">
@@ -84,9 +88,7 @@
 
 <define name="mal_section_attr">
   <group>
-    <attribute name="id">
-      <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-    </attribute>
+    <ref name="mal_section_id"/>
     <optional>
       <attribute name="style">
         <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
@@ -96,6 +98,12 @@
       <ref name="mal_attr_external"/>
     </zeroOrMore>
   </group>
+</define>
+
+<define name="mal_section_id">
+  <attribute name="id">
+    <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+  </attribute>
 </define>
 
 <define name="mal_info">
@@ -557,6 +565,7 @@
   <choice>
     <ref name="mal_block_code"/>
     <ref name="mal_block_comment"/>
+    <ref name="mal_block_div"/>
     <ref name="mal_block_example"/>
     <ref name="mal_block_figure"/>
     <ref name="mal_block_list"/>
@@ -754,6 +763,42 @@
 </define>
 
 <define name="mal_block_quote_content">
+  <ref name="mal_block"/>
+</define>
+
+<define name="mal_block_div">
+  <element name="div">
+    <ref name="mal_block_div_attr"/>
+    <optional>
+      <ref name="mal_info"/>
+    </optional>
+    <optional>
+      <ref name="mal_block_title"/>
+    </optional>
+    <optional>
+      <ref name="mal_block_desc"/>
+    </optional>
+    <oneOrMore>
+      <ref name="mal_block_div_content"/>
+    </oneOrMore>
+  </element>
+</define>
+
+<define name="mal_block_div_attr">
+  <group>
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <ref name="mal_block_attr"/>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<define name="mal_block_div_content">
   <ref name="mal_block"/>
 </define>
 

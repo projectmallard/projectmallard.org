@@ -156,10 +156,11 @@ mal_section = element section {
   <link xref="mal_links">mal_links</link> *
 }
 mal_section_attr = (
-  attribute id { xsd:ID },
+  mal_section_id,
   attribute style { xsd:NMTOKENS } ?,
   <link xref="mal_external">mal_attr_external</link> *
 )
+mal_section_id = attribute id { xsd:ID }
 </code></synopsis>
 </section>
 <!-- END schema -->

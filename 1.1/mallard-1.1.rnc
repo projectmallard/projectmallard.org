@@ -13,12 +13,13 @@ mal_page = element page {
   mal_links *
 }
 mal_page_attr = (
-  attribute id { xsd:NMTOKEN },
+  mal_page_id,
   attribute type { xsd:NMTOKEN } ?,
   attribute style { xsd:NMTOKENS } ?,
   mal_attr_version ?,
   mal_attr_external *
 )
+mal_page_id = attribute id { xsd:NMTOKEN }
 
 mal_section = element section {
   mal_section_attr,
@@ -31,10 +32,11 @@ mal_section = element section {
   mal_links *
 }
 mal_section_attr = (
-  attribute id { xsd:ID },
+  mal_section_id,
   attribute style { xsd:NMTOKENS } ?,
   mal_attr_external *
 )
+mal_section_id = attribute id { xsd:ID }
 
 mal_info = element info {
   mal_info_attr,
@@ -206,6 +208,7 @@ mal_block = (
 mal_block_elements = (  
   mal_block_code |
   mal_block_comment |
+  mal_block_div |
   mal_block_example |
   mal_block_figure |
   mal_block_list |
@@ -288,6 +291,20 @@ mal_block_quote_attr = (
   mal_attr_external *
 )
 mal_block_quote_content = mal_block
+
+mal_block_div = element div {
+  mal_block_div_attr,
+  mal_info ?,
+  mal_block_title ?,
+  mal_block_desc ?,
+  mal_block_div_content +
+}
+mal_block_div_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_block_attr,
+  mal_attr_external *
+)
+mal_block_div_content = mal_block
 
 mal_block_comment = element comment {
   mal_block_comment_attr,
