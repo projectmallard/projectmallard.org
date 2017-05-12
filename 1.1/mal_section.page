@@ -156,7 +156,7 @@ mal_section = element section {
   <link xref="mal_links">mal_links</link> *
 }
 mal_section_attr = (
-  mal_section_id,
+  mal_section_id ?,
   attribute style { xsd:NMTOKENS } ?,
   <link xref="mal_external">mal_attr_external</link> *
 )
