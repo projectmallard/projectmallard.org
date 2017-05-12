@@ -41,7 +41,7 @@ more quickly.  In Mallard, sections can take part in
     <item><p>The <code>section</code> element can occur in <code xref="mal_page">page</code>
     elements and other <code>section</code> elements.</p></item>
 
-    <item><p>The <code>id</code> attribute takes a unique identifier.  It should
+    <item><p>The optional <code>id</code> attribute takes a unique identifier.  It should
     be distinct from all other section <code>id</code> attributes in the same page.
     It does not have to be distinct from the <code>id</code> attribute on the
     containing <code>page</code> element.</p></item>
