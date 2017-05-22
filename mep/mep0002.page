@@ -97,7 +97,7 @@ extensions.</p>
 <info>
 <license href="http://opensource.org/licenses/MIT"/>
 </info>
-<code>
+<code><![CDATA[
 def match_locale(extrange, locale):
     # Extended filtering for extended language ranges as                                                    
     # defined by RFC4647, part of BCP47.                                                                    
@@ -121,7 +121,7 @@ def match_locale(extrange, locale):
             return False
         localei += 1
     return True
-</code>
+]]>&#x5D;&#x5D;><![CDATA[</code>
 </listing>]]></code>
   </example>
 
