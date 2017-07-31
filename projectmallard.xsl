@@ -597,10 +597,6 @@ div.pmo-source {
       </img>
     </a>
   </div>
-  <div class="bottom-badge">
-    <xsl:text>Hosted by </xsl:text>
-    <a href="http://syllogist.net/">Syllogist</a>
-  </div>
   </div></div>
 </xsl:template>
 
