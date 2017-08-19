@@ -20,6 +20,10 @@
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
+  <!--
+  list of valid status attributes:
+  incomplete proposed revised implemented final rejected replaced withdrawn
+  -->
   <revision date="DATE-PROPOSED" docversion="TARGET" status="proposed"/>
 
   <title type="text">PRIMARY TITLE</title>
