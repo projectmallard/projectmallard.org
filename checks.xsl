@@ -269,7 +269,7 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
 
       <!-- MEP links -->
       <xsl:if test="not(mal:info/mal:link[@type='mep:issue'][starts-with(@href, 'https://github.com/projectmallard/projectmallard.org/issues/')])">
-        <xsl:text>Mising GitHub issue link&#x000A;</xsl:text>
+        <xsl:text>Missing GitHub issue link&#x000A;</xsl:text>
       </xsl:if>
 
     </xsl:if>
