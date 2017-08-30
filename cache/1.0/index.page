@@ -38,6 +38,9 @@ a completely different method of storing and reading page metadata.</p>
 They may be used for interchange, but there are potential issues that should be dealt
 with. Potential interchange issues are addressed throughout this specification.</p>
 
+<note style="plain">
+<p>This specification was marked final on 2016-03-07.</p>
+</note>
 
 <!-- BEGIN spec -->
 <section id="spec">

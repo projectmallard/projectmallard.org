@@ -3,7 +3,7 @@
       id="index">
 
 <info>
-  <revision docversion="1.0" date="2012-02-09" status="review"/>
+  <revision docversion="1.0" date="2015-03-28" status="final"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -42,13 +42,13 @@ fallback content for different conditions.</p>
   <title>Branching and Fallback</title>
 </links>
 
-<links type="topic" groups="functions" style="linklist">
-  <title>XPath Functions</title>
-</links>
-
 <links type="topic" groups="notes" style="linklist">
   <title>Notes</title>
 </links>
+
+<note style="plain">
+<p>This specification was marked final on 2015-03-28.</p>
+</note>
 
 <!-- BEGIN schema -->
 <section id="schema">

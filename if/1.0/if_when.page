@@ -3,7 +3,7 @@
       id="if_when">
 
 <info>
-  <revision docversion="1.0" date="2012-02-09" status="review"/>
+  <revision docversion="1.0" date="2015-03-28" status="final"/>
 
   <link type="guide" xref="index" group="when"/>
   <link type="seealso" xref="if_choose"/>
