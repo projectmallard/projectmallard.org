@@ -1,0 +1,218 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      type="topic" style="mep"
+      id="mep0009">
+
+<info>
+  <link type="guide" xref="index" group="1.1"/>
+
+  <!--
+  <link type="mep:depends" xref="mepYYYY"/>
+  <link type="mep:replaces" xref="mepYYYY"/>
+  <link type="seealso" xref="mepYYYY"/>
+  -->
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/3"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2017</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <revision date="2017-08-30" docversion="1.1" status="proposed"/>
+
+  <title type="text">Inline Highlight Element</title>
+  <title type="link">MEP-0009: Inline Highlight Element</title>
+
+  <desc>Provide an inline element to highlight text that has been
+  added or should otherwise stand out.</desc>
+</info>
+
+<title>MEP-0009</title>
+<subtitle>Inline Highlight Element</subtitle>
+
+<p style="lead">This page proposes adding an inline element that allows
+you to highlight text that has been added in successive examples, or
+to otherwise mark text that should stand out.</p>
+
+<links type="section"/>
+
+<section id="background">
+  <title>Background</title>
+
+  <p>When writing developer documentation or documentation for file
+  formats, it is common to successively build up example code, with
+  each code block showing parts of what was presented before, but
+  with new code or content added. When doing this, it’s useful to
+  highlight the new content.</p>
+
+  <p>This happens even on the Mallard web site. The
+  <link xref="/about/learn/tenminutes">Ten Minute Tour</link> builds
+  up an example Mallard document by adding new markup and content,
+  and highlights the new text in each example.</p>
+
+  <p>To accomplish this, the Yelp stylesheets for Mallard have
+  supported the experimental <code>hi</code> element since before
+  Mallard 1.0 was even final. This element is supported in the
+  experimental namespace:</p>
+
+  <code>http://projectmallard.org/experimental/</code>
+
+</section>
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes adding the <code>hi</code> element to the
+  core Mallard namespace, making it required for implementations
+  to support. The recommended processing would be to highlight the
+  text with a background color, generally yellow by default.</p>
+
+  <p>The specification could also recommend some style hints,
+  such as:</p>
+
+  <list>
+    <item><p><code>added</code> — content in a diff that has been
+    added, formatted with a green or yellow background</p></item>
+    <item><p><code>deleted</code> — content in a diff that has been
+    deleted, formatted with a red background and possibly a
+    strikethrough</p></item>
+  </list>
+</section>
+
+<!--
+<section id="addendums">
+  <title>Addendums</title>
+</section>
+-->
+
+<section id="examples">
+  <title>Examples</title>
+
+  <p>From the <link xref="/about/learn/tenminutes"/>, create a basic
+  example of a Mallard page, then use <code>hi</code> to show another
+  complete example with added content.</p>
+
+  <example>
+  <code mime="application/xml"><![CDATA[
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="planting">
+<title>Planting Beans</title>
+</page>]]>]<![CDATA[]></code>
+  <code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="planting">
+]]>]<![CDATA[]><hi><![CDATA[<info>
+  <link type="guide" xref="index"/>
+</info>]]>]<![CDATA[]></hi><![CDATA[
+<title>Planting Beans</title>
+</page>]]>]<![CDATA[]></code>
+]]></code>
+  <code mime="application/xml"><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="planting">
+<title>Planting Beans</title>
+</page>]]></code>
+  <code mime="application/xml"><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="planting">
+]]><e:hi><![CDATA[<info>
+  <link type="guide" xref="index"/>
+</info>]]></e:hi><![CDATA[
+<title>Planting Beans</title>
+</page>]]></code>
+</example>
+</section>
+
+<section id="a11y">
+  <title>Accessibility</title>
+
+  <p>Using background colors or other visual presentations to render
+  text will not be useful to readers using a screen reader. For added
+  content, the worst case will be that all content will be read, with
+  no indication of what content is new. For deleted text, however,
+  the reading could very confusing if there is no indication of which
+  content is deleted and which remains.</p>
+
+  <p>When converting to HTML, implementations should take care to use
+  semantic HTML element wherever possible, and to set
+  <link href="https://www.w3.org/TR/wai-aria/">ARIA</link> attributes
+  as appropriate. In particular, for deleted text, implementations
+  should use the HTML <code>del</code> element to give screen readers
+  more information.</p>
+
+  <p>As with any text rendered with a different background or foreground
+  color, implementations should ensure the colors do not cause problems
+  for readers with low vision or color blindness. The <link
+  href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast">minimum
+  contrast guideline</link> in the <link
+  href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility
+  Guidelines</link> provides a good method of ensuring text is legible.
+  Implementations that use green and red to indicate added and deleted
+  text should use shades of these colors that color blind individuals
+  can distinguish.</p>
+</section>
+
+<!--
+<section id="i18n">
+  <title>Internationalization</title>
+</section>
+-->
+
+<section id="alternatives">
+  <title>Alternatives</title>
+
+  <p>We considered naming the element <code>mark</code>, following
+  the name used by HTML. However, the HTML <code>mark</code> element
+  is not semantically equivalent, although it may sometimes be a
+  suitable output element for a Mallard <code>hi</code> element.</p>
+</section>
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>This proposal makes no backwards-incompatible changes. Any page
+  written in a version prior to the implementation of this proposal
+  will work exactly the same in a processing tool that implements
+  this proposal.</p>
+
+  <p>The fallback behavior for a new inline element is to process
+  the contents of the element as inline content. When using
+  <code>hi</code> to mark up added or inserted text, this is a
+  reasonable fallback behavior. When using it to mark up deleted
+  text, this could be very confusing. Only use <code>hi</code>
+  for deleted text if you are sure it will only be processed by
+  a supporting tool.</p>
+
+  <p>The Yelp stylesheets have supported <code>hi</code> in an
+  experimental namespace for a long time. If you want to ensure
+  highlighting in older tools, you can use both elements:</p>
+
+  <example>
+  <code mime="application/xml"><![CDATA[
+<hi><e:hi>This is added text.</e:hi></hi>]]></code>
+  </example>
+
+  <p>Implementations that want to continue to support both may
+  provide a special case for this to avoid outputting excess
+  markup. For ease of implementation, the <code>hi</code> element
+  in the core namespace should wrap the <code>e:hi</code> element
+  in the experimental namespace.</p>
+
+  <p>Note that the Yelp stylesheets never supported deleted text
+  for the <code>e:hi</code> element, so this is not a suitable
+  compatibility workaround for that case.</p>
+</section>
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+</section>
+
+</page>
