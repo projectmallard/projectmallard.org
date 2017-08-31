@@ -1,0 +1,193 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      id="mep0010">
+
+<info>
+  <link type="guide" xref="index" group="1.1"/>
+
+  <!--
+  <link type="mep:depends" xref="mepYYYY"/>
+  <link type="mep:replaces" xref="mepYYYY"/>
+  <link type="seealso" xref="mepYYYY"/>
+  -->
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/38"/>
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/21"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2017</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <!--
+  list of valid status attributes:
+  incomplete proposed revised implemented final rejected replaced withdrawn
+  -->
+  <revision date="2017-08-31" docversion="1.1" status="proposed"/>
+
+  <title type="text">The <code>type</code> Attribute on the
+  <code>code</code> Element</title>
+  <title type="link">MEP-0010: The <code>type</code> Attribute on the
+  <code>code</code> Element</title>
+
+  <desc>Replace the <code>mime</code> attribute on the <code>code</code>
+  element with a <code>type</code> attribute.</desc>
+</info>
+
+<title>MEP-0010</title>
+<subtitle>The <code>type</code> Attribute on the <code>code</code> Element</subtitle>
+
+<p style="lead">This page proposes deprecating the <code>mime</code>
+attribute on the <link xref="/1.0/mal_block_code">block</link> and
+<link xref="/1.0/mal_inline_code">inline</link> <code>code</code>
+elements in favor of a simpler <code>type</code> attribute.</p>
+
+<links type="section"/>
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard 1.0 provides the <code>mime</code> attribute on a few
+  elements, including on block and inline <code>code</code> elements.
+  On <code>code</code> elements, the <code>mime</code> attribute can
+  specify the specific programming language or other syntax in use.
+  This can help syntax highlighting, as well as automated code
+  extraction and testing.</p>
+
+  <p>The <code>mime</code> attribute takes a MIME type. This seemed
+  like a reasonable way to specify a file format, but in practice,
+  there are very few standard, registered MIME types for programming
+  languages. As a result, people need to memorize arbitrary and
+  inconsistent extension types.</p>
+</section>
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes adding a <code>type</code> attribute to
+  the <code>code</code> element that would take a simple string
+  identifying the type of code, such as <code>c</code>,
+  <code>python</code>, or <code>xml</code>. These are the same
+  types of identifiers used in many other document formats, as
+  well as by many syntax highlighters.</p>
+
+  <p>The short identifiers are also somewhat arbitrary, and there
+  may be differences in recognized strings from other formats or
+  even between different Mallard implementations. However, this
+  is already also the case for non-standard MIME types. Short
+  identifier strings, at least, are easier to type and easier to
+  remember. Just as with MIME types, implementations may recognize
+  multiple identifiers for a single format.</p>
+
+  <p>The <code>type</code> attribute should take a space-separated
+  list of values, with implementations choosing the first or best
+  value they recognize. This would allow authors to provide very
+  specific values for certain uses, while still providing something
+  that would be recognized by most syntax highlighters.</p>
+
+  <p>For backwards compatibility, the <code>mime</code> attribute
+  would have to remain in the Mallard schema. Implementations
+  that make use of the <code>mime</code> attribute may continue
+  to recognized it as a fallback when the <code>type</code>
+  attribute is not used.</p>
+</section>
+
+<!--
+<section id="addendums">
+  <title>Addendums</title>
+</section>
+-->
+
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use the <code>type</code> attribute on a code block example
+  from the <link xref="/about/learn/code">Code and Commands</link>
+  tutorial.</p>
+
+  <example><code mime="application/xml">
+&lt;code type="python">
+if (bean_is_magic(bean)) {
+  bean_grow(bean);
+}
+&lt;/code>
+</code></example>
+
+  <p>Put the first example page from the <link
+  xref="/about/learn/tenminutes">Ten Minute Tour</link> into a
+  code block with a <code>CDATA</code> section, and use a list
+  of types to specify that the content is specifically Mallard
+  and more generally XML.</p>
+
+  <example><code mime="application/xml">
+&lt;code type="mallard xml">&lt;![CDATA[
+&lt;page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+&lt;title>Beanstalk Help&lt;/title>
+&lt;/page>
+]]&gt;&lt;/code>
+</code></example>
+</section>
+
+<!--
+<section id="a11y">
+  <title>Accessibility</title>
+</section>
+-->
+
+<!--
+<section id="i18n">
+  <title>Internationalization</title>
+</section>
+-->
+
+<!--
+<section id="alternatives">
+  <title>Alternatives</title>
+</section>
+-->
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>This proposal deprecates an existing attribute, which introduces
+  a potential compatibility issue. Pages written with the <code>mime</code>
+  attribute might not be optimally processed by newer tools that implement
+  this proposal. However, there has never been any requirement for tools
+  to do anything with the <code>mime</code> attribute, and tools that do
+  support the <code>mime</code> attribute may continue to do so.</p>
+
+  <p>The fallback behavior on older tools for pages using just the
+  <code>type</code> attribute is that they may miss out on special
+  features like syntax highlighting, which is not mandatory for tools
+  to support. If older tools are important, writers may continue to
+  use the <code>mime</code> attribute as well as the <code>type</code>
+  attribute.</p>
+</section>
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>DocBook uses a <code>langauge</code> attribute on the <code
+  href="http://tdg.docbook.org/tdg/5.1/programlisting.html">programlisting</code>
+  element to specify the programmling language or other syntax. Like
+  this proposal, DocBook uses short identifier strings. The supported
+  strings may vary between implementations. There is no recommendation
+  to support a space-separated list in the <code>language</code>
+  attribute, although it is valid.</p>
+
+  <p>DITA doesn’t provide a specific a specific attribute to specify
+  the language in <code
+  href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/codeblock.html">codeblock</code>
+  elements. The general practice is to use the <code>outputclass</code>
+  attribute, which is similar to the Mallard <code>style</code>
+  attribute. Language identifiers are short strings, but prefixed by
+  convention with the string <code>language-</code>. There is no
+  recommendation to support a space-separated list of languages in
+  the <code>outputclass</code> attribute, although it is valid.</p>
+</section>
+
+</page>
