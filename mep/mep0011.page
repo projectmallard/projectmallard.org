@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      id="mep0011">
+
+<info>
+  <link type="guide" xref="index" group="1.1"/>
+
+  <!--
+  <link type="mep:depends" xref="mepYYYY"/>
+  <link type="mep:replaces" xref="mepYYYY"/>
+  <link type="seealso" xref="mepYYYY"/>
+-->
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/1"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2017</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <!--
+  list of valid status attributes:
+  incomplete proposed revised implemented final rejected replaced withdrawn
+  -->
+  <revision date="2017-08-31" docversion="1.1" status="proposed"/>
+
+  <title type="text">Roles on Sort Titles</title>
+  <title type="link">MEP-0011: Roles on Sort Titles</title>
+
+  <desc>Allow sort titles to use a <code>role</code> attribute like
+  link titles.</desc>
+</info>
+
+<title>MEP-0011</title>
+<subtitle>Roles on Sort Titles</subtitle>
+
+<p style="lead">This page proposes allowing a <code>role</code> attribute
+on <link xref="/1.0/mal_info_title#sort">informational sort titles</link>.
+The appropriate sort title would be selected similarly to how link titles
+are selected with roles.</p>
+
+<links type="section"/>
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard allows multiple <link xref="/1.0/mal_info_title">informational
+  titles</link> for various purposes. One type of informational title is the
+  title to be used when sorting links to pages or sections. For example, you
+  can use sort titles to sort without leading articles such as “an” and
+  “the”.</p>
+
+  <p>Another type of informational title is the title used for link text
+  when linking to a page or section. You can actually provide multiple
+  link titles, each with a different <code>role</code> attribute. The
+  correct title is selected based on a <code>role</code> attribute on
+  an inline <code>link</code> element or an implicit role specified by
+  a type of automatic link. <link xref="mep0003">MEP-0003</link> also
+  allows you to explicitly select a role with a <code>links</code>
+  element.</p>
+
+  <p>Unfortunately, no matter which link title is used for the link
+  text, the same sort title is always used.</p>
+</section>
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes making the <code>role</code> attribute relevant
+  for sort titles. In Mallard 1.0, the <code>role</code> attribute is
+  already valid, because the schemas don’t distinguish between link
+  types. However, the <code>role</code> attribute is only used for link
+  types that are specified.</p>
+
+  <p>Whenever links are collected and need to be sorted, they would be
+  sorted according to a selected sort title:</p>
+
+  <list type="numbered">
+    <item><p>If the links are generated for an explicit <code>links</code>,
+    and that <code>links</code> element has a <code>role</code> attribute,
+    use the sort title with that role, if it exists.</p></item>
+
+    <item><p>If the links are of a type that has an implicit role (such
+    as <code>topic</code> for topic links), use the sort title with that
+    implicit role, if it exists.</p></item>
+
+    <item><p>Use the sort title without a <code>role</code> attribute,
+    if it exists.</p></item>
+  </list>
+
+  <p>If the target node does not have a sort title that matches one of
+  these rules, then it is sorted according to its link title, which
+  follows a similar selection procedure.</p>
+</section>
+
+<!--
+<section id="addendums">
+  <title>Addendums</title>
+</section>
+-->
+
+<section id="examples">
+  <title>Examples</title>
+</section>
+
+<!--
+<section id="a11y">
+  <title>Accessibility</title>
+</section>
+-->
+
+<section id="i18n">
+  <title>Internationalization</title>
+</section>
+
+<!--
+<section id="alternatives">
+  <title>Alternatives</title>
+</section>
+-->
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>This proposal makes no backwards-incompatible changes. Any page
+  written in a version prior to the implementation of this proposal will work
+  exactly the same in a processing tool that implements this proposal.</p>
+
+  <p>If a page with multiple sort titles is processing by a tool that does
+  not implement this proposal, that tool will select one of those sort
+  titles, and there is no guarantee as to which one. In practice, all known
+  implementations select the first sort title when multiple sort titles are
+  available. For this reason, when writers use multiple sort titles, they
+  should place the sort title without a role before other sort titles in
+  the <code>info</code> element.</p>
+</section>
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>No other format has a comparable mechanism for selecting the title to use
+  for link text. Also, the <code>links</code> element is particular to the
+  unique automatic linking mechanism in Mallard. No comparison can be made to
+  other formats for this proposal.</p>
+</section>
+
+</page>
