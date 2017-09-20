@@ -33,7 +33,7 @@
   and <code xref="mal_section">section</code> elements is now defined using
   a separate pattern in the RELAX NG schema, allowing extensions to override
   those definitions. See
-  <link xref="https://github.com/projectmallard/projectmallard.org/issues/32">Issue
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/32">Issue
   32</link>.</p></item>
 
   <item><p>The new <code xref="mal_block_div">div</code> element is a generic
