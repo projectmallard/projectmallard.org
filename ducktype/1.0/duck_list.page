@@ -1,0 +1,48 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec spec-no-comparison spec-no-schema"
+      id="duck_list">
+
+<info>
+  <link type="guide" xref="index" group="list"/>
+
+  <revision docversion="1.0" date="2017-02-14" status="stub"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2017</years>
+  </credit>
+
+  <desc>FIXME</desc>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+</info>
+
+<title>Lists and Tables</title>
+
+<p>FIXME</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN spec -->
+<section id="spec">
+  <title>Specification</title>
+</section>
+<!-- END spec -->
+
+
+</page>
+

@@ -1,0 +1,48 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec spec-no-comparison spec-no-schema"
+      id="duck_fence">
+
+<info>
+  <link type="guide" xref="index"/>
+
+  <revision docversion="1.0" date="2017-09-15" status="stub"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2017</years>
+  </credit>
+
+  <desc>FIXME</desc>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+</info>
+
+<title>Fences</title>
+
+<p>FIXME</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN spec -->
+<section id="spec">
+  <title>Specification</title>
+
+</section>
+<!-- END spec -->
+
+</page>

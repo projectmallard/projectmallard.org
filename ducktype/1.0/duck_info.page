@@ -1,0 +1,114 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec spec-no-comparison spec-no-schema"
+      id="duck_info">
+
+<info>
+  <link type="guide" xref="index" group="info"/>
+
+  <revision docversion="1.0" date="2015-07-19" status="incomplete"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2015</years>
+  </credit>
+
+  <desc>FIXME</desc>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+</info>
+
+<title>Info Elements</title>
+
+<p>FIXME</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN spec -->
+<section id="spec">
+  <title>Specification</title>
+
+  <p>An info segment may follow a page or section title, subtitle, or
+  attribute list (although it may not be between them). An info segment
+  may also follow a block declaration (depends on <link xref="mep0002"/>).
+  It begins with a line (possibly indented) starting with the <code>@</code>
+  character. Each line starting with <code>@</code> is an informational
+  element. The Mallard <code>info</code> element is implicit.</p>
+
+  <p>If the first informational element is indented, then the outer and
+  inner indent of the implicit <code>info</code> element is set to that
+  indentation level. For block info sections, the first informational
+  element also sets the inner indent of the containing block, as it's
+  the first line after the declaration. The <code>info</code> element
+  ends in the following cases:</p>
+
+  <list>
+    <item><p>A line is encountered with an indent less than the outer
+    indent of the <code>info</code> element.</p></item>
+
+    <item><p>A line is encountered with an indent equal to the outer
+    indent of the <code>info</code> element that does not start with
+    the <code>@</code> character.</p></item>
+
+    <item><p>A blank line is encountered in a block info segment (but
+    not for pages and sections) and the outer indent of the <code>info</code>
+    element is the same as the outer indent of the containing block. This
+    is a consequence of the hanlding of newlines in block elements with
+    unindented child content. Blank lines do not close the <code>info</code>
+    element if it is indented.</p></item>
+  </list>
+
+  <p>The <code>@</code> character must be followed by a QName. The QName
+  may be followed either by a left square bracket or whitespace. If it
+  is followed by a left square bracket, an attribute list is opened. After
+  the attribute list or QName, there may be text content. If the element is
+  a leaf element, the text is added as direct text content of the element.
+  Otherwise, a Mallard <code>p</code> element is implicitly created.</p>
+
+  <p>If the line after an informational element is indented past the outer
+  indent of the info element, that line's indentation becomes the inner indent
+  of the info element. Subsequent non-blank lines continue to be child
+  content as long as they are indented to at least this level. Bear in
+  mind that further indent may create child elements of child elements,
+  and so on.</p>
+
+  <p>If a line in the info section does not start with the <code>@</code>
+  character, it is text content. If the current element is not a leaf
+  element, a Mallard <code>p</code> element is implicitly created with
+  the outer and inner indent set to the indentation level of the line.
+  If the line is the first line after an info line and a <code>p</code>
+  element was already implicitly created due to text on the same line
+  as the informational element, the outer and inner indent of that
+  implicit <code>p</code> element is set to the indentation level of
+  the line. If the current element is a leaf element, the line is
+  added to the element's text content.</p>
+
+  <p>If a blank line is encountered in an informational leaf element,
+  then it closes that element, unless it is a verbatim element with an
+  inner indent greater than its outer indent. If the element is an
+  indented verbatim element, the blank line is added to the content.</p>
+
+  <p>A leaf informational element may have an inner indent equal to its
+  outer indent, in which it consumes subsequent text lines (without a
+  leading <code>@</code> character) until a blank line or a line with
+  a smaller outer indent. A non-leaf informational element cannot have
+  any child content without an extra inner indent. Note that this is
+  different from the behavior of block elements.</p>
+</section>
+<!-- END spec -->
+
+</page>
+

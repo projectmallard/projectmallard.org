@@ -1,0 +1,208 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec spec-no-comparison spec-no-schema"
+      id="duck_page">
+
+<info>
+  <link type="guide" xref="index" group="page"/>
+
+  <revision docversion="1.0" date="2015-07-16" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2015</years>
+  </credit>
+
+  <desc>FIXME</desc>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+</info>
+
+<title>Page and Section Markup</title>
+
+<p>FIXME</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+
+  <list>
+    <item>
+      <p>Pages may optionally have any number of parser directives at the
+      top, each starting with the <code>@</code> character. See
+      <link xref="duck_directive"/> for details.</p>
+    </item>
+
+    <item>
+      <p>After directives, pages start with a page title on a line starting
+      with an equals sign followed by a space.</p>
+    </item>
+
+    <item>
+      <p>Sections start with section titles, each on a line starting with two
+      or more equals signs followed by a space. Section depth is determined
+      by the number of equals signs. Sections end implicitly with new sections
+      at the same or higher level.</p>
+    </item>
+
+    <item>
+      <p>A page and section title may optionally be followed by a subtitle
+      on a line starting with hyphens followed by a space. The number of
+      hyphens matches the number of equals signs used for the corresponding
+      title.</p>
+    </item>
+
+    <!-- FIXME: attr -->
+
+    <item>
+      <p>Page and section titles are then followed by optional info elements,
+      each on a line starting with the <code>@</code> character. See
+      <link xref="duck_info"/> for details.</p>
+    </item>
+
+    <item>
+      <p>All other content is block content. See <link xref="duck_block"/>
+      for details.</p>
+    </item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Create a simple page:</p>
+  <example><code>= My Page Title
+
+This is a paragraph.</code>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/">
+  <title>My Page Title</title>
+  <p>This is a paragraph.</p>
+</page>
+]]></code></example>
+
+  <p>Create a page with a subtitle:</p>
+  <example><code>= My Page Title
+- My Page Subtitle
+
+This is a paragraph.</code>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/">
+  <title>My Page Title</title>
+  <subtitle>My Page Subtitle</subtitle>
+  <p>This is a paragraph.</p>
+</page>
+]]></code></example>
+
+  <p>Titles and subtitles can span multiple lines. Indent at least one
+  space to keep following lines in the title or subtitle:</p>
+  <example><code>= This is a Very Long Title That
+  Wraps onto the Next Line
+- This is a Very Long Subtitle That
+  Wraps onto the Next Line
+
+This is a paragraph.</code>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/">
+  <title>This is a Very Long Title That Wraps onto the Next Line</title>
+  <subtitle>This is a Very Long Subtitle That Wraps onto the Next Line</title>
+  <p>This is a paragraph.</p>
+</page>
+]]></code></example>
+
+  <p>Attribute lists for pages and section follow the title or subtitle,
+  and start with at least one space followed by a left square bracket:</p>
+  <example><code>= My Page Title
+  [style=tutorial]
+
+This is a paragraph.</code>
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" style="tutorial">
+  <title>My Page Title</title>
+  <p>This is a paragraph.</p>
+</page>
+]]></code></example>
+
+<!-- FIXME: sections -->
+
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN spec -->
+<section id="spec">
+  <title>Specification</title>
+
+  <p>A line that starts with an equals sign and at least one space is a
+  page title. A line that starts with two or more equals signs and a
+  space is a section title. There may only be one page title, and it
+  must occur before any other block-level content.
+  (<link xref="duck_directive">Directives</link> may come before the
+  page title.)</p>
+
+  <p>Each following line is still part of the page or section title as
+  long as the line is indented by at least one space and does not start
+  with a left square bracket. The full title is the concatenation of all
+  such lines, parsed as inline content.</p>
+
+  <p>A section title automatically creates a section at the correct depth.
+  The number of equals signs that started the section title line is two
+  greater than the number of ancestor section elements of the new section.
+  The parser closes as many sections as necessary. It is an error if the
+  new section is more than one level deeper than the current section.</p>
+
+  <p>Following a page or section title:</p>
+
+  <list>
+    <item><p>If the line begins with the same number of hyphen characters
+    as the number of equals signs starting the title, followed by a space,
+    then that line starts a page or section subtitle.</p></item>
+
+    <item><p>If the line starts with at least one space and then a left
+    square bracket, then that line starts an <link xref="duck_attr">attribute
+    list</link> for the page or section.</p></item>
+
+    <item><p>If the line starts with the <code>@</code> character,
+    possibly preceded by spaces, then that line begins an
+    <link xref="duck_info">informational element</link>.</p></item>
+
+    <item><p>Otherwise, regular <link xref="duck_block">block content</link>
+    begins.</p></item>
+  </list>
+
+  <p>A page or section subtitle immediately follows a title, and begins
+  with the same number of hyphen characters as the title had equals signs,
+  plus a space. Each following line is still part of the subtitle as long
+  as the line is indented by at least one space and does not start with a
+  left square bracket. The full subtitle is the concatenation of all such
+  lines, parsed as inline content.</p>
+
+  <p>Following a page or section subtitle:</p>
+
+  <list>
+    <item><p>If the line starts with at least one space and then a left
+    square bracket, then that line starts an <link xref="duck_attr">attribute
+    list</link> for the page or section.</p></item>
+
+    <item><p>If the line starts with the <code>@</code> character,
+    possibly preceded by spaces, then that line begins an
+    <link xref="duck_info">informational element</link>.</p></item>
+
+    <item><p>Otherwise, regular <link xref="duck_block">block content</link>
+    begins.</p></item>
+  </list>
+
+  <p>An <link xref="duck_attr">attribute list</link> for a page or section
+  follows the title or subtitle (but may not be between them) and starts
+  with at least one space followed by a left square bracket. Note that the
+  leading space is necessary to disambiguate from regular block content.</p>
+</section>
+<!-- END spec -->
+
+
+</page>
+

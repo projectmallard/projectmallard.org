@@ -1,0 +1,23 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="index">
+
+<info>
+  <revision docversion="1.0" date="2015-07-16" status="stub"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2015</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+</info>
+
+<title>Ducktype</title>
+
+<links type="site-subdirs">
+  <title>Versions</title>
+</links>
+
+</page>

@@ -1,0 +1,358 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec spec-no-comparison spec-no-schema"
+      id="duck_directive">
+
+<info>
+  <link type="guide" xref="index" group="directive"/>
+
+  <revision docversion="1.0" date="2017-02-06" status="incomplete"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2017</years>
+  </credit>
+
+  <desc>Declare namespaces, define entities, and manage extensions.</desc>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+</info>
+
+<title>Parser Directives</title>
+
+<p>Parser directives are special markers at the top of a Ducktype file that
+provide extra information for the Ducktype parser. User parser directives to
+declare namespaces, define entities, manage extensions, and more.</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+
+  <list>
+    <item>
+      <p>Pages may optionally have any number of parser directives at the
+      top, each starting with the <code>@</code> character, immediately
+      followed by the directive name. Additional directive content may
+      follow the directive name after a space. Directive content
+      continues until the end of the line.</p>
+    </item>
+
+    <item>
+      <p>A directive that starts with <code xref="#ducktype">ducktype/</code>
+      specifies the version of the Ducktype syntax in use, and may declare
+      additional syntax extensions.</p>
+    </item>
+
+    <item>
+      <p>A directive with the name <code xref="#define">define</code>
+      defines an entity.</p>
+    </item>
+
+    <item>
+      <p>A directive with the name <code xref="#encoding">encoding</code>
+      specifies the character encoding of the Ducktype document.</p>
+    </item>
+
+    <item>
+      <p>A directive with the name <code xref="#include">include</code>
+      includes an external file with parser directives.</p>
+    </item>
+
+    <item>
+      <p>A directive with the name <code xref="#namespace">namespace</code>
+      specifies a prefix for a namespace URI.</p>
+    </item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Specify that a page uses version 1.0 of this specification:</p>
+
+  <example>
+    <code><![CDATA[
+@ducktype/1.0
+
+= Page Title
+]]></code>
+  </example>
+
+  <p>Specify that a page requires version 1.0 of the extension <code>foo</code>
+  in addition to version 1.0 of this specification:</p>
+
+  <example>
+    <code><![CDATA[
+@ducktype/1.0 foo/1.0
+
+= Page Title
+]]></code>
+  </example>
+
+  <p>Declare and use the namespace prefix <code>if</code> for
+  <link xref="/if/1.0/index">Mallard Conditionals 1.0</link>:</p>
+
+  <example>
+    <code><![CDATA[
+@ducktype/1.0
+@namespace if http://projectmallard.org/if/1.0/
+
+= A Page With Conditionals
+
+[if:if test=target:html]
+This is only output to HTML.]]></code>
+  </example>
+
+  <p>Define and use an entity <code>version</code> for the current version
+  of the software you’re documenting:</p>
+
+  <example>
+    <code><![CDATA[
+@ducktype/1.0
+@define version 3.26
+
+= A Page With Entities
+
+This page describes MyApp $version;.]]></code>
+  </example>
+
+  <p>Define and use an entity that contains
+  <link xref="duck_inline">inline markup</link>:</p>
+
+  <example>
+    <code><![CDATA[
+@ducktype/1.0
+@define appname $app(MyApp)
+@define version 3.26
+
+= A Page With Entities
+
+This page describes $appname; $version;.]]></code>
+  </example>
+
+  <p>Define and use an entity that references other entities:</p>
+
+  <example>
+    <code><![CDATA[
+@ducktype/1.0
+@define appname $app(MyApp)
+@define version 3.26
+@define appvers $appname; $version;
+
+= A Page With Entities
+
+This page describes $appvers;.]]></code>
+  </example>
+
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN spec -->
+<section id="spec">
+  <title>Specification</title>
+
+  <p>A parser directive is a line at the beginning of a Ducktype file
+  that starts with the <code>@</code> character (U+0040). All directives
+  must occur before the first non-directive markup. However, blank lines
+  may be interspersed with directives.</p>
+
+  <p>The <em>directive name</em> must immediately follow the
+  <code>@</code> character. The directive name is a sequence of
+  <link href="https://www.w3.org/TR/REC-xml/#NT-Nmtoken">NMTOKEN</link>
+  characters terminated either by a space or the end of line.
+  Directives may optionally have <em>directive content</em>.
+  The directive content begins with the first non-space character
+  after the directive name and continues to the end of line.</p>
+
+  <p>Some directives make use of a <em>first word</em>. The first
+  word of a directive begins with the beginning of the directive
+  content and is terminated by a space or the end of line. The
+  <em>remaining directive content</em> is the directive content
+  following the first word with any leading spaces stripped.</p>
+
+  <p>Some directives make use of a <em>word list</em>. The word
+  list is a list formed by splitting the directive content on
+  space characters, with all leading and trailing spaces stripped
+  from words, and with no empty words.</p>
+
+  <p>This specification recognizes four directive names:
+  <code>ducktype/1.0</code>, <code>define</code>, <code>encoding</code>,
+  <code>include</code>, and <code>namespace</code>. Extensions may
+  recognize additional directives.</p>
+
+  <comment>
+    <p>Recommendations for extension directives</p>
+  </comment>
+
+  <section id="ducktype">
+    <title>The <code>ducktype/1.0</code> Directive</title>
+
+    <synopsis>
+      <code>@ducktype/1.0
+@ducktype/1.0 <var>extension/1.0</var></code>
+    </synopsis>
+
+    <p>The <code>ducktype/1.0</code> directive specifies that the page
+    is using version 1.0 of this specification. Future versions of this
+    specification may introduce additional syntax, and will provide an
+    updated directive to specify use of that version.</p>
+
+    <p>A parser must generate an error if it encounters a directive
+    whose name begins with the string <code>ducktype/</code>, other
+    than the <code>ducktype/1.0</code> directive.</p>
+
+    <p>The <code>ducktype/1.0</code> directive may take a word list as
+    content to specify extensions. Each word should be of the form
+    <code><var>prefix</var>/<var>version</var></code>, where
+    <code><var>prefix</var></code> is a canonical prefix for the
+    extension, and <code><var>version</var></code> indicates the
+    version of the extension in use. For example, the first version
+    of an extension to recognize inline AsciiDoc markup might use
+    <code>asciidoc/1.0</code>.</p>
+
+    <p>A parser must generate an error if it encounters an extension
+    declaration it does not recognize. Extensions may alter any aspect
+    of parsing, and there is no expectation of graceful fallback
+    behavior for parsers that do not recognize an extension.</p>
+
+    <note>
+      <p>Ducktype extensions are not Mallard extensions. Mallard
+      extensions introduce elements and attributes in different
+      namespaces. Mallard extensions can be used in Ducktype by
+      declaring a namespace and using them as normal. Ducktype
+      extensions can change parser behavior, and must be declared
+      in the <code>ducktype/1.0</code> directive.</p>
+    </note>
+  </section>
+
+  <section id="define">
+    <title>The <code>define</code> Directive</title>
+
+    <synopsis>
+      <code>@define <var>name</var> <var>value</var></code>
+    </synopsis>
+
+    <p>FIXME</p>
+    <p>FIMME: duck_define.page ??</p>
+    <p>FIXME: comments, also in includes</p>
+  </section>
+
+  <section id="encoding">
+    <title>The <code>encoding</code> Directive</title>
+
+    <synopsis>
+      <code>@encoding <var>charset</var></code>
+    </synopsis>
+
+    <p>The <code>encoding</code> directive takes a single word that
+    specifies the character encoding of the file being parsed. By
+    default, all Ducktype files are UTF-8, and the case-insensitive
+    value of <code>UTF-8</code> must be recognized. Parsers are not
+    required to recognize any other encodings.</p>
+
+    <p>It is recommended that the <code>encoding</code> directive, if
+    present, should immediately follow the <code>ducktype/1.0</code>
+    directive. Parsers may recognize a byte order mark at the beginning
+    of a Ducktype file to begin parsing in UTF-16, UTF-32, or another
+    ASCII-incompatible multi-byte encoding. However, the Ducktype file
+    must still have an <code>encoding</code> directive to specify this
+    encoding.</p>
+  </section>
+
+  <section id="include">
+    <title>The <code>include</code> Directive</title>
+
+    <synopsis>
+      <code>@include <var>filename</var></code>
+    </synopsis>
+
+    <p>The <code>include</code> directive specifies an external file
+    that will be parsed for further parser directives. The directive
+    content is a file name, possibly relative to the location of the
+    file with the <code>include</code> directive. That file is parsed
+    as a list of parser directives, possibly with empty lines. It is
+    an error for the included file to include anything other than
+    parser directives.</p>
+
+    <list>
+      <item><p>If the included file contains a directive whose name
+      starts with <code>ducktype/</code>, it must be the first
+      directive in the included file, and it is parsed for the
+      Ducktype version and parser extensions exactly as it would be
+      for the main parser. However, the Ducktype version and parser
+      extensions only affect the included file.</p></item>
+
+      <item><p>If the included file contains a <code>define</code>
+      directive, that entity definition is inserted in the main
+      parser context.</p></item>
+
+      <item><p>If the included file contains an <code>encoding</code>
+      directive, the directive content is a single word that specifies
+      the character encoding of the included file only. Included files
+      do not affect the character encoding of the files that include
+      them.</p></item>
+
+      <item>
+        <p>If the included file contains a <code>include</code> directive,
+        the directive content is a file name that is further parsed for
+        parser directives. If that file name is relative, it is resolved
+        relative to the file that referenced it, not relative to the
+        primary document.</p>
+
+        <p>Parsers must attempt to detect recursive includes using absolute
+        paths whenever possible. It is possible that symbolic links or
+        redirects may bypass this detection. Parsers may implement an
+        arbitrary recursion depth limit to overcome this.</p>
+      </item>
+
+      <item><p>If the included file contains a <code>namespace</code>
+      directive, that namespace prefix definition is inserted in the
+      main parser context.</p></item>
+    </list>
+
+    <p>If extensions recognize additional directives, they should specify
+    the behavior of those directives in included files.</p>
+  </section>
+
+  <section id="namespace">
+    <title>The <code>namespace</code> Directive</title>
+
+    <synopsis>
+      <code>@namespace <var>prefix</var> <var>uri</var></code>
+    </synopsis>
+
+    <p>The <code>namespace</code> directive declares a namespace prefix
+    for <link xref="duck_block">block elements</link>,
+    <link xref="duck_inline">inline elements</link>, and
+    <link xref="duck_attr">attributes</link>. By default, elements are
+    in the namespace <sys>http://projectmallard.org/1.0/</sys>, and
+    attributes are in the empty namespace.</p>
+
+    <p>The first word of a <code>namespace</code> directive is the
+    prefix. The remaining content is the namespace URI.</p>
+
+    <p>Namespaces work similarly to XML. Parsers can simply copy the
+    namespace declarations to the root XML output element, then use
+    the prefixed element and attribute names as written in the Ducktype
+    file. However, parsers may output namespaces in a different manner.</p>
+
+    <p>Unlike XML, Ducktype namespace declarations can not be set or
+    overridden on individual elements. All namespaces are declared at
+    the top of a Ducktype file. A namespace prefix may be set by multiple
+    directives, in which case the last declaration is used.</p>
+
+    <p>As in XML, the <code>xml</code> namespace is automatically bound
+    to the namespace URI <code>http://www.w3.org/XML/1998/namespace</code>.
+    The <code>xml</code> namespace may be declared, but it must not be
+    bound to any other namespace URI.</p>
+  </section>
+
+</section>
+<!-- END spec -->
+
+</page>
+

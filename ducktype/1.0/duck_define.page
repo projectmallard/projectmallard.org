@@ -1,0 +1,90 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec spec-no-comparison spec-no-schema"
+      id="duck_define">
+
+<info>
+  <link type="guide" xref="index"/>
+
+  <revision docversion="1.0" date="2017-09-13" status="stub"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2017</years>
+  </credit>
+
+  <desc>FIXME</desc>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+</info>
+
+<title>Entity Defintions</title>
+
+<p>FIXME</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Define and use an entity <code>version</code> for the current version
+  of the software you’re documenting:</p>
+
+  <example>
+    <code><![CDATA[
+@ducktype/1.0
+@define version 3.26
+
+= A Page With Entities
+
+This page describes MyApp $version;.]]></code>
+  </example>
+
+  <p>Define and use an entity that contains
+  <link xref="duck_inline">inline markup</link>:</p>
+
+  <example>
+    <code><![CDATA[
+@ducktype/1.0
+@define appname $app(MyApp)
+@define version 3.26
+
+= A Page With Entities
+
+This page describes $appname; $version;.]]></code>
+  </example>
+
+  <p>Define and use an entity that references other entities:</p>
+
+  <example>
+    <code><![CDATA[
+@ducktype/1.0
+@define appname $app(MyApp)
+@define version 3.26
+@define appvers $appname; $version;
+
+= A Page With Entities
+
+This page describes $appvers;.]]></code>
+  </example>
+
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN spec -->
+<section id="spec">
+  <title>Specification</title>
+
+</section>
+<!-- END spec -->
+
+</page>
+

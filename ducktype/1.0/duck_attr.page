@@ -1,0 +1,133 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec spec-no-comparison spec-no-schema"
+      id="duck_attr">
+
+<info>
+  <link type="guide" xref="index" group="attr"/>
+
+  <revision docversion="1.0" date="2015-07-16" status="incomplete"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2015</years>
+  </credit>
+
+  <desc>FIXME</desc>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+</info>
+
+<title>Attribute Lists</title>
+
+<p>FIXME</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN spec -->
+<section id="spec">
+  <title>Specification</title>
+
+  <p>Attribute lists occur in four places: header attribute lists for pages and
+  sections, on informational elements, on block elements, and on inline elements.
+  For header, informational, and inline elements attribute lists, the attribute
+  list starts with a left square bracket. For block attribute lists, the block
+  declaration itself starts with a left square bracket, so the attribute list
+  begins with the first whitespace character after the block name.</p>
+
+  <p>An attribute list is a space-separated list of key-value pairs, of the
+  form <code><var>name</var>=<var>value</var></code>. The value may be quoted
+  with a single or double quote, in which case the value finishes when that
+  quote character is encountered. However, the quote character itself may be
+  escaped in the value as <code>$'</code> or <code>$"</code>, or using other
+  entity values, discussed below. Furthermore, <code>$</code> itself may be
+  escaped as <code>$$</code>.</p>
+
+  <p>If the value is not quoted, it ends with the first whitespace character
+  or right square bracket, unless the right square bracket is escaped as
+  <code>$]</code>. An unescaped right square bracket (outside a quoted value)
+  ends the attribute list. Note that, unlike XML, no space is allowed around
+  the <code>=</code> character.</p>
+
+  <p>The full attribute list may contain newlines, either as insignificant
+  whitespace or as part of values. As long as the parser is inside the
+  attribute list, only a square bracket may end it. Normal indentation
+  requirements do not hold in an attribute list, except for attribute lists
+  on inline elements. Since block and inline parsing can be done in separate
+  steps, if newlines occur in inline attribute lists, the new lines must be
+  indented to at least the inner indent of the containing block.</p>
+
+  <p>In addition to regular key-value pairs, bare words are possible in
+  attribute lists, possibly with leading sigils, for common cases. A bare
+  word starts either with the sigil or a non-whitespace character, and
+  finish at the first whitespace, unescaped right square bracket, and
+  (exceptionally) an <code>=</code> character. Note that the <code>=</code>
+  character indicates a regular key-value pair, not a bare word.</p>
+
+  <list>
+    <item><p>If the word starts with <code>>></code>, the value is taken
+    as the value of the <code>href</code> attribute.</p></item>
+    <item><p>If the word starts with <code>></code>, the value is taken
+    as the value of the <code>xref</code> attribute.</p></item>
+    <item><p>If the word starts with <code>.</code>, the value is taken
+    as the value of the <code>style</code> attribute.</p></item>
+    <item><p>If the word starts with <code>#</code>, the value is taken
+    as the value of the <code>id</code> attribute.</p></item>
+    <item><p>Otherwise, the value is taken as the value of the
+    <code>type</code> attribute.</p></item>
+  </list>
+
+  <p>For the <code>type</code> and <code>style</code> attributes only,
+  multiple values are joined with a space character.</p>
+
+  <section id="prop-attr-vals">
+    <title>Attribute Values</title>
+
+    <p>Attribute values are parsed to allow character escapes and entities.
+    If the character <code>$</code> is followed by one of <code>$</code>,
+    <code>*</code>, <code>=</code>, <code>-</code>, <code>@</code>,
+    <code>[</code>, <code>]</code>, <code>(</code>, <code>)</code>,
+    <code>"</code>, or <code>'</code>, that two-character sequence is
+    replaced by the second character.</p>
+
+    <p>If the character <code>$</code> is followed by a QName immediately
+    followed by a semicolon (<code>;</code>), then that sequence is replaced
+    according to the following rules:</p>
+
+    <list>
+      <item><p>If the name is a user-defined entity, the content of that
+      entity is parsed as attribute value content, and the result is used.
+      Note that each entity is parsed in its own subcontext, so you cannot
+      span an entity reference across multiple entities. Parsers must detect
+      cycles in entity references and produce an error.</p></item>
+
+      <item><p>Otherwise, if the name is defined in
+      <link href="http://www.w3.org/TR/xml-entity-names/">XML Entity Definitions
+      for Characters (2nd Edition)</link>, the corresponding value is used.</p></item>
+
+      <item><p>Otherwise, if the name consists only of characters in the ranges
+      <code>0-9</code>, <code>a-f</code>, and <code>A-F</code>, that value is
+      interpreted as a hexadecimal number, and the Unicode character with that
+      code point is used.</p></item>
+
+      <item><p>Otherwise, the entity is unrecognized, and parsers must produce
+      an error.</p></item>
+    </list>
+  </section>
+</section>
+<!-- END spec -->
+
+</page>

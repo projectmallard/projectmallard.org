@@ -1,0 +1,116 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec spec-no-comparison spec-no-schema"
+      id="duck_block">
+
+<info>
+  <link type="guide" xref="index" group="block"/>
+
+  <revision docversion="1.0" date="2015-07-16" status="incomplete"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2015</years>
+  </credit>
+
+  <desc>FIXME</desc>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+</info>
+
+<title>Block Elements</title>
+
+<p>FIXME</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>FIXME</p>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN spec -->
+<section id="spec">
+  <title>Specification</title>
+
+  <p>A block element starts with a block declaration (except for various shorthand
+  cases described below). A block declaration begins an indented line with a left
+  square bracket (<code>[</code>) and a QName, followed by either a right square
+  bracket (<code>]</code>) or whitespace. If whitespace follows the block name,
+  an <link xref="duck_attr">attribute list</link> is opened, and the block
+  declaration continues until it is closed, possibly spanning multiple lines.
+  There must be no non-whitespace content on the line following the end of the
+  block declaration.</p>
+
+  <p>The line following the block declarataion defines that block element's inner
+  indent. If that line is blank, or if it's indented less than the outer indent
+  of the block element, the block element is empty. If a block element has an
+  inner indent greater than its outer indent, it continues consuming child
+  content as long as non-blank lines are indented to at least that level.</p>
+
+  <p>If a block element has an inner indent equal to its outer indent, it
+  consumes child content according to the following rules:</p>
+
+  <list>
+    <item><p>Starter content refers to an info segment, a <code>title</code>
+    element, a <code>desc</code> element, and a <code>cite</code> element. It
+    may optionally be consumed, as described in the following steps.</p></item>
+
+    <item><p>If the block element is a <code>list</code>, <code>steps</code>,
+    <code>terms</code> or <code>tree</code> element, it consumes optionally
+    starter content and then all elements at the same indent level as long as
+    they are <code>item</code> elements. Note that the <code>item</code> elements
+    themselves may consume same-level child content. Blank lines do not affect
+    this case.</p></item>
+
+    <item><p>If the block element is a <code>table</code> element, it consumes
+    optionally starter content and then all elements at the same indent level as
+    long as they are <code>thead</code>, <code>tfoot</code>, <code>tbody</code>,
+    or <code>tr</code> elements. Note that these elements may themselves consume
+    same-level child content. Blank lines do not affect this case.</p></item>
+
+    <item><p>If the block element is a <code>thead</code>, <code>tfoot</code>, or
+    <code>tbody</code> element, it consumes optionally starter content and then
+    all elements at the same indent level as long as they are <code>tr</code>
+    elements. Note that the <code>tr</code> elements may themselves consume
+    same-level child content. Blank lines do not affect this case.</p></item>
+
+    <item><p>If the block element is a <code>tr</code> element, it consumes
+    optionally starter content and then all elements at the same indent level
+    as long as they are <code>th</code> or <code>td</code> elements. Note that
+    these elements may themselves consume same-level child content. Blank lines
+    do not affect this case.</p></item>
+
+    <item><p>Otherwise, the element consumes optionally starter content followed
+    by at most one block element at the same level. A blank line always breaks
+    out of the block element in this case.</p></item>
+  </list>
+
+  <p>If the indented line is normal text content and the current block element
+  is not a leaf element, a Mallard <code>p</code> element is implicitly created
+  with its outer and inner indent set to the indentation of the line.</p>
+
+<!--
+FIXME: define leaf elements.
+specify more leaf elements with directive.
+-->
+
+<!--
+FIXME: specify something about verbatim elements?
+-->
+</section>
+<!-- END spec -->
+
+</page>
+
+

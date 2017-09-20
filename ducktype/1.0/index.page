@@ -1,0 +1,32 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+
+<info>
+  <revision docversion="1.0" date="2015-07-16" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2015</years>
+  </credit>
+
+  <title type="link" role="-index">Ducktype 1.0 <em>DRAFT</em></title>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+</info>
+
+<title>Ducktype 1.0 DRAFT</title>
+<subtitle>A lightweight markup language for Mallard</subtitle>
+
+<p style="lead">Ducktype is a lightweight markup language designed
+explicitly for writing Mallard pages. This format is influenced by
+lightweight formats like Markdown, AsciiDoc, and RST. But it is
+designed to allow nearly everything that can be done with Mallard
+XML, including semantic markup, automatic linking, well-defined
+nesting, and embedding extensions and other formats.</p>
+
+<links type="topic" groups="background concepts
+                            directive page info block attr inline"/>
+
+</page>

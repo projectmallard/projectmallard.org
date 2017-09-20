@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SPECS=`ls -d *.*/index.page */*.*/index.page | sed -e 's/\/index\.page$//'`
+SPECS=$(ls -d *.*/index.page */*.*/index.page | sed -e 's/\/index\.page$//' | grep -v '^ducktype/')
 
 while [ "$#" != "0" ]; do
     if [ "x$1" = "x-o" ]; then

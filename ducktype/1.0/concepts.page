@@ -1,0 +1,95 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="details"
+      id="concepts">
+
+<info>
+  <link type="guide" xref="index" group="concepts"/>
+
+  <revision docversion="1.0" date="2017-09-13" status="candidate"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2015-2017</years>
+  </credit>
+
+  <desc>Basic structure and definitions of terms.</desc>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+</info>
+
+<title>Concepts</title>
+
+<p>Like other leightweight syntaxes, paragraphs and other block elements
+are generally delineated with blank lines. There is a special syntax for
+titles and subtitles of <link xref="duck_page">pages and sections</link>,
+a syntax for specifying <link xref="duck_block">block elements</link>, a
+syntax for recording <link xref="duck_info">info elements</link>, a syntax
+for <link xref="duck_inline">inline elements</link>, and a syntax for
+special <link xref="duck_directive">parser directives</link>. Everything
+is treated as one of these five cases. There are a few shorthand notations,
+but they can always be defined in terms of some long-form syntax.</p>
+
+<p>The syntax is designed such that block and inline parsing can be done
+in separate steps. You can parse all section, info, and block content,
+pushing inline content into strings to parse later. This has a number of
+implications. In particular, an open inline element would never prevent
+block syntax.</p>
+
+<p>Indentation is significant in Ducktype. Indentation is how you stay
+inside of block elements, and therefore how you nest block elements. It is
+not always necessary to use indentation to nest block content. The exact
+behavior is specified throughout this specification. Indentation is always
+some number of space characters. Tabs are not considered indentation
+characters. In this specification, the following terms are used:</p>
+
+<list>
+  <item><p>A <em>newline</em> is either a carriage return (U+000D), a line
+  feed (U+000A), or a carriage return followed by a line feed.</p></item>
+
+  <item><p>A <em>line</em> is an actual line of text, starting on the
+  character following a newline, and going through the following newline,
+  or to the end of the file if the file does not end in a newline.</p></item>
+
+  <item><p>An <em>indented line</em> is the line after leading spaces
+  have been stripped.</p></item>
+
+  <item><p>A <em>blank line</em> is a line that contains only whitespace.</p></item>
+
+  <item><p>The <em>outer indent</em> of a block or informational element is
+  the number of leading spaces on the line that started the element.</p></item>
+
+  <item><p>The <em>inner indent</em> of a block or informational element is
+  the number of leading spaces required for subsequent elements to be child
+  elements, generally the outer indent of the first child. It's possible
+  for the outer indent and inner indent to be the same. In this case,
+  the first blank line will usually break out of the element, except in
+  a few special cases for lists and tables.</p></item>
+</list>
+
+<p>In addition, certain elements need special treatment to make implicit
+paragraphs and other line-oriented features work the way users expect.
+The following terms are used:</p>
+
+<list>
+  <item><p>A <em>leaf element</em> is a block or informational element that
+  takes inline content, rather than further block or info content. Beause of
+  Mallard's strict content model, only leaf elements may contain text
+  nodes. The default set of leaf elements is <code>p</code>, <code>screen</code>,
+  <code>code</code>, <code>title</code>, <code>subtitle</code>, <code>desc</code>,
+  <code>cite</code>, <code>name</code>, and <code>email</code>.</p></item>
+
+  <item><p>A <em>verbatim element</em> is a leaf element where whitespace
+  is preserved as written. Newlines are sometimes handled differently in
+  verbatim elements than in non-verbatim elements. The default verbatim
+  elements are <code>code</code> and <code>screen</code>.</p></item>
+
+  <item><p>An <em>external element</em> is an element whose namespace URI
+  does not start with <code>http://projectmallard.org/</code>. External
+  elements are allowed to take inline content without an implicit Mallard
+  <code>p</code> element. Extension elements defined on projectmallard.org
+  are expected to work with the leaf elements in the Mallard core, but
+  elements from outside vocabularies (such as TTML or SVG) are not.</p></item>
+</list>
+
+</page>

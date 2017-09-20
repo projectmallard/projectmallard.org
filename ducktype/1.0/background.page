@@ -1,0 +1,64 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="details"
+      id="background">
+
+<info>
+  <link type="guide" xref="index" group="background"/>
+
+  <revision docversion="1.0" date="2016-10-08" status="candidate"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2015-2016</years>
+  </credit>
+
+  <desc>Background information and design principles.</desc>
+
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+</info>
+
+<title>Background</title>
+
+<p>Mallard is designed to be simple, while still providing many powerful
+features, many of which cannot be found in heavier XML formats. Though
+it has shown itself to be easy to learn, there is still considerable
+resistance to using XML in various settings.</p>
+
+<p>Mallard has a clear separation between info, block, and inline elements,
+and is strict about which context elements appear in, even with extensions.
+This makes it easier to represent the entire Mallard infoset in another
+syntax with little loss of functionality.</p>
+
+<p>The Ducktype syntax specified here is guided by the following goals:</p>
+
+<list>
+  <item><p>Simple things should be simple. Paragraphs should be implicit,
+  and commonly used elements like lists should be easy to type.</p></item>
+
+  <item><p>The language should have minimal syntactic constructs.
+  Many lightweight formats use different special characters for each
+  feature. This makes it difficult to remember which characters have
+  to be escaped, difficult to add new features, and difficult to extend
+  the syntax for special-purpose uses like code comments.</p></item>
+
+  <item><p>The language should be fully semantic, even with the inline
+  elements.</p></item>
+
+  <item><p>The language should not arbitrarily restrict nesting. Some
+  leightweight formats don't allow extra block content in places like
+  list items or tables, and some don't allow inline content in code
+  blocks or screens.</p></item>
+
+  <item><p>The syntax should accomodate all info elements. Info elements
+  in Mallard are critical for the automatic linking features, and many
+  people rely on features like revision and status tracking.</p></item>
+
+  <item><p>It should be possible to use extension content with the
+  lightweight syntax. Many of Mallard's most interesting features come
+  in the form of extensions or embedding other XML vocabularies. Mallard
+  carefully defines extension behavior, and the syntax should reflect
+  that.</p></item>
+  </list>
+
+</page>
