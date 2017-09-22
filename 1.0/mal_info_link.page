@@ -89,7 +89,7 @@ element to express logical links between pages and sections to be collected by
   <p>Provide a topic link from a guide page to another page:</p>
 
   <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <page type="guide" id="page1">
   <info>
     <link type="topic" xref="page2"/>
@@ -101,7 +101,7 @@ element to express logical links between pages and sections to be collected by
   other page back to the guide:</p>
 
   <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <page id="page2">
   <info>
     <link type="guide" xref="page1"/>

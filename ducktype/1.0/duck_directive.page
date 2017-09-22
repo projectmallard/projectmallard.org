@@ -74,7 +74,7 @@ declare namespaces, define entities, manage extensions, and more.</p>
   <p>Specify that a page uses version 1.0 of this specification:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="text/x-ducktype"><![CDATA[
 @ducktype/1.0
 
 = Page Title
@@ -85,7 +85,7 @@ declare namespaces, define entities, manage extensions, and more.</p>
   in addition to version 1.0 of this specification:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="text/x-ducktype"><![CDATA[
 @ducktype/1.0 foo/1.0
 
 = Page Title
@@ -96,7 +96,7 @@ declare namespaces, define entities, manage extensions, and more.</p>
   <link xref="/if/1.0/index">Mallard Conditionals 1.0</link>:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="text/x-ducktype"><![CDATA[
 @ducktype/1.0
 @namespace if http://projectmallard.org/if/1.0/
 
@@ -110,7 +110,7 @@ This is only output to HTML.]]></code>
   of the software you’re documenting:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="text/x-ducktype"><![CDATA[
 @ducktype/1.0
 @define version 3.26
 
@@ -123,7 +123,7 @@ This page describes MyApp $version;.]]></code>
   <link xref="duck_inline">inline markup</link>:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="text/x-ducktype"><![CDATA[
 @ducktype/1.0
 @define appname $app(MyApp)
 @define version 3.26
@@ -136,7 +136,7 @@ This page describes $appname; $version;.]]></code>
   <p>Define and use an entity that references other entities:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="text/x-ducktype"><![CDATA[
 @ducktype/1.0
 @define appname $app(MyApp)
 @define version 3.26
@@ -192,7 +192,7 @@ This page describes $appvers;.]]></code>
     <title>The <code>ducktype/1.0</code> Directive</title>
 
     <synopsis>
-      <code>@ducktype/1.0
+      <code mime="text/x-ducktype">@ducktype/1.0
 @ducktype/1.0 <var>extension/1.0</var></code>
     </synopsis>
 
@@ -233,7 +233,7 @@ This page describes $appvers;.]]></code>
     <title>The <code>define</code> Directive</title>
 
     <synopsis>
-      <code>@define <var>name</var> <var>value</var></code>
+      <code mime="text/x-ducktype">@define <var>name</var> <var>value</var></code>
     </synopsis>
 
     <p>FIXME</p>
@@ -245,7 +245,7 @@ This page describes $appvers;.]]></code>
     <title>The <code>encoding</code> Directive</title>
 
     <synopsis>
-      <code>@encoding <var>charset</var></code>
+      <code mime="text/x-ducktype">@encoding <var>charset</var></code>
     </synopsis>
 
     <p>The <code>encoding</code> directive takes a single word that
@@ -267,7 +267,7 @@ This page describes $appvers;.]]></code>
     <title>The <code>include</code> Directive</title>
 
     <synopsis>
-      <code>@include <var>filename</var></code>
+      <code mime="text/x-ducktype">@include <var>filename</var></code>
     </synopsis>
 
     <p>The <code>include</code> directive specifies an external file
@@ -322,7 +322,7 @@ This page describes $appvers;.]]></code>
     <title>The <code>namespace</code> Directive</title>
 
     <synopsis>
-      <code>@namespace <var>prefix</var> <var>uri</var></code>
+      <code mime="text/x-ducktype">@namespace <var>prefix</var> <var>uri</var></code>
     </synopsis>
 
     <p>The <code>namespace</code> directive declares a namespace prefix

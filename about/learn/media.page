@@ -49,7 +49,7 @@ block element to a Mallard document; that is, add it where you would
 normally add a paragraph.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="image" src="mallard-logo.png"/>
 ]]></code>
 <media type="image" src="mallard-logo.png"/>
@@ -61,7 +61,7 @@ the image to different dimensions.  The attribute values are numbers without
 any units; they are always interpreted as pixels.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="image" src="mallard-logo.png" width="240" height="60"/>
 ]]></code>
 <media type="image" src="mallard-logo.png" width="240" height="60"/>
@@ -73,7 +73,7 @@ treated as a block element.  But you can also use the
 to add images in running text, such as inside a paragraph.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p>Powered by <media type="image" src="mallard-badge.png"/></p>
 ]]></code>
 <p>Powered by <media type="image" src="mallard-badge.png"/></p>
@@ -89,7 +89,7 @@ Simply set the <code>type</code> attribute to <code>"video"</code> and point
 the <code>src</code> attribute to the URL of your video.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="video" src="mallard-logo.ogv"/>
 ]]></code>
 <media type="video" src="mallard-logo.ogv"/>
@@ -118,7 +118,7 @@ the <code>media</code> element.  If you use it as a block element, you can
 add any block elements inside it, such as paragraphs or code blocks.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="image" src="mallard-logo.png">
   <p>The Mallard logo: a question-mark-shaped duck head in a circle</p>
 </media>
@@ -134,7 +134,7 @@ element so that we get the fallback content instead.
 can use text and any inline elements as fallback content.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p>Powered by <media type="image" src="mallard-badge.png">Mallard</media></p>
 ]]></code>
 <!--
@@ -149,7 +149,7 @@ content.  The fallback <code>media</code> elements can also have fallback
 content.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="video" src="mallard-logo.ogv">
   <media type="image" src="mallard-logo.png">
     <p>The Mallard logo: a question-mark-shaped duck head in a circle</p>
@@ -184,7 +184,7 @@ notations mean.  You can add a title or a caption using the
 <code xref="/1.0/mal_block_figure">figure</code> element.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <figure>
   <title>Mallard Logo</title>
   <desc>a question-mark-shaped duck head in a circle.</desc>
@@ -209,7 +209,7 @@ element, it is interpreted as a block element.  So any fallback content
 must also be block content.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <figure>
   <title>Mallard Logo</title>
   <desc>a question-mark-shaped duck head in a circle.</desc>

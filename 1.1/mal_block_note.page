@@ -85,7 +85,7 @@ of your document.</p>
   <p>Insert a basic note into your document:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <note>
   <p>Information in this section is non-normative.</p>
 </note>
@@ -98,7 +98,7 @@ of your document.</p>
   <p>Include a note with extra information for advanced readers:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <note style="advanced">
   <p>The Mallard schema is maintained in RELAX-NG Compact Syntax in
   code blocks embedded within the specification.</p>
@@ -113,7 +113,7 @@ of your document.</p>
   <p>Mention a known bug the reader is likely to encounter:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <note style="bug">
   <title>Cannot Save Files</title>
   <p>Due to <link href="http://bugs.example.com/1234">bug #1234</link> you
@@ -133,7 +133,7 @@ of your document.</p>
   when skimming a document:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <note style="important">
   <title>Supply Your Name and Email Address</title>
   <p>Before making any commits to a git repository, make sure to
@@ -158,7 +158,7 @@ git config --global user.email <var>email_address</var></screen>
   <p>Provide a helpful but non-essential tip:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <note style="tip">
   <p>Press <keyseq><key>Ctrl</key><key>J</key></keyseq> to jump to
   the currently playing track.</p>
@@ -173,7 +173,7 @@ git config --global user.email <var>email_address</var></screen>
   <p>Warn the reader about dangerous operations:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <note style="warning">
   <p>There is no way to recover files deleted with the
   <cmd>shred</cmd> command.</p>

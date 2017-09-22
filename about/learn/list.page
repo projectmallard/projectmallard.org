@@ -40,7 +40,7 @@ and a <link xref="#tree">simple tree</link>.</p>
 item is contained in an <code>item</code> element.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <list>
   <item><p>Lima beans</p></item>
   <item><p>Jelly beans</p></item>
@@ -67,7 +67,7 @@ other list types with the <code>type</code> attribute on the <code>list</code>
 element.  To create a numbered list, use the value <code>"numbered"</code>.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <list type="numbered">
   <item><p>Lima beans</p></item>
   <item><p>Jelly beans</p></item>
@@ -88,7 +88,7 @@ alternate type of glyph for bulleted lists.  The <code>type</code> attribute
 accepts any <link href="http://www.w3.org/TR/css3-lists/">CSS3 list style</link>.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <list type="lower-greek">
   <item><p>Lima beans</p></item>
   <item><p>Jelly beans</p></item>
@@ -118,7 +118,7 @@ the <code xref="/1.0/mal_block_steps">steps</code> element to
 list steps in a procedure.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <steps>
   <item><p>Dig a hole 5cm deep.</p></item>
   <item><p>Place your magic beans in the hole.</p></item>
@@ -149,7 +149,7 @@ element to create a list of terms and descriptions in Mallard.  Use term lists
 to create glossaries or to describe a list of configuration options.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <terms>
   <item>
     <title>Lima beans</title>
@@ -188,7 +188,7 @@ other block elements.  You can also provide multiple terms for an item by
 using multiple <code>title</code> elements.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <terms>
   <item>
     <title>Fava beans</title>
@@ -236,7 +236,7 @@ create simple trees easily.</p>
 <p>Use a tree to show some directories on a file system.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <tree>
   <item>home
     <item>Drake
@@ -272,7 +272,7 @@ markup before the child items.  For example, you can use the
 that the items are file names.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <tree>
   <item><file>home</file>
     <item><file>Drake</file>

@@ -73,7 +73,7 @@ by the user.</p>
   <p>Use <code>code</code> to mark up a class definition:</p>
 
   <example>
-    <code><![CDATA[<code mime="text/x-c++src">
+    <code mime="application/xml"><![CDATA[<code mime="text/x-c++src">
 class BeanStalk {
 public:
   void add_bean(Bean bean);

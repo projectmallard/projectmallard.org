@@ -66,7 +66,7 @@ or into a text field in a graphical application.</p>
   <p>Use <code>input</code> to mark up a user response to a prompt:</p>
 
   <example>
-    <code><![CDATA[Type <input>Y</input> at the prompt to proceed.]]></code>
+    <code mime="application/xml"><![CDATA[Type <input>Y</input> at the prompt to proceed.]]></code>
     <p>Type <input>Y</input> at the prompt to proceed.</p>
   </example>
 
@@ -74,7 +74,7 @@ or into a text field in a graphical application.</p>
   inside a <code xref="mal_block_screen">screen</code> element:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <screen>
 <output style="prompt">$ </output><input>ls mal_inline_output.xml</input>
 <output>mal_inline_output.xml</output>

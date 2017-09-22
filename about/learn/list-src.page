@@ -22,7 +22,7 @@ regular Mallard pages, except that <code>xref</code> attributes may contain the
 
 <listing>
 <title><file>list.page</file></title>
-<code>
+<code mime="application/xml">
 <include xmlns="http://www.w3.org/2001/XInclude" href="list.page" parse="text"/>
 </code>
 </listing>

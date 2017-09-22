@@ -54,7 +54,7 @@ organization in a <code xref="mal_info_credit">credit</code> element.</p>
   up the name of the author:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <credit type="author">
   <name>Shaun McCance</name>
 </credit>]]></code>

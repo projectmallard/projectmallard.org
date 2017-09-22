@@ -42,7 +42,7 @@ use <code>code</code> as an inline element to refer to something short like a
 function name or variable.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p>Call the <code>bean_grow</code> function to grow your magic beans.</p>
 ]]></code>
 <p>Call the <code>bean_grow</code> function to grow your magic beans.</p>
@@ -54,14 +54,14 @@ a key in a configuration file, or anything else you might find in a file
 you would edit in a text editor.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p>Use the <code>code</code> element to mark up the name of an XML element.</p>
 ]]></code>
 <p>Use the <code>code</code> element to mark up the name of an XML element.</p>
 </example>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p>Set the <code>Name</code> key to the name of your application.</p>
 ]]></code>
 <p>Set the <code>Name</code> key to the name of your application.</p>
@@ -71,7 +71,7 @@ you would edit in a text editor.</p>
 to provide a command for a user to run in a command-line environment.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p>Use <cmd>yelp-tool</cmd> to create HTML from your Mallard document.</p>
 ]]></code>
 <p>Use <cmd>yelp-tool</cmd> to create HTML from your Mallard document.</p>
@@ -82,7 +82,7 @@ Mallard, you mark up command arguments with the <code>cmd</code> element
 as well.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p>Use the <cmd>-o</cmd> option to specify an output directory.</p>
 ]]></code>
 <p>Use the <cmd>-o</cmd> option to specify an output directory.</p>
@@ -98,14 +98,14 @@ easier to read.  You can use the <code xref="/1.0/mal_block_code">code</code>
 element outside of a paragraph to create a code block.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <code>
 if (bean_is_magic(bean)) {
   bean_grow(bean);
 }
 </code>
 ]]></code>
-<code>
+<code style="no-mime">
 if (bean_is_magic(bean)) {
   bean_grow(bean);
 }
@@ -126,7 +126,7 @@ the contents of an XML file.  Fortunately, XML provides a special syntax called
 <code>CDATA</code> to escape large amounts of text.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <code><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/
       type="guide" id="index">
@@ -136,7 +136,7 @@ the contents of an XML file.  Fortunately, XML provides a special syntax called
   <!-- Page contents go here -->
 </page>
 ]]>]]&gt;&lt;/code></code>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/
       type="guide" id="index">
   <info>
@@ -163,7 +163,7 @@ when embedded inline in a paragraph.  You can use the
 element to show a command in a block.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <screen>
 xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache \
   `pkg-config --variable mal2html.xsl yelp-xsl` \
@@ -188,7 +188,7 @@ with their output.  To mark up the input and output, use the
 <code xref="/1.0/mal_inline_output">output</code> elements.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <screen>
 <input>ls *.page</input>
 <output>index.page  planting.page  uses.page</output>
@@ -205,7 +205,7 @@ use the <code>style</code> attribute on the <code>output</code> element
 to mark up prompts and error output.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <screen>
 <output style="prompt">$ </output><input>ls *.page</input>
 <output>index.page  planting.page  uses.page</output>
@@ -245,7 +245,7 @@ element to allow you to specify a title for code blocks and similiar
 content.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <listing>
 <title><file>index.page</file></title>
 <code><![CDATA[
@@ -261,7 +261,7 @@ content.</p>
 ]]></code>
 <listing>
 <title><file>index.page</file></title>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/
       type="guide" id="index">
   <info>
@@ -283,7 +283,7 @@ element to provide a title for a command inside a <code>screen</code>
 element.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <listing>
 <title>Process a Mallard Document</title>
 <screen>
@@ -307,7 +307,7 @@ xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache \
 the <code xref="/1.0/mal_block_desc">desc</code> element.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <listing>
 <title>Process a Mallard Document</title>
 <desc>Note that the <cmd>pkg-config</cmd> command is surrounded by backticks.</desc>

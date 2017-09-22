@@ -59,7 +59,7 @@ To provide a title for the contents of a file, such as a
   <p>Use <code>figure</code> to provide a title and caption for an image:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <figure>
   <title>The Mallard Logo</title>
   <desc>The Mallard logo is a question-mark-shaped duck head in a blue circle.</desc>

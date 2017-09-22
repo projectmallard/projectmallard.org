@@ -57,7 +57,7 @@ list or a variable list.</p>
   <p>Create a simple definition list with a title:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <terms>
   <title>Selected Basic Block Elements</title>
   <item>
@@ -93,7 +93,7 @@ list or a variable list.</p>
   <p>Create a definition list with multiple terms per entry:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <terms>
   <item>
     <title><code>comment</code></title>

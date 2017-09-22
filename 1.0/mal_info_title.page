@@ -76,7 +76,7 @@ purposes.</p>
 
   <p>Provide a title to be used as link text for links to a page:</p>
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/" id="beanstalks">
   <info>
     <title type="link">Beanstalks</title>
@@ -88,7 +88,7 @@ purposes.</p>
 
   <p>Provide a title to be used when sorting links to pages:</p>
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/" id="example">
   <info>
     <title type="sort">Beanstalk Example</title>

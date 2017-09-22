@@ -38,7 +38,7 @@
   of the software you’re documenting:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="text/x-ducktype"><![CDATA[
 @ducktype/1.0
 @define version 3.26
 
@@ -51,7 +51,7 @@ This page describes MyApp $version;.]]></code>
   <link xref="duck_inline">inline markup</link>:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="text/x-ducktype"><![CDATA[
 @ducktype/1.0
 @define appname $app(MyApp)
 @define version 3.26
@@ -64,7 +64,7 @@ This page describes $appname; $version;.]]></code>
   <p>Define and use an entity that references other entities:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="text/x-ducktype"><![CDATA[
 @ducktype/1.0
 @define appname $app(MyApp)
 @define version 3.26

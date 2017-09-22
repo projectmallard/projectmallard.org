@@ -72,7 +72,7 @@ element.</p>
   <p>Create a basic unordered list:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <list>
   <item><p><code>GTK_MESSAGE_INFO</code></p></item>
   <item><p><code>GTK_MESSAGE_WARNING</code></p></item>
@@ -93,7 +93,7 @@ element.</p>
   <p>Create an unordered list with a title:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <list>
   <title>Message Types</title>
   <item><p><code>GTK_MESSAGE_INFO</code></p></item>
@@ -116,7 +116,7 @@ element.</p>
   <p>Create a simple numbered list:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <list type="numbered">
   <item><p>First</p></item>
   <item><p>Second</p></item>
@@ -133,7 +133,7 @@ element.</p>
   <p>Create a numbered list with Roman numerals:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <list type="upper-roman">
   <item><p>First</p></item>
   <item><p>Second</p></item>

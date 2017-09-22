@@ -58,7 +58,7 @@ to otherwise mark text that should stand out.</p>
   Mallard 1.0 was even final. This element is supported in the
   experimental namespace:</p>
 
-  <code>http://projectmallard.org/experimental/</code>
+  <code style="no-mime">http://projectmallard.org/experimental/</code>
 
 </section>
 

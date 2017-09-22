@@ -51,7 +51,7 @@ features should be handled automatically by translation tools. See
   is the direct object of a sentence. Add the following to the <code>info</code>
   element on <file>ducks.page</file>:</p>
 
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <title type="link" role="zxx-subject">The ducks</title>
 <title type="link" role="zxx-object">ducks</title>
 ]]></code>
@@ -60,7 +60,7 @@ features should be handled automatically by translation tools. See
   each <code>link</code> element, matching a <code>role</code> attribute of
   a <code>title</code> tag, as follows:</p>
 
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <link xref="ducks" role="zxx-subject"/> has more information.
 See <link xref="ducks" role="zxx-object"/> for more information.
 ]]></code>

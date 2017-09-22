@@ -61,7 +61,7 @@ other tools. They also serve as the basis for formal block extensions.</p>
   <p>Use <code>div</code> to create a formal paragraph:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <div>
   <title>Hello world</title>
   <p>This is a paragraph about saying hello to the world.</p>
@@ -77,7 +77,7 @@ other tools. They also serve as the basis for formal block extensions.</p>
   transclude them as a whole, easing content reuse:</p>
 
   <example>
-    <code><![CDATA[<div>
+    <code mime="application/xml"><![CDATA[<div>
   <p>Planting magic beans is fun and easy.</p>
   <steps>
     <item><p>Dig a hole 10cm deep.</p></item>
@@ -108,13 +108,13 @@ other tools. They also serve as the basis for formal block extensions.</p>
   <link href="http://www.w3.org/TR/its/">Internationalization Tag Set</link>:</p>
 
   <example>
-    <code><![CDATA[<div xmlns:its="http://www.w3.org/2005/11/its" its:translate="no">
+    <code mime="application/xml"><![CDATA[<div xmlns:its="http://www.w3.org/2005/11/its" its:translate="no">
   <p>This paragraph should not be translated.</p>
   <code>// Neither should this code block.</code>
 </div>]]></code>
     <div xmlns:its="http://www.w3.org/2005/11/its" its:translate="no">
       <p>This paragraph should not be translated.</p>
-      <code>// Neither should this code block.</code>
+      <code style="no-mime">// Neither should this code block.</code>
     </div>
   </example>
 
@@ -122,7 +122,7 @@ other tools. They also serve as the basis for formal block extensions.</p>
   <link xref="/ui/1.0/ui_expanded">UI expanders</link>:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <div xmlns:ui="http://projectmallard.org/ui/1.0/" ui:expanded="false">
   <info>
     <title type="ui:collapsed">Click to say hello</title>

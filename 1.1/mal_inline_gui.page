@@ -102,7 +102,7 @@ control is being marked up.</p>
   <p>Use <code>gui</code> to mark up the text of a button:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 Click the <gui>Close</gui> button to close the window.
 ]]></code>
     <p>Click the <gui>Close</gui> button to close the window.</p>
@@ -111,7 +111,7 @@ Click the <gui>Close</gui> button to close the window.
   <p>Use <code>gui</code> to mark up the label on a tab:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 The <gui>Filters</gui> tab contains options to change the behavior
 of your keyboard to meet certain accessibility needs.
 ]]></code>

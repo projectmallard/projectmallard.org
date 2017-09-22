@@ -104,7 +104,7 @@ its direct parent.</p>
   <p>Insert all topic links for a page or section:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <links type="topic"/>
 ]]></code>
   </example>
@@ -112,7 +112,7 @@ its direct parent.</p>
   <p>Separate topic links by group, giving a title to each group:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <links type="topic" groups="#first">
   <title>First Things First</title>
 </links>
@@ -128,7 +128,7 @@ its direct parent.</p>
   <p>Provide quick links to the sections in a page:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <page id="index">
   <links type="section"/>
   <section id="first">

@@ -57,7 +57,7 @@ paragraphs together.</p>
   element, grouping the input and formatted result:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <example>
 <code><![CDATA[
 <screen>
@@ -76,7 +76,7 @@ xsltproc -o mal_block_screen.html \
 </example>
 ]]></code>
     <example>
-      <code><![CDATA[
+      <code mime="application/xml"><![CDATA[
 <screen>
 xsltproc -o mal_block_screen.html \
   --stringparam mal.cache.file `pwd`/mallard.cache \

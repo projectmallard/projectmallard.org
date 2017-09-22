@@ -68,7 +68,7 @@ an indicated argument.</p>
   up a command with a placeholder for an argument the user should supply:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 To view a file in <app>Totem Movie Player</app>, enter <cmd>totem
 <var>file</var></cmd> at the command line, replacing <var>file</var>
 with the name of the file.

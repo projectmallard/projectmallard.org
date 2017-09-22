@@ -77,7 +77,7 @@ for details on how fallback elements are handled.</p>
   <p>Use <code>media</code> to insert an image into your document:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <media type="image" mime="image/png" src="mallard-logo.png">
 <p>The Mallard logo</p>
 </media>

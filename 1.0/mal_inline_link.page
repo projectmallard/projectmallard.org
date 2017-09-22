@@ -73,7 +73,7 @@ the same document.</p>
   <p>Link to another page in the same document:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 See <link xref="mal_attr_link"/> for information on linking attributes.
 ]]></code>
     <p>See <link xref="mal_attr_link"/> for information on linking attributes.</p>
@@ -82,7 +82,7 @@ See <link xref="mal_attr_link"/> for information on linking attributes.
   <p>Link to a section in the same page:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 See <link xref="#processing"/> for details on automatic link text.
 ]]></code>
     <p>See <link xref="#processing"/> for details on automatic link text.</p>
@@ -91,7 +91,7 @@ See <link xref="#processing"/> for details on automatic link text.
   <p>Link to a section in another page:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 See <link xref="mal_inline#processing"/> for more processing expectations.
 ]]></code>
     <p>See <link xref="mal_inline#processing"/> for more processing expectations.</p>
@@ -100,7 +100,7 @@ See <link xref="mal_inline#processing"/> for more processing expectations.
   <p>Link to an external resource:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 See the <link href="http://www.w3.org/TR/REC-xml-names/">XML Namespaces
 recommendation</link>.
 ]]></code>

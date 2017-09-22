@@ -61,7 +61,7 @@ items.</p>
   <p>Use <code>guiseq</code> to mark up a sequence of menu items:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 Select <guiseq><gui>File</gui><gui>New</gui></guiseq> to open
 a new document.
 ]]></code>

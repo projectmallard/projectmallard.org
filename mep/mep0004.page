@@ -63,7 +63,7 @@ extensions.</p>
   in any <code>info</code> element, where the namespace of the <code>ui:thumb</code>
   element is the Mallard UI namespace:</p>
 
-  <code>http://projectmallard.org/ui/1.0/</code>
+  <code style="no-mime">http://projectmallard.org/ui/1.0/</code>
 
   <p>The <code>ui:thumb</code> element has no content, and it may contain the
   following attributes:</p>

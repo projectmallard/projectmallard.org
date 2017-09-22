@@ -59,7 +59,7 @@ various other purposes by different tools.</p>
 
 <p>Create a page with a title and description:</p>
 
-<example><code><![CDATA[
+<example><code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       type="topic"
       id="mal_info_desc">

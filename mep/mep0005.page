@@ -78,7 +78,7 @@ container element to allow better integration for extensions.</p>
   <p>Use <code>div</code> to provide a title for a paragraph.</p>
 
   <example>
-    <code><![CDATA[<div>
+    <code mime="application/xml"><![CDATA[<div>
   <title>Know Your Audience</title>
   <p>When writing, it is important to know who you're writing for.</p>
 </div>]]></code>
@@ -88,7 +88,7 @@ container element to allow better integration for extensions.</p>
   transclude them as a whole, easing content reuse.</p>
 
   <example>
-    <code><![CDATA[<div>
+    <code mime="application/xml"><![CDATA[<div>
   <p>Planting magic beans is fun and easy.</p>
   <steps>
     <item><p>Dig a hole 10cm deep.</p></item>

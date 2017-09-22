@@ -62,7 +62,7 @@ use <code xref="mal_inline_cmd">cmd</code> for this purpose instead.</p>
   <p>Use <code>app</code> to mark up the name of an application:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at
 the command line.
 ]]></code>
@@ -73,7 +73,7 @@ the command line.
   <p>Use <code>app</code> to refer to a window:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 Use the <app>Theme Preferences</app> window to adjust the look of
 your desktop.
 ]]></code>

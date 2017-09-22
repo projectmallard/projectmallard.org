@@ -59,7 +59,7 @@ attribute set to <code>"numbered"</code> instead.</p>
   <p>Create a simple procedure of steps for the reader to follow:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <steps>
   <title>Planting Magic Beans</title>
   <item><p>Dig a hole 10cm deep.</p></item>
@@ -80,7 +80,7 @@ attribute set to <code>"numbered"</code> instead.</p>
   <p>Create steps with a nested list and a nested step list:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <steps>
   <title>Planting Magic Beans</title>
   <item>

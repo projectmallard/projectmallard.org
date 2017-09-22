@@ -61,7 +61,7 @@ isn't covered by other elements such as <code xref="mal_inline_file">file</code>
   <p>Use <code>sys</code> to mark up a domain name:</p>
 
   <example>
-    <code><![CDATA[The Linux kernel is hosted on <sys>git.kernel.org</sys>.]]></code>
+    <code mime="application/xml"><![CDATA[The Linux kernel is hosted on <sys>git.kernel.org</sys>.]]></code>
     <p>The Linux kernel is hosted on <sys>git.kernel.org</sys>.</p>
   </example>
 </section>

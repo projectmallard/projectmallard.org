@@ -76,7 +76,7 @@ elements can be used to record any additional information you need.</p>
 
   <p>The <code>info</code> element for this page:</p>
 
-<example><code><![CDATA[
+<example><code mime="application/xml"><![CDATA[
 <info>
   <link type="guide" xref="index" group="info"/>
   <credit type="author">

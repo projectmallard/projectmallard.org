@@ -75,7 +75,7 @@ Force a code block to be translated using the <code>its:translate</code>
 attribute from the <link href="http://www.w3.org/TR/its/">Internationalization
 Tag Set</link>:</p>
 
-<example><code><![CDATA[
+<example><code mime="application/xml"><![CDATA[
 <code xmlns:its="http://www.w3.org/2005/11/its" 
       its:version="1.0" its:translate="yes">
 // This code block should be translated because it contains this comment.
@@ -87,7 +87,7 @@ some_code ()
 RDF vocabularies to provide additional information about a page. Specify a bug
 database using <link href="http://trac.usefulinc.com/doap">DOAP</link>:</p>
 
-<example><code><![CDATA[
+<example><code mime="application/xml"><![CDATA[
 <info xmlns:doap="http://usefulinc.com/ns/doap#"
       xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <doap:bug-database rdf:resource="http://bugs.example.com/"/>
@@ -99,7 +99,7 @@ database using <link href="http://trac.usefulinc.com/doap">DOAP</link>:</p>
 inside a paragraph:</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p>
 <ruby xmlns="http://www.w3.org/1999/xhtml">
 <rb>紙芝居</rb>

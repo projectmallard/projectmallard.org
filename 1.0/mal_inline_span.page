@@ -65,7 +65,7 @@ using attributes from external namespaces.</p>
   <link href="http://www.w3.org/TR/its/">Internationalization Tag Set</link>:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 This <span its:translate="no">word</span> should not be translated.]]></code>
     <p>This <span xmlns:its="http://www.w3.org/2005/11/its" its:version="1.0"
     its:translate="no">word</span> should not be translated.</p>

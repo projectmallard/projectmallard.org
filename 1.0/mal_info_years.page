@@ -54,7 +54,7 @@ a person or organization holds a copyright.</p>
   and <code>year</code>:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <credit type="author copyright">
   <name>Shaun McCance</name>
   <email>shaunm@gnome.org</email>

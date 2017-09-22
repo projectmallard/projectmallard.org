@@ -273,6 +273,8 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
       </xsl:if>
 
     </xsl:if>
+
+    <xsl:apply-templates mode="block.checks" select="*"/>
   </xsl:variable>
   <xsl:if test="$errors != ''">
     <xsl:value-of select="$cache_node/@id"/>
@@ -280,6 +282,33 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
     <xsl:value-of select="$errors"/>
     <xsl:text>&#x000A;</xsl:text>
   </xsl:if>
+</xsl:template>
+
+<xsl:template mode="block.checks" match="mal:p | mal:screen | mal:title |
+                                         mal:subtitle | mal:desc | mal:cite | mal:name"/>
+<xsl:template mode="block.checks" match="*">
+  <xsl:apply-templates mode="block.checks" select="*"/>
+</xsl:template>
+<xsl:template mode="block.checks" match="mal:tree//mal:item">
+  <xsl:apply-templates mode="block.checks" select="mal:item"/>
+</xsl:template>
+<xsl:template mode="block.checks" match="mal:code">
+  <xsl:choose>
+    <xsl:when test="not(@mime)">
+      <xsl:if test="not(contains(concat(' ', @style, ' '), ' no-mime '))">
+        <xsl:text>Missing mime attribute on code&#x000A;</xsl:text>
+      </xsl:if>
+    </xsl:when>
+    <xsl:when test="@mime = 'application/xml'"/>
+    <xsl:when test="@mime = 'application/relax-ng-compact-syntax'"/>
+    <xsl:when test="@mime = 'text/x-c++src'"/>
+    <xsl:when test="@mime = 'text/x-ducktype'"/>
+    <xsl:otherwise>
+      <xsl:text>Incorrect mime attribute: </xsl:text>
+      <xsl:value-of select="@mime"/>
+      <xsl:text>&#x000A;</xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>

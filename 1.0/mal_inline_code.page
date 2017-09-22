@@ -78,7 +78,7 @@ by the user.</p>
   construct in a programming language:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 Use <code>gtk_container_add</code> to add a child widget to a
 <code>GtkButton</code>.
 ]]></code>
@@ -89,7 +89,7 @@ Use <code>gtk_container_add</code> to add a child widget to a
   up code with a placeholder for an argument the user should supply:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 To create a new button with a label, use
 <code>gtk_button_new_with_label(<var>label</var>)</code>,
 replacing <var>label</var> with the text of the label.
@@ -102,7 +102,7 @@ replacing <var>label</var> with the text of the label.
   <p>Link to a web page directly with a <code>code</code> element:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 Use <code>code</code> with <code xref="mal_inline_var">var</code> to mark
 up code with a placeholder for an argument the user should supply.
 ]]></code>

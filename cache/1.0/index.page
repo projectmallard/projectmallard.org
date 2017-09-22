@@ -50,7 +50,7 @@ with. Potential interchange issues are addressed throughout this specification.<
 the cache namespace. Throughout this specification, whenever the cache namespace is
 referenced, or the namespace prefix <code>cache</code> is used, the namespace is:</p>
 
-<code>http://projectmallard.org/cache/1.0/</code>
+<code style="no-mime">http://projectmallard.org/cache/1.0/</code>
 
 <p>The root element of a cache file is a <code>cache:cache</code> element. The
 <code>cache:cache</code> element may have a <code>version</code> attribute. The

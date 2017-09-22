@@ -71,21 +71,21 @@ guide pages serve as navigational aids.</p>
 
   <p>Create a very basic Mallard page:</p>
 
-  <example><code><![CDATA[
+  <example><code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/" id="index">
 <title>A Simple Page</title>
 </page>]]></code></example>
 
   <p>Pages are topic pages by default. Create a guide page instead:</p>
 
-  <example><code><![CDATA[
+  <example><code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/" type="guide" id="index">
 <title>A Simple Guide Page</title>
 </page>]]></code></example>
 
   <p>Add an introductory paragraph:</p>
 
-  <example><code><![CDATA[
+  <example><code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/" type="guide" id="index">
 <title>A Simple Guide Page</title>
 <p>This is a paragraph</p>

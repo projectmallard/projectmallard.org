@@ -62,7 +62,7 @@ action when clicked.</p>
   inline <code xref="mal_inline_code">code</code> element:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <p>See the <code xref="mal_inline_link">link</code> element.</p>
 ]]></code>
 <p>See the <code xref="mal_inline_link">link</code> element.</p>
@@ -71,7 +71,7 @@ action when clicked.</p>
   <p>Use the <code>href</code> attribute to turn an inline image into a link:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <p><media href="http://projectmallard.org/"
           type="image" mime="image/png" src="mallard-logo.png"/></p>
 ]]></code>
@@ -82,7 +82,7 @@ action when clicked.</p>
   use the <code>action</code> attribute to install a package:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <link action="install:yelp">Click here to install Yelp.</link>
 ]]></code>
   </example>
@@ -91,7 +91,7 @@ action when clicked.</p>
   scheme, provide a fallback with the <code>href</code> attribute:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <link action="install:yelp"
       href="http://projects.gnome.org/yelp/">Click here to install Yelp.</link>
 ]]></code>

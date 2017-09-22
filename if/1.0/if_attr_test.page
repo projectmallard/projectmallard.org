@@ -65,7 +65,7 @@ Mallard block elements. The same test expressions can be used with the
 <p>Only output a paragraph when viewing on a mobile device:</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="target:mobile">This is only output for mobile.</p>
 ]]></code>
 </example>
@@ -74,7 +74,7 @@ Mallard block elements. The same test expressions can be used with the
 paragraph only when not viewing on a mobile device:</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="!target:mobile">This is not output for mobile.</p>
 ]]></code>
 </example>
@@ -84,7 +84,7 @@ output a paragraph when the content is for running under GNOME 3 on a Linux-base
 system:</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="platform:gnome-shell platform:linux">This is for GNOME 3 on Linux.</p>
 ]]></code>
 </example>
@@ -93,7 +93,7 @@ system:</p>
 Output a paragraph when the content is for either GNOME 3 or GNOME 2:</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="platform:gnome-shell, platform:gnome-panel">This is for GNOME 2 or 3.</p>
 ]]></code>
 </example>
@@ -104,7 +104,7 @@ Output a paragraph when the content is for either GNOME 3 or GNOME 2, and
 it is only for Linux-based systems:</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="
   platform:gnome-shell platform:linux, platform:gnome-panel platform:linux
 ">This is for GNOME on Linux.</p>
@@ -116,7 +116,7 @@ not to clauses or entire expressions. Output a paragraph when the content is
 for either GNOME 3 or GNOME 2, but only for non-Linux-based systems:</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="
   platform:gnome-shell !platform:linux, platform:gnome-panel !platform:linux
 ">This is for GNOME, but not on Linux.</p>
@@ -134,7 +134,7 @@ and <link xref="/1.0/mal_block_tree"
 href="http://projectmallard.org/1.0/mal_block_tree.html">tree lists</link>:</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <steps>
   <item if:test="platform:gnome-shell"><p>Click <gui>Activities</gui>.</p></item>
   <item if:test="platform:gnome-panel"><p>Click <gui>Applications</gui>.</p></item>

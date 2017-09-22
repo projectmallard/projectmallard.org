@@ -64,7 +64,7 @@ more quickly.  In Mallard, sections can take part in
 
   <p>Create a page with a single section:</p>
 
-  <example><code><![CDATA[
+  <example><code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/" id="index">
 <title>A Simple Page</title>
 <section id="first">
@@ -76,7 +76,7 @@ more quickly.  In Mallard, sections can take part in
   sections. Use the <code xref="mal_links">links</code> element to link
   to the sections in a page:</p>
 
-  <example><code><![CDATA[
+  <example><code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/" id="index">
 <title>A Simple Page</title>
 <links type="section"/>

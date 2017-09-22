@@ -98,7 +98,7 @@ also specifies copyright holders when used with the
   <p>Use <code>credit</code> to mark up the name and email address of the author:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <credit type="author">
   <name>Shaun McCance</name>
   <email>shaunm@gnome.org</email>
@@ -108,7 +108,7 @@ also specifies copyright holders when used with the
   <p>Include copyright information using <code>credit</code>:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <credit type="author copyright">
   <name>Shaun McCance</name>
   <email>shaunm@gnome.org</email>
@@ -123,7 +123,7 @@ also specifies copyright holders when used with the
   property to record a URL for a publisher:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <credit type="publisher">
   <name>Floss Manuals</name>
   <page xmlns="http://xmlns.com/foaf/0.1/">http://flossmanuals.net/</page>

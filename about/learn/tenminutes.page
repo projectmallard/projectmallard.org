@@ -53,7 +53,7 @@ document is always named <file>index.page</file>.</p>
 
 <listing>
   <title><file>index.page</file></title>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       type="guide"
       id="index">
@@ -122,7 +122,7 @@ Add another page to the document by creating a new page file:</p>
 
 <listing>
   <title><file>planting.page</file></title>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       type="topic"
       id="planting">
@@ -139,7 +139,7 @@ them. Do this by adding a link element to <file>planting.page</file>:</p>
 
 <listing>
   <title><file>planting.page</file></title>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       type="topic"
       id="planting">
@@ -174,7 +174,7 @@ page to link to ways you can use magic beans.</p>
 
 <listing>
   <title><file>uses.page</file></title>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       type="guide"
       id="uses">
@@ -212,7 +212,7 @@ basic <link xref="/1.0/mal_block_p">paragraph</link> and a
 
 <listing>
   <title><file>planting.page</file></title>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       type="topic"
       id="planting">

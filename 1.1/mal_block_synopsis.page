@@ -61,7 +61,7 @@ control element.</p>
   <p>Use <code>synopsis</code> to create an overview of functions:</p>
 
   <example>
-    <code><![CDATA[<synopsis>
+    <code mime="application/xml"><![CDATA[<synopsis>
 <title>Beanstalk Functions</title>
 <desc>Use these methods on a <code>Beanstalk</code> object.</desc>
 <code>
@@ -73,7 +73,7 @@ int  count_beans ();
     <synopsis>
       <title>Beanstalk Functions</title>
       <desc>Use these methods on a <code>beanstalk</code> object.</desc>
-      <code>
+      <code style="no-mime">
 void add_bean    (Bean bean);
 int  count_beans ();
 </code>

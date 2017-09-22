@@ -53,7 +53,7 @@ extension, the <code>if:test</code> attribute is in a separate namespace.
 Declare this namespace on the top-level <code>page</code> element.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       xmlns:if="http://projectmallard.org/if/1.0/"
       type="topic" version="1.0 if/1.0"
@@ -74,7 +74,7 @@ is running GNOME 3 when reading the help with the <app>Yelp</app> help
 viewer, use the test token <code>platform:gnome-shell</code>.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="platform:gnome-shell">This content is only shown when
 running under GNOME 3.</p>
 ]]></code>
@@ -104,7 +104,7 @@ responsive content for mobile devices.</p>
 <code>target:html</code> token.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="target:html">This content is only shown when viewing
 the help as an HTML page.</p>
 ]]></code>
@@ -115,7 +115,7 @@ the help as an HTML page.</p>
 <code>target:mobile</code> token.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="target:mobile">This content is only shown when viewing
 the help on a mobile device.</p>
 ]]></code>
@@ -139,7 +139,7 @@ attribute on the <code xref="/1.0/mal_block_media">media</code>
 element to add an image that's only shown in HTML output.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="image" src="mallard-logo.png" if:test="target:html"/>
 ]]></code>
 <media type="image" src="mallard-logo.png"/>
@@ -154,7 +154,7 @@ element to add an image that's only shown in HTML output.</p>
 use <code>if:test</code> to make one step in a procedure conditional.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <steps>
 <item if:test="platform:windows"><p>Download and install an SSH
 client for Windows.<p></item>
@@ -198,7 +198,7 @@ is used, and the remainder are ignored.</p>
 two different paragraphs for GNOME 3 and Unity.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <if:choose>
   <if:when test="platform:gnome-shell">
     <p>This is shown in GNOME 3.</p>
@@ -227,7 +227,7 @@ element after all <code>if:when</code> elements to provide fallback
 content.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <if:choose>
   <if:when test="platform:gnome-shell">
     <p>This is shown in GNOME 3.</p>
@@ -248,7 +248,7 @@ of the <code>if:choose</code> element, without an <code>if:else</code>
 element.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <if:choose>
   <if:when test="platform:gnome-shell">
     <p>This is shown in GNOME 3.</p>
@@ -288,7 +288,7 @@ set, or for any of a set of tokens to be set.</p>
 in front of it.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="image" src="mallard-logo.png" if:test="!target:mobile"/>
 ]]></code>
 <media type="image" src="mallard-logo.png" if:test="!target:mobile"/>
@@ -302,7 +302,7 @@ phone.)</p>
 condition separated by spaces.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="platform:gnome-shell platform:fedora">This is only shown
 when running GNOME 3 on Fedora.</p>
 ]]></code>
@@ -316,7 +316,7 @@ token is set for any serialization of HTML, while the
 serialization. Combine them to test for non-XML HTML.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="target:html !target:xhtml">This is only shown when
 converted to HTML that is not XHTML.</p>
 ]]></code>
@@ -327,7 +327,7 @@ converted to HTML that is not XHTML.</p>
 putting them all into a condition separated by commas.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="platform:gnome-shell, platform:unity">This is in both
 GNOME 3 and Unity, but not other environments.</p>
 ]]></code>
@@ -348,7 +348,7 @@ split this up and write the <code>gnome-shell</code> condition twice,
 as <code>"(gnome-shell AND fedora) OR (gnome-shell AND ubuntu)"</code>.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="platform:gnome-shell platform:fedora,
             platform:gnome-shell platform:ubuntu">This is shown under
 GNOME 3, but only on Fedora or Ubuntu.</p>

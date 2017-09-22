@@ -71,7 +71,7 @@ class inheritance or directory layouts.</p>
   <code xref="mal_block_synopsis">synopsis</code> element:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <synopsis>
   <tree>
     <item>
@@ -109,7 +109,7 @@ class inheritance or directory layouts.</p>
   <p>Use the <code>lines</code> style hint to visually show the tree structure:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <tree style="lines">
   <item>
     Anatinae (dabbling ducks)

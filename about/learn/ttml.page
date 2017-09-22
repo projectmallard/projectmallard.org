@@ -60,7 +60,7 @@ tutorial uses a video from the
 Getting Started videos</link>.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="video" src="gnome-change-wallpaper.webm"
        width="700" height="394"/>
 ]]></code>
@@ -85,7 +85,7 @@ and <code>end</code> attributes specify when the content should be shown.</p>
 after one second and ends at the five-second mark.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="video" src="gnome-change-wallpaper.webm"
        width="700" height="394">
 ]]><e:hi><![CDATA[  <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
@@ -114,7 +114,7 @@ attribute. This specifies how long the caption is displayed, rather than the
 time at which it is hidden.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="video" src="gnome-change-wallpaper.webm"
        width="700" height="394">
   <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
@@ -141,7 +141,7 @@ time at which it is hidden.</p>
 <p>You can then add more <code>tt:div</code> elements for more captions.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="video" src="gnome-change-wallpaper.webm"
        width="700" height="394">
   <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
@@ -190,7 +190,7 @@ it does not have an <code>end</code> or <code>dur</code> attribute, it is shown
 as long as the enclosing caption is shown.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="video" src="gnome-change-wallpaper.webm"
        width="700" height="394">
   <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
@@ -223,7 +223,7 @@ example, this example shows the word “Wallpaper” at the two-second mark, but
 it keeps it within the same paragraph.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="video" src="gnome-change-wallpaper.webm"
        width="700" height="394">
   <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
@@ -252,7 +252,7 @@ timing to progressively show words. This may appear somewhat choppy, depending
 on the resolution of timing events in your browser.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="video" src="gnome-change-wallpaper.webm"
        width="700" height="394">
   <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
@@ -319,7 +319,7 @@ element to mark up the label of a user interface element when it appears in
 a TTML subtitle.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="video" src="gnome-change-wallpaper.webm"
        width="700" height="394">
   <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
@@ -365,7 +365,7 @@ element. This example puts all the steps into Mallard
 only one step is shown at a time.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <media type="video" src="gnome-change-wallpaper.webm"
        width="700" height="394">
   <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">

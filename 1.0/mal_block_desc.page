@@ -65,7 +65,7 @@ for the formal element.</p>
   <link xref="mal_block_figure">figure</link>:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <figure>
   <desc>The Mallard logo is a question-mark-shaped duck head in a blue circle.</desc>
   <media type="image" mime="image/png" src="mallard-logo.png"/>
@@ -81,7 +81,7 @@ for the formal element.</p>
   <link xref="mal_block_figure">listing</link>:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <listing>
   <desc>A first Mallard page</desc>
   <code><![CDATA[
@@ -93,7 +93,7 @@ for the formal element.</p>
 </listing>]]></code>
     <listing>
       <desc>A first Mallard page</desc>
-      <code><![CDATA[
+      <code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       type="guide"
       id="index">

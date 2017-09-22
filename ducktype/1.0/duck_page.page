@@ -75,10 +75,10 @@
   <title>Examples</title>
 
   <p>Create a simple page:</p>
-  <example><code>= My Page Title
+  <example><code mime="text/x-ducktype">= My Page Title
 
 This is a paragraph.</code>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/">
   <title>My Page Title</title>
   <p>This is a paragraph.</p>
@@ -86,11 +86,11 @@ This is a paragraph.</code>
 ]]></code></example>
 
   <p>Create a page with a subtitle:</p>
-  <example><code>= My Page Title
+  <example><code mime="text/x-ducktype">= My Page Title
 - My Page Subtitle
 
 This is a paragraph.</code>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/">
   <title>My Page Title</title>
   <subtitle>My Page Subtitle</subtitle>
@@ -100,13 +100,13 @@ This is a paragraph.</code>
 
   <p>Titles and subtitles can span multiple lines. Indent at least one
   space to keep following lines in the title or subtitle:</p>
-  <example><code>= This is a Very Long Title That
+  <example><code mime="text/x-ducktype">= This is a Very Long Title That
   Wraps onto the Next Line
 - This is a Very Long Subtitle That
   Wraps onto the Next Line
 
 This is a paragraph.</code>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/">
   <title>This is a Very Long Title That Wraps onto the Next Line</title>
   <subtitle>This is a Very Long Subtitle That Wraps onto the Next Line</title>
@@ -116,11 +116,11 @@ This is a paragraph.</code>
 
   <p>Attribute lists for pages and section follow the title or subtitle,
   and start with at least one space followed by a left square bracket:</p>
-  <example><code>= My Page Title
+  <example><code mime="text/x-ducktype">= My Page Title
   [style=tutorial]
 
 This is a paragraph.</code>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/" style="tutorial">
   <title>My Page Title</title>
   <p>This is a paragraph.</p>

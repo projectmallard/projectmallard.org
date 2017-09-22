@@ -61,7 +61,7 @@ display tools.</p>
   <p>Use <code>em</code> to stress a word in a sentence:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 You should <em>never</em> run a graphical application as root.
 ]]></code>
     <p>You should <em>never</em> run a graphical application as root.</p>
@@ -70,7 +70,7 @@ You should <em>never</em> run a graphical application as root.
   <p>Use <code>em</code> to mark the first occurrence of a term:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 Note that <em>accelerators</em> are different from <em>mnemonics</em>.
 ]]></code>
     <p>Note that <em>accelerators</em> are different from <em>mnemonics</em>.</p>

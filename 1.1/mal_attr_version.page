@@ -55,7 +55,7 @@ version and extensions to a processing tool or validator.</p>
 
   <p>Specify that you are only using features from Mallard 1.1:</p>
 
-<example><code><![CDATA[
+<example><code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       version="1.1"
       id="index">
@@ -64,7 +64,7 @@ version and extensions to a processing tool or validator.</p>
   <p>Specify that you are using Mallard 1.1 plus the 1.0 version of
   the conditional processing extension:</p>
 
-<example><code><![CDATA[
+<example><code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       version="1.1 if/1.0"
       id="index">
@@ -72,7 +72,7 @@ version and extensions to a processing tool or validator.</p>
 
   <p>Specify that you are using Mallard 1.1 plus two extensions:</p>
 
-<example><code><![CDATA[
+<example><code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       version="1.1 if/1.0 facet/1.0"
       id="index">
@@ -84,7 +84,7 @@ version and extensions to a processing tool or validator.</p>
   schema. Specify that you are using Mallard 1.1 plus an extension
   hosted elsewhere:</p>
 
-<example><code><![CDATA[
+<example><code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       version="1.1 http://example.com/ducks/1.0/ducks-1.0.rng"
       id="index">
@@ -122,12 +122,12 @@ version and extensions to a processing tool or validator.</p>
     into the <var>prefix</var> before the slash and the <var>number</var>
     after the slash, and the URL to the RELAX NG file is constructed as
     follows:</p>
-    <code>http://projectmallard.org/<var>prefix</var>/<var>number</var>/<var>prefix</var>-<var>number</var>.rng</code>
+    <code style="no-mime">http://projectmallard.org/<var>prefix</var>/<var>number</var>/<var>prefix</var>-<var>number</var>.rng</code>
     </item>
     <item><p>If the token contains no colon or slash character, it is
     taken to be a simple version number <var>token</var>, and the URL to
     the RELAX NG file is constructed as follows:</p>
-    <code>http://projectmallard.org/<var>token</var>/mallard-<var>token</var>.rng</code>
+    <code style="no-mime">http://projectmallard.org/<var>token</var>/mallard-<var>token</var>.rng</code>
     </item>
   </list>
 
@@ -178,7 +178,7 @@ version and extensions to a processing tool or validator.</p>
     an <code>anyName</code> element is rewritten as in the following XSLT, assuming
     the variable <code>$namespaces</code> is a node set whose elements have string
     values holding the valid namespaces defined above:</p>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <except>
   <xsl:for-each select="$namespaces">
     <nsName ns="{.}"/>

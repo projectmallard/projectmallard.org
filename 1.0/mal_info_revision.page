@@ -111,7 +111,7 @@ description of the page or section as of that revision.</p>
   the 1.0 version of the containing document:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <revision docversion="1.0" date="2011-03-08" status="review"/>
 ]]></code>
   </example>
@@ -120,7 +120,7 @@ description of the page or section as of that revision.</p>
   of the package it describes:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <revision pkgversion="3.1" version="3.0" date="2011-03-08" status="final"/>
 ]]></code>
   </example>

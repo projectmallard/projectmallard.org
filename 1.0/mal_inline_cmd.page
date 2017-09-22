@@ -87,7 +87,7 @@ by the user.</p>
   <p>Use <code>cmd</code> to mark up a simple command to run:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at
 the command line.
 ]]></code>
@@ -99,7 +99,7 @@ the command line.
   up a command with a placeholder for an argument the user should supply:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 To view a file in <app>Totem Movie Player</app>, enter <cmd>totem
 <var>file</var></cmd> at the command line, replacing <var>file</var>
 with the name of the file.
@@ -111,7 +111,7 @@ with the name of the file.
   <p>Use <code>cmd</code> to mark up command names and options:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 The <cmd>-mtime</cmd> option for the <cmd>find</cmd> command allows
 you to filter files based on their modification times.
 ]]></code>

@@ -108,7 +108,7 @@ to specify title, desc, and other information for those pages.</p>
   <p>Include the Ten Minute Tour in your seealso links.</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <info>
   <link type="seealso" href="http://projectmallard.org/about/learn/tenminutes">
     <title>Ten Minute Tour</title>

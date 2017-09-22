@@ -69,7 +69,7 @@ and have it automatically formatted by display tools.</p>
   <p>Include a simple block quote in your document:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <quote>
   <cite>Henry David Thoreau</cite>
   <p>Our life is frittered away by detail.... Simplify, simplify.</p>
@@ -84,7 +84,7 @@ and have it automatically formatted by display tools.</p>
   <p>Add a title to the quote:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <quote>
   <title>Simplify</title>
   <cite>Henry David Thoreau</cite>
@@ -101,7 +101,7 @@ and have it automatically formatted by display tools.</p>
   <p>Add a date to the attribution:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <quote>
   <cite date="1854">Henry David Thoreau</cite>
   <p>Our life is frittered away by detail.... Simplify, simplify.</p>

@@ -85,7 +85,7 @@ by the user.</p>
   text-based interface:</p>
 
   <example>
-    <code><![CDATA[<screen>
+    <code mime="application/xml"><![CDATA[<screen>
 +==== Beanstalk =====================================+
 | Type the letter of the command you want:           |
 | O - Order beans                                    |
@@ -106,7 +106,7 @@ by the user.</p>
   <p>Use <code>screen</code> to mark up a long command:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <screen>
 xsltproc -o mal_block_screen.html \
   --stringparam mal.cache.file `pwd`/mallard.cache \
@@ -124,7 +124,7 @@ xsltproc -o mal_block_screen.html \
   inside <code>screen</code> for richer text:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <screen>
 <output style="prompt">[rupert@gnome] </output><input>ls foo bar</input>
 <output style="error">foo: cannot access file: No such file or directory</output>

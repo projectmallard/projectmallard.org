@@ -64,7 +64,7 @@
   <p>Add an attribution to a <link xref="mal_block_quote">block quote</link>:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <quote>
   <cite>Henry David Thoreau</cite>
   <p>Our life is frittered away by detail.... Simplify, simplify.</p>
@@ -79,7 +79,7 @@
   <p>Specify who made an <link xref="mal_block_comment">editorial comment</link>:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <comment>
   <title>Mallards Are Dabbling Ducks</title>
   <cite date="2009-05-07" href="mailto:drake@example.com">Drake</cite>

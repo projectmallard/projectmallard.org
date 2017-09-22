@@ -64,7 +64,7 @@ key press.  You can use text without markup to indicate a class of keys, such as
   <p>Use <code>keyseq</code> to mark up a keyboard shortcut:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit.
 ]]></code>
     <p>Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit.</p>
@@ -73,7 +73,7 @@ Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit.
   <p>Use <code>keyseq</code> with text for classes of keys:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 Press <keyseq><key>Shift</key>arrow keys</keyseq> to make a continuous
 selection as you move the keyboard focus.
 ]]></code> 
@@ -84,7 +84,7 @@ selection as you move the keyboard focus.
   <p>Use <code>keyseq</code> with text for mouse actions:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <keyseq><key>Shift</key>click</keyseq> to make a continuous selection.
 ]]></code> 
     <p><keyseq><key>Shift</key>click</keyseq> to make a continuous selection.</p>
@@ -93,7 +93,7 @@ selection as you move the keyboard focus.
   <p>Use nested <code>keyseq</code> elements for complex key commands:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 Press <keyseq type="sequence"><keyseq><key>C</key><key>x</key></keyseq>
 <keyseq><key>C</key><key>s</key></keyseq></keyseq> to save a file in
 <app>Emacs</app>.
@@ -109,7 +109,7 @@ Press <keyseq type="sequence"><keyseq><key>C</key><key>x</key></keyseq>
   elements:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 There are various ways to modify drag behavior by using
 <keyseq><keyseq>modifier</keyseq>drag</keyseq>.
 ]]></code> 

@@ -91,7 +91,7 @@ formatting needs.</p>
   <p>Create a basic table:</p>
 
   <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <table>
   <tr>
     <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
@@ -137,7 +137,7 @@ formatting needs.</p>
   <p>Place a frame on the top and bottom of the table:</p>
 
   <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <table frame="top bottom">
   <tr>
     <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
@@ -179,7 +179,7 @@ formatting needs.</p>
   <p>Place a frame on all sides of the table:</p>
 
   <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <table frame="all">
   <tr>
     <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
@@ -225,7 +225,7 @@ formatting needs.</p>
   <p>Place rules between each row:</p>
 
   <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <table frame="all" rules="rows">
   <tr>
     <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
@@ -267,7 +267,7 @@ formatting needs.</p>
   <p>Place rules between each column:</p>
 
   <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <table frame="all" rules="cols">
   <tr>
     <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
@@ -309,7 +309,7 @@ formatting needs.</p>
   <p>Place rules between each row group:</p>
 
   <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <table frame="all" rules="rowgroups cols">
   <tbody>
     <tr>
@@ -359,7 +359,7 @@ formatting needs.</p>
   <p>Place rules between each column group:</p>
 
   <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <table frame="all" rules="rows colgroups">
   <colgroup><col/><col/></colgroup>
   <colgroup><col/><col/></colgroup>
@@ -410,7 +410,7 @@ formatting needs.</p>
   <p>Shade alternating rows:</p>
 
   <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <table frame="all" shade="rows">
   <tr>
     <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
@@ -452,7 +452,7 @@ formatting needs.</p>
   <p>Shade alternating columns:</p>
 
   <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <table frame="all" shade="cols">
   <tr>
     <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
@@ -494,7 +494,7 @@ formatting needs.</p>
   <p>Shade alternating row groups:</p>
 
   <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <table frame="all" shade="rowgroups cols">
   <tbody>
     <tr>
@@ -544,7 +544,7 @@ formatting needs.</p>
   <p>Shade alternating column groups:</p>
 
   <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <table frame="all" shade="rows colgroups">
   <colgroup><col/><col/></colgroup>
   <colgroup><col/><col/></colgroup>
@@ -595,7 +595,7 @@ formatting needs.</p>
   <p>Span multiple rows:</p>
 
   <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <table frame="all" rules="all">
   <tr>
     <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>

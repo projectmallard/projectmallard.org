@@ -70,7 +70,7 @@ element is collapsed.</p>
 <p>Create a collapsible figure that's expanded by default:</p>
 
 <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <figure ui:expanded="true">
   <title>The Mallard Logo</title>
   <media type="image" mime="image/png" src="mallard-logo.png"/>
@@ -85,7 +85,7 @@ element is collapsed.</p>
 <p>Create a collapsible figure that's collapsed by default:</p>
 
 <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <figure ui:expanded="false">
   <title>The Mallard Logo</title>
   <media type="image" mime="image/png" src="mallard-logo.png"/>
@@ -100,7 +100,7 @@ element is collapsed.</p>
 <p>Create a collapsible section that uses a different title when collapsed:</p>
 
 <example>
-  <code><![CDATA[
+  <code mime="application/xml"><![CDATA[
 <section id="examples" ui:expanded="false">
   <info>
     <title type="ui:collapsed">Show Examples</title>
@@ -149,7 +149,7 @@ token</link> for use with <link xref="/if/1.0/index" href="http://projectmallard
 Conditionals</link>. If a processing tool supports collapsible sections and titled
 block elements according to the processing expectations above, it should define
 the following feature token:</p>
-<code>mallard:ui/1.0#expanded</code>
+<code style="no-mime">mallard:ui/1.0#expanded</code>
 </section>
 <!-- END token -->
 

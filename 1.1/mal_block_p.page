@@ -52,7 +52,7 @@
   <p>Create a simple paragraph:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <p>The most basic block-level element in Mallard is the <code>p</code>
 element. The <code>p</code> element creates a paragraph in the formatted
 output.</p>]]></code>

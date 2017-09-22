@@ -54,7 +54,7 @@
   <link xref="mal_page">page</link>:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <page id="ducks">
   <title>Ducks</title>
   <subtitle>Everything I Know About Ducks</subtitle>

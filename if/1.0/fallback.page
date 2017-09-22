@@ -33,7 +33,7 @@ element unconditionally. The following is always shown by a non-supporting
 tool:</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <p if:test="target:html">YES</p>
 ]]></code>
 </example>
@@ -47,7 +47,7 @@ block context. In restricted block context, unknown elements are ignored.</p>
 paragraph, a non-supporting tool will always display the content.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <if:if test="target:html">
   <p>YES</p>
 </if:if>
@@ -60,7 +60,7 @@ it will not be shown. You can use this to hide content from a non-supporting
 tool, for example by repeating the same condition.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <if:if test="target:html">
   <if:if test="target:html">
     <p>NO</p>
@@ -74,7 +74,7 @@ elements, non-supporting tools will always process them in restricted block cont
 so they will not be displayed. The same is true for <code>if:else</code> elements.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <if:choose>
   <if:when test="target:html">
     <p>NO</p>
@@ -93,7 +93,7 @@ Supporting tools will treat this exactly as if you had used an <code>if:else</co
 element, but non-supporting tools will show this fallback content.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <if:choose>
   <if:when test="target:html">
     <p>NO</p>

@@ -61,7 +61,7 @@ elements when there is only one condition.</p>
 <p>Only show a paragraph when outputting to HTML:</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <if:if test="target:html">
   <p>This is only output to HTML.</p>
 </if:if>
@@ -74,7 +74,7 @@ element. Use the <code>if:if</code> element to enclose multiple
 paragraphs in a single condition:</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <if:if test="target:html">
   <p>This is only output to HTML.</p>
   <p>So is this.</p>

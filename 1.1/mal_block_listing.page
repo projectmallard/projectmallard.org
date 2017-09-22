@@ -64,7 +64,7 @@ element.</p>
   code block:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <listing>
   <title><file>index.page</file></title>
   <desc>A first Mallard page</desc>
@@ -78,7 +78,7 @@ element.</p>
     <listing>
       <title><file>index.page</file></title>
       <desc>A first Mallard page</desc>
-      <code><![CDATA[
+      <code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       type="guide"
       id="index">

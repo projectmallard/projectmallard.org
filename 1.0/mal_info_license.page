@@ -56,7 +56,7 @@ attribute can be used to uniquely identify certain licenses.</p>
   <p>Use <code>license</code> to put a page under a Creative Commons license:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <license
   href="http://creativecommons.org/licenses/by-sa/3.0/us/">
 <p>This work is licensed under a

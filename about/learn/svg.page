@@ -52,7 +52,7 @@ you can use a paragraph.  The following example creates a simple
 page with only an SVG graphic as its contents.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       id="svg">
 <title>SVG</title>
@@ -110,7 +110,7 @@ your page files.  You can instead save them in separate files and include
 them with XInclude.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       id="svg">
 <title>SVG</title>
@@ -153,7 +153,7 @@ So to provide fallback content, you just need to add normal Mallard elements
 inside the <code>svg:svg</code> element.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       id="svg">
 <title>SVG</title>
@@ -200,7 +200,7 @@ an SVG element, and explicitly associate it with the Mallard namespace.
 This example makes the beak a link to <link xref="tenminutes"/>.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <page xmlns="http://projectmallard.org/1.0/"
       id="svg">
 <title>SVG</title>

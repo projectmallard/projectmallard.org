@@ -57,7 +57,7 @@ element, and each column in a row is wrapped in a
 <code xref="/1.0/mal_table_td">td</code> element.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <table>
   <tr>
     <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
@@ -121,7 +121,7 @@ where a frame should be drawn: <code>top</code>, <code>bottom</code>,
 frames on the top and bottom.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <table frame="top bottom">
   <tr>
     <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
@@ -148,7 +148,7 @@ frames on the top and bottom.</p>
 attribute to <code>all</code> to draw frames on all sides.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <table frame="all">
   <tr>
     <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
@@ -179,7 +179,7 @@ space-separated list of where rules should be drawn.  The folloing example
 draws rules between each row and each column.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <table rules="rows cols">
   <tr>
     <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
@@ -232,7 +232,7 @@ attribute takes a space-separated list.  The following example shades only
 alternate rows.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <table shade="rows">
   <tr>
     <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
@@ -276,7 +276,7 @@ alternate rows.</p>
 the <code>shade</code> attribute to <code>all</code>.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <table shade="all">
   <tr>
     <td><p>Mallard</p></td> <td><p>Anas platyrhynchos</p></td>
@@ -333,7 +333,7 @@ element.  You can then use <code>rowgroups</code> instead of <code>rows</code>
 for either of the <code>rules</code> or <code>shade</code> attributes.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <table rules="rowgroups" shade="rowgroups">
   <tbody>
     <tr>
@@ -393,7 +393,7 @@ elements in <code>colgroup</code> elements to indicate grouping.</p>
 <code>rules</code> or <code>shade</code> attributes.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <table rules="colgroups" shade="colgroups">
   <colgroup><col/></colgroup>
   <colgroup><col/></colgroup>
@@ -466,7 +466,7 @@ element uses up space in that many rows.  Any <code>tr</code> elements that come
 after the current row will have fewer <code>td</code> elements.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <table frame="all" rules="all">
   <tr>
     <td><p>One</p></td>
@@ -510,7 +510,7 @@ When you do this, be careful to use the right number of <code>td</code>
 elements in the following rows.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <table frame="all" rules="all">
   <tr>
     <td><p>One</p></td>
@@ -552,7 +552,7 @@ top-left row and column.  That is, they are shaded based on where the
 <code>td</code> element is, as if it did not span any rows or columns.</p>
 
 <example>
-<code><![CDATA[
+<code mime="application/xml"><![CDATA[
 <table frame="all" rules="all" shade="all">
   <tr>
     <td><p>One</p></td>

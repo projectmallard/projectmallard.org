@@ -66,7 +66,7 @@ person making the comment.  Writers are highly encouraged to provide a
   <p>Provide a comment:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <comment>
   <title>Mallards Are Dabbling Ducks</title>
   <cite date="2009-05-07" href="mailto:drake@example.com">Drake</cite>
@@ -85,7 +85,7 @@ person making the comment.  Writers are highly encouraged to provide a
   <p>Use <code>comment</code> to carry out a threaded discussion:</p>
 
   <example>
-    <code><![CDATA[
+    <code mime="application/xml"><![CDATA[
 <comment>
   <title>Mallards Are Dabbling Ducks</title>
   <cite date="2009-05-07" href="mailto:drake@example.com">Drake</cite>
