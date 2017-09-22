@@ -183,7 +183,7 @@ provides.</p>
 <title>Branching and Fallback</title>
 
 <p>The simplest way to use conditionals is to just use the <code>if:test</code>
-attributes, but you can also create multiple conditional branches using the
+attribute, but you can also create multiple conditional branches using the
 <code xref="/if/1.0/if_choose">if:choose</code>,
 <code xref="/if/1.0/if_when">if:when</code>, and
 <code xref="/if/1.0/if_else">if:else</code> elements. You can use an
