@@ -1,0 +1,21 @@
+To make a mallard-rng release:
+
+* Add any new schemas to mallard-rng/Makefile.am.
+
+* Add any new schemas to mallard-rng/catalog.in.
+
+* Add the release link and notes to index.page.
+
+* Automatically generate mallard-rng/NEWS from index.page:
+
+  xsltproc --stringparam package mallard-rng --stringparam version VERSION  NEWS.xsl index.page  > mallard-rng/NEWS 
+
+* Create the new package:
+
+  (cd mallard-rng && ./autogen.sh && make && make distcheck)
+
+* That command will build all the schemas under mallard-rng. Add to git those that are in the release.
+
+* Move the package to this directory and add it to git.
+
+* Generate a checksum of the package and add it to git.

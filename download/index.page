@@ -20,6 +20,14 @@ with your system's XML catalog.</p>
 
 <terms>
   <item>
+    <title><sys href="mallard-rng-1.0.3.tar.bz2"><span style="package">mallard-rng</span>
+    <span style="version">1.0.3</span></sys>
+    (<link href="mallard-rng-1.0.3.tar.bz2.sha256sum">checksum</link>)</title>
+    <list>
+      <item><p>Improved XML catalog integration</p></item>
+    </list>
+  </item>
+  <item>
     <title><sys href="mallard-rng-1.0.2.tar.bz2"><span style="package">mallard-rng</span>
     <span style="version">1.0.2</span></sys>
     (<link href="mallard-rng-1.0.2.tar.bz2.sha256sum">checksum</link>)</title>

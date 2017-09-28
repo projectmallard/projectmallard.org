@@ -1,0 +1,54 @@
+
+# This schema cannot be used on its own. It is designed to be combined
+# with the core Mallard schema using the version attribute.
+namespace if = "http://projectmallard.org/if/1.0/"
+
+if_attr_test = attribute test { text }
+if_attr_if_test = attribute if:test { text }
+mal_block_attr &= if_attr_if_test ?
+mal_block_list_item_attr &= if_attr_if_test ?
+mal_block_steps_item_attr &= if_attr_if_test ?
+mal_block_terms_item_attr &= if_attr_if_test ?
+mal_block_tree_item_attr &= if_attr_if_test ?
+
+if_if = element if:if {
+  if_if_attr,
+  mal_block *
+}
+if_if_attr = (
+  if_attr_test,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_block_elements |= if_if
+
+if_choose = element if:choose {
+  if_choose_attr,
+  if_when +,
+  ( if_else |
+    mal_block * ) ?
+}
+if_choose_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_block_elements |= if_choose
+
+if_when = element if:when {
+  if_when_attr,
+  mal_block *
+}
+if_when_attr = (
+  if_attr_test,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+
+if_else = element if:else {
+  if_else_attr,
+  mal_block *
+}
+if_else_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)

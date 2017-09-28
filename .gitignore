@@ -25,4 +25,4 @@ Makefile.in
 /download/mallard-rng/INSTALL
 /download/mallard-rng/NEWS
 /download/mallard-rng/catalog
-/download/mallard-rng/*/
+/download/mallard-rng/mallard-rng.pc

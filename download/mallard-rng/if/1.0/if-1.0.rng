@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:if="http://projectmallard.org/if/1.0/">
+
+<!--
+This schema cannot be used on its own. It is designed to be combined
+with the core Mallard schema using the version attribute.
+-->
+
+<define name="if_attr_test">
+  <attribute name="test">
+    <text/>
+  </attribute>
+</define>
+
+<define name="if_attr_if_test">
+  <attribute name="if:test">
+    <text/>
+  </attribute>
+</define>
+
+<define name="mal_block_attr" combine="interleave">
+  <optional>
+    <ref name="if_attr_if_test"/>
+  </optional>
+</define>
+
+<define name="mal_block_list_item_attr" combine="interleave">
+  <optional>
+    <ref name="if_attr_if_test"/>
+  </optional>
+</define>
+
+<define name="mal_block_steps_item_attr" combine="interleave">
+  <optional>
+    <ref name="if_attr_if_test"/>
+  </optional>
+</define>
+
+<define name="mal_block_terms_item_attr" combine="interleave">
+  <optional>
+    <ref name="if_attr_if_test"/>
+  </optional>
+</define>
+
+<define name="mal_block_tree_item_attr" combine="interleave">
+  <optional>
+    <ref name="if_attr_if_test"/>
+  </optional>
+</define>
+
+<define name="if_if">
+  <element name="if:if">
+    <ref name="if_if_attr"/>
+    <zeroOrMore>
+      <ref name="mal_block"/>
+    </zeroOrMore>
+  </element>
+</define>
+
+<define name="if_if_attr">
+  <group>
+    <ref name="if_attr_test"/>
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<define name="mal_block_elements" combine="choice">
+  <ref name="if_if"/>
+</define>
+
+<define name="if_choose">
+  <element name="if:choose">
+    <ref name="if_choose_attr"/>
+    <oneOrMore>
+      <ref name="if_when"/>
+    </oneOrMore>
+    <optional>
+      <choice>
+        <ref name="if_else"/>
+        <zeroOrMore>
+          <ref name="mal_block"/>
+        </zeroOrMore>
+      </choice>
+    </optional>
+  </element>
+</define>
+
+<define name="if_choose_attr">
+  <group>
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<define name="mal_block_elements" combine="choice">
+  <ref name="if_choose"/>
+</define>
+
+<define name="if_when">
+  <element name="if:when">
+    <ref name="if_when_attr"/>
+    <zeroOrMore>
+      <ref name="mal_block"/>
+    </zeroOrMore>
+  </element>
+</define>
+
+<define name="if_when_attr">
+  <group>
+    <ref name="if_attr_test"/>
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<define name="if_else">
+  <element name="if:else">
+    <ref name="if_else_attr"/>
+    <zeroOrMore>
+      <ref name="mal_block"/>
+    </zeroOrMore>
+  </element>
+</define>
+
+<define name="if_else_attr">
+  <group>
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+</grammar>

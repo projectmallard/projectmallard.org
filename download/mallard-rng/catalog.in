@@ -3,8 +3,16 @@
   PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN"
   "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-  <rewriteSystem systemIdStartString="http://projectmallard.org/"
-                 rewritePrefix="@MALLARD_DATA_DIR@/"/>
-  <rewriteURI uriStartString="http://projectmallard.org/"
-              rewritePrefix="@MALLARD_DATA_DIR@/"/>
+  <rewriteSystem systemIdStartString="http://projectmallard.org/1.0/"
+                 rewritePrefix="@MALLARD_DATA_DIR@/1.0/"/>
+  <rewriteURI uriStartString="http://projectmallard.org/1.0/"
+              rewritePrefix="@MALLARD_DATA_DIR@/1.0/"/>
+  <rewriteSystem systemIdStartString="http://projectmallard.org/cache/1.0/"
+                 rewritePrefix="@MALLARD_DATA_DIR@/cache/1.0/"/>
+  <rewriteURI uriStartString="http://projectmallard.org/cache/1.0/"
+              rewritePrefix="@MALLARD_DATA_DIR@/cache/1.0/"/>
+  <rewriteSystem systemIdStartString="http://projectmallard.org/if/1.0/"
+                 rewritePrefix="@MALLARD_DATA_DIR@/if/1.0/"/>
+  <rewriteURI uriStartString="http://projectmallard.org/if/1.0/"
+              rewritePrefix="@MALLARD_DATA_DIR@/if/1.0/"/>
 </catalog>
