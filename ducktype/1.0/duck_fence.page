@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="index"/>
 
-  <revision docversion="1.0" date="2017-09-15" status="stub"/>
+  <revision docversion="1.0" date="2017-09-30" status="candidate"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -13,19 +13,43 @@
     <years>2017</years>
   </credit>
 
-  <desc>FIXME</desc>
+  <desc>Enclose lines in a fence to prevent block and inline parsing.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 
 <title>Fences</title>
 
-<p>FIXME</p>
+<p>Fences contain lines that are not parsed for block or inline markup,
+allowing you to write content without escaping.</p>
 
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
 
+  <list>
+    <item>
+      <p>A fence begins with an indented line that starts with <code>[[[</code>.
+      The leading indent before the fence delimiter is significant, as if the
+      first line of the contained content had that indent.</p>
+    </item>
+
+    <item>
+      <p>The line with the opening fence delimiter may have additional content,
+      which is processed as if it were on its own line.</p>
+    </item>
+
+    <item>
+      <p>A fence ends with a line that contains only <code>]]]</code>, possibly
+      with leading and trailing whitespace.</p>
+    </item>
+
+    <item>
+      <p>As a special case, if the line containing the fence delimiter ends
+      with <code>]]]</code>, it is a single-line fence. Except for single-line
+      fences, closing fence delimiters must not have content before them.</p>
+    </item>
+  </list>
 </section>
 <!-- END notes -->
 
@@ -34,6 +58,34 @@
 <section id="examples">
   <title>Examples</title>
 
+  <p>Use a fence to avoid having to escape characters:</p>
+
+  <example><code mime="text/x-ducktype">
+[code]
+  [[[
+  [Desktop Entry]
+  Name=Help
+  Exec=yelp %u
+  ]]]</code></example>
+
+  <p>The fence content doesn’t have to be indented, as long as the opening
+  delimiter is correctly indented:</p>
+
+  <example><code mime="text/x-ducktype">
+[code]
+  [[[
+[Desktop Entry]
+Name=Help
+Exec=yelp %u
+]]]</code></example>
+
+  <p>You can also use a fence on a single line:</p>
+
+  <example><code mime="text/x-ducktype">
+[code]
+  [[[[Desktop Entry]]]]
+  Name=Help
+  Exec=yelp %u</code></example>
 </section>
 <!-- END examples -->
 
@@ -42,6 +94,43 @@
 <section id="spec">
   <title>Specification</title>
 
+  <p>Fences may appear anywhere block content is expected.</p>
+
+  <p>A fence begins with an indented line that starts with <code>[[[</code>.
+  The leading indent before the opening delimiter is taken as the outer indent
+  of the fence. This indentation is significant. The content of the fence is
+  inserted at the same depth as if its lines all had that leading indent.</p>
+
+  <p>The line containing the opening fence delimiter may have additional
+  content. If it contains non-whitespace content, then everything after the
+  fence, including whitespace between the fence delimiter and the non-whitespace
+  content, is taken as the first line of the fence. Otherwise, the line after
+  the opening fence delimiter is the first line.</p>
+
+  <p>Lines within the fence do not need to be indented to the outer indent off
+  the fence. The fence itself keeps the content correctly nested. However, the
+  writer may choose to indent the fence content, and the indentation will be
+  trimmed.</p>
+
+  <p>The leading spaces of the first line sets the indentation trim level of
+  the fence. All lines within the fence will have at most that number of leading
+  spaces removed. Note that some lines may have fewer leading space characters,
+  especially blank lines. Those lines will simply have all leading spaces
+  removed.</p>
+
+  <p>A fence ends with a line that contains only <code>]]]</code>, possibly with
+  leading or trailing whitespace. The line with the closing fence delimiter does
+  not add any content to the fence.</p>
+
+  <p>Additionally, if the line with the opening fence delimiter ends with
+  <code>]]]</code>, then that is the closing fence delimiter. The content
+  between the opening and closing delimiters is taken as a single-line fence.
+  Single-line fences are the only case where there may be other content on
+  the line with the closing fence delimiter.</p>
+
+  <p>No block or inline parsing is done within a fence. However,
+  <link xref="duck_comment">comments</link> are still recognized in fences.
+  Comment parsing takes priority over all other types of syntax in Ducktype.</p>
 </section>
 <!-- END spec -->
 
