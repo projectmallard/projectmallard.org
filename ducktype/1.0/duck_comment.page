@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="index"/>
 
-  <revision docversion="1.0" date="2017-09-15" status="stub"/>
+  <revision docversion="1.0" date="2017-09-30" status="candidate"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -13,19 +13,33 @@
     <years>2017</years>
   </credit>
 
-  <desc>FIXME</desc>
+  <desc>Comment out single lines or groups of lines.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 
 <title>Comments</title>
 
-<p>FIXME</p>
+<p>Ducktype provides a syntax for commenting out both single lines and entire
+ranges of lines.</p>
 
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
 
+  <list>
+    <item>
+      <p>Comment out a single line by prefixing it with <code>[-]</code>.</p>
+    </item>
+
+    <item>
+      <p>Comment out a block of lines using <code>[--</code> and <code>--]</code>.</p>
+    </item>
+
+    <item>
+      <p>Block comments cannot be nested, but may contain line comments.</p>
+    </item>
+  </list>
 </section>
 <!-- END notes -->
 
@@ -33,6 +47,37 @@
 <!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
+
+  <p>Comment out a single line:</p>
+
+  <example><code mime="text/x-ducktype"><![CDATA[
+This is some text in a paragraph.
+[-] This line is commented out and is not parsed.
+This is part of the paragraph again.
+]]></code></example>
+
+  <p>Comment out a group of lines:</p>
+
+  <example><code mime="text/x-ducktype"><![CDATA[
+This is some text in a paragraph.
+[--
+This line is commented out and is not parsed.
+This line is also part of the comment.
+--]
+This is part of the paragraph again.
+]]></code></example>
+
+  <p>Block comments cannot be nested, but you can have line comments in
+  block comments:</p>
+
+  <example><code mime="text/x-ducktype"><![CDATA[
+This is some text in a paragraph.
+[--
+This line is commented out and is not parsed.
+[-] This line comment inside the block comment is OK.
+--]
+This is part of the paragraph again.
+]]></code></example>
 
 </section>
 <!-- END examples -->
@@ -42,6 +87,20 @@
 <section id="spec">
   <title>Specification</title>
 
+  <p>A line comment is any line that starts with <code>[-]</code>, possibly
+  with leading whitespace. The entire line is not parsed.</p>
+
+  <p>A block comment starts with a line that starts with <code>[--</code>,
+  possibly with leading whitespace. It ends with a line that contains only
+  <code>--]</code>, possibly with leading and trailing whitespace. All lines
+  within a block comment are not parsed.</p>
+
+  <p>Comment syntax takes priority over all other syntax, including
+  <link xref="duck_fence">fences</link>. The leading indentation of comments
+  has no effect on the block nesting of the content around them.</p>
+
+  <p>Parsers may or may not pass comments through to XML or other exported
+  formats.</p>
 </section>
 <!-- END spec -->
 
