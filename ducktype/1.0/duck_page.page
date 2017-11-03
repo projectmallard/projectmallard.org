@@ -170,6 +170,9 @@ This is a paragraph.</code>
     possibly preceded by spaces, then that line begins an
     <link xref="duck_info">informational element</link>.</p></item>
 
+    <item><p>If the line is blank, it may still be followed by informational
+    elements, but not a subtitle or attribute list.</p></item>
+
     <item><p>Otherwise, regular <link xref="duck_block">block content</link>
     begins.</p></item>
   </list>
@@ -191,6 +194,9 @@ This is a paragraph.</code>
     <item><p>If the line starts with the <code>@</code> character,
     possibly preceded by spaces, then that line begins an
     <link xref="duck_info">informational element</link>.</p></item>
+
+    <item><p>If the line is blank, it may still be followed by informational
+    elements, but not an attribute list.</p></item>
 
     <item><p>Otherwise, regular <link xref="duck_block">block content</link>
     begins.</p></item>
