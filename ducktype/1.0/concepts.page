@@ -77,7 +77,8 @@ The following terms are used:</p>
   Mallard's strict content model, only leaf elements may contain text
   nodes. The default set of leaf elements is <code>p</code>, <code>screen</code>,
   <code>code</code>, <code>title</code>, <code>subtitle</code>, <code>desc</code>,
-  <code>cite</code>, <code>name</code>, and <code>email</code>.</p></item>
+  <code>cite</code>, <code>name</code>, <code>email</code>, and
+  <code>years</code>.</p></item>
 
   <item><p>A <em>verbatim element</em> is a leaf element where whitespace
   is preserved as written. Newlines are sometimes handled differently in
