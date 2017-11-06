@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="index" group="info"/>
 
-  <revision docversion="1.0" date="2015-07-19" status="incomplete"/>
+  <revision docversion="1.0" date="2017-11-06" status="candidate"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -13,19 +13,38 @@
     <years>2015</years>
   </credit>
 
-  <desc>FIXME</desc>
+  <desc>Linking and metadata for pages, sections, and blocks.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 
 <title>Info Elements</title>
 
-<p>FIXME</p>
+<p style="lead">Info elements provide metadata for pages, sections, and certain
+block elements. Ducktype provides a special syntax to write info elements.</p>
 
 
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
+
+  <list>
+    <item><p>Info elements follow a <link xref="duck_page">page or section</link>
+    header or a <link xref="duck_block">block declaration</link>.</p></item>
+
+    <item><p>An info element is declared with a leading <code>@</code>
+    character, followed immediately by the name of the element.</p></item>
+
+    <item><p>The info element name may be immediately followed by an
+    <link xref="duck_attr">attribute list</link>.</p></item>
+
+    <item><p>The remaining content after the element name and optional
+    attribute list is element content, and is parsed as
+    <link xref="duck_inline">inline content</link>.</p></item>
+
+    <item><p>An info element may have child elements, also using the info
+    element syntax, indented on subsequent lines.</p></item>
+  </list>
 </section>
 <!-- END notes -->
 
@@ -33,6 +52,25 @@
 <!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
+
+  <p>Create a page with a guide link:</p>
+  <example><code mime="text/x-ducktype">= My Page Title
+@link[guide >index]
+</code></example>
+
+  <p>Add a link title using inline content in an info element:</p>
+  <example><code mime="text/x-ducktype">=My Page Title
+@link[guide >index]
+@title[link] My Page Link Title
+</code></example>
+
+  <p>Use nested info elements to record credits:</p>
+  <example><code mime="text/x-ducktype">=My Page Title
+@credit[author]
+  @name Rupert Monkey
+  @email rupert@example.com
+</code></example>
+
 </section>
 <!-- END examples -->
 
@@ -43,10 +81,10 @@
 
   <p>An info segment may follow a page or section title, subtitle, or
   attribute list (although it may not be between them). An info segment
-  may also follow a block declaration (depends on <link xref="mep0002"/>).
-  It begins with a line (possibly indented) starting with the <code>@</code>
-  character. Each line starting with <code>@</code> is an informational
-  element. The Mallard <code>info</code> element is implicit.</p>
+  may also follow a block declaration. It begins with a line (possibly
+  indented) starting with the <code>@</code> character. Each line starting
+  with <code>@</code> is an informational element. The Mallard
+  <code>info</code> element is implicit.</p>
 
   <p>If the first informational element is indented, then the outer and
   inner indent of the implicit <code>info</code> element is set to that
