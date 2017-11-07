@@ -10,7 +10,7 @@
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2015</years>
+    <years>2015-2017</years>
   </credit>
 
   <desc>FIXME</desc>
@@ -20,7 +20,7 @@
 
 <title>Attribute Lists</title>
 
-<p>FIXME</p>
+<p style="lead">FIXME</p>
 
 
 <!-- BEGIN notes -->
@@ -41,8 +41,11 @@
 <section id="spec">
   <title>Specification</title>
 
-  <p>Attribute lists occur in four places: header attribute lists for pages and
-  sections, on informational elements, on block elements, and on inline elements.
+  <p>Attribute lists occur in four places: header attribute lists for
+  <link xref="duck_page">pages and sections</link>, on
+  <link xref="duck_info">informational elements</link>, on
+  <link xref="duck_block">block elements</link>, and on
+  <link xref="duck_inline">inline elements</link>.
   For header, informational, and inline elements attribute lists, the attribute
   list starts with a left square bracket. For block attribute lists, the block
   declaration itself starts with a left square bracket, so the attribute list
@@ -73,8 +76,8 @@
   <p>In addition to regular key-value pairs, bare words are possible in
   attribute lists, possibly with leading sigils, for common cases. A bare
   word starts either with the sigil or a non-whitespace character, and
-  finish at the first whitespace, unescaped right square bracket, and
-  (exceptionally) an <code>=</code> character. Note that the <code>=</code>
+  finishes at the first whitespace character, unescaped right square bracket,
+  or (exceptionally) <code>=</code> character. Note that the <code>=</code>
   character indicates a regular key-value pair, not a bare word.</p>
 
   <list>
@@ -103,16 +106,18 @@
     <code>"</code>, or <code>'</code>, that two-character sequence is
     replaced by the second character.</p>
 
+    <!-- FIXME: define QName -->
     <p>If the character <code>$</code> is followed by a QName immediately
     followed by a semicolon (<code>;</code>), then that sequence is replaced
     according to the following rules:</p>
 
     <list>
-      <item><p>If the name is a user-defined entity, the content of that
-      entity is parsed as attribute value content, and the result is used.
-      Note that each entity is parsed in its own subcontext, so you cannot
-      span an entity reference across multiple entities. Parsers must detect
-      cycles in entity references and produce an error.</p></item>
+      <item><p>If the name is a <link xref="duck_define">user-defined
+      entity</link>, the content of that entity is parsed as attribute value
+      content, and the result is used. Note that each entity is parsed in its
+      own subcontext, so you cannot span an entity reference across multiple
+      entities. Parsers must detect cycles in entity references and produce
+      an error.</p></item>
 
       <item><p>Otherwise, if the name is defined in
       <link href="http://www.w3.org/TR/xml-entity-names/">XML Entity Definitions
