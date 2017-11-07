@@ -10,7 +10,7 @@
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2015</years>
+    <years>2015-2017</years>
   </credit>
 
   <desc>FIXME</desc>
@@ -20,7 +20,7 @@
 
 <title>Page and Section Markup</title>
 
-<p>FIXME</p>
+<p style="lead">FIXME</p>
 
 
 <!-- BEGIN notes -->

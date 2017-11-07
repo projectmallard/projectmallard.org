@@ -20,8 +20,8 @@
 
 <title>Fences</title>
 
-<p>Fences contain lines that are not parsed for block or inline markup,
-allowing you to write content without escaping.</p>
+<p style="lead">Fences contain lines that are not parsed for block or inline
+markup, allowing you to write content without escaping.</p>
 
 <!-- BEGIN notes -->
 <section id="notes">

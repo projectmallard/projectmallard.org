@@ -10,7 +10,7 @@
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2015</years>
+    <years>2015-2017</years>
   </credit>
 
   <desc>FIXME</desc>
@@ -20,7 +20,7 @@
 
 <title>Block Elements</title>
 
-<p>FIXME</p>
+<p style="lead">FIXME</p>
 
 
 <!-- BEGIN notes -->
@@ -45,6 +45,7 @@
 
   <p>A block element starts with a block declaration (except for various shorthand
   cases described below). A block declaration begins an indented line with a left
+  <!-- FIXME: define QName -->
   square bracket (<code>[</code>) and a QName, followed by either a right square
   bracket (<code>]</code>) or whitespace. If whitespace follows the block name,
   an <link xref="duck_attr">attribute list</link> is opened, and the block

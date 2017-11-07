@@ -20,8 +20,8 @@
 
 <title>Comments</title>
 
-<p>Ducktype provides a syntax for commenting out both single lines and entire
-ranges of lines.</p>
+<p style="lead">Ducktype provides a syntax for commenting out both single lines
+and entire ranges of lines.</p>
 
 <!-- BEGIN notes -->
 <section id="notes">
