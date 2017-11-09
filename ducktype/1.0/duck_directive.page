@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="index" group="directive"/>
 
-  <revision docversion="1.0" date="2017-02-06" status="incomplete"/>
+  <revision docversion="1.0" date="2017-11-08" status="candidate"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -20,9 +20,9 @@
 
 <title>Parser Directives</title>
 
-<p>Parser directives are special markers at the top of a Ducktype file that
-provide extra information for the Ducktype parser. User parser directives to
-declare namespaces, define entities, manage extensions, and more.</p>
+<p style="lead">Parser directives are special markers at the top of a Ducktype
+file that provide extra information for the Ducktype parser. Use parser
+directives to declare namespaces, define entities, manage extensions, and more.</p>
 
 <!-- BEGIN notes -->
 <section id="notes">
@@ -181,12 +181,9 @@ This page describes $appvers;.]]></code>
 
   <p>This specification recognizes four directive names:
   <code>ducktype/1.0</code>, <code>define</code>, <code>encoding</code>,
-  <code>include</code>, and <code>namespace</code>. Extensions may
-  recognize additional directives.</p>
-
-  <comment>
-    <p>Recommendations for extension directives</p>
-  </comment>
+  <code>include</code>, and <code>namespace</code>. Extensions may recognize
+  additional directives. To avoid conflicts, extension directive names should
+  start with the extension prefix followed by a colon character (U+003A).</p>
 
   <section id="ducktype">
     <title>The <code>ducktype/1.0</code> Directive</title>
@@ -236,9 +233,10 @@ This page describes $appvers;.]]></code>
       <code mime="text/x-ducktype">@define <var>name</var> <var>value</var></code>
     </synopsis>
 
-    <p>FIXME</p>
-    <p>FIMME: duck_define.page ??</p>
-    <p>FIXME: comments, also in includes</p>
+    <p>The <code>define</code> directive defines a user-defined entity that
+    can be used in <link xref="duck_inline">inline content</link> and
+    <link xref="duck_attr">attribute values</link>. See <link xref="duck_define"/>
+    for details.</p>
   </section>
 
   <section id="encoding">
@@ -272,11 +270,12 @@ This page describes $appvers;.]]></code>
 
     <p>The <code>include</code> directive specifies an external file
     that will be parsed for further parser directives. The directive
-    content is a file name, possibly relative to the location of the
-    file with the <code>include</code> directive. That file is parsed
-    as a list of parser directives, possibly with empty lines. It is
-    an error for the included file to include anything other than
-    parser directives.</p>
+    content must be a single word and specifies a file name, possibly
+    relative to the location of the file with the <code>include</code>
+    directive. The file name may be URL-encoded to encode spaces or
+    other characters. That file is parsed as a list of parser directives,
+    possibly with empty lines. It is an error for the included file
+    to include anything other than parser directives.</p>
 
     <list>
       <item><p>If the included file contains a directive whose name
@@ -297,7 +296,7 @@ This page describes $appvers;.]]></code>
       them.</p></item>
 
       <item>
-        <p>If the included file contains a <code>include</code> directive,
+        <p>If the included file contains an <code>include</code> directive,
         the directive content is a file name that is further parsed for
         parser directives. If that file name is relative, it is resolved
         relative to the file that referenced it, not relative to the
