@@ -13,19 +13,32 @@
     <years>2017</years>
   </credit>
 
-  <desc>FIXME</desc>
+  <desc>Define entities to use inline and in attribute values.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 
 <title>Entity Defintions</title>
 
-<p style="lead">FIXME</p>
+<p style="lead">Ducktype allows you to define entities that you can use in
+inline markup and in attribute values. Entity values can contain markup and
+references to other entities.</p>
 
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
 
+  <list>
+    <item><p>Entities are defined using a <code>define</code>
+    <link xref="duck_directive">parser directive</link>.</p></item>
+
+    <item><p>Entity values are parsed when used, and may reference other
+    entities.</p></item>
+
+    <item><p>Entities can be used <link xref="duck_inline">inline</link> and
+    in <link xref="duck_attr">attribute values</link>. When used inline,
+    entities may have inline markup.</p></item>
+  </list>
 </section>
 <!-- END notes -->
 
@@ -75,6 +88,16 @@ This page describes $appname; $version;.]]></code>
 This page describes $appvers;.]]></code>
   </example>
 
+  <p>Define an entity and use it in an attribute value:</p>
+
+  <example>
+    <code mime="text/x-ducktype"><![CDATA[
+@define mallard http://projectmallard.org/
+
+= A Page With Entities
+
+Read all about $link[>>$mallard;](Mallard).]]></code>
+  </example>
 </section>
 <!-- END examples -->
 
@@ -83,6 +106,31 @@ This page describes $appvers;.]]></code>
 <section id="spec">
   <title>Specification</title>
 
+  <p>Entities are defined using <code>@define</code>
+  <link xref="duck_directive">parser directives</link> at the beginning of a
+  Ducktype file. The first word of the directive is the entity name. The
+  remaining directive content is the entity value. The entity value is not
+  parsed when the entity is defined. Rather, the entity value is stored as-is
+  and is parsed on use. How it is parsed depeneds on where it is used.</p>
+
+  <p>Entities may also be defined in files include with an <code>@include</code>
+  parser directive. Those definitions are treated as if they were defined where
+  the <code>@include</code> directive was encountered. If two or more directives
+  define entities with the same name, the last on encountered is used.</p>
+
+  <p>Additionally, parsers may provide a way to pass in entity definitions that
+  override those defined in a file. However, those definitions are only valid
+  if an entity with the same name is defined in the file being parsed, or in
+  a file included by the file (possibly recursively) using <code>@include</code>
+  directives. Any definition overrides not defined in the file or its includes
+  must be ignored, possibly with a warning.</p>
+
+  <p>An entity is referenced in inline content or attribute values with the
+  <code>$</code> character (U+0024), the name of the entity, and the
+  <code>;</code> character (U+003B). Note that this entity reference syntax
+  is also used to insert special characters. The details for how to substitute
+  parsed values are covered in the pages <link xref="duck_inline"/> and
+  <link xref="duck_attr"/>.</p>
 </section>
 <!-- END spec -->
 

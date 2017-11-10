@@ -106,10 +106,11 @@
     <code>"</code>, or <code>'</code>, that two-character sequence is
     replaced by the second character.</p>
 
-    <!-- FIXME: define QName -->
-    <p>If the character <code>$</code> is followed by a QName immediately
-    followed by a semicolon (<code>;</code>), then that sequence is replaced
-    according to the following rules:</p>
+    <p>If the character <code>$</code> is followed by a sequence of
+    <link href="https://www.w3.org/TR/REC-xml/#NT-Nmtoken">NMTOKEN</link>
+    characters, immediately followed by a semicolon (<code>;</code>), then
+    the sequence of NMTOKEN characters is an entity name, and the entire
+    entity reference is replaced according to the following rules:</p>
 
     <list>
       <item><p>If the name is a <link xref="duck_define">user-defined
