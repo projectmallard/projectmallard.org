@@ -147,6 +147,16 @@ This page describes $appname; $version;.]]></code>
 This page describes $appvers;.]]></code>
   </example>
 
+  <p>Define an entity and use it in an attribute value:</p>
+
+  <example>
+    <code mime="text/x-ducktype"><![CDATA[
+@define mallard http://projectmallard.org/
+
+= A Page With Entities
+
+Read all about $link[>>$mallard;](Mallard).]]></code>
+  </example>
 </section>
 <!-- END examples -->
 
@@ -235,8 +245,27 @@ This page describes $appvers;.]]></code>
 
     <p>The <code>define</code> directive defines a user-defined entity that
     can be used in <link xref="duck_inline">inline content</link> and
-    <link xref="duck_attr">attribute values</link>. See <link xref="duck_define"/>
-    for details.</p>
+    <link xref="duck_attr">attribute values</link>. The first word of the
+    directive is the entity name. The remaining directive content is the
+    entity value. The entity value is not parsed when the entity is defined.
+    Rather, the entity value is stored as-is and is parsed on use. How it is
+    parsed depeneds on where it is used.</p>
+
+    <p>An entity may be defined by multiple directives, in which case the last
+    declaration is used.</p>
+
+    <p>Additionally, parsers may provide a way to pass in entity definitions
+    that override those defined in a file. However, those definitions are only
+    valid if an entity with the same name is defined in the file being parsed,
+    or in an included directive file. Any definition overrides not defined in
+    the file or its includes must be ignored, possibly with a warning.</p>
+
+    <p>An entity is referenced in inline content or attribute values with the
+    <code>$</code> character (U+0024), the name of the entity, and the
+    <code>;</code> character (U+003B). Note that this entity reference syntax
+    is also used to insert special characters. The details for how to substitute
+    parsed values are covered in the pages <link xref="duck_inline"/> and
+    <link xref="duck_attr"/>.</p>
   </section>
 
   <section id="encoding">
@@ -332,17 +361,17 @@ This page describes $appvers;.]]></code>
     attributes are in the empty namespace.</p>
 
     <p>The first word of a <code>namespace</code> directive is the
-    prefix. The remaining content is the namespace URI.</p>
+    prefix. The remaining directive content is the namespace URI.</p>
 
     <p>Namespaces work similarly to XML. Parsers can simply copy the
     namespace declarations to the root XML output element, then use
     the prefixed element and attribute names as written in the Ducktype
     file. However, parsers may output namespaces in a different manner.</p>
 
-    <p>Unlike XML, Ducktype namespace declarations can not be set or
-    overridden on individual elements. All namespaces are declared at
-    the top of a Ducktype file. A namespace prefix may be set by multiple
-    directives, in which case the last declaration is used.</p>
+    <p>Unlike XML, Ducktype namespace declarations can not be set or overridden
+    on individual elements. All namespaces are declared at the top of a Ducktype
+    file or in included directive files. A namespace prefix may be set by
+    multiple directives, in which case the last declaration is used.</p>
 
     <p>As in XML, the <code>xml</code> namespace is automatically bound
     to the namespace URI <code>http://www.w3.org/XML/1998/namespace</code>.
