@@ -5,27 +5,65 @@
 <info>
   <link type="guide" xref="index" group="block"/>
 
-  <revision docversion="1.0" date="2015-07-16" status="incomplete"/>
+  <revision docversion="1.0" date="2018-02-02" status="candidate"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2015-2017</years>
+    <years>2015-2018</years>
   </credit>
 
-  <desc>FIXME</desc>
+  <desc>Implicit paragraphs, semantic block elements, and arbitrary nesting.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 
 <title>Block Elements</title>
 
-<p style="lead">FIXME</p>
+<p style="lead">Paragraphs are implicit. Semantic block elements are
+created with leading block declarations. Arbitrary nesting is possible
+with indentation.</p>
 
 
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
+
+  <list>
+    <item>
+      <p>Paragraphs are implicit and are delimited by blank lines.</p>
+    </item>
+
+    <item>
+      <p>Block elements aside from paragraphs start with block
+      declarations on their own line. Block declarations start with
+      a square bracket followed by the element name.</p>
+    </item>
+
+    <item>
+      <p>Block declarations my optionally contain
+      <link xref="duck_attr">attribute lists</link>.</p>
+    </item>
+
+    <item>
+      <p>Block elements can be nested arbitrarily deep using
+      indentation.</p>
+    </item>
+
+    <item>
+      <p>Without indentation, block elements usually contain just
+      the following block element, which may be an implicit
+      paragraph. Some block elements, such as lists and tables,
+      have special rules to contain more elements without
+      indentation.</p>
+    </item>
+
+    <item>
+      <p>There is a shorthand notation for
+      <link xref="duck_list">list items and table cells</link>.</p>
+    </item>
+  </list>
+
 </section>
 <!-- END notes -->
 
@@ -34,7 +72,40 @@
 <section id="examples">
   <title>Examples</title>
 
-  <p>FIXME</p>
+  <p>Write two paragraphs without any special syntax:</p>
+  <example><code mime="text/x-ducktype">
+This is a paragraph.
+
+This is another paragraph.</code>
+<code mime="application/xml"><![CDATA[
+<p>This is a paragraph.</p>
+
+<p>This is another paragraph.</p>]]>
+</code></example>
+
+  <p>Use a block declaration to create a note:</p>
+  <example><code mime="text/x-ducktype">
+[note]
+This is a paragraph in a note.</code>
+<code mime="application/xml"><![CDATA[
+<note>
+  <p>This is a paragraph in a note.</p>
+</note>]]>
+</code></example>
+
+  <p>Use indentation to put multiple paragraphs in a note:</p>
+  <example><code mime="text/x-ducktype">
+[note]
+  This is a paragraph in a note.
+
+  This is another paragraph in a note.</code>
+<code mime="application/xml"><![CDATA[
+<note>
+  <p>This is a paragraph in a note.</p>
+  <p>This is another paragraph in a note.</p>
+</note>]]>
+</code></example>
+
 </section>
 <!-- END examples -->
 
@@ -45,8 +116,7 @@
 
   <p>A block element starts with a block declaration (except for various shorthand
   cases described below). A block declaration begins an indented line with a left
-  <!-- FIXME: define QName -->
-  square bracket (<code>[</code>) and a QName, followed by either a right square
+  square bracket (<code>[</code>) and a name, followed by either a right square
   bracket (<code>]</code>) or whitespace. If whitespace follows the block name,
   an <link xref="duck_attr">attribute list</link> is opened, and the block
   declaration continues until it is closed, possibly spanning multiple lines.
@@ -74,6 +144,14 @@
     themselves may consume same-level child content. Blank lines do not affect
     this case.</p></item>
 
+    <item><p>If the block element is a tree item, it consumes all elements at
+    the same indent level as long as they are <code>item</code> elements. Note
+    that tree items cannot take block content, so any block content at the
+    inner indent level of a tree item must break out of the entire tree. This
+    includes implicit paragraphs created for normal text or
+    <link xref="duck_fence">fences</link> after there  have already been child
+    tree items.</p></item>
+
     <item><p>If the block element is a <code>table</code> element, it consumes
     optionally starter content and then all elements at the same indent level as
     long as they are <code>thead</code>, <code>tfoot</code>, <code>tbody</code>,
@@ -97,18 +175,19 @@
     out of the block element in this case.</p></item>
   </list>
 
-  <p>If the indented line is normal text content and the current block element
-  is not a leaf element, a Mallard <code>p</code> element is implicitly created
-  with its outer and inner indent set to the indentation of the line.</p>
+  <p>If the indented line is normal text content or a
+  <link xref="duck_fence">fence</link> and the current block element is not a leaf
+  element, an external element, or a tree item without child items, then a Mallard
+  <code>p</code> element is implicitly created with its outer and inner indent set
+  to the indentation of the line.</p>
 
-<!--
-FIXME: define leaf elements.
-specify more leaf elements with directive.
--->
-
-<!--
-FIXME: specify something about verbatim elements?
--->
+  <p>Leaf elements, external elements, and tree items that do not yet have child
+  items can consume normal text and fenced blocks. For these elements, if the
+  inner indent is the same as the outer indent, they consume normal text and
+  fences as long as they are at the indent level, until a newline is encountered.
+  If the inner indent is greater than the outer indent, the same rule applies,
+  except inside verbatim elements, which consume the newline. Note that newlines
+  in fences do not break out of elements.</p>
 </section>
 <!-- END spec -->
 

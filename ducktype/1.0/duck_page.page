@@ -5,22 +5,24 @@
 <info>
   <link type="guide" xref="index" group="page"/>
 
-  <revision docversion="1.0" date="2015-07-16" status="draft"/>
+  <revision docversion="1.0" date="2018-02-02" status="candidate"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2015-2017</years>
+    <years>2015-2018</years>
   </credit>
 
-  <desc>FIXME</desc>
+  <desc>Simple, prefix-style header syntax and automatic section nesting.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 
 <title>Page and Section Markup</title>
 
-<p style="lead">FIXME</p>
+<p style="lead">Page and section headers use a familiar compact syntax
+with a leading equals sign. Section handling is handled automatically.
+Attribute lists may follow headers.</p>
 
 
 <!-- BEGIN notes -->
@@ -53,7 +55,11 @@
       title.</p>
     </item>
 
-    <!-- FIXME: attr -->
+    <item>
+      <p>Following a title or an optional subtitle, there may be an
+      <link xref="duck_attr">attribute list</link>, indented by at least
+      one space to disambiguate it from block content.</p>
+    </item>
 
     <item>
       <p>Page and section titles are then followed by optional info elements,
@@ -127,7 +133,38 @@ This is a paragraph.</code>
 </page>
 ]]></code></example>
 
-<!-- FIXME: sections -->
+  <p>Create a page with sections and subsections:</p>
+
+  <example><code mime="text/x-ducktype">
+= My Page Title
+
+== My Section Title
+-- My Section Subtitle
+
+This is a paragraph.
+
+=== My Subsection Title
+
+This is another paragraph.
+</code>
+<code mime="application/xml"><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/">
+  <title>My Page Title</title>
+
+  <section>
+    <title>My Section Title</title>
+    <subtitle>My Section Subtitle</subtitle>
+
+    <p>This is a paragraph.</p>
+
+    <section>
+      <title>My Subsection Title</title>
+
+      <p>This is another paragraph.</p>
+    </section>
+  </section>
+</page>
+]]></code></example>
 
 </section>
 <!-- END examples -->

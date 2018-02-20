@@ -5,27 +5,70 @@
 <info>
   <link type="guide" xref="index" group="attr"/>
 
-  <revision docversion="1.0" date="2015-07-16" status="incomplete"/>
+  <revision docversion="1.0" date="2018-02-12" status="candidate"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2015-2017</years>
+    <years>2015-2018</years>
   </credit>
 
-  <desc>FIXME</desc>
+  <desc>XML-like attributes with shorthand notations.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 
 <title>Attribute Lists</title>
 
-<p style="lead">FIXME</p>
+<p style="lead">Attributes provide extra information for elements as
+key-value pairs. Ducktype attributes are similar to XML, except they
+allow certain shorthand notations.</p>
 
 
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
+
+  <list>
+    <item><p>An attribute list starts with a left square bracket and
+    continues to the first unescaped and unquoted right sqrare bracket.</p></item>
+
+    <item><p>Attribute lists can occur after
+    <link xref="duck_page">headers</link>, on
+    <link xref="duck_info">info elements</link>, on
+    <link xref="duck_block">block elements, and on
+    <link xref="duck_inline">inline elements</link>. On block elements,
+    attribute lists are part of the block declaration.</link></p></item>
+
+    <item><p>An attribute list is a space-separated list of attributes.
+    Each attribute is a name and a value separated by an equals sign,
+    except for certain shorthand notations.</p></item>
+
+    <item><p>Attribute values can be quoted with single or double quotes,
+    or they can be unquoted if the value contains no spaces.</p></item>
+
+    <item>
+      <p>An attribute without an equals sign is a bare word. Bare
+      words are shorthand attributes as follows:</p>
+      <list>
+        <item><p>If the bare word starts with <code>.</code>, it
+        is a <code>style</code> attribute.</p></item>
+        <item><p>If the bare word starts with <code>#</code>, it
+        is an <code>id</code> attribute.</p></item>
+        <item><p>If the bare word starts with <code>>></code>, it
+        is an <code>href</code> attribute.</p></item>
+        <item><p>If the bare word starts with <code>></code>, it
+        is an <code>xref</code> attribute.</p></item>
+        <item><p>Otherwise, the bare word is a <code>type</code>
+        attribute.</p></item>
+      </list>
+    </item>
+
+    <item><p>Attribute values may contain
+    <link xref="duck_directive#define">entity</link> references. An
+    entity reference is <code>$</code> followed by the entity name
+    followed by <code>;</code>.</p></item>
+  </list>
 </section>
 <!-- END notes -->
 
@@ -33,6 +76,42 @@
 <!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
+
+  <p>Specify that a page is a guide page:</p>
+  <example><code mime="text/x-ducktype">
+= My Page Title
+  [type=guide]
+</code></example>
+
+  <p>Specify that a page is a guide page using shorthand notation:</p>
+  <example><code mime="text/x-ducktype">
+= My Page Title
+  [guide]
+</code></example>
+
+  <p>Use an <link xref="duck_info">info element</link> to create a guide link,
+  using shorthand notation for the <code>type</code> and <code>xref</code>
+  attributes:</p>
+  <example><code mime="text/x-ducktype">= My Page Title
+@link[guide >index]
+</code></example>
+
+  <p>Attribute lists on <link xref="duck_block">block elments</link> share
+  the starting bracket with the element declaration. Use a <code>style</code>
+  attribute on a <code>note</code>:</p>
+  <example><code mime="text/x-ducktype">
+[note style=warning]
+  This is a warning.</code></example>
+
+  <p>Use shorthand notation for a <code>style</code> attribute:</p>
+  <example><code mime="text/x-ducktype">
+[note .warning]
+  This is a warning.</code></example>
+
+  <p>Use shorthand notation for a <code>xref</code> attribute on a
+  <code>link</code> <link xref="duck_inline">inline element</link>:</p>
+  <example><code mime="text/x-ducktype">
+Learn more about $xref[>duck_inline](inline elements).</code></example>
 </section>
 <!-- END examples -->
 
@@ -100,20 +179,20 @@
     <title>Attribute Values</title>
 
     <p>Attribute values are parsed to allow character escapes and entities.
-    If the character <code>$</code> is followed by one of <code>$</code>,
-    <code>*</code>, <code>=</code>, <code>-</code>, <code>@</code>,
-    <code>[</code>, <code>]</code>, <code>(</code>, <code>)</code>,
-    <code>"</code>, or <code>'</code>, that two-character sequence is
-    replaced by the second character.</p>
+    If the character <code>$</code> (U+0024) is followed by one of
+    <code>$</code> (U+0024), <code>*</code> (U+002A), <code>=</code> (U+003D),
+    <code>-</code> (U+002D), <code>@</code> (U+0040), <code>[</code> (U+005B),
+    <code>]</code> (U+005D), <code>(</code> (U+0028), <code>)</code> (U+0029),
+    <code>"</code> (U+0022), or <code>'</code> (U+0027), that two-character
+    sequence is replaced by the second character.</p>
 
-    <p>If the character <code>$</code> is followed by a sequence of
-    <link href="https://www.w3.org/TR/REC-xml/#NT-Nmtoken">NMTOKEN</link>
-    characters, immediately followed by a semicolon (<code>;</code>), then
-    the sequence of NMTOKEN characters is an entity name, and the entire
-    entity reference is replaced according to the following rules:</p>
+    <p>If the character <code>$</code> (U+0024) is followed by a name and
+    the character <code>;</code> (U+003B), then the name is an entity name,
+    and the entire entity reference is replaced according to the following
+    rules:</p>
 
     <list>
-      <item><p>If the name is a <link xref="duck_define">user-defined
+      <item><p>If the name is a <link xref="duck_directive#define">user-defined
       entity</link>, the content of that entity is parsed as attribute value
       content, and the result is used. Note that each entity is parsed in its
       own subcontext, so you cannot span an entity reference across multiple

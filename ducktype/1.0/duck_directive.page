@@ -165,18 +165,18 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
 <section id="spec">
   <title>Specification</title>
 
+  <!-- FIXME: blank lines and comments? -->
   <p>A parser directive is a line at the beginning of a Ducktype file
   that starts with the <code>@</code> character (U+0040). All directives
   must occur before the first non-directive markup. However, blank lines
   may be interspersed with directives.</p>
 
   <p>The <em>directive name</em> must immediately follow the
-  <code>@</code> character. The directive name is a sequence of
-  <link href="https://www.w3.org/TR/REC-xml/#NT-Nmtoken">NMTOKEN</link>
-  characters terminated either by a space or the end of line.
-  Directives may optionally have <em>directive content</em>.
-  The directive content begins with the first non-space character
-  after the directive name and continues to the end of line.</p>
+  <code>@</code> character. The directive name is a name. It is followed
+  either by a space or the end of line. Directives may optionally have
+  <em>directive content</em>. The directive content begins with the first
+  non-space character after the directive name and continues to the end
+  of line.</p>
 
   <p>Some directives make use of a <em>first word</em>. The first
   word of a directive begins with the beginning of the directive
@@ -297,6 +297,7 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
       <code mime="text/x-ducktype">@include <var>filename</var></code>
     </synopsis>
 
+    <!-- FIXME: other than parser directives or comments? -->
     <p>The <code>include</code> directive specifies an external file
     that will be parsed for further parser directives. The directive
     content must be a single word and specifies a file name, possibly
@@ -363,6 +364,7 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
     <p>The first word of a <code>namespace</code> directive is the
     prefix. The remaining directive content is the namespace URI.</p>
 
+    <!-- FIXME: multiple root elements? -->
     <p>Namespaces work similarly to XML. Parsers can simply copy the
     namespace declarations to the root XML output element, then use
     the prefixed element and attribute names as written in the Ducktype

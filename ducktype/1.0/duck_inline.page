@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <page xmlns="http://projectmallard.org/1.0/"
       type="topic" style="spec spec-no-comparison spec-no-schema"
       id="duck_inline">
@@ -5,27 +6,49 @@
 <info>
   <link type="guide" xref="index" group="inline"/>
 
-  <revision docversion="1.0" date="2015-07-17" status="stub"/>
+  <revision docversion="1.0" date="2018-02-19" status="candidate"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2015-2017</years>
+    <years>2015-2018</years>
   </credit>
 
-  <desc>FIXME</desc>
+  <desc>Fully semantic and nestable inline markup.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 
 <title>Inline Content</title>
 
-<p style="lead">FIXME</p>
+<p style="lead">Ducktype allows all semantic inline content, along
+with attributes, using a single, consistent syntax.</p>
 
 
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
+
+  <list>
+    <item><p>Inline markup is parsed after all structural and block
+    markup is parsed.</p></item>
+
+    <item><p>Inline elements start with <code>$</code> followed by a
+    name.</p></item>
+
+    <item><p>Inline element content is surrounded by parentheses, and may
+    contain further inline markup.</p></item>
+
+    <item><p>Inline elements may have an
+    <link xref="duck_attr">attribute list</link> between the name and
+    the content.</p></item>
+
+    <item><p>Inline may contain
+    <link xref="duck_directive#define">entity</link> references. An
+    entity reference is <code>$</code> followed by the entity name
+    followed by <code>;</code>. When used inline, entities may contain
+    further inline markup.</p></item>
+  </list>
 </section>
 <!-- END notes -->
 
@@ -33,6 +56,35 @@
 <!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
+
+  <p>Use a simple inline element:</p>
+  <example><code mime="text/x-ducktype">
+Click $gui(Apply).</code>
+<code mime="application/xml"><![CDATA[
+Click <gui>Apply</gui>.
+]]></code></example>
+
+  <p>Nest inline elements:</p>
+  <example><code mime="text/x-ducktype">
+Your home directory is $file(/home/$var(username)/).</code>
+<code mime="application/xml"><![CDATA[
+Your home directory is <file>/home/<var>username</var>/</file>.
+]]></code></example>
+
+  <p>Use attributes on an inline element:</p>
+  <example><code mime="text/x-ducktype">
+Read the $link[href=http://projectmallard.org/ducktype/1.0/](Ducktype specification).</code>
+<code mime="application/xml"><![CDATA[
+Read the <link href="http://projectmallard.org/ducktype/1.0/">Ducktype specification</link>.
+]]></code></example>
+
+  <p>Use attributes on an empty inline element:</p>
+  <example><code mime="text/x-ducktype">
+The Ducktype specification is at $link[href=http://projectmallard.org/ducktype/1.0/].</code>
+<code mime="application/xml"><![CDATA[
+The Ducktype specification is at <link href="http://projectmallard.org/ducktype/1.0/"/>.
+]]></code></example>
+
 </section>
 <!-- END examples -->
 
@@ -40,6 +92,73 @@
 <!-- BEGIN spec -->
 <section id="spec">
   <title>Specification</title>
+
+  <p>Inline content is parsed after all block and structural parsing is
+  finished. Consequently, mismatched parentheses or brackets in inline
+  content has no effect on block structure.</p>
+
+  <p>An inline string is parsed for inline elements and entity references.
+  Inline markup starts with <code>$</code> (U+0024) followed by a name.
+  If the name is followed by either a left square bracket <code>[</code>
+  (U+005B) or a left parenthesis <code>(</code> (U+0028), it is an inline
+  element. If the name is followed by a semicolon <code>;</code> (U+003B),
+  it is an entity reference.</p>
+
+  <p>Inline strings may also contain character escapes. If the character
+  <code>$</code> (U+0000) is followed by one of <code>$</code> (U+0024),
+  <code>*</code> (U+002A), <code>=</code> (U+003D), <code>-</code> (U+002D),
+  <code>@</code> (U+0040), <code>[</code> (U+005B), <code>]</code> (U+005D),
+  <code>(</code> (U+0028), <code>)</code> (U+0029), <code>"</code> (U+0022),
+  or <code>'</code> (U+0027), that two-character sequence is replaced by
+  the second character.</p>
+
+  <p>If an inline element name is followed by <code>[</code>, then that
+  square bracket is the start of an <link xref="duck_attr">attribute list</link>.
+  The attribute list continues until it is closed. If the next characters
+  after the closing right square bracket is <code>(</code>, then that
+  parenthesis starts the element content. Otherwise, the element is empty,
+  and has only attributes.</p>
+
+  <p>If an inline element has a left parenthesis following either the
+  element name or the optional attribute list, that parenthesis starts the
+  inline element content. Inline element content is parsed as an inline
+  string, and may contain further inline elements or entity references.
+  The element content may contain parenthesis, either as markup for further
+  inline elements, or an non-markup characters in the actual content. The
+  parser must track non-markup parentheses, and close the element content
+  when the first unbalanced, unescaped right parenthesis is reached. For
+  example, the following is correct markup:</p>
+
+  <example>
+    <code mime="text/x-ducktype">$em((parenthesized))</code>
+    <code mime="application/xml"><![CDATA[<em>(parenthesized)</em>]]></code>
+  </example>
+
+  <p>If the character <code>$</code> (U+0024) is followed by a name and
+  the character <code>;</code> (U+003B), then the name is an entity name,
+  and the entire entity reference is replaced according to the following
+  rules:</p>
+
+  <list>
+    <item><p>If the name is a <link xref="duck_directive#define">user-defined
+    entity</link>, the content of that entity is parsed as an inline string,
+    and the result is used. Note that each entity is parsed in its own
+    subcontext, so you cannot span an entity reference across multiple
+    entities. Parsers must detect cycles in entity references and produce
+    an error.</p></item>
+
+    <item><p>Otherwise, if the name is defined in
+    <link href="http://www.w3.org/TR/xml-entity-names/">XML Entity Definitions
+    for Characters (2nd Edition)</link>, the corresponding value is used.</p></item>
+
+    <item><p>Otherwise, if the name consists only of characters in the ranges
+    <code>0-9</code>, <code>a-f</code>, and <code>A-F</code>, that value is
+    interpreted as a hexadecimal number, and the Unicode character with that
+    code point is used.</p></item>
+
+    <item><p>Otherwise, the entity is unrecognized, and parsers must produce
+    an error.</p></item>
+  </list>
 </section>
 <!-- END spec -->
 

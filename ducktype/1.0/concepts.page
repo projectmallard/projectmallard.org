@@ -44,6 +44,10 @@ some number of space characters. Tabs are not considered indentation
 characters. In this specification, the following terms are used:</p>
 
 <list>
+  <item><p>A <em>name</em> is a sequence of 
+  <link href="https://www.w3.org/TR/REC-xml/#NT-Nmtoken">NMTOKEN</link>
+  characters.</p></item>
+
   <item><p>A <em>newline</em> is either a carriage return (U+000D), a line
   feed (U+000A), or a carriage return followed by a line feed.</p></item>
 
@@ -84,6 +88,12 @@ The following terms are used:</p>
   is preserved as written. Newlines are sometimes handled differently in
   verbatim elements than in non-verbatim elements. The default verbatim
   elements are <code>code</code> and <code>screen</code>.</p></item>
+
+  <item><p>A <em>tree item</em> is an <code>item</code> element whose parent
+  element is either a <code>tree</code> element or another tree item. Tree
+  items are peculiar in Mallard. They allow leading inline content without
+  an extra leaf element, but then allow a sequence of <code>item</code>
+  elements.</p></item>
 
   <item><p>An <em>external element</em> is an element whose namespace URI
   does not start with <code>http://projectmallard.org/</code>. External
