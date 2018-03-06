@@ -48,6 +48,9 @@
 </section>
 
 <!--
+Add Addendums if changes are made after the proposal is final.
+-->
+<!--
 <section id="addendums">
   <title>Addendums</title>
 </section>
@@ -57,22 +60,38 @@
   <title>Examples</title>
 </section>
 
+<!--
+Omit Accessibility of there is no accessibility impact.
+-->
 <section id="a11y">
   <title>Accessibility</title>
 </section>
 
+<!--
+Omit Internationalization of there is no internationalization impact.
+-->
 <section id="i18n">
   <title>Internationalization</title>
 </section>
 
+
+<!--
+Omit Alternatives if no alternatives were considered.
+-->
 <section id="alternatives">
   <title>Alternatives</title>
 </section>
 
+<!--
+Omit Compatibility and Fallback for process proposals.
+-->
 <section id="compatibility">
   <title>Compatibility and Fallback</title>
 </section>
 
+<!--
+Omit Comparison to Other Formats for process proposals.
+-->
 <section id="comparison">
   <title>Comparison to Other Formats</title>
 </section>
