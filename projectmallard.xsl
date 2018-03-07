@@ -779,6 +779,9 @@ to grow the ability to provide custom tags/badges on links.
                           <xsl:value-of select="@date"/>
                         </td>
                         <td>
+                          <xsl:value-of select="@docversion"/>
+                        </td>
+                        <td>
                           <xsl:value-of select="@status"/>
                         </td>
                         <td>
