@@ -26,6 +26,7 @@
   incomplete proposed revised implemented final rejected replaced withdrawn
   -->
   <revision date="2018-03-01" docversion="1.1" status="proposed"/>
+  <revision date="2018-03-08" docversion="1.1" status="implemented"/>
 
   <title type="text">Table Header Cells</title>
   <title type="link">MEP-0012: Table Header Cells</title>
