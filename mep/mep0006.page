@@ -3,7 +3,7 @@
       id="mep0006">
 
 <info>
-  <link type="guide" xref="index" group="1.1"/>
+  <link type="guide" xref="index" group="1.2"/>
   <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/27"/>
 
   <credit type="author copyright">
@@ -15,6 +15,7 @@
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
   <revision date="2014-12-16" docversion="1.1" status="proposed"/>
+  <revision date="2018-03-14" docversion="1.2" status="proposed"/>
 
   <title type="text">More Flexible version Attribute</title>
   <title type="link">MEP-0006: More Flexible <code>version</code> Attribute</title>

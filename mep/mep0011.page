@@ -4,13 +4,13 @@
       id="mep0011">
 
 <info>
-  <link type="guide" xref="index" group="1.1"/>
+  <link type="guide" xref="index" group="1.2"/>
 
   <!--
   <link type="mep:depends" xref="mepYYYY"/>
   <link type="mep:replaces" xref="mepYYYY"/>
   <link type="seealso" xref="mepYYYY"/>
--->
+  -->
   <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/1"/>
 
   <credit type="author copyright">
@@ -26,6 +26,7 @@
   incomplete proposed revised implemented final rejected replaced withdrawn
   -->
   <revision date="2017-08-31" docversion="1.1" status="proposed"/>
+  <revision date="2018-03-14" docversion="1.2" status="proposed"/>
 
   <title type="text">Roles on Sort Titles</title>
   <title type="link">MEP-0011: Roles on Sort Titles</title>
