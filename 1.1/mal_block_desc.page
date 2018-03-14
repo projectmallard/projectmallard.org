@@ -3,6 +3,8 @@
       id="mal_block_desc">
 
 <info>
+  <link type="seealso" xref="mal_block_div"/>
+  <link type="seealso" xref="mal_block_example"/>
   <link type="seealso" xref="mal_block_figure"/>
   <link type="seealso" xref="mal_block_listing"/>
   <link type="seealso" xref="mal_block_synopsis"/>
@@ -37,6 +39,8 @@ for the formal element.</p>
     any <link xref="mal_inline">general inline elements</link>.</p></item>
 
     <item><p>The <code>desc</code> element can occur in the formal block elements
+    <code xref="mal_block_div">div</code>,
+    <code xref="mal_block_example">example</code>,
     <code xref="mal_block_figure">figure</code>,
     <code xref="mal_block_listing">listing</code>,
     <code xref="mal_block_synopsis">synopsis</code>, and
