@@ -530,7 +530,7 @@ mal_table_colgroup_attr = (
 
 mal_table_tr = element tr {
   mal_table_tr_attr,
-  mal_table_td *
+  ( mal_table_td | mal_table_th ) *
 }
 mal_table_tr_attr = (
   attribute style { xsd:NMTOKENS } ?,
@@ -572,6 +572,18 @@ mal_table_td_attr = (
   mal_attr_external *
 )
 mal_table_td_content = mal_block
+mal_table_th = element th {
+  mal_table_th_attr,
+  mal_table_th_content *
+}
+mal_table_th_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute rowspan { text } ?,
+  attribute colspan { text } ?,
+  attribute scope { "row" | "col" | "rowgroup" | "colgroup" } ?,
+  mal_attr_external *
+)
+mal_table_th_content = mal_block
 
 mal_block_title = element title {
   mal_block_title_attr,

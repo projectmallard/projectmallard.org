@@ -1,4 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:ui="http://projectmallard.org/ui/1.0/"
       type="topic" style="spec"
       id="mal_table">
 
@@ -6,11 +7,12 @@
   <link type="guide" xref="mal_block#tables" group="#first"/>
 
   <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.1" date="2018-03-13" status="review"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2016</years>
+    <years>2008-2016, 2018</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -86,7 +88,7 @@ formatting needs.</p>
 <section id="examples">
   <title>Examples</title>
 
-<section id="examples-basic">
+<section id="examples-basic" ui:expanded="false">
   <title>Basic Table Examples</title>
 
   <p>Create a basic table:</p>
@@ -132,7 +134,7 @@ formatting needs.</p>
   </example>
 </section>
 
-<section id="examples-frame">
+<section id="examples-frame" ui:expanded="false">
   <title>The <code>frame</code> Attribute</title>
 
   <p>Place a frame on the top and bottom of the table:</p>
@@ -220,7 +222,7 @@ formatting needs.</p>
   </example>
 </section>
 
-<section id="examples-rules">
+<section id="examples-rules" ui:expanded="false">
   <title>The <code>rules</code> Attribute</title>
 
   <p>Place rules between each row:</p>
@@ -405,7 +407,7 @@ formatting needs.</p>
 
 </section>
 
-<section id="examples-shade">
+<section id="examples-shade" ui:expanded="false">
   <title>The <code>shade</code> Attribute</title>
 
   <p>Shade alternating rows:</p>
@@ -590,7 +592,7 @@ formatting needs.</p>
   </example>
 </section>
 
-<section id="examples-span">
+<section id="examples-span" ui:expanded="false">
   <title>Spanning Rows and Columns</title>
 
   <p>Span multiple rows:</p>
@@ -631,6 +633,270 @@ formatting needs.</p>
       <td><p>Europe, Asia, North America</p></td>
     </tr>
   </table>
+  </example>
+</section>
+
+<section id="examples-th" ui:expanded="false">
+  <title>Header Cells</title>
+
+  <p>Use <code>th</code> elements for column headers:</p>
+
+  <example><code mime="application/xml"><![CDATA[
+<table>
+  <tr>
+    <td></td>                <th><p>Scientific name</p></th>
+    <th><p>Length</p></th>   <th><p>Mass</p></th>
+  </tr>
+  <tr>
+    <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+    <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+    <td><p>34-43 cm</p></td>    <td><p>360 g</p></td>
+  </tr>
+  <tr>
+    <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+    <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+  </tr>
+</table>
+]]></code>
+    <table>
+      <tr>
+        <td></td>                <th><p>Scientific name</p></th>
+        <th><p>Length</p></th>   <th><p>Mass</p></th>
+      </tr>
+      <tr>
+        <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+        <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+      </tr>
+      <tr>
+        <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+        <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+      </tr>
+      <tr>
+        <td><p>Common Teal</p></td> <td><p>Anas crecca</p></td>
+        <td><p>34-43 cm</p></td>    <td><p>360 g</p></td>
+      </tr>
+      <tr>
+        <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+        <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+      </tr>
+    </table>
+  </example>
+
+  <p>Use <code>th</code> elements for column and row headers:</p>
+
+  <example><code mime="application/xml"><![CDATA[
+<table>
+  <tr>
+    <td></td>                <th><p>Scientific name</p></th>
+    <th><p>Length</p></th>   <th><p>Mass</p></th>
+  </tr>
+  <tr>
+    <th><p>Mallard</p></th>  <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+  </tr>
+  <tr>
+    <th><p>Eurasian Wigeon</p></th> <td><p>Anas penelope</p></td>
+    <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+  </tr>
+  <tr>
+    <th><p>Common Teal</p></th> <td><p>Anas crecca</p></td>
+    <td><p>34-43 cm</p></td>    <td><p>360 g</p></td>
+  </tr>
+  <tr>
+    <th><p>Northern Pintail</p></th> <td><p>Anas acuta</p></td>
+    <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+  </tr>
+</table>
+]]></code>
+    <table>
+      <tr>
+        <td></td>                <th><p>Scientific name</p></th>
+        <th><p>Length</p></th>   <th><p>Mass</p></th>
+      </tr>
+      <tr>
+        <th><p>Mallard</p></th>  <td><p>Anas platyrhynchos</p></td>
+        <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+      </tr>
+      <tr>
+        <th><p>Eurasian Wigeon</p></th> <td><p>Anas penelope</p></td>
+        <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+      </tr>
+      <tr>
+        <th><p>Common Teal</p></th> <td><p>Anas crecca</p></td>
+        <td><p>34-43 cm</p></td>    <td><p>360 g</p></td>
+      </tr>
+      <tr>
+        <th><p>Northern Pintail</p></th> <td><p>Anas acuta</p></td>
+        <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+      </tr>
+    </table>
+  </example>
+
+  <p>Add a <code>th</code> element for a column group:</p>
+
+  <example><code mime="application/xml"><![CDATA[
+<table rules="colgroups">
+  <colgroup><col/></colgroup>
+  <colgroup><col/></colgroup>
+  <colgroup><col/><col/></colgroup>
+  <tr>
+    <td></td> <td></td>
+    <th colspan="2" scope="colgroup"><p>Size information</p></th>
+  </tr>
+  <tr>
+    <td></td>                <th><p>Scientific name</p></th>
+    <th><p>Length</p></th>   <th><p>Mass</p></th>
+  </tr>
+  <tr>
+    <th><p>Mallard</p></th>  <td><p>Anas platyrhynchos</p></td>
+    <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+  </tr>
+  <tr>
+    <th><p>Eurasian Wigeon</p></th> <td><p>Anas penelope</p></td>
+    <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+  </tr>
+  <tr>
+    <th><p>Common Teal</p></th> <td><p>Anas crecca</p></td>
+    <td><p>34-43 cm</p></td>    <td><p>360 g</p></td>
+  </tr>
+  <tr>
+    <th><p>Northern Pintail</p></th> <td><p>Anas acuta</p></td>
+    <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+  </tr>
+</table>
+]]></code>
+    <table rules="colgroups">
+      <colgroup><col/></colgroup>
+      <colgroup><col/></colgroup>
+      <colgroup><col/><col/></colgroup>
+      <tr>
+        <td></td> <td></td>
+        <th colspan="2" scope="colgroup"><p>Size information</p></th>
+      </tr>
+      <tr>
+        <td></td>                <th><p>Scientific name</p></th>
+        <th><p>Length</p></th>   <th><p>Mass</p></th>
+      </tr>
+      <tr>
+        <th><p>Mallard</p></th>  <td><p>Anas platyrhynchos</p></td>
+        <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+      </tr>
+      <tr>
+        <th><p>Eurasian Wigeon</p></th> <td><p>Anas penelope</p></td>
+        <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+      </tr>
+      <tr>
+        <th><p>Common Teal</p></th> <td><p>Anas crecca</p></td>
+        <td><p>34-43 cm</p></td>    <td><p>360 g</p></td>
+      </tr>
+      <tr>
+        <th><p>Northern Pintail</p></th> <td><p>Anas acuta</p></td>
+        <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+      </tr>
+    </table>
+  </example>
+
+  <p>Add <code>th</code> elements for row groups:</p>
+
+  <example><code mime="application/xml"><![CDATA[
+<table rules="rowgroups" shade="rows">
+  <thead>
+    <tr>
+      <td></td>                <th><p>Scientific name</p></th>
+      <th><p>Length</p></th>   <th><p>Mass</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th colspan="4" scope="rowgroup">
+        <p>America, Europe, Asia, New Zealand</p>
+      </th>
+    </tr>
+    <tr>
+      <th><p>Mallard</p></th>  <td><p>Anas platyrhynchos</p></td>
+      <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <th colspan="4" scope="rowgroup">
+        <p>Eurasia</p>
+      </th>
+    </tr>
+    <tr>
+      <th><p>Eurasian Wigeon</p></th> <td><p>Anas penelope</p></td>
+      <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+    </tr>
+    <tr>
+      <th><p>Common Teal</p></th> <td><p>Anas crecca</p></td>
+      <td><p>34-43 cm</p></td>    <td><p>360 g</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <th colspan="4" scope="rowgroup">
+        <p>Europe, Asia, North America</p>
+      </th>
+    </tr>
+    <tr>
+      <th><p>Northern Pintail</p></th> <td><p>Anas acuta</p></td>
+      <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+    </tr>
+  </tbody>
+</table>
+]]></code>
+    <table rules="rowgroups" shade="rows">
+      <thead>
+        <tr>
+          <td></td>                <th><p>Scientific name</p></th>
+          <th><p>Length</p></th>   <th><p>Mass</p></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th colspan="4" scope="rowgroup">
+            <p>America, Europe, Asia, New Zealand</p>
+          </th>
+        </tr>
+        <tr>
+          <th><p>Mallard</p></th>  <td><p>Anas platyrhynchos</p></td>
+          <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <th colspan="4" scope="rowgroup">
+            <p>Eurasia</p>
+          </th>
+        </tr>
+        <tr>
+          <th><p>Eurasian Wigeon</p></th> <td><p>Anas penelope</p></td>
+          <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+        </tr>
+        <tr>
+          <th><p>Common Teal</p></th> <td><p>Anas crecca</p></td>
+          <td><p>34-43 cm</p></td>    <td><p>360 g</p></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <th colspan="4" scope="rowgroup">
+            <p>Europe, Asia, North America</p>
+          </th>
+        </tr>
+        <tr>
+          <th><p>Northern Pintail</p></th> <td><p>Anas acuta</p></td>
+          <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+        </tr>
+      </tbody>
+    </table>
   </example>
 </section>
 

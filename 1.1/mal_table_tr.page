@@ -6,11 +6,12 @@
   <link type="guide" xref="mal_block#tables"/>
 
   <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.1" date="2018-03-13" status="review"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2011</years>
+    <years>2008-2011, 2018</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -32,7 +33,8 @@ to group rows together for stylistic or semantic purposes.</p>
   <list>
     <item><p>The <code>thead</code>, <code>tbody</code>, and <code>tfoot</code>
     elements contain one or more <code>tr</code> elements. The <code>tr</code>
-    element contains zero or more <code>td</code> elements.</p></item>
+    element contains zero or more <code>td</code> or <code>th</code>
+    elements.</p></item>
 
     <item><p>The <code>thead</code>, <code>tbody</code>, and <code>tfoot</code>
     elements can occur at the end of a <code xref="mal_table">table</code>
@@ -96,7 +98,7 @@ are on the page <link xref="mal_page"/>.</p>
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_table_tr = element tr {
   mal_table_tr_attr,
-  <link xref="mal_table_td">mal_table_td</link> *
+  ( <link xref="mal_table_td">mal_table_td</link> | <link xref="mal_table_td">mal_table_th</link> ) *
 }
 mal_table_tr_attr = (
   attribute style { xsd:NMTOKENS } ?,

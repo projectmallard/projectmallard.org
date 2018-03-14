@@ -6,11 +6,12 @@
   <link type="guide" xref="mal_block#tables"/>
 
   <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.1" date="2018-03-13" status="review"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2011</years>
+    <years>2008-2011, 2018</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -21,7 +22,7 @@
 <title>Table Cells</title>
 
 <p>Use the <code>td</code> element to create cells for each column in
-a table row.</p>
+a table row. Use the <code>th</code> element to create header cells.</p>
 
 
 <!-- BEGIN notes -->
@@ -29,11 +30,11 @@ a table row.</p>
   <title>Notes</title>
 
   <list>
-    <item><p>The <code>td</code> element can contain any
-    <link xref="mal_block">general block content</link>.</p></item>
+    <item><p>The <code>td</code> and <code>th</code> elements can contain
+    any <link xref="mal_block">general block content</link>.</p></item>
 
-    <item><p>The <code>td</code> element can occur in a
-    <code xref="mal_table_tr">tr</code> element.</p></item>
+    <item><p>The <code>td</code> and <code>th</code> elements can occur
+    in a <code xref="mal_table_tr">tr</code> element.</p></item>
 
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
@@ -45,9 +46,14 @@ a table row.</p>
     <item><p>The <code>rowspan</code> attribute allows a table cell to
     span across multiple table rows.</p></item>
 
-    <item><p>The <code>td</code> element can have attributes from external
-    namespaces.  See <link xref="mal_external"/> for more information
-    on external-namespace attributes.</p></item>
+    <item><p>The <code>scope</code> attribute on the <code>th</code>
+    element allows you to specify what portion of the table the header
+    applies to: <code>row</code>, <code>col</code>, <code>rowspan</code>,
+    or <code>colspan</code>.</p></item>
+
+    <item><p>The <code>td</code> and <code>th</code> elements can have
+    attributes from external namespaces.  See <link xref="mal_external"/>
+    for more information on external-namespace attributes.</p></item>
   </list>
 </section>
 <!-- END notes -->
@@ -102,6 +108,18 @@ mal_table_td_attr = (
   <link xref="mal_external">mal_attr_external</link> *
 )
 mal_table_td_content = <link xref="mal_block">mal_block</link>
+mal_table_th = element th {
+  mal_table_th_attr,
+  mal_table_th_content *
+}
+mal_table_th_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute rowspan { text } ?,
+  attribute colspan { text } ?,
+  attribute scope { "row" | "col" | "rowgroup" | "colgroup" } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_table_th_content = <link xref="mal_block">mal_block</link>
 </code></synopsis>
 </section>
 

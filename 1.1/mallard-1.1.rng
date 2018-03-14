@@ -1402,7 +1402,10 @@
   <element name="tr">
     <ref name="mal_table_tr_attr"/>
     <zeroOrMore>
-      <ref name="mal_table_td"/>
+      <choice>
+        <ref name="mal_table_td"/>
+        <ref name="mal_table_th"/>
+      </choice>
     </zeroOrMore>
   </element>
 </define>
@@ -1519,6 +1522,52 @@
 </define>
 
 <define name="mal_table_td_content">
+  <ref name="mal_block"/>
+</define>
+
+<define name="mal_table_th">
+  <element name="th">
+    <ref name="mal_table_th_attr"/>
+    <zeroOrMore>
+      <ref name="mal_table_th_content"/>
+    </zeroOrMore>
+  </element>
+</define>
+
+<define name="mal_table_th_attr">
+  <group>
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="rowspan">
+        <text/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="colspan">
+        <text/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="scope">
+        <choice>
+          <value>row</value>
+          <value>col</value>
+          <value>rowgroup</value>
+          <value>colgroup</value>
+        </choice>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<define name="mal_table_th_content">
   <ref name="mal_block"/>
 </define>
 

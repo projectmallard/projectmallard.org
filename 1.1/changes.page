@@ -10,7 +10,7 @@
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2013-2016</years>
+    <years>2013-2018</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -24,6 +24,13 @@
 <title>Changes in Mallard 1.1</title>
 
 <list>
+  <item><p>The new <code xref="mal_table_th">th</code> element can be used
+  alongside <code>td</code> elements to indicate header cells, just like in
+  HTML. See
+  <link xref="/mep/mep0012">MEP-0012</link> and
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/9">Issue
+  9</link>.</p></item>
+
   <item><p>The <code>id</code> attribute on <code xref="mal_section">section</code>
   elements is now optional. See
   <link href="https://github.com/projectmallard/projectmallard.org/issues/2">Issue
