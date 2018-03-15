@@ -21,19 +21,22 @@
 </links>
 
 <links type="topic" groups="process">
-  <title>Process</title>
+  <title style="heading">Process</title>
 </links>
 
 <links type="topic" groups="1.1">
-  <title><link xref="/1.1/index">Mallard 1.1</link></title>
+  <title style="heading"><link xref="/1.1/index">Mallard 1.1</link></title>
 </links>
 
 <links type="topic" groups="1.2">
-  <title><link xref="/1.2/index">Mallard 1.2</link></title>
+  <!--
+  <title style="heading"><link xref="/1.2/index">Mallard 1.2</link></title>
+  -->
+  <title style="heading">Mallard 1.2</title>
 </links>
 
 <links type="topic" groups="ui/1.0">
-  <title><link xref="/ui/1.0/index">Mallard UI 1.0</link></title>
+  <title style="heading"><link xref="/ui/1.0/index">Mallard UI 1.0</link></title>
 </links>
 
 </page>
