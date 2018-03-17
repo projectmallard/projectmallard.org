@@ -16,11 +16,11 @@
 <links type="topic" groups="primary"/>
 
 <links type="topic" groups="#default #last" style="2column">
-  <title>Core Functionality</title>
+  <title style="heading">Core Functionality</title>
 </links>
 
 <links type="topic" groups="extension" style="2column">
-  <title>Core Extensions</title>
+  <title style="heading">Core Extensions</title>
 </links>
 
 </page>
