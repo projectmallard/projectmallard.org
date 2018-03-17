@@ -376,17 +376,23 @@ body.pmo-splash section#specs div.list {
   margin-top: 0;
   margin-bottom: 16px;
 }
+body.pmo-splash section#specs ul.list {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin: 0 -10px;
+}
 body.pmo-splash section#specs li.list {
-  display: inline-block;
-  background: #3465a4 url(noiseblue.png);
-  border-radius: 4px;
-  margin: 0 10px 10px 0;
+  display: block;
+  margin: 0 10px 20px 10px;
   padding: 0;
 }
 body.pmo-splash section#specs li a {
-  background: url(duckbg.png) repeat-y;
+  background: #3465a4 url(noiseblue.png);
+  border-radius: 4px;
   display: block;
-  width: 240px;
+  width: 276px;
   border: none;
   padding: 4px 12px;
   color: #eeeeec;
