@@ -131,7 +131,7 @@ the initial state of the titled element is collapsed. Otherwise, it is expanded.
 <link xref="/1.0/mal_info_title" href="http://projectmallard.org/1.0/mal_info_title.html">informational
 title</link> with the <code>type</code> attribute set to <code>"ui:collapsed"</code>,
 that title is displayed instead of the primary title when the element is collapsed.
-If a collapsible element has an information title with the <code>type</code>
+If a collapsible element has an informational title with the <code>type</code>
 attribute set to <code>"ui:expanded"</code>, that title is displayed instead of
 the primary title when the element is expanded. Note that, if both are present,
 the primary title will never be displayed. However, the primary title must still
