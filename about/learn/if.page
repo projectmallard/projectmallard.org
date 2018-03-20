@@ -57,7 +57,7 @@ Declare this namespace on the top-level <code>page</code> element.</p>
 <page xmlns="http://projectmallard.org/1.0/"
       xmlns:if="http://projectmallard.org/if/1.0/"
       type="topic" version="1.0 if/1.0"
-      id="THE_PAGE_ID">
+      id="]]><var>THE_PAGE_ID</var><![CDATA[">
 ]]></code>
 </example>
 
@@ -71,11 +71,11 @@ xref="/1.0/mal_attr_version">Mallard schema merging</link>.</p>
 <p>Conditionals use test tokens, which consist of a token scheme and
 a token value separated by a colon. For example, to test if the user
 is running GNOME 3 when reading the help with the <app>Yelp</app> help
-viewer, use the test token <code>platform:gnome-shell</code>.</p>
+viewer, use the test token <code>platform:gnome-3</code>.</p>
 
 <example>
 <code mime="application/xml"><![CDATA[
-<p if:test="platform:gnome-shell">This content is only shown when
+<p if:test="platform:gnome-3">This content is only shown when
 running under GNOME 3.</p>
 ]]></code>
 <p>This content is only shown when running under GNOME 3.</p>
@@ -99,6 +99,13 @@ This can be used to provide different content in online and print
 editions of the help, to provide extra information for assistive
 technologies like screen readers and braille displays, or to create
 responsive content for mobile devices.</p>
+
+<note>
+  <p>The actual platform and target tokens that are set depend on
+  the implementation. See, for example, the list of
+  <link href="http://yelp.io/conditional">tokens supported by
+  <app>Yelp</app></link>.</p>
+</note>
 
 <p>To test if the help is being read as an HTML page, use the
 <code>target:html</code> token.</p>
@@ -175,7 +182,7 @@ or <code xref="/1.0/mal_block_desc">desc</code> elements, inline elements, secti
 entire pages. Unlike other languages, Mallard conditionals do not assume
 a pre-processing step. They are designed to be evaluated at run-time, and
 are somewhat constrained by the extension mechanisms that Mallard
-provides.</p>
+provides, as well as what can be efficiently processed at run-time.</p>
 
 </section>
 
@@ -195,16 +202,16 @@ on block elements. The first <code>if:when</code> element that is true
 is used, and the remainder are ignored.</p>
 
 <p>For example, use <code>if:choose</code> and <code>if:when</code> to create
-two different paragraphs for GNOME 3 and Unity.</p>
+two different paragraphs for GNOME 3 and KDE.</p>
 
 <example>
 <code mime="application/xml"><![CDATA[
 <if:choose>
-  <if:when test="platform:gnome-shell">
+  <if:when test="platform:gnome-3">
     <p>This is shown in GNOME 3.</p>
   </if:when>
-  <if:when test="platform:unity">
-    <p>This is shown in Unity.</p>
+  <if:when test="platform:kde">
+    <p>This is shown in KDE.</p>
   </if:when>
 </if:choose>
 ]]></code>
@@ -229,11 +236,11 @@ content.</p>
 <example>
 <code mime="application/xml"><![CDATA[
 <if:choose>
-  <if:when test="platform:gnome-shell">
+  <if:when test="platform:gnome-3">
     <p>This is shown in GNOME 3.</p>
   </if:when>
-  <if:when test="platform:unity">
-    <p>This is shown in Unity.</p>
+  <if:when test="platform:kde">
+    <p>This is shown in KDE.</p>
   </if:when>
   <if:else>
     <p>This is shown under any other environment.</p>
@@ -250,11 +257,11 @@ element.</p>
 <example>
 <code mime="application/xml"><![CDATA[
 <if:choose>
-  <if:when test="platform:gnome-shell">
+  <if:when test="platform:gnome-3">
     <p>This is shown in GNOME 3.</p>
   </if:when>
-  <if:when test="platform:unity">
-    <p>This is shown in Unity.</p>
+  <if:when test="platform:kde">
+    <p>This is shown in KDE.</p>
   </if:when>
   <p>This is shown under any other environment.</p>
 </if:choose>
@@ -267,7 +274,7 @@ behave exactly the same in any tool that supports conditionals, but
 Mallard does not require tools to support extensions like conditionals.
 Because of the way Mallard defines fallback behavior for unsupported
 extension content, the first example will show nothing in an unsupporting
-tool, and the second will shown the fallback content. For more details,
+tool, and the second will show the fallback content. For more details,
 see <link xref="/if/1.0/fallback">Fallback Behavior</link> in the
 conditionals specification.</p>
 
@@ -303,7 +310,7 @@ condition separated by spaces.</p>
 
 <example>
 <code mime="application/xml"><![CDATA[
-<p if:test="platform:gnome-shell platform:fedora">This is only shown
+<p if:test="platform:gnome-3 platform:fedora">This is only shown
 when running GNOME 3 on Fedora.</p>
 ]]></code>
 <p>This is only shown when running GNOME 3 on Fedora.</p>
@@ -328,10 +335,10 @@ putting them all into a condition separated by commas.</p>
 
 <example>
 <code mime="application/xml"><![CDATA[
-<p if:test="platform:gnome-shell, platform:unity">This is in both
-GNOME 3 and Unity, but not other environments.</p>
+<p if:test="platform:gnome-3, platform:kde">This is in both
+GNOME 3 and KDE, but not other environments.</p>
 ]]></code>
-<p>This is in both GNOME 3 and Unity, but not other environments.</p>
+<p>This is in both GNOME 3 and KDE, but not other environments.</p>
 </example>
 
 <p>You can combine all three of these techniques. There is no grouping
@@ -343,14 +350,14 @@ any logical expression into this form.</p>
 <p>For example, say you want to test that the user is running GNOME 3,
 but only if the user is running Fedora or Ubuntu. In an expression with
 grouping, you might write something like
-<code>"gnome-shell AND (fedora OR ubuntu)"</code>. Instead, you must
-split this up and write the <code>gnome-shell</code> condition twice,
-as <code>"(gnome-shell AND fedora) OR (gnome-shell AND ubuntu)"</code>.</p>
+<code>"gnome-3 AND (fedora OR ubuntu)"</code>. Instead, you must
+split this up and write the <code>gnome-3</code> condition twice,
+as <code>"(gnome-3 AND fedora) OR (gnome-3 AND ubuntu)"</code>.</p>
 
 <example>
 <code mime="application/xml"><![CDATA[
-<p if:test="platform:gnome-shell platform:fedora,
-            platform:gnome-shell platform:ubuntu">This is shown under
+<p if:test="platform:gnome-3 platform:fedora,
+            platform:gnome-3 platform:ubuntu">This is shown under
 GNOME 3, but only on Fedora or Ubuntu.</p>
 ]]></code>
 <p>This is shown under GNOME 3, but only on Fedora or Ubuntu.</p>

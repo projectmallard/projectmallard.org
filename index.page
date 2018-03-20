@@ -107,6 +107,7 @@ forcing them to read lengthy manuals.</p>
   <list style="compact">
     <title>Early Drafts:</title>
     <item><p><link xref="/1.1/index" role="-index"/></p></item>
+    <item><p><link xref="/cache/1.1/index" role="-index"/></p></item>
     <item><p><link xref="/ui/1.0/index" role="-index"/></p></item>
     <item><p><link xref="/ducktype/1.0/index" role="-index"/></p></item>
     <item><p><link xref="/facet/1.0/index" role="-index"/></p></item>
