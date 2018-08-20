@@ -5,27 +5,68 @@
 <info>
   <link type="guide" xref="index" group="list"/>
 
-  <revision docversion="1.0" date="2017-02-14" status="stub"/>
+  <revision docversion="1.0" date="2018-08-20" status="candidate"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2017</years>
+    <years>2018</years>
   </credit>
 
-  <desc>FIXME</desc>
+  <desc>Shorthand syntax for block titles, list items, and table cells.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 
-<title>Lists and Tables</title>
+<title>Titles, Lists, and Tables</title>
 
-<p style="lead">FIXME</p>
+<p style="lead">Ducktype provides shorthand syntax for block titles, list items,
+and tables cells using leading periods, hyphens, and asterisks.</p>
 
 
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
+
+  <list>
+    <item><p>List items and table cells can be written with regular
+    <link xref="duck_block">block elements</link>, or with the shorthand
+    syntax detailed here.</p></item>
+
+    <item><p><code>. </code>A leading period and space creates a block
+    <code>title</code> element.</p></item>
+
+    <item>
+      <p><code>* </code>A leading asterisk and space creates:</p>
+      <list>
+        <item><p>An <code>item</code> element in a <code>list</code> or
+        <code>steps</code> element.</p></item>
+        <item><p>The content of an <code>item</code> element in a
+        <code>terms</code> element.</p></item>
+        <item><p>An <code>item</code> element in a <code>tree</code>
+        element or tree item.</p></item>
+        <item><p>A <code>td</code> element in a <code>tr</code>
+        element.</p></item>
+        <item><p>An <code>item</code> element with an implicit
+        <code>list</code> element otherwise.</p></item>
+      </list>
+    </item>
+
+    <item>
+      <p><code>- </code>A leading hyphen and space creates:</p>
+      <list>
+        <item><p>A <code>title</code> element with an implicit
+        <code>item</code> item in a <code>terms</code> element.</p></item>
+        <item><p>Another <code>title</code> element in a terms
+        <code>item</code> element without non-title content.</p></item>
+        <item><p>A <code>th</code> element in a <code>tr</code>
+        element.</p></item>
+        <item><p>A <code>title</code> element with an implicit
+        <code>item</code> element and an implicit <code>terms</code>
+        element otherwise.</p></item>
+      </list>
+    </item>
+  </list>
 </section>
 <!-- END notes -->
 
@@ -33,6 +74,224 @@
 <!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
+
+  <p>Create a simple list:</p>
+
+  <example><code mime="text/x-ducktype">
+* First list item
+* Second list item
+</code>
+<code mime="application/xml"><![CDATA[
+<list>
+  <item><p>First list item</p></item>
+  <item><p>Second list item</p></item>
+</list>
+]]></code>
+  </example>
+
+  <p>Nest lists with indentation:</p>
+
+  <example><code mime="text/x-ducktype">
+* First list item
+  * First subitem
+  * Second subitem
+* Second list item
+</code>
+<code mime="application/xml"><![CDATA[
+<list>
+  <item>
+    <p>First list item</p>
+    <list>
+      <item><p>First subitem</p></item>
+      <item><p>Second subitem</p></item>
+    </list>
+  </item>
+  <item><p>Second list item</p></item>
+</list>
+]]></code>
+  </example>
+
+  <p>Give the list a title:</p>
+
+  <example><code mime="text/x-ducktype">
+[list]
+. My Title
+* First list item
+* Second list item
+</code>
+<code mime="application/xml"><![CDATA[
+<list>
+  <title>My Title</title>
+  <item><p>First list item</p></item>
+  <item><p>Second list item</p></item>
+</list>
+]]></code>
+  </example>
+
+  <p>Use an explicit block declaration to add attributes to the list:</p>
+
+  <example><code mime="text/x-ducktype">
+[list numbered]
+* First list item
+* Second list item
+</code>
+<code mime="application/xml"><![CDATA[
+<list type="numbered">
+  <item><p>First list item</p></item>
+  <item><p>Second list item</p></item>
+</list>
+]]></code>
+  </example>
+
+  <p>Use an explicit block declaration to use a <code>steps</code> element:</p>
+
+  <example><code mime="text/x-ducktype">
+[steps]
+* First step
+* Second step
+</code>
+<code mime="application/xml"><![CDATA[
+<steps>
+  <item><p>First step</p></item>
+  <item><p>Second step</p></item>
+</steps>
+]]></code>
+  </example>
+
+  <p>Create a <code>terms</code> list:</p>
+
+  <example><code mime="text/x-ducktype">
+[terms]
+- First term
+* First term definition
+
+- Second term
+* Second term definition
+</code>
+<code mime="application/xml"><![CDATA[
+<terms>
+  <item>
+    <title>First term</title>
+    <p>First term definition</p>
+  </item>
+  <item>
+    <title>Second term</title>
+    <p>Second term definition</p>
+  </item>
+</terms>
+]]></code>
+  </example>
+
+  <p>Create a <code>terms</code> list with multiple titles on each item:</p>
+
+  <example><code mime="text/x-ducktype">
+[terms]
+- First term #1
+- First term #2
+* First term definition
+
+- Second term #1
+- Second term #2
+* Second term definition
+</code>
+<code mime="application/xml"><![CDATA[
+<terms>
+  <item>
+    <title>First term #1</title>
+    <title>First term #2</title>
+    <p>First term definition</p>
+  </item>
+  <item>
+    <title>Second term #1</title>
+    <title>Second term #2</title>
+    <p>Second term definition</p>
+  </item>
+</terms>
+]]></code>
+  </example>
+
+  <p>Create a <code>tree</code> list:</p>
+
+  <example><code mime="text/x-ducktype">
+[tree]
+* First item
+  * Subitem #1
+  * Subitem #2
+* Second item
+  * Second item subitem
+    * Subsubitem
+</code>
+<code mime="application/xml"><![CDATA[
+<tree>
+  <item>First item
+    <item>Subitem #1</item>
+    <item>Subitem #2</item>
+  </item>
+  <item>First item
+    <item>Second item subitem
+      <item>Subsubitem</item>
+    </item>
+  </item>
+</tree>
+]]></code>
+  </example>
+
+  <p>Create a basic table:</p>
+
+  <example><code mime="text/x-ducktype">
+[table]
+[tr]
+* One
+* Two
+[tr]
+* Three
+* Four
+</code>
+<code mime="application/xml"><![CDATA[
+<table>
+  <tr>
+    <td><p>One</p></td>
+    <td><p>Two</p></td>
+  </tr>
+  <tr>
+    <td><p>Three</p></td>
+    <td><p>Four</p></td>
+  </tr>
+</table>
+]]></code>
+  </example>
+
+  <p>Create a table with header cells:</p>
+
+  <example><code mime="text/x-ducktype">
+[table]
+[tr]
+- Odd
+- Even
+[tr]
+* One
+* Two
+[tr]
+* Three
+* Four
+</code>
+<code mime="application/xml"><![CDATA[
+<table>
+  <tr>
+    <th><p>Odd</p></th>
+    <th><p>Even</p></th>
+  </tr>
+  <tr>
+    <td><p>One</p></td>
+    <td><p>Two</p></td>
+  </tr>
+  <tr>
+    <td><p>Three</p></td>
+    <td><p>Four</p></td>
+  </tr>
+</table>
+]]></code>
+  </example>
 </section>
 <!-- END examples -->
 
@@ -40,6 +299,63 @@
 <!-- BEGIN spec -->
 <section id="spec">
   <title>Specification</title>
+
+  <p>If an indented line starts with either a period (U+002E), an asterisk (U+002A),
+  or a hyphen (U+002D), followed by a space (U+0020), then that line is using a block
+  shorthand notation. In each of these cases, the leading character and space create
+  one or more block declarations, and the rest of the line begins the block content.</p>
+
+  <p>If the indented line starts with a period and a space, it is a shorthand for a
+  block title. It is handled as if the period and space were replaced with
+  <code>[title]</code>, a newline, and enough spaces to indent two more spaces than
+  the indentation of the period.</p>
+
+  <p>If the indented line starts with an asterisk and a space:</p>
+
+  <list>
+    <item><p>If the current element is a <code>list</code> or <code>steps</code>
+    element, it is shorthand for an <code>item</code> element. It is handled as if
+    the asterisk and space were replaced with <code>[item]</code>, a newline, and
+    enough space to indent two more spaces than the indentation of the asterisk.</p></item>
+
+    <item><p>If the current element is an <code>item</code> element in a
+    <code>terms</code> element (possibly created with the hyphen shorthand described
+    below), then the rest of the line begins the block content of the item, effectively
+    ending the list of <code>title</code> elements. This shorthand creates an inner
+    indent for the item of two more than indentation of the asterisk, allowing you to
+    add multiple paragraphs or other block elements.</p></item>
+
+    <item><p>If the current element is a <code>tr</code> element, it is shorthand for
+    a <code>td</code> element. It is handled as if the asterisk and space were replaced
+    with <code>[td]</code>, a newline, and enough space to indent two more spaces than
+    the indentation of the asterisk.</p></item>
+
+    <item><p>Otherwise, a <code>list</code> element is implicitly created, and the line
+    is treated as a list item as in the first step.</p></item>
+  </list>
+
+  <p>If the indented line starts with a hyphen and a space:</p>
+
+  <list>
+    <item><p>If the current element is a <code>tr</code> element, it is shorthand for a
+    <code>th</code> element. It is handled as if the asterisk and space were replaced
+    with <code>[th]</code>, a newline, and enough space to indent two more spaces than
+    the indentation of the asterisk.</p></item>
+
+    <item><p>If the current element is an <code>item</code> element in a <code>terms</code>
+    element, and that element does not yet have non-title content, then it is shorthand for
+    a <code>title</code> element. Note that items in <code>terms</code> elements can have
+    multiple titles.</p></item>
+
+    <item><p>If the current element is a <code>terms</code> element, then is is shorthand
+    for an <code>item</code> element and a <code>title</code> element. The <code>item</code>
+    element can have more titles. The non-title content of the <code>item</code> element
+    starts with an asterisk, as described above.</p></item>
+
+
+    <item><p>Otherwise, a <code>terms</code> element is implicitly created, and the line
+    is treated as an item and title as in the first step.</p></item>
+  </list>
 </section>
 <!-- END spec -->
 
