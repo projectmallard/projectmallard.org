@@ -30,8 +30,8 @@ directives to declare namespaces, define entities, manage extensions, and more.<
 
   <list>
     <item>
-      <p>Pages may optionally have any number of parser directives at the
-      top, each starting with the <code>@</code> character, immediately
+      <p>Pages can have any number of parser directives at the
+      top, each starting with the <code>@</code> character and immediately
       followed by the directive name. Additional directive content may
       follow the directive name after a space. Directive content
       continues until the end of the line.</p>
@@ -39,7 +39,7 @@ directives to declare namespaces, define entities, manage extensions, and more.<
 
     <item>
       <p>A directive that starts with <code xref="#ducktype">ducktype/</code>
-      specifies the version of the Ducktype syntax in use, and may declare
+      specifies the version of the Ducktype syntax in use and may declare
       additional syntax extensions.</p>
     </item>
 
@@ -100,7 +100,7 @@ directives to declare namespaces, define entities, manage extensions, and more.<
 @ducktype/1.0
 @namespace if http://projectmallard.org/if/1.0/
 
-= A Page With Conditionals
+= A Page with Conditionals
 
 [if:if test=target:html]
 This is only output to HTML.]]></code>
@@ -114,7 +114,7 @@ This is only output to HTML.]]></code>
 @ducktype/1.0
 @define version 3.26
 
-= A Page With Entities
+= A Page with Entities
 
 This page describes MyApp $version;.]]></code>
   </example>
@@ -128,7 +128,7 @@ This page describes MyApp $version;.]]></code>
 @define appname $app(MyApp)
 @define version 3.26
 
-= A Page With Entities
+= A Page with Entities
 
 This page describes $appname; $version;.]]></code>
   </example>
@@ -142,7 +142,7 @@ This page describes $appname; $version;.]]></code>
 @define version 3.26
 @define appvers $appname; $version;
 
-= A Page With Entities
+= A Page with Entities
 
 This page describes $appvers;.]]></code>
   </example>
@@ -153,7 +153,7 @@ This page describes $appvers;.]]></code>
     <code mime="text/x-ducktype"><![CDATA[
 @define mallard http://projectmallard.org/
 
-= A Page With Entities
+= A Page with Entities
 
 Read all about $link[>>$mallard;](Mallard).]]></code>
   </example>
@@ -173,7 +173,7 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
 
   <p>The <em>directive name</em> must immediately follow the
   <code>@</code> character. The directive name is a name. It is followed
-  either by a space or the end of line. Directives may optionally have
+  by either a space or the end of line. Directives can have
   <em>directive content</em>. The directive content begins with the first
   non-space character after the directive name and continues to the end
   of line.</p>
@@ -187,13 +187,13 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
   <p>Some directives make use of a <em>word list</em>. The word
   list is a list formed by splitting the directive content on
   space characters, with all leading and trailing spaces stripped
-  from words, and with no empty words.</p>
+  from words and with no empty words.</p>
 
-  <p>This specification recognizes four directive names:
+  <p>This specification recognizes five directive names:
   <code>ducktype/1.0</code>, <code>define</code>, <code>encoding</code>,
   <code>include</code>, and <code>namespace</code>. Extensions may recognize
-  additional directives. To avoid conflicts, extension directive names should
-  start with the extension prefix followed by a colon character (U+003A).</p>
+  additional directives. To avoid conflicts, start extension directive names 
+  with the extension prefix and follow them with a colon character (U+003A).</p>
 
   <section id="ducktype">
     <title>The <code>ducktype/1.0</code> Directive</title>
@@ -205,7 +205,7 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
 
     <p>The <code>ducktype/1.0</code> directive specifies that the page
     is using version 1.0 of this specification. Future versions of this
-    specification may introduce additional syntax, and will provide an
+    specification may introduce additional syntax and will provide an
     updated directive to specify use of that version.</p>
 
     <p>A parser must generate an error if it encounters a directive
@@ -216,7 +216,7 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
     content to specify extensions. Each word should be of the form
     <code><var>prefix</var>/<var>version</var></code>, where
     <code><var>prefix</var></code> is a canonical prefix for the
-    extension, and <code><var>version</var></code> indicates the
+    extension and <code><var>version</var></code> indicates the
     version of the extension in use. For example, the first version
     of an extension to recognize inline AsciiDoc markup might use
     <code>asciidoc/1.0</code>.</p>
@@ -231,7 +231,7 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
       extensions introduce elements and attributes in different
       namespaces. Mallard extensions can be used in Ducktype by
       declaring a namespace and using them as normal. Ducktype
-      extensions can change parser behavior, and must be declared
+      extensions can change parser behavior and must be declared
       in the <code>ducktype/1.0</code> directive.</p>
     </note>
   </section>
@@ -248,7 +248,7 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
     <link xref="duck_attr">attribute values</link>. The first word of the
     directive is the entity name. The remaining directive content is the
     entity value. The entity value is not parsed when the entity is defined.
-    Rather, the entity value is stored as-is and is parsed on use. How it is
+    Rather, the entity value is stored as-is and parsed on use. How it is
     parsed depeneds on where it is used.</p>
 
     <p>An entity may be defined by multiple directives, in which case the last
@@ -256,16 +256,15 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
 
     <p>Additionally, parsers may provide a way to pass in entity definitions
     that override those defined in a file. However, those definitions are only
-    valid if an entity with the same name is defined in the file being parsed,
-    or in an included directive file. Any definition overrides not defined in
+    valid if an entity with the same name is defined in the file being parsed
+    or in an included directive file. Any definition overrides that are not defined in
     the file or its includes must be ignored, possibly with a warning.</p>
 
     <p>An entity is referenced in inline content or attribute values with the
     <code>$</code> character (U+0024), the name of the entity, and the
     <code>;</code> character (U+003B). Note that this entity reference syntax
-    is also used to insert special characters. The details for how to substitute
-    parsed values are covered in the pages <link xref="duck_inline"/> and
-    <link xref="duck_attr"/>.</p>
+    is also used to insert special characters. To learn how to substitute
+    parsed values, see <link xref="duck_inline"/> and <link xref="duck_attr"/>.</p>
   </section>
 
   <section id="encoding">
@@ -281,7 +280,7 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
     value of <code>UTF-8</code> must be recognized. Parsers are not
     required to recognize any other encodings.</p>
 
-    <p>It is recommended that the <code>encoding</code> directive, if
+    <p>The <code>encoding</code> directive, if
     present, should immediately follow the <code>ducktype/1.0</code>
     directive. Parsers may recognize a byte order mark at the beginning
     of a Ducktype file to begin parsing in UTF-16, UTF-32, or another
@@ -333,9 +332,9 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
         primary document.</p>
 
         <p>Parsers must attempt to detect recursive includes using absolute
-        paths whenever possible. It is possible that symbolic links or
-        redirects may bypass this detection. Parsers may implement an
-        arbitrary recursion depth limit to overcome this.</p>
+        paths whenever possible. To prevent symbolic links or
+        redirects from bypassing this detection, parsers may implement an
+        arbitrary recursion depth limit.</p>
       </item>
 
       <item><p>If the included file contains a <code>namespace</code>
@@ -343,7 +342,7 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
       main parser context.</p></item>
     </list>
 
-    <p>If extensions recognize additional directives, they should specify
+    <p>Extensions that recognize additional directives should specify
     the behavior of those directives in included files.</p>
   </section>
 
@@ -365,15 +364,15 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
     prefix. The remaining directive content is the namespace URI.</p>
 
     <!-- FIXME: multiple root elements? -->
-    <p>Namespaces work similarly to XML. Parsers can simply copy the
+    <p>Namespaces work similarly to XML. Parsers can copy the
     namespace declarations to the root XML output element, then use
     the prefixed element and attribute names as written in the Ducktype
     file. However, parsers may output namespaces in a different manner.</p>
 
     <p>Unlike XML, Ducktype namespace declarations can not be set or overridden
     on individual elements. All namespaces are declared at the top of a Ducktype
-    file or in included directive files. A namespace prefix may be set by
-    multiple directives, in which case the last declaration is used.</p>
+    file or in included directive files. If a namespace prefix is set by
+    multiple directives, the last declaration is used.</p>
 
     <p>As in XML, the <code>xml</code> namespace is automatically bound
     to the namespace URI <code>http://www.w3.org/XML/1998/namespace</code>.
