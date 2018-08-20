@@ -20,14 +20,14 @@
 
 <title>Concepts</title>
 
-<p>Like other leightweight syntaxes, paragraphs and other block elements
+<p>Like other lightweight syntaxes, paragraphs and other block elements in Mallard
 are generally delineated with blank lines. There is a special syntax for
 titles and subtitles of <link xref="duck_page">pages and sections</link>,
 a syntax for specifying <link xref="duck_block">block elements</link>, a
 syntax for recording <link xref="duck_info">info elements</link>, a syntax
 for <link xref="duck_inline">inline elements</link>, and a syntax for
-special <link xref="duck_directive">parser directives</link>. Everything
-is treated as one of these five cases. There are a few shorthand notations,
+special <link xref="duck_directive">parser directives</link>. All block elements are 
+treated as one of these five cases. There are a few shorthand notations,
 but they can always be defined in terms of some long-form syntax.</p>
 
 <p>The syntax is designed such that block and inline parsing can be done
@@ -37,7 +37,7 @@ implications. In particular, an open inline element would never prevent
 block syntax.</p>
 
 <p>Indentation is significant in Ducktype. Indentation is how you stay
-inside of block elements, and therefore how you nest block elements. It is
+inside of block elements and therefore how you nest block elements. It is
 not always necessary to use indentation to nest block content. The exact
 behavior is specified throughout this specification. Indentation is always
 some number of space characters. Tabs are not considered indentation
@@ -52,8 +52,8 @@ characters. In this specification, the following terms are used:</p>
   feed (U+000A), or a carriage return followed by a line feed.</p></item>
 
   <item><p>A <em>line</em> is an actual line of text, starting on the
-  character following a newline, and going through the following newline,
-  or to the end of the file if the file does not end in a newline.</p></item>
+  character following a newline and going through the following newline
+  (or to the end of the file if the file does not end in a newline).</p></item>
 
   <item><p>An <em>indented line</em> is the line after leading spaces
   have been stripped.</p></item>
@@ -67,17 +67,16 @@ characters. In this specification, the following terms are used:</p>
   the number of leading spaces required for subsequent elements to be child
   elements, generally the outer indent of the first child. It's possible
   for the outer indent and inner indent to be the same. In this case,
-  the first blank line will usually break out of the element, except in
+  the first blank line will usually break out of the element except in
   a few special cases for lists and tables.</p></item>
 </list>
 
 <p>In addition, certain elements need special treatment to make implicit
-paragraphs and other line-oriented features work the way users expect.
-The following terms are used:</p>
+paragraphs and other line-oriented features work the way users expect:</p>
 
 <list>
   <item><p>A <em>leaf element</em> is a block or informational element that
-  takes inline content, rather than further block or info content. Beause of
+  takes inline content rather than further block or info content. Beause of
   Mallard's strict content model, only leaf elements may contain text
   nodes. The default set of leaf elements is <code>p</code>, <code>screen</code>,
   <code>code</code>, <code>title</code>, <code>subtitle</code>, <code>desc</code>,
@@ -92,7 +91,7 @@ The following terms are used:</p>
   <item><p>A <em>tree item</em> is an <code>item</code> element whose parent
   element is either a <code>tree</code> element or another tree item. Tree
   items are peculiar in Mallard. They allow leading inline content without
-  an extra leaf element, but then allow a sequence of <code>item</code>
+  an extra leaf element but then allow a sequence of <code>item</code>
   elements.</p></item>
 
   <item><p>An <em>external element</em> is an element whose namespace URI
