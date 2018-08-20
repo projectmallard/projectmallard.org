@@ -110,7 +110,7 @@ yelp-build html *.page</screen>
 
 <p>The <sys>yelp-tools</sys> package contains various utilities to help you
 build and manage your documentation. See
-<link href="https://wiki.gnome.org/Apps/Yelp/Tools"/> for more information.</p>
+<link href="http://yelp.io/tools/"/> for more information.</p>
 </section>
 
 <section id="topic">
