@@ -1,0 +1,295 @@
+@namespace e http://projectmallard.org/experimental/
+@namespace xi http://www.w3.org/2001/XInclude
+
+= Learn Ducktype
+  [topic .tutorial]
+@link[guide >index group=ducktype]
+
+@revision[version=0.1 date=2018-08-20 status=incomplete]
+
+@credit[author copyright]
+  @name Shaun McCance
+  @email shaunm@gnome.org
+  @years 2018
+
+[-] FIXME
+[-] @xi:include[>>../../cc-by-sa-3-0.xml]]
+
+@desc Create a multiple-page Mallard document without XML.
+
+[note .pmo-source]
+  . Learn by Example
+  This page was written in Ducktype.
+  $link[>ducktype-src](Read the source markup) for this page to
+  learn Ducktype from real-world examples.
+
+In this tutorial, you will learn how to create a simple multiple-page
+Ducktype document by creating a document for the fictitious $app(Beanstalk)
+application. This tutorial closely follows the $link[>tenminutes] for Mallard XML.
+It does not assume you know XML, though some of the links to further
+conceptual information use the XML syntax.
+
+Ducktype is a $em(compact) or $em(lightweight) syntax for Mallard.
+A Ducktype page can be directly converted to a Mallard page.
+A Ducktype document is a Mallard document, with all the structure
+and navigation that comes with Mallard.
+It simply uses a different syntax.
+Some tools even allow making a Mallard document with a mix of Ducktype
+and Mallard XML files, though this tutorial does not cover that.
+
+A Ducktype document is composed of multiple independent pages.
+Each page is kept in a separate file, and a processing tool aggregates
+them together, automatically creating links and navigational aids.
+There are two primary types of pages: $link[>/1.0/mal_page#topic](topic
+pages) and $link[>/1.0/mal_page#guide](guide pages).
+Topic pages present some piece of information to the reader.
+This might be a tutorial, a conceptual overview, reference material,
+or any other type of content.
+Guide pages serve as the navigational glue between topics,
+helping readers find and explore content.
+
+
+== First Page
+   [#first]
+
+Begin making a Ducktype document by writing the front page in any text editor.
+Generally, the front page of any document will be a guide page, as its purpose
+is to help users navigate to other content.
+In Ducktype, the front page of any document is always named $file(index.duck).
+
+[listing]
+  . $file(index.duck)
+
+  [code]
+  = Beanstalk Help
+    $[type=guide]
+
+This simple example is a valid Ducktype guide page.
+Taken alone, it is also a valid Ducktype document.
+
+Every page starts with a title, denoted with a leading equals sign and space.
+Following the title, you can add a list of attributes on an indented line
+surrounded by square brackets. Here we have set the $code(type) attribute
+to $code(guide), indicating the page is a guide page.
+
+The $code(type) attribute is very common in Mallard and Ducktype, so Ducktype
+provides a shorthand syntax for it. Just omit the $code(type=) part.
+(There are a few other attribute shorthands, some of which will be covered
+in this tutorial.)
+
+[listing]
+  . $file(index.duck)
+
+  [code]
+  = Beanstalk Help
+    $[$e:hi(guide)]
+
+
+== View Your Document
+   [#view]
+
+You now have a simple document, but you can only view the raw markup
+in a text editor.
+To view formatted output, you first need to convert your document to XML,
+then process it with a Mallard processing tool.
+Some tools can do this in a single step, but we'll do it in two steps.
+
+To convert Ducktype to Mallard, use the $cmd(ducktype) tool, part of the
+$sys(mallard-ducktype) package. $sys(mallard-ducktype) is available on
+the Pythin Package Index (PyPI).
+Use the $cmd(pip3) command to install it.
+
+[screen]
+  pip3 install mallard-ducktype
+
+To convert a Ducktype page to a Mallard page, call $cmd(ducktype) and
+pass the Ducktype page as n argument.
+
+[screen]
+  ducktype index.duck
+
+This will output a Mallard XML file called $file(index.page).
+
+The Gnome help viewer $app(Yelp) has native support for Mallard XML.
+You can view the document by calling $cmd(yelp) from the command line
+and passing it the full path to the directory containing the generated
+page file. For example, if you have placed $file(index.page) in
+$file(/home/drake/mydocument/), enter this at the command line:
+
+[screen]
+  yelp /home/drake/mydocument/
+
+Alternatively, you can build static HTML pages using the $cmd(yelp-build)
+tool, part of the $sys(yelp-tools) package:
+
+[screen]
+  yelp-build html *.page
+
+The $sys(yelp-tools) package contains various utilities to help you
+build and manage your documentation.
+See $link[>>http://yelp.io/tools/] for more information.
+
+
+== Another Page
+   [#topic]
+
+Unless you're creating a simple set of instructions for a friend or
+colleague, you probably want to have multiple pages in your document.
+Add another page to the document by creating a new file:
+
+[listing]
+  . $file(planting.duck)
+  [code]
+  = Planting Beans
+    $[topic]
+
+Notice that the $code(type) attribute is $code("guide") in
+$file(index.duck) and $code("topic") in $file(planting.duck).
+Since $file(index.duck) is a guide page, it can have links inserted
+automatically to other pages. In Mallard and Ducktype, guides don't
+have to specify which pages they link to. Instead, pages can specify
+that guides should link to them. Do this by adding a link element to
+$file(planting.duck):
+
+[listing]
+  . $file(planting.duck)
+  [code]
+  = Planting Beans
+    $[topic]
+  $e:hi(@link[guide xref=index])
+
+The $code(link) element here is a type of informational element.
+Informational elements can follow headings and block elements.
+They start with an at sign and have a name, then possibly an
+attribute list and content. In this case, the $code(link) element
+has two attributes: $code(type) and $code(xref). The $code(xref)
+element is also very common, so Ducktype has a shorthand notation
+for it.
+
+[listing]
+  . $file(planting.duck)
+  [code]
+  = Planting Beans
+    $[topic]
+  @link[guide $e:hi(>index)]
+
+The $code(link) element specifies that this page should be linked to
+from the guide page $code(index), which we created above.
+
+Convert both pages to Ducktype, then to HTML:
+
+[screen]
+  ducktype *.duck
+  yelp-build *.page
+
+You'll see that the front page now has a link to this new page.
+This is one of the unique features of Mallard and Ducktype.
+Rather than requiring pages to specify everything they link to,
+Mallard allows pages to insert themselves into other guide pages.
+This makes it possible to add pages for plugins and additional
+functionality without modifying the original source pages.
+
+
+== Another Guide
+   [#guide]
+
+You can add additional guide pages to your document. This allows
+you to organize content to match what your readers are looking for.
+Add a guide page to link to ways you can use magic beans.
+
+[listing]
+  . $file(uses.duck)
+  [code]
+    = Bean Uses
+      $[guide]
+    @link[guide >index]
+    @link[topic >planting]
+
+Like $file(planting.duck), this page has a guide link to $code(index).
+If you convert all the pages to HTML again, you'll see that the front
+page now has two links.
+
+This page adds a new type of link. Topic links are the inverse of guide
+links. When a guide page has a topic link to another page, it's as if
+the other page had a guide link to the guide page. Despite the name,
+topic links can link to topic pages or guide pages.
+
+If you view the “Planting Beans” page, you'll see it has links at the
+top and bottom to both “Beanstalk Help” and “Bean Uses”.  Adding a page
+to a guide is like adding it to a section in a traditional linear document,
+except that pages can be linked to from multiple guides.  This allows you
+to provide multiple ways to navigate to a page to better match how your
+readers are thinking.
+
+
+== Add Content
+   [#content]
+
+Currently, there's no real content in $file(planting.duck). Add content
+to explain to the user how to plant magic beans. The following example
+shows a basic paragraph and a list.
+
+[listing]
+  . $file(planting.duck)
+  [code]
+    = Planting Beans
+      $[topic]
+    @link[guide >index]
+
+    $e:hi(By the end of this page, you will be able to plant your magic
+    beans and nurture them into a bean sprout.
+
+    $* Dig a hole 5cm deep.
+    $* Place your magic beans in the hole.
+    $* Fill the hole with clean dirt and pat it level.
+    $* Water daily.)
+
+Paragraphs in Ducktype are implicit and separated by blank lines.
+List items are introduced with an asterisk and a space.
+
+This example creates a simple $code(list) element. Mallard actually
+has a more specific element for a list of steps: the $code(steps)
+element. You can use $code(steps) instead using the Ducktype block
+element notation.
+
+[listing]
+  . $file(planting.duck)
+  [code]
+    = Planting Beans
+      $[topic]
+    @link[guide >index]
+
+    By the end of this page, you will be able to plant your magic
+    beans and nurture them into a bean sprout.
+
+    $e:hi([steps])
+    $* Dig a hole 5cm deep.
+    $* Place your magic beans in the hole.
+    $* Fill the hole with clean dirt and pat it level.
+    $* Water daily.
+
+[--
+FIXME:
+This is an unsatisfactory end for the Ducktype tutorial.
+It's fine for XML, where people know the syntax and they
+can just go look at the element reference. Write more,
+or do followup tutorials?
+--]
+
+[--
+
+<section id="learnmore">
+<title>Read More and Explore</title>
+
+<p>Using the information in this tutorial, you can create a simple Mallard
+document with any number of pages.  Mallard offers more features that allow
+you to create richer documents with more useful links.  Try adding more
+content and additional pages to your document.</p>
+
+<p>To learn more, read more of the <link xref="index">Mallard tutorials</link>.
+Or read the <link xref="/1.0/index">Mallard language specification</link>
+to see a complete list of what Mallard offers.</p>
+</section>
+
+</page>
+--]

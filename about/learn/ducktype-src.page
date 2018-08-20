@@ -1,0 +1,28 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="pmo-source"
+      id="ducktype-src">
+
+<info>
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2018</years>
+  </credit>
+  <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Source markup for Learn Ducktype.</desc>
+</info>
+
+<title>Learn Ducktype Source</title>
+
+<p>This is the source markup for <link xref="ducktype"/>.  It is written in
+Ducktype.</p>
+
+<listing>
+<title><file>ducktype.duck</file></title>
+<code>
+<include xmlns="http://www.w3.org/2001/XInclude" href="ducktype.duck" parse="text"/>
+</code>
+</listing>
+
+</page>

@@ -41,7 +41,9 @@ inside of block elements, and therefore how you nest block elements. It is
 not always necessary to use indentation to nest block content. The exact
 behavior is specified throughout this specification. Indentation is always
 some number of space characters. Tabs are not considered indentation
-characters. In this specification, the following terms are used:</p>
+characters.</p>
+
+<p>In this specification, the following terms are used:</p>
 
 <list>
   <item><p>A <em>name</em> is a sequence of 
