@@ -173,7 +173,7 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
 
   <p>The <em>directive name</em> must immediately follow the
   <code>@</code> character. The directive name is a name. It is followed
-  by either a space or the end of line. Directives can have
+  by either a space or the end of line. Directives may have
   <em>directive content</em>. The directive content begins with the first
   non-space character after the directive name and continues to the end
   of line.</p>
