@@ -30,7 +30,7 @@ and tables cells using leading periods, hyphens, and asterisks.</p>
 
   <list>
     <item><p>List items and table cells can be written with regular
-    <link xref="duck_block">block elements</link>, or with the shorthand
+    <link xref="duck_block">block elements</link> or with the shorthand
     syntax detailed here.</p></item>
 
     <item><p><code>. </code>A leading period and space creates a block
@@ -47,8 +47,8 @@ and tables cells using leading periods, hyphens, and asterisks.</p>
         element or tree item.</p></item>
         <item><p>A <code>td</code> element in a <code>tr</code>
         element.</p></item>
-        <item><p>An <code>item</code> element with an implicit
-        <code>list</code> element otherwise.</p></item>
+        <item><p>Otherwise, an <code>item</code> element with an implicit
+        <code>list</code> element.</p></item>
       </list>
     </item>
 
@@ -61,9 +61,9 @@ and tables cells using leading periods, hyphens, and asterisks.</p>
         <code>item</code> element without non-title content.</p></item>
         <item><p>A <code>th</code> element in a <code>tr</code>
         element.</p></item>
-        <item><p>A <code>title</code> element with an implicit
+        <item><p>Otherwise, a <code>title</code> element with an implicit
         <code>item</code> element and an implicit <code>terms</code>
-        element otherwise.</p></item>
+        element.</p></item>
       </list>
     </item>
   </list>
@@ -115,13 +115,13 @@ and tables cells using leading periods, hyphens, and asterisks.</p>
 
   <example><code mime="text/x-ducktype">
 [list]
-. My Title
+. My List Title
 * First list item
 * Second list item
 </code>
 <code mime="application/xml"><![CDATA[
 <list>
-  <title>My Title</title>
+  <title>My List Title</title>
   <item><p>First list item</p></item>
   <item><p>Second list item</p></item>
 </list>
@@ -300,12 +300,12 @@ and tables cells using leading periods, hyphens, and asterisks.</p>
 <section id="spec">
   <title>Specification</title>
 
-  <p>If an indented line starts with either a period (U+002E), an asterisk (U+002A),
+  <p>If an indented line starts with a period (U+002E), an asterisk (U+002A),
   or a hyphen (U+002D), followed by a space (U+0020), then that line is using a block
   shorthand notation. In each of these cases, the leading character and space create
   one or more block declarations, and the rest of the line begins the block content.</p>
 
-  <p>If the indented line starts with a period and a space, it is a shorthand for a
+  <p>If the indented line starts with a period and a space, it is shorthand for a
   block title. It is handled as if the period and space were replaced with
   <code>[title]</code>, a newline, and enough spaces to indent two more spaces than
   the indentation of the period.</p>
@@ -343,18 +343,17 @@ and tables cells using leading periods, hyphens, and asterisks.</p>
     the indentation of the asterisk.</p></item>
 
     <item><p>If the current element is an <code>item</code> element in a <code>terms</code>
-    element, and that element does not yet have non-title content, then it is shorthand for
+    element, and that element does not yet have non-title content, it is shorthand for
     a <code>title</code> element. Note that items in <code>terms</code> elements can have
     multiple titles.</p></item>
 
-    <item><p>If the current element is a <code>terms</code> element, then is is shorthand
+    <item><p>If the current element is a <code>terms</code> element, it is shorthand
     for an <code>item</code> element and a <code>title</code> element. The <code>item</code>
     element can have more titles. The non-title content of the <code>item</code> element
     starts with an asterisk, as described above.</p></item>
 
-
     <item><p>Otherwise, a <code>terms</code> element is implicitly created, and the line
-    is treated as an item and title as in the first step.</p></item>
+    is treated like an item and title as in the first case.</p></item>
   </list>
 </section>
 <!-- END spec -->
