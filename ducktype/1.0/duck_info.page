@@ -39,10 +39,10 @@ block elements. Ducktype provides a special syntax to write info elements.</p>
     <link xref="duck_attr">attribute list</link>.</p></item>
 
     <item><p>The remaining content after the element name and optional
-    attribute list is element content, and is parsed as
+    attribute list is element content and is parsed as
     <link xref="duck_inline">inline content</link>.</p></item>
 
-    <item><p>An info element may have child elements, also using the info
+    <item><p>An info element may have child elements, which also use the info
     element syntax, indented on subsequent lines.</p></item>
   </list>
 </section>
@@ -82,46 +82,44 @@ block elements. Ducktype provides a special syntax to write info elements.</p>
   <p>An info segment may follow a page or section title, subtitle, or
   attribute list (although it may not be between them). An info segment
   may also follow a block declaration. It begins with a line (possibly
-  indented) starting with the <code>@</code> character. Each line starting
+  indented) starting with the <code>@</code> character. Each line that starts
   with <code>@</code> is an informational element. The Mallard
   <code>info</code> element is implicit.</p>
 
   <p>If the first informational element is indented, then the outer and
   inner indent of the implicit <code>info</code> element is set to that
   indentation level. For block info sections, the first informational
-  element also sets the inner indent of the containing block, as it's
+  element also sets the inner indent of the containing block because it's
   the first line after the declaration. The <code>info</code> element
   ends in the following cases:</p>
 
   <list>
-    <item><p>A line is encountered with an indent less than the outer
+    <item><p>A line is encountered with an indent that is less than the outer
     indent of the <code>info</code> element.</p></item>
 
-    <item><p>A line is encountered with an indent equal to the outer
+    <item><p>A line is encountered with an indent that is equal to the outer
     indent of the <code>info</code> element that does not start with
     the <code>@</code> character.</p></item>
 
     <item><p>A blank line is encountered in a block info segment (but
     not for pages and sections) and the outer indent of the <code>info</code>
     element is the same as the outer indent of the containing block. This
-    is a consequence of the hanlding of newlines in block elements with
+    is a consequence of the handling of newlines in block elements with
     unindented child content. Blank lines do not close the <code>info</code>
     element if it is indented.</p></item>
   </list>
 
   <p>The <code>@</code> character must be followed by a name. The name
-  may be followed either by a left square bracket or whitespace. If it
-  is followed by a left square bracket, an attribute list is opened. After
-  the attribute list or name, there may be text content. If the element is
+  may be followed either by a left square bracket or whitespace. If the name
+  is followed by a left square bracket, an attribute list is opened. There may be text content after
+  the attribute list or name. If the element is
   a leaf element, the text is added as direct text content of the element.
   Otherwise, a Mallard <code>p</code> element is implicitly created.</p>
 
-  <p>If the line after an informational element is indented past the outer
+  <p>If the line after an informational element is indented beyond the outer
   indent of the info element, that line's indentation becomes the inner indent
   of the info element. Subsequent non-blank lines continue to be child
-  content as long as they are indented to at least this level. Bear in
-  mind that further indent may create child elements of child elements,
-  and so on.</p>
+  content as long as they are indented to at least this level. Further indentation may create child elements of child elements.</p>
 
   <p>If a line in the info section does not start with the <code>@</code>
   character, it is text content. If the current element is not a leaf
@@ -136,12 +134,12 @@ block elements. Ducktype provides a special syntax to write info elements.</p>
   added to the element's text content.</p>
 
   <p>If a blank line is encountered in an informational leaf element,
-  then it closes that element, unless it is a verbatim element with an
+  then the blank line closes that element, unless it is a verbatim element with an
   inner indent greater than its outer indent. If the element is an
   indented verbatim element, the blank line is added to the content.</p>
 
   <p>A leaf informational element may have an inner indent equal to its
-  outer indent, in which it consumes subsequent text lines (without a
+  outer indent in which it consumes subsequent text lines (without a
   leading <code>@</code> character) until a blank line or a line with
   a smaller outer indent. A non-leaf informational element cannot have
   any child content without an extra inner indent. Note that this is
