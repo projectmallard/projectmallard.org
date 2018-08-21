@@ -13,4 +13,39 @@
 
 <title>Mallard Tools</title>
 
+<terms>
+  <item>
+    <title><link href="http://yelp.io/FIXME/">yelp-xsl</link></title>
+    <p>The <sys>yelp-xsl</sys> package contains XSLT stylesheets for transforming
+    Mallard, DocBook, and DITA. All source formats output to a common HTML layout.
+    These stylesheets serve as the foundation of <sys>yelp-tools</sys>,
+    <sys>yelp</sys>, and <sys>pintail</sys>.</p>
+  </item>
+
+  <item>
+    <title><link href="http://yelp.io/FIXME/">yelp-tools</link></title>
+    <p>The <sys>yelp-tools</sys> package contains FIXME...</p>
+  </item>
+
+  <item>
+    <title><link href="http://yelp.io/FIXME/">yelp</link></title>
+    <p>FIXME</p>
+  </item>
+  <item>
+    <title><link href="http://itstool.org/">itstool</link></title>
+    <p>FIXME</p>
+  </item>
+</terms>
+<!--
+yelp-xsl
+yelp-tools
+yelp
+itstool
+pintail
+mallard-ducktype
+asciidoctor-mallard
+gedit
+builder
+-->
+
 </page>
