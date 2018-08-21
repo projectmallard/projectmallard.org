@@ -31,7 +31,7 @@ Attribute lists may follow headers.</p>
 
   <list>
     <item>
-      <p>Pages can have any number of parser directives at the
+      <p>Pages may have any number of parser directives at the
       top, each starting with the <code>@</code> character. See
       <link xref="duck_directive"/> for details.</p>
     </item>
@@ -49,7 +49,7 @@ Attribute lists may follow headers.</p>
     </item>
 
     <item>
-      <p>A page and section title can be followed by a subtitle
+      <p>A page and section title may be followed by a subtitle
       on a line that starts with hyphens that are followed by a space. The number of
       hyphens matches the number of equals signs used for the corresponding
       title.</p>
