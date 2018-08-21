@@ -36,7 +36,7 @@ with attributes, using a single, consistent syntax.</p>
     <item><p>Inline elements start with <code>$</code> followed by a
     name.</p></item>
 
-    <item><p>Inline element content is surrounded by parentheses, and may
+    <item><p>Inline element content is surrounded by parentheses and may
     contain further inline markup.</p></item>
 
     <item><p>Inline elements may have an
@@ -94,12 +94,12 @@ The Ducktype specification is at <link href="http://projectmallard.org/ducktype/
   <title>Specification</title>
 
   <p>Inline content is parsed after all block and structural parsing is
-  finished. Consequently, mismatched parentheses or brackets in inline
-  content has no effect on block structure.</p>
+  finished. Consequently, mismatched parentheses and brackets in inline
+  content have no effect on block structure.</p>
 
   <p>An inline string is parsed for inline elements and entity references.
   Inline markup starts with <code>$</code> (U+0024) followed by a name.
-  If the name is followed by either a left square bracket <code>[</code>
+  If the name is followed by a left square bracket <code>[</code>
   (U+005B) or a left parenthesis <code>(</code> (U+0028), it is an inline
   element. If the name is followed by a semicolon <code>;</code> (U+003B),
   it is an entity reference.</p>
@@ -114,18 +114,18 @@ The Ducktype specification is at <link href="http://projectmallard.org/ducktype/
 
   <p>If an inline element name is followed by <code>[</code>, then that
   square bracket is the start of an <link xref="duck_attr">attribute list</link>.
-  The attribute list continues until it is closed. If the next characters
+  The attribute list continues until it is closed. If the next character
   after the closing right square bracket is <code>(</code>, then that
-  parenthesis starts the element content. Otherwise, the element is empty,
+  parenthesis starts the element content. Otherwise, the element is empty
   and has only attributes.</p>
 
   <p>If an inline element has a left parenthesis following either the
   element name or the optional attribute list, that parenthesis starts the
   inline element content. Inline element content is parsed as an inline
-  string, and may contain further inline elements or entity references.
-  The element content may contain parenthesis, either as markup for further
-  inline elements, or an non-markup characters in the actual content. The
-  parser must track non-markup parentheses, and close the element content
+  string and may contain further inline elements or entity references.
+  The element content may contain parentheses, either as markup for further
+  inline elements or as non-markup characters in the actual content. The
+  parser must track non-markup parentheses and close the element content
   when the first unbalanced, unescaped right parenthesis is reached. For
   example, the following is correct markup:</p>
 
@@ -143,7 +143,7 @@ The Ducktype specification is at <link href="http://projectmallard.org/ducktype/
     <item><p>If the name is a <link xref="duck_directive#define">user-defined
     entity</link>, the content of that entity is parsed as an inline string,
     and the result is used. Note that each entity is parsed in its own
-    subcontext, so you cannot span an entity reference across multiple
+    subcontext, so an entity reference cannot span across multiple
     entities. Parsers must detect cycles in entity references and produce
     an error.</p></item>
 
