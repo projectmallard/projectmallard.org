@@ -35,19 +35,17 @@ with indentation.</p>
     </item>
 
     <item>
-      <p>Block elements aside from paragraphs start with block
-      declarations on their own line. Block declarations start with
+      <p>Block elements (except paragraphs) start with block
+      declarations on a separate line. Block declarations start with
       a square bracket followed by the element name.</p>
     </item>
 
     <item>
-      <p>Block declarations my optionally contain
-      <link xref="duck_attr">attribute lists</link>.</p>
+      <p>Block declarations can contain <link xref="duck_attr">attribute lists</link>.</p>
     </item>
 
     <item>
-      <p>Block elements can be nested arbitrarily deep using
-      indentation.</p>
+      <p>Block elements can be nested as deep as necessary using indentation.</p>
     </item>
 
     <item>
@@ -114,31 +112,31 @@ This is a paragraph in a note.</code>
 <section id="spec">
   <title>Specification</title>
 
-  <p>A block element starts with a block declaration (except for various shorthand
-  cases described below). A block declaration begins an indented line with a left
+  <p>A block element starts with a block declaration (except for several shorthand
+  cases, which are described below). A block declaration begins an indented line with a left
   square bracket (<code>[</code>) and a name, followed by either a right square
   bracket (<code>]</code>) or whitespace. If whitespace follows the block name,
   an <link xref="duck_attr">attribute list</link> is opened, and the block
   declaration continues until it is closed, possibly spanning multiple lines.
-  There must be no non-whitespace content on the line following the end of the
+  There must not be any non-whitespace content on the line that follows the end of the
   block declaration.</p>
 
   <p>The line following the block declarataion defines that block element's inner
-  indent. If that line is blank, or if it's indented less than the outer indent
+  indent. If that line is blank or indented less than the outer indent
   of the block element, the block element is empty. If a block element has an
-  inner indent greater than its outer indent, it continues consuming child
+  inner indent greater than its outer indent, the block element continues consuming child
   content as long as non-blank lines are indented to at least that level.</p>
 
-  <p>If a block element has an inner indent equal to its outer indent, it
+  <p>If a block element has an inner indent equal to its outer indent, the block element
   consumes child content according to the following rules:</p>
 
   <list>
     <item><p>Starter content refers to an info segment, a <code>title</code>
     element, a <code>desc</code> element, and a <code>cite</code> element. It
-    may optionally be consumed, as described in the following steps.</p></item>
+    can be consumed as described in subsequent cases.</p></item>
 
     <item><p>If the block element is a <code>list</code>, <code>steps</code>,
-    <code>terms</code> or <code>tree</code> element, it consumes optionally
+    <code>terms</code> or <code>tree</code> element, it can consume
     starter content and then all elements at the same indent level as long as
     they are <code>item</code> elements. Note that the <code>item</code> elements
     themselves may consume same-level child content. Blank lines do not affect
@@ -149,29 +147,29 @@ This is a paragraph in a note.</code>
     that tree items cannot take block content, so any block content at the
     inner indent level of a tree item must break out of the entire tree. This
     includes implicit paragraphs created for normal text or
-    <link xref="duck_fence">fences</link> after there  have already been child
+    <link xref="duck_fence">fences</link> after there have already been child
     tree items.</p></item>
 
-    <item><p>If the block element is a <code>table</code> element, it consumes
-    optionally starter content and then all elements at the same indent level as
+    <item><p>If the block element is a <code>table</code> element, it can consume
+    starter content and then all elements at the same indent level as
     long as they are <code>thead</code>, <code>tfoot</code>, <code>tbody</code>,
     or <code>tr</code> elements. Note that these elements may themselves consume
     same-level child content. Blank lines do not affect this case.</p></item>
 
     <item><p>If the block element is a <code>thead</code>, <code>tfoot</code>, or
-    <code>tbody</code> element, it consumes optionally starter content and then
+    <code>tbody</code> element, it can consume starter content and then
     all elements at the same indent level as long as they are <code>tr</code>
     elements. Note that the <code>tr</code> elements may themselves consume
     same-level child content. Blank lines do not affect this case.</p></item>
 
-    <item><p>If the block element is a <code>tr</code> element, it consumes
-    optionally starter content and then all elements at the same indent level
+    <item><p>If the block element is a <code>tr</code> element, it can consume
+    starter content and then all elements at the same indent level
     as long as they are <code>th</code> or <code>td</code> elements. Note that
     these elements may themselves consume same-level child content. Blank lines
     do not affect this case.</p></item>
 
-    <item><p>Otherwise, the element consumes optionally starter content followed
-    by at most one block element at the same level. A blank line always breaks
+    <item><p>Otherwise, the element can consume starter content followed
+    by a maximum of one block element at the same level. A blank line always breaks
     out of the block element in this case.</p></item>
   </list>
 
@@ -184,8 +182,8 @@ This is a paragraph in a note.</code>
   <p>Leaf elements, external elements, and tree items that do not yet have child
   items can consume normal text and fenced blocks. For these elements, if the
   inner indent is the same as the outer indent, they consume normal text and
-  fences as long as they are at the indent level, until a newline is encountered.
-  If the inner indent is greater than the outer indent, the same rule applies,
+  fences, as long as they are at the indent level, until a newline is encountered.
+  If the inner indent is greater than the outer indent, the same rule applies
   except inside verbatim elements, which consume the newline. Note that newlines
   in fences do not break out of elements.</p>
 </section>
