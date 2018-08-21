@@ -68,7 +68,7 @@ markup, allowing you to write content without escaping.</p>
   Exec=yelp %u
   ]]]</code></example>
 
-  <p>The fence content doesn’t have to be indented, as long as the opening
+  <p>The fence content doesn’t have to be indented as long as the opening
   delimiter is correctly indented:</p>
 
   <example><code mime="text/x-ducktype">
@@ -79,7 +79,7 @@ Name=Help
 Exec=yelp %u
 ]]]</code></example>
 
-  <p>You can also use a fence on a single line:</p>
+  <p>Or, use a fence on a single line:</p>
 
   <example><code mime="text/x-ducktype">
 [code]
@@ -107,16 +107,15 @@ Exec=yelp %u
   content, is taken as the first line of the fence. Otherwise, the line after
   the opening fence delimiter is the first line.</p>
 
-  <p>Lines within the fence do not need to be indented to the outer indent off
+  <p>Lines within the fence do not need to be indented to the outer indent of
   the fence. The fence itself keeps the content correctly nested. However, the
   writer may choose to indent the fence content, and the indentation will be
   trimmed.</p>
 
   <p>The leading spaces of the first line sets the indentation trim level of
-  the fence. All lines within the fence will have at most that number of leading
-  spaces removed. Note that some lines may have fewer leading space characters,
-  especially blank lines. Those lines will simply have all leading spaces
-  removed.</p>
+  the fence. All lines within the fence will have a maximum of the number of leading
+  spaces removed. If lines have fewer leading space characters,
+  especially blank lines, those lines will have all leading spaces removed.</p>
 
   <p>A fence ends with a line that contains only <code>]]]</code>, possibly with
   leading or trailing whitespace. The line with the closing fence delimiter does
