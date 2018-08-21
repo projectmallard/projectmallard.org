@@ -30,7 +30,7 @@ directives to declare namespaces, define entities, manage extensions, and more.<
 
   <list>
     <item>
-      <p>Pages can have any number of parser directives at the
+      <p>Pages may have any number of parser directives at the
       top, each starting with the <code>@</code> character and immediately
       followed by the directive name. Additional directive content may
       follow the directive name after a space. Directive content
