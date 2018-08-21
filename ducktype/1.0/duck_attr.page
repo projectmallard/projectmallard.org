@@ -31,13 +31,13 @@ allow certain shorthand notations.</p>
 
   <list>
     <item><p>An attribute list starts with a left square bracket and
-    continues to the first unescaped and unquoted right sqrare bracket.</p></item>
+    continues to the first unescaped and unquoted right square bracket.</p></item>
 
     <item><p>Attribute lists can occur after
-    <link xref="duck_page">headers</link>, on
-    <link xref="duck_info">info elements</link>, on
-    <link xref="duck_block">block elements, and on
-    <link xref="duck_inline">inline elements</link>. On block elements,
+    <link xref="duck_page">headers</link>, in
+    <link xref="duck_info">info elements</link>, in
+    <link xref="duck_block">block elements, and in
+    <link xref="duck_inline">inline elements</link>. In block elements,
     attribute lists are part of the block declaration.</link></p></item>
 
     <item><p>An attribute list is a space-separated list of attributes.
@@ -49,7 +49,7 @@ allow certain shorthand notations.</p>
 
     <item>
       <p>An attribute without an equals sign is a bare word. Bare
-      words are shorthand attributes as follows:</p>
+      words are shorthand attributes:</p>
       <list>
         <item><p>If the bare word starts with <code>.</code>, it
         is a <code>style</code> attribute.</p></item>
@@ -108,7 +108,7 @@ allow certain shorthand notations.</p>
 [note .warning]
   This is a warning.</code></example>
 
-  <p>Use shorthand notation for a <code>xref</code> attribute on a
+  <p>Use shorthand notation for a <code>xref</code> attribute in a
   <code>link</code> <link xref="duck_inline">inline element</link>:</p>
   <example><code mime="text/x-ducktype">
 Learn more about $xref[>duck_inline](inline elements).</code></example>
@@ -121,43 +121,41 @@ Learn more about $xref[>duck_inline](inline elements).</code></example>
   <title>Specification</title>
 
   <p>Attribute lists occur in four places: header attribute lists for
-  <link xref="duck_page">pages and sections</link>, on
-  <link xref="duck_info">informational elements</link>, on
-  <link xref="duck_block">block elements</link>, and on
+  <link xref="duck_page">pages and sections</link>, in
+  <link xref="duck_info">informational elements</link>, in
+  <link xref="duck_block">block elements</link>, and in
   <link xref="duck_inline">inline elements</link>.
   For header, informational, and inline elements attribute lists, the attribute
   list starts with a left square bracket. For block attribute lists, the block
   declaration itself starts with a left square bracket, so the attribute list
   begins with the first whitespace character after the block name.</p>
 
-  <p>An attribute list is a space-separated list of key-value pairs, of the
-  form <code><var>name</var>=<var>value</var></code>. The value may be quoted
-  with a single or double quote, in which case the value finishes when that
+  <p>An attribute list is a space-separated list of key-value pairs in the
+  form <code><var>name</var>=<var>value</var></code>. If the value is quoted
+  with a single or double quote, the value finishes when that
   quote character is encountered. However, the quote character itself may be
-  escaped in the value as <code>$'</code> or <code>$"</code>, or using other
-  entity values, discussed below. Furthermore, <code>$</code> itself may be
+  escaped in the value as <code>$'</code> or <code>$"</code> or using other
+  entity values (described below). Furthermore, <code>$</code> itself may be
   escaped as <code>$$</code>.</p>
 
   <p>If the value is not quoted, it ends with the first whitespace character
   or right square bracket, unless the right square bracket is escaped as
   <code>$]</code>. An unescaped right square bracket (outside a quoted value)
-  ends the attribute list. Note that, unlike XML, no space is allowed around
+  ends the attribute list. Unlike XML, no space is allowed around
   the <code>=</code> character.</p>
 
-  <p>The full attribute list may contain newlines, either as insignificant
-  whitespace or as part of values. As long as the parser is inside the
+  <p>The full attribute list may contain newlines as insignificant
+  whitespace or as part of values. If the parser is inside the
   attribute list, only a square bracket may end it. Normal indentation
-  requirements do not hold in an attribute list, except for attribute lists
-  on inline elements. Since block and inline parsing can be done in separate
+  requirements do not hold in an attribute list except for attribute lists
+  on inline elements. Because block and inline parsing can be done in separate
   steps, if newlines occur in inline attribute lists, the new lines must be
   indented to at least the inner indent of the containing block.</p>
 
-  <p>In addition to regular key-value pairs, bare words are possible in
+  <p>In addition to regular key-value pairs, bare words are allowed in
   attribute lists, possibly with leading sigils, for common cases. A bare
   word starts either with the sigil or a non-whitespace character, and
-  finishes at the first whitespace character, unescaped right square bracket,
-  or (exceptionally) <code>=</code> character. Note that the <code>=</code>
-  character indicates a regular key-value pair, not a bare word.</p>
+  finishes at the first whitespace character or an unescaped right square bracket.</p>
 
   <list>
     <item><p>If the word starts with <code>>></code>, the value is taken
@@ -194,8 +192,8 @@ Learn more about $xref[>duck_inline](inline elements).</code></example>
     <list>
       <item><p>If the name is a <link xref="duck_directive#define">user-defined
       entity</link>, the content of that entity is parsed as attribute value
-      content, and the result is used. Note that each entity is parsed in its
-      own subcontext, so you cannot span an entity reference across multiple
+      content, and the result is used. Each entity is parsed in its
+      own subcontext, so an entity reference cannot span across multiple
       entities. Parsers must detect cycles in entity references and produce
       an error.</p></item>
 
