@@ -155,9 +155,7 @@ Learn more about $xref[>duck_inline](inline elements).</code></example>
   <p>In addition to regular key-value pairs, bare words are allowed in
   attribute lists, possibly with leading sigils, for common cases. A bare
   word starts either with the sigil or a non-whitespace character, and
-  finishes at the first whitespace character, an unescaped right square bracket,
-  or in rare cases the <code>=</code> character. Note that the <code>=</code>
-  character indicates a regular key-value pair, not a bare word.</p>
+  finishes at the first whitespace character or an unescaped right square bracket.</p>
 
   <list>
     <item><p>If the word starts with <code>>></code>, the value is taken
