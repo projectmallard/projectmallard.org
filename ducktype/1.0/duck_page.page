@@ -44,7 +44,7 @@ Attribute lists may follow headers.</p>
     <item>
       <p>Sections start with section titles, each on a line that starts with two
       or more equals signs that are followed by a space. Specify section depth
-      with one or more equals signs. Sections end implicitly with new sections
+      with the number of equals signs. Sections end implicitly with new sections
       at the same or higher levels.</p>
     </item>
 
