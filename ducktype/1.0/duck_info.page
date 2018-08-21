@@ -119,7 +119,8 @@ block elements. Ducktype provides a special syntax to write info elements.</p>
   <p>If the line after an informational element is indented beyond the outer
   indent of the info element, that line's indentation becomes the inner indent
   of the info element. Subsequent non-blank lines continue to be child
-  content as long as they are indented to at least this level. Further indentation may create child elements of child elements.</p>
+  content as long as they are indented to at least this level.
+  Further indentation may create child elements of child elements.</p>
 
   <p>If a line in the info section does not start with the <code>@</code>
   character, it is text content. If the current element is not a leaf
