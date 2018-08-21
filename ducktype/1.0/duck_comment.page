@@ -37,7 +37,7 @@ and entire ranges of lines.</p>
     </item>
 
     <item>
-      <p>Block comments cannot be nested, but may contain line comments.</p>
+      <p>Block comments cannot be nested, but they may contain line comments.</p>
     </item>
   </list>
 </section>
