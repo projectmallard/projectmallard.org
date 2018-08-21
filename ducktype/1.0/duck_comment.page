@@ -13,14 +13,14 @@
     <years>2017</years>
   </credit>
 
-  <desc>Comment out single lines or groups of lines.</desc>
+  <desc>Comment-out single lines or groups of lines.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 
 <title>Comments</title>
 
-<p style="lead">Ducktype provides a syntax for commenting out both single lines
+<p style="lead">Ducktype provides a syntax for commenting-out single lines
 and entire ranges of lines.</p>
 
 <!-- BEGIN notes -->
@@ -29,11 +29,11 @@ and entire ranges of lines.</p>
 
   <list>
     <item>
-      <p>Comment out a single line by prefixing it with <code>[-]</code>.</p>
+      <p>Comment-out a single line by prefixing it with <code>[-]</code>.</p>
     </item>
 
     <item>
-      <p>Comment out a block of lines using <code>[--</code> and <code>--]</code>.</p>
+      <p>Comment-out a block of lines using <code>[--</code> and <code>--]</code>.</p>
     </item>
 
     <item>
@@ -48,7 +48,7 @@ and entire ranges of lines.</p>
 <section id="examples">
   <title>Examples</title>
 
-  <p>Comment out a single line:</p>
+  <p>Comment-out a single line:</p>
 
   <example><code mime="text/x-ducktype"><![CDATA[
 This is some text in a paragraph.
