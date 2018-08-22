@@ -521,8 +521,7 @@ div.pmo-source {
         <xsl:attribute name="href">
           <xsl:text>https://github.com/projectmallard/projectmallard.org/edit/master</xsl:text>
           <xsl:value-of select="$mal.site.dir"/>
-          <xsl:value-of select="$node/@id"/>
-          <xsl:text>.page</xsl:text>
+          <xsl:value-of select="$pintail.source.file"/>
         </xsl:attribute>
         <i class="fa fa-github"></i>
         <xsl:text> Edit on GitHub</xsl:text>
