@@ -268,6 +268,60 @@ element notation.
     $* Fill the hole with clean dirt and pat it level.
     $* Water daily.
 
+
+== Add Blocks
+   [#blocks]
+
+We've seen paragraphs and lists, and gotten a glimpse of other block elements.
+Let's explore block elements further.
+Mallard provides a handful of $link[>/1.0/mal_block](semantic block elements)
+for things like notes, figures, and code snippets.
+Ducktype allows you to use all of these elements with block annotations.
+Try adding a note to one of your pages:
+
+[code]
+  $[note]
+  This is a simple note with a single line of content.
+
+Ducktype also allows you to nest content using indentation.
+To create a note with two paragraphs, indent both paragraphs.
+The amount of indentation doesn't matter, as long as you're consistent.
+We prefer two-space indentation though.
+
+[code]
+  $[note]
+    This is a simple note and this is the first paragraph.
+
+    This is another paragraph in that note.
+
+Nesting isn't just limited to paragraphs.
+You can nest any block elements as deeply as you want.
+For example, you could add a list inside of a note.
+
+[code]
+  $[note]
+    Remember the three virtues of a programmer:
+
+    $* Laziness
+    $* Impatience
+    $* Hubris
+
+Earlier we added attributes to headers and informational elements.
+We can do the same thing with block elements by putting the attributes
+inside the square brackets.
+
+[code]
+  $[note style=tip]
+    This is a tip. It will probably be styled differently.
+
+Like $code(type) and $code(xref), the $code(style) attribute is very
+common in Mallard, and so it gets a shorthand notation.
+Use a leading dot to indicate a style hint.
+
+[code]
+  $[note $e:hi(.tip)]
+    This is a tip. It will probably be styled differently.
+
 [--
 FIXME:
 This is an unsatisfactory end for the Ducktype tutorial.
