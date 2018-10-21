@@ -1,0 +1,132 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      id="mep0013">
+
+<info>
+  <link type="guide" xref="index" group="1.2"/>
+
+  <!--
+  <link type="mep:depends" xref="mepYYYY"/>
+  <link type="mep:replaces" xref="mepYYYY"/>
+  <link type="seealso" xref="mepYYYY"/>
+  -->
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/17"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2018</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <revision date="2018-10-21" docversion="1.2" status="incomplete"/>
+
+  <title type="text">Top-level stack element</title>
+  <title type="link">MEP-0013: Top-level <code>stack</code> element</title>
+
+  <desc>Create an element that can hold multiple pages as a set or series.</desc>
+</info>
+
+<title>MEP-0013</title>
+<subtitle>Top-level <code>stack</code> element</subtitle>
+
+<p style="lead">This page proposes a top-level <code>stack</code> element that
+contains <code>page</code> elements to make it easier to work on collections of
+pages.</p>
+
+<links type="section"/>
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard documents are collections of pages, with various types of semantic
+  links between pages creating the navigational structure. Sometimes a set of
+  pages are closely related, and it would be useful to be able to work on them
+  as a single unit and easily express links amongst them.</p>
+</section>
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes adding a top-level <code>stack</code> element. Files
+  that use a <code>stack</code> element should have the <file>.stack</file>
+  extension instead of the <file>.page</file> extension. A <code>stack</code>
+  element contains one or more <code>page</code> elements, which have the
+  same data model as if they were top-level elements.</p>
+
+  <p>A <code>stack</code> element may have a <code>type</code> attribute and
+  a <code>style</code> attribute. This proposal recognizes two values for the
+  <code>type</code> attribute: <code>set</code> and <code>series</code>. The
+  default is <code>set</code> and carries no additional semantics. A stack
+  with the <code>type</code> attribute set to <code>series</code> defines a
+  series. In a series, each page in the stack has an implicit next-type link
+  to the following page, overriding any next-type links explicitly defined
+  in the <code>info</code> elements of the pages.</p>
+
+  <p>A <code>stack</code> element may start with an <code>info</code> element
+  with the same content model as the <code>info</code> element on <code>page</code>
+  elements. The <code>credit</code>, <code>license</code>, and <code>revision</code>
+  elements apply to each page in the stack. The <code>title</code> and <code>desc</code>
+  elements do not apply to the pages, but if the series has a <code>title</code>
+  element with <code>type="series"</code>, it is used as the default title for any
+  series-type <code>links</code> elements in the pages.</p>
+
+  <!-- FIXME: flesh out links -->
+  <p>How informational <code>link</code> elements are handled may depend on the
+  link type. Further discussion is required.</p>
+
+  <!-- FIXME: mention extension elements -->
+</section>
+
+<!--
+<section id="addendums">
+  <title>Addendums</title>
+</section>
+-->
+
+<section id="examples">
+  <title>Examples</title>
+</section>
+
+<!--
+<section id="a11y">
+  <title>Accessibility</title>
+</section>
+-->
+
+<section id="i18n">
+  <title>Internationalization</title>
+
+  <p>Stacks do not present any new difficulties for internationalization. However,
+  some translation tools may need to update their ITS rules or other definitions
+  to account for a different top-level element.</p>
+</section>
+
+<!--
+<section id="alternatives">
+  <title>Alternatives</title>
+</section>
+-->
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>This proposal makes no backwards-incompatible changes. Any page written
+  in a version prior to the implementation of this proposal will work exactly
+  the same in a processing tool that implements this proposal.</p>
+
+  <p>There is no defined fallback behavior for a new top-level element, or for
+  a file with a different extension. A stack file will simply be ignored by
+  any tool that implements a version of Mallard prior to this proposal being
+  implemented.</p>
+
+  <!-- FIXME: mention stack as authoring tool, convert to pages for develivery -->
+
+</section>
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+</section>
+
+</page>
