@@ -16,7 +16,7 @@
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2017</years>
+    <years>2017-2018</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
@@ -74,9 +74,9 @@ to otherwise mark text that should stand out.</p>
   such as:</p>
 
   <list>
-    <item><p><code>added</code> — content in a diff that has been
+    <item><p><code>ins</code> — content in a diff that has been
     added, formatted with a green or yellow background</p></item>
-    <item><p><code>deleted</code> — content in a diff that has been
+    <item><p><code>del</code> — content in a diff that has been
     deleted, formatted with a red background and possibly a
     strikethrough</p></item>
   </list>
@@ -173,6 +173,11 @@ to otherwise mark text that should stand out.</p>
   the name used by HTML. However, the HTML <code>mark</code> element
   is not semantically equivalent, although it may sometimes be a
   suitable output element for a Mallard <code>hi</code> element.</p>
+
+  <p>Earlier versions of this MEP recommended the style hints
+  <code>added</code> and <code>deleted</code>. These were changed
+  to <code>ins</code> and <code>del</code> to mimic the similar
+  HTML elements.</p>
 </section>
 
 <section id="compatibility">
@@ -213,6 +218,26 @@ to otherwise mark text that should stand out.</p>
 
 <section id="comparison">
   <title>Comparison to Other Formats</title>
+
+  <p>DocBook does not have an element for highlighting text. The
+  <code href="https://tdg.docbook.org/tdg/5.1/emphasis.html">emphasis</code>
+  or <code href="https://tdg.docbook.org/tdg/5.1/phrase.html">phrase</code>
+  elements could be used with a <code>role</code> attribute with some
+  tooling work.</p>
+
+  <p>DITA does not have an element for highlighting text. The
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ph.html">ph</code>
+  could be used with an <code>outputclass</code> attribute with some
+  tooling work, or a custom specialization of the <code>ph</code>
+  element could be used.</p>
+
+  <p>HTML has the
+  <code href="https://www.w3.org/TR/html51/textlevel-semantics.html#the-mark-element">mark</code>
+  element with similar semantics. HTML also has the
+  <code href="https://www.w3.org/TR/html51/edits.html#the-ins-element">ins</code> and
+  <code href="https://www.w3.org/TR/html51/edits.html#the-del-element">del</code>
+  elements for added and deleted text, which this proposal treats as recommended
+  style hints on the proposed <code>hi</code> element.</p>
 </section>
 
 </page>

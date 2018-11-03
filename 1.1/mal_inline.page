@@ -92,6 +92,7 @@ mal_inline = (
   <link xref="mal_inline_file">mal_inline_file</link> * &amp;
   <link xref="mal_inline_gui">mal_inline_gui</link> * &amp;
   <link xref="mal_inline_guiseq">mal_inline_guiseq</link> * &amp;
+  <link xref="mal_inline_em">mal_inline_hi</link> * &amp;
   <link xref="mal_inline_input">mal_inline_input</link> * &amp;
   <link xref="mal_inline_key">mal_inline_key</link> * &amp;
   <link xref="mal_inline_keyseq">mal_inline_keyseq</link> * &amp;
