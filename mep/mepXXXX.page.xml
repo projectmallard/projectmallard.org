@@ -61,19 +61,18 @@ Add Addendums if changes are made after the proposal is final.
 </section>
 
 <!--
-Omit Accessibility of there is no accessibility impact.
+Omit Accessibility if there is no accessibility impact.
 -->
 <section id="a11y">
   <title>Accessibility</title>
 </section>
 
 <!--
-Omit Internationalization of there is no internationalization impact.
+Omit Internationalization if there is no internationalization impact.
 -->
 <section id="i18n">
   <title>Internationalization</title>
 </section>
-
 
 <!--
 Omit Alternatives if no alternatives were considered.
