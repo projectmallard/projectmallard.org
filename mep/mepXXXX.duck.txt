@@ -1,0 +1,85 @@
+@define mepnum    XXXX
+@define meptitle  XXX XXX XXX
+@define mepdesc   XXX XXX XXX
+@define meptarget XXX/X.X
+
+
+= MEP-$mepnum;
+- $meptitle;
+  [topic .mep]
+
+@link[guide >index group=$meptarget;]
+
+[--
+@link[mep:depends >mepYYYY]
+@link[mep:replaces >mepYYYY]
+@link[seealso >mepYYYY]
+@link[mep:issue >>https://github.com/projectmallard/projectmallard.org/issues/##]
+--]
+
+@credit[author copyright]
+  @name Author Name
+  @email author.email@example.com
+  @years YEARS
+
+@include[href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"]
+
+[--
+  list of valid status attributes:
+  incomplete proposed revised implemented final rejected replaced withdrawn
+--]
+@revision[date=DATE-PROPOSED docversion=$meptarget; status=proposed]
+
+@title[text] $meptitle;
+@title[link]MEP-$mepnum;: $meptitle;
+
+@desc $mepdesc;
+
+[p .lead]
+This page outlines...
+
+[links section]
+
+
+== Background
+   [#background]
+
+
+== Proposal
+   [#proposal]
+
+
+[-] Add Addendums if changes are made after the proposal is final.
+[--
+== Addendums
+   [#addendums]
+--]
+
+
+== Examples
+   [#examples]
+
+
+[-] Omit Accessibility if there is no accessibility impact.
+== Accessibility
+   [#a11y]
+
+
+[-] Omit Internationalization if there is no internationalization impact.
+== Internationalization
+   [#i18n]
+
+
+[-] Omit Alternatives if no alternatives were considered.
+== Alternatives
+   [#alternatives]
+
+
+[-] Omit Compatibility and Fallback for process proposals.
+== Compatibility and Fallback
+   [#compatibility]
+
+
+[-] Omit Comparison to Other Formats for process proposals.
+== Comparison to Other Formats
+   [#comparison]
