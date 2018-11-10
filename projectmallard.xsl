@@ -36,7 +36,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:param name="color.blue" select="'#3465a4'"/>
 
 <xsl:template name="html.head.custom">
-  <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css"/>
+  <link href="http://fonts.googleapis.com/css?family=Cantarell:400,400i,700,700i" rel="stylesheet" type="text/css"/>
   <link href="http://fonts.googleapis.com/css?family=Bitter:400,700" rel="stylesheet" type="text/css"/>
   <link href="http://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet" type="text/css"/>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -45,8 +45,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template name="html.css.custom">
 <xsl:text>
 body {
-  font-family: 'Lato', sans;
-  font-size: 14px;
+  font-family: 'Cantarell', sans-serif;
+  font-size: 18px;
 }
 div.top {
   width: 100%;
@@ -112,7 +112,7 @@ div.editongithub a:hover {
   div.editongithub { display: none; }
 }
 div.trails {
-  font-size: 12px;
+  font-size: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
 }
@@ -160,6 +160,7 @@ div.pmo-jump li a {
   vertical-align: top;
   display: block;
   color: #3465a4;
+font-size: 20px;
   line-height: 1em;
 }
 div.pmo-jump li a > span {
@@ -168,6 +169,7 @@ div.pmo-jump li a > span {
   margin-top: 4px;
   padding-left: 48px;
   font-size: 0.83em;
+  font-size: 16px;
   text-align: left;
 }
 div.pmo-jump li a > span.em {
@@ -213,7 +215,7 @@ li.pmo-jump-issues a:before {
   content: "&#xf188;";
 }
 
-h1, h2, h3, h4, h5, h6, h7 { font-family: 'Lato', sans; font-weight: normal; }
+h1, h2, h3, h4, h5, h6, h7 { font-family: 'Cantarell', sans-serif; font-weight: normal; }
 h1.title { font-size: 48px; }
 h2.title { font-size: 36px; }
 h3.title { font-size: 24px; }
