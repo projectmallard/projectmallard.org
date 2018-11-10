@@ -1,0 +1,154 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      id="mep0014">
+
+<info>
+  <link type="guide" xref="index" group="1.1"/>
+
+  <!--
+  <link type="mep:depends" xref="mepYYYY"/>
+  <link type="mep:replaces" xref="mepYYYY"/>
+  <link type="seealso" xref="mepYYYY"/>
+  -->
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/10"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2018</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <!--
+  list of valid status attributes:
+  incomplete proposed revised implemented final rejected replaced withdrawn
+  -->
+  <revision date="2018-11-10" docversion="1.1" status="proposed"/>
+
+  <title type="text">Informational keywords element</title>
+  <title type="link">MEP-0014: Informational <code>keywords</code> element</title>
+
+  <desc>Add a <code>keywords</code> element to help full-text search.</desc>
+</info>
+
+<title>MEP-0014</title>
+<subtitle>Informational <code>keywords</code> element</subtitle>
+
+<p style="lead">This page proposes adding a <code>keywords</code> element to
+the <code>info</code> element to help document search.</p>
+
+<links type="section"/>
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Search is an important method of finding pages in Mallard documents.
+  Search could be provided in a dedicated help app, by a built-in site search
+  on a documentation site, or by a search engine. Some systems will search
+  the entire text of a page, while others will only use metadata like the
+  title and desc. In the case of Yelp, both are true. The quick search
+  results in the drop-down only use metadata, while the full search results
+  pages perform full-text search.</p>
+
+  <p>Users frequently search for terms other than those used in the documentation.
+  To improve search results, writers sometimes stuff synonyms into page descs.
+  Forcing synonyms into user-visible text is far from ideal.</p>
+</section>
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes adding a <code>keywords</code> element to the
+  <code>info</code>. The <code>keywords</code> element would take text
+  as content, preferably a comma-separated list in case writers need to
+  use mutli-word terms.</p>
+
+  <p>Custom-built search systems would be expected to use the keywords
+  in addition to other data, and preferably to use the keywords even when
+  only searching on metadata like title and desc.</p>
+
+  <p>When converting to HTML, the keywords can be placed in the HTML
+  <code>meta</code> element, but be aware that most internet search
+  enginges do not treat such keywords with much weight.</p>
+</section>
+
+<!--
+Add Addendums if changes are made after the proposal is final.
+-->
+<!--
+<section id="addendums">
+  <title>Addendums</title>
+</section>
+-->
+
+<section id="examples">
+  <title>Examples</title>
+
+  <!-- FIXME -->
+</section>
+
+<!--
+<section id="a11y">
+  <title>Accessibility</title>
+</section>
+-->
+
+<section id="i18n">
+  <title>Internationalization</title>
+
+  <p>Keywords should be translated. Translation tools should ensure that the
+  <code>keywords</code> element is translatable. When translating keywords,
+  translators should provide all the keywords that are suitable in their own
+  language, rather than translating each keyword from the source language.</p>
+</section>
+
+<section id="alternatives">
+  <title>Alternatives</title>
+
+  <p>We considered an element with child elements for each keyword, similar
+  to DocBook and DITA. There was no clear benefit to that method, other than
+  being able to have keyword phrases with commas. Child elements would be
+  more work for writers and translators.</p>
+
+  <p>We considered allowing multiple <code>keywords</code> elements with
+  <code>type</code> attributes, following the trend of <link xref="mep0008"/>
+  for <code>desc</code> elements, but there was no concrete use-case.</p>
+</section>
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>This proposal makes no backwards-incompatible changes. Any page
+  written in a version prior to the implementation of this proposal will work
+  exactly the same in a processing tool that implements this proposal.</p>
+
+  <p>The fallback behavior for a new informational element is that it is
+  ignored. If a page with keywords is processed by a tool that does not
+  support the new element, the additional keywords will not be used for
+  search or other features.</p>
+</section>
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>DocBook provides the
+  <code href="https://tdg.docbook.org/tdg/5.1/keywordset.html">keywordset</code>
+  element for keywords. The <code>keywordset</code> element contains any number of
+  <code href="https://tdg.docbook.org/tdg/5.1/keyword.html">keyword</code>
+  elements, rather than a comma-separated list.</p>
+
+  <p>DITA provides the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/keywords.html">keywords</code>
+  element for keywords. The <code>keywords</code> element contains any number of
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/keyword.html">keyword</code>
+  elements, rather than a comma-separated list.</p>
+
+  <p>HTML uses the
+  <code href="https://www.w3.org/TR/html51/document-metadata.html#keywords">meta</code>
+  element with the <code>name</code> attribute set to <code>keywords</code>.
+  The keywords are lists in the <code>content</code> attribute.
+  Like this proposal, the keywords are a comma-separated list.</p>
+</section>
+
+</page>
