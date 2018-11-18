@@ -73,11 +73,29 @@ written in a comma-separated list.</p>
 <section id="processing">
   <title>Processing Expectations</title>
 
-<!-- FIXME -->
-<!--
-  <p>See the processing expectations for the
-  <code xref="mal_info_credit">credit</code> element.</p>
--->
+  <p>Processing tools with search integration should use the keywords for
+  a page to inform the search results. Ideally, keywords should be used
+  for searching even when only searching on metadata like titles and
+  descs, as well as for full-text search.</p>
+
+  <p>Processing tools may also use keywords from sections and block
+  elements, but these may be limited to full-text search only.</p>
+
+  <p>Processing tools should expect that keywords are formatted as a
+  comma-separated list, as some keywords may be multi-word terms.
+  However, since there is no expectation to do any sort of structured
+  analysis, even a space-separated list should provide data for
+  search.</p>
+
+  <p>If processing tools are generating HTML and relying on external
+  search providers, they should copy the page keywords into the
+  <code>content</code> attribute of a <code>meta</code> element with
+  the <code>name</code> attribute set to <code>keywords</code>. Note
+  that search engines don't place much importance on keywords provided
+  in this way.</p>
+
+  <p>As with other informational elements, there is no expectation that
+  keywords will be displayed to users directly.</p>
 </section>
 <!-- END processing -->
 
