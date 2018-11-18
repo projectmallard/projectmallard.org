@@ -1,0 +1,135 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec"
+      id="mal_info_keywords">
+
+<info>
+  <link type="guide" xref="mal_info#elements"/>
+
+<!-- FIXME -->
+<!--
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+-->
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2018</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Provide extra terms to assist search systems.</desc>
+</info>
+
+<title>Keywords</title>
+
+<p>Use the <code>keywords</code> element to provide additional terms from
+an uncontrolled vocabulary to assist search systems. Keywords should be
+written in a comma-separated list.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>keywords</code> element contains text.</p></item>
+
+    <item><p>The <code>keywords</code> element can occur in any
+    <code xref="mal_info">info</code> element.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints. Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>keywords</code> element can have attributes from external
+    namespaces. See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+<!-- FIXME -->
+<!--
+  <p>Use <code xref="mal_info_credit">credit</code> and <code>name</code> to mark
+  up the name of the author:</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<credit type="author">
+  <name>Shaun McCance</name>
+</credit>]]></code>
+  </example>
+-->
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+<!-- FIXME -->
+<!--
+  <p>See the processing expectations for the
+  <code xref="mal_info_credit">credit</code> element.</p>
+-->
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>DocBook provides the
+  <code href="https://tdg.docbook.org/tdg/5.1/keywordset.html">keywordset</code>
+  element for keywords. The <code>keywordset</code> element contains any number of
+  <code href="https://tdg.docbook.org/tdg/5.1/keyword.html">keyword</code>
+  elements, rather than a comma-separated list.</p>
+
+  <p>DITA provides the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/keywords.html">keywords</code>
+  element for keywords. The <code>keywords</code> element contains any number of
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/keyword.html">keyword</code>
+  elements, rather than a comma-separated list.</p>
+
+  <p>HTML uses the
+  <code href="https://www.w3.org/TR/html51/document-metadata.html#keywords">meta</code>
+  element with the <code>name</code> attribute set to <code>keywords</code>.
+  The keywords are lists in the <code>content</code> attribute.
+  The keywords are a comma-separated list.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>keywords</code> element. The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_keywords = element keywords {
+  mal_info_keywords_attr,
+  mal_info_keywords_inline
+}
+mal_info_keywords_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_info_keywords_inline = text ?
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

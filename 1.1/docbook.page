@@ -846,9 +846,7 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   <tbody>
     <tr>
       <td><p><code href="http://www.docbook.org/tdg51/en/html/keyword.html">keyword</code></p></td>
-      <td rowspan="2"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
-      elements</link> may provide this information in <code xref="mal_info">info</code>
-      elements.</p></td>
+      <td rowspan="2"><p>Similar to the <code xref="mal_info_keywords">keywords</code>  element.</p></td>
     </tr>
     <tr>
       <td><p><code href="http://www.docbook.org/tdg51/en/html/keywordset.html">keywordset</code></p></td>

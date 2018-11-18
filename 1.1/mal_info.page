@@ -10,7 +10,7 @@
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2016</years>
+    <years>2008-2018</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -18,10 +18,10 @@
   <desc>Include metadata and automatic links for pages and sections.</desc>
 </info>
 
-<title>Information Elements</title>
+<title>Informational Elements</title>
 
-<p>The <code>info</code> element contains metadata about a page or section and
-information about <link xref="mal_links">automatic links</link>.
+<p>The <code>info</code> element contains metadata about a page, section,
+or formal block element.
 Mallard provides a core set of informational elements for most common needs.
 Informational elements like <code xref="mal_info_link">link</code>,
 <code xref="mal_info_title">title</code>, and <code xref="mal_info_desc">desc</code>
@@ -43,6 +43,7 @@ elements can be used to record any additional information you need.</p>
     in any order:</p>
     <list style="compact">
       <item><p>An optional <code xref="mal_info_desc">desc</code> element.</p></item>
+      <item><p>An optional <code xref="mal_info_keywords">keywords</code> element.</p></item>
       <item><p>Any number of <code xref="mal_info_credit">credit</code>
       elements.</p></item>
       <item><p>Any number of <code xref="mal_info_license">license</code>
@@ -60,8 +61,8 @@ elements can be used to record any additional information you need.</p>
     </list>
   </item>
   <item><p>The <code>info</code> element can occur as the first element of a
-  <code xref="mal_page">page</code> or <code xref="mal_section">section</code>
-  element.</p></item>
+  <code xref="mal_page">page</code>, <code xref="mal_section">section</code>,
+  or <link xref="mal_block#formal">formal block element</link>.</p></item>
   <item><p>The <code>info</code> element can have attributes from external
   namespaces.  See <link xref="mal_external"/> for more information
   on external-namespace attributes.</p></item>
@@ -82,7 +83,7 @@ elements can be used to record any additional information you need.</p>
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2008-2011</years>
+    <years>2008-2018</years>
   </credit>
   <license href="http://creativecommons.org/licenses/by-sa/3.0/us/">
     <p>This work is licensed under a
@@ -96,7 +97,7 @@ elements can be used to record any additional information you need.</p>
 </info>
 ]]></code></example>
 
-  <p>See the various informational elements below for more examples.</p>
+  <p>See the various informational elements for more examples.</p>
 </section>
 <!-- END examples -->
 
@@ -191,6 +192,7 @@ mal_info_attr = (
 )
 mal_info_content = (
   <link xref="mal_info_desc">mal_info_desc</link> ? &amp;
+  <link xref="mal_info_keywords">mal_info_keywords</link> ? &amp;
   <link xref="mal_info_credit">mal_info_credit</link> * &amp;
   <link xref="mal_info_license">mal_info_license</link> * &amp;
   <link xref="mal_info_link">mal_info_link</link> * &amp;
