@@ -156,7 +156,7 @@ extensions.</p>
 </section>
 
 
-<section id="accessibility">
+<section id="a11y">
   <title>Accessibility</title>
 
   <p>This proposal provides no way to provide alternative text for thumbnails.
@@ -167,7 +167,7 @@ extensions.</p>
 </section>
 
 
-<section id="internationalization">
+<section id="i18n">
   <title>Internationalization</title>
 
   <p>Thumbnails, like all media objects, may contain translatable material, such

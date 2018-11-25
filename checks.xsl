@@ -74,6 +74,13 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
   <xsl:variable name="style" select="concat(' ', @style, ' ')"/>
   <xsl:variable name="errors">
 
+    <!-- Check for page style -->
+    <xsl:if test="not(contains($style, ' mep ') or contains($style, ' spec ') or
+                      contains($style, ' details ') or contains($style, ' tutorial ') or
+                      contains($style, ' pmo-source ') )">
+      <xsl:text>Bad style attribute&#x000A;</xsl:text>
+    </xsl:if>
+
     <!-- Check for credits -->
     <xsl:if test="not(mal:info/mal:credit)">
       <xsl:text>Missing credits&#x000A;</xsl:text>
@@ -175,6 +182,18 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
 
     <!-- Check for MEP structure -->
     <xsl:if test="contains($style, ' mep ')">
+      <!-- Check for common sections -->
+      <!--
+          Background
+          Proposal
+          Addendums ?
+          Examples
+          Accessibility ?
+          Internationalization ?
+          Alternatives ?
+          Compatibility and Fallback
+          Comparison to Other Formats
+      -->
       <xsl:variable name="sects" select="mal:section"/>
       <xsl:if test="not(mal:p[1][@style='lead'])">
         <xsl:text>Missing lead paragraph&#x000A;</xsl:text>
@@ -195,18 +214,18 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
         <xsl:text>Missing Examples section&#x000A;</xsl:text>
       </xsl:if>
       <xsl:variable name="posac" select="$posex + 1"/>
-      <xsl:if test="$sects[$posac][@id='accessibility']">
+      <xsl:if test="$sects[$posac][@id='a11y']">
         <xsl:if test="not($sects[$posac][mal:title='Accessibility'])">
           <xsl:text>Missing Accessibility section&#x000A;</xsl:text>
         </xsl:if>
       </xsl:if>
-      <xsl:variable name="posin" select="$posac + count($sects[$posac][@id='accessibility'])"/>
-      <xsl:if test="$sects[$posin][@id='internationalization']">
+      <xsl:variable name="posin" select="$posac + count($sects[$posac][@id='a11y'])"/>
+      <xsl:if test="$sects[$posin][@id='i18n']">
         <xsl:if test="not($sects[$posin][mal:title='Internationalization'])">
           <xsl:text>Missing Internationalization section&#x000A;</xsl:text>
         </xsl:if>
       </xsl:if>
-      <xsl:variable name="posalt" select="$posin + count($sects[$posin][@id='internationalization'])"/>
+      <xsl:variable name="posalt" select="$posin + count($sects[$posin][@id='i18n'])"/>
       <xsl:if test="$sects[$posalt][@id='alternatives']">
         <xsl:if test="not($sects[$posalt][mal:title='Alternatives'])">
           <xsl:text>Missing Alternatives section&#x000A;</xsl:text>
