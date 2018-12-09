@@ -821,12 +821,28 @@ to grow the ability to provide custom tags/badges on links.
   </xsl:if>
 </xsl:template>
 
-<xsl:template mode="html.content.pre.mode"
-              match="mal:section[ancestor::mal:page[contains(concat(' ', @style, ' '), ' mep ')]]">
-  <xsl:if test="count(*) = count(mal:title | mal:info)">
-    <xsl:for-each select="document('common.xml')/*/mal:note[@xml:id = 'mep-section-stub']">
-      <xsl:apply-templates mode="mal2html.block.mode" select="."/>
-    </xsl:for-each>
+<xsl:template name="html.content.pre.custom">
+  <xsl:param name="node" select="."/>
+  <xsl:if test="$node/self::mal:page">
+    <!-- FIXME:
+         spec replaced?
+         spec still a draft?
+    -->
+  </xsl:if>
+  <xsl:if test="$node/self::mal:section">
+    <xsl:variable name="pagestyle" select="concat(' ', $node/ancestor::mal:page/@style, ' ')"/>
+    <xsl:if test="count(*) = count(mal:title | mal:info)">
+      <xsl:if test="contains($pagestyle, ' mep ')">
+        <xsl:for-each select="document('common.xml')/*/mal:note[@xml:id = 'mep-section-stub']">
+          <xsl:apply-templates mode="mal2html.block.mode" select="."/>
+        </xsl:for-each>
+      </xsl:if>
+      <xsl:if test="contains($pagestyle, ' spec ')">
+        <xsl:for-each select="document('common.xml')/*/mal:note[@xml:id = 'spec-section-stub']">
+          <xsl:apply-templates mode="mal2html.block.mode" select="."/>
+        </xsl:for-each>
+      </xsl:if>
+    </xsl:if>
   </xsl:if>
 </xsl:template>
 
