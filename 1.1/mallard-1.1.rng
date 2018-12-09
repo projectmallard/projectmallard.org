@@ -128,6 +128,9 @@
     <optional>
       <ref name="mal_info_desc"/>
     </optional>
+    <optional>
+      <ref name="mal_info_keywords"/>
+    </optional>
     <zeroOrMore>
       <ref name="mal_info_credit"/>
     </zeroOrMore>
@@ -307,6 +310,32 @@
 
 <define name="mal_info_title_inline">
   <ref name="mal_inline"/>
+</define>
+
+<define name="mal_info_keywords">
+  <element name="keywords">
+    <ref name="mal_info_keywords_attr"/>
+    <ref name="mal_info_keywords_inline"/>
+  </element>
+</define>
+
+<define name="mal_info_keywords_attr">
+  <group>
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<define name="mal_info_keywords_inline">
+  <optional>
+    <text/>
+  </optional>
 </define>
 
 <define name="mal_info_license">
@@ -1701,6 +1730,9 @@
       <ref name="mal_inline_guiseq"/>
     </zeroOrMore>
     <zeroOrMore>
+      <ref name="mal_inline_hi"/>
+    </zeroOrMore>
+    <zeroOrMore>
       <ref name="mal_inline_input"/>
     </zeroOrMore>
     <zeroOrMore>
@@ -1991,6 +2023,34 @@
     </oneOrMore>
     <text/>
   </interleave>
+</define>
+
+<define name="mal_inline_hi">
+  <element name="hi">
+    <ref name="mal_inline_hi_attr"/>
+    <ref name="mal_inline_hi_inline"/>
+  </element>
+</define>
+
+<define name="mal_inline_hi_attr">
+  <group>
+    <zeroOrMore>
+      <ref name="mal_attr_link"/>
+    </zeroOrMore>
+    <optional>
+      <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <ref name="mal_inline_attr"/>
+    <zeroOrMore>
+      <ref name="mal_attr_external"/>
+    </zeroOrMore>
+  </group>
+</define>
+
+<define name="mal_inline_hi_inline">
+  <ref name="mal_inline"/>
 </define>
 
 <define name="mal_inline_link">

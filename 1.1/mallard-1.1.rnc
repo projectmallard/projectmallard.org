@@ -47,6 +47,7 @@ mal_info_attr = (
 )
 mal_info_content = (
   mal_info_desc ? &
+  mal_info_keywords ? &
   mal_info_credit * &
   mal_info_license * &
   mal_info_link * &
@@ -113,6 +114,16 @@ mal_info_title_attr = (
   mal_attr_external *
 )
 mal_info_title_inline = mal_inline
+
+mal_info_keywords = element keywords {
+  mal_info_keywords_attr,
+  mal_info_keywords_inline
+}
+mal_info_keywords_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  mal_attr_external *
+)
+mal_info_keywords_inline = text ?
 
 mal_info_license = element license {
   mal_info_license_attr,
@@ -635,6 +646,7 @@ mal_inline = (
   mal_inline_file * &
   mal_inline_gui * &
   mal_inline_guiseq * &
+  mal_inline_hi * &
   mal_inline_input * &
   mal_inline_key * &
   mal_inline_keyseq * &
@@ -752,6 +764,18 @@ mal_inline_guiseq_inline = (
   mal_inline_gui + &
   text
 )
+
+mal_inline_hi = element hi {
+  mal_inline_hi_attr,
+  mal_inline_hi_inline
+}
+mal_inline_hi_attr = (
+  mal_attr_link *,
+  attribute style { xsd:NMTOKENS } ?,
+  mal_inline_attr,
+  mal_attr_external *
+)
+mal_inline_hi_inline = mal_inline
 
 mal_inline_link = element link {
   mal_inline_link_attr,
