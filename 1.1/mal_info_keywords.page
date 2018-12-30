@@ -5,10 +5,7 @@
 <info>
   <link type="guide" xref="mal_info#elements"/>
 
-<!-- FIXME -->
-<!--
-  <revision docversion="1.0" date="2011-11-15" status="final"/>
--->
+  <revision docversion="1.1" date="2018-12-30" status="candidate"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -53,18 +50,16 @@ written in a comma-separated list.</p>
 <section id="examples">
   <title>Examples</title>
 
-<!-- FIXME -->
-<!--
-  <p>Use <code xref="mal_info_credit">credit</code> and <code>name</code> to mark
-  up the name of the author:</p>
+  <p>Add keywords for common search terms to a page on connecting to Wifi:</p>
 
-  <example>
-    <code mime="application/xml"><![CDATA[
-<credit type="author">
-  <name>Shaun McCance</name>
-</credit>]]></code>
-  </example>
--->
+  <example><code mime="application/xml"><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" id="wifi">
+  <info>
+    <keywords>wireless, internet, wep, wpa, wpa2</keywords>
+  </info>
+  <title>Connect to WiFi</title>
+</page>
+]]></code></example>
 </section>
 <!-- END examples -->
 

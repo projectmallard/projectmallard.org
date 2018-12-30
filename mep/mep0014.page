@@ -25,6 +25,7 @@
   incomplete proposed revised implemented final rejected replaced withdrawn
   -->
   <revision date="2018-11-10" docversion="1.1" status="proposed"/>
+  <revision date="2018-12-30" docversion="1.1" status="implemented"/>
 
   <title type="text">Informational keywords element</title>
   <title type="link">MEP-0014: Informational <code>keywords</code> element</title>
@@ -85,7 +86,16 @@ Add Addendums if changes are made after the proposal is final.
 <section id="examples">
   <title>Examples</title>
 
-  <!-- FIXME -->
+  <p>Add keywords for common search terms to a page on connecting to Wifi:</p>
+
+  <example><code mime="application/xml"><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" id="wifi">
+  <info>
+    <keywords>wireless, internet, wep, wpa, wpa2</keywords>
+  </info>
+  <title>Connect to WiFi</title>
+</page>
+]]></code></example>
 </section>
 
 <!--
