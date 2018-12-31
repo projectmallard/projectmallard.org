@@ -1,5 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="guide"
+      type="guide" style="spec-guide"
       id="index">
 
 <info>
@@ -43,12 +43,6 @@ with. Potential interchange issues are addressed throughout this specification.<
 
 <links type="section"/>
 
-<include href="../../common.xml" xpointer="xpointer(id('draft'))" xmlns="http://www.w3.org/2001/XInclude"/>
-<!--
-<note style="plain">
-<p>This specification was marked final on 2016-03-07.</p>
-</note>
--->
 
 <!-- BEGIN spec -->
 <section id="spec">

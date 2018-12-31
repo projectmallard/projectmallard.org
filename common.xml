@@ -1,12 +1,5 @@
-<notes xmlns="http://projectmallard.org/1.0/">
-  <note style="warning" xml:id="candidate">
-    <p>This is a candidate specification. Changes are unlikely, but may still
-    be made before the final specification.</p>
-  </note>
-  <note style="warning" xml:id="draft">
-    <p>This is a draft specification. It is likely that changes will still be
-    made before the final specification.</p>
-  </note>
+<div xmlns="http://projectmallard.org/1.0/"
+       xmlns:subs="http://projectmallard.org/experimental/subs/">
   <note xml:id="mep-draft">
     <p>This proposal is still under consideration. Revisions may
     still be made based on your input. Discuss this proposal on
@@ -16,8 +9,20 @@
     <p>This section is not yet written. Discuss this proposal on
     <link xref="/about/contact">mallard-list</link>.</p>
   </note>
+
+  <note style="plain" xml:id="spec-status-final">
+    <p>This specification was marked final on <subs:date/>.</p>
+  </note>
+  <note style="warning" xml:id="spec-status-candidate">
+    <p>This is a candidate specification. Changes are unlikely, but may still
+    be made before the final specification.</p>
+  </note>
+  <note style="warning" xml:id="spec-status-draft">
+    <p>This is a draft specification. It is likely that changes will still be
+    made before the final specification.</p>
+  </note>
   <note xml:id="spec-section-stub">
     <p>This section is not yet written. Discuss this specification on
     <link xref="/about/contact">mallard-list</link>.</p>
   </note>
-</notes>
+</div>

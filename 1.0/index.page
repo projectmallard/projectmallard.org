@@ -1,9 +1,9 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="guide" style="details"
+      type="guide" style="spec-guide"
       id="index">
 
 <info>
-  <revision docversion="1.0" date="2011-05-23" status="final"/>
+  <revision docversion="1.0" date="2013-07-23" status="final"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -49,9 +49,5 @@ basic concepts of Mallard. For an introduction to Mallard, see
 on projectmallard.org.</p>
 
 <links type="topic" groups="page section info links block inline details principles"/>
-
-<note style="plain">
-<p>This specification was marked final on 2013-07-23.</p>
-</note>
 
 </page>

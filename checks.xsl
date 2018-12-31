@@ -72,12 +72,20 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
 <xsl:template match="/mal:page">
   <xsl:param name="cache_node"/>
   <xsl:variable name="style" select="concat(' ', @style, ' ')"/>
+  <xsl:variable name="isspec" select="contains($style, ' spec ') or
+                                      contains($style, ' spec-details ') or
+                                      contains($style, ' spec-guide ')"/>
   <xsl:variable name="errors">
 
     <!-- Check for page style -->
-    <xsl:if test="not(contains($style, ' mep ') or contains($style, ' spec ') or
-                      contains($style, ' details ') or contains($style, ' tutorial ') or
-                      contains($style, ' pmo-source ') )">
+    <xsl:if test="not($isspec or
+                      contains($style, ' mep ') or
+                      contains($style, ' tutorial ') or
+                      contains($style, ' pmo-about ') or
+                      contains($style, ' pmo-guide ') or
+                      contains($style, ' pmo-source ') or
+                      contains($style, ' pmo-splash ')
+                      )">
       <xsl:text>Bad style attribute&#x000A;</xsl:text>
     </xsl:if>
 
@@ -113,7 +121,7 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
     </xsl:if>
 
     <!-- Check for revision elements -->
-    <xsl:if test="contains($style, ' spec ') or contains($style, ' details ')">
+    <xsl:if test="$isspec">
       <xsl:if test="not(mal:info/mal:revision[@date][@docversion][@status])">
         <xsl:text>Missing revision element&#x000A;</xsl:text>
       </xsl:if>

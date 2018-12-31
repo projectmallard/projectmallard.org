@@ -1,5 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="guide" style="details"
+      type="guide" style="spec-guide"
       id="index">
 
 <info>
@@ -49,8 +49,6 @@ examples. It can serve as a reference for those already familiar with the
 basic concepts of Mallard. For an introduction to Mallard, see
 <link xref="/about/learn/index" href="http://projectmallard.org/about/learn/index.html">Learn Mallard</link>
 on projectmallard.org.</p>
-
-<include href="../common.xml" xpointer="xpointer(id('draft'))" xmlns="http://www.w3.org/2001/XInclude"/>
 
 <links type="topic" groups="page section info links block inline details principles changes"/>
 

@@ -20,9 +20,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 xmlns:exsl="http://exslt.org/common"
                 xmlns:str="http://exslt.org/strings"
                 xmlns:mal="http://projectmallard.org/1.0/"
+                xmlns:subs="http://projectmallard.org/experimental/subs/"
                 xmlns="http://www.w3.org/1999/xhtml"
                 extension-element-prefixes="exsl"
-                exclude-result-prefixes="mal str"
+                exclude-result-prefixes="mal str subs"
                 version="1.0">
 
 <xsl:param name="theme.icons.size.note" select="24"/>
@@ -823,7 +824,37 @@ to grow the ability to provide custom tags/badges on links.
 
 <xsl:template name="html.content.pre.custom">
   <xsl:param name="node" select="."/>
-  <xsl:if test="$node/self::mal:page">
+  <xsl:variable name="style" select="concat(' ', $node/@style, ' ')"/>
+  <xsl:if test="$node/self::mal:page and
+                (contains($style, ' spec ') or
+                 contains($style, ' spec-details ') or
+                 contains($style, ' spec-guide ')
+                )">
+    <xsl:for-each select="$mal.cache">
+      <xsl:variable name="root" select="key('mal.cache.key', concat($mal.site.dir, 'index'))"/>
+      <xsl:variable name="docversion" select="str:split($mal.site.dir, '/')[last()]"/>
+      <xsl:variable name="status"
+                    select="$root/mal:info/mal:revision[@docversion=$docversion][last()]/@status"/>
+      <xsl:choose>
+        <xsl:when test="$status = 'final'">
+          <xsl:if test="$node/@id = 'index'">
+            <xsl:for-each select="document('common.xml')/*/mal:note[@xml:id = 'spec-status-final']">
+              <xsl:apply-templates mode="mal2html.block.mode" select="."/>
+            </xsl:for-each>
+          </xsl:if>
+        </xsl:when>
+        <xsl:when test="$status = 'candidate'">
+          <xsl:for-each select="document('common.xml')/*/mal:note[@xml:id = 'spec-status-candidate']">
+            <xsl:apply-templates mode="mal2html.block.mode" select="."/>
+          </xsl:for-each>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:for-each select="document('common.xml')/*/mal:note[@xml:id = 'spec-status-draft']">
+            <xsl:apply-templates mode="mal2html.block.mode" select="."/>
+          </xsl:for-each>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:for-each>
     <!-- FIXME:
          spec replaced?
          spec still a draft?
@@ -844,6 +875,14 @@ to grow the ability to provide custom tags/badges on links.
       </xsl:if>
     </xsl:if>
   </xsl:if>
+</xsl:template>
+
+<xsl:template mode="mal2html.inline.mode" match="subs:date">
+  <xsl:for-each select="$mal.cache">
+    <xsl:variable name="root" select="key('mal.cache.key', concat($mal.site.dir, 'index'))"/>
+    <xsl:variable name="docversion" select="str:split($mal.site.dir, '/')[last()]"/>
+    <xsl:value-of select="$root/mal:info/mal:revision[@docversion=$docversion][last()]/@date"/>
+  </xsl:for-each>
 </xsl:template>
 
 </xsl:stylesheet>

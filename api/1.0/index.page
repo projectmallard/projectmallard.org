@@ -1,5 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="guide"
+      type="guide" style="spec-guide"
       id="index">
 
 <info>
@@ -15,8 +15,6 @@
 </info>
 
 <title>Mallard API 1.0 DRAFT</title>
-
-<include href="../../common.xml" xpointer="xpointer(id('draft'))" xmlns="http://www.w3.org/2001/XInclude"/>
 
 <note style="sidebar">
 <title>Download Schema</title>

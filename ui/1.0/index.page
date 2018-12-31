@@ -1,5 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="guide"
+      type="guide" style="spec-guide"
       id="index">
 
 <info>
@@ -43,7 +43,6 @@ tokens</link> for use with <link xref="/if/1.0/index" href="http://projectmallar
 Conditionals</link>. Pages throughout this extension specify these feature
 tokens.</p>
 
-<include href="../../common.xml" xpointer="xpointer(id('draft'))" xmlns="http://www.w3.org/2001/XInclude"/>
 
 <!-- BEGIN schema -->
 <section id="schema">
