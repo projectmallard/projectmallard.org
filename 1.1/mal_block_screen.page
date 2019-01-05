@@ -6,6 +6,7 @@
   <link type="seealso" xref="mal_block_code"/>
 
   <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.1" date="2019-01-05" status="review"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -52,22 +53,13 @@ by the user.</p>
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
 
-    <item><p>The <code>mime</code> attribute takes a valid MIME type.  Processing
-    tools may adjust their behavior for particular MIME types.  A MIME type is
-    assumed to apply to the user input only; thus, processing tools may ignore
-    the MIME type if the <code>screen</code> element is not composed of
-    <code>input</code> and <code>output</code> elements.</p></item>
+    <item><p>The <code>type</code> attribute takes a space-separated list of
+    tokens indicating the content type. Processing tools may adjust their
+    behavior based on any of the tokens.</p></item>
 
-    <item>
-      <p>Typical values for the <code>mime</code> attribute include:</p>
-      <table><tr>
-        <td><p><code>application/x-sh</code></p></td>
-        <td><p>Command to execute with the Bourne shell</p></td>
-      </tr><tr>
-        <td><p><code>application/x-csh</code></p></td>
-        <td><p>Command to execute with the C shell</p></td>
-      </tr></table>
-    </item>
+    <item><p>The <code>mime</code> attribute is deprecated and replaced by the
+    <code>type</code> attribute. It takes a valid MIME type. Processing
+    tools may adjust their behavior for particular MIME types.</p></item>
 
     <item><p>The <code>screen</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information
@@ -110,13 +102,13 @@ by the user.</p>
 <screen>
 xsltproc -o mal_block_screen.html \
   --stringparam mal.cache.file `pwd`/mallard.cache \
-  `pkg-config --variable mal2html yelp-xsl` mal_block_screen.html
+  `pkg-config --variable mal2html yelp-xsl` mal_block_screen.page
 </screen>
 ]]></code>
     <screen>
 xsltproc -o mal_block_screen.html \
   --stringparam mal.cache.file `pwd`/mallard.cache \
-  `pkg-config --variable mal2html yelp-xsl` mal_block_screen.html
+  `pkg-config --variable mal2html yelp-xsl` mal_block_screen.page
 </screen>
   </example>
 
@@ -151,6 +143,14 @@ xsltproc -o mal_block_screen.html \
 
   <p>Screens should be displayed in a fixed-width font.  Inline markup may cause
   style variations, but they do not cause a change to a variable-width font.</p>
+
+  <p>The <code>type</code> and <code>mime</code> attributes may be used for
+  syntax highlighting or other type-specific formatting. The <code>mime</code>
+  attribute is deprecated in favor of the <code>type</code> attribute. The
+  <code>mime</code> attribute takes a MIME type. The <code>type</code>
+  attribute takes a space-separated list of tokens indicating the content
+  type. Processing tools should select the most specific token that they
+  can work with.</p>
 </section>
 <!-- END processing -->
 
@@ -188,6 +188,7 @@ mal_block_screen = element screen {
 }
 mal_block_screen_attr = (
   attribute style { xsd:NMTOKENS } ?,
+  attribute type { xsd:NMTOKENS } ?,
   attribute mime { text } ?,
   <link xref="mal_block">mal_block_attr</link>,
   <link xref="mal_external">mal_attr_external</link> *

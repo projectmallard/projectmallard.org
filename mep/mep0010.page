@@ -11,12 +11,14 @@
   <link type="seealso" xref="mepYYYY"/>
   -->
   <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/38"/>
+<!--
   <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/21"/>
+-->
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2017</years>
+    <years>2017-2018</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
@@ -26,6 +28,7 @@
   incomplete proposed revised implemented final rejected replaced withdrawn
   -->
   <revision date="2017-08-31" docversion="1.1" status="proposed"/>
+  <revision date="2019-01-05" docversion="1.1" status="implemented"/>
 
   <title type="text">The <code>type</code> Attribute on the
   <code>code</code> Element</title>
@@ -72,6 +75,14 @@ elements in favor of a simpler <code>type</code> attribute.</p>
   <code>python</code>, or <code>xml</code>. These are the same
   types of identifiers used in many other document formats, as
   well as by many syntax highlighters.</p>
+
+  <p>This proposal is only for the block <code>code</code>
+  element, the block <code>screen</code> element, the inline
+  <code>code</code> element, and the inline <code>cmd</code>
+  element. It does not replace the <code>mime</code> attribute
+  on the block or inline <code>media</code> element. That may
+  also be worth doing, but should be done in a separate
+  proposal.</p>
 
   <p>The short identifiers are also somewhat arbitrary, and there
   may be differences in recognized strings from other formats or
@@ -144,11 +155,25 @@ if (bean_is_magic(bean)) {
 </section>
 -->
 
-<!--
 <section id="alternatives">
   <title>Alternatives</title>
+
+  <p>We considered using the <code>style</code> attribute, since syntax
+  highlighting or other use of the content type is not required. However,
+  the <code>style</code> attribute generally carries no set semantics,
+  and the large set of content types could interfere with site-specific
+  uses of the <code>style</code> attribute. Using a prefix could help
+  avoid conflicts, such as <code>style="lang-xml"</code>, but this
+  seemed cumbersome.</p>
+
+  <p>There was also a suggestion to use a <code>lang</code> attribute,
+  which is used in some lightweight formats for content type, but this
+  could be confused with the <code>xml:lang</code> attribute used for
+  human languages, or even the non-namespaced <code>lang</code>
+  attribute used in some XML vocabularies for human languages. Also,
+  there is an advantage to using attributes that have a shorthand
+  syntax in Ducktype, such as <code>type</code> or <code>style</code>.</p>
 </section>
--->
 
 <section id="compatibility">
   <title>Compatibility and Fallback</title>

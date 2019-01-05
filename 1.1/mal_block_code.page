@@ -6,6 +6,7 @@
   <link type="seealso" xref="mal_inline_code"/>
 
   <revision docversion="1.0" date="2011-08-27" status="final"/>
+  <revision docversion="1.1" date="2019-01-05" status="review"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -47,7 +48,12 @@ by the user.</p>
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
 
-    <item><p>The <code>mime</code> attribute takes a valid MIME type.  Processing
+    <item><p>The <code>type</code> attribute takes a space-separated list of
+    tokens indicating the content type. Processing tools may adjust their
+    behavior based on any of the tokens.</p></item>
+
+    <item><p>The <code>mime</code> attribute is deprecated and replaced by the
+    <code>type</code> attribute. It takes a valid MIME type. Processing
     tools may adjust their behavior for particular MIME types.</p></item>
 
     <item><p>The <code>code</code> element can have attributes from external
@@ -73,13 +79,13 @@ by the user.</p>
   <p>Use <code>code</code> to mark up a class definition:</p>
 
   <example>
-    <code mime="application/xml"><![CDATA[<code mime="text/x-c++src">
+    <code type="xml"><![CDATA[<code type="cpp">
 class BeanStalk {
 public:
   void add_bean(Bean bean);
   int count_beans();
 }</code>]]></code>
-    <code mime="text/x-c++src">
+    <code type="cpp">
 class BeanStalk {
 public:
   void add_bean(Bean bean);
@@ -103,6 +109,14 @@ public:
   <p>Code blocks are displayed in a fixed-width font.  Inline markup may
   cause style variations, but they do not cause a change to a variable-width
   font.</p>
+
+  <p>The <code>type</code> and <code>mime</code> attributes may be used for
+  syntax highlighting or other type-specific formatting. The <code>mime</code>
+  attribute is deprecated in favor of the <code>type</code> attribute. The
+  <code>mime</code> attribute takes a MIME type. The <code>type</code>
+  attribute takes a space-separated list of tokens indicating the content
+  type. Processing tools should select the most specific token that they
+  can work with.</p>
 </section>
 <!-- END processing -->
 
@@ -145,6 +159,7 @@ mal_block_code = element code {
 }
 mal_block_code_attr = (
   attribute style { xsd:NMTOKENS } ?,
+  attribute type { xsd:NMTOKENS } ?,
   attribute mime { text } ?,
   <link xref="mal_block">mal_block_attr</link>,
   <link xref="mal_external">mal_attr_external</link> *
