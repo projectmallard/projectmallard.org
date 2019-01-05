@@ -243,6 +243,7 @@ mal_block_code = element code {
 }
 mal_block_code_attr = (
   attribute style { xsd:NMTOKENS } ?,
+  attribute type { xsd:NMTOKENS } ?,
   attribute mime { text } ?,
   mal_block_attr,
   mal_attr_external *
@@ -283,6 +284,7 @@ mal_block_screen = element screen {
 }
 mal_block_screen_attr = (
   attribute style { xsd:NMTOKENS } ?,
+  attribute type { xsd:NMTOKENS } ?,
   attribute mime { text } ?,
   mal_block_attr,
   mal_attr_external *
@@ -683,6 +685,7 @@ mal_inline_code = element code {
 mal_inline_code_attr = (
   mal_attr_link *,
   attribute style { xsd:NMTOKENS } ?,
+  attribute type { xsd:NMTOKENS } ?,
   attribute mime { text } ?,
   mal_inline_attr,
   mal_attr_external *
@@ -696,6 +699,7 @@ mal_inline_cmd = element cmd {
 mal_inline_cmd_attr = (
   mal_attr_link *,
   attribute style { xsd:NMTOKENS } ?,
+  attribute type { xsd:NMTOKENS } ?,
   attribute mime { text } ?,
   mal_inline_attr,
   mal_attr_external *

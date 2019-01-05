@@ -633,6 +633,11 @@
       </attribute>
     </optional>
     <optional>
+      <attribute name="type">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <optional>
       <attribute name="mime">
         <text/>
       </attribute>
@@ -742,6 +747,11 @@
   <group>
     <optional>
       <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="type">
         <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
       </attribute>
     </optional>
@@ -1832,6 +1842,11 @@
       </attribute>
     </optional>
     <optional>
+      <attribute name="type">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <optional>
       <attribute name="mime">
         <text/>
       </attribute>
@@ -1861,6 +1876,11 @@
     </zeroOrMore>
     <optional>
       <attribute name="style">
+        <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="type">
         <data type="NMTOKENS" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
       </attribute>
     </optional>
