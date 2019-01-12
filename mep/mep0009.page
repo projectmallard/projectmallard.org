@@ -1,5 +1,4 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      xmlns:e="http://projectmallard.org/experimental/"
       type="topic" style="mep"
       id="mep0009">
 
@@ -22,6 +21,7 @@
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
   <revision date="2017-08-30" docversion="1.1" status="proposed"/>
+  <revision date="2019-01-12" docversion="1.1" status="implemented"/>
 
   <title type="text">Inline Highlight Element</title>
   <title type="link">MEP-0009: Inline Highlight Element</title>
@@ -123,9 +123,9 @@ to otherwise mark text that should stand out.</p>
 <page xmlns="http://projectmallard.org/1.0/"
       type="topic"
       id="planting">
-]]><e:hi><![CDATA[<info>
+]]><hi><![CDATA[<info>
   <link type="guide" xref="index"/>
-</info>]]></e:hi><![CDATA[
+</info>]]></hi><![CDATA[
 <title>Planting Beans</title>
 </page>]]></code>
 </example>
@@ -202,7 +202,7 @@ to otherwise mark text that should stand out.</p>
 
   <example>
   <code mime="application/xml"><![CDATA[
-<hi><e:hi>This is added text.</e:hi></hi>]]></code>
+<hi><hi>This is added text.</hi></hi>]]></code>
   </example>
 
   <p>Implementations that want to continue to support both may

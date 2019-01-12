@@ -6,6 +6,7 @@
   <link type="guide" xref="mal_inline#elements"/>
 
   <revision docversion="1.1" date="2018-10-29" status="draft"/>
+  <revision docversion="1.1" date="2019-01-12" status="review"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -71,7 +72,44 @@ style hints for added and deleted text, such as in a diff.</p>
 <section id="examples">
   <title>Examples</title>
 
-  <!-- FIXME -->
+  <p>From the <link xref="/about/learn/tenminutes"/>, create a basic
+  example of a Mallard page, then use <code>hi</code> to show another
+  complete example with added content.</p>
+
+  <example>
+  <code mime="application/xml"><![CDATA[
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="planting">
+<title>Planting Beans</title>
+</page>]]>]<![CDATA[]></code>
+  <code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="planting">
+]]>]<![CDATA[]><hi><![CDATA[<info>
+  <link type="guide" xref="index"/>
+</info>]]>]<![CDATA[]></hi><![CDATA[
+<title>Planting Beans</title>
+</page>]]>]<![CDATA[]></code>
+]]></code>
+  <code mime="application/xml"><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="planting">
+<title>Planting Beans</title>
+</page>]]></code>
+  <code mime="application/xml"><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="planting">
+]]><hi><![CDATA[<info>
+  <link type="guide" xref="index"/>
+</info>]]></hi><![CDATA[
+<title>Planting Beans</title>
+</page>]]></code>
+</example>
 </section>
 <!-- END examples -->
 
@@ -80,19 +118,16 @@ style hints for added and deleted text, such as in a diff.</p>
 <section id="processing">
   <title>Processing Expectations</title>
 
-<!-- FIXME -->
-<!--
-  <p>Emphasized text is traditionally presented in an italic or oblique font.
-  Italic and oblique fonts stress a portion of text without making it stand
-  out.  By contrast, bold text tends to draw the eye, which can be distracting
-  when reading long passages of text.  In scripts without a distinction between
-  roman and italic type styles, it may still be possible to use an oblique font
-  or some other font variation.  Bold text may be used if necessary.</p>
-  <p>Underlining should be avoided completely, since it hurts the legibility
-  of the text.  This problem is especially pronounced in scripts which place
-  diacritical marks below the text.  In these scripts, underlining can render
-  the text completely illegible.</p>
--->
+  <p>Highlighted text is typically rendered with a colored background in
+  environments where that is possible. Processing tools may change the
+  color or use different presentations based on style hints.</p>
+
+  <p>This specification recommends two style hints: <code>ins</code> for
+  inserted text and <code>del</code> for deleted text. Inserted text
+  typically has a green background. Deleted text typically has a red
+  background, sometimes with a strikethrough. When converting to HTML,
+  processing tools should use the semantic <code>ins</code> and
+  <code>del</code> elements.</p>
 </section>
 <!-- END processing -->
 
