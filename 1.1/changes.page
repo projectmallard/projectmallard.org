@@ -6,11 +6,12 @@
   <link type="guide" xref="index" group="changes"/>
 
   <revision docversion="1.1" date="2013-07-30" status="stub"/>
+  <revision docversion="1.1" date="2019-01-14" status="review"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2013-2018</years>
+    <years>2013-2019</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -24,7 +25,32 @@
 <title>Changes in Mallard 1.1</title>
 
 <list>
-  <item><p>The new <code xref="mal_table_th">th</code> element can be used
+  <item><p>The new <code xref="mal_inline_hi">hi</code> inline element can be
+  used to highlight runs of text, such as added or changed code in successive
+  code examples. The recommended <code>ins</code> and <code>del</code> style
+  hints can be used for inserted and deleted text in a diff. See
+  <link xref="/mep/mep0009">MEP-0009</link> and
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/3">Issue
+  3</link>.</p></item>
+
+  <item><p>The <code>mime</code> attribute has been deprecated on the
+  block <code xref="mal_block_code">code</code>,
+  block <code xref="mal_block_screen">screen</code>,
+  inline <code xref="mal_inline_code">code</code>, and
+  inline <code xref="mal_inline_cmd">cmd</code> elements. It has been
+  replaced by the simpler <code>type</code> attribute, which takes a
+  space-separated list of tokens.
+  See <link xref="/mep/mep0010">MEP-0010</link> and
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/38">Issue
+  38</link>.</p></item>
+
+  <item><p>The new <code xref="mal_info_keywords">keywords</code> informational
+  element can be used to add keywords to inform search engines. See
+  <link xref="/mep/mep0014">MEP-0014</link> and
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/10">Issue
+  10</link>.</p></item>
+
+  <item><p>The new <code xref="mal_table_td">th</code> element can be used
   alongside <code>td</code> elements to indicate header cells, just like in
   HTML. See
   <link xref="/mep/mep0012">MEP-0012</link> and
