@@ -7,11 +7,13 @@
 
   <revision docversion="1.0" date="2011-05-26" status="final"/>
   <revision docversion="1.1" date="2019-01-13" status="draft"/>
+  <revision docversion="1.1" date="2019-01-20" status="candidate"/>
+
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2010-2016</years>
+    <years>2010-2019</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -36,52 +38,52 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
 
 <table rules="cols" shade="rowgroups" frame="all">
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/abbrev.html">abbrev</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/abbrev.html">abbrev</code></p></td>
     <td><p>No equivalent in Mallard.  Use plain text instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/abstract.html">abstract</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/abstract.html">abstract</code></p></td>
     <td><p>No equivalent in Mallard.  The <code xref="mal_block_synopsis">synopsis</code> element
     may be appropriate in some cases.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/accel.html">accel</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/accel.html">accel</code></p></td>
     <td><p>No equivalent in Mallard.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/ackno.html">ackno</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/ackno.html">ackno</code> [4]</p></td>
       <td rowspan="2"><p>No equivalent in Mallard.  Simply put acknowledgements in a regular
       <link xref="mal_block_p">paragraph</link>.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/acknowledgements.html">acknowledgements</code> [5]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/acknowledgements.html">acknowledgements</code> [5]</p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/acronym.html">acronym</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/acronym.html">acronym</code></p></td>
     <td><p>No equivalent in Mallard.  Use plain text instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/action.html">action</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/action.html">action</code> [4]</p></td>
     <td><p>No equivalent in Mallard.  Use plain text instead.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/address.html">address</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/address.html">address</code></p></td>
       <td rowspan="2"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
       elements</link> may provide this information for <link xref="mal_info_credit">credits</link></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/affiliation.html">affiliation</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/affiliation.html">affiliation</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/alt.html">alt</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/alt.html">alt</code></p></td>
     <td><p>No equivalent in Mallard, as Mallard does not currently support equations.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/anchor.html">anchor</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/anchor.html">anchor</code></p></td>
     <td><p>Currently no equivalent in Mallard.  Future versions may address this.</p></td>
   </tr></tbody>
   <tbody><tr>
@@ -90,26 +92,26 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
     may provide similar functionality.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/answer.html">answer</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/answer.html">answer</code></p></td>
     <td><p>Mallard does not currently have a structured environment for question
     and answer sessions.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/appendix.html">appendix</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/appendix.html">appendix</code></p></td>
       <td rowspan="2"><p>No direct equivalent in Mallard.  Use the <code xref="mal_page">page</code>
       and <code xref="mal_info">info</code> elements instead.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/appendixinfo.html">appendixinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/appendixinfo.html">appendixinfo</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/application.html">application</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/application.html">application</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_app">app</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/arc.html">arc</code> [5]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/arc.html">arc</code> [5]</p></td>
     <td><p>Mallard does not directly support
     <link href="http://www.w3.org/TR/xlink/#extended-link">XLink extended links</link>.
     See <link xref="mal_info_link"/> for details on associating pages with well-defined
@@ -117,494 +119,494 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/area.html">area</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/area.html">area</code></p></td>
       <td rowspan="3"><p>Mallard does not support callouts.</p></td>
     </tr>
-    <tr><td><p><code href="http://www.docbook.org/tdg51/en/html/areaset.html">areaset</code></p></td></tr>
-    <tr><td><p><code href="http://www.docbook.org/tdg51/en/html/areaspec.html">areaspec</code></p></td></tr>
+    <tr><td><p><code href="https://tdg.docbook.org/tdg/5.2/areaset.html">areaset</code></p></td></tr>
+    <tr><td><p><code href="https://tdg.docbook.org/tdg/5.2/areaspec.html">areaspec</code></p></td></tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/arg.html">arg</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/arg.html">arg</code></p></td>
     <td><p>Mallard does not have a structured environment for command synopses.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/article.html">article</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/article.html">article</code></p></td>
       <td rowspan="2"><p>No direct equivalent in Mallard.  Use the <code xref="mal_page">page</code>
       and <code xref="mal_info">info</code> elements instead.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/articleinfo.html">articleinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/articleinfo.html">articleinfo</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/artpagenums.html">artpagenums</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/artpagenums.html">artpagenums</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information in <code xref="mal_info">info</code> elements.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/attribution.html">attribution</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/attribution.html">attribution</code></p></td>
     <td><p>Similar to the <code xref="mal_block_cite">cite</code> element.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/audiodata.html">audiodata</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/audiodata.html">audiodata</code></p></td>
       <td rowspan="2"><p>See the <code xref="mal_block_media">media</code> element for details.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/audioobject.html">audioobject</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/audioobject.html">audioobject</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/author.html">author</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/author.html">author</code></p></td>
     <td><p>Use the common <code xref="mal_info_credit">credit</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/authorblurb.html">authorblurb</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/authorblurb.html">authorblurb</code> [4]</p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/authorgroup.html">authorgroup</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/authorgroup.html">authorgroup</code></p></td>
     <td><p>No equivalent in Mallard.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/authorinitials.html">authorinitials</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/authorinitials.html">authorinitials</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/beginpage.html">beginpage</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/beginpage.html">beginpage</code> [4]</p></td>
     <td><p>No equivalent in Mallard.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/bibliocoverage.html">bibliocoverage</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/bibliocoverage.html">bibliocoverage</code></p></td>
       <td rowspan="14"><p>Mallard does not currently have a structured environment for bibliographies.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/bibliodiv.html">bibliodiv</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/bibliodiv.html">bibliodiv</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/biblioentry.html">biblioentry</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/biblioentry.html">biblioentry</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/bibliography.html">bibliography</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/bibliography.html">bibliography</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/bibliographyinfo.html">bibliographyinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/bibliographyinfo.html">bibliographyinfo</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/biblioid.html">biblioid</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/biblioid.html">biblioid</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/bibliolist.html">bibliolist</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/bibliolist.html">bibliolist</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/bibliomisc.html">bibliomisc</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/bibliomisc.html">bibliomisc</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/bibliomixed.html">bibliomixed</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/bibliomixed.html">bibliomixed</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/bibliomset.html">bibliomset</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/bibliomset.html">bibliomset</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/biblioref.html">biblioref</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/biblioref.html">biblioref</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/bibliorelation.html">bibliorelation</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/bibliorelation.html">bibliorelation</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/biblioset.html">biblioset</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/biblioset.html">biblioset</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/bibliosource.html">bibliosource</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/bibliosource.html">bibliosource</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/blockinfo.html">blockinfo</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/blockinfo.html">blockinfo</code> [4]</p></td>
     <td><p>Similar to the <code xref="mal_info">info</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/blockquote.html">blockquote</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/blockquote.html">blockquote</code></p></td>
     <td><p>Similar to the block <code xref="mal_block_quote">quote</code> element.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/book.html">book</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/book.html">book</code></p></td>
       <td rowspan="2"><p>No direct equivalent in Mallard.  Use the <code xref="mal_page">page</code>
       and <code xref="mal_info">info</code> elements instead.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/bookinfo.html">bookinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/bookinfo.html">bookinfo</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/bridgehead.html">bridgehead</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/bridgehead.html">bridgehead</code></p></td>
     <td><p>No equivalent in Mallard.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/callout.html">callout</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/callout.html">callout</code></p></td>
       <td rowspan="2"><p>Mallard does not support callouts.</p></td>
     </tr>
-    <tr><td><p><code href="http://www.docbook.org/tdg51/en/html/calloutlist.html">calloutlist</code></p></td></tr>
+    <tr><td><p><code href="https://tdg.docbook.org/tdg/5.2/calloutlist.html">calloutlist</code></p></td></tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/caption.html">caption</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/caption.html">caption</code></p></td>
     <td><p>No direct equivalent in Mallard.  Use the <code xref="mal_block_desc">desc</code>
     element in a <code xref="mal_block_figure">figure</code> element for a similar effect.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/caution.html">caution</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/caution.html">caution</code></p></td>
     <td><p>Use the common <code xref="mal_block_note">note</code> element.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/chapter.html">chapter</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/chapter.html">chapter</code></p></td>
       <td rowspan="2"><p>No direct equivalent in Mallard.  Use the <code xref="mal_page">page</code>
       and <code xref="mal_info">info</code> elements instead.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/chapterinfo.html">chapterinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/chapterinfo.html">chapterinfo</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/citation.html">citation</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/citation.html">citation</code></p></td>
       <td rowspan="2"><p>Mallard does not currently have a structured environment for bibliographies.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/citebiblioid.html">citebiblioid</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/citebiblioid.html">citebiblioid</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/citerefentry.html">citerefentry</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/citerefentry.html">citerefentry</code></p></td>
     <td><p>Mallard does not currently have a structured environment for reference pages.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/citetitle.html">citetitle</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/citetitle.html">citetitle</code></p></td>
     <td><p>No equivalent in Mallard. Use the appropriate punctuation, or the
     <code xref="mal_inline_em">em</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/city.html">city</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/city.html">city</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/classname.html">classname</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/classname.html">classname</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/classsynopsis.html">classsynopsis</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/classsynopsis.html">classsynopsis</code></p></td>
       <td rowspan="3"><p>No direct equivalent in Mallard.  Use the block <code xref="mal_block_code">code</code>
       element instead, possibly inside a <code xref="mal_block_synopsis">synopsis</code> element.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/classsynopsisinfo.html">classsynopsisinfo</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/classsynopsisinfo.html">classsynopsisinfo</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/cmdsynopsis.html">cmdsynopsis</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/cmdsynopsis.html">cmdsynopsis</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/co.html">co</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/co.html">co</code></p></td>
     <td><p>Mallard does not support callouts.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/code.html">code</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/code.html">code</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_code">code</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/html.col.html">col</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/html.col.html">col</code></p></td>
     <td><p>Similar to the <code xref="mal_table_col">col</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/html.colgroup.html">colgroup</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/html.colgroup.html">colgroup</code></p></td>
     <td><p>Similar to the <code xref="mal_table_col">colgroup</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/collab.html">collab</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/collab.html">collab</code></p></td>
     <td><p>Use the common <code xref="mal_info_credit">credit</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/collabname.html">collabname</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/collabname.html">collabname</code> [4]</p></td>
     <td><p>Varies with use.  The <code xref="mal_info_credit">name</code> element in
     a <code xref="mal_info_credit">credit</code> element may be appropriate.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/colophon.html">colophon</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/colophon.html">colophon</code></p></td>
     <td><p>No equivalent in Mallard.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/colspec.html">colspec</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/colspec.html">colspec</code></p></td>
     <td><p>Mallard does not use the CALS table model.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/command.html">command</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/command.html">command</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_cmd">cmd</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/computeroutput.html">computeroutput</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/computeroutput.html">computeroutput</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_output">output</code> element.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/confdates.html">confdates</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/confdates.html">confdates</code></p></td>
       <td rowspan="5"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
       may provide this information in <code xref="mal_info">info</code> elements.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/confgroup.html">confgroup</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/confgroup.html">confgroup</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/confnum.html">confnum</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/confnum.html">confnum</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/confsponsor.html">confsponsor</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/confsponsor.html">confsponsor</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/conftitle.html">conftitle</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/conftitle.html">conftitle</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/constant.html">constant</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/constant.html">constant</code></p></td>
     <td><p>No specific element in Mallard.  Use an inline <code xref="mal_inline_code">code</code>
     or <code xref="mal_inline_sys">sys</code> element instead.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/constraint.html">constraint</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/constraint.html">constraint</code></p></td>
       <td rowspan="2"><p>Mallard does not have structured EBNF productions.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/constraintdef.html">constraintdef</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/constraintdef.html">constraintdef</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/constructorsynopsis.html">constructorsynopsis</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/constructorsynopsis.html">constructorsynopsis</code></p></td>
     <td><p>No specific element in Mallard.  Use the block <code xref="mal_block_code">code</code>
     element instead, possibly inside a <code xref="mal_block_synopsis">synopsis</code> element.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/contractnum.html">contractnum</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/contractnum.html">contractnum</code></p></td>
       <td rowspan="2"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
       may provide this information in <code xref="mal_info">info</code> elements.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/contractsponsor.html">contractsponsor</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/contractsponsor.html">contractsponsor</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/contrib.html">contrib</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/contrib.html">contrib</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
     may provide this information in <code xref="mal_info">info</code> elements or for
     <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/copyright.html">copyright</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/copyright.html">copyright</code></p></td>
     <td rowspan="2"><p>Use the <code xref="mal_info_credit">credit</code> element to
     record copyright information.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/coref.html">coref</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/coref.html">coref</code></p></td>
     <td><p>Mallard does not support callouts.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/corpauthor.html">corpauthor</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/corpauthor.html">corpauthor</code> [4]</p></td>
       <td rowspan="2"><p>Use the common <code xref="mal_info_credit">credit</code> element.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/corpcredit.html">corpcredit</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/corpcredit.html">corpcredit</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/corpname.html">corpname</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/corpname.html">corpname</code> [4]</p></td>
     <td><p>Varies with use.  The <code xref="mal_info_credit">name</code> element in
     a <code xref="mal_info_credit">credit</code> element may be appropriate.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/country.html">country</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/country.html">country</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/cover.html">cover</code> [5]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/cover.html">cover</code> [5]</p></td>
     <td><p>No equivalent in Mallard.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/database.html">database</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/database.html">database</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_sys">sys</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/date.html">date</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/date.html">date</code></p></td>
     <td><p>Varies with use.  For <link xref="mal_info_revision">revisions</link>, use the
     <code>date</code> attribute.  <link xref="mal_external">External-namespace elements</link>
     may provide this information in <code xref="mal_info">info</code> elements.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/dedication.html">dedication</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/dedication.html">dedication</code></p></td>
     <td><p>No equivalent in Mallard.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/destructorsynopsis.html">destructorsynopsis</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/destructorsynopsis.html">destructorsynopsis</code></p></td>
     <td><p>No specific element in Mallard.  Use the block <code xref="mal_block_code">code</code>
     element instead, possibly inside a <code xref="mal_block_synopsis">synopsis</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/edition.html">edition</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/edition.html">edition</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
     may provide this information in <code xref="mal_info">info</code> elements.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/editor.html">editor</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/editor.html">editor</code></p></td>
     <td><p>Use the common <code xref="mal_info_credit">credit</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/email.html">email</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/email.html">email</code></p></td>
     <td><p>Varies with use.  Use the <code xref="mal_info_credit">name</code> element in
     a <code xref="mal_info_credit">credit</code> element in an informational context.
     Inline, use <code xref="mal_inline_sys">sys</code>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/emphasis.html">emphasis</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/emphasis.html">emphasis</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_em">em</code> element.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/entry.html">entry</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/entry.html">entry</code></p></td>
       <td rowspan="2"><p>Mallard does not use the CALS table model.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/entrytbl.html">entrytbl</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/entrytbl.html">entrytbl</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/envar.html">envar</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/envar.html">envar</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_sys">sys</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/epigraph.html">epigrah</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/epigraph.html">epigrah</code></p></td>
     <td><p>No direct equivalent in Mallard.  Some processing tools may support the
     <code>epigraph</code> style hint on the block <code xref="mal_block_quote">quote</code>
     element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/equation.html">equation</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/equation.html">equation</code></p></td>
     <td><p>Currently no equivalent in Mallard.  Future versions may address this.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/errorcode.html">errorcode</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/errorcode.html">errorcode</code></p></td>
       <td rowspan="4"><p>No specific elements in Mallard.  Use the inline
       <code xref="mal_inline_sys">sys</code> element.  For error text, the
       <code xref="mal_inline_output">output</code> may be appropriate.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/errorname.html">errorname</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/errorname.html">errorname</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/errortext.html">errortext</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/errortext.html">errortext</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/errortype.html">errortype</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/errortype.html">errortype</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/example.html">example</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/example.html">example</code></p></td>
     <td><p>Similar to the <code xref="mal_block_example">example</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/exceptionname.html">exceptionname</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/exceptionname.html">exceptionname</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/extendedlink.html">extendedlink</code> [5]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/extendedlink.html">extendedlink</code> [5]</p></td>
     <td><p>Mallard does not directly support
     <link href="http://www.w3.org/TR/xlink/#extended-link">XLink extended links</link>.
     See <link xref="mal_info_link"/> for details on associating pages with well-defined
     behavior.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/fax.html">fax</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/fax.html">fax</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/fieldsynopsis.html">fieldsynopsis</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/fieldsynopsis.html">fieldsynopsis</code></p></td>
     <td><p>No specific element in Mallard.  Use the block <code xref="mal_block_code">code</code>
     element instead, possibly inside a <code xref="mal_block_synopsis">synopsis</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/figure.html">figure</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/figure.html">figure</code></p></td>
     <td><p>Similar to the <code xref="mal_block_figure">figure</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/filename.html">filename</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/filename.html">filename</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_file">file</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/firstname.html">firstname</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/firstname.html">firstname</code></p></td>
     <td><p>No equivalent in Mallard. Mallard records the <link xref="mal_info_name">whole
     name</link> as it should be presented. <link xref="mal_external">External-namespace
     elements</link> may provide parts of names for
     <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/firstterm.html">firstterm</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/firstterm.html">firstterm</code></p></td>
     <td><p>No specific element in Mallard.  Use the <code xref="mal_inline_em">em</code>
     element to emphasize the first usage of a term.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/footnote.html">footnote</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/footnote.html">footnote</code></p></td>
       <td rowspan="2"><p>Mallard does not currently have support for footnotes.  Future
       versions may add annotations.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/footnoteref.html">footnoteref</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/footnoteref.html">footnoteref</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/foreignphrase.html">foreignphrase</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/foreignphrase.html">foreignphrase</code></p></td>
     <td><p>No specific element in Mallard.  If necessary, use the
     <code xref="mal_inline_em">em</code> element to emphasize a foreign phrase.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/formalpara.html">formalpara</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/formalpara.html">formalpara</code></p></td>
     <td><p>The Mallard <code xref="mal_block_div">div</code> element has no formal
     semantics, but is usable to add a title to a paragraph.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/funcdef.html">funcdef</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/funcdef.html">funcdef</code></p></td>
       <td rowspan="5"><p>No direct equivalent in Mallard.  Use the block <code xref="mal_block_code">code</code>
       element instead, possibly inside a <code xref="mal_block_synopsis">synopsis</code> element.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/funcparams.html">funcparams</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/funcparams.html">funcparams</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/funcprototype.html">funcprototype</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/funcprototype.html">funcprototype</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/funcsynopsis.html">funcsynopsis</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/funcsynopsis.html">funcsynopsis</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/funcsynopsisinfo.html">funcsynopsisinfo</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/funcsynopsisinfo.html">funcsynopsisinfo</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/function.html">function</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/function.html">function</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
   </tr></tbody>
@@ -617,287 +619,287 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/glossary.html">glossary</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/glossary.html">glossary</code></p></td>
       <td rowspan="2"><p>No direct equivalent in Mallard.  Use the <code xref="mal_page">page</code>
       and <code xref="mal_info">info</code> elements instead.  Future versions may address
       glossaries directly.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/glossaryinfo.html">glossaryinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/glossaryinfo.html">glossaryinfo</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/glossdef.html">glossdef</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/glossdef.html">glossdef</code></p></td>
       <td rowspan="7"><p>Mallard does not currently have a structured environment for glossaries.
       Use the <code xref="mal_block_terms">terms</code> element instead.  Future versions may
       address glossaries directly.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/glossdiv.html">glossdiv</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/glossdiv.html">glossdiv</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/glossentry.html">glossentry</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/glossentry.html">glossentry</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/glosslist.html">glosslist</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/glosslist.html">glosslist</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/glosssee.html">glosssee</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/glosssee.html">glosssee</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/glossseealso.html">glossseealso</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/glossseealso.html">glossseealso</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/glossterm.html">glossterm</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/glossterm.html">glossterm</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/graphic.html">graphic</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/graphic.html">graphic</code> [4]</p></td>
     <td><p>See the <code xref="mal_block_media">media</code> element for details.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/graphicco.html">graphicco</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/graphicco.html">graphicco</code> [4]</p></td>
     <td><p>Mallard does not support callouts.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/group.html">group</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/group.html">group</code></p></td>
     <td><p>Mallard does not have a structured environment for command synopses.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/guibutton.html">guibutton</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/guibutton.html">guibutton</code></p></td>
       <td rowspan="6"><p>Use the common <code xref="mal_inline_gui">gui</code> element.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/guiicon.html">guiicon</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/guiicon.html">guiicon</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/guilabel.html">guilabel</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/guilabel.html">guilabel</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/guimenu.html">guimenu</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/guimenu.html">guimenu</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/guimenuitem.html">guimenuitem</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/guimenuitem.html">guimenuitem</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/guisubmenu.html">guisubmenu</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/guisubmenu.html">guisubmenu</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/hardware.html">hardware</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/hardware.html">hardware</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_sys">sys</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/highlights.html">highlights</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/highlights.html">highlights</code> [4]</p></td>
     <td><p>Currently no equivalent in Mallard.  Future versions may support marking the
     introductory text of a topic.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/holder.html">holder</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/holder.html">holder</code></p></td>
     <td><p>Use the <code xref="mal_info_name">name</code> element in a
     <code xref="mal_info_credit">credit</code> element.  Mallard records
     copyright information in <code>credit</code> elements.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/honorific.html">honorific</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/honorific.html">honorific</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/html.form.html">html:form</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/html.form.html">html:form</code></p></td>
     <td><p>No specific recommendation at this time, although
     <link xref="mal_external">external-namespace elements</link>, including XHTML,
     may be used in Mallard. Tools may not support HTML forms.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/imagedata.html">imagedata</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/imagedata.html">imagedata</code></p></td>
       <td rowspan="2"><p>See the <code xref="mal_block_media">media</code> element for details.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/imageobject.html">imageobject</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/imageobject.html">imageobject</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/imageobjectco.html">imageobjectco</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/imageobjectco.html">imageobjectco</code></p></td>
     <td><p>Mallard does not support callouts.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/important.html">important</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/important.html">important</code></p></td>
     <td><p>Use the common <code xref="mal_block_note">note</code> element.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/index.html">index</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/index.html">index</code></p></td>
       <td rowspan="5"><p>Mallard does not currently have a structured environment for indexes.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/indexdiv.html">indexdiv</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/indexdiv.html">indexdiv</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/indexentry.html">indexentry</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/indexentry.html">indexentry</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/indexinfo.html">indexinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/indexinfo.html">indexinfo</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/indexterm.singular.html">indexterm</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/indexterm.singular.html">indexterm</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/info.html">info</code> [5]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/info.html">info</code> [5]</p></td>
     <td><p>Similar to the <code xref="mal_info">info</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/informalequation.html">informalequation</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/informalequation.html">informalequation</code></p></td>
     <td><p>Currently no equivalent in Mallard.  Future versions may address this.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/informalexample.html">informalexample</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/informalexample.html">informalexample</code></p></td>
     <td><p>Similar to the <code xref="mal_block_example">example</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/informalfigure.html">informalfigure</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/informalfigure.html">informalfigure</code></p></td>
     <td><p>Similar to the <code xref="mal_block_figure">figure</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/html.informaltable.html">informaltable</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/html.informaltable.html">informaltable</code></p></td>
     <td><p>Similar to the <code xref="mal_table">table</code> element.  Mallard
     does not use the CALS table model.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/initializer.html">initializer</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/initializer.html">initializer</code></p></td>
     <td><p>Mallard does not have a structured environment for field synopses.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/inlineequation.html">inlineequation</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/inlineequation.html">inlineequation</code></p></td>
     <td><p>Currently no equivalent in Mallard.  Future versions may address this.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/inlinegraphic.html">inlinegraphic</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/inlinegraphic.html">inlinegraphic</code> [4]</p></td>
       <td rowspan="2"><p>See the inline <code xref="mal_inline_media">media</code> element for details.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/inlinemediaobject.html">inlinemediaobject</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/inlinemediaobject.html">inlinemediaobject</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/interface.html">interface</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/interface.html">interface</code> [4]</p></td>
     <td><p>Use the common <code xref="mal_inline_gui">gui</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/interfacename.html">interfacename</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/interfacename.html">interfacename</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/invpartnumber.html">invpartnumber</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/invpartnumber.html">invpartnumber</code> [4]</p></td>
       <td rowspan="4"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
       elements</link> may provide this information in <code xref="mal_info">info</code>
       elements.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/isbn.html">isbn</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/isbn.html">isbn</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/issn.html">issn</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/issn.html">issn</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/issuenum.html">issuenum</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/issuenum.html">issuenum</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/itemizedlist.html">itemizedlist</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/itemizedlist.html">itemizedlist</code></p></td>
     <td><p>See the <code xref="mal_block_list">list</code> element for details.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/itermset.html">itermset</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/itermset.html">itermset</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
     elements</link> may provide this information in <code xref="mal_info">info</code>
     elements.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/jobtitle.html">jobtitle</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/jobtitle.html">jobtitle</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/keycap.html">keycap</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/keycap.html">keycap</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_key">key</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/keycode.html">keycode</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/keycode.html">keycode</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_sys">sys</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/keycombo.html">keycombo</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/keycombo.html">keycombo</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_keyseq">keyseq</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/keysym.html">keysym</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/keysym.html">keysym</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_sys">sys</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/keyword.html">keyword</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/keyword.html">keyword</code></p></td>
       <td rowspan="2"><p>Similar to the <code xref="mal_info_keywords">keywords</code>  element.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/keywordset.html">keywordset</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/keywordset.html">keywordset</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/label.html">label</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/label.html">label</code></p></td>
     <td><p>Mallard does not currently have a structured environment for question
     and answer sessions.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/legalnotice.html">legalnotice</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/legalnotice.html">legalnotice</code></p></td>
     <td><p>No general-purpose legal notice in Mallard.  <link xref="mal_external">External-namespace
     elements</link> may provide this information in <code xref="mal_info">info</code> elements.  For
     license information, use the <code xref="mal_info_license">license</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/lhs.html">lhs</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/lhs.html">lhs</code></p></td>
     <td><p>Mallard does not have structured EBNF productions.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/lineage.html">lineage</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/lineage.html">lineage</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/lineannotation.html">lineannotation</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/lineannotation.html">lineannotation</code></p></td>
     <td><p>Currently no equivalent in Mallard.  You may use <link xref="mal_inline_em">inline
     emphasis</link> for a similar effect.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/link.html">link</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/link.html">link</code></p></td>
     <td><p>See the <code xref="mal_inline_link">link</code> element for details.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/listitem.html">listitem</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/listitem.html">listitem</code></p></td>
     <td><p>See the <code>item</code> element for each <link xref="mal_block#lists">list
     element</link> for details.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/literal.html">literal</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/literal.html">literal</code></p></td>
     <td><p>No specific element in Mallard.  Use an inline <code xref="mal_inline_code">code</code>
     or <code xref="mal_inline_sys">sys</code> element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/literallayout.html">literallayout</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/literallayout.html">literallayout</code></p></td>
     <td><p>Currently no general-purpose literal layout in Mallard.  Future versions may address this.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/locator.html">locator</code> [5]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/locator.html">locator</code> [5]</p></td>
     <td><p>Mallard does not directly support
     <link href="http://www.w3.org/TR/xlink/#extended-link">XLink extended links</link>.
     See <link xref="mal_info_link"/> for details on associating pages with well-defined
@@ -905,25 +907,21 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/lot.html">lot</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/lot.html">lot</code> [4]</p></td>
       <td rowspan="2"><p>No equivalent in Mallard.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/lotentry.html">lotentry</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/lotentry.html">lotentry</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/manvolnum.html">manvolnum</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/manvolnum.html">manvolnum</code></p></td>
     <td><p>Mallard does not currently have a structured environment for reference pages.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/markup.html">markup</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/markup.html">markup</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
-  </tr></tbody>
-  <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/markup.html">mathprase</code></p></td>
-    <td><p>Currently no equivalent in Mallard.  Future versions may address this.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://docbook.org/tdg51/en/html/mathphrase.html">mathphrase</code></p></td>
@@ -932,96 +930,96 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
     tool.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/medialabel.html">medialabel</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/medialabel.html">medialabel</code> [4]</p></td>
     <td><p>No equivalent in Mallard.  Use plain text instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/mediaobject.html">mediaobject</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/mediaobject.html">mediaobject</code></p></td>
     <td><p>See the <code xref="mal_block_media">media</code> element for details.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/mediaobjectco.html">mediaobjectco</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/mediaobjectco.html">mediaobjectco</code> [4]</p></td>
     <td><p>Mallard does not support callouts.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/member.html">member</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/member.html">member</code></p></td>
     <td><p>No equivalent in Mallard to DocBook's
-    <code href="http://www.docbook.org/tdg51/en/html/simplelist.html">simplelist</code>
+    <code href="https://tdg.docbook.org/tdg/5.2/simplelist.html">simplelist</code>
     element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/menuchoice.html">menuchoice</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/menuchoice.html">menuchoice</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_guiseq">guiseq</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/methodname.html">methodname</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/methodname.html">methodname</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/methodparam.html">methodparam</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/methodparam.html">methodparam</code></p></td>
     <td><p>Mallard does not have a structured environment for method synopses.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/methodsynopsis.html">methodsynopsis</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/methodsynopsis.html">methodsynopsis</code></p></td>
     <td><p>No specific element in Mallard.  Use the block <code xref="mal_block_code">code</code>
     element instead, possibly inside a <code xref="mal_block_synopsis">synopsis</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/_any.mml.html">mml:*</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/_any.mml.html">mml:*</code></p></td>
     <td><p>No specific recommendation at this time, although
     <link xref="mal_external">external-namespace elements</link>, including MathML,
     may be used in Mallard. Tools may not support MathML.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/modespec.html">modespec</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/modespec.html">modespec</code> [4]</p></td>
     <td><p>No equivalent in Mallard.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/modifier.html">modifier</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/modifier.html">modifier</code></p></td>
     <td><p>Mallard does not have a structured environment for code synopses.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/mousebutton.html">mousebutton</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/mousebutton.html">mousebutton</code></p></td>
     <td><p>No equivalent in Mallard.  Use plain text instead.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/msg.html">msg</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/msg.html">msg</code></p></td>
       <td rowspan="12"><p>Mallard does not have a structured environment for messages.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/msgaud.html">msgaud</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/msgaud.html">msgaud</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/msgentry.html">msgentry</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/msgentry.html">msgentry</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/msgexplan.html">msgexplan</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/msgexplan.html">msgexplan</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/msginfo.html">msginfo</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/msginfo.html">msginfo</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/msglevel.html">msglevel</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/msglevel.html">msglevel</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/msgmain.html">msgmain</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/msgmain.html">msgmain</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/msgorig.html">msgorig</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/msgorig.html">msgorig</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/msgrel.html">msgrel</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/msgrel.html">msgrel</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/msgset.html">msgset</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/msgset.html">msgset</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/msgsub.html">msgsub</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/msgsub.html">msgsub</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/msgtext.html">msgtext</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/msgtext.html">msgtext</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
@@ -1031,122 +1029,122 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
     <code xref="mal_block_media">media</code> elements.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/nonterminal.html">nonterminal</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/nonterminal.html">nonterminal</code></p></td>
     <td><p>Mallard does not have structured EBNF productions.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/note.html">note</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/note.html">note</code></p></td>
     <td><p>Use the common <code xref="mal_block_note">note</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/objectinfo.html">objectinfo</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/objectinfo.html">objectinfo</code> [4]</p></td>
     <td><p>Similar to the <code xref="mal_info">info</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/olink.html">olink</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/olink.html">olink</code></p></td>
     <td><p>See the <code xref="mal_inline_link">link</code> element for details.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/ooclass.html">ooclass</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/ooclass.html">ooclass</code></p></td>
       <td rowspan="3"><p>Mallard does not have a structured environment for code synopses.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/ooexception.html">ooexception</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/ooexception.html">ooexception</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/oointerface.html">oointerface</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/oointerface.html">oointerface</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/option.html">option</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/option.html">option</code></p></td>
     <td><p>No specific element in Mallard.  Use the <code xref="mal_inline_cmd">cmd</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/optional.html">optional</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/optional.html">optional</code></p></td>
     <td><p>No equivalent in Mallard.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/orderedlist.html">orderedlist</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/orderedlist.html">orderedlist</code></p></td>
     <td><p>See the <code xref="mal_block_list">list</code> element for details.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/org.html">org</code> [5]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/org.html">org</code> [5]</p></td>
       <td rowspan="4"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
       elements</link> may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/orgdiv.html">orgdiv</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/orgdiv.html">orgdiv</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/orgname.html">orgname</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/orgname.html">orgname</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/otheraddr.html">otheraddr</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/otheraddr.html">otheraddr</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/othercredit.html">othercredit</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/othercredit.html">othercredit</code></p></td>
     <td><p>Use the common <code xref="mal_info_credit">credit</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/othername.html">othername</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/othername.html">othername</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/package.html">package</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/package.html">package</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_sys">sys</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/pagenums.html">pagenums</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/pagenums.html">pagenums</code></p></td>
     <td><p>Mallard does not currently have a structured environment for bibliographies.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/para.html">para</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/para.html">para</code></p></td>
     <td><p>Similar to the <code xref="mal_block_p">p</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/paramdef.html">paramdef</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/paramdef.html">paramdef</code></p></td>
     <td><p>Mallard does not have a structured environment for function prototypes.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/parameter.html">parameter</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/parameter.html">parameter</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/part.html">part</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/part.html">part</code></p></td>
       <td rowspan="2"><p>No direct equivalent in Mallard.  Use the <code xref="mal_page">page</code>
       and <code xref="mal_info">info</code> elements instead.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/partinfo.html">partinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/partinfo.html">partinfo</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/partintro.html">partintro</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/partintro.html">partintro</code></p></td>
     <td><p>No direct equivalent in Mallard.  The <code xref="mal_page">page</code> or
     <code xref="mal_section">section</code> element may be appropriate.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/person.html">person</code> [5]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/person.html">person</code> [5]</p></td>
       <td rowspan="4"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
       may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/personblurb.html">personblurb</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/personblurb.html">personblurb</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/personname.html">personname</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/personname.html">personname</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/phone.html">phone</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/phone.html">phone</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
@@ -1155,202 +1153,202 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/pob.html">pob</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/pob.html">pob</code></p></td>
       <td rowspan="2"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
       may provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/postcode.html">postcode</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/postcode.html">postcode</code></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/preface.html">preface</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/preface.html">preface</code></p></td>
       <td rowspan="2"><p>No direct equivalent in Mallard.  Use the <code xref="mal_page">page</code>
       and <code xref="mal_info">info</code> elements instead.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/prefaceinfo.html">prefaceinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/prefaceinfo.html">prefaceinfo</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/primary.html">primary</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/primary.html">primary</code></p></td>
       <td rowspan="2"><p>Mallard does not currently have a structured environment for indexes.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/primaryie.html">primaryie</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/primaryie.html">primaryie</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/printhistory.html">printhistory</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/printhistory.html">printhistory</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information in <code xref="mal_info">info</code> elements.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/procedure.html">procedure</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/procedure.html">procedure</code></p></td>
     <td><p>See the <code xref="mal_block_steps">steps</code> element for details.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/production.html">production</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/production.html">production</code></p></td>
       <td rowspan="3"><p>Mallard does not have structured EBNF productions.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/productionrecap.html">productionrecap</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/productionrecap.html">productionrecap</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/productionset.html">productionset</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/productionset.html">productionset</code></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/productname.html">productname</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/productname.html">productname</code></p></td>
       <td rowspan="2"><p>No equivalent in Mallard.  Inline, use plain text.
       <link xref="mal_external">External-namespace elements</link> may provide this information
       in <code xref="mal_info">info</code> elements.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/productnumber.html">productnumber</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/productnumber.html">productnumber</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/programlisting.html">programlisting</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/programlisting.html">programlisting</code></p></td>
     <td><p>Similar to the block <code xref="mal_block_code">code</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/programlistingco.html">programlistingco</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/programlistingco.html">programlistingco</code></p></td>
     <td><p>Mallard does not support callouts.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/prompt.html">prompt</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/prompt.html">prompt</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_output">outut</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/property.html">property</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/property.html">property</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_sys">sys</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/pubdate.html">pubdate</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/pubdate.html">pubdate</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information in <code xref="mal_info">info</code> elements.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/publisher.html">publisher</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/publisher.html">publisher</code></p></td>
     <td><p>Use the common <code xref="mal_info_credit">credit</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/publishername.html">publishername</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/publishername.html">publishername</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/pubsnumber.html">pubsnumber</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/pubsnumber.html">pubsnumber</code> [4]</p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information in <code xref="mal_info">info</code> elements.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/qandadiv.html">qandadiv</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/qandadiv.html">qandadiv</code></p></td>
       <td rowspan="4"><p>Mallard does not currently have a structured environment for question
       and answer sessions.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/qandaentry.html">qandaentry</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/qandaentry.html">qandaentry</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/qandaset.html">qandaset</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/qandaset.html">qandaset</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/question.html">question</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/question.html">question</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/quote.html">quote</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/quote.html">quote</code></p></td>
     <td><p>No equivalent in Mallard.  Use plain text instead.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refclass.html">refclass</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refclass.html">refclass</code></p></td>
       <td rowspan="22"><p>Mallard does not currently have a structured environment for reference pages.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refdescriptor.html">refdescriptor</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refdescriptor.html">refdescriptor</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refentry.html">refentry</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refentry.html">refentry</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/refentryinfo.html">refentryinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/refentryinfo.html">refentryinfo</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refentrytitle.html">refentrytitle</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refentrytitle.html">refentrytitle</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/reference.html">reference</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/reference.html">reference</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/referenceinfo.html">referenceinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/referenceinfo.html">referenceinfo</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refmeta.html">refmeta</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refmeta.html">refmeta</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refmiscinfo.html">refmiscinfo</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refmiscinfo.html">refmiscinfo</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refname.html">refname</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refname.html">refname</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refnamediv.html">refnamediv</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refnamediv.html">refnamediv</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refpurpose.html">refpurpose</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refpurpose.html">refpurpose</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refsect1.html">refsect1</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refsect1.html">refsect1</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/refsect1info.html">refsect1info</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/refsect1info.html">refsect1info</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refsect2.html">refsect2</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refsect2.html">refsect2</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/refsect2info.html">refsect2info</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/refsect2info.html">refsect2info</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refsect3.html">refsect3</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refsect3.html">refsect3</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/refsect3info.html">refsect3info</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/refsect3info.html">refsect3info</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refsection.html">refsection</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refsection.html">refsection</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/refsectioninfo.html">refsectioninfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/refsectioninfo.html">refsectioninfo</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/refsynopsisdiv.html">refsynopsisdiv</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/refsynopsisdiv.html">refsynopsisdiv</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/refsynopsisdivinfo.html">refsynopsisdivinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/refsynopsisdivinfo.html">refsynopsisdivinfo</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/releaseinfo.html">releaseinfo</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/releaseinfo.html">releaseinfo</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information in <code xref="mal_info">info</code> elements.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/remark.html">remark</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/remark.html">remark</code></p></td>
     <td><p>Similar to the <code xref="mal_block_comment">comment</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/replaceable.html">replaceable</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/replaceable.html">replaceable</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_var">var</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
@@ -1359,531 +1357,531 @@ only in DocBook 4 are marked with [4]. Elements that are only in DocBook
     Use a regular <link xref="mal_block_p">paragraph</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/returnvalue.html">returnvalue</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/returnvalue.html">returnvalue</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/revdescription.html">revdescription</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/revdescription.html">revdescription</code></p></td>
     <td><p>No direct equivalent in Mallard.  The <code xref="mal_block_desc">desc</code> element
     may provide this for <link xref="mal_info_revision">revisions</link>.  Otherwise, use
     <link xref="mal_external">external-namespace elements</link> in revisions.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/revhistory.html">revhistory</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/revhistory.html">revhistory</code></p></td>
     <td><p>Mallard does not provide a wrapper for <code xref="mal_info_revision">revision</code>
     elements.  Place all <code>revision</code> elements directly in an <code xref="mal_info">info</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/revision.html">revision</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/revision.html">revision</code></p></td>
     <td><p>Similar to the <code xref="mal_info_revision">revision</code> element.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/revnumber.html">revnumber</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/revnumber.html">revnumber</code></p></td>
       <td rowspan="2"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
       may provide this information for <link xref="mal_info_revision">revisions</link>.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/revremark.html">revremark</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/revremark.html">revremark</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/rhs.html">rhs</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/rhs.html">rhs</code></p></td>
     <td><p>Mallard does not have structured EBNF productions.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/row.html">row</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/row.html">row</code></p></td>
     <td><p>Mallard does not use the CALS table model.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/sbr.html">sbr</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/sbr.html">sbr</code></p></td>
     <td><p>Mallard does not have a structured environment for command synopses.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/screen.html">screen</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/screen.html">screen</code></p></td>
     <td><p>Similar to the <code xref="mal_block_screen">screen</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/screenco.html">screenco</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/screenco.html">screenco</code></p></td>
     <td><p>Mallard does not support callouts.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/screeninfo.html">screeninfo</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/screeninfo.html">screeninfo</code> [4]</p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link>
     may provide this information for <code xref="mal_block_media">media</code> elements.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/screenshot.html">screenshot</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/screenshot.html">screenshot</code></p></td>
     <td><p>No direct equivalent in Mallard.  Style hints may be used on the
     <code xref="mal_block_media">media</code> element for a similar effect.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/secondary.html">secondary</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/secondary.html">secondary</code></p></td>
       <td rowspan="2"><p>Mallard does not currently have a structured environment for indexes.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/secondaryie.html">secondaryie</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/secondaryie.html">secondaryie</code></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/sect1.html">sect1</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/sect1.html">sect1</code></p></td>
       <td rowspan="12"><p>Use the common <code xref="mal_section">section</code> and
       <code xref="mal_info">info</code> elements.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/sect1info.html">sect1info</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/sect1info.html">sect1info</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/sect2.html">sect2</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/sect2.html">sect2</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/sect2info.html">sect2info</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/sect2info.html">sect2info</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/sect3.html">sect3</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/sect3.html">sect3</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/sect3info.html">sect3info</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/sect3info.html">sect3info</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/sect4.html">sect4</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/sect4.html">sect4</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/sect4info.html">sect4info</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/sect4info.html">sect4info</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/sect5.html">sect5</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/sect5.html">sect5</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/sect5info.html">sect5info</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/sect5info.html">sect5info</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/section.html">section</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/section.html">section</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/sectioninfo.html">sectioninfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/sectioninfo.html">sectioninfo</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/see.html">see</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/see.html">see</code></p></td>
       <td rowspan="4"><p>Mallard does not currently have a structured environment for indexes.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/seealso.html">seealso</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/seealso.html">seealso</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/seealsoie.html">seealsoie</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/seealsoie.html">seealsoie</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/seeie.html">seeie</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/seeie.html">seeie</code></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/seg.html">seg</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/seg.html">seg</code></p></td>
       <td rowspan="4"><p>No direct equivalent for segmented lists in Mallard.  Use either
       <link xref="mal_block_terms">term lists</link> or <link xref="mal_table">tables</link>
       instead.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/seglistitem.html">seglistitem</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/seglistitem.html">seglistitem</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/segmentedlist.html">segmentedlist</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/segmentedlist.html">segmentedlist</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/segtitle.html">segtitle</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/segtitle.html">segtitle</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/seriesvolnums.html">seriesvolnums</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/seriesvolnums.html">seriesvolnums</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information in <code xref="mal_info">info</code> elements.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/set.html">set</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/set.html">set</code></p></td>
       <td rowspan="4"><p>Mallard does not provide a means of aggregating multiple documents
       into a single file.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/setindex.html">setindex</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/setindex.html">setindex</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/setindexinfo.html">setindexinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/setindexinfo.html">setindexinfo</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/setinfo.html">setinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/setinfo.html">setinfo</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/sgmltag.html">sgmltag</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/sgmltag.html">sgmltag</code> [4]</p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/shortaffil.html">shortaffil</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/shortaffil.html">shortaffil</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/shortcut.html">shortcut</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/shortcut.html">shortcut</code></p></td>
     <td><p>No equivalent in Mallard.  Record shortcuts for menu choices in running text with
     the <code xref="mal_inline_keyseq">keyseq</code> and <code xref="mal_inline_key">key</code>
     elements.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/sidebar.html">sidebar</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/sidebar.html">sidebar</code></p></td>
       <td rowspan="2"><p>No direct equivalent in Mallard.  Style hints may be used to effect
       something similar for <link xref="mal_block_note">notes</link> or even
       <link xref="mal_section">sections</link>.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/sidebarinfo.html">sidebarinfo</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/sidebarinfo.html">sidebarinfo</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/simpara.html">simpara</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/simpara.html">simpara</code></p></td>
     <td><p>Similar to the <code xref="mal_block_p">p</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/simplelist.html">simplelist</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/simplelist.html">simplelist</code></p></td>
     <td><p>No equivalent in Mallard.  For horizontal or vertical lists, use
     <link xref="mal_table">tables</link> instead.  For inline lists,
     use plain text.</p></td>    
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/simplemsgentry.html">simplemsgentry</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/simplemsgentry.html">simplemsgentry</code></p></td>
     <td><p>Mallard does not have a structured environment for messages.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/simplesect.html">simplesect</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/simplesect.html">simplesect</code></p></td>
     <td><p>Use the common <code xref="mal_section">section</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/spanspec.html">spanspec</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/spanspec.html">spanspec</code></p></td>
     <td><p>Mallard does not use the CALS table model.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/state.html">state</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/state.html">state</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/step.html">step</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/step.html">step</code></p></td>
       <td rowspan="2"><p>Use an <code>item</code> element in a <link xref="mal_block_steps">step list</link>
       for a step in a procedure.  Mallard does not provide a structured element to mark up step
       alternatives.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/stepalternatives.html">stepalternatives</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/stepalternatives.html">stepalternatives</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/street.html">street</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/street.html">street</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information for <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/structfield.html">structfield</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/structfield.html">structfield</code> [4]</p></td>
       <td rowspan="2"><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
       element instead.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/structname.html">structname</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/structname.html">structname</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/subject.html">subject</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/subject.html">subject</code></p></td>
       <td rowspan="3"><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace
       elements</link> may provide this information in <code xref="mal_info">info</code> elements.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/subjectset.html">subjectset</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/subjectset.html">subjectset</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/subjectterm.html">subjectterm</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/subjectterm.html">subjectterm</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/subscript.html">subscript</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/subscript.html">subscript</code></p></td>
     <td><p>No equivalent in Mallard.  MathML or other domain-specific languages may
     be embedded into Mallard documents.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/substeps.html">substeps</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/substeps.html">substeps</code></p></td>
     <td><p>Mallard does not provide a structured element to mark up substeps in a
     <link xref="mal_block_steps">step list</link>.  Nested lists can be used to
     mark up substeps.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/subtitle.html">subtitle</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/subtitle.html">subtitle</code></p></td>
     <td><p>Similar to the <code xref="mal_block_subtitle">subtitle</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/superscript.html">superscript</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/superscript.html">superscript</code></p></td>
     <td><p>No equivalent in Mallard.  MathML or other domain-specific languages may
     be embedded into Mallard documents.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/surname.html">surname</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/surname.html">surname</code></p></td>
     <td><p>No equivalent in Mallard. Mallard records the <link xref="mal_info_name">whole
     name</link> as it should be presented. <link xref="mal_external">External-namespace
     elements</link> may provide parts of names for
     <link xref="mal_info_credit">credits</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/symbol.html">symbol</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/symbol.html">symbol</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/synopfragment.html">synopfragment</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/synopfragment.html">synopfragment</code></p></td>
       <td rowspan="2"><p>Mallard does not have a structured environment for command synopses.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/synopfragmentref.html">synopfragmentref</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/synopfragmentref.html">synopfragmentref</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/synopsis.html">synopsis</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/synopsis.html">synopsis</code></p></td>
     <td><p>Similar to the <code xref="mal_block_synopsis">synopsis</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/systemitem.html">systemitem</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/systemitem.html">systemitem</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_sys">sys</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/html.table.html">table</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/html.table.html">table</code></p></td>
     <td><p>Use the <code xref="mal_table">table</code> element.  Note that Mallard only
     supports HTML-style tables, and not CALS tables.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/tag.html">tag</code> [5]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/tag.html">tag</code> [5]</p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/task.html">task</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/task.html">task</code></p></td>
       <td rowspan="4"><p>No direct equivalent in Mallard.  <link xref="mal_block_steps">Step
       lists</link> provide some of the functionality of tasks.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/taskprerequisites.html">taskprerequisites</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/taskprerequisites.html">taskprerequisites</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/taskrelated.html">taskrelated</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/taskrelated.html">taskrelated</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/tasksummary.html">tasksummary</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/tasksummary.html">tasksummary</code></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/html.tbody.html">tbody</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/html.tbody.html">tbody</code></p></td>
       <td rowspan="2"><p>See the <code xref="mal_table">table</code> element for details.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/html.td.html">td</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/html.td.html">td</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/term.html">term</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/term.html">term</code></p></td>
     <td><p>Use the <code xref="mal_block_title">title</code> element in an <code>item</code>
     element in a <link xref="mal_block_steps">step list</link>.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/termdef.html">termdef</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/termdef.html">termdef</code></p></td>
     <td><p>No equivalent in Mallard.  Future versions may address glossaries directly.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/tertiary.html">tertiary</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/tertiary.html">tertiary</code></p></td>
       <td rowspan="2"><p>Mallard does not currently have a structured environment for indexes.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/tertiaryie.html">tertiaryie</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/tertiaryie.html">tertiaryie</code></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/textdata.html">textdata</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/textdata.html">textdata</code></p></td>
       <td rowspan="2"><p>See the <code xref="mal_block_media">media</code> element for details.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/textobject.html">textobject</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/textobject.html">textobject</code></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/html.tfoot.html">tfoot</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/html.tfoot.html">tfoot</code></p></td>
       <td rowspan="4"><p>See the <code xref="mal_table">table</code> element for details.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/tgroup.html">tgroup</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/tgroup.html">tgroup</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/html.th.html">th</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/html.th.html">th</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/html.thead.html">thead</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/html.thead.html">thead</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/tip.html">tip</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/tip.html">tip</code></p></td>
     <td><p>Use the common <code xref="mal_block_note">note</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/title.html">title</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/title.html">title</code></p></td>
     <td><p>Similar to the <code xref="mal_block_title">title</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/titleabbrev.html">titleabbrev</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/titleabbrev.html">titleabbrev</code></p></td>
     <td><p>No direct equivalent in Mallard.  <link xref="mal_info_title">Informational
     titles</link> may be used to provide abbreviated titles for different purposes.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/toc.html">toc</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/toc.html">toc</code></p></td>
       <td rowspan="12"><p>Mallard does not organize documents into linear structures.
       Topic and guide links can induce hierarchical structures, and sections within
       a page are linearly structured. See the <code xref="mal_links">links</code>
       element for details on how links are displayed for these.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/tocback.html">tocback</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/tocback.html">tocback</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/tocchap.html">tocchap</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/tocchap.html">tocchap</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/tocdiv.html">tocdiv</code> [5]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/tocdiv.html">tocdiv</code> [5]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/tocentry.html">tocentry</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/tocentry.html">tocentry</code></p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/tocfront.html">tocfront</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/tocfront.html">tocfront</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/toclevel1.html">toclevel1</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/toclevel1.html">toclevel1</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/toclevel2.html">toclevel2</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/toclevel2.html">toclevel2</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/toclevel3.html">toclevel3</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/toclevel3.html">toclevel3</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/toclevel4.html">toclevel4</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/toclevel4.html">toclevel4</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/toclevel5.html">toclevel5</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/toclevel5.html">toclevel5</code> [4]</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg/en/html/tocpart.html">tocpart</code> [4]</p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/4.5/tocpart.html">tocpart</code> [4]</p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/token.html">token</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/token.html">token</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/topic.html">topic</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/topic.html">topic</code></p></td>
     <td><p>Similar to the <code xref="mal_page">page</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/html.tr.html">tr</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/html.tr.html">tr</code></p></td>
     <td><p>See the <code xref="mal_table">table</code> element for details.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/trademark.html">trademark</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/trademark.html">trademark</code></p></td>
     <td><p>No equivalent in Mallard.  Simply use the Unicode characters ©, ®, ℠, and ™
     instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/type.html">type</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/type.html">type</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg/en/html/ulink.html">ulink</code> [4]</p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/4.5/ulink.html">ulink</code> [4]</p></td>
     <td><p>See the <code xref="mal_inline_link">link</code> element for details.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/uri.html">uri</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/uri.html">uri</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_sys">sys</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/userinput.html">userinput</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/userinput.html">userinput</code></p></td>
     <td><p>Similar to the <code xref="mal_inline_input">input</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/varargs.html">varargs</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/varargs.html">varargs</code></p></td>
     <td><p>Mallard does not have a structured environment for function prototypes.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/variablelist.html">variablelist</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/variablelist.html">variablelist</code></p></td>
       <td rowspan="2"><p>Use the <code xref="mal_block_terms">terms</code> element with
       <code>item</code> elements.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/varlistentry.html">varlistentry</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/varlistentry.html">varlistentry</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/varname.html">varname</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/varname.html">varname</code></p></td>
     <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_code">code</code>
     element instead.</p></td>
   </tr></tbody>
   <tbody>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/videodata.html">videodata</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/videodata.html">videodata</code></p></td>
       <td rowspan="2"><p>See the <code xref="mal_block_media">media</code> element for details.</p></td>
     </tr>
     <tr>
-      <td><p><code href="http://www.docbook.org/tdg51/en/html/videoobject.html">videoobject</code></p></td>
+      <td><p><code href="https://tdg.docbook.org/tdg/5.2/videoobject.html">videoobject</code></p></td>
     </tr>
   </tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/void.html">void</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/void.html">void</code></p></td>
     <td><p>Mallard does not have a structured environment for function prototypes.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/volumenum.html">volumenum</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/volumenum.html">volumenum</code></p></td>
     <td><p>No equivalent in Mallard.  <link xref="mal_external">External-namespace elements</link> may
     provide this information in <code xref="mal_info">info</code> elements.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/warning.html">warning</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/warning.html">warning</code></p></td>
     <td><p>Use the common <code xref="mal_block_note">note</code> element.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/wordasword.html">wordasword</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/wordasword.html">wordasword</code></p></td>
     <td><p>No equivalent in Mallard.  You may emphasize a word as a word with the
     <code xref="mal_inline_em">em</code> element.  Style hints on the <code>em</code>
     element may be used to indicate this role.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/xref.html">xref</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/xref.html">xref</code></p></td>
     <td><p>See the <code xref="mal_inline_link">link</code> element for details.</p></td>
   </tr></tbody>
   <tbody><tr>
-    <td><p><code href="http://www.docbook.org/tdg51/en/html/year.html">year</code></p></td>
+    <td><p><code href="https://tdg.docbook.org/tdg/5.2/year.html">year</code></p></td>
     <td><p>Use the <code xref="mal_info_years">years</code> element in a
     <code xref="mal_info_credit">credit</code> element.  Mallard records
     copyright information in <code>credit</code> elements.</p></td>
