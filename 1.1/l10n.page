@@ -25,7 +25,7 @@
 other languages. Mallard was designed with localization in mind, and
 contains many features designed to support translation. Some of these
 features should be handled automatically by translation tools. See
-<link xref="i18n"/> and <link xref="its"/> for more information.</p>
+<link xref="i18n"/> for more information.</p>
 
 <section id="link">
   <title>Link Text</title>
