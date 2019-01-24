@@ -7,11 +7,12 @@
 
   <revision docversion="1.0" date="2011-05-26" status="final"/>
   <revision docversion="1.1" date="2019-01-13" status="draft"/>
+  <revision docversion="1.1" date="2019-01-24" status="candidate"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2009</years>
+    <years>2009, 2019</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -53,7 +54,7 @@ important to proper document localization.</p>
 
   <p>Mallard does not contain its own elements to specify language or text
   directionality. To specify language, use the standard 
-  <code href="http://www.opentag.com/xfaq_lang.htm">xml:lang</code>
+  <code href="https://www.w3.org/International/articles/language-tags/">xml:lang</code>
   attribute. To override text directionality, use the
   <code href="http://www.w3.org/TR/its/#directionality">its:dir</code>
   attribute from the <link href="http://www.w3.org/TR/its/">W3C
@@ -64,6 +65,43 @@ important to proper document localization.</p>
   use the
   <code href="http://www.w3.org/TR/its/#trans-datacat">its:translate</code>
   attribute.</p>
+</section>
+
+<section id="locnote">
+  <title>Localization Notes</title>
+
+  <p>Processing tools should support ITS mechanisms for providing notes to
+  translators. At a minimum, tools should support the standalone
+  <code href="http://www.w3.org/TR/its/#trans-datacat">its:locNote</code>
+  attribute for localization notes.</p>
+
+  <p>If more extensive localization notes are needed, the
+  <code xref="mal_block_comment">comment</code> element may be used. In tools
+  that support global ITS rules, particular <code>comment</code> elements can
+  be set as localization notes using the
+  <code href="http://www.w3.org/TR/its/#trans-datacat">its:locNoteRule</code>
+  element in an
+  <code href="http://www.w3.org/TR/its/#basic-concepts-selection-global">its:rules</code>
+  element in an <code xref="mal_info">info</code> element.</p>
+</section>
+
+<section id="locale">
+  <title>Locales</title>
+
+  <p>There are two different methods of identifying language and locale
+  information that are likely to be encountered by those working with Mallard.
+  Since Mallard is an XML format, language identifiers are expected to conform
+  to <link href="http://tools.ietf.org/html/rfc3066">IETF RFC 3066</link>.
+  Since Mallard is often used in a desktop help system,
+  <link href="http://en.wikipedia.org/wiki/Locale">POSIX locale identifiers</link>
+  are often more convenient. Processing tools should convert between these
+  two formats, and should generally prefer RFC 3066 identifiers, except where
+  compatibility with other systems takes a priority.</p>
+
+  <p>The language and region portions of these two locale identifier schemes
+  are identical (although by convention often differ in case). Other modifiers,
+  such as script, nearly always use different codes, necessitating a conversion
+  table.</p>
 </section>
 
 <section id="link">
@@ -82,6 +120,15 @@ important to proper document localization.</p>
   <p>You should provide a way for translators to provide additional link titles
   for each page or section, and for them to specify the appropriate roles on
   inline links.</p>
+</section>
+
+<section id="spandiv">
+  <title>Container Elements</title>
+
+  <p>Mallard provides the generic <link	xref="mal_inline_span">span</link> and
+  <link xref="mal_block_div">div</link> container elements. These elements may
+  be used to group together inline and block elements for specifying
+  localization data, such as translatability or localization notes.</p>
 </section>
 
 <section id="media">
