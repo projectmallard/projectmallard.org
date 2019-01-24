@@ -247,6 +247,8 @@ div.code {
     rgba(136, 138, 133, .1) 15px, rgba(136, 138, 133, .1) 16px,
     transparent 16px, transparent);
 }
+div.note-sidebar li { margin-left: 1em; }
+div.note-sidebar p { text-align: left; }
 span.hi { background: </xsl:text>
 <xsl:call-template name="color.blend">
   <xsl:with-param name="bg" select="$color.yellow"/>
