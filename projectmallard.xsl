@@ -856,11 +856,13 @@ to grow the ability to provide custom tags/badges on links.
           </xsl:for-each>
         </xsl:otherwise>
       </xsl:choose>
+      <xsl:variable name="current" select="$root/mal:info/mal:link[@type = 'pmo:current']"/>
+      <xsl:if test="$current">
+        <xsl:for-each select="document('common.xml')/*/mal:note[@xml:id = 'spec-status-replaced']">
+          <xsl:apply-templates mode="mal2html.block.mode" select="."/>
+        </xsl:for-each>
+      </xsl:if>
     </xsl:for-each>
-    <!-- FIXME:
-         spec replaced?
-         spec still a draft?
-    -->
   </xsl:if>
   <xsl:if test="$node/self::mal:section">
     <xsl:variable name="pagestyle" select="concat(' ', $node/ancestor::mal:page/@style, ' ')"/>
@@ -884,6 +886,28 @@ to grow the ability to provide custom tags/badges on links.
     <xsl:variable name="root" select="key('mal.cache.key', concat($mal.site.dir, 'index'))"/>
     <xsl:variable name="docversion" select="str:split($mal.site.dir, '/')[last()]"/>
     <xsl:value-of select="$root/mal:info/mal:revision[@docversion=$docversion][last()]/@date"/>
+  </xsl:for-each>
+</xsl:template>
+
+<xsl:template mode="mal2html.inline.mode" match="subs:current">
+  <xsl:for-each select="$mal.cache">
+    <xsl:variable name="root" select="key('mal.cache.key', concat($mal.site.dir, 'index'))"/>
+    <xsl:variable name="current" select="$root/mal:info/mal:link[@type = 'pmo:current']"/>
+    <a>
+      <xsl:attribute name="href">
+        <xsl:call-template name="mal.link.target">
+          <xsl:with-param name="xref" select="$current/@xref"/>
+        </xsl:call-template>
+      </xsl:attribute>
+      <xsl:attribute name="title">
+        <xsl:call-template name="mal.link.tooltip">
+          <xsl:with-param name="xref" select="$current/@xref"/>
+        </xsl:call-template>
+      </xsl:attribute>
+      <xsl:call-template name="mal.link.content">
+        <xsl:with-param name="xref" select="$current/@xref"/>
+      </xsl:call-template>
+    </a>
   </xsl:for-each>
 </xsl:template>
 

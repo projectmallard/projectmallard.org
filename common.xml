@@ -10,6 +10,9 @@
     <link xref="/about/contact">mallard-list</link>.</p>
   </note>
 
+  <note style="warning" xml:id="spec-status-replaced">
+    <p>This specification has been replaced by <subs:current/>.</p>
+  </note>
   <note style="plain" xml:id="spec-status-final">
     <p>This specification was marked final on <subs:date/>.</p>
   </note>
