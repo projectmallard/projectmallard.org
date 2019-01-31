@@ -18,6 +18,7 @@
   <revision date="2013-10-24" docversion="1.1" status="incomplete"/>
   <revision date="2014-02-01" docversion="1.1" status="proposed"/>
   <revision date="2015-07-14" docversion="1.1" status="implemented"/>
+  <revision date="2019-01-31" docversion="1.1" status="final"/>
 
   <title type="text">The role Attribute on the links Element</title>
   <title type="link">MEP-0003: The <code>role</code> Attribute on the <code>links</code> Element</title>

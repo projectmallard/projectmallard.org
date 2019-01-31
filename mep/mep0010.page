@@ -33,6 +33,7 @@
   -->
   <revision date="2017-08-31" docversion="1.1" status="proposed"/>
   <revision date="2019-01-05" docversion="1.1" status="implemented"/>
+  <revision date="2019-01-31" docversion="1.1" status="final"/>
 
   <title type="text">The <code>type</code> Attribute on the <code>code</code> Element</title>
   <title type="link">MEP-0010: The <code>type</code> Attribute on the <code>code</code> Element</title>

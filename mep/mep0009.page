@@ -24,6 +24,7 @@
 
   <revision date="2017-08-30" docversion="1.1" status="proposed"/>
   <revision date="2019-01-12" docversion="1.1" status="implemented"/>
+  <revision date="2019-01-31" docversion="1.1" status="final"/>
 
   <title type="text">Inline Highlight Element</title>
   <title type="link">MEP-0009: Inline Highlight Element</title>

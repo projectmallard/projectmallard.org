@@ -28,6 +28,7 @@
   -->
   <revision date="2018-11-10" docversion="1.1" status="proposed"/>
   <revision date="2018-12-30" docversion="1.1" status="implemented"/>
+  <revision date="2019-01-31" docversion="1.1" status="final"/>
 
   <title type="text">Informational keywords element</title>
   <title type="link">MEP-0014: Informational <code>keywords</code> element</title>

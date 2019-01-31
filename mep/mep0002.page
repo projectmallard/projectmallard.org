@@ -21,6 +21,7 @@
   <revision date="2013-10-20" docversion="1.1" status="incomplete"/>
   <revision date="2014-02-01" docversion="1.1" status="proposed"/>
   <revision date="2016-01-12" docversion="1.1" status="implemented"/>
+  <revision date="2019-01-31" docversion="1.1" status="final"/>
 
   <title type="text">Block info Element</title>
   <title type="link">MEP-0002: Block <code>info</code> Element</title>

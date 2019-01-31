@@ -20,6 +20,7 @@
 
   <revision date="2014-11-08" docversion="1.1" status="proposed"/>
   <revision date="2016-02-29" docversion="1.1" status="implemented"/>
+  <revision date="2019-01-31" docversion="1.1" status="final"/>
 
   <title type="text">Generic <code>div</code> Element</title>
   <title type="link">MEP-0005: Generic <code>div</code> Element</title>
