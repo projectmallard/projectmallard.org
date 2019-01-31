@@ -11,7 +11,7 @@
     <years>2011-2013</years>
   </credit>
 
-  <link type="pmo:current" xref="/1.1/index"/>
+  <link type="pmo:current" xref="/cache/1.1/index"/>
 
   <desc>Document metadata cache for processing tools.</desc>
 
