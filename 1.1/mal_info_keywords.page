@@ -6,6 +6,7 @@
   <link type="guide" xref="mal_info#elements"/>
 
   <revision docversion="1.1" date="2018-12-30" status="candidate"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -99,13 +100,13 @@ written in a comma-separated list.</p>
 <section id="comparison">
   <title>Comparison to Other Formats</title>
 
-  <p>DocBook provides the
+  <p><link xref="docbook">DocBook</link> provides the
   <code href="https://tdg.docbook.org/tdg/5.1/keywordset.html">keywordset</code>
   element for keywords. The <code>keywordset</code> element contains any number of
   <code href="https://tdg.docbook.org/tdg/5.1/keyword.html">keyword</code>
   elements, rather than a comma-separated list.</p>
 
-  <p>DITA provides the
+  <p><link xref="dita">DITA</link> provides the
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/keywords.html">keywords</code>
   element for keywords. The <code>keywords</code> element contains any number of
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/keyword.html">keyword</code>

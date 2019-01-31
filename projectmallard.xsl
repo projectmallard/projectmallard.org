@@ -377,6 +377,13 @@ body.pmo-splash section#happy a {
 body.pmo-splash section#happy a:hover {
   text-shadow: 1px 1px 0 #204a87, 0 0 4px #204a87, 0 0 12px white;
 }
+body.pmo-splash section#specs {
+  margin-top: 2em;
+}
+body.pmo-splash section#specs div.title h3 {
+  font-size: 30px;
+  font-weight: normal;
+}
 body.pmo-splash section#specs div.list {
   margin-top: 0;
   margin-bottom: 16px;

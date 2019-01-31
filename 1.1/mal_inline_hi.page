@@ -1,5 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="topic" style="spec"
+      type="topic" style="spec" version="1.1"
       id="mal_inline_hi">
 
 <info>
@@ -7,6 +7,7 @@
 
   <revision docversion="1.1" date="2018-10-29" status="draft"/>
   <revision docversion="1.1" date="2019-01-12" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -136,13 +137,13 @@ style hints for added and deleted text, such as in a diff.</p>
 <section id="comparison">
   <title>Comparison to Other Formats</title>
 
-  <p>DocBook does not have an element for highlighting text. The
-  <code href="https://tdg.docbook.org/tdg/5.1/emphasis.html">emphasis</code>
+  <p><link xref="docbook">DocBook</link> does not have an element for highlighting text.
+  The <code href="https://tdg.docbook.org/tdg/5.1/emphasis.html">emphasis</code>
   or <code href="https://tdg.docbook.org/tdg/5.1/phrase.html">phrase</code>
   elements could be used with a <code>role</code> attribute with some
   tooling work.</p>
 
-  <p>DITA does not have an element for highlighting text. The
+  <p><link xref="dita">DITA</link> does not have an element for highlighting text. The
   <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ph.html">ph</code>
   could be used with an <code>outputclass</code> attribute with some
   tooling work, or a custom specialization of the <code>ph</code>

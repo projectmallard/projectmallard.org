@@ -11,6 +11,10 @@
     <years>2011-2013</years>
   </credit>
 
+  <link type="pmo:current" xref="/1.1/index"/>
+
+  <desc>Document metadata cache for processing tools.</desc>
+
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
 

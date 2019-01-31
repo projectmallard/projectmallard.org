@@ -11,6 +11,8 @@
     <years>2011, 2012</years>
   </credit>
 
+  <desc>Powerful conditional processing with logical expressions and branching.</desc>
+
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
 

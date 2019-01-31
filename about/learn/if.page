@@ -47,7 +47,7 @@ used, and you can combine conditions in logical expressions.</p>
 
 <p>The simplest way to use conditionals is to use the
 <code xref="/if/1.0/if_attr_test">if:test</code> attribute on any block
-element, such as on the <code xref="/1.0/mal_block_p">p</code> element for
+element, such as on the <code xref="/1.1/mal_block_p">p</code> element for
 a conditional paragraph. Because conditional processing is a Mallard
 extension, the <code>if:test</code> attribute is in a separate namespace.
 Declare this namespace on the top-level <code>page</code> element.</p>
@@ -66,7 +66,7 @@ Declare this namespace on the top-level <code>page</code> element.</p>
 shows the <code>version</code> attribute set to <code>"1.0 if/1.0"</code>.
 This isn't necessary to use conditional processing, but it will make
 validation better with tools that support <link
-xref="/1.0/mal_attr_version">Mallard schema merging</link>.</p>
+xref="/1.1/mal_attr_version">Mallard schema merging</link>.</p>
 
 <p>Conditionals use test tokens, which consist of a token scheme and
 a token value separated by a colon. For example, to test if the user
@@ -140,9 +140,9 @@ phone.)</p>
 <title>List Items and Other Blocks</title>
 
 <p>You can use the <code>if:test</code> attribute on any other
-<link xref="/1.0/mal_block">block elements</link> exactly as you
+<link xref="/1.1/mal_block">block elements</link> exactly as you
 would with paragraphs. For example, use the <code>if:test</code>
-attribute on the <code xref="/1.0/mal_block_media">media</code>
+attribute on the <code xref="/1.1/mal_block_media">media</code>
 element to add an image that's only shown in HTML output.</p>
 
 <example>
@@ -154,10 +154,10 @@ element to add an image that's only shown in HTML output.</p>
 
 <p>You can also use the <code>if:test</code> attribute on any
 <code>item</code> element in a
-<code xref="/1.0/mal_block_list">list</code>,
-<code xref="/1.0/mal_block_steps">steps</code>,
-<code xref="/1.0/mal_block_terms">terms</code>, or
-<code xref="/1.0/mal_block_tree">tree</code> element. For example,
+<code xref="/1.1/mal_block_list">list</code>,
+<code xref="/1.1/mal_block_steps">steps</code>,
+<code xref="/1.1/mal_block_terms">terms</code>, or
+<code xref="/1.1/mal_block_tree">tree</code> element. For example,
 use <code>if:test</code> to make one step in a procedure conditional.</p>
 
 <example>
@@ -177,8 +177,8 @@ client for Windows.<p></item>
 
 <p>But be careful, you can only use the <code>if:test</code> attribute
 on general block elements and list items. You cannot currently use it
-on table rows or columns, <code xref="/1.0/mal_block_title">title</code>
-or <code xref="/1.0/mal_block_desc">desc</code> elements, inline elements, sections, or
+on table rows or columns, <code xref="/1.1/mal_block_title">title</code>
+or <code xref="/1.1/mal_block_desc">desc</code> elements, inline elements, sections, or
 entire pages. Unlike other languages, Mallard conditionals do not assume
 a pre-processing step. They are designed to be evaluated at run-time, and
 are somewhat constrained by the extension mechanisms that Mallard

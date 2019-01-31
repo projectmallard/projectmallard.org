@@ -1,6 +1,5 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="guide"
-      style="pmo-splash"
+      type="guide" style="pmo-splash" version="1.1"
       id="index">
 
 <info>
@@ -89,8 +88,37 @@ forcing them to read lengthy manuals.</p>
 </section>
 
 <section id="specs" style="pmo-specs">
+  <info>
+
+    <link type="topic" group="#first" xref="/1.1/index"/>
+    <link type="topic" group="spec" xref="/cache/1.1/index"/>
+    <link type="topic" group="spec" xref="/if/1.0/index"/>
+
+    <link type="topic" group="old" xref="/1.0/index"/>
+    <link type="topic" group="old" xref="/cache/1.0/index"/>
+
+    <link type="topic" group="draft" xref="/ui/1.0/index"/>
+    <link type="topic" group="draft" xref="/ducktype/1.0/index"/>
+    <link type="topic" group="draft" xref="/facet/1.0/index"/>
+    <link type="topic" group="draft" xref="/svg/1.0/index"/>
+    <link type="topic" group="draft" xref="/ttml/1.0/index"/>
+  </info>
+
   <title>Specifications &amp; Extensions</title>
 
+  <links type="topic" groups="#first spec" role="-index">
+    <title style="heading">Current Specifications</title>
+  </links>
+
+  <links type="topic" groups="old" role="-index">
+    <title style="heading">Replaced Specifications</title>
+  </links>
+
+  <links type="topic" groups="draft" role="-index">
+    <title style="heading">Draft Specifications</title>
+  </links>
+
+<!--
   <list style="compact">
     <title>Specifications:</title>
     <item><p><link xref="/1.0/index"/></p></item>
@@ -98,11 +126,9 @@ forcing them to read lengthy manuals.</p>
     <item><p><link xref="/cache/1.0/index"/></p></item>
   </list>
 
-<!--
   <list style="compact">
     <title>Candidates:</title>
   </list>
--->
 
   <list style="compact">
     <title>Early Drafts:</title>
@@ -114,6 +140,7 @@ forcing them to read lengthy manuals.</p>
     <item><p><link xref="/svg/1.0/index" role="-index"/></p></item>
     <item><p><link xref="/ttml/1.0/index" role="-index"/></p></item>
   </list>
+-->
 </section>
 
 </page>

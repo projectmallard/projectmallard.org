@@ -36,7 +36,7 @@ for your code blocks.</p>
 <section id="inline">
 <title>Inline Code and Commands</title>
 
-<p>You can use the <code xref="/1.0/mal_inline_code">code</code>
+<p>You can use the <code xref="/1.1/mal_inline_code">code</code>
 element inside a paragraph to mark up a snippet of code.  You will typically
 use <code>code</code> as an inline element to refer to something short like a
 function name or variable.</p>
@@ -67,7 +67,7 @@ you would edit in a text editor.</p>
 <p>Set the <code>Name</code> key to the name of your application.</p>
 </example>
 
-<p>Use the <code xref="/1.0/mal_inline_cmd">cmd</code> element
+<p>Use the <code xref="/1.1/mal_inline_cmd">cmd</code> element
 to provide a command for a user to run in a command-line environment.</p>
 
 <example>
@@ -94,7 +94,7 @@ as well.</p>
 
 <p>Sometimes you need to provide multiple lines of code or file contents,
 or you may want to put a long line of code on its own line to make it
-easier to read.  You can use the <code xref="/1.0/mal_block_code">code</code>
+easier to read.  You can use the <code xref="/1.1/mal_block_code">code</code>
 element outside of a paragraph to create a code block.</p>
 
 <example>
@@ -159,7 +159,7 @@ or code blocks.</p>
 <p>If you need to provide a long command to your readers, you may want to
 show the command in its own block.  Long commands can be difficult to read
 when embedded inline in a paragraph.  You can use the
-<code xref="/1.0/mal_block_screen">screen</code>
+<code xref="/1.1/mal_block_screen">screen</code>
 element to show a command in a block.</p>
 
 <example>
@@ -184,8 +184,8 @@ xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache \
 
 <p>You can also use the <code>screen</code> element to show commands along
 with their output.  To mark up the input and output, use the
-<code xref="/1.0/mal_inline_input">input</code> and
-<code xref="/1.0/mal_inline_output">output</code> elements.</p>
+<code xref="/1.1/mal_inline_input">input</code> and
+<code xref="/1.1/mal_inline_output">output</code> elements.</p>
 
 <example>
 <code mime="application/xml"><![CDATA[
@@ -240,7 +240,7 @@ the code block makes it more clear to the reader.</p>
 <p>The <code>code</code> element takes inline content and treats all its
 contents as part of the code block, so you can't place a title inside the
 <code>code</code> element.  Mallard provides the
-<code xref="/1.0/mal_block_listing">listing</code>
+<code xref="/1.1/mal_block_listing">listing</code>
 element to allow you to specify a title for code blocks and similiar
 content.</p>
 
@@ -273,8 +273,8 @@ content.</p>
 </listing>
 </example>
 
-<p>The title is supplied by the <code xref="/1.0/mal_block_title">title</code>
-element. This example also uses the <code xref="/1.0/mal_inline_file">file</code>
+<p>The title is supplied by the <code xref="/1.1/mal_block_title">title</code>
+element. This example also uses the <code xref="/1.1/mal_inline_file">file</code>
 element, an inline element that allows you to provide a file name.</p>
 
 <p>You can also use the <code>listing</code> element around any other
@@ -304,7 +304,7 @@ xsltproc -o index.html --xinclude --stringparam mal.cache.file index.cache \
 </example>
 
 <p>Finally, you can also supply a short description for a listing using
-the <code xref="/1.0/mal_block_desc">desc</code> element.</p>
+the <code xref="/1.1/mal_block_desc">desc</code> element.</p>
 
 <example>
 <code mime="application/xml"><![CDATA[

@@ -15,6 +15,10 @@
     <years>2011</years>
   </credit>
 
+  <link type="pmo:current" xref="/1.1/index"/>
+
+  <desc>The core Mallard language, including topics and dynamic links.</desc>
+
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
 

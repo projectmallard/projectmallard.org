@@ -5,6 +5,7 @@
 <info>
   <revision docversion="1.0" date="2016-03-07" status="final"/>
   <revision docversion="1.1" date="2018-03-17" status="draft"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -12,12 +13,14 @@
     <years>2011-2013, 2018</years>
   </credit>
 
-  <title type="link" role="-index">Cache Files 1.1 <em>DRAFT</em></title>
+  <title type="link" role="-index">Cache Files 1.1</title>
+
+  <desc>Document metadata cache for processing tools.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
 
-<title>Cache Files 1.1 DRAFT</title>
+<title>Cache Files 1.1</title>
 
 <note style="sidebar">
 <title>Download Schema</title>

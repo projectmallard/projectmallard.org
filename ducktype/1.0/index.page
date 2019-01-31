@@ -13,6 +13,8 @@
 
   <title type="link" role="-index">Ducktype 1.0 <em>DRAFT</em></title>
 
+  <desc>Compact syntax with access to all semantics and extensions.</desc>
+
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 

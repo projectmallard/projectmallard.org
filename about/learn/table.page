@@ -51,10 +51,10 @@ based on HTML tables.  In this tutorial, you will learn how to:</p>
 <title>Basic Tables</title>
 
 <p>The basic structure of tables in Mallard resembles that of tables in HTML.
-The <code xref="/1.0/mal_table">table</code> element wraps an entire table.
-Each row in a table is wrapped in a <code xref="/1.0/mal_table_tr">tr</code>
+The <code xref="/1.1/mal_table">table</code> element wraps an entire table.
+Each row in a table is wrapped in a <code xref="/1.1/mal_table_tr">tr</code>
 element, and each column in a row is wrapped in a
-<code xref="/1.0/mal_table_td">td</code> element.</p>
+<code xref="/1.1/mal_table_td">td</code> element.</p>
 
 <example>
 <code mime="application/xml"><![CDATA[
@@ -98,7 +98,7 @@ element, and each column in a row is wrapped in a
 
 <note style="important">
 <p>Notice that each <code>td</code> element contains a paragraph, marked up
-with the <code xref="/1.0/mal_block_p">p</code> tag.  A table cell
+with the <code xref="/1.1/mal_block_p">p</code> tag.  A table cell
 can contain multiple paragraphs or other block elements.  In Mallard, every
 element contains either block or inline content, so even when you only use
 a single line of text in a table cell, you must use a paragraph.</p>
@@ -328,7 +328,7 @@ See <link xref="#grouping"/> below for details.</p>
 <p>In the previous examples, you were only able to enable rules and shading
 for all rows or all columns.  You can also group rows and columns to control
 rules and shading.  To group rows together, wrap the <code>tr</code> elements
-for each row group in a <code xref="/1.0/mal_table_tr">tbody</code>
+for each row group in a <code xref="/1.1/mal_table_tr">tbody</code>
 element.  You can then use <code>rowgroups</code> instead of <code>rows</code>
 for either of the <code>rules</code> or <code>shade</code> attributes.</p>
 
@@ -382,8 +382,8 @@ for either of the <code>rules</code> or <code>shade</code> attributes.</p>
 
 <p>To control column grouping, you have to specify the columns and column
 groups at the beginning of the <code>table</code> element using the
-<code xref="/1.0/mal_table_col">col</code> and
-<code xref="/1.0/mal_table_col">colgroup</code> elements.
+<code xref="/1.1/mal_table_col">col</code> and
+<code xref="/1.1/mal_table_col">colgroup</code> elements.
 Each <code>col</code> element represents one column, and you should have
 one for each column that appears in your rows.  Wrap the <code>col</code>
 elements in <code>colgroup</code> elements to indicate grouping.</p>
@@ -629,7 +629,7 @@ in ways that will best help your readers.  This tutorial only showed you a
 few ways you can put these features together.  Try changing the examples to
 acheive different effects.</p>
 
-<p>For more information see <link xref="/1.0/mal_table"/> in the language
+<p>For more information see <link xref="/1.1/mal_table"/> in the language
 specification.  The specification pages are full of examples to help you
 learn more.</p>
 

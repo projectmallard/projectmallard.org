@@ -52,7 +52,7 @@ needs to support HTML5 video.</p>
 <section id="basic">
 <title>Basic TTML</title>
 
-<p>The Mallard <code xref="/1.0/mal_block_media">media</code> element allows
+<p>The Mallard <code xref="/1.1/mal_block_media">media</code> element allows
 you to add images, video, audio, and external applications to a page. To add
 a video, set the <code>type</code> attribute to <code>video</code>. This
 tutorial uses a video from the 
@@ -314,7 +314,7 @@ designed to be mixed into those vocabularies. So just as you can put TTML in
 your Mallard pages, you can put Mallard elements in the TTML elements in your
 Mallard pages.</p>
 
-<p>This example uses the inline Mallard <code xref="/1.0/mal_inline_gui">gui</code>
+<p>This example uses the inline Mallard <code xref="/1.1/mal_inline_gui">gui</code>
 element to mark up the label of a user interface element when it appears in
 a TTML subtitle.</p>
 
@@ -360,7 +360,7 @@ a TTML subtitle.</p>
 <p>Just as you can use inline Mallard elements inside a <code>tt:p</code>
 element, you can also use block Mallard elements inside a <code>tt:div</code>
 element. This example puts all the steps into Mallard
-<code xref="/1.0/mal_block_steps">steps</code> element. It uses the
+<code xref="/1.1/mal_block_steps">steps</code> element. It uses the
 <code>continues</code> style hint to number them correctly, even though
 only one step is shown at a time.</p>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <page xmlns="http://projectmallard.org/1.0/"
-      type="topic" style="mep"
+      type="topic" style="mep" version="1.1"
       id="mep0012">
 
 <info>
@@ -11,7 +11,9 @@
   <link type="mep:replaces" xref="mepYYYY"/>
   <link type="seealso" xref="mepYYYY"/>
   -->
-  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/9"/>
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/9">
+    <title>Issue #9</title>
+  </link>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>

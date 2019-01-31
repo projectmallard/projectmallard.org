@@ -321,15 +321,22 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
 </xsl:template>
 <xsl:template mode="block.checks" match="mal:code">
   <xsl:choose>
-    <xsl:when test="not(@mime)">
+    <xsl:when test="not(@type) and not(@mime)">
       <xsl:if test="not(contains(concat(' ', @style, ' '), ' no-mime '))">
-        <xsl:text>Missing mime attribute on code&#x000A;</xsl:text>
+        <xsl:text>Missing type or mime attribute on code&#x000A;</xsl:text>
       </xsl:if>
     </xsl:when>
+    <xsl:when test="@type = 'cpp'"/>
+    <xsl:when test="@type = 'xml'"/>
     <xsl:when test="@mime = 'application/xml'"/>
     <xsl:when test="@mime = 'application/relax-ng-compact-syntax'"/>
     <xsl:when test="@mime = 'text/x-c++src'"/>
     <xsl:when test="@mime = 'text/x-ducktype'"/>
+    <xsl:when test="@type">
+      <xsl:text>Incorrect type attribute: </xsl:text>
+      <xsl:value-of select="@type"/>
+      <xsl:text>&#x000A;</xsl:text>
+    </xsl:when>
     <xsl:otherwise>
       <xsl:text>Incorrect mime attribute: </xsl:text>
       <xsl:value-of select="@mime"/>
