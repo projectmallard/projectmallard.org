@@ -1,11 +1,17 @@
 mal10dir = $(rngdir)/1.0
 mal10_DATA = 1.0/mallard-1.0.rnc 1.0/mallard-1.0.rng
 
+mal11dir = $(rngdir)/1.1
+mal11_DATA = 1.1/mallard-1.1.rnc 1.1/mallard-1.1.rng
+
 if10dir = $(rngdir)/if/1.0
 if10_DATA = if/1.0/if-1.0.rnc if/1.0/if-1.0.rng
 
 cache10dir = $(rngdir)/cache/1.0
 cache10_DATA = cache/1.0/cache-1.0.rnc cache/1.0/cache-1.0.rng
+
+cache11dir = $(rngdir)/cache/1.1
+cache11_DATA = cache/1.1/cache-1.1.rnc cache/1.1/cache-1.1.rng
 
 catalogdir = $(sysconfdir)/xml/mallard
 catalog_DATA = catalog
@@ -15,8 +21,10 @@ pkgconfig_DATA = mallard-rng.pc
 
 EXTRA_DIST =			\
 	$(mal10_DATA)		\
+	$(mal11_DATA)		\
 	$(if10_DATA)		\
 	$(cache10_DATA)		\
+	$(cache11_DATA)		\
 	catalog.in		\
 	mallard-rng.pc.in
 
