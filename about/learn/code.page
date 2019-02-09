@@ -128,7 +128,7 @@ the contents of an XML file.  Fortunately, XML provides a special syntax called
 <example>
 <code mime="application/xml"><![CDATA[
 <code><![CDATA[
-<page xmlns="http://projectmallard.org/1.0/
+<page xmlns="http://projectmallard.org/1.0/"
       type="guide" id="index">
   <info>
     <!-- Page information goes here -->
@@ -137,7 +137,7 @@ the contents of an XML file.  Fortunately, XML provides a special syntax called
 </page>
 ]]>]]&gt;&lt;/code></code>
 <code mime="application/xml"><![CDATA[
-<page xmlns="http://projectmallard.org/1.0/
+<page xmlns="http://projectmallard.org/1.0/"
       type="guide" id="index">
   <info>
     <!-- Page information goes here -->
