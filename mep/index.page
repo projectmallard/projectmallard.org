@@ -29,10 +29,7 @@
 </links>
 
 <links type="topic" groups="1.2">
-  <!--
-  <title style="heading"><link xref="/1.2/index">Mallard 1.2</link></title>
-  -->
-  <title style="heading">Mallard 1.2</title>
+  <title style="heading"><link xref="/1.1/index">Mallard 1.2</link></title>
 </links>
 
 <links type="topic" groups="ui/1.0">
