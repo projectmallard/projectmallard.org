@@ -1,0 +1,228 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec"
+      id="mal_block_steps">
+
+<info>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.1" date="2019-01-13" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2016</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create a list of steps the reader should perform to accomplish a task.</desc>
+</info>
+
+<title>Step Lists</title>
+
+<p>Use the <code>steps</code> element to create a list of steps the reader
+should follow.  The <code>steps</code> element is structurally similar to
+the <code xref="mal_block_list">list</code> element. Marking the list
+as instructions to the reader allows special display rules to be
+applied.  If you want a numbered list that is not a procedure, use the
+<code xref="mal_block_list">list</code> element with the <code>type</code>
+attribute set to <code>"numbered"</code> instead.</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>steps</code> element contains an optional
+    <code xref="mal_info">info</code> element, an optional
+    <code xref="mal_block_title">title</code> element, and one or more
+    <code>item</code> elements.  Each child <code>item</code> element can
+    contain <link xref="mal_block">general block content</link>.</p></item>
+
+    <item><p>The <code>steps</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>steps</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Create a simple procedure of steps for the reader to follow:</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<steps>
+  <title>Planting Magic Beans</title>
+  <item><p>Dig a hole 10cm deep.</p></item>
+  <item><p>Place magic beans in the hole.</p></item>
+  <item><p>Fill hole with fertilized soil.</p></item>
+  <item><p>Water frequently.</p></item>
+</steps>
+]]></code>
+    <steps>
+      <title>Planting Magic Beans</title>
+      <item><p>Dig a hole 10cm deep.</p></item>
+      <item><p>Place magic beans in the hole.</p></item>
+      <item><p>Fill hole with fertilized soil.</p></item>
+      <item><p>Water frequently.</p></item>
+    </steps>
+  </example>
+
+  <p>Create steps with a nested list and a nested step list:</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<steps>
+  <title>Planting Magic Beans</title>
+  <item>
+    <p>Perform one of the following:</p>
+    <list>
+      <item><p>Dig a whole 10cm deep.</p></item>
+      <item><p>Find a whole 10cm deep.</p></item>
+    </list>
+  </item>
+  <item><p>Place magic beans in the hole.</p></item>
+  <item><p>Fill hole with fertilized soil.</p></item>
+  <item>
+    <p>Water frequently with the following steps:</p>
+    <steps>
+      <item><p>Fill watering can with water.</p></item>
+      <item><p>Pour water onto spot where beans were planted.</p></item>
+    </steps>
+  </item>
+</steps>
+]]></code>
+    <steps>
+      <title>Planting Magic Beans</title>
+      <item>
+        <p>Perform one of the following:</p>
+        <list>
+          <item><p>Dig a whole 10cm deep.</p></item>
+          <item><p>Find a whole 10cm deep.</p></item>
+        </list>
+      </item>
+      <item><p>Place magic beans in the hole.</p></item>
+      <item><p>Fill hole with fertilized soil.</p></item>
+      <item>
+        <p>Water frequently with the following steps:</p>
+        <steps>
+          <item><p>Fill watering can with water.</p></item>
+          <item><p>Pour water onto spot where beans were planted.</p></item>
+        </steps>
+      </item>
+    </steps>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Step lists are displayed as block elements, with each child <code>item</code>
+  displayed as a numbered list item.  When present, the <code>title</code> element
+  should be displayed in a way that makes it clear that it is the title of the list.
+  List items are interpreted in the same way as <code>li</code> elements in HTML,
+  except that the <code>item</code> element only allows block-level child content.</p>
+
+  <p>Step lists should have a background color, border, or other styling effect
+  to clearly differentiate them from basic numbered lists.  Special styling allows
+  readers to skim pages more easily.</p>
+
+  <p>The optional <code xref="mal_info">info</code> element can provide metadata
+  for the step list, such as attributions, licensing information, and additional
+  titles for extensions. It is not displayed directly.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+<title>Comparison to Other Formats</title>
+
+<p>The <code>steps</code> element is similar to the
+<code href="http://www.docbook.org/tdg51/en/html/procedure.html">procedure</code>
+element in <link xref="docbook">DocBook</link>.  Mallard uses the common
+<code>item</code> element instead of a dedicated
+<code href="http://www.docbook.org/tdg51/en/html/step.html">step</code> element.
+DocBook allows leading block-level content in its procedures.  This is not
+allowed in Mallard, though an optional <code>title</code> element is allowed.
+DocBook provides explicit
+<code href="http://www.docbook.org/tdg51/en/html/substeps.html">substeps</code> and
+<code href="http://www.docbook.org/tdg51/en/html/stepalternatives.html">stepalternatives</code>
+elements.  Mallard has no equivalent.  For substeps, use nested <code>steps</code>
+elements.  For alternatives, use a <link xref="mal_block_list">basic list</link>
+with introductory text.</p>
+
+<p>The <code>steps</code> element is similar to the
+<code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/steps.html">steps</code>
+element in <link xref="dita">DITA</link>.  Mallard step lists can be used in any
+block context, and not just in a dedicated task topic.  Mallard uses the common
+<code>item</code> element instead of a dedicated
+<code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/step.html">step</code>
+element.  DITA provides various elements to mark up
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/cmd.html">instructions</link>,
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/substeps.html">substeps</link>,
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/stepxmp.html">examples</link>,
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/stepresult.html">results</link>, and
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/choices.html">lists</link> or
+<link href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/choicetable.html">tables</link>
+of choices.  Mallard does not provide specific markup for these.  Use common elements
+like <link xref="mal_block_p">paragraphs</link>, <link xref="mal_block_list">basic
+lists</link>, and <link xref="mal_table">tables</link> instead, possibly with
+leading text to explain their role to the reader.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>steps</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_steps = element steps {
+  mal_block_steps_attr,
+  <link xref="mal_info">mal_info</link> ?,
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  mal_block_steps_item +
+}
+mal_block_steps_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_block">mal_block_attr</link>,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_steps_item = element item {
+  mal_block_steps_item_attr,
+  mal_block_steps_item_content +
+}
+mal_block_steps_item_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_steps_item_content = <link xref="mal_block">mal_block</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

@@ -1,0 +1,191 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec" version="1.1"
+      id="mal_inline_hi">
+
+<info>
+  <link type="guide" xref="mal_inline#elements"/>
+
+  <revision docversion="1.1" date="2018-10-29" status="draft"/>
+  <revision docversion="1.1" date="2019-01-12" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2018</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Highlight text that has been added or removed.</desc>
+</info>
+
+<title>Highlights</title>
+
+<p>Use the <code>hi</code> element to highlight added or changed text, such as
+when building up a code example. Use the <code>ins</code> and <code>del</code>
+style hints for added and deleted text, such as in a diff.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>hi</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>hi</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>hi</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints. Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item>
+      <p>The following style hints are recommended:</p>
+      <table>
+        <tr>
+          <td><p><code>ins</code></p></td>
+          <td><p>Text that has been inserted</p></td>
+        </tr>
+        <tr>
+          <td><p><code>del</code></p></td>
+          <td><p>Text that has been deleted</p></td>
+        </tr>
+      </table>
+    </item>
+
+    <item><p>The <code>hi</code> element can have attributes from external
+    namespaces. See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>From the <link xref="/about/learn/tenminutes"/>, create a basic
+  example of a Mallard page, then use <code>hi</code> to show another
+  complete example with added content.</p>
+
+  <example>
+  <code mime="application/xml"><![CDATA[
+<code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="planting">
+<title>Planting Beans</title>
+</page>]]>]<![CDATA[]></code>
+  <code><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="planting">
+]]>]<![CDATA[]><hi><![CDATA[<info>
+  <link type="guide" xref="index"/>
+</info>]]>]<![CDATA[]></hi><![CDATA[
+<title>Planting Beans</title>
+</page>]]>]<![CDATA[]></code>
+]]></code>
+  <code mime="application/xml"><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="planting">
+<title>Planting Beans</title>
+</page>]]></code>
+  <code mime="application/xml"><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="planting">
+]]><hi><![CDATA[<info>
+  <link type="guide" xref="index"/>
+</info>]]></hi><![CDATA[
+<title>Planting Beans</title>
+</page>]]></code>
+</example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Highlighted text is typically rendered with a colored background in
+  environments where that is possible. Processing tools may change the
+  color or use different presentations based on style hints.</p>
+
+  <p>This specification recommends two style hints: <code>ins</code> for
+  inserted text and <code>del</code> for deleted text. Inserted text
+  typically has a green background. Deleted text typically has a red
+  background, sometimes with a strikethrough. When converting to HTML,
+  processing tools should use the semantic <code>ins</code> and
+  <code>del</code> elements.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p><link xref="docbook">DocBook</link> does not have an element for highlighting text.
+  The <code href="https://tdg.docbook.org/tdg/5.1/emphasis.html">emphasis</code>
+  or <code href="https://tdg.docbook.org/tdg/5.1/phrase.html">phrase</code>
+  elements could be used with a <code>role</code> attribute with some
+  tooling work.</p>
+
+  <p><link xref="dita">DITA</link> does not have an element for highlighting text. The
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ph.html">ph</code>
+  could be used with an <code>outputclass</code> attribute with some
+  tooling work, or a custom specialization of the <code>ph</code>
+  element could be used.</p>
+
+  <p>HTML has the
+  <code href="https://www.w3.org/TR/html51/textlevel-semantics.html#the-mark-element">mark</code>
+  element with similar semantics. HTML also has the
+  <code href="https://www.w3.org/TR/html51/edits.html#the-ins-element">ins</code> and
+  <code href="https://www.w3.org/TR/html51/edits.html#the-del-element">del</code>
+  elements for added and deleted text. These are recommended style hints for the
+  <code>hi</code> element in Mallard.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>hi</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_hi = element hi {
+  mal_inline_hi_attr,
+  mal_inline_hi_inline
+}
+mal_inline_hi_attr = (
+  <link xref="mal_attr_link">mal_attr_link</link> *,
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_inline">mal_inline_attr</link>,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_inline_hi_inline = <link xref="mal_inline">mal_inline</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

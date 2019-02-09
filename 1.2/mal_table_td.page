@@ -1,0 +1,128 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec"
+      id="mal_table_td">
+
+<info>
+  <link type="guide" xref="mal_block#tables"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.1" date="2018-03-13" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2011, 2018</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create cells in table rows.</desc>
+</info>
+
+<title>Table Cells</title>
+
+<p>Use the <code>td</code> element to create cells for each column in
+a table row. Use the <code>th</code> element to create header cells.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+
+  <list>
+    <item><p>The <code>td</code> and <code>th</code> elements can contain
+    any <link xref="mal_block">general block content</link>.</p></item>
+
+    <item><p>The <code>td</code> and <code>th</code> elements can occur
+    in a <code xref="mal_table_tr">tr</code> element.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>colspan</code> attribute allows a table cell to
+    span across multiple table columns.</p></item>
+
+    <item><p>The <code>rowspan</code> attribute allows a table cell to
+    span across multiple table rows.</p></item>
+
+    <item><p>The <code>scope</code> attribute on the <code>th</code>
+    element allows you to specify what portion of the table the header
+    applies to: <code>row</code>, <code>col</code>, <code>rowspan</code>,
+    or <code>colspan</code>.</p></item>
+
+    <item><p>The <code>td</code> and <code>th</code> elements can have
+    attributes from external namespaces.  See <link xref="mal_external"/>
+    for more information on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+  <p>See <link xref="mal_table#examples"/> on the page <link xref="mal_table"/>.</p>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+  <p>See <link xref="mal_table#processing"/> on the page <link xref="mal_table"/>.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+  <p>See <link xref="mal_table#comparison"/> on the page <link xref="mal_table"/>.</p>
+  <?no-docbook?>
+  <?no-dita?>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>td</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_table_td = element td {
+  mal_table_td_attr,
+  mal_table_td_content *
+}
+mal_table_td_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute rowspan { text } ?,
+  attribute colspan { text } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_table_td_content = <link xref="mal_block">mal_block</link>
+mal_table_th = element th {
+  mal_table_th_attr,
+  mal_table_th_content *
+}
+mal_table_th_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute rowspan { text } ?,
+  attribute colspan { text } ?,
+  attribute scope { "row" | "col" | "rowgroup" | "colgroup" } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_table_th_content = <link xref="mal_block">mal_block</link>
+</code></synopsis>
+</section>
+
+</page>

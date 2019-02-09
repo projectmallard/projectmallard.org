@@ -1,0 +1,518 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec spec-no-comparison" 
+      id="mal_links">
+
+<info>
+  <link type="guide" xref="index" group="links"/>
+  <link type="seealso" xref="mal_page"/>
+  <link type="seealso" xref="mal_section"/>
+  <link type="seealso" xref="mal_info_link"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.1" date="2019-01-13" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Control where and how automatic links are displayed.</desc>
+</info>
+
+<title>Automatic Links</title>
+
+<p>Mallard features an automatic linking system that allows pages and sections to
+declare links both to and from other pages and sections. Links are declared with
+a <code xref="mal_info_link">link</code> element inside an
+<code xref="mal_info">info</code> element. These links are then collected
+and displayed on pages. The <code>links</code> element allows you to control
+how automatic links are displayed.</p>
+
+<p>Some types of <code>links</code> elements are implicitly added if they
+are absent. See the descriptions of the different types of links for
+details on implicit links.</p>
+
+<p>Some types of links also allow you to link to external resource using the
+<code>href</code> attribute of an informational link. The title and other
+metadata for these links are taken from the <code>link</code> element itself,
+rather than a target node.</p>
+
+<p>A <code>links</code> element belongs only to the page or section that is
+its direct parent.</p>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>links</code> element can contain an optional
+    <code xref="mal_block_title">title</code> element.</p></item>
+
+    <item><p>The <code>links</code> element can occur in
+    <code xref="mal_page">page</code> and <code xref="mal_section">section</code>
+    elements, either where <link xref="mal_block">block content</link>
+    occurs, or following any subsections.</p></item>
+<!--
+FIXME
+prevnext
+section
+-->
+
+    <item>
+      <p>The <code>type</code> attribute specifies the type of links to be
+      inserted. Links types may be added by extensions. This specification
+      requires the following types:</p>
+      <table>
+        <tr>
+          <td><p><code>"topic"</code></p></td>
+          <td><p>see <link xref="#topic"/></p></td>
+        </tr>
+        <tr>
+          <td><p><code>"guide"</code></p></td>
+          <td><p>see <link xref="#guide"/></p></td>
+        </tr>
+        <tr>
+          <td><p><code>"seealso"</code></p></td>
+          <td><p>see <link xref="#seealso"/></p></td>
+        </tr>
+        <tr>
+          <td><p><code>"prevnext"</code></p></td>
+          <td><p>see <link xref="#prevnext"/></p></td>
+        </tr>
+        <tr>
+          <td><p><code>"series"</code></p></td>
+          <td><p>see <link xref="#series"/></p></td>
+        </tr>
+        <tr>
+          <td><p><code>"section"</code></p></td>
+          <td><p>see <link xref="#section"/></p></td>
+        </tr>
+      </table>
+    </item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>role</code> attribute can be used to select alternative
+    titles of the target page or section to be used as automatic content.</p></item>
+
+    <item><p>The <code>groups</code> attribute takes a space-separated list
+    of link groups. Links groups are used by <link xref="#topic">topic
+    links</link>.</p></item>
+
+    <item><p>The <code>links</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Insert all topic links for a page or section:</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<links type="topic"/>
+]]></code>
+  </example>
+
+  <p>Separate topic links by group, giving a title to each group:</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<links type="topic" groups="#first">
+  <title>First Things First</title>
+</links>
+<links type="topic" groups="#default">
+  <title>Topics</title>
+</links>
+<links type="topic" groups="#last">
+  <title>In Other News</title>
+</links>
+]]></code>
+  </example>
+
+  <p>Provide quick links to the sections in a page:</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<page id="index">
+  <links type="section"/>
+  <section id="first">
+    <title>First</title>
+  </section>
+  <section id="second">
+    <title>Second</title>
+  </section>
+  <section id="third">
+    <title>Third</title>
+  </section>
+</page>
+]]></code>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN topic -->
+<section id="topic">
+  <title>Topic Links</title>
+
+  <p>A <code>links</code> element with type <code>"topic"</code> inserts topic links
+  from a guide page or section. Guides may also have topic links to external resources
+  using an <code>href</code> attribute. A guide has a topic link to an external
+  resource or to another node if one of the following conditions is true:</p>
+
+  <list>
+    <item><p>The guide has an informational link with type <code>"topic"</code>
+    whose <code>href</code> attribute points to the external resource.</p></item>
+    <item><p>The guide has an informational link with type <code>"topic"</code>
+    whose <code>xref</code> attribute points to the target node.</p></item>
+    <item><p>The target node has an informational link with type
+    <code>"guide"</code> whose <code>xref</code> attribute points
+    to the guide.</p></item>
+  </list>
+
+  <p>Topic links are the inverse of guide links for internal links using
+  the <code>xref</code> attribute.</p>
+
+  <p>There may be more than one topic <code>links</code> element in a single guide,
+  each one displaying links from a different list of groups. The groups for a
+  <code>links</code> element are taken from the <code>groups</code> attribute,
+  which is treated as a space-separated list. The groups are then augmented as
+  follows:</p>
+
+  <list>
+    <item><p>If no topic <code>links</code> elements contain the group
+    <code>#first</code>, it is prepended to the list of groups of the first
+    topic <code>links</code> element in the guide.</p></item>
+    <item><p>If no topic <code>links</code> elements contain the group
+    <code>#default</code>, it is appended to the list of groups of the last
+    topic <code>links</code> element in the guide.</p></item>
+    <item><p>If no topic <code>links</code> elements contain the group
+    <code>#last</code>, it is appended to the list of groups of the last
+    topic <code>links</code> element in the guide.</p></item>
+    <item><p>If both <code>#default</code> and <code>#last</code> are added
+    implicitly, <code>#last</code> comes after <code>#default</code>.</p></item>
+  </list>
+
+  <p>Each topic link for the guide has an associated group, taken from the
+  <code>group</code> attribute of the <code>link</code> element that declared
+  the link. If the <code>link</code> element does not declare a group, or if its
+  group is not in the list of all groups for the guide, its group is
+  <code>#default</code>.</p>
+
+  <p>A topic <code>links</code> element shows only those links with a group that
+  matches one of the values in its groups list. Links are sorted first by the
+  position of their group in the groups list for the <code>links</code> element.
+  They are then sorted by their <link xref="mal_info_title#sort">sort titles</link>.</p>
+
+  <p>The link text for a topic link is taken from the title of the target node,
+  or from the <code>link</code> element itself for external links, as follows:</p>
+
+  <list type="numbered">
+    <item><p>If the link uses an <code>href</code> attribute to point to an
+    external resource, the child <code>title</code> of that <code>link</code>
+    element without a <code>type</code> attribute is used.</p></item>
+    <item><p>Otherwise, if the <code>links</code> element has a <code>role</code>
+    attribute, and the target node has a <link xref="mal_info_title#link">link title</link>
+    with the <code>role</code> attribute set to the same value as the <code>role</code>
+    attribute of the <code>links</code> element, that title is used.</p></item>
+    <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
+    title</link> with the <code>role</code> attribute set to <code>"topic"</code>,
+    that title is used.</p></item>
+    <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
+    title</link> without a <code>role</code> attribute, that title is used.</p></item>
+    <item><p>Otherwise, the primary title of the target node is used.</p></item>
+  </list>
+
+  <p>Topic links are valid for guide pages and sections in guide pages. If a
+  guide page or section has topic links, but does not have a topic <code>links</code>
+  element, the topic links are inserted implicitly as if there were a topic
+  <code>links</code> element after all child block content, but before any
+  subsections. The implicit <code>links</code> element has the default
+  groups list <code>"#first #default #last"</code>.</p>
+
+  <note>
+    <p>Previous draft revisions of this specification did not contain the
+    <code>links</code> element, and placed the <code>groups</code> attribute
+    on the <code>page</code> or <code>section</code> element. When implicitly
+    adding topic links, processing tools may recognize the <code>groups</code>
+    attribute on those elements to support older documents.</p>
+  </note>
+</section>
+<!-- END topic -->
+
+
+<!-- BEGIN guide -->
+<section id="guide">
+  <title>Guide Links</title>
+
+  <p>A <code>links</code> element with type <code>"guide"</code> inserts guide links
+  to guide pages or sections. A node may also have guide links to external resources
+  using an <code>href</code> attribute. A node has a guide link to an external
+  resource or to a guide if any of the following conditions is true:</p>
+
+  <list>
+    <item><p>The node has an informational link with type <code>"guide"</code>
+    whose <code>href</code> attribute points to the external resource.</p></item>
+    <item><p>The node has an informational link with type <code>"guide"</code>
+    whose <code>xref</code> attribute points to the target guide.</p></item>
+    <item><p>The target guide has an informational link with type
+    <code>"topic"</code> whose <code>xref</code> attribute points to
+    the node.</p></item>
+  </list>
+
+  <p>Guide links are the inverse of topic links for internal links using the
+  <code>xref</code> attribute.</p>
+
+  <p>If a node has a guide link to another page or section, that link is shown
+  even if the target is not a guide. This allows guide links to be used for
+  upwards navigation to different types of collection pages, such as those
+  defined by extensions.</p>
+
+  <p>A guide <code>links</code> element shows all guide links for the enclosing
+  page or section. Links are sorted by the <link xref="mal_info_title#sort">sort
+  title</link> of their target guides.</p>
+
+  <p>The link text for a guide link is taken from the title of the target node,
+  or from the <code>link</code> element itself for external links, as follows:</p>
+
+  <list type="numbered">
+    <item><p>If the link uses an <code>href</code> attribute to point to an
+    external resource, the child <code>title</code> of that <code>link</code>
+    element without a <code>type</code> attribute is used.</p></item>
+    <item><p>Otherwise, if the <code>links</code> element has a <code>role</code>
+    attribute, and the target node has a <link xref="mal_info_title#link">link title</link>
+    with the <code>role</code> attribute set to the same value as the <code>role</code>
+    attribute of the <code>links</code> element, that title is used.</p></item>
+    <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
+    title</link> with the <code>role</code> attribute set to <code>"guide"</code>,
+    that title is used.</p></item>
+    <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
+    title</link> without a <code>role</code> attribute, that title is used.</p></item>
+    <item><p>Otherwise, the primary title of the target node is used.</p></item>
+  </list>
+
+  <p>Guide links are valid on all pages and sections. If a node has guide links, but
+  does not have a guide <code>links</code> element, the guide links are inserted
+  implicitly as if there were a guide <code>links</code> element at the end of the
+  node, after any block content and subsections.</p>
+</section>
+<!-- END guide -->
+
+
+<!-- BEGIN seealso -->
+<section id="seealso">
+  <title>See-Also Links</title>
+
+  <p>See-also links are links from nodes to any other nodes. Nodes may also
+  have see-also links to external resources using an <code>href</code> attribute.
+  A node has a see-also link to an external resource or to another node if any
+  of the following two conditions is true:</p>
+
+  <list>
+    <item><p>The node has an informational link with type <code>"seealso"</code>
+    whose <code>href</code> attribute points to the external resource.</p></item>
+    <item><p>The node has an informational link with type <code>"seealso"</code>
+    whose <code>xref</code> attribute points to the target node.</p></item>
+    <item><p>The target node has an informational link with type <code>"seealso"</code>
+    whose <code>xref</code> attribute points to the source node.</p></item>
+  </list>
+
+  <p>Internal see-also links always reciprocate; that is, if <var>A</var> has
+  a see-also link to <var>B</var>, <var>B</var> always has a see-also link back
+  to <var>A</var>.</p>
+
+  <p>A <code>links</code> element with type <code>"seealso"</code> inserts the
+  see-also links for the containing node. Links are sorted by the <link
+  xref="mal_info_title#sort">sort title</link> of their target nodes.</p>
+
+  <p>The link text for a see-also link is taken from the title of the target node,
+  or from the <code>link</code> element itself for external links, as follows:</p>
+
+  <list type="numbered">
+    <item><p>If the link uses an <code>href</code> attribute to point to an
+    external resource, the child <code>title</code> of that <code>link</code>
+    element without a <code>type</code> attribute is used.</p></item>
+    <item><p>If the <code>links</code> element has a <code>role</code> attribute,
+    and the target node has a <link xref="mal_info_title#link">link title</link>
+    with the <code>role</code> attribute set to the same value as the <code>role</code>
+    attribute of the <code>links</code> element, that title is used.</p></item>
+    <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
+    title</link> with the <code>role</code> attribute set to <code>"seealso"</code>,
+    that title is used.</p></item>
+    <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
+    title</link> without a <code>role</code> attribute, that title is used.</p></item>
+    <item><p>Otherwise, the primary title of the target node is used.</p></item>
+  </list>
+
+  <p>See-also links are valid on all pages and sections. If a node has see-also
+  links, but does not have a see-also <code>links</code> element, the see-also
+  links are inserted implicitly as if there were a see-also <code>links</code>
+  element at the end of the node, after any block content and subsections.</p>
+</section>
+<!-- END seealso -->
+
+
+<!-- BEGIN prevnext -->
+<section id="prevnext">
+  <title>Previous and Next Links</title>
+  <p>Previous and next links are links between pages that allow you to create
+  simple linear series of pages within a Mallard document. Previous and next
+  links are only expected to be supported on pages. Previous and next links
+  may not reference external resources with the <code>href</code> attribute.</p>
+
+  <p>A page has a next link to another page if it has an informational link
+  with type <code>"next"</code> whose <code>xref</code> attribute points to
+  that target page. Previous links are not declared explicitly. Instead, a
+  page implicitly has a a previous link to a target page if the target page
+  has a next link to it. If more than one page declares a next link to the
+  same target, the behavior is undefined.</p>
+
+  <p>A <code>links</code> element with type <code>"prevnext"</code> inserts
+  previous and next links for the containing page. Link text may be standard
+  strings like “Previous” and “Next”. When link text is taken from the title
+  of the target page, it is taken as follows:</p>
+
+  <list type="numbered">
+    <item><p>If the target node has a <link xref="mal_info_title#link">link
+    title</link> without a <code>role</code> attribute, that title is used.</p></item>
+    <item><p>Otherwise, the primary title of the target node is used.</p></item>
+  </list>
+
+  <p>No link title roles are currently recommended for previous and next links.</p>
+
+  <p>Previous and next links are valid for all pages. If a page has previous
+  or next links, but does not have a <code>links</code> element with type
+  <code>"prevnext"</code>, the previous and next links are inserted implicitly.
+  Previous and next links may be displayed in a navigation bar in a header or
+  footer. Some implementations may have other presentations.</p>
+</section>
+<!-- END prevnext -->
+
+
+<!-- BEGIN series -->
+<section id="series">
+  <title>Series Links</title>
+
+  <p>A <code>links</code> element with type <code>"series"</code> inserts links
+  to all pages within a linear series created by next links. The sequence of links
+  is such that each target page has a next link to the next target. The current
+  page is shown at its place in the series without being linked to, to give users
+  context. Implementations should be careful to detect cycles in next links.</p>
+
+  <p>The link text for a series link is taken from the title of the target node,
+  as follows:</p>
+
+  <list type="numbered">
+    <item><p>If the <code>links</code> element has a <code>role</code> attribute,
+    and the target node has a <link xref="mal_info_title#link">link title</link>
+    with the <code>role</code> attribute set to the same value as the <code>role</code>
+    attribute of the <code>links</code> element, that title is used.</p></item>
+    <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
+    title</link> with the <code>role</code> attribute set to <code>"series"</code>,
+    that title is used.</p></item>
+    <item><p>Otherwise, if the target node has a <link xref="mal_info_title#link">link
+    title</link> without a <code>role</code> attribute, that title is used.</p></item>
+    <item><p>Otherwise, the primary title of the target node is used.</p></item>
+  </list>
+
+  <p>Since next links are only valid on pages, series links are also only valid
+  on pages. If a page does not contain a series <code>links</code> element, the
+  series links are not displayed. Series links are not implicit.</p>
+</section>
+<!-- END series -->
+
+
+<!-- BEGIN section -->
+<section id="section">
+  <title>Section Links</title>
+
+  <p>A <code>links</code> element with type <code>"section"</code> inserts links
+  to the child sections of the containing node. By default, only the direct child
+  sections should be shown, but tools may use a style hint to create a tree of
+  links to nested sections.</p>
+
+  <p>The link text for a section link is taken from the title of the target
+  section, as follows:</p>
+
+  <list type="numbered">
+    <item><p>If the section has a <link xref="mal_info_title#link">link title</link>
+    without a <code>role</code> attribute, that title is used.</p></item>
+    <item><p>Otherwise, the primary title of the section is used.</p></item>
+  </list>
+
+  <p>No link title roles are currently recommended for section links.</p>
+
+  <p>Section links are valid for any page or section that contains child
+  sections. If a page or section does not contain a section <code>links</code>
+  element, the section links are not displayed. Section links are not
+  implicit.</p>
+</section>
+<!-- END section -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>A <code>links</code> element is displayed as a block, usually with each
+  link as a block or list item. Some types of links may be formatted differently,
+  and formatting may depend on style hints. Links should be clearly formatted
+  to separate them from surrounding content and other types of links.</p>
+
+  <p>When present, the <code>title</code> element should be displayed in a way
+  that makes it clear that it is the title of the <code>links</code> element.
+  If a <code>title</code> element is not present, a title may be automatically
+  generated for certain types of links.</p>
+
+  <p>If there are no links to display for a <code>links</code> element, then
+  the element as a whole is not displayed, including its title.</p>
+
+  <p>If links for a node are displayed after child sections of that node, they
+  should be separated using a header or other formatting to make it clear that
+  they do not belong to the child section.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>links</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_links = element links {
+  mal_links_attr,
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  mal_links_content *
+}
+mal_links_attr = (
+  attribute type { xsd:NMTOKEN },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute role { text } ?,
+  attribute groups { text } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_links_content = <link xref="mal_external">mal_external</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

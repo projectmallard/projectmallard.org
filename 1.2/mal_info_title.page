@@ -1,0 +1,285 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec"
+      id="mal_info_title">
+
+<info>
+  <link type="guide" xref="mal_info#elements"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.1" date="2019-01-13" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2009</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Provide alternate titles for automatic link text and sorting.</desc>
+</info>
+
+<title>Informational Titles</title>
+
+<p>Use the <code>title</code> element inside an <code xref="mal_info">info</code>
+element to list alternative titles for pages and sections.  These titles can be
+used as alternative link text, for sorting, or for other application-specific
+purposes.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>title</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>title</code> element can occur in any
+    <code xref="mal_info">info</code> element.</p></item>
+
+    <item><p>The <code>type</code> attribute specifies what purpose this
+    informational title is serving.  The following values are currently
+    recognized:</p>
+    <table>
+      <tr>
+        <td><p><code>"link"</code></p></td>
+        <td><p>specifies alternate link text; see <link xref="#link"/></p></td>
+      </tr>
+      <tr>
+        <td><p><code>"sort"</code></p></td>
+        <td><p>specifies a sort key; see <link xref="#sort"/></p></td>
+      </tr>
+      <tr>
+        <td><p><code>"text"</code></p></td>
+        <td><p>specifies a text title; see <link xref="#text"/></p></td>
+      </tr>
+    </table>
+    </item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>role</code> attribute can be used for link titles
+    to specify multiple alternate link texts.</p></item>
+
+    <item><p>The <code>title</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Provide a title to be used as link text for links to a page:</p>
+  <example>
+    <code mime="application/xml"><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" id="beanstalks">
+  <info>
+    <title type="link">Beanstalks</title>
+  </info>
+  <title>Everything You Ever Wanted to Know About Beanstalks</title>
+</page>
+]]></code>
+  </example>
+
+  <p>Provide a title to be used when sorting links to pages:</p>
+  <example>
+    <code mime="application/xml"><![CDATA[
+<page xmlns="http://projectmallard.org/1.0/" id="example">
+  <info>
+    <title type="sort">Beanstalk Example</title>
+  </info>
+  <title>A Beanstalk Example</title>
+</page>
+]]></code>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN primary -->
+<section id="primary">
+  <title>Primary Titles</title>
+
+  <p>The <em>primary title</em> of a page or section is the one specified in
+  the block context and used for display purposes.  While this title is not
+  an informational title as specified here, it is used as fallback for all
+  informational titles.</p>
+</section>
+<!-- END primary -->
+
+
+<!-- BEGIN link -->
+<section id="link">
+  <title>Link Titles</title>
+
+  <p>Pages and sections can have multiple link titles.  These are used as
+  alternate content for automatic link text.  When automatic text must be
+  generated for a <code xref="mal_inline_link">link</code> element, it is
+  taken first from the link titles, falling back to the primary title if
+  no suitable link title is found.</p>
+
+  <p>You can use the <code>role</code> attribute to specify multiple link
+  titles.  These can be selected using the <code>role</code> attribute of
+  the <code>link</code> element.  This can be used for a variety of purposes.
+  One common purpose is to specify link text for different parts of speech
+  in languages which have case declensions.  Without this feature, it can
+  be difficult to provide grammatically correct automatic link text in
+  some languages.</p>
+
+  <p>Standard link roles may also be used to specify link text for
+  <link xref="mal_links">automatic links</link>. This specification
+  recommends the following standard link roles:</p>
+
+  <terms>
+    <item>
+      <title><code>"guide"</code></title>
+      <p>Used for link text for <link xref="mal_links#guide">guide links</link>.</p>
+    </item>
+    <item>
+      <title><code>"seealso"</code></title>
+      <p>Used for link text for <link xref="mal_links#seealso">see-also links</link>.</p>
+    </item>
+    <item>
+      <title><code>"series"</code></title>
+      <p>Used for link text for <link xref="mal_links#series">series links</link>.</p>
+    </item>
+    <item>
+      <title><code>"topic"</code></title>
+      <p>Used for link text for <link xref="mal_links#topic">topic links</link>.</p>
+    </item>
+    <item>
+      <title><code>"trail"</code></title>
+      <p>Used when constructing a link trail, or bread crumbs, of guide links
+      leading to a node.</p>
+    </item>
+  </terms>
+
+  <p>Link roles may also be defined by implementations, authors, and translators.
+  To avoid clashes in names, the following recommendations should be followed:</p>
+
+  <list>
+    <item><p>Roles defined by official specifications on projectmallard.org
+    should never contain a hyphen.</p></item>
+    <item><p>Roles defined by implementations for implementation-specific
+    features should be prefixed by a hyphen, an identifier for the
+    implementation, and another hyphen. For example, if <app>Yelp</app>
+    allowed a link role for links from search results, it could use the
+    role <code>-yelp-search</code>.</p></item>
+    <item><p>Roles defined by authors, translators, or other content creators
+    should contain but not start with a hyphen. For example, if you want to use
+    a link role for inline links in the objective case in a German-language
+    document, you might use the role <code>de-objectiv</code>.</p></item>
+  </list>
+</section>
+<!-- END link -->
+
+
+<!-- BEGIN sort -->
+<section id="sort">
+  <title>Sort Titles</title>
+
+  <p>Sort titles allow you to specify alternate text to be used when sorting
+  the page or section.  Certain automatic link sections will sort the nodes
+  they link to.  When this happens, providing a sort title allows you to
+  control how the node is collated.  This is useful for excluding leading
+  articles such as “an” and “the”.</p>
+</section>
+<!-- END sort -->
+
+
+<!-- BEGIN text -->
+<section id="text">
+  <title>Text Titles</title>
+
+  <p>Text titles are used wherever a plain text string without formatting
+  is required. This is useful for window titles or labels in user interfaces
+  where formatting and inline images are difficult or impossible. This is
+  particularly useful when a title contains an image with fallback text, but
+  you do not want the fallback text to appear in places such as window titles.</p>
+
+  <p>This specification does not specify exactly where text titles will be
+  used. Uses for text titles may vary by implementation. Implementations may
+  define roles to allow authors to provide alternate text titles for different
+  purposes.</p>
+</section>
+<!-- END text -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Informational titles are not displayed directly, although they will
+  affect the output of any material which links to the given page or
+  section.</p>
+
+  <p>The content model of the <code xref="mal_info">info</code> element
+  allows for any mixture of informational titles.  As such, it is entirely
+  possible for multiple titles to exist for some specified combination of
+  the <code>type</code> and <code>role</code> attributes.  When such an
+  ambiguity arises, processing tools should select the first informational
+  title that matches the desired criteria.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p><link xref="docbook">DocBook</link> has no general mechanism for specifying different
+  title text for different purposes. Although a document is still valid with multiple
+  <code href="http://www.docbook.org/tdg51/en/html/title.html">title</code>
+  elements in an info element, the DocBook specification forbids having
+  different values when titles appear in different contexts. DocBook does
+  provide the
+  <code href="http://www.docbook.org/tdg51/en/html/titleabbrev.html">titleabbrev</code>
+  element, which may be used by some implementations for link text.</p>
+
+  <p><link xref="dita">DITA</link> provides the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/titlealts.html">titlealts</code>,
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/navtitle.html">navtitle</code>, and
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/searchtitle.html">searchtitle</code>
+  elements, which provide a fixed mechanism to specify alternate titles for a
+  limited number of uses. DITA does not have a general mechanism like Mallard
+  informational titles.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition for the
+informational <code>title</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_title = element title {
+  mal_info_title_attr,
+  mal_info_title_inline
+}
+mal_info_title_attr = (
+  attribute type { xsd:NMTOKEN },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute role { xsd:NMTOKEN } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_info_title_inline = <link xref="mal_inline">mal_inline</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

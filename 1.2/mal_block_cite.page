@@ -1,0 +1,168 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec"
+      id="mal_block_cite">
+
+<info>
+  <link type="seealso" xref="mal_block_comment"/>
+  <link type="seealso" xref="mal_block_quote"/>
+
+  <revision docversion="1.0" date="2011-08-15" status="final"/>
+  <revision docversion="1.1" date="2019-01-13" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Provide attributions for quotations and comments.</desc>
+</info>
+
+<title>Citations</title>
+
+<p>The <code>cite</code> element provides information about the source of a
+<code xref="mal_block_quote">quote</code> or a
+<code xref="mal_block_comment">comment</code> element.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>cite</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>cite</code> element can occur in a block
+    <code xref="mal_block_quote">quote</code> element or a
+    <code xref="mal_block_comment">comment</code> element.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>date</code> attribute provides specifies the date that
+    the corresponding remark was made. For quotations, it will frequently
+    be simply a year.</p></item>
+
+    <item><p>The <code>href</code> attribute provides a URL to identify the
+    entity being cited.  It will frequently be a <sys>mailto:</sys> URL with
+    a person's email address.</p></item>
+
+    <item><p>The <code>cite</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Add an attribution to a <link xref="mal_block_quote">block quote</link>:</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<quote>
+  <cite>Henry David Thoreau</cite>
+  <p>Our life is frittered away by detail.... Simplify, simplify.</p>
+</quote>
+]]></code>
+    <quote>
+      <cite>Henry David Thoreau</cite>
+      <p>Our life is frittered away by detail.... Simplify, simplify.</p>
+    </quote>
+  </example>
+
+  <p>Specify who made an <link xref="mal_block_comment">editorial comment</link>:</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<comment>
+  <title>Mallards Are Dabbling Ducks</title>
+  <cite date="2009-05-07" href="mailto:drake@example.com">Drake</cite>
+  <p>The information in this section is wrong.  Mallards are dabbling
+  ducks, not diving ducks.</p>
+</comment>]]></code>
+    <comment>
+      <?mal2html.show_comment?>
+      <title>Mallards Are Dabbling Ducks</title>
+      <cite date="2009-05-07" href="mailto:drake@example.com">Drake</cite>
+      <p>The information in this section is wrong.  Mallards are dabbling
+      ducks, not diving ducks.</p>
+    </comment>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+  <p>The <code>cite</code> element is generally display offset from its
+  surrounding content to make its role clear. Specific processing depends
+  on context. See the processing expectations for the
+  <code xref="mal_block_quote#processing">quote</code> and
+  <code xref="mal_block_comment#processing">comment</code> elements for
+  more details.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>When used in a <code xref="mal_block_quote">quote</code> element,
+  the <code>cite</code> element is similar to the
+  <code href="http://www.docbook.org/tdg51/en/html/attribution.html">attribution</code>
+  element in <link xref="docbook">DocBook</link>. DocBook does not
+  provide an element to specify an attribution for editorial comments
+  using the <code href="http://www.docbook.org/tdg51/en/html/remark.html">remark</code>
+  element.</p>
+
+  <p><link xref="dita">DITA</link> does not provide an element to
+  specify attributions on either the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/lq.html">lq</code>
+  or the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/draft-comment.html">draft-comment</code>
+  element. The <code>cite</code> element in Mallard is not equivalent to
+  the <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/cite.html">cite</code>
+  element in DITA.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>cite</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_cite = element cite {
+  mal_block_cite_attr,
+  mal_block_cite_inline
+}
+mal_block_cite_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  attribute date { text } ?,
+  attribute href { text } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_cite_inline = <link xref="mal_inline">mal_inline</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

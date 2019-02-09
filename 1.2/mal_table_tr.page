@@ -1,0 +1,136 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec"
+      id="mal_table_tr">
+
+<info>
+  <link type="guide" xref="mal_block#tables"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.1" date="2018-03-13" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2011, 2018</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create rows and row groups for tables.</desc>
+</info>
+
+<title>Rows and Row Groups</title>
+
+<p>Use the <code>tr</code> element to create a row in a table. Use the
+<code>thead</code>, <code>tbody</code>, and <code>tfoot</code> elements
+to group rows together for stylistic or semantic purposes.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+
+  <list>
+    <item><p>The <code>thead</code>, <code>tbody</code>, and <code>tfoot</code>
+    elements contain one or more <code>tr</code> elements. The <code>tr</code>
+    element contains zero or more <code>td</code> or <code>th</code>
+    elements.</p></item>
+
+    <item><p>The <code>thead</code>, <code>tbody</code>, and <code>tfoot</code>
+    elements can occur at the end of a <code xref="mal_table">table</code>
+    element. The <code>tr</code> element can appear at the end of a <code>table</code>
+    element in place of any <code>thead</code>, <code>tbody</code>, or <code>tfoot</code>
+    elements; or it can appear in a <code>thead</code>, <code>tbody</code>, or
+    <code>tfoot</code> element.</p></item>
+
+    <item><p>The <code>style</code> attribute on the <code>thead</code>,
+    <code>tbody</code>, <code>tfoot</code>, and <code>tr</code> elements takes a
+    space-separated list of style hints. Processing tools should adjust their
+    behavior according to those style hints they understand.</p></item>
+
+    <item><p>The <code>thead</code>, <code>tbody</code>, <code>tfoot</code>,
+    and <code>tr</code> elements can have attributes from external namespaces.
+    See <link xref="mal_external"/> for more information on external-namespace
+    attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+  <p>See <link xref="mal_table#examples"/> on the page <link xref="mal_table"/>.</p>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+  <p>See <link xref="mal_table#processing"/> on the page <link xref="mal_table"/>.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+  <p>See <link xref="mal_table#comparison"/> on the page <link xref="mal_table"/>.</p>
+  <?no-docbook?>
+  <?no-dita?>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>tr</code>, <code>thead</code>, <code>tbody</code>, and
+<code>tfoot</code> elements. The namespace declarations for these definitions
+are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_table_tr = element tr {
+  mal_table_tr_attr,
+  ( <link xref="mal_table_td">mal_table_td</link> | <link xref="mal_table_td">mal_table_th</link> ) *
+}
+mal_table_tr_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_table_thead = element thead {
+  mal_table_thead_attr,
+  mal_table_tr +
+}
+mal_table_thead_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_table_tbody = element tbody {
+  mal_table_tbody_attr,
+  mal_table_tr +
+}
+mal_table_tbody_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_table_tfoot = element tfoot {
+  mal_table_tfoot_attr,
+  mal_table_tr +
+}
+mal_table_tfoot_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+</code></synopsis>
+</section>
+
+</page>

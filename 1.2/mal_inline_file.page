@@ -1,0 +1,134 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec"
+      id="mal_inline_file">
+
+<info>
+  <link type="guide" xref="mal_inline#elements"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.1" date="2019-01-13" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mark up the name of a file or directory.</desc>
+</info>
+
+<title>Filenames</title>
+
+<p>Use the <code>file</code> element to mark up the name of a file or
+directory.  You may also use it to mark up collections or portions of
+filenames, such as search paths and file extensions.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>file</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>file</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>file</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>file</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>file</code> to specify a filename:</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+XML catalogs are stored in <file>/etc/xml/catalog</file>.
+]]></code>
+    <p>XML catalogs are stored in <file>/etc/xml/catalog</file>.</p>
+  </example>
+
+  <p>Use <code>file</code> to specify a path:</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<sys>$XDG_DATA_DIRS</sys> defaults to <file>/usr/local/share:/usr/share</file>.
+]]></code>
+    <p><sys>$XDG_DATA_DIRS</sys> defaults to <file>/usr/local/share:/usr/share</file>.</p>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+  <p>Filenames should be displayed in a fixed-width or wide font.  Fixed-width
+  fonts tend to have more distinction between visually similar characters.  This
+  is particularly important in filenames, since letters often appear without the
+  context of a known word that helps make them discernible in normal prose.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+  <p>The <code>file</code> element is similar to the
+  <code href="http://www.docbook.org/tdg51/en/html/filename.html">filename</code>
+  element in <link xref="docbook">DocBook</link>.</p>
+  <p>The <code>file</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/filepath.html">filepath</code>
+  element in <link xref="dita">DITA</link>.</p>
+</section>
+<!-- END comparison -->
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>file</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_file = element file {
+  mal_inline_file_attr,
+  mal_inline_file_inline
+}
+mal_inline_file_attr = (
+  <link xref="mal_attr_link">mal_attr_link</link> *,
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_inline">mal_inline_attr</link>,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_inline_file_inline = <link xref="mal_inline">mal_inline</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

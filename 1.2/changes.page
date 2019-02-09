@@ -1,0 +1,120 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec-details"
+      id="changes">
+
+<info>
+  <link type="guide" xref="index" group="changes"/>
+
+  <revision docversion="1.1" date="2013-07-30" status="stub"/>
+  <revision docversion="1.1" date="2019-01-14" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2013-2019</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Summary of changes made since previous versions of Mallard.</desc>
+</info>
+
+<title>Changes to Mallard</title>
+
+<section id="mallard-1.2">
+<title>Changes in Mallard 1.2</title>
+</section>
+
+<section id="mallard-1.1">
+<title>Changes in Mallard 1.1</title>
+
+<list>
+  <item><p>The new <code xref="mal_inline_hi">hi</code> inline element can be
+  used to highlight runs of text, such as added or changed code in successive
+  code examples. The recommended <code>ins</code> and <code>del</code> style
+  hints can be used for inserted and deleted text in a diff. See
+  <link xref="/mep/mep0009">MEP-0009</link> and
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/3">Issue
+  3</link>.</p></item>
+
+  <item><p>The <code>mime</code> attribute has been deprecated on the
+  block <code xref="mal_block_code">code</code>,
+  block <code xref="mal_block_screen">screen</code>,
+  inline <code xref="mal_inline_code">code</code>, and
+  inline <code xref="mal_inline_cmd">cmd</code> elements. It has been
+  replaced by the simpler <code>type</code> attribute, which takes a
+  space-separated list of tokens.
+  See <link xref="/mep/mep0010">MEP-0010</link> and
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/38">Issue
+  38</link>.</p></item>
+
+  <item><p>The new <code xref="mal_info_keywords">keywords</code> informational
+  element can be used to add keywords to inform search engines. See
+  <link xref="/mep/mep0014">MEP-0014</link> and
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/10">Issue
+  10</link>.</p></item>
+
+  <item><p>The new <code xref="mal_table_td">th</code> element can be used
+  alongside <code>td</code> elements to indicate header cells, just like in
+  HTML. See
+  <link xref="/mep/mep0012">MEP-0012</link> and
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/9">Issue
+  9</link>.</p></item>
+
+  <item><p>The <code>id</code> attribute on <code xref="mal_section">section</code>
+  elements is now optional. See
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/2">Issue
+  2</link>.</p></item>
+
+  <item><p>The <code>id</code> attribute on <code xref="mal_page">page</code>
+  and <code xref="mal_section">section</code> elements is now defined using
+  a separate pattern in the RELAX NG schema, allowing extensions to override
+  those definitions. See
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/32">Issue
+  32</link>.</p></item>
+
+  <item><p>The new <code xref="mal_block_div">div</code> element is a generic
+  block container element without semantics, allowing simple formal paragraphs,
+  easier content reuse, and better behavior for extensions. See
+  <link xref="/mep/mep0005">MEP-0005</link> and
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/15">Issue
+  15</link>.</p></item>
+
+  <item><p>Formal block elements, including lists and tables, may now contain
+  an optional <code xref="mal_info">info</code> element to provide metadata
+  such as attributions, licensing information, and additional titles for
+  extensions. See <link xref="/mep/mep0002">MEP-0002</link> and
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/5">Issue
+  5</link>.</p></item>
+
+  <item><p>Informational <code xref="mal_info_link">link</code> elements may
+  now point to external resources using an <code>href</code> attribute and
+  provide a title and other metadata as child content. Support for external
+  informational links depends on <link xref="mal_links">the type of link</link>.
+  See <link xref="/mep/mep0007">MEP-0007</link> and
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/30">Issue
+  30</link>.</p></item>
+
+  <item><p>The <code xref="mal_block_example">example</code> element is now a
+  formal element, accepting optional <code xref="mal_block_title">title</code>
+  and <code xref="mal_block_desc">desc</code> elements. See
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/4">Issue
+  4</link>.</p></item>
+
+  <item><p>The <code xref="mal_inline_guiseq">guiseq</code> and
+  <code xref="mal_inline_keyseq">keyseq</code> elements allow linking attributes
+  like other inline elements. See
+  <link href="https://github.com/projectmallard/projectmallard.org/issues/20">Issue
+  20</link>.</p></item>
+
+  <item><p>The <code xref="mal_links">links</code> element accepts a <code>role</code>
+  attribute, allowing you to specify a link title role to try before using the standard
+  link title role for the particular type of <code>links</code> element. See
+  <link xref="/mep/mep0003">MEP-0003</link>.</p></item>
+</list>
+
+</section>
+
+</page>

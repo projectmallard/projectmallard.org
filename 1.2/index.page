@@ -1,0 +1,60 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="spec-guide"
+      id="index">
+
+<info>
+  <revision docversion="1.0" date="2011-05-23" status="final"/>
+  <revision docversion="1.1" date="2019-01-13" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2007-2011</years>
+  </credit>
+  <credit type="author copyright">
+    <name>Jim Campbell</name>
+    <years>2011</years>
+  </credit>
+
+  <title type="link" role="-index">Mallard 1.2 <em>DRAFT</em></title>
+
+  <desc>The core Mallard language, including topics and dynamic links.</desc>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+</info>
+
+<title>Mallard 1.2 DRAFT</title>
+
+<note style="sidebar">
+<title>Download Schema</title>
+<list style="compact">
+  <item><p><link href="http://projectmallard.org/1.2/mallard-1.2.rng">RELAX NG XML Syntax</link></p></item>
+  <item><p><link href="http://projectmallard.org/1.2/mallard-1.2.rnc">RELAX NG Compact Syntax</link></p></item>
+</list>
+</note>
+
+<p>Mallard is a markup language for dynamic, topic-oriented help. It is designed
+to be as simple as possible, while still providing the features needed for a
+modern help system. Mallard features a unique reciprocal linking system that helps 
+writers create flexible help frameworks that are easy to extend with new content. 
+Writers can create an outline-like structure, and as they add new help topics, the 
+reciprocal linking mechanism will neatly integrate the new help topics with 
+the existing help topics.</p>
+
+<p>These pages serve as the official specification for the Mallard 1.2 markup
+language. Mallard is formally defined using a
+<link href="http://www.relaxng.org/">RELAX NG</link> schema, maintained in
+compact syntax in code blocks throughout this specification. These are
+automatically extracted to create the official schema.</p>
+
+<p>The specification is designed to be easy to read, with plenty of notes and
+examples. It can serve as a reference for those already familiar with the
+basic concepts of Mallard. For an introduction to Mallard, see
+<link xref="/about/learn/index" href="http://projectmallard.org/about/learn/index.html">Learn Mallard</link>
+on projectmallard.org.</p>
+
+<links type="topic" groups="page section info links block inline details principles changes"/>
+
+</page>

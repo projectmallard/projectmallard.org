@@ -1,0 +1,103 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec-details"
+      id="l10n">
+
+<info>
+  <link type="guide" xref="details#i18n"/>
+
+  <revision docversion="1.0" date="2011-08-08" status="final"/>
+  <revision docversion="1.1" date="2019-01-13" status="draft"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Tips for people translating Mallard documents into other languages.</desc>
+</info>
+
+<title>Translation Notes</title>
+
+<p>This page provides tips for people translating Mallard pages into
+other languages. Mallard was designed with localization in mind, and
+contains many features designed to support translation. Some of these
+features should be handled automatically by translation tools. See
+<link xref="i18n"/> for more information.</p>
+
+<section id="link">
+  <title>Link Text</title>
+
+  <p>Mallard can automatically generate text for a link using the title
+  of the target page or section. In many formats, this presents a serious
+  problem to languages with declensions for different parts of speech.</p>
+
+  <p>Mallard allows any number of extra <link xref="mal_info_title#link">link
+  titles</link> to be provided for a page or section. Each of these link titles
+  specifies where it should be used with the <code>role</code> attribute. Links
+  can then specify which title to use using the <code>role</code> attribute on
+  the <code xref="mal_inline_link">link</code> element.</p>
+
+  <p>If you need to use different link text depending on the part of speech
+  where the link occurs, you should provide alternate link titles for each
+  page, and select among these using the <code>role</code> attribute of each
+  inline link.</p>
+
+  <p>For example, say you are translating into a language with language code
+  <sys>zxx</sys>. You have a page with id <sys>ducks</sys> and the title
+  <em>Ducks</em>. You want the link text to this page to read <em>The ducks</em>
+  when the link is the subject of a sentence, and <em>ducks</em> when the link
+  is the direct object of a sentence. Add the following to the <code>info</code>
+  element on <file>ducks.page</file>:</p>
+
+  <code mime="application/xml"><![CDATA[
+<title type="link" role="zxx-subject">The ducks</title>
+<title type="link" role="zxx-object">ducks</title>
+]]></code>
+
+  <p>When linking to this page inline, add the <code>role</code> attribute to
+  each <code>link</code> element, matching a <code>role</code> attribute of
+  a <code>title</code> tag, as follows:</p>
+
+  <code mime="application/xml"><![CDATA[
+<link xref="ducks" role="zxx-subject"/> has more information.
+See <link xref="ducks" role="zxx-object"/> for more information.
+]]></code>
+
+  <p>You can add as many roles as you need. If you have not provided a link
+  title with a matching role for a particular link, the primary title will
+  be shown instead.</p>
+
+  <p>To avoid conflicts with other uses of link roles, you should always name
+  your roles starting with your language code followed by a hyphen.</p>
+</section>
+
+<section id="inline">
+  <title>Inline Markup</title>
+
+  <p>Mallard provides <link xref="mal_inline">inline markup elements</link>
+  to support common needs in software documentation. Sometimes the markup in
+  the original language is unnecessary in your language, or your language
+  might need additional markup.</p>
+
+  <p>The <code xref="mal_inline_em">em</code> element emphasizes text. Mallard
+  does not provide separate element for different semantic uses of emphasis,
+  such as foreign words, introductions of terms, and titles of publications.
+  In some languages, these uses don't all use font variations like italics.
+  Non-latin scripts usually don't even have italics, although it is becoming
+  more common to use an oblique font or other variant in those scripts.</p>
+
+  <p>If your language does not use italics or other font variants for a
+  particular type of emphasis, you should leave out the <code>em</code> tag
+  altogether and replace it with the correct text. For example, if the title
+  of a publication is emphasized as <code>&lt;em>The Mallard Book&lt;/em></code>,
+  but your language puts publication titles in quotations, you should replace
+  this with <code>«The Mallard Book»</code>, <code>『The Mallard Book』</code>,
+  or similar.</p>
+</section>
+
+</page>

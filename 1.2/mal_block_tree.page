@@ -1,0 +1,238 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec"
+      id="mal_block_tree">
+
+<info>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.1" date="2019-01-13" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2016</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create simple trees to show hierarchical structures.</desc>
+</info>
+
+<title>Tree Lists</title>
+
+<p>Use the <code>tree</code> element to create a hierarchical tree.  While
+conceptually similar to nested <code xref="mal_block_list">list</code>
+elements, trees offer a simple way to display common hierarchies such as
+class inheritance or directory layouts.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>tree</code> element contains an optional
+    <code xref="mal_info">info</code> element, an optional
+    <code xref="mal_block_title">title</code> element, and one or more
+    <code>item</code> elements.  Each child <code>item</code> element can
+    contain a mixture of text and any
+    <link xref="mal_inline">general inline elements</link>, followed by
+    zero or more nested <code>item</code> elements.</p></item>
+
+    <item><p>The <code>tree</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item>
+      <p>The following style hints are recommended:</p>
+      <table rules="rows">
+        <tr>
+          <td><p><code>lines</code></p></td>
+          <td><p>draw lines to show the hierarchy</p></td>
+        </tr>
+      </table>
+    </item>
+
+    <item><p>The <code>tree</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use a tree to outline a class hierarchy inside a
+  <code xref="mal_block_synopsis">synopsis</code> element:</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<synopsis>
+  <tree>
+    <item>
+      <code>GtkBin</code>
+      <item>
+        <code>GtkButton</code>
+        <item><code>GtkToggleButton</code></item>
+        <item><code>GtkColorButton</code></item>
+        <item><code>GtkFontButton</code></item>
+        <item><code>GtkLinkButton</code></item>
+        <item><code>GtkOptionMenu</code></item>
+        <item><code>GtkScaleButton</code></item>
+      </item>
+    </item>
+  </tree>
+</synopsis>]]></code>
+    <synopsis>
+      <tree>
+        <item>
+          <code>GtkBin</code>
+          <item>
+            <code>GtkButton</code>
+            <item><code>GtkToggleButton</code></item>
+            <item><code>GtkColorButton</code></item>
+            <item><code>GtkFontButton</code></item>
+            <item><code>GtkLinkButton</code></item>
+            <item><code>GtkOptionMenu</code></item>
+            <item><code>GtkScaleButton</code></item>
+          </item>
+        </item>
+      </tree>
+    </synopsis>
+  </example>
+
+  <p>Use the <code>lines</code> style hint to visually show the tree structure:</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<tree style="lines">
+  <item>
+    Anatinae (dabbling ducks)
+    <item>
+      Anas
+      <item>Baikal Teal</item>
+      <item>Wigeons</item>
+      <item>Mallard</item>
+    </item>
+    <item>Lophonetta</item>
+    <item>Speculanas</item>
+  </item>
+  <item>
+    Anthyinae (diving ducks)
+    <item>Aythya</item>
+    <item>Netta</item>
+  </item>
+  <item>Dendrocygninae (whistling ducks)</item>
+</tree>]]></code>
+    <tree style="lines">
+      <item>
+        Anatinae (dabbling ducks)
+        <item>
+          Anas
+          <item>Baikal Teal</item>
+          <item>Wigeons</item>
+          <item>Mallard</item>
+        </item>
+        <item>Lophonetta</item>
+        <item>Speculanas</item>
+      </item>
+      <item>
+        Anthyinae (diving ducks)
+        <item>Aythya</item>
+        <item>Netta</item>
+      </item>
+      <item>Dendrocygninae (whistling ducks)</item>
+    </tree>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Tree lists are display as block elements.  Each child <code>item</code>
+  has its leading inline content displayed in a single block and any nested
+  <code>item</code> elements displayed as blocks in turn.  Successive levels
+  of nesting should yield more indentation, though this may vary based on
+  style hints or other factors.  By default, there should be little vertical
+  spacing between items; trees are compact.  No bullets, icons, or other marks
+  are expected to precede items, although they may be used for certain style
+  hints.</p>
+
+  <p>The optional <code xref="mal_info">info</code> element can provide metadata
+  for the tree list, such as attributions, licensing information, and additional
+  titles for extensions. It is not displayed directly.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+<title>Comparison to Other Formats</title>
+
+<p>The <code>tree</code> element has no direct equivalent in
+<link xref="docbook">DocBook</link> or <link xref="dita">DITA</link>.
+In DocBook, a similar effect can be accomplished with nested
+<code href="http://www.docbook.org/tdg51/en/html/itemizedlist.html">itemizedlist</code>
+elements by setting the <code>spacing</code> attribute to <code>"compact"</code>
+and setting the <code>mark</code> attribute to a value understood by your
+processing tool to remove bullets.  In DITA, a similar effect can be
+accomplished with nested
+<code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/ul.html">ul</code>
+elements by setting the <code>compact</code> attribute to <code>"yes"</code>
+and instructing your processing tool to omit bullets.  For non-hierarchical
+lists, the <code>tree</code> element functions similarly to the
+<code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/sl.html">sl</code>
+element in DITA.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>tree</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_tree = element tree {
+  mal_block_tree_attr,
+  <link xref="mal_info">mal_info</link> ?,
+  <link xref="mal_block_title">mal_block_title</link> ?,
+  mal_block_tree_item +
+}
+mal_block_tree_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_block">mal_block_attr</link>,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_tree_item = element item {
+  mal_block_tree_item_attr,
+  mal_block_tree_item_inline,
+  mal_block_tree_item *
+}
+mal_block_tree_item_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_tree_item_inline = <link xref="mal_inline">mal_inline</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

@@ -1,0 +1,126 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="spec"
+      id="mal_block_p">
+
+<info>
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.1" date="2019-01-13" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2008-2011</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create a simple paragraph of text.</desc>
+</info>
+
+<title>Paragraphs</title>
+
+<p>Use the <code>p</code> element to create a simple paragraph.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>p</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>p</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>p</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Create a simple paragraph:</p>
+
+  <example>
+    <code mime="application/xml"><![CDATA[
+<p>The most basic block-level element in Mallard is the <code>p</code>
+element. The <code>p</code> element creates a paragraph in the formatted
+output.</p>]]></code>
+    <p>The most basic block-level element in Mallard is the <code>p</code>
+    element. The <code>p</code> element creates a paragraph in the formatted
+    output.</p>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+  <p>Paragraphs are displayed as block elements, with their child elements
+  interpreted as inline elements.  In on-screen media, paragraphs generally
+  have padding above and below them to separate them from the surrounding
+  block content.  In print media, the first line of each paragraph has
+  traditionally been indented.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p><link xref="docbook">DocBook</link> contains two elements for creating
+  paragraphs: <code href="http://www.docbook.org/tdg51/en/html/para.html">para</code>
+  and <code href="http://www.docbook.org/tdg51/en/html/simpara.html">simpara</code>.
+  The <code>p</code> element in Mallard is similar to the <code>simpara</code> element
+  in DocBook in that it does not allow block content.</p>
+
+  <p>The <code>p</code> element in Mallard is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/p.html">p</code>
+  element in <link xref="dita">DITA</link>, except that block content may not be mixed
+  into paragraphs in Mallard.</p>
+</section>
+<!-- END comparison -->
+
+
+<!-- BEGIN schema -->
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the <code>p</code> element.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_p = element p {
+  mal_block_p_attr,
+  mal_block_p_inline
+}
+mal_block_p_attr = (
+  attribute style { xsd:NMTOKENS } ?,
+  <link xref="mal_block">mal_block_attr</link>,
+  <link xref="mal_external">mal_attr_external</link> *
+)
+mal_block_p_inline = <link xref="mal_inline">mal_inline</link>
+</code></synopsis>
+</section>
+<!-- END schema -->
+
+</page>

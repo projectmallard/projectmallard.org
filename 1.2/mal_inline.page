@@ -1,0 +1,118 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" style="spec-guide"
+      id="mal_inline">
+
+<info>
+  <link type="guide" xref="index" group="inline"/>
+
+  <revision docversion="1.0" date="2011-11-15" status="final"/>
+  <revision docversion="1.1" date="2019-01-13" status="review"/>
+  <revision docversion="1.1" date="2019-01-29" status="final"/>
+  <revision docversion="1.2" date="2019-02-09" status="draft"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2009</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Rich semantic elements for marking up inline content.</desc>
+</info>
+
+<title>Inline Elements</title>
+
+<p>Mallard provides a small but rich set of semantic inline elements.
+The elements provided are culled from first-hand experience with software
+documentation and other document formats.  The inline elements defined in
+this specification will serve most software documentation writers’ needs
+well.</p>
+
+<p>Authors, editors, or other content producers sometimes need to supply
+richer information in their documents.  While this information may not
+be conveyed by display tools, it may be used for various internal tracking
+purposes.  Mallard allows elements to be extended with attributes from
+external namespaces.  See <link xref="mal_external"/> for more
+information.</p>
+
+<p>Furthermore, Mallard allows elements from external namespaces to be
+used in any inline context.  See <link xref="#processing"/> below for
+more information.</p>
+
+
+<!-- BEGIN elements -->
+<section id="elements">
+  <info>
+    <title type="link">Inline Elements</title>
+  </info>
+  <title>Elements</title>
+  <links type="topic" style="2column"/>
+</section>
+<!-- END elements -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <info>
+    <title type="link">Inline Processing Expectations</title>
+  </info>
+  <title>Processing Expectations</title>
+
+  <p>Inline elements occur within block elements or other inline elements.
+  Mallard never allows block elements within inline elements.  Inline elements
+  should never introduce a line break in the rendered output.</p>
+
+  <p>Different inline elements may introduce different styling effects, such
+  as font variations, text and background colors, and backgrounds.  Generally,
+  if a styling effect is set for a particular element, it is in effect for all
+  descendant elements, unless explicitly overridden.</p>
+
+  <p>Mallard allows elements from external namespaces to be used in any inline
+  context.  Processing tools may have special behavior for particular elements
+  they understand.  Otherwise, an unknown inline element should be processed
+  as if it were replaced by its child content.</p>
+</section>
+<!-- END processing -->
+
+<section id="schema">
+<title>Schema</title>
+
+<p>The formal definition of the Mallard language is maintained in
+<link href="http://www.relaxng.org/">RELAX NG</link>
+<link href="http://www.relaxng.org/compact-20021121.html">Compact Syntax</link>
+in code blocks within this specification.  This is the formal definition
+for the inline content model.  The namespace declarations for this
+definition are on the page <link xref="mal_page"/>.</p>
+
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline = (
+  <link xref="mal_inline_app">mal_inline_app</link> * &amp;
+  <link xref="mal_inline_cmd">mal_inline_cmd</link> * &amp;
+  <link xref="mal_inline_code">mal_inline_code</link> * &amp;
+  <link xref="mal_inline_em">mal_inline_em</link> * &amp;
+  <link xref="mal_inline_file">mal_inline_file</link> * &amp;
+  <link xref="mal_inline_gui">mal_inline_gui</link> * &amp;
+  <link xref="mal_inline_guiseq">mal_inline_guiseq</link> * &amp;
+  <link xref="mal_inline_em">mal_inline_hi</link> * &amp;
+  <link xref="mal_inline_input">mal_inline_input</link> * &amp;
+  <link xref="mal_inline_key">mal_inline_key</link> * &amp;
+  <link xref="mal_inline_keyseq">mal_inline_keyseq</link> * &amp;
+  <link xref="mal_inline_link">mal_inline_link</link> * &amp;
+  <link xref="mal_inline_media">mal_inline_media</link> * &amp;
+  <link xref="mal_inline_output">mal_inline_output</link> * &amp;
+  <link xref="mal_inline_span">mal_inline_span</link> * &amp;
+  <link xref="mal_inline_sys">mal_inline_sys</link> * &amp;
+  <link xref="mal_inline_var">mal_inline_var</link> * &amp;
+  element * - (mal:* | local:*) {
+    attribute * { text } *,
+    mal_inline
+  } * &amp;
+  text ?
+)
+mal_inline_attr = empty
+</code></synopsis>
+</section>
+
+</page>
