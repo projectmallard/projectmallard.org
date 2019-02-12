@@ -384,48 +384,11 @@ body.pmo-splash section#specs div.title h3 {
   font-size: 30px;
   font-weight: normal;
 }
-body.pmo-splash section#specs div.list {
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-body.pmo-splash section#specs ul.list {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: stretch;
-  justify-content: flex-start;
-  margin: 0 -10px;
-}
-body.pmo-splash section#specs li.list {
-  display: block;
-  margin: 0 10px 20px 10px;
-  padding: 0;
-}
-body.pmo-splash section#specs li a {
-  background: #3465a4 url(noiseblue.png);
-  border-radius: 4px;
-  display: block;
-  width: 276px;
-  border: none;
-  padding: 4px 12px;
-  color: #eeeeec;
-  text-shadow: 1px 1px 0 #3465a4;
-  font-family: Bitter;
-  font-weight: bold;
-}
-body.pmo-splash section#specs li a:hover {
-  color: white;
-}
 body.pmo-splash section#specs span.em {
   font-style: normal;
   font-family: 'Special Elite';
   font-weight: normal;
   padding-left: 6px;
-}
-@media only screen and (max-width: 400px) {
-  body.pmo-splash section#specs div.list {
-    display: block;
-    width: 100%;
-  }
 }
 
 div.mep-info ul, div.mep-info li { list-style-type: none; margin: 0; }
