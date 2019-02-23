@@ -43,11 +43,11 @@ with attributes, using a single, consistent syntax.</p>
     <link xref="duck_attr">attribute list</link> between the name and
     the content.</p></item>
 
-    <item><p>Inline may contain
+    <item><p>Inline content may contain
     <link xref="duck_directive#define">entity</link> references. An
     entity reference is <code>$</code> followed by the entity name
-    followed by <code>;</code>. When used inline, entities may contain
-    further inline markup.</p></item>
+    followed by <code>;</code>. When used inline, entity values may
+    contain further inline markup.</p></item>
   </list>
 </section>
 <!-- END notes -->
@@ -73,16 +73,20 @@ Your home directory is <file>/home/<var>username</var>/</file>.
 
   <p>Use attributes on an inline element:</p>
   <example><code mime="text/x-ducktype">
-Read the $link[href=http://projectmallard.org/ducktype/1.0/](Ducktype specification).</code>
+Read the
+$link[href=http://projectmallard.org/ducktype/1.0/](Ducktype specification).</code>
 <code mime="application/xml"><![CDATA[
-Read the <link href="http://projectmallard.org/ducktype/1.0/">Ducktype specification</link>.
+Read the
+<link href="http://projectmallard.org/ducktype/1.0/">Ducktype specification</link>.
 ]]></code></example>
 
   <p>Use attributes on an empty inline element:</p>
   <example><code mime="text/x-ducktype">
-The Ducktype specification is at $link[href=http://projectmallard.org/ducktype/1.0/].</code>
+The Ducktype specification is at
+$link[href=http://projectmallard.org/ducktype/1.0/].</code>
 <code mime="application/xml"><![CDATA[
-The Ducktype specification is at <link href="http://projectmallard.org/ducktype/1.0/"/>.
+The Ducktype specification is at
+<link href="http://projectmallard.org/ducktype/1.0/"/>.
 ]]></code></example>
 
 </section>

@@ -50,9 +50,10 @@ syntax with little loss of functionality.</p>
   list items or tables, and some don't allow inline content in code
   blocks or screens.</p></item>
 
-  <item><p>The syntax should accommodate all info elements. Info elements
-  in Mallard are critical for the automatic linking features, and many
-  people rely on features like revision and status tracking.</p></item>
+  <item><p>The syntax should accommodate all informational elements.
+  Informational elements in Mallard are critical for the automatic
+  linking features, and many people rely on features like revision
+  and status tracking.</p></item>
 
   <item><p>It should be possible to use extension content with the
   lightweight syntax. Many of Mallard's most interesting features come

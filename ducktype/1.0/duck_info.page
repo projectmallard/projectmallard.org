@@ -18,10 +18,10 @@
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 
-<title>Info Elements</title>
+<title>Informational Elements</title>
 
-<p style="lead">Info elements provide metadata for pages, sections, and certain
-block elements. Ducktype provides a special syntax to write info elements.</p>
+<p style="lead">Informational elements provide metadata for pages, sections, and certain
+block elements. Ducktype provides a special syntax to write informational elements.</p>
 
 
 <!-- BEGIN notes -->
@@ -29,21 +29,21 @@ block elements. Ducktype provides a special syntax to write info elements.</p>
   <title>Notes</title>
 
   <list>
-    <item><p>Info elements follow a <link xref="duck_page">page or section</link>
+    <item><p>Informational elements follow a <link xref="duck_page">page or section</link>
     header or a <link xref="duck_block">block declaration</link>.</p></item>
 
-    <item><p>An info element is declared with a leading <code>@</code>
+    <item><p>An informational element is declared with a leading <code>@</code>
     character, followed immediately by the name of the element.</p></item>
 
-    <item><p>The info element name may be immediately followed by an
+    <item><p>The informational element name may be immediately followed by an
     <link xref="duck_attr">attribute list</link>.</p></item>
 
     <item><p>The remaining content after the element name and optional
     attribute list is element content and is parsed as
     <link xref="duck_inline">inline content</link>.</p></item>
 
-    <item><p>An info element may have child elements, which also use the info
-    element syntax, indented on subsequent lines.</p></item>
+    <item><p>An informational element may have child elements, which also use the
+    informational element syntax, indented on subsequent lines.</p></item>
   </list>
 </section>
 <!-- END notes -->
@@ -58,13 +58,13 @@ block elements. Ducktype provides a special syntax to write info elements.</p>
 @link[guide >index]
 </code></example>
 
-  <p>Add a link title using inline content in an info element:</p>
+  <p>Add a link title using inline content in an informational element:</p>
   <example><code mime="text/x-ducktype">= My Page Title
 @link[guide >index]
 @title[link] My Page Link Title
 </code></example>
 
-  <p>Use nested info elements to record credits:</p>
+  <p>Use nested informational elements to record credits:</p>
   <example><code mime="text/x-ducktype">= My Page Title
 @credit[author]
   @name Rupert Monkey
@@ -79,7 +79,8 @@ block elements. Ducktype provides a special syntax to write info elements.</p>
 <section id="spec">
   <title>Specification</title>
 
-  <p>An info segment may follow a page or section title, subtitle, or
+  <p>An info segment is a sequence of one or more informational elements.
+  An info segment may follow a page or section title, subtitle, or
   attribute list (although it may not be between them). An info segment
   may also follow a block declaration. It begins with a line (possibly
   indented) starting with the <code>@</code> character. Each line that starts
@@ -88,7 +89,7 @@ block elements. Ducktype provides a special syntax to write info elements.</p>
 
   <p>If the first informational element is indented, then the outer and
   inner indent of the implicit <code>info</code> element is set to that
-  indentation level. For block info sections, the first informational
+  indentation level. For block info segments, the first informational
   element also sets the inner indent of the containing block because it's
   the first line after the declaration. The <code>info</code> element
   ends in the following cases:</p>
@@ -117,12 +118,12 @@ block elements. Ducktype provides a special syntax to write info elements.</p>
   Otherwise, a Mallard <code>p</code> element is implicitly created.</p>
 
   <p>If the line after an informational element is indented beyond the outer
-  indent of the info element, that line's indentation becomes the inner indent
-  of the info element. Subsequent non-blank lines continue to be child
+  indent of that element, that line's indentation becomes the inner indent
+  of the element. Subsequent non-blank lines continue to be child
   content as long as they are indented to at least this level.
   Further indentation may create child elements of child elements.</p>
 
-  <p>If a line in the info section does not start with the <code>@</code>
+  <p>If a line in the info segment does not start with the <code>@</code>
   character, it is text content. If the current element is not a leaf
   element, an external element, or a tree item without child items, then
   a Mallard <code>p</code> element is implicitly created with

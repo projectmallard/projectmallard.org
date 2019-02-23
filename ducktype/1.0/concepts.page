@@ -24,7 +24,7 @@
 are generally delineated with blank lines. There is a special syntax for
 titles and subtitles of <link xref="duck_page">pages and sections</link>,
 a syntax for specifying <link xref="duck_block">block elements</link>, a
-syntax for recording <link xref="duck_info">info elements</link>, a syntax
+syntax for recording <link xref="duck_info">informational elements</link>, a syntax
 for <link xref="duck_inline">inline elements</link>, and a syntax for
 special <link xref="duck_directive">parser directives</link>. All elements are 
 treated as one of these five cases. There are a few shorthand notations,

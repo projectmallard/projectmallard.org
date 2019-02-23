@@ -21,8 +21,8 @@
 <title>Page and Section Markup</title>
 
 <p style="lead">Page and section headers use a compact syntax
-with a leading equals sign. Section handling is handled automatically.
-Attribute lists may follow headers.</p>
+with a leading equals sign. Sections are handled automatically
+from the headers. Attribute lists may follow headers.</p>
 
 
 <!-- BEGIN notes -->
@@ -176,7 +176,7 @@ This is another paragraph.
 
   <p>A line that starts with an equals sign and at least one space is a
   page title. A line that starts with two or more equals signs and a
-  space is a section title. Only be one page title is allowed, and the page title
+  space is a section title. Only one page title is allowed, and the page title
   must occur before any other block-level content.
   (<link xref="duck_directive">Directives</link> may come before the
   page title.)</p>

@@ -36,9 +36,9 @@ allow certain shorthand notations.</p>
     <item><p>Attribute lists can occur after
     <link xref="duck_page">headers</link>, in
     <link xref="duck_info">info elements</link>, in
-    <link xref="duck_block">block elements, and in
+    <link xref="duck_block">block elements</link>, and in
     <link xref="duck_inline">inline elements</link>. In block elements,
-    attribute lists are part of the block declaration.</link></p></item>
+    attribute lists are part of the block declaration.</p></item>
 
     <item><p>An attribute list is a space-separated list of attributes.
     Each attribute is a name and a value separated by an equals sign,
