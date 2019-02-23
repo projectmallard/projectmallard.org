@@ -179,10 +179,10 @@ Learn more about $xref[>duck_inline](inline elements).</code></example>
     <p>Attribute values are parsed to allow character escapes and entities.
     If the character <code>$</code> (U+0024) is followed by one of
     <code>$</code> (U+0024), <code>*</code> (U+002A), <code>=</code> (U+003D),
-    <code>-</code> (U+002D), <code>@</code> (U+0040), <code>[</code> (U+005B),
-    <code>]</code> (U+005D), <code>(</code> (U+0028), <code>)</code> (U+0029),
-    <code>"</code> (U+0022), or <code>'</code> (U+0027), that two-character
-    sequence is replaced by the second character.</p>
+    <code>-</code> (U+002D), <code>@</code> (U+0040), <code>.</code> (U+002E),
+    <code>[</code> (U+005B), <code>]</code> (U+005D), <code>(</code> (U+0028),
+    <code>)</code> (U+0029), <code>"</code> (U+0022), or <code>'</code> (U+0027),
+    that two-character sequence is replaced by the second character.</p>
 
     <p>If the character <code>$</code> (U+0024) is followed by a name and
     the character <code>;</code> (U+003B), then the name is an entity name,
