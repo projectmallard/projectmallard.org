@@ -127,9 +127,8 @@ Exec=yelp %u
   Single-line fences are the only case where there may be other content on
   the line with the closing fence delimiter.</p>
 
-  <p>No block or inline parsing is done within a fence. However,
-  <link xref="duck_comment">comments</link> are still recognized in fences.
-  Comment parsing takes priority over all other types of syntax in Ducktype.</p>
+  <p>No block or inline parsing is done within a fence. The only syntax that
+  is recognized within a fence is the closing fence marker <code>]]]</code>.</p>
 </section>
 <!-- END spec -->
 

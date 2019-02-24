@@ -95,7 +95,7 @@ This is part of the paragraph again.
   <code>--]</code>, possibly with leading and trailing whitespace. All lines
   within a block comment are not parsed.</p>
 
-  <p>Comment syntax takes priority over all other syntax, including
+  <p>Comment syntax takes priority over all other syntax except
   <link xref="duck_fence">fences</link>. The leading indentation of comments
   has no effect on the block nesting of the content around them.</p>
 
