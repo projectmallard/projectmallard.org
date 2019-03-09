@@ -110,22 +110,22 @@ Exec=yelp %u
   <p>Lines within the fence do not need to be indented to the outer indent of
   the fence. The fence itself keeps the content correctly nested. However, the
   writer may choose to indent the fence content, and the indentation will be
-  trimmed.</p>
-
-  <p>The leading spaces of the first line sets the indentation trim level of
-  the fence. All lines within the fence will have a maximum of the number of leading
-  spaces removed. If lines have fewer leading space characters,
-  especially blank lines, those lines will have all leading spaces removed.</p>
+  trimmed based on the outer indent of the fence, which is the number of spaces
+  preceding the opening fence marker. Each line within the fence will have at
+  most that number of spaces trimmed from the beginning of the line. Any line
+  with fewer than that number of leading spaces will simply have all leading
+  space removed.</p>
 
   <p>A fence ends with a line that contains only <code>]]]</code>, possibly with
   leading or trailing whitespace. The line with the closing fence delimiter does
   not add any content to the fence.</p>
 
   <p>Additionally, if the line with the opening fence delimiter ends with
-  <code>]]]</code>, then that is the closing fence delimiter. The content
-  between the opening and closing delimiters is taken as a single-line fence.
-  Single-line fences are the only case where there may be other content on
-  the line with the closing fence delimiter.</p>
+  <code>]]]</code> and a newline, then that is the closing fence delimiter.
+  The content between the opening and closing delimiters, along with a
+  newline, is taken as a single-line fence. Single-line fences are the only
+  case where there may be other content on the line with the closing fence
+  delimiter.</p>
 
   <p>No block or inline parsing is done within a fence. The only syntax that
   is recognized within a fence is the closing fence marker <code>]]]</code>.</p>
