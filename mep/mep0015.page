@@ -1,0 +1,186 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      id="mep0015">
+
+<info>
+  <link type="guide" xref="index" group="1.2"/>
+
+  <!--
+  <link type="mep:depends" xref="mepYYYY"/>
+  <link type="mep:replaces" xref="mepYYYY"/>
+  <link type="seealso" xref="mepYYYY"/>
+  -->
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/64"/>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2019</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <!--
+  list of valid status attributes:
+  incomplete proposed revised implemented final rejected replaced withdrawn
+  -->
+  <revision date="2019-03-16" docversion="1.2" status="incomplete"/>
+
+  <title type="text">Shorthand syntax for guiseq and keyseq</title>
+  <title type="link">MEP-0015: Shorthand syntax for <code>guiseq</code> and <code>keyseq</code></title>
+
+  <desc>Create a syntax to allow simple key and GUI sequences without child elements.</desc>
+</info>
+
+<title>MEP-0015</title>
+<subtitle>Shorthand syntax for <code>guiseq</code> and <code>keyseq</code></subtitle>
+
+<p style="lead">This page proposes a shorthand syntax for <code>guiseq</code> and
+<code>keyseq</code> elements, allowing you to write simple sequences without child
+<code>gui</code> and <code>key</code> elements.</p>
+
+<links type="section"/>
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard provides the <code xref="/1.1/mal_inline_guiseq">guiseq</code> and
+  <code xref="/1.1/mal_inline_keyseq">keyseq</code> elements to mark up menu
+  paths and   key combinations, respectively. These two elements each takes a
+  sequence of child elements, usually <code>gui</code> and <code>key</code>.
+  This is the same model used by other semantic formats. Though the Mallard
+  elements are less verbose, even a simple sequence can still be cumbersome.
+  The sequence for <keyseq><key>Ctrl</key><key>S</key></keyseq> is 44
+  characters long.</p>
+
+  <example>
+    <code type="xml"><![CDATA[<keyseq><key>Ctrl</key><key>S</key></keyseq>]]></code>
+  </example>
+
+  <p>These are among the most commonly used markup in user documentation, and
+  we have not made them sufficiently easy to use.</p>
+</section>
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes allowing users to write entire sequences without
+  child elements, separating parts with the <code>+</code> character.</p>
+
+  <example>
+    <code type="xml"><![CDATA[<guiseq>File+Save</guiseq>
+<keyseq>Ctrl+S</keyseq>]]></code>
+  </example>
+
+  <p>When processing tools encounter a <code>guiseq</code> or <code>keyseq</code>
+  element that contains text but no child elements, they split that text on
+  the <code>+</code> character, trim leading and trailing whitespace from
+  each component, and treat those components as if they were wrapped in
+  <code>gui</code> or <code>key</code> elements, respectively.</p>
+
+  <p>This mechanism does not provide a way to add attributes to the implicit
+  <code>gui</code> and <code>key</code> elements, such as style hints or
+  linking attributes. It also does not provide a way to have components that
+  are not wrapped, such as with classes of keys like
+  <code><![CDATA[<keyseq><key>Ctrl</key>arrow keys</keyseq>]]></code>. In
+  those cases, users will have to use the full syntax with child elements.</p>
+
+  <p>The <code>+</code> character was chosen as a separator because it is
+  the most natural separator for <code>keyseq</code>. Even if a processing
+  tool does not support this proposal, it would still give an acceptable
+  rendering of <code>keyseq</code> elements using the shorthand syntax.
+  The <code>+</code> character is not ideal for <code>guiseq</code> elements.
+  We will have to weigh the importance of this against the convenience of
+  using the same syntax.</p>
+</section>
+
+<!--
+Add Addendums if changes are made after the proposal is final.
+-->
+<!--
+<section id="addendums">
+  <title>Addendums</title>
+</section>
+-->
+
+<section id="examples">
+  <title>Examples</title>
+</section>
+
+<!--
+Omit Accessibility if there is no accessibility impact.
+-->
+<section id="a11y">
+  <title>Accessibility</title>
+
+  <p>When rendered according to this proposal, the shorthand syntax
+  will have no effect on assistive technologies. However, the fallback
+  behavior may have less semantic information and poorer results with
+  tools like screen readers.</p>
+</section>
+
+<!--
+Omit Internationalization if there is no internationalization impact.
+-->
+<section id="i18n">
+  <title>Internationalization</title>
+
+  <p>Translators will be presented with the same shorthand syntax used by
+  authors in the original language. This should not present any problems,
+  especially since it is unlikely to change message granularity in
+  message-based formats like PO or XLIFF.</p>
+
+  <p>It is possible that some languages would prefer a character other
+  than <code>+</code> as a separator when presenting <code>keyseq</code>
+  elements to the reader. This would only affect the fallback rendering.
+  No known tools support a different separator character for different
+  languages.</p>
+</section>
+
+<!--
+Omit Alternatives if no alternatives were considered.
+-->
+<!--
+<section id="alternatives">
+  <title>Alternatives</title>
+</section>
+-->
+
+<!--
+Omit Compatibility and Fallback for process proposals.
+-->
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>There is a slight potential incompatibility in this proposal.
+  Having a <code>guiseq</code> or <code>keyseq</code> with just text
+  is already valid, if uncommon. If such an element contains a
+  <code>+</code> character, it would be treated differently by a tool
+  supporting this proposal. In practice, the only recommended use of
+  bare text in either element is to do a key sequence with two
+  consecutive descriptions of keys, such as
+  <code><![CDATA[<keyseq><keyseq>modifier</keyseq>arrow keys</keyseq>]]></code>.
+  Although it's conceivable somebody has used the <code>+</code>
+  character in such a case, we haven't seen it.</p>
+
+  <p>The fallback behavior for tools that don't support his proposal
+  is that the shorthand syntax would be rendered as written. For
+  <code>keyseq</code> elements, this will often be acceptable, though
+  it may have less styling and semantics. For <code>guiseq</code>
+  elements, using the <code>+</code> character makes the fallback
+  behavior less acceptable.</p>
+
+  <p>One difficulty with compatibility and fallback for this propsoal
+  is that it doesn't make any changes that are testable with the schema.
+  If a user uses the shorthand syntax but continues to validate against
+  an older schema, validation will succeed.</p>
+</section>
+
+<!--
+Omit Comparison to Other Formats for process proposals.
+-->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+</section>
+
+</page>
