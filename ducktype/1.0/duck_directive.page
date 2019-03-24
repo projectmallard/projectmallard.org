@@ -374,9 +374,14 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
     file or in included directive files. If a namespace prefix is set by
     multiple directives, the last declaration is used.</p>
 
-    <p>As in XML, the <code>xml</code> namespace is automatically bound
+    <p>As in XML, the <code>xml</code> namespace prefix is automatically bound
     to the namespace URI <code>http://www.w3.org/XML/1998/namespace</code>.
     The <code>xml</code> namespace may be declared, but it must not be
+    bound to any other namespace URI.</p>
+
+    <p>Additionally, the <code>its</code> namespace prefix is automatically
+    bound to the namespace URI <code>http://www.w3.org/2005/11/its</code>.
+    The <code>its</code> namespace may be declared, but it must not be
     bound to any other namespace URI.</p>
   </section>
 
