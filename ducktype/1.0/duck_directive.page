@@ -355,6 +355,7 @@ Read all about $link[>>$mallard;](Mallard).]]></code>
 
     <p>The <code>namespace</code> directive declares a namespace prefix
     for <link xref="duck_block">block elements</link>,
+    <link xref="duck_info">informational elements</link>,
     <link xref="duck_inline">inline elements</link>, and
     <link xref="duck_attr">attributes</link>. By default, elements are
     in the namespace <sys>http://projectmallard.org/1.0/</sys>, and
