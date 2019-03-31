@@ -1,0 +1,197 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      id="mep0016">
+
+<info>
+  <link type="guide" xref="index" group="1.2"/>
+
+  <!--
+  <link type="mep:depends" xref="mepYYYY"/>
+  <link type="mep:replaces" xref="mepYYYY"/>
+  <link type="seealso" xref="mepYYYY"/>
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/##"/>
+  -->
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2019</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <!--
+  list of valid status attributes:
+  incomplete proposed revised implemented final rejected replaced withdrawn
+  -->
+  <revision date="2019-03-30" docversion="1.2" status="incomplete"/>
+
+  <title type="text">Block Elements as Inline Link Targets</title>
+  <title type="link">MEP-0016: Block Elements as Inline Link Targets</title>
+
+  <desc>Allow formal block elements to act as targets for inline links.</desc>
+</info>
+
+<title>MEP-0016</title>
+<subtitle>Block Elements as Inline Link Targets</subtitle>
+
+<p style="lead">This page proposes allowing all formal block elements to
+take an optional <code>id</code> attribute and act as targets for inline
+links, whether using the inline <code>link</code> element or using the
+<code>xref</code> attribute on any inline element.</p>
+
+<links type="section"/>
+
+<section id="background">
+  <title>Background</title>
+
+  <p>In Mallard, unlike most other formats, linking is limited to pages and
+  sections. This is due in part to the complexity of the automatic linking
+  features in Mallard, and the need for rich metadata for elements acting
+  as link targets.</p>
+
+  <p>Many writers want to link to block elements, particularly
+  <link xref="/1.1/mal_block_figure">figures</link> and
+  <link xref="/1.1/mal_block_listing">listings</link>, and have to resort
+  to extra sections to link close to them. Additionally, writers often
+  want to link to items in a <code xref="/1.1/mal_block_terms">terms</code>
+  element.</p>
+</section>
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes allowing inline links to various block and block-like
+  elements. This is only a proposal for inline links using the <code>xref</code>
+  attribute either on the inline <code xref="/1.1/mal_inline_link">link</code>
+  element or on any other <code xref="/1.1/mal_inline">inline element</code>.</p>
+
+  <p>This is not a proposal to allow any sort of automatic linking with
+  informational <code xref="/1.1/mal_info_link">link</code> elements. That
+  would be a far more significant change. However, all of the changes outlined
+  in this proposal would be necessary for that change as well, so this can be
+  taken as a first step in fully linkable blocks.</p>
+
+  <p>This would affect all formal block elements that can optionally take
+  <code xref="/1.1/mal_block_title">title</code> and
+  <code xref="/1.1/mal_info">info</code> elements:
+  <code xref="/1.1/mal_block_comment">comment</code>,
+  <code xref="/1.1/mal_block_div">div</code>,
+  <code xref="/1.1/mal_block_example">example</code>,
+  <code xref="/1.1/mal_block_figure">figure</code>,
+  <code xref="/1.1/mal_block_list">list</code>,
+  <code xref="/1.1/mal_block_listing">listing</code>,
+  <code xref="/1.1/mal_block_note">note</code>,
+  <code xref="/1.1/mal_block_quote">quote</code>,
+  <code xref="/1.1/mal_block_steps">steps</code>,
+  <code xref="/1.1/mal_block_synopsis">synopsis</code>,
+  <code xref="/1.1/table">table</code>,
+  <code xref="/1.1/mal_block_terms">terms</code>, and
+  <code xref="/1.1/mal_block_tree">tree</code>.
+  Additionally, this would affect <code>item</code> elements in <code>terms</code>
+  elements only, but not <code>item</code> elements in other list elements.
+  Terms list items require at least one <code>title</code> element, but do not
+  currently allow an <code>info</code> element. Furthermore, we can consider
+  linking to <link xref="/1.1/mal_table_tr">table rows</link>. These do not
+  accept either <code>title</code> or <code>info</code> elements, but
+  <code>th</code> elements could serve as link titles.</p>
+
+  <p>All linkable block elements would need to take an optional <code>id</code>
+  attribute. This would share the same ID space as sections. For background,
+  currently page IDs need to be unique among pages in a document, and section
+  IDs need to be unique among sections in the same page, but sections can have
+  the same ID as pages. Sections and linkable blocks would have to have
+  non-conflicting IDs, such that <code>xref</code> attributes in the form
+  <code><var>page_id</var>#<var>other_id</var></code> are unambiguous, whether
+  <code><var>other_id</var></code> points to a section or a block.</p>
+
+  <p>We have to address link text for inline <code>link</code> elements
+  without content, as well as other link data. In the case of formal block
+  elements with a <code>title</code> element, and optionally also with an
+  <code>info</code> element, the link title lookup process would be exactly
+  as it is for pages and sections. If a formal block element does not have
+  a <code>title</code> or <code>info</code> element, we may define the
+  behavior, or we may leave it up to processing tools. Authors should not
+  do this. In fact, we could use the schema to enforce <code>title</code>
+  elements in blocks with <code>id</code> attributes, though this may make
+  the schemas excessively complex.</p>
+
+  <p>For terms list items, the link text would be the first <code>title</code>
+  element in the <code>item</code> element. An <code>item</code> element in a
+  terms list can take multiple <code>title</code> elements, but it must have
+  at least one. The <code>item</code> element cannot take an <code>info</code>
+  element, so there is currently no way to provide alternate link titles. An
+  <code>info</code> element could probably be safely added to the content
+  model in the future if this proves to be a problem.</p>
+
+  <p>If we make table rows (<code>tr</code> elements) linkable, we could use
+  the first <code>th</code> element in the row if it exists, or the first
+  <code>td</code> element if there is no <code>th</code> element.</p>
+
+  <p>We should also define how to get other types of link data for blocks,
+  such as <code xref="/1.1/mal_info_desc">desc</code> (especially after
+  <link xref="mep0008">MEP-0008</link>) and <code>thumb</code> (pending
+  <link xref="mep0004">MEP-0004</link>). For elements that can contain
+  an <code>info</code> element, this is the same procedure as for pages
+  and sections, except that those with a block
+  <code xref="/1.1/mal_block_desc">desc</code> could use that element as
+  a final fallback. For elements without an <code>info</code> element,
+  there would simply be no other link data.</p>
+
+  <p>This proposal will also require changes to the
+  <link xref="/cache/1.1/index">Cache File</link> specification. Any block
+  elements with an <code>id</code> attribute will need to be included in
+  the cache file to allow link data to be extracted. Blocks should be nested
+  in cache files. How to nest these elements in the cache files is an open
+  question.</p>
+</section>
+
+<!--
+Add Addendums if changes are made after the proposal is final.
+-->
+<!--
+<section id="addendums">
+  <title>Addendums</title>
+</section>
+-->
+
+<section id="examples">
+  <title>Examples</title>
+</section>
+
+<!--
+Omit Accessibility if there is no accessibility impact.
+-->
+<section id="a11y">
+  <title>Accessibility</title>
+</section>
+
+<!--
+Omit Internationalization if there is no internationalization impact.
+-->
+<section id="i18n">
+  <title>Internationalization</title>
+</section>
+
+<!--
+Omit Alternatives if no alternatives were considered.
+-->
+<section id="alternatives">
+  <title>Alternatives</title>
+</section>
+
+<!--
+Omit Compatibility and Fallback for process proposals.
+-->
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+</section>
+
+<!--
+Omit Comparison to Other Formats for process proposals.
+-->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+</section>
+
+</page>
