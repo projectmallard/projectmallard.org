@@ -6,6 +6,7 @@
   <link type="guide" xref="index" group="info"/>
 
   <revision docversion="1.0" date="2017-11-06" status="candidate"/>
+  <revision docversion="1.0" date="2019-03-31" status="final"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -80,11 +81,12 @@ block elements. Ducktype provides a special syntax to write informational elemen
   <title>Specification</title>
 
   <p>An info segment is a sequence of one or more informational elements.
-  An info segment may follow a page or section title, subtitle, or
-  attribute list (although it may not be between them). An info segment
-  may also follow a block declaration. It begins with a line (possibly
-  indented) starting with the <code>@</code> character. Each line that starts
-  with <code>@</code> is an informational element. The Mallard
+  An info segment may follow a <link xref="duck_page">page or section</link>
+  title, subtitle, or <link xref="duck_attr">attribute list</link> (although
+  it may not be between them). An info segment may also follow a
+  <link xref="duck_block">block declaration</link>. It begins with a line
+  (possibly indented) starting with the <code>@</code> character. Each line
+  that starts with <code>@</code> is an informational element. The Mallard
   <code>info</code> element is implicit.</p>
 
   <p>If the first informational element is indented, then the outer and

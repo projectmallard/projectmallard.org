@@ -6,6 +6,7 @@
   <link type="guide" xref="index" group="background"/>
 
   <revision docversion="1.0" date="2016-10-08" status="candidate"/>
+  <revision docversion="1.0" date="2019-03-31" status="final"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -39,7 +40,7 @@ syntax with little loss of functionality.</p>
   <item><p>The language should have minimal syntactic constructs.
   Many lightweight formats use different special characters for each
   feature. This makes it difficult to remember which characters have
-  to be escaped, add new features, and extend
+  to be escaped, to add new features, and to extend
   the syntax for special-purpose uses like code comments.</p></item>
 
   <item><p>The language should be fully semantic, even with the inline

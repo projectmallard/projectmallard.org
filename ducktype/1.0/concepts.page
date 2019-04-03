@@ -6,6 +6,7 @@
   <link type="guide" xref="index" group="concepts"/>
 
   <revision docversion="1.0" date="2017-09-13" status="candidate"/>
+  <revision docversion="1.0" date="2019-03-31" status="final"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -27,8 +28,8 @@ a syntax for specifying <link xref="duck_block">block elements</link>, a
 syntax for recording <link xref="duck_info">informational elements</link>, a syntax
 for <link xref="duck_inline">inline elements</link>, and a syntax for
 special <link xref="duck_directive">parser directives</link>. All elements are 
-treated as one of these five cases. There are a few shorthand notations,
-but they can always be defined in terms of some long-form syntax.</p>
+treated as one of these five cases. There are a few <link xref="duck_list">shorthand
+notations</link>, but they can always be defined in terms of some long-form syntax.</p>
 
 <p>The syntax is designed such that block and inline parsing can be done
 in separate steps. You can parse all section, info, and block content,

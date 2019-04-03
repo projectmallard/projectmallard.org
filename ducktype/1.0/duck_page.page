@@ -6,6 +6,7 @@
   <link type="guide" xref="index" group="page"/>
 
   <revision docversion="1.0" date="2018-02-02" status="candidate"/>
+  <revision docversion="1.0" date="2019-03-31" status="final"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -62,7 +63,7 @@ from the headers. Attribute lists may follow headers.</p>
     </item>
 
     <item>
-      <p>Page and section titles are followed by optional info elements,
+      <p>Page and section titles are followed by optional informational elements,
       each on a line that starts with the <code>@</code> character. See
       <link xref="duck_info"/> for details.</p>
     </item>
