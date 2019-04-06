@@ -6,6 +6,7 @@
   <link type="guide" xref="index" group="list"/>
 
   <revision docversion="1.0" date="2018-08-20" status="candidate"/>
+  <revision docversion="1.0" date="2019-04-06" status="final"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -21,7 +22,7 @@
 <title>Titles, Lists, and Tables</title>
 
 <p style="lead">Ducktype provides shorthand syntax for block titles, list items,
-and tables cells using leading periods, hyphens, and asterisks.</p>
+and table cells using leading periods, hyphens, and asterisks.</p>
 
 
 <!-- BEGIN notes -->
@@ -56,7 +57,7 @@ and tables cells using leading periods, hyphens, and asterisks.</p>
       <p><code>- </code>A leading hyphen and space creates:</p>
       <list>
         <item><p>A <code>title</code> element with an implicit
-        <code>item</code> item in a <code>terms</code> element.</p></item>
+        <code>item</code> element in a <code>terms</code> element.</p></item>
         <item><p>Another <code>title</code> element in a terms
         <code>item</code> element without non-title content.</p></item>
         <item><p>A <code>th</code> element in a <code>tr</code>
@@ -338,9 +339,9 @@ and tables cells using leading periods, hyphens, and asterisks.</p>
 
   <list>
     <item><p>If the current element is a <code>tr</code> element, it is shorthand for a
-    <code>th</code> element. It is handled as if the asterisk and space were replaced
+    <code>th</code> element. It is handled as if the hyphen and space were replaced
     with <code>[th]</code>, a newline, and enough space to indent two more spaces than
-    the indentation of the asterisk.</p></item>
+    the indentation of the hyphen.</p></item>
 
     <item><p>If the current element is an <code>item</code> element in a <code>terms</code>
     element, and that element does not yet have non-title content, it is shorthand for
