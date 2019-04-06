@@ -10,7 +10,7 @@
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2017</years>
+    <years>2017-2019</years>
   </credit>
 
   <desc>Enclose lines in a fence to prevent block and inline parsing.</desc>
@@ -107,15 +107,6 @@ Exec=yelp %u
   content, is taken as the first line of the fence. Otherwise, the line after
   the opening fence delimiter is the first line.</p>
 
-  <p>Lines within the fence do not need to be indented to the outer indent of
-  the fence. The fence itself keeps the content correctly nested. However, the
-  writer may choose to indent the fence content, and the indentation will be
-  trimmed based on the outer indent of the fence, which is the number of spaces
-  preceding the opening fence marker. Each line within the fence will have at
-  most that number of spaces trimmed from the beginning of the line. Any line
-  with fewer than that number of leading spaces will simply have all leading
-  space removed.</p>
-
   <p>A fence ends with a line that contains only <code>]]]</code>, possibly with
   leading or trailing whitespace. The line with the closing fence delimiter does
   not add any content to the fence.</p>
@@ -126,6 +117,25 @@ Exec=yelp %u
   newline, is taken as a single-line fence. Single-line fences are the only
   case where there may be other content on the line with the closing fence
   delimiter.</p>
+
+  <p>Lines within the fence do not need to be indented to the outer indent of
+  the fence. The fence itself keeps the content correctly nested. However, the
+  writer may choose to indent the fence content, and the indentation will be
+  trimmed to the trim level, computed as follows:</p>
+
+  <list>
+    <item><p>If the fence is a single-line fence, or if the first line of the
+    fence was on the same line as the opening fence delimiter, then the trim
+    level is 0.</p></item>
+    <item><p>Otherwise, if the indent level of the first line is less than
+    the outer indent of the fence, then the trim level is the indent level
+    of the first line.</p></item>
+    <item><p>Otherwise, the trim level is the outer indent of the fence.</p></item>
+  </list>
+
+  <p>Each line within the fence will have at most the trim level of spaces
+  trimmed from the beginning of the line. Any line with fewer than that number
+  of leading spaces will simply have all leading space removed.</p>
 
   <p>No block or inline parsing is done within a fence. The only syntax that
   is recognized within a fence is the closing fence marker <code>]]]</code>.</p>
