@@ -6,6 +6,7 @@
   <link type="guide" xref="index"/>
 
   <revision docversion="1.0" date="2017-09-30" status="candidate"/>
+  <revision docversion="1.0" date="2019-04-07" status="final"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
@@ -103,9 +104,9 @@ Exec=yelp %u
 
   <p>The line containing the opening fence delimiter may have additional
   content. If it contains non-whitespace content, then everything after the
-  fence, including whitespace between the fence delimiter and the non-whitespace
-  content, is taken as the first line of the fence. Otherwise, the line after
-  the opening fence delimiter is the first line.</p>
+  fence delimiter, including whitespace between the fence delimiter and the
+  non-whitespace content, is taken as the first line of the fence. Otherwise,
+  the line after the opening fence delimiter is the first line.</p>
 
   <p>A fence ends with a line that contains only <code>]]]</code>, possibly with
   leading or trailing whitespace. The line with the closing fence delimiter does
