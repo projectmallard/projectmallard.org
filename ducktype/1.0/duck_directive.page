@@ -11,7 +11,7 @@
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2017</years>
+    <years>2017-2019</years>
   </credit>
 
   <desc>Declare namespaces, define entities, and manage extensions.</desc>

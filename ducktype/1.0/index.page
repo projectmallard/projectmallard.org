@@ -4,21 +4,22 @@
 
 <info>
   <revision docversion="1.0" date="2018-08-21" status="candidate"/>
+  <revision docversion="1.0" date="2019-04-07" status="final"/>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2015</years>
+    <years>2015-2019</years>
   </credit>
 
-  <title type="link" role="-index">Ducktype 1.0 <em>DRAFT</em></title>
+  <title type="link" role="-index">Ducktype 1.0</title>
 
   <desc>Compact syntax with access to all semantics and extensions.</desc>
 
   <include href="../../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 </info>
 
-<title>Ducktype 1.0 DRAFT</title>
+<title>Ducktype 1.0</title>
 <subtitle>A lightweight markup language for Mallard</subtitle>
 
 <p style="lead">Ducktype is a lightweight markup language designed

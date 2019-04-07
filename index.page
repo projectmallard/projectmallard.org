@@ -92,6 +92,7 @@ forcing them to read lengthy manuals.</p>
 
     <link type="topic" group="#first" xref="/1.1/index"/>
     <link type="topic" group="spec" xref="/cache/1.1/index"/>
+    <link type="topic" group="spec" xref="/ducktype/1.0/index"/>
     <link type="topic" group="spec" xref="/if/1.0/index"/>
 
     <link type="topic" group="old" xref="/1.0/index"/>
@@ -99,7 +100,6 @@ forcing them to read lengthy manuals.</p>
 
     <link type="topic" group="draft" xref="/1.2/index"/>
     <link type="topic" group="draft" xref="/ui/1.0/index"/>
-    <link type="topic" group="draft" xref="/ducktype/1.0/index"/>
     <link type="topic" group="draft" xref="/facet/1.0/index"/>
     <link type="topic" group="draft" xref="/svg/1.0/index"/>
     <link type="topic" group="draft" xref="/ttml/1.0/index"/>
