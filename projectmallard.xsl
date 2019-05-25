@@ -28,19 +28,43 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:param name="theme.icons.size.note" select="24"/>
 
-<xsl:param name="color.yellow_border" select="'#fcaf3e'"/>
-<xsl:param name="color.text_light" select="'#555753'"/>
-<xsl:param name="color.blue_border" select="'#3465a4'"/>
-
-<xsl:param name="color.yellow" select="'#fcaf3e'"/>
 <xsl:param name="color.fg.dark" select="'#555753'"/>
-<xsl:param name="color.blue" select="'#3465a4'"/>
+<xsl:param name="color.blue" select="'#3584e4'"/>
+
 
 <xsl:template name="html.head.custom">
+  <xsl:param name="node" select="."/>
   <link href="http://fonts.googleapis.com/css?family=Cantarell:400,400i,700,700i" rel="stylesheet" type="text/css"/>
   <link href="http://fonts.googleapis.com/css?family=Bitter:400,700" rel="stylesheet" type="text/css"/>
   <link href="http://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet" type="text/css"/>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+  <link rel="icon" href="{$mal.site.root}mallard-logo-16.png"/>
+  <xsl:variable name="title">
+    <xsl:choose>
+      <xsl:when test="$node/mal:info/mal:title[@type = 'text']">
+        <xsl:value-of select="normalize-space($node/mal:info/mal:title[@type = 'text'][1])"/>
+      </xsl:when>
+      <xsl:when test="$node/mal:info/mal:title[not(@type)]">
+        <xsl:value-of select="normalize-space($node/mal:info/mal:title[not(@type)][1])"/>
+      </xsl:when>
+      <xsl:when test="$node/mal:title">
+        <xsl:value-of select="normalize-space($node/mal:title[1])"/>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+  <!-- FIXME multiple descs -->
+  <xsl:variable name="desc">
+    <xsl:value-of select="normalize-space($node/mal:info/mal:desc[1])"/>
+  </xsl:variable>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:site" content="@projectmallard"/>
+  <meta name="twitter:title" content="{$title}"/>
+  <meta name="twitter:description" content="{$desc}"/>
+  <meta name="twitter:image" content="{$mal.site.root}mallard-logo-200.png"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="{$title}"/>
+  <meta property="og:description" content="{$desc}"/>
+  <meta property="og:image" content="{$mal.site.root}mallard-logo-200.png"/>
 </xsl:template>
 
 <xsl:template name="html.css.custom">
@@ -52,15 +76,16 @@ body {
 div.top {
   width: 100%;
   margin: 0;
-  padding-top: 20px;
-  background: #2e3436 url(noise.png);
+  padding-top: 10px;
+  background-color: #3d3846;
   color: #eeeeec;
 }
 div.top > div.contents {
   max-width: 960px;
   margin: 0 auto 0 auto;
   padding: 0 0 10px 0;
-  border-bottom: solid 6px #fcaf3e;
+  border-bottom: solid 6px #f9f06b;
+  border-bottom: solid 6px #f8e45c;
 }
 div.top img {
   float: left;
@@ -69,16 +94,17 @@ div.top img {
 div.top-mallard {
   font-family: Bitter;
   font-weight: bold;
-  font-size: 74px;
+  font-size: 62px;
   line-height: 0.83em;
   margin: 0;
   padding-left: 100px;
+  padding-top: 6px;
 }
 div.top-tagline {
   font-family: 'Special Elite';
   font-weight: normal;
   margin: 8px 0 0 0;
-  font-size: 22px;
+  font-size: 19px;
   line-height: 1em;
   padding-left: 100px;
 }
@@ -86,7 +112,7 @@ div.top a {
   text-decoration: none;
   border: none;
   color: #eeeeec;
-  text-shadow: 2px 2px 0 #1c1f20;
+  text-shadow: 2px 2px 0 #241f31;
 }
 @media only screen and (max-width: 480px) {
   div.top img { display: none; }
@@ -100,14 +126,14 @@ div.editongithub a {
   display: inline-block;
   padding: 0.2em 0.5em;
   border-radius: 2px;
-  color: #eeeeec;
-  color: #d3d7cf;
-  text-shadow: 1px 1px 0 #1c1f20;
+  color: #deddda;
+  text-shadow: 1px 1px 0 #241f31;
 }
 div.editongithub a:hover {
   border: none;
-  background: #3465a4 url(noiseblue.png);
+  background-color: #1c71d8;
   color: white;
+  text-shadow: 1px 1px 0 #1a5fb4;
 }
 @media only screen and (max-width: 600px) {
   div.editongithub { display: none; }
@@ -160,12 +186,12 @@ div.pmo-jump li a {
   border-bottom: none;
   vertical-align: top;
   display: block;
-  color: #3465a4;
-font-size: 20px;
+  color: #3584e4;
+  font-size: 20px;
   line-height: 1em;
 }
 div.pmo-jump li a > span {
-  color: #888a85;
+  color: #77767b;
   display: block;
   margin-top: 4px;
   padding-left: 48px;
@@ -174,15 +200,15 @@ div.pmo-jump li a > span {
   text-align: left;
 }
 div.pmo-jump li a > span.em {
-  color: #3465a4;
+  color: #1a5fb4;
   margin-top: 0;
   font-size: 1em;
 }
 div.pmo-jump li a:hover > span {
-  color: #729fcf;
+  color: #62a0ea;
 }
 div.pmo-jump li a:hover > span.em {
-  color: #3465a4;
+  color: #1c71d8;
 }
 div.pmo-jump li a:before {
   font-family: FontAwesome;
@@ -220,6 +246,8 @@ h1, h2, h3, h4, h5, h6, h7 { font-family: 'Cantarell', sans-serif; font-weight: 
 h1.title { font-size: 48px; }
 h2.title { font-size: 36px; }
 h3.title { font-size: 24px; }
+div.topiclinks > div.inner > div.title-heading > h1, div.topiclinks > div.inner > div.title-heading > h2,
+div.topiclinks > div.inner > div.title-heading > h3 { font-weight: normal; }
 p { max-width: 62em; text-align: justify; }
 a img { border: none; }
 @media only screen and (max-width: 400px) {
@@ -256,7 +284,7 @@ span.hi { background: </xsl:text>
   <xsl:with-param name="mix" select="0.8"/>
 </xsl:call-template><xsl:text>; }
 div.bottom {
-  background: #2e3436 url(noise.png);
+  background-color: #3d3846;
   color: #d3d7cf;
   text-shadow: 1px 1px 0 #1c1f20;
   padding: 0;
@@ -269,8 +297,6 @@ div.bottom a:hover {
   border-bottom: none;
 }
 div.bottom > div.contents {
-  background: url(duckbg.png) repeat-y;
-  background-position: center 6px;
   max-width: 760px;
   margin: 0 auto 0 auto;
   padding: 1px 0 10px 0;
@@ -284,10 +310,10 @@ div.bottom-badge div.contents {
   display: inline-block;
   max-width: 400px;
   margin-top: 6px;
-  padding: 6px;
+  padding: 6px 12px;
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.4);
-  color: #555753;
+  background-color: #c0bfbc;
+  color: #5e5c64;
   text-shadow: none;
   box-shadow: inset 1px 1px 1px #555753;
   -webkit-box-shadow: inset 1px 1px 1px #555753;
@@ -334,10 +360,10 @@ body.pmo-splash article > div.region > section > div.inner > div.hgroup {
   text-align: center;
 }
 body.pmo-splash section#happy {
-  border-top: solid 1px #204a87;
-  border-bottom: solid 1px #204a87;
+  border-top: solid 1px #1a5fb4;
+  border-bottom: solid 1px #1a5fb4;
   background-size: 30px 30px;
-  background-color: #3465a4;
+  background-color: #1c71d8;
   background-image:
   linear-gradient(
     rgba(255, 255, 255, .05), rgba(255, 255, 255, .05) 1px,
@@ -362,8 +388,6 @@ body.pmo-splash section#happy > div.inner {
     transparent, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0.1) 70%, transparent);
 }
 body.pmo-splash section#happy h2 {
-  font-family: Bitter;
-  font-weight: bold;
   color: white;
 }
 body.pmo-splash section#happy li {
@@ -371,18 +395,16 @@ body.pmo-splash section#happy li {
 }
 body.pmo-splash section#happy a {
   color: #b2d8ff;
+  color: #98c1f1;
   border-bottom: none;
-  transition: text-shadow 1s;
+  color: #f9f06b;
+  transition: text-shadow 0.5s;
 }
 body.pmo-splash section#happy a:hover {
-  text-shadow: 1px 1px 0 #204a87, 0 0 4px #204a87, 0 0 12px white;
+  text-shadow: 1px 1px 0 #1a5fb4, 0 0 6px #98c1f1;
 }
 body.pmo-splash section#specs {
   margin-top: 2em;
-}
-body.pmo-splash section#specs div.title h3 {
-  font-size: 30px;
-  font-weight: normal;
 }
 body.pmo-splash section#specs span.em {
   font-style: normal;
@@ -485,7 +507,7 @@ div.pmo-source {
       <img class="header-icon" width="80" height="80">
         <xsl:attribute name="src">
           <xsl:value-of select="$mal.site.root"/>
-          <xsl:text>mallard-logo-border-80.png</xsl:text>
+          <xsl:text>mallard-logo-80.png</xsl:text>
         </xsl:attribute>
       </img>
     </a>
@@ -569,7 +591,7 @@ div.pmo-source {
   <div class="bottom-badge">
     <div>Powered by </div>
     <a href="http://projectmallard.org">
-      <img alt="Mallard" width="80" height="15">
+      <img alt="Mallard">
         <xsl:attribute name="src">
           <xsl:value-of select="$mal.site.root"/>
           <xsl:text>mallard-badge.png</xsl:text>

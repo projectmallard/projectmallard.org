@@ -90,9 +90,9 @@ the <code>src</code> attribute to the URL of your video.</p>
 
 <example>
 <code mime="application/xml"><![CDATA[
-<media type="video" src="mallard-logo.ogv"/>
+<media type="video" src="mallard-logo.webm"/>
 ]]></code>
-<media type="video" src="mallard-logo.ogv"/>
+<media type="video" src="mallard-logo.webm"/>
 </example>
 
 <note>

@@ -58,39 +58,39 @@ page with only an SVG graphic as its contents.</p>
 <title>SVG</title>
 <svg:svg xmlns:svg="http://www.w3.org/2000/svg"
          width="230" height="230" version="1.1">
-<svg:circle cx="115" cy="115" r="114" fill="#3465a4"/>
-<svg:circle cx="108" cy="184" r="15" fill="#eeeeec"/>
-<svg:path id="beak" fill="#fcaf3e" d="M 77,69
+<svg:circle cx="115" cy="115" r="114" fill="#1c71d8"/>
+<svg:circle cx="108" cy="184" r="15" fill="#ffffff"/>
+<svg:path id="beak" fill="#f8e45c" d="M 77,69
 C 69,76 59,81 45,86 41,91 48,97 58,97 66,98 74,94 80,91 82,89 85,88 87,87
   86,86 86,86 85,85 84,84 83,81 82,78 81,74 80,72 79,71 79,70 78,69 77,69 z"/>
-<svg:path id="head" fill="#eeeeec" d="M 121,37
+<svg:path id="head" fill="#ffffff" d="M 121,37
 C 85,37 79,65 79,66 80,67 81,68 82,69 83,71 84,73 85,77 86,80 87,82 88,83
   89,85 91,85 92,86 94,87 96,87 98,88 98,88 115,90 115,102 115,113 96,143 96,143
   95,145 95,147 95,149 95,155 100,160 106,160 113,160 118,155 118,149
   118,146 117,144 116,142 112,125 158,106 158,79 158,79 158,37 121,37 z"/>
-<svg:path id="swoop" fill="#3465a4" d="M 88,75
+<svg:path id="swoop" fill="#1c71d8" d="M 88,75
 C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,75 z"/>
 <svg:circle cx="112" cy="54" r="4"
-            fill="#eeeeec" stroke="#3455a4" stroke-width="2"/>
+            fill="#ffffff" stroke="#1c71d8" stroke-width="2"/>
 </svg:svg>
 </page>
 ]]></code>
 <svg:svg xmlns:svg="http://www.w3.org/2000/svg" id="svg-1"
          width="230" height="230" version="1.1">
-<svg:circle cx="115" cy="115" r="114" fill="#3465a4"/>
-<svg:circle cx="108" cy="184" r="15" fill="#eeeeec"/>
-<svg:path id="beak-1" fill="#fcaf3e" d="M 77,69
+<svg:circle cx="115" cy="115" r="114" fill="#1c71d8"/>
+<svg:circle cx="108" cy="184" r="15" fill="#ffffff"/>
+<svg:path id="beak-1" fill="#f8e45c" d="M 77,69
 C 69,76 59,81 45,86 41,91 48,97 58,97 66,98 74,94 80,91 82,89 85,88 87,87
   86,86 86,86 85,85 84,84 83,81 82,78 81,74 80,72 79,71 79,70 78,69 77,69 z"/>
-<svg:path id="head-1" fill="#eeeeec" d="M 121,37
+<svg:path id="head-1" fill="#ffffff" d="M 121,37
 C 85,37 79,65 79,66 80,67 81,68 82,69 83,71 84,73 85,77 86,80 87,82 88,83
   89,85 91,85 92,86 94,87 96,87 98,88 98,88 115,90 115,102 115,113 96,143 96,143
   95,145 95,147 95,149 95,155 100,160 106,160 113,160 118,155 118,149
   118,146 117,144 116,142 112,125 158,106 158,79 158,79 158,37 121,37 z"/>
-<svg:path id="swoop-1" fill="#3465a4" d="M 88,75
+<svg:path id="swoop-1" fill="#1c71d8" d="M 88,75
 C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,75 z"/>
 <svg:circle cx="112" cy="54" r="4"
-            fill="#eeeeec" stroke="#3455a4" stroke-width="2"/>
+            fill="#ffffff" stroke="#1c71d8" stroke-width="2"/>
 </svg:svg>
 </example>
 
@@ -119,20 +119,20 @@ them with XInclude.</p>
 ]]></code>
 <svg:svg xmlns:svg="http://www.w3.org/2000/svg" id="svg-2"
          width="230" height="230" version="1.1">
-<svg:circle cx="115" cy="115" r="114" fill="#3465a4"/>
-<svg:circle cx="108" cy="184" r="15" fill="#eeeeec"/>
-<svg:path id="beak-2" fill="#fcaf3e" d="M 77,69
+<svg:circle cx="115" cy="115" r="114" fill="#1c71d8"/>
+<svg:circle cx="108" cy="184" r="15" fill="#ffffff"/>
+<svg:path id="beak-2" fill="#f8e45c" d="M 77,69
 C 69,76 59,81 45,86 41,91 48,97 58,97 66,98 74,94 80,91 82,89 85,88 87,87
   86,86 86,86 85,85 84,84 83,81 82,78 81,74 80,72 79,71 79,70 78,69 77,69 z"/>
-<svg:path id="head-2" fill="#eeeeec" d="M 121,37
+<svg:path id="head-2" fill="#ffffff" d="M 121,37
 C 85,37 79,65 79,66 80,67 81,68 82,69 83,71 84,73 85,77 86,80 87,82 88,83
   89,85 91,85 92,86 94,87 96,87 98,88 98,88 115,90 115,102 115,113 96,143 96,143
   95,145 95,147 95,149 95,155 100,160 106,160 113,160 118,155 118,149
   118,146 117,144 116,142 112,125 158,106 158,79 158,79 158,37 121,37 z"/>
-<svg:path id="swoop-2" fill="#3465a4" d="M 88,75
+<svg:path id="swoop-2" fill="#1c71d8" d="M 88,75
 C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,75 z"/>
 <svg:circle cx="112" cy="54" r="4"
-            fill="#eeeeec" stroke="#3455a4" stroke-width="2"/>
+            fill="#ffffff" stroke="#1c71d8" stroke-width="2"/>
 </svg:svg>
 </example>
 
@@ -159,20 +159,20 @@ inside the <code>svg:svg</code> element.</p>
 <title>SVG</title>
 <svg:svg xmlns:svg="http://www.w3.org/2000/svg"
          width="230" height="230" version="1.1">
-<svg:circle cx="115" cy="115" r="114" fill="#3465a4"/>
-<svg:circle cx="108" cy="184" r="15" fill="#eeeeec"/>
-<svg:path id="beak" fill="#fcaf3e" d="M 77,69
+<svg:circle cx="115" cy="115" r="114" fill="#1c71d8"/>
+<svg:circle cx="108" cy="184" r="15" fill="#ffffff"/>
+<svg:path id="beak" fill="#f8e45c" d="M 77,69
 C 69,76 59,81 45,86 41,91 48,97 58,97 66,98 74,94 80,91 82,89 85,88 87,87
   86,86 86,86 85,85 84,84 83,81 82,78 81,74 80,72 79,71 79,70 78,69 77,69 z"/>
-<svg:path id="head" fill="#eeeeec" d="M 121,37
+<svg:path id="head" fill="#ffffff" d="M 121,37
 C 85,37 79,65 79,66 80,67 81,68 82,69 83,71 84,73 85,77 86,80 87,82 88,83
   89,85 91,85 92,86 94,87 96,87 98,88 98,88 115,90 115,102 115,113 96,143 96,143
   95,145 95,147 95,149 95,155 100,160 106,160 113,160 118,155 118,149
   118,146 117,144 116,142 112,125 158,106 158,79 158,79 158,37 121,37 z"/>
-<svg:path id="swoop" fill="#3465a4" d="M 88,75
+<svg:path id="swoop" fill="#1c71d8" d="M 88,75
 C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,75 z"/>
 <svg:circle cx="112" cy="54" r="4"
-            fill="#eeeeec" stroke="#3455a4" stroke-width="2"/>
+            fill="#ffffff" stroke="#1c71d8" stroke-width="2"/>
 ]]><e:hi><![CDATA[<p>You don’t have SVG support.  Here’s a PNG image instead.</p>
 <media type="image" src="mallard-logo.png"/>]]></e:hi><![CDATA[
 </svg:svg>
@@ -207,39 +207,39 @@ This example makes the beak a link to <link xref="tenminutes"/>.</p>
 <svg:svg xmlns:svg="http://www.w3.org/2000/svg"
          ]]><e:hi>xmlns:mal="http://projectmallard.org/1.0/"</e:hi><![CDATA[
          width="230" height="230" version="1.1">
-<svg:circle cx="115" cy="115" r="114" fill="#3465a4"/>
-<svg:circle cx="108" cy="184" r="15" fill="#eeeeec"/>
-<svg:path ]]><e:hi>mal:xref="tenminutes"</e:hi><![CDATA[ id="beak" fill="#fcaf3e" d="M 77,69
+<svg:circle cx="115" cy="115" r="114" fill="#1c71d8"/>
+<svg:circle cx="108" cy="184" r="15" fill="#ffffff"/>
+<svg:path ]]><e:hi>mal:xref="tenminutes"</e:hi><![CDATA[ id="beak" fill="#f8e45c" d="M 77,69
 C 69,76 59,81 45,86 41,91 48,97 58,97 66,98 74,94 80,91 82,89 85,88 87,87
   86,86 86,86 85,85 84,84 83,81 82,78 81,74 80,72 79,71 79,70 78,69 77,69 z"/>
-<svg:path id="head" fill="#eeeeec" d="M 121,37
+<svg:path id="head" fill="#ffffff" d="M 121,37
 C 85,37 79,65 79,66 80,67 81,68 82,69 83,71 84,73 85,77 86,80 87,82 88,83
   89,85 91,85 92,86 94,87 96,87 98,88 98,88 115,90 115,102 115,113 96,143 96,143
   95,145 95,147 95,149 95,155 100,160 106,160 113,160 118,155 118,149
   118,146 117,144 116,142 112,125 158,106 158,79 158,79 158,37 121,37 z"/>
-<svg:path id="swoop" fill="#3465a4" d="M 88,75
+<svg:path id="swoop" fill="#1c71d8" d="M 88,75
 C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,75 z"/>
 <svg:circle cx="112" cy="54" r="4"
-            fill="#eeeeec" stroke="#3455a4" stroke-width="2"/>
+            fill="#ffffff" stroke="#1c71d8" stroke-width="2"/>
 </svg:svg>
 </page>]]></code>
 <svg:svg xmlns:svg="http://www.w3.org/2000/svg" id="svg-3"
          xmlns:mal="http://projectmallard.org/1.0/"
          width="230" height="230" version="1.1">
-<svg:circle cx="115" cy="115" r="114" fill="#3465a4"/>
-<svg:circle cx="108" cy="184" r="15" fill="#eeeeec"/>
-<svg:path mal:xref="tenminutes" id="beak-3" fill="#fcaf3e" d="M 77,69
+<svg:circle cx="115" cy="115" r="114" fill="#1c71d8"/>
+<svg:circle cx="108" cy="184" r="15" fill="#ffffff"/>
+<svg:path mal:xref="tenminutes" id="beak-3" fill="#f8e45c" d="M 77,69
 C 69,76 59,81 45,86 41,91 48,97 58,97 66,98 74,94 80,91 82,89 85,88 87,87
   86,86 86,86 85,85 84,84 83,81 82,78 81,74 80,72 79,71 79,70 78,69 77,69 z"/>
-<svg:path id="head-3" fill="#eeeeec" d="M 121,37
+<svg:path id="head-3" fill="#ffffff" d="M 121,37
 C 85,37 79,65 79,66 80,67 81,68 82,69 83,71 84,73 85,77 86,80 87,82 88,83
   89,85 91,85 92,86 94,87 96,87 98,88 98,88 115,90 115,102 115,113 96,143 96,143
   95,145 95,147 95,149 95,155 100,160 106,160 113,160 118,155 118,149
   118,146 117,144 116,142 112,125 158,106 158,79 158,79 158,37 121,37 z"/>
-<svg:path id="swoop-3" fill="#3465a4" d="M 88,75
+<svg:path id="swoop-3" fill="#1c71d8" d="M 88,75
 C 88,75 104,64 115,61 126,58 138,62 138,62 138,62 126,50 115,53 103,56 88,75 88,75 z"/>
 <svg:circle cx="112" cy="54" r="4"
-            fill="#eeeeec" stroke="#3455a4" stroke-width="2"/>
+            fill="#ffffff" stroke="#1c71d8" stroke-width="2"/>
 </svg:svg>
 </example>
 
