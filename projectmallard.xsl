@@ -38,7 +38,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <link href="http://fonts.googleapis.com/css?family=Bitter:400,700" rel="stylesheet" type="text/css"/>
   <link href="http://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet" type="text/css"/>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-  <link rel="icon" href="{$mal.site.root}mallard-logo-16.png"/>
+  <link rel="icon" href="http://projectmallard.org/mallard-logo-16.png"/>
   <xsl:variable name="title">
     <xsl:choose>
       <xsl:when test="$node/mal:info/mal:title[@type = 'text']">
@@ -60,11 +60,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <meta name="twitter:site" content="@projectmallard"/>
   <meta name="twitter:title" content="{$title}"/>
   <meta name="twitter:description" content="{$desc}"/>
-  <meta name="twitter:image" content="{$mal.site.root}mallard-logo-200.png"/>
+  <meta name="twitter:image" content="http://projectmallard.org/mallard-logo-200.png"/>
   <meta property="og:type" content="article"/>
   <meta property="og:title" content="{$title}"/>
   <meta property="og:description" content="{$desc}"/>
-  <meta property="og:image" content="{$mal.site.root}mallard-logo-200.png"/>
+  <meta property="og:image" content="http://projectmallard.org/mallard-logo-200.png"/>
 </xsl:template>
 
 <xsl:template name="html.css.custom">
