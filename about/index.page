@@ -6,7 +6,7 @@
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2010</years>
+    <years>2010, 2019</years>
   </credit>
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
@@ -14,29 +14,33 @@
 <title>About Mallard</title>
 
 <media type="image" style="floatright"
-       src="about-yelp-screenshot.png"
-       width="200" height="250"/>
+       src="about-yelp-screenshot.png"/>
 
-<p>Mallard is an XML format designed to make topic-oriented help as simple
-as possible.  In contrast to linear documentation, which is designed to be
-read cover-to-cover, topic-oriented help provides users the information they
-need quickly.  Good topic-oriented help has three main characteristics:</p>
+<p>Mallard is a documentation format designed to make topic-oriented help as simple as possible.
+In contrast to linear documentation, which is designed to be read cover-to-cover,
+topic-oriented help provides users the information they need quickly.
+Mallard was designed to help users find, learn, and explore:</p>
 
 <list>
-  <item><p>Users can navigate to information following a path that fits their
+  <item><p><em style="strong">Find:</em> Users can navigate to information following a path that fits their
   mental model.</p></item>
-  <item><p>Users can find the information they need in a topic without reading
+  <item><p><em style="strong">Learn:</em> Users can find the information they need in a topic without reading
   any more background information than necessary.</p></item>
-  <item><p>Users can learn more if they choose to by following links to more
+  <item><p><em style="strong">Explore:</em> Users can learn more if they choose to by following links to more
   in-depth information.</p></item>
 </list>
 
-<p>Mallard helps you help your users by making things as simple as possible.
+<p>Mallard helps you help your users by making things simple.
 The base Mallard language is refined from years of working with online help,
 and contains only the elements you're most likely to need.  And with its rich
 automated links, Mallard removes many tedious and error-prone bookkeeping
 tasks.  See how easy Mallard is with the
 <link xref="/about/learn/tenminutes"/>.</p>
+
+<p>Mallard is available in either XML or <link xref="/ducktype/1.0/index">Ducktype</link>.
+Ducktype is a lightweight language designed to do everything Mallard can do,
+including arbitrary nesting, full semantics, and even extensions.
+Learn Ducktype with our <link xref="/about/learn/ducktype">Ducktype tutorial</link>.</p>
 
 <p>Mallard was uniquely designed from the beginning to support extensible
 documents.  Because of Mallard's automated links, you can insert topics into
@@ -51,5 +55,9 @@ new elements and attributes in different XML namespaces.  The specification
 rigidly defines the behavior for unrecognized extensions so that you can
 design extensions that fall back gracefully with any standards-compliant
 processing tool.</p>
+
+<list>
+<item><p><link xref="/about/learn/index">Learn more about Mallard and Ducktype.</link></p></item>
+</list>
 
 </page>
