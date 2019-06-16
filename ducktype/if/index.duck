@@ -1,0 +1,17 @@
+@ducktype/1.0
+
+= Ducktype Conditionals
+  [topic .pmo-guide]
+
+@credit[author copyright]
+  @name Shaun McCance
+  @email shaunm@gnome.org
+  @years 2019
+
+@desc Shorthand syntax for Mallard Conditionals.
+
+[-] FIXME
+[-] @xi:include[>>../../cc-by-sa-3-0.xml]]
+
+[links site-subdirs]
+. Versions

@@ -1,0 +1,191 @@
+@ducktype/1.0
+
+= Ducktype Conditionals 1.0
+  [topic .spec .spec-no-comparison .spec-no-schema]
+
+@revision[docversion=1.0 date=2019-05-31 status=incomplete]
+@revision[docversion=1.0 date=2019-06-16 status=draft]
+
+@credit[author copyright]
+  @name Shaun McCance
+  @email shaunm@gnome.org
+  @years 2019
+
+@desc Shorthand syntax for Mallard Conditionals.
+
+[-] FIXME
+[-] @xi:include[>>../../cc-by-sa-3-0.xml]]
+
+[p .lead]
+The Ducktype Conditionals extension provides a shorthand syntax for $link[>/if/1.0/index](Mallard Conditionals).
+Mallard Conditionals can be used in Ducktype without any extension simply by declaring the namespace and using the elements and attributes as normal.
+Ducktype Condititionals provide a simpler alternate syntax that doesn't require namespaced elements.
+
+
+== Notes
+   [#notes]
+
+* Use Ducktype Conditionals 1.0 by adding $code(if/1.0) to the Ducktype directive.
+* Ducktype Conditionals automatically binds the $code(if) namespace prefix to
+  $code(http://projectmallard.org/if/1.0/).
+* A single leading question mark and a space creates:
+  * An $code(if:when) element in an $code(if:choose) element.
+  * Otherwise, an $code(if:if) element.
+* The text after the space after a single leading question mark is taken as the content of the $code(test) attribute.
+* Two question marks on an otherwise empty line creates:
+  * An $code(if:else) element in an $code(if:choose) element.
+  * Otherwise, an $code(if:choose) element.
+
+
+== Examples
+   [#examples]
+
+The following examples show text using the Ducktype Conditionals extension,
+followed by the equivalent snippet in Ducktype using Mallard Conditionals with namespaces.
+
+Wrap a single paragraph in a conditional:
+
+[example]
+  [code]
+    [[[
+    @ducktype/1.0 if/1.0
+    = Conditional Example
+
+    ? target:html
+      This is only displayed when converting to HTML.
+    ]]]
+  [code]
+    [[[
+    @ducktype/1.0
+    @namespace if http://projectmallard.org/if/1.0/
+    = Conditional Example
+
+    [if:if test=target:html]
+      This is only displayed when converting to HTML.
+    ]]]
+
+Put any number of any block elements in a conditional:
+
+[example]
+  [code]
+    [[[
+    @ducktype/1.0 if/1.0
+    = Conditional Example
+
+    ? target:html
+      This is only displayed when converting to HTML.
+
+      [note]
+        This note is also in the conditional with this list:
+        * one
+        * two
+    ]]]
+  [code]
+    [[[
+    @ducktype/1.0
+    @namespace if http://projectmallard.org/if/1.0/
+    = Conditional Example
+
+    [if:if test=target:html]
+      This is only displayed when converting to HTML.
+
+      [note]
+        This note is also in the conditional with this list:
+        * one
+        * two
+    ]]]
+
+Provide multiple conditions with branching and fallback:
+
+[example]
+  [code]
+    [[[
+    @ducktype/1.0 if/1.0
+    = Conditional Example
+
+    ??
+      ? platform:fedora platform:centos platform:rhel
+        This is only displayed on Fedora, CentOS, and RHEL.
+      ? platform:ubuntu
+        This is only displayed on Ubuntu.
+      ??
+        This is displayed on all other platforms.
+    ]]]
+  [code]
+    [[[
+    @ducktype/1.0
+    @namespace if http://projectmallard.org/if/1.0/
+    = Conditional Example
+
+    [if:choose]
+      [if:when test="platform:fedora platform:centos platform:rhel"]
+        This is only displayed on Fedora, CentOS, and RHEL.
+      [if:when test="platform:ubuntu"]
+        This is only displayed on Ubuntu.
+      [if:else]
+        This is displayed on all other platforms.
+    ]]]
+
+Do something:
+
+[example]
+  [code]
+    [[[
+    @ducktype/1.0 if/1.0
+    = Conditional Example
+
+    [steps]
+    * First step
+    [item if:test=platform:gnome-classic]
+      Extra step only displayed for GNOME Classic.
+    * Last step
+    ]]]
+  [code]
+    [[[
+    @ducktype/1.0
+    @namespace if http://projectmallard.org/if/1.0/
+    = Conditional Example
+
+    [steps]
+    * First step
+    [item if:test=platform:gnome-classic]
+      Extra step only displayed for GNOME Classic.
+    * Last step
+    ]]]
+
+
+== Specification
+   [#spec]
+
+Ducktype Conditionals 1.0 recognizes the token $code(if/1.0) in the Ducktype declaration.
+
+When Ducktype Conditionals is used, it binds the prefix $code(if) to the namespace
+$code(http://projectmallard.org/if/1.0/), as if it were declared with a $code(namespace) directive.
+This prefix may be overridden by a $code(namespace) directive in the document.
+
+Ducktype Conditionals adds special block syntax.
+It recognizes two special types of lines:
+
+* A line starting with potentially leading indentation, one question mark (U+003F), and a space.
+* A line starting with potentially leading indentation, then just two question marks.
+
+If an indented line starts with a single question mark and a space,
+then it is either shorthand for $code(if:if) or $code(if:when), as follows:
+
+* If the current element is an $code(if:choose), then the line is an $code(if:when).
+* Otherwise, the line is an $code(if:if).
+
+In either case, the remainder of the line after the space is taken as a test expression.
+This test expression is added as a $code(test) attribute to either the
+$code(if:if) or $code(if:when) element.
+
+If an indented line contains only two question marks, possibly followed by only space characters,
+then it is either shorthand for $code(if:choose) or $code(if:else), as follows:
+
+* If the current element is an $code(if:choose), then the line is an $code(if:else).
+* Otherwise, the line is an $code(if:choose).
+
+There may be space characters after the two question marks,
+but there must not be any other content on the line.
+If there is other content, the line is not special syntax under this extension,
+and it is parsed as it would be without Ducktype Conditionals.

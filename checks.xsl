@@ -39,6 +39,7 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
     <xsl:if test="starts-with(@id, $prefix)">
       <!-- We want the real source pages, not Pintail's staged sources,
            because we want to do pre-XInclude checks. -->
+      <!-- FIXME: EXCEPT DUCKTYPE -->
       <xsl:variable name="uri">
         <xsl:value-of select="substring-before(@cache:href, '/__pintail__/stage/')"/>
         <xsl:text>/</xsl:text>
@@ -106,13 +107,6 @@ xsltproc checks.xsl __pintail__/tools/pintail.cache
     <!-- Check for the license -->
     <xsl:if test="not(mal:info/xi:include[contains(@href, 'cc-by-sa-3-0.xml')])">
       <xsl:text>Missing XInclude for license&#x000A;</xsl:text>
-      <xsl:for-each select="mal:info/mal:license/@*">
-        <xsl:value-of select="name(.)"/>
-        <xsl:text>&#x000A;</xsl:text>
-      </xsl:for-each>
-      <xsl:text>:</xsl:text>
-      <xsl:value-of select="xml:base"/>
-      <xsl:text>&#x000A;</xsl:text>
     </xsl:if>
 
     <!-- Check for desc elements on non-index pages -->
