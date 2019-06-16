@@ -1,6 +1,6 @@
 @ducktype/1.0
 
-= Ducktype Conditionals 1.0
+= Ducktype Conditionals 1.0 DRAFT
   [topic .spec .spec-no-comparison .spec-no-schema]
 
 @revision[docversion=1.0 date=2019-05-31 status=incomplete]
@@ -12,6 +12,8 @@
   @years 2019
 
 @desc Shorthand syntax for Mallard Conditionals.
+
+@title[link role=-index] Ducktype Conditionals 1.0 $em(DRAFT)
 
 [-] FIXME
 [-] @xi:include[>>../../cc-by-sa-3-0.xml]]

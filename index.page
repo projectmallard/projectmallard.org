@@ -100,6 +100,7 @@ Mallard comes in two flavors: traditional XML, and the lightweight syntax
     <link type="topic" group="old" xref="/cache/1.0/index"/>
 
     <link type="topic" group="draft" xref="/1.2/index"/>
+    <link type="topic" group="draft" xref="/ducktype/if/1.0/index"/>
     <link type="topic" group="draft" xref="/ui/1.0/index"/>
     <link type="topic" group="draft" xref="/facet/1.0/index"/>
     <link type="topic" group="draft" xref="/svg/1.0/index"/>
