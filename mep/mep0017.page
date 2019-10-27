@@ -1,0 +1,221 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      id="mep0017">
+
+<info>
+  <link type="guide" xref="index" group="1.2"/>
+
+  <!--
+  <link type="mep:depends" xref="mepYYYY"/>
+  <link type="mep:replaces" xref="mepYYYY"/>
+  <link type="seealso" xref="mepYYYY"/>
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/##"/>
+  -->
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2019</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <!--
+  list of valid status attributes:
+  incomplete proposed revised implemented final rejected replaced withdrawn
+  -->
+  <revision date="2019-10-27" docversion="1.2" status="proposed"/>
+
+  <title type="text">The tags Element</title>
+  <title type="link">MEP-0017: The <code>tags</code> Element</title>
+
+  <desc>Add an informational element to create arbitrary, ad hoc taxonomies.</desc>
+</info>
+
+<title>MEP-0017</title>
+<subtitle>The <code>tags</code> Element</subtitle>
+
+<p style="lead">This page proposes an informational <code>tags</code> element
+to record a collection of tags or labels, along with a syntax to record tags
+in multiple contexts.</p>
+
+<links type="section"/>
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard allows for flexible, non-linear page organization using its system
+  of informational links. However, for certain applications, it can be useful
+  to reference a set of pages without those pages being grouped in an actual
+  guide page that users can navigate to. For example, a help system integrated
+  into an app may want to show all topics relevant to a particular screen.
+  Or, a faceted navigation system may need to filter topics based on user
+  selections. These are both real-world experimental developments that led
+  to this proposal.</p>
+</section>
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes adding an informational <code>tags</code> element,
+  which may be used in any <code>info</code> element. The <code>tags</code>
+  element contains a space-separated list of tags as text content. No inline
+  markup is allowed in the text content. Tags provide a lightweight taxonomy
+  that is not tied to page organization or linking. This may be used by
+  extensions or future Mallard features, but this proposal does not address
+  specific future uses.</p>
+
+  <p>Each tag is written in the form <code><var>context</var>:<var>value</var></code>.
+  For example, in a collection of tutorials about different technologies,
+  the tag context <code>tech</code> might be used to indicate the technology
+  each tutorial addresses. Example tags in that context would be
+  <code>tech:html</code>, <code>tech:gtk</code>, and <code>tech:mallard</code>.
+  Tag contexts and values are all user-defined.</p>
+
+  <p>The tags in a particular <code>info</code> element apply only to the
+  element containing that <code>info</code> element, and not to any sections
+  or formal elements contained in that element. If there are multiple
+  <code>tags</code> elements in an <code>info</code> element, those tags are
+  merged, as if those elements were all joined with space characters between.</p>
+
+  <note><p>Pending <link xref="mep0013"/>, tags specified on a <code>stack</code>
+  element might apply to all enclosed <code>page</code> elements. Further
+  discussion is required.</p></note>
+</section>
+
+<!--
+Add Addendums if changes are made after the proposal is final.
+-->
+<!--
+<section id="addendums">
+  <title>Addendums</title>
+</section>
+-->
+
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Tag a help page to indicate that it is relevant to a particular screen or window:</p>
+
+  <example>
+    <code type="xml"><![CDATA[<page>
+  <info>
+    <tags>screen:settings-power</tags>
+  </info>
+  <title>Set screen brightness</title>
+</page>
+]]></code>
+  </example>
+
+  <p>Tag a tutorial to indicate that it deals with a particular technology:</p>
+
+  <example>
+    <code type="xml"><![CDATA[<page>
+  <info>
+    <tags>tech:mallard</tags>
+  </info>
+  <title>Mallard tutorial</title>
+</page>
+]]></code>
+  </example>
+
+  <p>Use multiple tags in a space-separated list:</p>
+
+  <example>
+    <code type="xml"><![CDATA[<page>
+  <info>
+    <tags>tech:mallard tech:svg</tags>
+  </info>
+  <title>Mallard and SVG</title>
+</page>
+]]></code>
+  </example>
+
+  <p>Equivalently, use multiple tags in separate elements:</p>
+
+  <example>
+    <code type="xml"><![CDATA[<page>
+  <info>
+    <tags>tech:mallard</tags>
+    <tags>tech:svg</tags>
+  </info>
+  <title>Mallard and SVG</title>
+</page>
+]]></code>
+  </example>
+</section>
+
+<section id="i18n">
+  <title>Internationalization</title>
+
+  <p>Tags should not be translated by default. However, since they are
+  in text content rather than attributes, the default behavior for ITS
+  will be to translate tags. ITS rules for Mallard should mark the
+  <code>tags</code> element as untranslated.</p>
+
+  <example><code type="xml"><![CDATA[<its:translateRule translate="no" selector="//mal:tags"/>]]></code></example>
+
+  <p>Occasionally, an author might decide certain tags should be
+  translated, such as tags specific to a language or region. In these
+  cases, the author can put the translatable tags in a separate
+  <code>tags</code> element and mark it as translatable with local
+  ITS markup.</p>
+</section>
+
+<section id="alternatives">
+  <title>Alternatives</title>
+
+  <p>The first proposed use of tags was in an
+  <link href="http://projectmallard.org/pipermail/mallard-list/2010-December/000052.html">experimental
+  extension for faceted navigation</link>. This use of tags had them
+  in an extension namespace. The system for tagging pages, however,
+  was generally useful enough to live in the Mallard core where
+  multiple features and extensions can take advantage of it.</p>
+
+  <p>The first proposal did use the context-value (or key-value)
+  concept found in this proposal, but it split the context and value
+  into separate attribute values. We later considered the syntax in
+  this proposal, somewhat mirroring test tokens in Mallard Conditionals,
+  but putting them in an attribute. Finally, we switched to putting
+  the tags in text content, mostly because the Ducktype syntax is
+  easier that way.</p>
+</section>
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>This proposal makes no backwards-incompatible changes. Any page written
+  in a version prior to the implementation of this proposal will work exactly
+  the same in a processing tool that implements this proposal.</p>
+
+  <p>The fallback behavior for a new info element is that is is ignored.
+  This proposal doesn't make any recommendations for navigation or other
+  features using tags. Extensions or future Mallard features may do so,
+  and those features may have loss of functionality in fallback.</p>
+</section>
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>DocBook provides the 
+  <code href="https://tdg.docbook.org/tdg/5.1/subjectset.html">subjectset</code>,
+  <code href="https://tdg.docbook.org/tdg/5.1/subject.html">subject</code>, and
+  <code href="https://tdg.docbook.org/tdg/5.1/subjectterm.html">subjectterm</code>
+  elements, which can be used to tag documents and certain other elements
+  according to some controlled taxonomy. Multiple subject elements can be
+  used with different <code>scheme</code> attributes to tag according to
+  diifferent taxonomies. DocBook subjects are more intended for tagging
+  documents according to an external taxonomy, whereas this proposal is
+  intended for tagging pages within a document with an ad hoc taxonomy.
+  DocBook subjects use multiple nested elements, whereas this proposal
+  prefers a single element with a simple inline syntax.</p>
+
+  <p>DITA provides  the
+  <code href="http://docs.oasis-open.org/dita/v1.2/cd03/spec/langref/category.html">category</code>
+  element to tag topics. There is no specific mechanism to identify categories
+  with particular taxonomies. Unlike this proposal, which prefers short tag
+  identifiers, DITA categories are often used with text intended for readers
+  to view, and some tools even make automatic navigation using these labels.</p>
+</section>
+
+</page>
