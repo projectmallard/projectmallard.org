@@ -30,14 +30,14 @@
   <revision date="2018-12-30" docversion="1.1" status="implemented"/>
   <revision date="2019-01-31" docversion="1.1" status="final"/>
 
-  <title type="text">Informational keywords element</title>
-  <title type="link">MEP-0014: Informational <code>keywords</code> element</title>
+  <title type="text">Informational keywords Element</title>
+  <title type="link">MEP-0014: Informational <code>keywords</code> Element</title>
 
   <desc>Add a <code>keywords</code> element to help full-text search.</desc>
 </info>
 
 <title>MEP-0014</title>
-<subtitle>Informational <code>keywords</code> element</subtitle>
+<subtitle>Informational <code>keywords</code> Element</subtitle>
 
 <p style="lead">This page proposes adding a <code>keywords</code> element to
 the <code>info</code> element to help document search.</p>

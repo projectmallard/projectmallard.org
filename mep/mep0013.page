@@ -25,14 +25,14 @@
 
   <revision date="2018-10-21" docversion="1.2" status="incomplete"/>
 
-  <title type="text">Top-level stack element</title>
-  <title type="link">MEP-0013: Top-level <code>stack</code> element</title>
+  <title type="text">Top-level stack Element</title>
+  <title type="link">MEP-0013: Top-level <code>stack</code> Element</title>
 
   <desc>Create an element that can hold multiple pages as a set or series.</desc>
 </info>
 
 <title>MEP-0013</title>
-<subtitle>Top-level <code>stack</code> element</subtitle>
+<subtitle>Top-level <code>stack</code> Element</subtitle>
 
 <p style="lead">This page proposes a top-level <code>stack</code> element that
 contains <code>page</code> elements to make it easier to work on collections of

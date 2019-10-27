@@ -26,14 +26,14 @@
   -->
   <revision date="2019-03-16" docversion="1.2" status="incomplete"/>
 
-  <title type="text">Shorthand syntax for guiseq and keyseq</title>
-  <title type="link">MEP-0015: Shorthand syntax for <code>guiseq</code> and <code>keyseq</code></title>
+  <title type="text">Shorthand Syntax for guiseq and keyseq</title>
+  <title type="link">MEP-0015: Shorthand Syntax for <code>guiseq</code> and <code>keyseq</code></title>
 
   <desc>Create a syntax to allow simple key and GUI sequences without child elements.</desc>
 </info>
 
 <title>MEP-0015</title>
-<subtitle>Shorthand syntax for <code>guiseq</code> and <code>keyseq</code></subtitle>
+<subtitle>Shorthand Syntax for <code>guiseq</code> and <code>keyseq</code></subtitle>
 
 <p style="lead">This page proposes a shorthand syntax for <code>guiseq</code> and
 <code>keyseq</code> elements, allowing you to write simple sequences without child
@@ -163,7 +163,7 @@ Omit Compatibility and Fallback for process proposals.
   Although it's conceivable somebody has used the <code>+</code>
   character in such a case, we haven't seen it.</p>
 
-  <p>The fallback behavior for tools that don't support his proposal
+  <p>The fallback behavior for tools that don't support this proposal
   is that the shorthand syntax would be rendered as written. For
   <code>keyseq</code> elements, this will often be acceptable, though
   it may have less styling and semantics. For <code>guiseq</code>
