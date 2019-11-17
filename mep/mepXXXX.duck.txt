@@ -14,7 +14,8 @@
 @link[mep:depends >mepYYYY]
 @link[mep:replaces >mepYYYY]
 @link[seealso >mepYYYY]
-@link[mep:issue >>https://github.com/projectmallard/projectmallard.org/issues/##]
+@link[mep:issue >>https://github.com/projectmallard/projectmallard.org/issues/XX]
+  @title Issue #XX
 --]
 
 @credit[author copyright]

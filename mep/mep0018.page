@@ -1,0 +1,257 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      id="mep0018">
+
+<info>
+  <link type="guide" xref="index" group="1.2"/>
+
+  <!--
+  <link type="mep:depends" xref="mepYYYY"/>
+  <link type="mep:replaces" xref="mepYYYY"/>
+  <link type="seealso" xref="mepYYYY"/>
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/##"/>
+  -->
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2019</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <!--
+  list of valid status attributes:
+  incomplete proposed revised implemented final rejected replaced withdrawn
+  -->
+  <revision date="2019-11-17" docversion="1.2" status="proposed"/>
+
+  <title type="text">Type-and-Role Data</title>
+  <title type="link">MEP-0018: Type-and-Role Data</title>
+
+  <desc>Allow titles, descriptions, and thumbnails to use types and roles.</desc>
+</info>
+
+<title>MEP-0018</title>
+<subtitle>Type-and-Role Data</subtitle>
+
+<p style="lead">This page provides a set of lookup rules to determine the
+title, description, and thumbnail image for a page or section, using
+types and roles. This proposal extends the current system for finding
+link text.</p>
+
+<links type="section"/>
+
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard allows different titles to be selected for different purposes
+  based on the <code>type</code> and <code>role</code> attributes on the
+  informational <code xref="/1.1/mal_info_title">title</code> element.
+  The <code>type</code> attribute allows you to specify titles for link
+  text, a title for sorting, and a title for text-only uses like window
+  titles. The <code>role</code> attribute allows you to specify multiple
+  link titles. These can be selected explicitly using the <code>role</code>
+  attributes on the inline <code xref="/1.1/mal_inline_link">link</code>
+  element and the block <code xref="/1.1/mal_links">links</code> element.
+  Furthermore, the <code>links</code> element can specify an implicit
+  role.</p>
+
+  <p>There are three enhancement proposals that would benefit from this
+  system being extended:</p>
+
+  <terms>
+    <item>
+      <title><link xref="mep0004"/></title>
+      <p>MEP-0004 calls for a <code>thumb</code> element to be added to
+      specify a thumbnail image for a page. Since thumbnails may be used
+      alongside link text, it makes sense to use a <code>role</code>
+      attribute to select alternatives along with other link data.</p>
+    </item>
+    <item>
+      <title><link xref="mep0008"/></title>
+      <p>The <code>desc</code> element is often used alongside the link
+      title to provide more context for a link. Currently, Mallard only
+      allows a single desc, regardless of the link text. MEP-0008 calls
+      for the <code>desc</code> element to use a <code>role</code>
+      attribute to match link titles.</p>
+    </item>
+    <item>
+      <title><link xref="mep0011"/></title>
+      <p>Currently, Mallard only allows a single sort title, regardless
+      of which title is being used for link text. MEP-0011 calls for
+      sort titles to use roles as well, so that sort titles can match
+      link titles.</p>
+    </item>
+  </terms>
+</section>
+
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes a single, consistent set of lookup rules to use
+  to find a <code>title</code>, <code>desc</code>, or <code>thumb</code>
+  element given a type and a list of roles. These lookup rules could
+  also be used by future core elements or extension elements.</p>
+
+  <p>These lookup rules extend those currently used for link titles,
+  but add an additional step. The motivation for this extra step was
+  to not require a <code>type</code> attribute for the <code>desc</code>
+  element, since supplementary link text is the only current practical
+  use for the <code>desc</code> element.</p>
+
+  <p>These lookup rules are written using the following variables:</p>
+
+  <list>
+    <item><p><code>$element</code>: The actual element being looked up.
+    Currently, this is <code>title</code>, <code>desc</code>, or
+    <code>thumb</code>. Other elements could use these lookup rules
+    in the future.</p></item>
+
+    <item><p><code>$type</code>: The value of the <code>type</code>
+    attribute. This is selected automatically based on how the data is
+    used. The type <code>link</code> is used for link text, the type
+    <code>sort</code> is used for sorting purposes, and the type
+    <code>text</code> is used in text-only locations like window
+    titles and search databases. Extensions and tool-specific features
+    may use other types, such as those used by
+    <link xref="/ui/1.0/ui_expanded">Mallard UI expanders</link>.</p></item>
+
+    <item><p><code>$roles</code>: An ordered list of roles to match
+    against the <code>role</code> attribute. Though there can be any
+    number of roles, there are currently two used in practice.
+    The primary role is the one specified explicitly by the <code>role</code>
+    attribute of the inline <code xref="/1.1/mal_inline_link">link</code>
+    element or the block <code xref="/1.1/mal_links">links</code> element.
+    The secondary role is the one implicitly used based on the type of
+    the <code>links</code> element.</p></item>
+  </list>
+
+
+  <p>These lookup rules apply when a processing tool requires data for
+  a target page, section, or block element. Given an element
+  <code>$element</code>, a particular type <code>$type</code>, and list
+  of roles <code>$roles</code>, it would follow the following steps:</p>
+
+  <list type="numbered">
+    <item><p>If <code>$type</code> and <code>$roles</code> are non-empty,
+    then for each <code>$role</code> in <code>$roles</code>, if the target
+    has an informational element <code>$element</code> with the
+    <code>type</code> attribute set to <code>$type</code> and the
+    <code>role</code> attribute set to <code>$role</code>,
+    then that element is used and this procedure stops.</p></item>
+
+    <item><p>Otherwise, if <code>$roles</code> is non-empty, then for each
+    <code>$role</code> in <code>$roles</code>, if the target has an
+    informational element <code>$element</code> without a <code>type</code>
+    attribute and with the <code>role</code> attribute set to
+    <code>$role</code>, then that element is used and this procedure stops.
+    This step would be new in the current lookup rules for link titles.</p></item>
+
+    <item><p>Otherwise, if <code>$type</code> is non-empty, then if the
+    target has an informational element <code>$element</code> with the
+    <code>type</code> attribute set to <code>$type</code> and without a
+    <code>role</code> attribute, then that element is used and this
+    procedure stops.</p></item>
+
+    <item><p>Otherwise, if the target has an element <code>$element</code>
+    without a <code>type</code> attribute and without a <code>role</code>
+    attribute, then that element is used and this procedure stops.</p></item>
+
+    <item><p>Finally, if <code>$element</code> is <code>title</code>, the
+    primary display title is used.</p></item>
+  </list>
+<!--
+
+This does change the current link title lookup, but only by adding
+titles without type attributes as extra fallbacks. I don't see any real
+compatibility issues. I think there's an argument for swapping steps 2
+and 3. Basically, is type more important or role? But I think I like it
+this way. With this, you could provide the same link and sort title for
+a role with just a single element.
+
+-->
+</section>
+
+
+<!--
+Add Addendums if changes are made after the proposal is final.
+-->
+<!--
+<section id="addendums">
+  <title>Addendums</title>
+</section>
+-->
+
+
+<section id="examples">
+  <title>Examples</title>
+</section>
+
+
+<section id="alternatives">
+  <title>Alternatives</title>
+
+  <p>We considered a number of alternatives when developing
+  <link xref="mep0004"/>, <link xref="mep0008"/>, and <link xref="mep0011"/>:</p>
+
+  <list>
+    <item><p>Defining a set of custom rules just for sort titles that
+    closely mimic the link title rules, but still use a link title
+    fallback.</p></item>
+
+    <item><p>Making link titles continue to require the <code>type</code>
+    attribute in all cases, but making <code>desc</code> not use or require
+    the <code>type</code> attribute.</p></item>
+
+    <item><p>Making <code>desc</code> require the <code>type</code> attribute
+    in all cases, just like Mallard 1.0 link titles.</p></item>
+  </list>
+
+  <p>In the end, we opted for a single set of consistent rules for all elements
+  and types. This is easier to maintain an implementation for, and easier for
+  users to remember.</p>
+
+  <p>We originally proposed making the type take precedence over the roles in
+  the lookup rules, swapping rules 2 and 3 above. We decided against this after
+  looking at how it would affect default sort titles. With the rules as proposed
+  here, you can provide the same text as both link title and sort title for a
+  role by just omitting the <code>type</code> attribute.</p>
+</section>
+
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>This proposal does make a backwards-incompatible change to the way sort
+  titles are looked up. Prior to this proposal, sort titles would default to
+  link titles if no explicit sort title was found. This proposal does provide
+  an easier way to provide both sort and link title for a role, but we should
+  further investigate the impact of this incompatibility.</p>
+
+  <p>This proposal also makes a potentially incompatible change by introducing
+  an extra step in the link title lookup rules. However, since there was
+  previously no practical use for a title with a <code>role</code> but no
+  <code>type</code>, there is probably no real-world impact.</p>
+
+  <p>The fallback behavior for new pages read by old tools varies. There are
+  some fallback considerations for additional sort title and additional descs.
+  Thos are covered in <link xref="mep0008"/> and <link xref="mep0011"/>. This
+  proposal introduces the ability to specify both the link title and sort title
+  for a given role by omitting the <code>type</code> attribute. This convenient
+  shorthand will be completely ignored by older tools. If your documents may
+  be processed by older tools, you should continue always using explicit
+  <code>type</code> attributes.</p>
+</section>
+
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>No other format has a comparable mechanism for selecting the titles, page
+  descriptions, or other data.</p>
+</section>
+
+</page>

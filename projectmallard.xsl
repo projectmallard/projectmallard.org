@@ -424,7 +424,7 @@ span.mep-status {
   border-left: solid 2px </xsl:text><xsl:value-of select="$color.yellow_border"/><xsl:text>;
   color: </xsl:text><xsl:value-of select="$color.fg.gray"/><xsl:text>;
 }
-span.mep-status-implemented {
+span.mep-status-final {
   background: </xsl:text><xsl:value-of select="$color.gray_background"/><xsl:text>;
   border-color: </xsl:text><xsl:value-of select="$color.gray_border"/><xsl:text>;
 }

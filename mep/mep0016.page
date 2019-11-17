@@ -85,7 +85,7 @@ links, whether using the inline <code>link</code> element or using the
   <code xref="/1.1/mal_block_quote">quote</code>,
   <code xref="/1.1/mal_block_steps">steps</code>,
   <code xref="/1.1/mal_block_synopsis">synopsis</code>,
-  <code xref="/1.1/table">table</code>,
+  <code xref="/1.1/mal_table">table</code>,
   <code xref="/1.1/mal_block_terms">terms</code>, and
   <code xref="/1.1/mal_block_tree">tree</code>.
   Additionally, this would affect <code>item</code> elements in <code>terms</code>

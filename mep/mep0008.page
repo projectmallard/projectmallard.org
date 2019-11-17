@@ -4,6 +4,7 @@
 
 <info>
   <link type="guide" xref="index" group="1.2"/>
+  <link type="mep:depends" xref="mep0018"/>
   <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/16">
     <title>Issue #16</title>
   </link>
@@ -11,13 +12,16 @@
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2017</years>
+    <years>2017-2019</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
   <revision date="2017-05-01" docversion="1.1" status="proposed"/>
   <revision date="2018-03-14" docversion="1.2" status="proposed"/>
+  <revision date="2019-11-17" docversion="1.2" status="revised">
+    <desc>Use MEP-0018</desc>
+  </revision>
 
   <title type="text">Multiple desc Elements</title>
   <title type="link">MEP-0008: Multiple <code>desc</code> Elements</title>
@@ -62,25 +66,8 @@ that used to select titles.</p>
 
   <p>When a <code>desc</code> element is needed for link text for a
   <code>links</code> element (or, rarely, for a <code>link</code> element),
-  a processing tool would follow the following steps:</p>
-
-  <list type="numbered">
-    <item><p>If the <code>links</code> or <code>link</code> element has a
-    <code>role</code> attribute, and the target has a <code>desc</code>
-    element with the <code>type</code> attribute set to <code>"link"</code>
-    and the same <code>role</code> value as the linking element, that
-    <code>desc</code> element is used.</p></item>
-
-    <item><p>Otherwise, if the linking element is a <code>links</code>
-    element, and it uses an implicit role to select a title, it also uses
-    that implicit role to select a link desc.</p></item>
-
-    <item><p>Otherwise, if there is a link desc without a <code>role</code>
-    attribute, that is used.</p></item>
-
-    <item><p>Otherwise, if there is a desc without a <code>type</code>
-    attribute or a <code>role</code> attribute, that is used.</p></item>
-  </list>
+  a processing tool would look up a <code>desc</code> element using the new
+  lookup rules defined in <link xref="mep0018"/>.</p>
 
   <p>Note that info titles can also be used to provide titles for sorting,
   for text-only environment, and for other purposes that may be defined by
@@ -99,6 +86,11 @@ that used to select titles.</p>
 
 <section id="alternatives">
   <title>Alternatives</title>
+
+  <p>Prior to the introduction of <link xref="mep0008">MEP-0008</link>, this
+  proposal had its own set of rules that required a <code>type</code> attribute
+  along with roles for link descs. We also considered not using a <code>type</code>
+  attribute. The lookup roles in MEP-0008 allow either method.</p>
 </section>
 
 <section id="compatibility">
@@ -121,6 +113,9 @@ that used to select titles.</p>
 
 <section id="comparison">
   <title>Comparison to Other Formats</title>
+
+  <p>No other format has a comparable mechanism for selecting page
+  descriptions or other data.</p>
 </section>
 
 </page>

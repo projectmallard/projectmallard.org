@@ -9,7 +9,9 @@
   <link type="mep:depends" xref="mepYYYY"/>
   <link type="mep:replaces" xref="mepYYYY"/>
   <link type="seealso" xref="mepYYYY"/>
-  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/##"/>
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/XX">
+    <title>Issue #XX</title>
+  </link>
   -->
 
   <credit type="author copyright">

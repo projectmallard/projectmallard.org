@@ -1,16 +1,19 @@
 <page xmlns="http://projectmallard.org/1.0/"
-      type="topic" style="mep"
-      version="1.0"
+      type="topic" style="mep" version="1.1"
       id="mep0004">
 
 <info>
-  <link type="guide" xref="index" group="ui/1.0"/>
+  <link type="guide" xref="index" group="1.2"/>
   <link type="mep:depends" xref="mep0002"/>
+  <link type="mep:depends" xref="mep0018"/>
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/54">
+    <title>Issue #54</title>
+  </link>
 
   <credit type="author copyright">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
-    <years>2014</years>
+    <years>2014-2019</years>
   </credit>
 
   <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude">
@@ -18,6 +21,9 @@
   </include>
 
   <revision date="2014-02-04" docversion="ui/1.0" status="proposed"/>
+  <revision date="2019-11-17" docversion="1.2" status="revised">
+    <desc>Move thumb to Mallard core and use MEP-0018</desc>
+  </revision>
 
   <title type="text">The <code>thumb</code> Element</title>
   <title type="link">MEP-0004: The <code>thumb</code> Element</title>
@@ -42,11 +48,13 @@ extensions.</p>
   <title>Background</title>
 
   <p>Mallard provides <code>title</code> and <code>desc</code> elements for pages
-  and sections, and even allows for multiple titles for different purposes. These
-  can be used to create rich text links. For some designs and extensions, it's
-  useful to associate an image with a page or section. For example, a page may
-  provide a representative screenshot or an icon that indicates its contents,
-  and this could be shown along with the topic link from a guide page.</p>
+  and sections. It even allows for multiple titles for different purposes, and
+  pending <link xref="mep0008">MEP-0008</link>, it will allow multiple descriptions
+  for different purposes. These can be used to create rich text links. For some
+  designs and extensions, it's useful to associate an image with a page or section.
+  For example, a page may provide a representative screenshot or an icon that
+  indicates its contents,and this could be shown along with the topic link from
+  a guide page.</p>
 
   <p>Additionally, some extensions may display galleries of images or videos
   that open the media in a popup or fullscreen window. These extensions can
@@ -59,14 +67,9 @@ extensions.</p>
 <section id="proposal">
   <title>Proposal</title>
 
-  <p>This page proposes allowing zero or more <code>ui:thumb</code> elements
-  in any <code>info</code> element, where the namespace of the <code>ui:thumb</code>
-  element is the Mallard UI namespace:</p>
-
-  <code style="no-mime">http://projectmallard.org/ui/1.0/</code>
-
-  <p>The <code>ui:thumb</code> element has no content, and it may contain the
-  following attributes:</p>
+  <p>This page proposes allowing zero or more <code>thumb</code> elements in
+  any <code>info</code> element. The <code>thumb</code> element has no content,
+  and it may contain the following attributes:</p>
 
   <terms>
     <item>
@@ -82,6 +85,16 @@ extensions.</p>
     <item>
       <title><code>mime</code></title>
       <p>The MIME type of the thumbnail.</p>
+      <note><p>There is a
+      <link href="https://github.com/projectmallard/projectmallard.org/issues/55">proposal
+      to remove the <code>mime</code> attribute from <code>media</code></link>. Perhaps
+      the <code>thumb</code> element shouldn't reintroduce it.</p></note>
+    </item>
+    <item>
+      <title><code>type</code></title>
+      <p>A type, similar to the type on informational titles, that may be used
+      to select the most appropriate thumbnail. This is notably not the same
+      use as the type on a <code>media</code> element.</p>
     </item>
     <item>
       <title><code>role</code></title>
@@ -90,24 +103,21 @@ extensions.</p>
     </item>
   </terms>
 
-  <p>Unlike the <code xref="/1.0/mal_block_media">media</code> element, the
-  <code>ui:thumb</code> element does not take a <code>type</code> attribute,
-  because it is assumed that thumbnails will be images. If this is a problem
-  in the future, a <code>type</code> attribute can easily be added, since it
-  defaults to <code>"image"</code> anyway.</p>
-
-  <p>The <code>role</code> attribute works similarly to the <code>role</code>
-  attribute on link titles. It may be used to select the most appropriate
-  thumbnail from a list of alternatives. When thumbnails are used for links
-  such as from a <code xref="/1.0/mal_links">links</code> element, the same
-  logic used to select a link title should be used to select a thumbnail.
-  Other uses of thumbnails may specify roles to prefer.</p>
+  <p>The <code>type</code> and <code>role</code> attributes work similarly to
+  the same attribute on link titles. Looking up the correct thumbnail would
+  follow the new lookup rules defined in <link xref="mep0018"/>.</p>
 
   <p>In some cases, it may be useful to provide alternative sizes of the same
   thumbnail for the same role. In additional to using the <code>role</code>
   attribute, implementations may check the <code>width</code> and
   <code>height</code> attribute to select a thumbnail that has the most
   optimal dimensions.</p>
+
+  <p>In addition to using thumbs for pages and sections, a <code>thumb</code>
+  element for a video-type <code>media</code> element should be used as a
+  poster image for the video, instead of the current non-standard convention
+  of using a child <code>media</code> element with the <code>style</code>
+  attribute set to <code>"poster"</code>.</p>
 </section>
 
 
@@ -117,11 +127,10 @@ extensions.</p>
   <p>Use a scaled down screenshot as a thumbnail for a page.</p>
 
   <example>
-    <code mime="application/xml"><![CDATA[<page xmlns="http://projectmallard.org"
-      xmlns:ui="http://projectmallard.org/ui/1.0/"
+    <code type="xml"><![CDATA[<page xmlns="http://projectmallard.org"
       id="network-panel">
   <info>
-    <ui:thumb src="network-panel-screenshot.png" width="300" height="200"/>
+    <thumb src="network-panel-screenshot.png" width="300" height="200"/>
   </info>
   ...
 </page>]]></code>
@@ -131,14 +140,13 @@ extensions.</p>
   of the link titles.</p>
 
   <example>
-    <code mime="application/xml"><![CDATA[<page xmlns="http://projectmallard.org"
-      xmlns:ui="http://projectmallard.org/ui/1.0/"
+    <code type="xml"><![CDATA[<page xmlns="http://projectmallard.org"
       id="network-panel">
   <info>
     <title type="link" role="topic">Network Panel</title>
-    <ui:thumb src="network-panel-big.png" role="topic" width="300" height="200"/>
+    <thumb src="network-panel-big.png" role="topic" width="300" height="200"/>
     <title type="link" role="gallery">Network</title>
-    <ui:thumb src="network-panel-small.png" role="gallery" width="150" height="100"/>
+    <thumb src="network-panel-small.png" role="gallery" width="150" height="100"/>
   </info>
   ...
 </page>]]></code>
@@ -147,9 +155,9 @@ extensions.</p>
   <p>Provide a thumbnail image to be used for a video.</p>
 
   <example>
-    <code mime="application/xml"><![CDATA[<media src="open-apps.webm" type="video" width="300" height="200">
+    <code type="xml"><![CDATA[<media src="open-apps.webm" type="video" width="300" height="200">
   <info>
-    <ui:thumb src="open-apps-thumb.png" width="300" height="200"/>
+    <thumb src="open-apps-thumb.png" width="300" height="200"/>
   </info>
 </media>]]></code>
   </example>
@@ -193,10 +201,11 @@ extensions.</p>
   element in block elements, a title and desc can simply be placed in that
   <code>info</code> element instead, possibly with <code>role</code> attributes.</p>
 
-  <p>Although thumbnails will be useful for a number of Mallard UI features, they
-  may also be useful for designs that are accomplished only with the style hint,
-  or from other extensions. It may be better to add the <code>thumb</code> element
-  to Mallard core.</p>
+  <p>The original version of this proposal placed the <code>thumb</code> element
+  in the <code>ui</code> namespace from <link xref="/ui/index"/>. Though there are
+  many uses for thumbnails in UI extensions, there are also uses for it in other
+  potential extensions or in core Mallard features. Consequently, we decided to
+  put the <code>thumb</code> element in Mallard core.</p>
 </section>
 
 
