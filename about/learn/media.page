@@ -187,7 +187,7 @@ notations mean.  You can add a title or a caption using the
 <code mime="application/xml"><![CDATA[
 <figure>
   <title>Mallard Logo</title>
-  <desc>a question-mark-shaped duck head in a circle.</desc>
+  <desc>The Mallard logo is a question-mark-shaped duck head in a circle.</desc>
   <media type="image" src="mallard-logo.png"/>
 </figure>
 ]]></code>
@@ -212,7 +212,7 @@ must also be block content.</p>
 <code mime="application/xml"><![CDATA[
 <figure>
   <title>Mallard Logo</title>
-  <desc>a question-mark-shaped duck head in a circle.</desc>
+  <desc>The Mallard logo is a question-mark-shaped duck head in a circle.</desc>
   <media type="image" src="mallard-logo.png">
     <p>The Mallard logo: a question-mark-shaped duck head in a circle</p>
   </media>
