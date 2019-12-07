@@ -1,0 +1,154 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="mep"
+      id="mep0019">
+
+<info>
+  <link type="guide" xref="index" group="1.2"/>
+
+  <!--
+  <link type="mep:depends" xref="mepYYYY"/>
+  <link type="mep:replaces" xref="mepYYYY"/>
+  <link type="seealso" xref="mepYYYY"/>
+  -->
+  <link type="mep:issue" href="https://github.com/projectmallard/projectmallard.org/issues/74">
+    <title>Issue #74</title>
+  </link>
+
+  <credit type="author copyright">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+    <years>2019</years>
+  </credit>
+
+  <include href="../cc-by-sa-3-0.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <!--
+  list of valid status attributes:
+  incomplete proposed revised implemented final rejected replaced withdrawn
+  -->
+  <revision date="2019-12-07" docversion="1.2" status="proposed"/>
+
+  <title type="text">Element to Record Reviews</title>
+  <title type="link">MEP-0019: Element to Record Reviews</title>
+
+  <desc>Add an informational element to record different types of
+  reviews and the status as set by reviewers.</desc>
+</info>
+
+<title>MEP-0019</title>
+<subtitle>Element to Record Reviews</subtitle>
+
+<p style="lead">This page proposes adding a new informational element
+<code>review</code> to the Mallard core, as a child element of the
+<code xref="/1.1/mal_info_revision">revision</code> element.</p>
+
+<links type="section"/>
+
+<section id="background">
+  <title>Background</title>
+
+  <p>Mallard provides the <code xref="/1.1/mal_info_revision">revision</code>
+  element to record information about the current revision, including multiple
+  version numbers, the date, and the status. While you can use the
+  <code>revision</code> element to mark a page as needing reviews, there is
+  no standard way to record those reviews when they happen.</p>
+</section>
+
+<section id="proposal">
+  <title>Proposal</title>
+
+  <p>This page proposes adding a new <code>review</code> element as a child
+  element of the informational <code xref="/1.1/mal_info_revision">revision</code>
+  element. Each <code>revision</code> element could have any number of
+  <code>review</code> elements, with each <code>review</code> element
+  recording one review done against that revision.</p>
+
+  <p>Each review element can optionally contain each of the following attributes:</p>
+
+  <terms>
+    <item>
+      <title><code>type</code></title>
+      <p>The type of review being performed, such as a peer review, technical
+      review, or final review. Any value would be allowed, but we should make
+      recommendations for common values.</p>
+    </item>
+    <item>
+      <title><code>status</code></title>
+      <p>The status as reported by the reviewer. This might indicate that the
+      page is ok, or that it needs work. Any value would be allowed, but we
+      should make recommendations for common values.</p>
+    </item>
+    <item>
+      <title><code>by</code></title>
+      <p>An identifier for the person doing the review. This could be an email
+      address or just a username. This is different from how the
+      <code xref="/1.1/mal_block_comment">comment</code> element uses the
+      <code xref="/1.1/mal_block_cite">cite</code> element to record the name
+      of the person. We may consider the <code>by</code> attribute in other
+      places, such as <code>comment</code> and <code>revision</code>.</p>
+    </item>
+    <item>
+      <title><code>date</code></title>
+      <p>The date the review was done, preferably in the
+      <link href="https://en.wikipedia.org/wiki/ISO_8601">One True Date Format</link>.</p>
+    </item>
+    <item>
+      <title><code>href</code></title>
+      <p>A URL where the full text of the review can be found.</p>
+    </item>
+  </terms>
+
+  <p>Additionally, the review element can optionally contain any general block
+  content. This can be used to write the review directly in the page.</p>
+</section>
+
+
+<!--
+Add Addendums if changes are made after the proposal is final.
+-->
+<!--
+<section id="addendums">
+  <title>Addendums</title>
+</section>
+-->
+
+
+<section id="examples">
+  <title>Examples</title>
+</section>
+
+
+<section id="i18n">
+  <title>Internationalization</title>
+
+  <p>Since reviews are internal notes amongst teams, translating them is
+  likely not the best use of time. Translation tools should consider
+  making the block content of a <code>review</code> element untranslatable
+  by default.</p>
+</section>
+
+
+<section id="compatibility">
+  <title>Compatibility and Fallback</title>
+
+  <p>This proposal makes no backwards-incompatible changes. Any page written
+  in a version prior to the implementation of this proposal will work exactly
+  the same in a processing tool that implements this proposal.</p>
+
+  <p>The fallback behavior for a new info element is that is is ignored.
+  The <code>review</code> element is not intended to be displayed to users
+  in normal circumstances, so there is no loss of functionality when using
+  older tools that do not support this proposal.</p>
+</section>
+
+
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>Although both DocBook and DITA provide mechanisms for recording
+  revisions and status information, neither provides a comparable
+  mechanism for recording reviews. This is usually left to external
+  systems.</p>
+</section>
+
+</page>
