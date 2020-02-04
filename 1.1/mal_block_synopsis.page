@@ -20,7 +20,7 @@
   <desc>Create an overview of concepts.</desc>
 </info>
 
-<title>Synopses</title>
+<title>Synopsis</title>
 
 <p>Use the <code>synopsis</code> element to mark up a block that provides
 an overview of the material being presented.  A synopsis is useful for
