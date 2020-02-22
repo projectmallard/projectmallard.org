@@ -1,0 +1,197 @@
+@define mepnum    0020
+@define meptitle  Implicit Link Groups
+@define mepdesc   Allow groups on $code(links) elements to reference page data like $code(id) attributes and style hints.
+@define meptarget 1.2
+
+
+= MEP-$mepnum;
+- $meptitle;
+  [topic .mep]
+
+@link[guide >index group=$meptarget;]
+
+[--
+@link[mep:depends >mepYYYY]
+@link[mep:replaces >mepYYYY]
+@link[seealso >mepYYYY]
+--]
+@link[mep:issue >>https://github.com/projectmallard/projectmallard.org/issues/73]
+  @title Issue #73
+
+@credit[author copyright]
+  @name Shaun McCance
+  @email shaunm@gnome.org
+  @years 2020
+
+@license[>>http://creativecommons.org/licenses/by-sa/3.0/us/]
+  This work is licensed under a
+  $link[>>http://creativecommons.org/licenses/by-sa/3.0/us/](Creative Commons
+  Attribution-Share Alike 3.0 United States License).
+
+  As a special exception, the copyright holders give you permission to copy,
+  modify, and distribute the example code contained in this document under the
+  terms of your choosing, without restriction.
+
+[--
+  list of valid status attributes:
+  incomplete proposed revised implemented final rejected replaced withdrawn
+--]
+@revision[date=2020-02-22 docversion=$meptarget; status=proposed]
+
+@title[text] $meptitle;
+@title[link]MEP-$mepnum;: $meptitle;
+
+@desc $mepdesc;
+
+[p .lead]
+This page outlines a mechanism for using groups on the $code[>/1.1/mal_links](links)
+element that implicitly match metadata on the target node, rather than matching an
+explicit $code(group) attribute. The current proposal includes matching on $code(id)
+attributes and style hints, but it can be extended to other metadata in the future.
+
+[links section]
+
+
+== Background
+   [#background]
+
+Topic $code[>/1.1/mal_links](links) elements allow you to specify a list of
+groups, where each group is matched against the $code(group) attribute of a
+$code(link) element. This allows you to override the default order.
+It also allows you to segment the topic links for a guide page into multiple
+link lists, with potentially block content between lists, or different styling
+for different lists.
+
+People currently use this in three ways:
+
+[list numbered]
+* Using the implicit $code(#first), $code(#default), and $code(#last)
+  groups to move specific lists to the top and bottom.
+* Creating a few logical groups of links, sometimes giving each group a
+  title or introductory text.
+* Manually specifying the exact order of links.
+
+The first use case works very well, thanks to the inclusion of the implicit
+groups. Without the implicit groups, this would be somewhat more tedious,
+though no moreso than the second use case.
+
+The second use case works reasonably well. Groups can have logical, semantic
+names. Having link targets include these semantic groups feels natural, but
+sometimes it duplicates other metadata. For example, you might group all
+tutorials together using a $code(tutorial) group, then specify on the link
+target that it belongs to the group. In this case, tutorials might already
+use $code(style="attribute"), which leads to a duplication of information.
+
+The third case works very poorly. Each link target ends up declaring a
+unique group, which is usually just the same as the $code(id) attribute.
+
+
+== Proposal
+   [#proposal]
+
+This page proposes adding special groups that match existing metadata on
+the link targer. A special group would always contain a colon character
+and be of the form $code($var(key):$var(value)). The $code($var(key))
+indicates what metadata is being matched against, while the $code($var(value))
+indicates the value to match.
+
+This page proposes two special group types: $code(id) and $code(style).
+More special group types could be added in the future.
+
+An $code(id) group matches against the fully qualified ID of the target.
+For a page, that is simply the value of the $code(id) attribute. For
+anything inside a page, it is the containing page $code(id) and the
+target $code(id), combined with the $code(#) character. This is the
+same form you would use to link to the target.
+
+A $code(style) group matches a style hint on the target node. For this
+group type, the style hint is always taken from the $code(style) attribute
+of the page, section, or formal block element being linked to.
+The $code(style) attribute is a space-separated list of style hints.
+The group matches if it is the same as any style hint in the list of
+style hints on the link target.
+
+
+[-] Add Addendums if changes are made after the proposal is final.
+[--
+== Addendums
+   [#addendums]
+--]
+
+
+== Examples
+   [#examples]
+
+Explicitly order links based on their $code(id) attributes:
+
+[example]
+[code xml]
+<links type="topic" groups="id:firstpage id:secondpage id:thirdpage"/>
+
+Group tutorials first based on style hints:
+
+[example]
+[code xml]
+<links type="topic" groups="style:tutorial">
+  <title>Tutorials</title>
+</links>
+<links type="topic" groups="#first #default #last">
+  <title>All Other Topics</title>
+</links>
+
+
+[-] Omit Accessibility if there is no accessibility impact.
+[--
+== Accessibility
+   [#a11y]
+--]
+
+
+[-] Omit Internationalization if there is no internationalization impact.
+[--
+== Internationalization
+   [#i18n]
+--]
+
+
+[-] Omit Alternatives if no alternatives were considered.
+== Alternatives
+   [#alternatives]
+
+No alternatives were considered, but there are two further group types
+that were considered but defered for this MEP:
+
+* Matching against $link[>mep0017](tags). Tags are still an open
+  enhancement proposal, and that could complicate an initial
+  implementation of this proposal.
+
+* Matching against $link[>/1.1/mal_info_revision]. Revisions are tricky,
+  because you might want to select based on a current version number.
+  Furthermore, there are plans to change the $code(revision) element
+  ($link[>mep0006] and
+  $link[>>https://github.com/projectmallard/projectmallard.org/issues/33](Issue #33)).
+  Any special revision matching should take those developments into
+  account.
+
+
+[-] Omit Compatibility and Fallback for process proposals.
+== Compatibility and Fallback
+   [#compatibility]
+
+This proposal could potentially create backwards compatibility issues if
+anybody is using explicit groups that look like the new implicit groups.
+For example, if a writer defines the group $code(style:tutorial) with the
+intention of using an explicit $code(group="style:tutorial") attribute on
+informational $code(link) elements, with this proposal implemented, that
+group would start matching elements with the $code(tutorial) style hint.
+It's unlikely this affects any real-world documents.
+
+The fallback behavior for any link targets that should be matched with
+special groups is that they would be placed in $code(#default) by any
+tool that doesn't support this proposal. There is no loss information,
+but the presentation would be imperfect.
+
+
+[-] Omit Comparison to Other Formats for process proposals.
+== Comparison to Other Formats
+   [#comparison]

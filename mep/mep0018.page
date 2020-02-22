@@ -238,7 +238,7 @@ Add Addendums if changes are made after the proposal is final.
 
   <p>The fallback behavior for new pages read by old tools varies. There are
   some fallback considerations for additional sort title and additional descs.
-  Thos are covered in <link xref="mep0008"/> and <link xref="mep0011"/>. This
+  Those are covered in <link xref="mep0008"/> and <link xref="mep0011"/>. This
   proposal introduces the ability to specify both the link title and sort title
   for a given role by omitting the <code>type</code> attribute. This convenient
   shorthand will be completely ignored by older tools. If your documents may
