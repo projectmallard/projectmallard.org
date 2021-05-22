@@ -70,7 +70,11 @@
       <title><code>type</code></title>
       <p>The type of review being performed, such as a peer review, technical
       review, or final review. Any value would be allowed, but we should make
-      recommendations for common values.</p>
+      recommendations for common values. These values should be coordinated
+      with review status flags in <link xref="mep0021"/>. Possible values include
+      <code>gap</code>, <code>markup</code>, <code>draft</code>, <code>devel</code>,
+      <code>tech</code>, <code>style</code>, <code>legal</code>, <code>copy</code>,
+      and <code>final</code>.</p>
     </item>
     <item>
       <title><code>status</code></title>

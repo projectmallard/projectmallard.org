@@ -1,0 +1,250 @@
+@define mepnum    0021
+@define meptitle  Revision Status Flags
+@define mepdesc   Allow multiple status flags on revisions to record more information about page status and progress.
+@define meptarget 1.2
+
+
+= MEP-$mepnum;
+- $meptitle;
+  [topic .mep]
+
+@link[guide >index group=$meptarget;]
+
+[--
+@link[mep:depends >mepYYYY]
+@link[mep:replaces >mepYYYY]
+@link[seealso >mepYYYY]
+--]
+@link[mep:issue >>https://github.com/projectmallard/projectmallard.org/issues/33]
+  @title Issue #33
+
+@credit[author copyright]
+  @name Shaun McCance
+  @email shaunm@gnome.org
+  @years 2020
+
+@license[>>http://creativecommons.org/licenses/by-sa/3.0/us/]
+  This work is licensed under a
+  $link[>>http://creativecommons.org/licenses/by-sa/3.0/us/](Creative Commons
+  Attribution-Share Alike 3.0 United States License).
+
+  As a special exception, the copyright holders give you permission to copy,
+  modify, and distribute the example code contained in this document under the
+  terms of your choosing, without restriction.
+
+[--
+  list of valid status attributes:
+  incomplete proposed revised implemented final rejected replaced withdrawn
+--]
+@revision[date=2021-05-22 docversion=$meptarget; status=proposed]
+
+@title[text] $meptitle;
+@title[link]MEP-$mepnum;: $meptitle;
+
+@desc $mepdesc;
+
+[p .lead]
+This page proposes extending the $code(status) attribute of the informational
+$code[>/1.1/mal_info_revision](revision) element to allow a space-separated
+list of status flags. The first flag in the list would serve as the primary
+status, equivalent to the current single-value status. Further status flags
+could provide additional information.
+
+[links section]
+
+
+== Background
+   [#background]
+
+Mallard provides informational $code(revision) elements that allow you to
+provide certain information about a revision: the version number of that
+revision, what version of a containing document or package it belongs to,
+what date the revision was made, and what the status of that revision is.
+There is a recommended list of statuses, although you can use any status
+marker you like. (The $link[>mep0001](MEP process), for example, uses a
+custom set of statuses.)
+
+[note]
+See $link[>mep0006] for a proposal on changing how version numbers are
+recorded for revisions.
+
+One limitation of the $code(status) attribute is that it is only expected
+to contain a single value. It is often useful to specify additional status
+information about a revision. For example, you can set the $code(status)
+attribute to $code("review") to specify that a revision needs to be
+reviewed, but there is no standard way to specify how many reviews it
+needs, what kinds of reviews it needs, or who needs to perform those
+reviews.
+
+
+== Proposal
+   [#proposal]
+
+This page proposes extending the $code(status) attribute to allow a space-separated
+list of status tokens, using the $code(xsd:NMTOKENS) production.
+The first value in this list is the primary status,
+which serves the same role as the current single-value status.
+Further values would provide additional information.
+
+A tool that just lists a single status for a page could be minimally adapted to this
+proposal by just taking the first value.
+For example, using the
+$link[>>http://exslt.org/str/functions/split/index.html](EXSLT $code(str:split) function):
+
+[code]
+  str:split(@status)[0]
+
+Secondary version tokens should be written as colon-separated pairs,
+similar to the syntax for $link[>/if/1.0/tokens](conditional tokens),
+$link[>mep0017](the proposed $code(tags) element), and
+$link[>mep0006](the proposed extension to the $code(version) attribute).
+The actual values are arbitrary and can be made up to support the needs
+of particular projects or documents.
+A recommended syntax and set of flags encourages consistency and makes
+things easier to remember.
+
+As an example, if a document needs to be reviewed, its status is set to $code("review").
+However, this doesn't indicate what type of review is needed.
+More information could be provided using additional status flags.
+If a document needs both a technical review and a legal review,
+its status could be set to $code("review review:tech review:legal").
+
+As a special convenience, if the status list starts with a value with
+the prefix $code("review:"), the primary status is implicitly just
+$code("review"), and all of the explicit status flags are secondary.
+
+The review types in status flags should match those used in the
+$code(type) attribute of the $code(rewiew) element,
+as proposed in $link[>mep0019].
+
+Status flags can be used for other purposes as well.
+
+$link[>mep0006] proposes extending the $code(version) attribute to allow
+different version numbers for different component, distributions, or vendors.
+This proposal could also allow specifying different statuses for those.
+For example, the vendor Fez might use the status flag $code("fez:final")
+to indicate that they have approved the page for their product.
+
+Furthermore, this proposal could be used to indicate what a page needs.
+For example, a project might decide that all of its pages should have a
+$code(keywords) element, which was added in $link[>/1.1/index](Mallard 1.1).
+Pages without a $code(keywords) element could be marked with the
+$code("needs:keywords") status flag.
+
+These are all just examples of how status flags could be used.
+The specification should allow arbitrary use and ad hoc prefixes.
+However, we should also make recommendations to encourage consistency.
+
+
+[-] Add Addendums if changes are made after the proposal is final.
+[--
+== Addendums
+   [#addendums]
+--]
+
+
+== Examples
+   [#examples]
+
+Indicate that a page needs reviews for technical accuracy and for style:
+
+[example]
+  . Mallard XML
+  [code xml]
+  <revision version="1.2" date="2020-10-31"
+            status="review review:tech review:style"/>
+
+[example]
+  . Ducktype
+  [code ducktype]
+  $@revision[version=1.2 date=2020-10-31
+            status="review review:tech review:style"]
+
+Combined with multiple version tokens from $link[>mep0006],
+use a status flag to show that a vendor has signed off on a release:
+
+[example]
+  . Mallard XML
+  [code xml]
+  <revision version="1.2 fez:33" date="2020-10-31"
+            status="final fez:final"/>
+
+[example]
+  . Ducktype
+  [code ducktype]
+  $@revision[version="1.2 fez:33" date=2020-10-31
+            status="final fez:final"]
+
+Use status flags to indicate a page needs $code(keywords)
+and $code(desc) elements:
+
+[example]
+  . Mallard XML
+  [code xml]
+  <revision version="1.2" date="2020-10-31"
+            status="review needs:keywords needs:desc"/>
+
+[example]
+  . Ducktype
+  [code ducktype]
+  $@revision[version=1.2 date=2020-10-31
+            status="review needs:keywords needs:desc"]
+
+Status flags with the $code(needs:) prefix can use arbitrary values,
+not simply element names.
+With $link[>mep0008], use a status flag to indicate the a page needs a
+special $code(desc) element with the role $code("topic").
+
+[example]
+  . Mallard XML
+  [code xml]
+  <revision version="1.2" date="2020-10-31"
+            status="review needs:desc-topic"/>
+
+[example]
+  . Ducktype
+  [code ducktype]
+  $@revision[version=1.2 date=2020-10-31
+            status="review needs:desc-topic"]
+
+
+[-] Omit Internationalization if there is no internationalization impact.
+== Internationalization
+   [#i18n]
+
+As with the current $code(status) attribute,
+status flags are intended to be tokens from an ad hoc but controlled vocabulary.
+They should not be marked for translation by localization tools.
+However, tools that present status information to users may use localized
+strings to indicate known values of status flags.
+In such cases, these tools would need to add more localization options.
+
+
+[-] Omit Alternatives if no alternatives were considered.
+== Alternatives
+   [#alternatives]
+
+We considered using a separate $code(flags) attribute for the secondary status flags.
+This approach would have considerably better fallback behavior for older tools.
+However, we felt that a single space-separated attribute was a better writer experience.
+Since the poor fallback behavior likely only affect internal tracking,
+and rarely user-visible publishing, we felt it was worth the poor fallback behavior.
+
+
+[-] Omit Compatibility and Fallback for process proposals.
+== Compatibility and Fallback
+   [#compatibility]
+
+This proposal makes no backwards-incompatible changes. Any page written
+in a version prior to the implementation of this proposal will work
+exactly the same in a processing tool that implements this proposal.
+
+The fallback behavior of this proposal is somewhat poor.
+Any unsupporting tool will consider the entire $code(status) attribute to be a single status.
+This means that tools checking for a specific status may fail to recognize that status
+when in a space-separated list.
+
+
+[-] Omit Comparison to Other Formats for process proposals.
+== Comparison to Other Formats
+   [#comparison]
