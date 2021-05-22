@@ -79,7 +79,7 @@ paragraphs and other line-oriented features work the way users expect:</p>
 
 <list>
   <item><p>A <em>leaf element</em> is a block or informational element that
-  takes inline content rather than further block or info content. Beause of
+  takes inline content rather than further block or info content. Because of
   Mallard's strict content model, only leaf elements may contain text
   nodes. The default set of leaf elements is <code>p</code>, <code>screen</code>,
   <code>code</code>, <code>title</code>, <code>subtitle</code>, <code>desc</code>,

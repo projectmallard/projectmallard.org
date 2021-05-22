@@ -83,9 +83,7 @@ div.top {
 div.top > div.contents {
   max-width: 960px;
   margin: 0 auto 0 auto;
-  padding: 0 0 10px 0;
-  border-bottom: solid 6px #f9f06b;
-  border-bottom: solid 6px #f8e45c;
+  padding: 0 0 16px 0;
 }
 div.top img {
   float: left;
