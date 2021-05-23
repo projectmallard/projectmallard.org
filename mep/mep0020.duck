@@ -80,7 +80,7 @@ names. Having link targets include these semantic groups feels natural, but
 sometimes it duplicates other metadata. For example, you might group all
 tutorials together using a $code(tutorial) group, then specify on the link
 target that it belongs to the group. In this case, tutorials might already
-use $code(style="attribute"), which leads to a duplication of information.
+use $code(style="tutorial"), which leads to a duplication of information.
 
 The third case works very poorly. Each link target ends up declaring a
 unique group, which is usually just the same as the $code(id) attribute.
@@ -90,7 +90,7 @@ unique group, which is usually just the same as the $code(id) attribute.
    [#proposal]
 
 This page proposes adding special groups that match existing metadata on
-the link targer. A special group would always contain a colon character
+the link target. A special group would always contain a colon character
 and be of the form $code($var(key):$var(value)). The $code($var(key))
 indicates what metadata is being matched against, while the $code($var(value))
 indicates the value to match.
@@ -159,7 +159,7 @@ Group tutorials first based on style hints:
    [#alternatives]
 
 No alternatives were considered, but there are two further group types
-that were considered but defered for this MEP:
+that were considered but deferred for this MEP:
 
 * Matching against $link[>mep0017](tags). Tags are still an open
   enhancement proposal, and that could complicate an initial
@@ -195,3 +195,6 @@ but the presentation would be imperfect.
 [-] Omit Comparison to Other Formats for process proposals.
 == Comparison to Other Formats
    [#comparison]
+
+The link grouping mechanism is unique to Mallard's method of collecting
+and organizing links, so no comparisons can be made.
